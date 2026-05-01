@@ -3880,13 +3880,6 @@ attribute_set:
                       info: The BPP returns this regex pattern in the xinput form data to specify the format for the request amount. The order containing this pattern is anchored in session and reused by downstream steps.
                       owner: BPP
                       type: string
-                  required:
-                    _description:
-                      required: false
-                      usage: "false"
-                      info: In on_select, the BPP indicates whether the request amount field is required for the borrower to provide. The flag persists with the order payload through confirmation and subsequent steps.
-                      owner: BPP
-                      type: boolean
                   _description:
                     required: false
                     usage: ""
@@ -3908,13 +3901,6 @@ attribute_set:
                       info: BPP returns the regex pattern that the BAP must use when specifying the loan term request. The pattern is persisted in the order session and reused across confirm and later steps.
                       owner: BPP
                       type: string
-                  required:
-                    _description:
-                      required: false
-                      usage: "false"
-                      info: BPP includes the request-term-required flag in on_select to indicate whether the buyer must fill this form field. The value persists in the order and is reused through confirm.
-                      owner: BPP
-                      type: boolean
                   _description:
                     required: false
                     usage: ""
