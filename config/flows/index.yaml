@@ -45,7 +45,8 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This flow illustrates a typical purchase journey where the journey
+    description:
+      This flow illustrates a typical purchase journey where the journey
       starts with searching for a specific pair of stations all the way to
       getting the ticket and completion of the journey
     config:
@@ -57,7 +58,8 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This flow illustrates a Single Journey Ticket purchase from search
+    description:
+      This flow illustrates a Single Journey Ticket purchase from search
       to journey completion
     config:
       $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT.yaml
@@ -67,7 +69,8 @@ flows:
     tags:
       - WORKBENCH
       - OPTIONAL
-    description: This flow illustrates the first search operation where the buyer
+    description:
+      This flow illustrates the first search operation where the buyer
       app fetches for the catalog of metro providers consisting of routes and
       station codes available
     config:
@@ -91,7 +94,54 @@ flows:
       - WORKBENCH
       - OPTIONAL
       - REPORTABLE
-    description: This flow illustrates the user cancellation flow where the buyer
+    description:
+      This flow illustrates the user cancellation flow where the buyer
       intends to cancel their metro ticket
     config:
       $ref: ./Metro/USER_CANCELLATION_FLOW.yaml
+
+  # _________________NEW_FLOWS_FOR_METRO_______________________
+
+  - type: playground
+    id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_RJT (W/O search_1 & select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: This flow illustrates a typical purchase journey where the journey starts with searching for a specific pair of stations all the way to getting the ticket and completion of the journey
+    config:
+      $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_RJT_WITHOUT_SEARCH_ND_SELECT.yaml
+
+  - type: playground
+    id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT (W/O search_1 & select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: This flow illustrates a Single Journey Ticket purchase from search to journey completion
+    config:
+      $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT_WITHOUT_SEARCH_ND_SELECT.yaml 
+
+  - type: playground
+    id: TECHNICAL_CANCELLATION_FLOW (W/O search_1 & select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: This flow illustrates the technical cancellation flow where the buyer app attempts to cancel the order transaction due to technical issues/ failures (viz. on_confirm response beyond ttl)
+    config:
+      $ref: ./Metro/TECHNICAL_CANCELLATION_FLOW_WITHOUT_SEARCH_ND_SELECT.yaml  
+
+  - type: playground
+    id: USER_CANCELLATION_FLOW (W/O search_1 & select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: This flow illustrates the user cancellation flow where the buyer intends to cancel their metro ticket
+    config:
+      $ref: ./Metro/USER_CANCELLATION_FLOW_WITHOUT_SEARCH_ND_SELECT.yaml          

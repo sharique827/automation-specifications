@@ -3,16 +3,20 @@ meta:
   version: 2.0.0
   flowId: TECHNICAL_CANCELLATION_FLOW
   config_version: 0.0.0001
-  description: IntraCity - GPS Based Flow
+  description: This flow illustrates the technical cancellation flow where the
+    buyer app attempts to cancel the order transaction due to technical
+    issues/ failures (viz. on_confirm response beyond ttl)
   use_case_id: Metro
-  flowName: TECHNICAL CANCELLATION FLOW
 transaction_data:
-  transaction_id: 553772a0-d243-4c82-b463-d26343c1e9ac
+  transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
   latest_timestamp: 1970-01-01T00:00:00.000Z
   bap_id: bap.example.com
   bap_uri: https://bap.example.com
   bpp_id: bpp.example.com
   bpp_uri: https://bpp.example.com
+  external_session_data:
+    finvuUrl: https://dev-automation.ondc.org/finvu
+    mockBaseUrl: https://dev-automation.ondc.org/mock
 steps:
   - api: search
     action_id: search1_METRO_200
@@ -26,48 +30,21 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: search
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
           domain: ONDC:TRV11
-          location:
-            city:
-              code: std:040
-            country:
-              code: IND
-          message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-          timestamp: 2026-03-23T14:25:22.817Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
+          action: search
+          timestamp: 2026-05-04T10:41:02.104Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: c395a6d7-55a9-4498-a9f3-e1a603f32835
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
           ttl: PT30S
           version: 2.0.0
-        message:
-          intent:
-            fulfillment:
-              vehicle:
-                category: METRO
-            payment:
-              collected_by: BAP
-              tags:
-                - descriptor:
-                    code: BUYER_FINDER_FEES
-                  display: false
-                  list:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: "3"
-                    - descriptor:
-                        code: BUYER_FINDER_FEES_TYPE
-                      value: percent
-                - descriptor:
-                    code: SETTLEMENT_TERMS
-                  display: false
-                  list:
-                    - descriptor:
-                        code: DELAY_INTEREST
-                      value: "2.5"
-                    - descriptor:
-                        code: STATIC_TERMS
-                      value: https://api.example-bap.com/booking/terms
+          location:
+            country:
+              code: IND
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -84,55 +61,6 @@ steps:
             type: text
             payloadField: $.context.location.city.code
         id: old_inputs
-    examples:
-      - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-            timestamp: 2026-03-23T14:25:22.817Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            intent:
-              fulfillment:
-                vehicle:
-                  category: METRO
-              payment:
-                collected_by: BAP
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-        type: request
   - api: on_search
     action_id: on_search1_METRO_200
     owner: BPP
@@ -145,245 +73,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_search
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_search
+          timestamp: 2026-05-04T10:41:02.104Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: a86f45fe-8dd0-41ed-a0b5-fb4e6bb1544c
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-          timestamp: 2026-03-23T14:25:22.971Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          catalog:
-            descriptor:
-              images:
-                - url: https://transitsolutions.in/logos/logo.ico
-              name: Transit Solutions
-            providers:
-              - categories:
-                  - descriptor:
-                      code: TICKET
-                      name: Ticket
-                    id: C1
-                  - descriptor:
-                      code: PASS
-                      name: Pass
-                    id: C2
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                fulfillments:
-                  - id: F1
-                    stops:
-                      - id: "1"
-                        instructions:
-                          name: Stop 1
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_1
-                            name: MOCK_STATION_1
-                          gps: 28.744676, 77.138332
-                        type: START
-                      - id: "2"
-                        instructions:
-                          name: Stop 2
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_2
-                            name: MOCK_STATION_2
-                          gps: 28.738416, 77.139132
-                        parent_stop_id: "1"
-                        type: INTERMEDIATE_STOP
-                      - id: "3"
-                        instructions:
-                          name: Stop 3
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_3
-                            name: MOCK_STATION_3
-                          gps: 28.738876, 77.119932
-                        parent_stop_id: "2"
-                        type: INTERMEDIATE_STOP
-                      - id: "4"
-                        instructions:
-                          name: Stop 4
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_4
-                            name: MOCK_STATION_4
-                          gps: 28.738411, 77.131132
-                        parent_stop_id: "3"
-                        type: INTERMEDIATE_STOP
-                      - id: "5"
-                        instructions:
-                          name: Stop 5
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_5
-                            name: MOCK_STATION_5
-                          gps: 28.738176, 77.139932
-                        parent_stop_id: "4"
-                        type: INTERMEDIATE_STOP
-                      - id: "6"
-                        instructions:
-                          name: Stop 6
-                          short_desc: Change for Pink Line
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_6
-                            name: MOCK_STATION_6
-                          gps: 28.738426, 77.139932
-                        parent_stop_id: "5"
-                        type: INTERMEDIATE_STOP
-                      - id: "7"
-                        instructions:
-                          name: Stop 7
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_7
-                            name: MOCK_STATION_7
-                          gps: 28.718476, 77.129932
-                        parent_stop_id: "6"
-                        type: INTERMEDIATE_STOP
-                      - id: "8"
-                        instructions:
-                          name: Stop 8
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_8
-                            name: MOCK_STATION_8
-                          gps: 28.738576, 77.139532
-                        parent_stop_id: "7"
-                        type: INTERMEDIATE_STOP
-                      - id: "9"
-                        instructions:
-                          name: Stop 9
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_9
-                            name: MOCK_STATION_9
-                          gps: 28.731406, 77.131032
-                        parent_stop_id: "8"
-                        type: INTERMEDIATE_STOP
-                      - id: "10"
-                        instructions:
-                          name: Stop 10
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_10
-                            name: MOCK_STATION_10
-                          gps: 28.718476, 77.133932
-                        parent_stop_id: "9"
-                        type: INTERMEDIATE_STOP
-                      - id: "11"
-                        instructions:
-                          name: Stop 11
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_11
-                            name: MOCK_STATION_11
-                          gps: 28.798416, 77.119902
-                        parent_stop_id: "10"
-                        type: INTERMEDIATE_STOP
-                      - id: "12"
-                        instructions:
-                          name: Stop 12
-                          short_desc: Change for Red and Violet Line
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_12
-                            name: MOCK_STATION_12
-                          gps: 28.738426, 77.139922
-                        parent_stop_id: "11"
-                        type: INTERMEDIATE_STOP
-                      - id: "13"
-                        instructions:
-                          name: Stop 13
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_13
-                            name: MOCK_STATION_13
-                          gps: 28.738446, 77.139942
-                        parent_stop_id: "12"
-                        type: INTERMEDIATE_STOP
-                      - id: "14"
-                        instructions:
-                          name: Stop 14
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_14
-                            name: MOCK_STATION_14
-                          gps: 28.738477, 77.139937
-                        parent_stop_id: "13"
-                        type: INTERMEDIATE_STOP
-                      - id: "15"
-                        instructions:
-                          name: Stop 15
-                          short_desc: Change for Airport Express
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_15
-                            name: MOCK_STATION_15
-                          gps: 28.738276, 77.132932
-                        parent_stop_id: "14"
-                        type: END
-                    type: ROUTE
-                    vehicle:
-                      category: METRO
-                id: P1
-                payments:
-                  - collected_by: BAP
-                    tags:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES
-                        display: false
-                        list:
-                          - descriptor:
-                              code: BUYER_FINDER_FEES_PERCENTAGE
-                            value: "3"
-                          - descriptor:
-                              code: BUYER_FINDER_FEES_TYPE
-                            value: percent
-                      - descriptor:
-                          code: SETTLEMENT_TERMS
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SETTLEMENT_WINDOW
-                            value: P30D
-                          - descriptor:
-                              code: SETTLEMENT_BASIS
-                            value: INVOICE_RECEIPT
-                          - descriptor:
-                              code: MANDATORY_ARBITRATION
-                            value: "true"
-                          - descriptor:
-                              code: COURT_JURISDICTION
-                            value: New Delhi
-                          - descriptor:
-                              code: STATIC_TERMS
-                            value: https://api.example-bpp.com/booking/terms
-                tags:
-                  - descriptor:
-                      code: SCHEDULED_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: GTFS
-                        value: https://metro-transit/gtfs-realtime
-                time:
-                  range:
-                    end: 2026-03-25T14:25:22.971Z
-                    start: 2026-03-23T14:25:22.971Z
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -394,252 +100,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-            timestamp: 2026-03-23T14:25:22.971Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            catalog:
-              descriptor:
-                images:
-                  - url: https://transitsolutions.in/logos/logo.ico
-                name: Transit Solutions
-              providers:
-                - categories:
-                    - descriptor:
-                        code: TICKET
-                        name: Ticket
-                      id: C1
-                    - descriptor:
-                        code: PASS
-                        name: Pass
-                      id: C2
-                  descriptor:
-                    images:
-                      - url: https://delhimetrorail.com/logos/logo.ico
-                    name: ONDC Metro Rail Limited
-                  fulfillments:
-                    - id: F1
-                      stops:
-                        - id: "1"
-                          instructions:
-                            name: Stop 1
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_1
-                              name: MOCK_STATION_1
-                            gps: 28.744676, 77.138332
-                          type: START
-                        - id: "2"
-                          instructions:
-                            name: Stop 2
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_2
-                              name: MOCK_STATION_2
-                            gps: 28.738416, 77.139132
-                          parent_stop_id: "1"
-                          type: INTERMEDIATE_STOP
-                        - id: "3"
-                          instructions:
-                            name: Stop 3
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_3
-                              name: MOCK_STATION_3
-                            gps: 28.738876, 77.119932
-                          parent_stop_id: "2"
-                          type: INTERMEDIATE_STOP
-                        - id: "4"
-                          instructions:
-                            name: Stop 4
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_4
-                              name: MOCK_STATION_4
-                            gps: 28.738411, 77.131132
-                          parent_stop_id: "3"
-                          type: INTERMEDIATE_STOP
-                        - id: "5"
-                          instructions:
-                            name: Stop 5
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_5
-                              name: MOCK_STATION_5
-                            gps: 28.738176, 77.139932
-                          parent_stop_id: "4"
-                          type: INTERMEDIATE_STOP
-                        - id: "6"
-                          instructions:
-                            name: Stop 6
-                            short_desc: Change for Pink Line
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_6
-                              name: MOCK_STATION_6
-                            gps: 28.738426, 77.139932
-                          parent_stop_id: "5"
-                          type: INTERMEDIATE_STOP
-                        - id: "7"
-                          instructions:
-                            name: Stop 7
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_7
-                              name: MOCK_STATION_7
-                            gps: 28.718476, 77.129932
-                          parent_stop_id: "6"
-                          type: INTERMEDIATE_STOP
-                        - id: "8"
-                          instructions:
-                            name: Stop 8
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_8
-                              name: MOCK_STATION_8
-                            gps: 28.738576, 77.139532
-                          parent_stop_id: "7"
-                          type: INTERMEDIATE_STOP
-                        - id: "9"
-                          instructions:
-                            name: Stop 9
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_9
-                              name: MOCK_STATION_9
-                            gps: 28.731406, 77.131032
-                          parent_stop_id: "8"
-                          type: INTERMEDIATE_STOP
-                        - id: "10"
-                          instructions:
-                            name: Stop 10
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_10
-                              name: MOCK_STATION_10
-                            gps: 28.718476, 77.133932
-                          parent_stop_id: "9"
-                          type: INTERMEDIATE_STOP
-                        - id: "11"
-                          instructions:
-                            name: Stop 11
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_11
-                              name: MOCK_STATION_11
-                            gps: 28.798416, 77.119902
-                          parent_stop_id: "10"
-                          type: INTERMEDIATE_STOP
-                        - id: "12"
-                          instructions:
-                            name: Stop 12
-                            short_desc: Change for Red and Violet Line
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_12
-                              name: MOCK_STATION_12
-                            gps: 28.738426, 77.139922
-                          parent_stop_id: "11"
-                          type: INTERMEDIATE_STOP
-                        - id: "13"
-                          instructions:
-                            name: Stop 13
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_13
-                              name: MOCK_STATION_13
-                            gps: 28.738446, 77.139942
-                          parent_stop_id: "12"
-                          type: INTERMEDIATE_STOP
-                        - id: "14"
-                          instructions:
-                            name: Stop 14
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_14
-                              name: MOCK_STATION_14
-                            gps: 28.738477, 77.139937
-                          parent_stop_id: "13"
-                          type: INTERMEDIATE_STOP
-                        - id: "15"
-                          instructions:
-                            name: Stop 15
-                            short_desc: Change for Airport Express
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_15
-                              name: MOCK_STATION_15
-                            gps: 28.738276, 77.132932
-                          parent_stop_id: "14"
-                          type: END
-                      type: ROUTE
-                      vehicle:
-                        category: METRO
-                  id: P1
-                  payments:
-                    - collected_by: BAP
-                      tags:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES
-                          display: false
-                          list:
-                            - descriptor:
-                                code: BUYER_FINDER_FEES_PERCENTAGE
-                              value: "3"
-                            - descriptor:
-                                code: BUYER_FINDER_FEES_TYPE
-                              value: percent
-                        - descriptor:
-                            code: SETTLEMENT_TERMS
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SETTLEMENT_WINDOW
-                              value: P30D
-                            - descriptor:
-                                code: SETTLEMENT_BASIS
-                              value: INVOICE_RECEIPT
-                            - descriptor:
-                                code: MANDATORY_ARBITRATION
-                              value: "true"
-                            - descriptor:
-                                code: COURT_JURISDICTION
-                              value: New Delhi
-                            - descriptor:
-                                code: STATIC_TERMS
-                              value: https://api.example-bpp.com/booking/terms
-                  tags:
-                    - descriptor:
-                        code: SCHEDULED_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: GTFS
-                          value: https://metro-transit/gtfs-realtime
-                  time:
-                    range:
-                      end: 2026-03-25T14:25:22.971Z
-                      start: 2026-03-23T14:25:22.971Z
-        type: request
   - api: search
     action_id: search2_METRO_200
     owner: BAP
@@ -652,48 +112,21 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: search
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
           domain: ONDC:TRV11
-          location:
-            city:
-              code: std:040
-            country:
-              code: IND
-          message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-          timestamp: 2026-03-23T14:25:22.817Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
+          action: search
+          timestamp: 2026-05-04T10:41:02.104Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 23433a28-5663-426e-8608-cf40415cb4b6
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
           ttl: PT30S
           version: 2.0.0
-        message:
-          intent:
-            fulfillment:
-              vehicle:
-                category: METRO
-            payment:
-              collected_by: BAP
-              tags:
-                - descriptor:
-                    code: BUYER_FINDER_FEES
-                  display: false
-                  list:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: "3"
-                    - descriptor:
-                        code: BUYER_FINDER_FEES_TYPE
-                      value: percent
-                - descriptor:
-                    code: SETTLEMENT_TERMS
-                  display: false
-                  list:
-                    - descriptor:
-                        code: DELAY_INTEREST
-                      value: "2.5"
-                    - descriptor:
-                        code: STATIC_TERMS
-                      value: https://api.example-bap.com/booking/terms
+          location:
+            country:
+              code: IND
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -728,55 +161,6 @@ steps:
             type: text
             payloadField: $.context.bpp_id
         id: old_inputs
-    examples:
-      - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-            timestamp: 2026-03-23T14:25:22.817Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            intent:
-              fulfillment:
-                vehicle:
-                  category: METRO
-              payment:
-                collected_by: BAP
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-        type: request
   - api: on_search
     action_id: on_search2_Sjt_METRO_200
     owner: BPP
@@ -789,245 +173,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_search
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_search
+          timestamp: 2026-05-04T10:41:02.104Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: e908f3ac-eb43-4f26-b0e4-fbc1b3160e97
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-          timestamp: 2026-03-23T14:25:22.971Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          catalog:
-            descriptor:
-              images:
-                - url: https://transitsolutions.in/logos/logo.ico
-              name: Transit Solutions
-            providers:
-              - categories:
-                  - descriptor:
-                      code: TICKET
-                      name: Ticket
-                    id: C1
-                  - descriptor:
-                      code: PASS
-                      name: Pass
-                    id: C2
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                fulfillments:
-                  - id: F1
-                    stops:
-                      - id: "1"
-                        instructions:
-                          name: Stop 1
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_1
-                            name: MOCK_STATION_1
-                          gps: 28.744676, 77.138332
-                        type: START
-                      - id: "2"
-                        instructions:
-                          name: Stop 2
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_2
-                            name: MOCK_STATION_2
-                          gps: 28.738416, 77.139132
-                        parent_stop_id: "1"
-                        type: INTERMEDIATE_STOP
-                      - id: "3"
-                        instructions:
-                          name: Stop 3
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_3
-                            name: MOCK_STATION_3
-                          gps: 28.738876, 77.119932
-                        parent_stop_id: "2"
-                        type: INTERMEDIATE_STOP
-                      - id: "4"
-                        instructions:
-                          name: Stop 4
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_4
-                            name: MOCK_STATION_4
-                          gps: 28.738411, 77.131132
-                        parent_stop_id: "3"
-                        type: INTERMEDIATE_STOP
-                      - id: "5"
-                        instructions:
-                          name: Stop 5
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_5
-                            name: MOCK_STATION_5
-                          gps: 28.738176, 77.139932
-                        parent_stop_id: "4"
-                        type: INTERMEDIATE_STOP
-                      - id: "6"
-                        instructions:
-                          name: Stop 6
-                          short_desc: Change for Pink Line
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_6
-                            name: MOCK_STATION_6
-                          gps: 28.738426, 77.139932
-                        parent_stop_id: "5"
-                        type: INTERMEDIATE_STOP
-                      - id: "7"
-                        instructions:
-                          name: Stop 7
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_7
-                            name: MOCK_STATION_7
-                          gps: 28.718476, 77.129932
-                        parent_stop_id: "6"
-                        type: INTERMEDIATE_STOP
-                      - id: "8"
-                        instructions:
-                          name: Stop 8
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_8
-                            name: MOCK_STATION_8
-                          gps: 28.738576, 77.139532
-                        parent_stop_id: "7"
-                        type: INTERMEDIATE_STOP
-                      - id: "9"
-                        instructions:
-                          name: Stop 9
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_9
-                            name: MOCK_STATION_9
-                          gps: 28.731406, 77.131032
-                        parent_stop_id: "8"
-                        type: INTERMEDIATE_STOP
-                      - id: "10"
-                        instructions:
-                          name: Stop 10
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_10
-                            name: MOCK_STATION_10
-                          gps: 28.718476, 77.133932
-                        parent_stop_id: "9"
-                        type: INTERMEDIATE_STOP
-                      - id: "11"
-                        instructions:
-                          name: Stop 11
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_11
-                            name: MOCK_STATION_11
-                          gps: 28.798416, 77.119902
-                        parent_stop_id: "10"
-                        type: INTERMEDIATE_STOP
-                      - id: "12"
-                        instructions:
-                          name: Stop 12
-                          short_desc: Change for Red and Violet Line
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_12
-                            name: MOCK_STATION_12
-                          gps: 28.738426, 77.139922
-                        parent_stop_id: "11"
-                        type: INTERMEDIATE_STOP
-                      - id: "13"
-                        instructions:
-                          name: Stop 13
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_13
-                            name: MOCK_STATION_13
-                          gps: 28.738446, 77.139942
-                        parent_stop_id: "12"
-                        type: INTERMEDIATE_STOP
-                      - id: "14"
-                        instructions:
-                          name: Stop 14
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_14
-                            name: MOCK_STATION_14
-                          gps: 28.738477, 77.139937
-                        parent_stop_id: "13"
-                        type: INTERMEDIATE_STOP
-                      - id: "15"
-                        instructions:
-                          name: Stop 15
-                          short_desc: Change for Airport Express
-                        location:
-                          descriptor:
-                            code: MOCK_STATION_15
-                            name: MOCK_STATION_15
-                          gps: 28.738276, 77.132932
-                        parent_stop_id: "14"
-                        type: END
-                    type: ROUTE
-                    vehicle:
-                      category: METRO
-                id: P1
-                payments:
-                  - collected_by: BAP
-                    tags:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES
-                        display: false
-                        list:
-                          - descriptor:
-                              code: BUYER_FINDER_FEES_PERCENTAGE
-                            value: "3"
-                          - descriptor:
-                              code: BUYER_FINDER_FEES_TYPE
-                            value: percent
-                      - descriptor:
-                          code: SETTLEMENT_TERMS
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SETTLEMENT_WINDOW
-                            value: P30D
-                          - descriptor:
-                              code: SETTLEMENT_BASIS
-                            value: INVOICE_RECEIPT
-                          - descriptor:
-                              code: MANDATORY_ARBITRATION
-                            value: "true"
-                          - descriptor:
-                              code: COURT_JURISDICTION
-                            value: New Delhi
-                          - descriptor:
-                              code: STATIC_TERMS
-                            value: https://api.example-bpp.com/booking/terms
-                tags:
-                  - descriptor:
-                      code: SCHEDULED_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: GTFS
-                        value: https://metro-transit/gtfs-realtime
-                time:
-                  range:
-                    end: 2026-03-25T14:25:22.971Z
-                    start: 2026-03-23T14:25:22.971Z
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1038,252 +200,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 0fcfb33a-b994-4a52-8d25-e4b719e42c50
-            timestamp: 2026-03-23T14:25:22.971Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            catalog:
-              descriptor:
-                images:
-                  - url: https://transitsolutions.in/logos/logo.ico
-                name: Transit Solutions
-              providers:
-                - categories:
-                    - descriptor:
-                        code: TICKET
-                        name: Ticket
-                      id: C1
-                    - descriptor:
-                        code: PASS
-                        name: Pass
-                      id: C2
-                  descriptor:
-                    images:
-                      - url: https://delhimetrorail.com/logos/logo.ico
-                    name: ONDC Metro Rail Limited
-                  fulfillments:
-                    - id: F1
-                      stops:
-                        - id: "1"
-                          instructions:
-                            name: Stop 1
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_1
-                              name: MOCK_STATION_1
-                            gps: 28.744676, 77.138332
-                          type: START
-                        - id: "2"
-                          instructions:
-                            name: Stop 2
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_2
-                              name: MOCK_STATION_2
-                            gps: 28.738416, 77.139132
-                          parent_stop_id: "1"
-                          type: INTERMEDIATE_STOP
-                        - id: "3"
-                          instructions:
-                            name: Stop 3
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_3
-                              name: MOCK_STATION_3
-                            gps: 28.738876, 77.119932
-                          parent_stop_id: "2"
-                          type: INTERMEDIATE_STOP
-                        - id: "4"
-                          instructions:
-                            name: Stop 4
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_4
-                              name: MOCK_STATION_4
-                            gps: 28.738411, 77.131132
-                          parent_stop_id: "3"
-                          type: INTERMEDIATE_STOP
-                        - id: "5"
-                          instructions:
-                            name: Stop 5
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_5
-                              name: MOCK_STATION_5
-                            gps: 28.738176, 77.139932
-                          parent_stop_id: "4"
-                          type: INTERMEDIATE_STOP
-                        - id: "6"
-                          instructions:
-                            name: Stop 6
-                            short_desc: Change for Pink Line
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_6
-                              name: MOCK_STATION_6
-                            gps: 28.738426, 77.139932
-                          parent_stop_id: "5"
-                          type: INTERMEDIATE_STOP
-                        - id: "7"
-                          instructions:
-                            name: Stop 7
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_7
-                              name: MOCK_STATION_7
-                            gps: 28.718476, 77.129932
-                          parent_stop_id: "6"
-                          type: INTERMEDIATE_STOP
-                        - id: "8"
-                          instructions:
-                            name: Stop 8
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_8
-                              name: MOCK_STATION_8
-                            gps: 28.738576, 77.139532
-                          parent_stop_id: "7"
-                          type: INTERMEDIATE_STOP
-                        - id: "9"
-                          instructions:
-                            name: Stop 9
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_9
-                              name: MOCK_STATION_9
-                            gps: 28.731406, 77.131032
-                          parent_stop_id: "8"
-                          type: INTERMEDIATE_STOP
-                        - id: "10"
-                          instructions:
-                            name: Stop 10
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_10
-                              name: MOCK_STATION_10
-                            gps: 28.718476, 77.133932
-                          parent_stop_id: "9"
-                          type: INTERMEDIATE_STOP
-                        - id: "11"
-                          instructions:
-                            name: Stop 11
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_11
-                              name: MOCK_STATION_11
-                            gps: 28.798416, 77.119902
-                          parent_stop_id: "10"
-                          type: INTERMEDIATE_STOP
-                        - id: "12"
-                          instructions:
-                            name: Stop 12
-                            short_desc: Change for Red and Violet Line
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_12
-                              name: MOCK_STATION_12
-                            gps: 28.738426, 77.139922
-                          parent_stop_id: "11"
-                          type: INTERMEDIATE_STOP
-                        - id: "13"
-                          instructions:
-                            name: Stop 13
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_13
-                              name: MOCK_STATION_13
-                            gps: 28.738446, 77.139942
-                          parent_stop_id: "12"
-                          type: INTERMEDIATE_STOP
-                        - id: "14"
-                          instructions:
-                            name: Stop 14
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_14
-                              name: MOCK_STATION_14
-                            gps: 28.738477, 77.139937
-                          parent_stop_id: "13"
-                          type: INTERMEDIATE_STOP
-                        - id: "15"
-                          instructions:
-                            name: Stop 15
-                            short_desc: Change for Airport Express
-                          location:
-                            descriptor:
-                              code: MOCK_STATION_15
-                              name: MOCK_STATION_15
-                            gps: 28.738276, 77.132932
-                          parent_stop_id: "14"
-                          type: END
-                      type: ROUTE
-                      vehicle:
-                        category: METRO
-                  id: P1
-                  payments:
-                    - collected_by: BAP
-                      tags:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES
-                          display: false
-                          list:
-                            - descriptor:
-                                code: BUYER_FINDER_FEES_PERCENTAGE
-                              value: "3"
-                            - descriptor:
-                                code: BUYER_FINDER_FEES_TYPE
-                              value: percent
-                        - descriptor:
-                            code: SETTLEMENT_TERMS
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SETTLEMENT_WINDOW
-                              value: P30D
-                            - descriptor:
-                                code: SETTLEMENT_BASIS
-                              value: INVOICE_RECEIPT
-                            - descriptor:
-                                code: MANDATORY_ARBITRATION
-                              value: "true"
-                            - descriptor:
-                                code: COURT_JURISDICTION
-                              value: New Delhi
-                            - descriptor:
-                                code: STATIC_TERMS
-                              value: https://api.example-bpp.com/booking/terms
-                  tags:
-                    - descriptor:
-                        code: SCHEDULED_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: GTFS
-                          value: https://metro-transit/gtfs-realtime
-                  time:
-                    range:
-                      end: 2026-03-25T14:25:22.971Z
-                      start: 2026-03-23T14:25:22.971Z
-        type: request
   - api: select
     action_id: select_METRO_200
     owner: BAP
@@ -1296,31 +212,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: select
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: select
+          timestamp: 2026-05-04T10:41:02.104Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 012afd8c-35de-4d12-897a-bcc4fb78b2ff
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: eb3dd475-31c3-480b-8397-fda379e4dde5
-          timestamp: 2026-03-23T14:25:53.902Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            items:
-              - id: I1
-                quantity:
-                  selected:
-                    count: 2
-            provider:
-              id: P1
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1341,38 +249,6 @@ steps:
             type: text
             payloadField: $.message.order.items[0].quantity.selected.count
         id: old_inputs
-    examples:
-      - name: Example for action "select"
-        description: Auto-generated example for action "select" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: eb3dd475-31c3-480b-8397-fda379e4dde5
-            timestamp: 2026-03-23T14:25:53.902Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              items:
-                - id: I1
-                  quantity:
-                    selected:
-                      count: 2
-              provider:
-                id: P1
-        type: request
   - api: on_select
     action_id: on_select_METRO_200
     owner: BPP
@@ -1385,131 +261,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_select
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_select
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: fc19e14b-4b3a-4ce0-881c-205b717e5c5b
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: eb3dd475-31c3-480b-8397-fda379e4dde5
-          timestamp: 2026-03-23T14:25:54.030Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://transitsolutions.com/mf/tnc.html
-            fulfillments:
-              - id: Fg9dzuyz
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-              - id: Fl719ru4
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-            items:
-              - category_ids:
-                  - C1
-                descriptor:
-                  code: SJT
-                  name: Single Journey Ticket
-                fulfillment_ids:
-                  - Fg9dzuyz
-                  - Fl719ru4
-                id: I1
-                price:
-                  currency: INR
-                  value: "60"
-                quantity:
-                  selected:
-                    count: 2
-                time:
-                  duration: P2D
-                  label: Validity
-            provider:
-              descriptor:
-                images:
-                  - url: https://delhimetrorail.com/logos/logo.ico
-                name: ONDC Metro Rail Limited
-              id: P1
-              time:
-                range:
-                  end: 2026-03-25T14:25:54.030Z
-                  start: 2026-03-23T14:25:54.030Z
-            quote:
-              breakup:
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "120.00"
-                  title: BASE_FARE
-              price:
-                currency: INR
-                value: "120.00"
-            tags:
-              - descriptor:
-                  code: SCHEDULED_INFO
-                display: false
-                list:
-                  - descriptor:
-                      code: GTFS
-                    value: https://metro-transit/gtfs-realtime
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1520,138 +288,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_select"
-        description: Auto-generated example for action "on_select" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: eb3dd475-31c3-480b-8397-fda379e4dde5
-            timestamp: 2026-03-23T14:25:54.030Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              cancellation_terms:
-                - external_ref:
-                    mimetype: text/html
-                    url: https://transitsolutions.com/mf/tnc.html
-              fulfillments:
-                - id: Fg9dzuyz
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fl719ru4
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-              items:
-                - category_ids:
-                    - C1
-                  descriptor:
-                    code: SJT
-                    name: Single Journey Ticket
-                  fulfillment_ids:
-                    - Fg9dzuyz
-                    - Fl719ru4
-                  id: I1
-                  price:
-                    currency: INR
-                    value: "60"
-                  quantity:
-                    selected:
-                      count: 2
-                  time:
-                    duration: P2D
-                    label: Validity
-              provider:
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                id: P1
-                time:
-                  range:
-                    end: 2026-03-25T14:25:54.030Z
-                    start: 2026-03-23T14:25:54.030Z
-              quote:
-                breakup:
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "120.00"
-                    title: BASE_FARE
-                price:
-                  currency: INR
-                  value: "120.00"
-              tags:
-                - descriptor:
-                    code: SCHEDULED_INFO
-                  display: false
-                  list:
-                    - descriptor:
-                        code: GTFS
-                      value: https://metro-transit/gtfs-realtime
-        type: request
   - api: init
     action_id: init_METRO_200
     owner: BAP
@@ -1664,75 +300,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: init
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: init
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 87613b98-d0ca-4fb8-8e03-8ffe29989aac
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 19dac69f-b11e-4a78-91ca-5c446a6def88
-          timestamp: 2026-03-23T14:25:54.180Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            items:
-              - id: I1
-                quantity:
-                  selected:
-                    count: 2
-            payments:
-              - collected_by: BAP
-                status: NOT-PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "116.4"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                type: PRE-ORDER
-            provider:
-              id: P1
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1743,82 +327,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "init"
-        description: Auto-generated example for action "init" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 19dac69f-b11e-4a78-91ca-5c446a6def88
-            timestamp: 2026-03-23T14:25:54.180Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              items:
-                - id: I1
-                  quantity:
-                    selected:
-                      count: 2
-              payments:
-                - collected_by: BAP
-                  status: NOT-PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "116.4"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                  type: PRE-ORDER
-              provider:
-                id: P1
-        type: request
   - api: on_init
     action_id: on_init_METRO_200
     owner: BPP
@@ -1831,182 +339,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_init
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_init
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 2720d2e0-d9ac-48f7-937b-40759bf650d3
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 19dac69f-b11e-4a78-91ca-5c446a6def88
-          timestamp: 2026-03-23T14:25:54.325Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://transitsolutions.com/mf/tnc.html
-            fulfillments:
-              - id: Fg9dzuyz
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-              - id: Fl719ru4
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-            items:
-              - category_ids:
-                  - C1
-                descriptor:
-                  code: SJT
-                  name: Single Journey Ticket
-                fulfillment_ids:
-                  - Fg9dzuyz
-                  - Fl719ru4
-                id: I1
-                price:
-                  currency: INR
-                  value: "60"
-                quantity:
-                  selected:
-                    count: 2
-                time:
-                  duration: P2D
-                  label: Validity
-            payments:
-              - collected_by: BAP
-                id: z54zuaprij
-                params:
-                  bank_account_number: xxxxxxxxxxxxxx
-                  bank_code: XXXXXXXX
-                status: NOT-PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "116.4"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                type: PRE-ORDER
-            provider:
-              descriptor:
-                images:
-                  - url: https://delhimetrorail.com/logos/logo.ico
-                name: ONDC Metro Rail Limited
-              id: P1
-              time:
-                range:
-                  end: 2026-03-25T14:25:54.325Z
-                  start: 2026-03-23T14:25:54.325Z
-            quote:
-              breakup:
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "120.00"
-                  title: BASE_FARE
-              price:
-                currency: INR
-                value: "120.00"
-            tags:
-              - descriptor:
-                  code: SCHEDULED_INFO
-                display: false
-                list:
-                  - descriptor:
-                      code: GTFS
-                    value: https://metro-transit/gtfs-realtime
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2017,189 +366,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_init"
-        description: Auto-generated example for action "on_init" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 19dac69f-b11e-4a78-91ca-5c446a6def88
-            timestamp: 2026-03-23T14:25:54.325Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              cancellation_terms:
-                - external_ref:
-                    mimetype: text/html
-                    url: https://transitsolutions.com/mf/tnc.html
-              fulfillments:
-                - id: Fg9dzuyz
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fl719ru4
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-              items:
-                - category_ids:
-                    - C1
-                  descriptor:
-                    code: SJT
-                    name: Single Journey Ticket
-                  fulfillment_ids:
-                    - Fg9dzuyz
-                    - Fl719ru4
-                  id: I1
-                  price:
-                    currency: INR
-                    value: "60"
-                  quantity:
-                    selected:
-                      count: 2
-                  time:
-                    duration: P2D
-                    label: Validity
-              payments:
-                - collected_by: BAP
-                  id: z54zuaprij
-                  params:
-                    bank_account_number: xxxxxxxxxxxxxx
-                    bank_code: XXXXXXXX
-                  status: NOT-PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "116.4"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                        - descriptor:
-                            code: SETTLEMENT_BASIS
-                          value: INVOICE_RECEIPT
-                  type: PRE-ORDER
-              provider:
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                id: P1
-                time:
-                  range:
-                    end: 2026-03-25T14:25:54.325Z
-                    start: 2026-03-23T14:25:54.325Z
-              quote:
-                breakup:
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "120.00"
-                    title: BASE_FARE
-                price:
-                  currency: INR
-                  value: "120.00"
-              tags:
-                - descriptor:
-                    code: SCHEDULED_INFO
-                  display: false
-                  list:
-                    - descriptor:
-                        code: GTFS
-                      value: https://metro-transit/gtfs-realtime
-        type: request
   - api: confirm
     action_id: confirm_METRO_200
     owner: BAP
@@ -2212,83 +378,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: confirm
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: confirm
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 6852ab48-4386-4c62-b47b-6ef3d22257b1
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 1f9da0f6-82d8-4c81-bc92-b1229b6023fa
-          timestamp: 2026-03-23T14:25:54.478Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            items:
-              - id: I1
-                quantity:
-                  selected:
-                    count: 2
-            payments:
-              - collected_by: BAP
-                id: z54zuaprij
-                params:
-                  amount: "120.00"
-                  currency: INR
-                  transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                status: PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "116.4"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                type: PRE-ORDER
-            provider:
-              id: P1
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2299,90 +405,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "confirm"
-        description: Auto-generated example for action "confirm" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 1f9da0f6-82d8-4c81-bc92-b1229b6023fa
-            timestamp: 2026-03-23T14:25:54.478Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              items:
-                - id: I1
-                  quantity:
-                    selected:
-                      count: 2
-              payments:
-                - collected_by: BAP
-                  id: z54zuaprij
-                  params:
-                    amount: "120.00"
-                    currency: INR
-                    transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                  status: PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "116.4"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                        - descriptor:
-                            code: SETTLEMENT_BASIS
-                          value: INVOICE_RECEIPT
-                  type: PRE-ORDER
-              provider:
-                id: P1
-        type: request
   - api: on_confirm
     action_id: on_confirm_delayed_METRO_200
     owner: BPP
@@ -2395,215 +417,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_confirm
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_confirm
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 251905b0-006b-4477-aa6f-3e3bfdebd742
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 1f9da0f6-82d8-4c81-bc92-b1229b6023fa
-          timestamp: 2026-03-23T14:26:26.626Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://transitsolutions.com/mf/tnc.html
-            created_at: 2026-03-23T14:26:26.626Z
-            fulfillments:
-              - id: Fg9dzuyz
-                stops:
-                  - authorization:
-                      status: UNCLAIMED
-                      token: HFmRvm/jxbr7ckwJvOdJz7d2N/zp6mhSm5GP3P3NdLM=
-                      type: QR
-                      valid_to: 2026-03-25T23:59:59.999Z
-                    id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                tags:
-                  - descriptor:
-                      code: TICKET_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: NUMBER
-                        value: j3dcqe72
-                type: TRIP
-                vehicle:
-                  category: METRO
-              - id: Fl719ru4
-                stops:
-                  - authorization:
-                      status: UNCLAIMED
-                      token: OkbVgdFNmvQxXCVDKgUyiKDOcHaYavKw9nh9Xgdc9G0=
-                      type: QR
-                      valid_to: 2026-03-25T23:59:59.999Z
-                    id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                tags:
-                  - descriptor:
-                      code: TICKET_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: NUMBER
-                        value: ww15iii1
-                type: TRIP
-                vehicle:
-                  category: METRO
-            id: jcnet3gm4yo
-            items:
-              - category_ids:
-                  - C1
-                descriptor:
-                  code: SJT
-                  name: Single Journey Ticket
-                fulfillment_ids:
-                  - Fg9dzuyz
-                  - Fl719ru4
-                id: I1
-                price:
-                  currency: INR
-                  value: "60"
-                quantity:
-                  selected:
-                    count: 2
-                time:
-                  duration: P2D
-                  label: Validity
-            payments:
-              - collected_by: BAP
-                id: z54zuaprij
-                params:
-                  amount: "120.00"
-                  bank_account_number: xxxxxxxxxxxxxx
-                  bank_code: XXXXXXXX
-                  currency: INR
-                  transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                status: PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "116.4"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                type: PRE-ORDER
-            provider:
-              descriptor:
-                images:
-                  - url: https://delhimetrorail.com/logos/logo.ico
-                name: ONDC Metro Rail Limited
-              id: P1
-              time:
-                range:
-                  end: 2026-03-25T14:26:26.626Z
-                  start: 2026-03-23T14:26:26.626Z
-            quote:
-              breakup:
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "120.00"
-                  title: BASE_FARE
-              price:
-                currency: INR
-                value: "120.00"
-            status: ACTIVE
-            tags:
-              - descriptor:
-                  code: SCHEDULED_INFO
-                display: false
-                list:
-                  - descriptor:
-                      code: GTFS
-                    value: https://metro-transit/gtfs-realtime
-            updated_at: 2026-03-23T14:26:26.626Z
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2614,222 +444,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_confirm"
-        description: Auto-generated example for action "on_confirm" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 1f9da0f6-82d8-4c81-bc92-b1229b6023fa
-            timestamp: 2026-03-23T14:26:26.626Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              cancellation_terms:
-                - external_ref:
-                    mimetype: text/html
-                    url: https://transitsolutions.com/mf/tnc.html
-              created_at: 2026-03-23T14:26:26.626Z
-              fulfillments:
-                - id: Fg9dzuyz
-                  stops:
-                    - authorization:
-                        status: UNCLAIMED
-                        token: HFmRvm/jxbr7ckwJvOdJz7d2N/zp6mhSm5GP3P3NdLM=
-                        type: QR
-                        valid_to: 2026-03-25T23:59:59.999Z
-                      id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: j3dcqe72
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fl719ru4
-                  stops:
-                    - authorization:
-                        status: UNCLAIMED
-                        token: OkbVgdFNmvQxXCVDKgUyiKDOcHaYavKw9nh9Xgdc9G0=
-                        type: QR
-                        valid_to: 2026-03-25T23:59:59.999Z
-                      id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: ww15iii1
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-              id: jcnet3gm4yo
-              items:
-                - category_ids:
-                    - C1
-                  descriptor:
-                    code: SJT
-                    name: Single Journey Ticket
-                  fulfillment_ids:
-                    - Fg9dzuyz
-                    - Fl719ru4
-                  id: I1
-                  price:
-                    currency: INR
-                    value: "60"
-                  quantity:
-                    selected:
-                      count: 2
-                  time:
-                    duration: P2D
-                    label: Validity
-              payments:
-                - collected_by: BAP
-                  id: z54zuaprij
-                  params:
-                    amount: "120.00"
-                    bank_account_number: xxxxxxxxxxxxxx
-                    bank_code: XXXXXXXX
-                    currency: INR
-                    transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                  status: PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "116.4"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                        - descriptor:
-                            code: SETTLEMENT_BASIS
-                          value: INVOICE_RECEIPT
-                  type: PRE-ORDER
-              provider:
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                id: P1
-                time:
-                  range:
-                    end: 2026-03-25T14:26:26.626Z
-                    start: 2026-03-23T14:26:26.626Z
-              quote:
-                breakup:
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "120.00"
-                    title: BASE_FARE
-                price:
-                  currency: INR
-                  value: "120.00"
-              status: ACTIVE
-              tags:
-                - descriptor:
-                    code: SCHEDULED_INFO
-                  display: false
-                  list:
-                    - descriptor:
-                        code: GTFS
-                      value: https://metro-transit/gtfs-realtime
-              updated_at: 2026-03-23T14:26:26.626Z
-        type: request
   - api: status
     action_id: status_tech_cancel_METRO_200
     owner: BAP
@@ -2842,24 +456,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: status
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: status
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: acb4ba5a-09c3-4c4b-80ba-f9c923670f9c
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 5e4ed4f6-c846-44f9-b04f-759f41f7c842
-          timestamp: 2026-03-23T14:26:26.760Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          ref_id: ef548e7e-76cf-454c-9098-75539b333c98
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2870,31 +483,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "status"
-        description: Auto-generated example for action "status" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 5e4ed4f6-c846-44f9-b04f-759f41f7c842
-            timestamp: 2026-03-23T14:26:26.760Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            ref_id: ef548e7e-76cf-454c-9098-75539b333c98
-        type: request
   - api: on_status
     action_id: on_status_active_METRO_200
     owner: BPP
@@ -2907,215 +495,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_status
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_status
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: fc2e1787-a500-4cf4-b5d5-60c35d82a56d
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 5e4ed4f6-c846-44f9-b04f-759f41f7c842
-          timestamp: 2026-03-23T14:26:26.883Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://transitsolutions.com/mf/tnc.html
-            created_at: 2026-03-23T14:26:26.626Z
-            fulfillments:
-              - id: Fg9dzuyz
-                stops:
-                  - authorization:
-                      status: UNCLAIMED
-                      token: HFmRvm/jxbr7ckwJvOdJz7d2N/zp6mhSm5GP3P3NdLM=
-                      type: QR
-                      valid_to: 2026-03-25T23:59:59.999Z
-                    id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                tags:
-                  - descriptor:
-                      code: TICKET_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: NUMBER
-                        value: j3dcqe72
-                type: TRIP
-                vehicle:
-                  category: METRO
-              - id: Fl719ru4
-                stops:
-                  - authorization:
-                      status: UNCLAIMED
-                      token: OkbVgdFNmvQxXCVDKgUyiKDOcHaYavKw9nh9Xgdc9G0=
-                      type: QR
-                      valid_to: 2026-03-25T23:59:59.999Z
-                    id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                tags:
-                  - descriptor:
-                      code: TICKET_INFO
-                    display: false
-                    list:
-                      - descriptor:
-                          code: NUMBER
-                        value: ww15iii1
-                type: TRIP
-                vehicle:
-                  category: METRO
-            id: jcnet3gm4yo
-            items:
-              - category_ids:
-                  - C1
-                descriptor:
-                  code: SJT
-                  name: Single Journey Ticket
-                fulfillment_ids:
-                  - Fg9dzuyz
-                  - Fl719ru4
-                id: I1
-                price:
-                  currency: INR
-                  value: "60"
-                quantity:
-                  selected:
-                    count: 2
-                time:
-                  duration: P2D
-                  label: Validity
-            payments:
-              - collected_by: BAP
-                id: z54zuaprij
-                params:
-                  amount: "120.00"
-                  bank_account_number: xxxxxxxxxxxxxx
-                  bank_code: XXXXXXXX
-                  currency: INR
-                  transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                status: PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "116.4"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                type: PRE-ORDER
-            provider:
-              descriptor:
-                images:
-                  - url: https://delhimetrorail.com/logos/logo.ico
-                name: ONDC Metro Rail Limited
-              id: P1
-              time:
-                range:
-                  end: 2026-03-25T14:26:26.883Z
-                  start: 2026-03-23T14:26:26.883Z
-            quote:
-              breakup:
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "120.00"
-                  title: BASE_FARE
-              price:
-                currency: INR
-                value: "120.00"
-            status: ACTIVE
-            tags:
-              - descriptor:
-                  code: SCHEDULED_INFO
-                display: false
-                list:
-                  - descriptor:
-                      code: GTFS
-                    value: https://metro-transit/gtfs-realtime
-            updated_at: 2026-03-23T14:26:26.883Z
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -3126,222 +522,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 5e4ed4f6-c846-44f9-b04f-759f41f7c842
-            timestamp: 2026-03-23T14:26:26.883Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              cancellation_terms:
-                - external_ref:
-                    mimetype: text/html
-                    url: https://transitsolutions.com/mf/tnc.html
-              created_at: 2026-03-23T14:26:26.626Z
-              fulfillments:
-                - id: Fg9dzuyz
-                  stops:
-                    - authorization:
-                        status: UNCLAIMED
-                        token: HFmRvm/jxbr7ckwJvOdJz7d2N/zp6mhSm5GP3P3NdLM=
-                        type: QR
-                        valid_to: 2026-03-25T23:59:59.999Z
-                      id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: j3dcqe72
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fl719ru4
-                  stops:
-                    - authorization:
-                        status: UNCLAIMED
-                        token: OkbVgdFNmvQxXCVDKgUyiKDOcHaYavKw9nh9Xgdc9G0=
-                        type: QR
-                        valid_to: 2026-03-25T23:59:59.999Z
-                      id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: ww15iii1
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-              id: jcnet3gm4yo
-              items:
-                - category_ids:
-                    - C1
-                  descriptor:
-                    code: SJT
-                    name: Single Journey Ticket
-                  fulfillment_ids:
-                    - Fg9dzuyz
-                    - Fl719ru4
-                  id: I1
-                  price:
-                    currency: INR
-                    value: "60"
-                  quantity:
-                    selected:
-                      count: 2
-                  time:
-                    duration: P2D
-                    label: Validity
-              payments:
-                - collected_by: BAP
-                  id: z54zuaprij
-                  params:
-                    amount: "120.00"
-                    bank_account_number: xxxxxxxxxxxxxx
-                    bank_code: XXXXXXXX
-                    currency: INR
-                    transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                  status: PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "116.4"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                        - descriptor:
-                            code: SETTLEMENT_BASIS
-                          value: INVOICE_RECEIPT
-                  type: PRE-ORDER
-              provider:
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                id: P1
-                time:
-                  range:
-                    end: 2026-03-25T14:26:26.883Z
-                    start: 2026-03-23T14:26:26.883Z
-              quote:
-                breakup:
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "120.00"
-                    title: BASE_FARE
-                price:
-                  currency: INR
-                  value: "120.00"
-              status: ACTIVE
-              tags:
-                - descriptor:
-                    code: SCHEDULED_INFO
-                  display: false
-                  list:
-                    - descriptor:
-                        code: GTFS
-                      value: https://metro-transit/gtfs-realtime
-              updated_at: 2026-03-23T14:26:26.883Z
-        type: request
   - api: cancel
     action_id: cancel_tech_METRO_200
     owner: BAP
@@ -3354,28 +534,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: cancel
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: cancel
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: e6590662-2fcf-4867-916c-62c9ac920045
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 09eaae26-d46d-4081-a505-156592fb28c8
-          timestamp: 2026-03-23T14:26:26.997Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          cancellation_reason_id: "000"
-          descriptor:
-            code: CONFIRM_CANCEL
-            name: Ride Cancellation
-          order_id: jcnet3gm4yo
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -3386,35 +561,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "cancel"
-        description: Auto-generated example for action "cancel" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: cancel
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 09eaae26-d46d-4081-a505-156592fb28c8
-            timestamp: 2026-03-23T14:26:26.997Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            cancellation_reason_id: "000"
-            descriptor:
-              code: CONFIRM_CANCEL
-              name: Ride Cancellation
-            order_id: jcnet3gm4yo
-        type: request
   - api: on_cancel
     action_id: on_cancel_tech_METRO_200
     owner: BPP
@@ -3427,210 +573,23 @@ steps:
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          action: on_cancel
-          bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-          bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
           domain: ONDC:TRV11
+          action: on_cancel
+          timestamp: 2026-05-04T10:41:02.105Z
+          transaction_id: 72a516e6-ade8-483c-ab90-b756dccd7523
+          message_id: 567d28ff-0a35-4299-95c6-f43efcaa971e
+          bap_id: bap.example.com
+          bap_uri: https://bap.example.com
+          ttl: PT30S
+          bpp_id: bpp.example.com
+          bpp_uri: https://bpp.example.com
+          version: 2.0.0
           location:
-            city:
-              code: std:040
             country:
               code: IND
-          message_id: 09eaae26-d46d-4081-a505-156592fb28c8
-          timestamp: 2026-03-23T14:26:27.117Z
-          transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-          ttl: PT30S
-          version: 2.0.0
-        message:
-          order:
-            billing:
-              email: john.doe@example.com
-              name: John Doe
-              phone: +91-9897867564
-            cancellation:
-              cancelled_by: CONSUMER
-              reason:
-                descriptor:
-                  code: "000"
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://transitsolutions.com/mf/tnc.html
-            created_at: 2026-03-23T14:26:26.626Z
-            fulfillments:
-              - id: Fg9dzuyz
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-              - id: Fl719ru4
-                stops:
-                  - id: "1"
-                    instructions:
-                      name: Stop 1
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_1
-                        name: MOCK_STATION_1
-                      gps: 28.744676, 77.138332
-                    type: START
-                  - id: "2"
-                    instructions:
-                      name: Stop 2
-                    location:
-                      descriptor:
-                        code: MOCK_STATION_2
-                        name: MOCK_STATION_2
-                      gps: 28.738416, 77.139132
-                    parent_stop_id: "1"
-                    type: END
-                type: TRIP
-                vehicle:
-                  category: METRO
-            id: jcnet3gm4yo
-            items:
-              - category_ids:
-                  - C1
-                descriptor:
-                  code: SJT
-                  name: Single Journey Ticket
-                fulfillment_ids:
-                  - Fg9dzuyz
-                  - Fl719ru4
-                id: I1
-                price:
-                  currency: INR
-                  value: "60"
-                quantity:
-                  selected:
-                    count: 2
-                time:
-                  duration: P2D
-                  label: Validity
-            payments:
-              - collected_by: BAP
-                id: z54zuaprij
-                params:
-                  amount: "120.00"
-                  bank_account_number: xxxxxxxxxxxxxx
-                  bank_code: XXXXXXXX
-                  currency: INR
-                  transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                status: PAID
-                tags:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES
-                    display: false
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: "3"
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent
-                  - descriptor:
-                      code: SETTLEMENT_TERMS
-                    display: false
-                    list:
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: "0"
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: P30D
-                      - descriptor:
-                          code: SETTLEMENT_TYPE
-                        value: NEFT
-                      - descriptor:
-                          code: DELAY_INTEREST
-                        value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: "true"
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                type: PRE-ORDER
-            provider:
-              descriptor:
-                images:
-                  - url: https://delhimetrorail.com/logos/logo.ico
-                name: ONDC Metro Rail Limited
-              id: P1
-              time:
-                range:
-                  end: 2026-03-25T14:26:27.117Z
-                  start: 2026-03-23T14:26:27.117Z
-            quote:
-              breakup:
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "120.00"
-                  title: BASE_FARE
-                - item:
-                    id: I1
-                    price:
-                      currency: INR
-                      value: "-60"
-                    quantity:
-                      selected:
-                        count: 2
-                  price:
-                    currency: INR
-                    value: "-120.00"
-                  title: REFUND
-                - price:
-                    currency: INR
-                    value: "0.00"
-                  title: CANCELLATION_CHARGES
-              price:
-                currency: INR
-                value: "0.00"
-            status: CANCELLED
-            tags:
-              - descriptor:
-                  code: SCHEDULED_INFO
-                display: false
-                list:
-                  - descriptor:
-                      code: GTFS
-                    value: https://metro-transit/gtfs-realtime
-            updated_at: 2026-03-23T14:26:27.116Z
+            city:
+              code: "*"
+        message: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -3641,217 +600,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
-    examples:
-      - name: Example for action "on_cancel"
-        description: Auto-generated example for action "on_cancel" in flow
-          "TECHNICAL_CANCELLATION_FLOW"
-        payload:
-          context:
-            action: on_cancel
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller
-            domain: ONDC:TRV11
-            location:
-              city:
-                code: std:040
-              country:
-                code: IND
-            message_id: 09eaae26-d46d-4081-a505-156592fb28c8
-            timestamp: 2026-03-23T14:26:27.117Z
-            transaction_id: ef548e7e-76cf-454c-9098-75539b333c98
-            ttl: PT30S
-            version: 2.0.0
-          message:
-            order:
-              billing:
-                email: john.doe@example.com
-                name: John Doe
-                phone: +91-9897867564
-              cancellation:
-                cancelled_by: CONSUMER
-                reason:
-                  descriptor:
-                    code: "000"
-              cancellation_terms:
-                - external_ref:
-                    mimetype: text/html
-                    url: https://transitsolutions.com/mf/tnc.html
-              created_at: 2026-03-23T14:26:26.626Z
-              fulfillments:
-                - id: Fg9dzuyz
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fl719ru4
-                  stops:
-                    - id: "1"
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: 28.744676, 77.138332
-                      type: START
-                    - id: "2"
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: 28.738416, 77.139132
-                      parent_stop_id: "1"
-                      type: END
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-              id: jcnet3gm4yo
-              items:
-                - category_ids:
-                    - C1
-                  descriptor:
-                    code: SJT
-                    name: Single Journey Ticket
-                  fulfillment_ids:
-                    - Fg9dzuyz
-                    - Fl719ru4
-                  id: I1
-                  price:
-                    currency: INR
-                    value: "60"
-                  quantity:
-                    selected:
-                      count: 2
-                  time:
-                    duration: P2D
-                    label: Validity
-              payments:
-                - collected_by: BAP
-                  id: z54zuaprij
-                  params:
-                    amount: "120.00"
-                    bank_account_number: xxxxxxxxxxxxxx
-                    bank_code: XXXXXXXX
-                    currency: INR
-                    transaction_id: e79ab019-f2c8-4d94-954c-3f3911793e0b
-                  status: PAID
-                  tags:
-                    - descriptor:
-                        code: BUYER_FINDER_FEES
-                      display: false
-                      list:
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: "3"
-                        - descriptor:
-                            code: BUYER_FINDER_FEES_TYPE
-                          value: percent
-                    - descriptor:
-                        code: SETTLEMENT_TERMS
-                      display: false
-                      list:
-                        - descriptor:
-                            code: SETTLEMENT_AMOUNT
-                          value: "0"
-                        - descriptor:
-                            code: SETTLEMENT_WINDOW
-                          value: P30D
-                        - descriptor:
-                            code: SETTLEMENT_TYPE
-                          value: NEFT
-                        - descriptor:
-                            code: DELAY_INTEREST
-                          value: "2.5"
-                        - descriptor:
-                            code: STATIC_TERMS
-                          value: https://api.example-bap.com/booking/terms
-                        - descriptor:
-                            code: MANDATORY_ARBITRATION
-                          value: "true"
-                        - descriptor:
-                            code: COURT_JURISDICTION
-                          value: New Delhi
-                        - descriptor:
-                            code: SETTLEMENT_BASIS
-                          value: INVOICE_RECEIPT
-                  type: PRE-ORDER
-              provider:
-                descriptor:
-                  images:
-                    - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
-                id: P1
-                time:
-                  range:
-                    end: 2026-03-25T14:26:27.117Z
-                    start: 2026-03-23T14:26:27.117Z
-              quote:
-                breakup:
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "120.00"
-                    title: BASE_FARE
-                  - item:
-                      id: I1
-                      price:
-                        currency: INR
-                        value: "-60"
-                      quantity:
-                        selected:
-                          count: 2
-                    price:
-                      currency: INR
-                      value: "-120.00"
-                    title: REFUND
-                  - price:
-                      currency: INR
-                      value: "0.00"
-                    title: CANCELLATION_CHARGES
-                price:
-                  currency: INR
-                  value: "0.00"
-              status: CANCELLED
-              tags:
-                - descriptor:
-                    code: SCHEDULED_INFO
-                  display: false
-                  list:
-                    - descriptor:
-                        code: GTFS
-                      value: https://metro-transit/gtfs-realtime
-              updated_at: 2026-03-23T14:26:27.116Z
-        type: request
 transaction_history: []
 validationLib: ""
-helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0ZSgpIGZ1bmN0aW9ucy4KCVNvdXJjZTogc3JjL2xpYi9oZWxwZXJzL2RlZmF1bHQtaGVscGVycy5qcyDigJQgZWRpdCB0aGVyZSwgdGhlbiBydW4KCWBucG0gcnVuIGhlbHBlcnM6Z2VuYCB0byByZWZyZXNoLgoqLwoKCi8qCiAqIERlZmF1bHQgaGVscGVycyBhdmFpbGFibGUgdG8gZXZlcnkgYGdlbmVyYXRlKClgIGluIGEgbW9jayBzdGVwLgogKgogKiBBdXRob3JpbmcgcnVsZXM6CiAqICAgMS4gUHJlZmVyIGBmdW5jdGlvbmAgZGVjbGFyYXRpb25zIOKAlCB0aGV5IGhvaXN0LCBzbyBjcm9zcy1oZWxwZXIgY2FsbHMKICogICAgICB3b3JrIHJlZ2FyZGxlc3Mgb2Ygb3JkZXIuCiAqICAgMi4gTm8gYHJlcXVpcmVgIC8gYGltcG9ydGAgaW5zaWRlIGZ1bmN0aW9uIGJvZGllcy4gVGhlIFZNIHNhbmRib3ggaGFzIG5vCiAqICAgICAgbW9kdWxlIHN5c3RlbS4gT25seSBzYW5kYm94LXdoaXRlbGlzdGVkIGdsb2JhbHMgKE1hdGgsIERhdGUsIEpTT04sIOKApikKICogICAgICBhbmQgc2libGluZyBoZWxwZXJzIGFyZSBpbiBzY29wZS4KICogICAzLiBJZiB0aGUgaGVscGVyIG5lZWRzIHJlcXVlc3Qtc2NvcGUgZGF0YSwgdGFrZSBgc2Vzc2lvbkRhdGFgIGFzIGFuCiAqICAgICAgZXhwbGljaXQgcGFyYW1ldGVyLiBGcmVlLXZhcmlhYmxlIHJlZmVyZW5jZXMgdG8gYHNlc3Npb25EYXRhYCBkbyBOT1QKICogICAgICByZXNvbHZlIGF0IHJ1bnRpbWUg4oCUIGhlbHBlcnMgcnVuIGF0IHNjcmlwdCBzY29wZSwgYHNlc3Npb25EYXRhYCBpcwogKiAgICAgIG9ubHkgYSBwYXJhbWV0ZXIgb2YgYGdlbmVyYXRlKClgLgogKiAgIDQuIERvY3VtZW50IGV2ZXJ5IGhlbHBlciB3aXRoIGEgbGVhZGluZyBKU0RvYyBibG9jayAoYEBwYXJhbWAsIGBAcmV0dXJuc2ApLgogKgogKiBUaGUgZnVsbCBmaWxlIChtaW51cyB0aGUgdHJhaWxpbmcgYG1vZHVsZS5leHBvcnRzID0gey4uLn1gIGJsb2NrKSBpcwogKiBlbWJlZGRlZCB2ZXJiYXRpbSBpbnRvIHRoZSBzYW5kYm94IGJ1bmRsZSBieQogKiBgc2NyaXB0cy9nZW5lcmF0ZS1oZWxwZXJzLXNvdXJjZS5qc2AsIHNvIEpTRG9jIHJlYWNoZXMgZW5kIHVzZXJzIHVuY2hhbmdlZC4KICogUmUtcnVuIGBucG0gcnVuIGhlbHBlcnM6Z2VuYCBhZnRlciBlZGl0aW5nLgogKi8KCi8qKgogKiBSZXNvbHZlIHRoZSBCUFAgb3IgQkFQIHN1YnNjcmliZXIgVVJMIGZyb20gc2Vzc2lvbiBkYXRhLgogKgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgIHNlc3Npb24gZGF0YSAocmVhZHMgYGJwcFVyaWAgb3IgYGJhcFVyaWApCiAqIEBwYXJhbSB7ImJwcCJ8ImJhcCJ8c3RyaW5nfSB0eXBlICBzdWJzY3JpYmVyIGtpbmQ7IGFueXRoaW5nIG90aGVyIHRoYW4gImJwcCIgcmV0dXJucyBiYXBVcmkKICogQHJldHVybnMge3N0cmluZ30gdGhlIHN1YnNjcmliZXIgVVJMCiAqLwpmdW5jdGlvbiBnZXRTdWJzY3JpYmVyVXJsKHNlc3Npb25EYXRhLCB0eXBlKSB7CglpZiAodHlwZSA9PT0gImJwcCIpIHsKCQlyZXR1cm4gc2Vzc2lvbkRhdGEuYnBwVXJpOwoJfSBlbHNlIHsKCQlyZXR1cm4gc2Vzc2lvbkRhdGEuYmFwVXJpOwoJfQp9CgovKioKICogR2VuZXJhdGUgYSBVVUlEIHY0IChSRkMgNDEyMiwgcmFuZG9tLWJhc2VkKS4KICoKICogQHJldHVybnMge3N0cmluZ30gYSBuZXcgVVVJRCB2NCwgZS5nLiAiNTUwZTg0MDAtZTI5Yi00MWQ0LWE3MTYtNDQ2NjU1NDQwMDAwIgogKi8KZnVuY3Rpb24gdXVpZHY0KCkgewoJcmV0dXJuICJ4eHh4eHh4eC14eHh4LTR4eHgteXh4eC14eHh4eHh4eHh4eHgiLnJlcGxhY2UoL1t4eV0vZywgZnVuY3Rpb24gKGMpIHsKCQljb25zdCByID0gKE1hdGgucmFuZG9tKCkgKiAxNikgfCAwOwoJCWNvbnN0IHYgPSBjID09PSAieCIgPyByIDogKHIgJiAweDMpIHwgMHg4OwoJCXJldHVybiB2LnRvU3RyaW5nKDE2KTsKCX0pOwp9CgovKioKICogR2VuZXJhdGUgYSA2LWRpZ2l0IG51bWVyaWMgc3RyaW5nIElEIGluIFsxMDAwMDAsIDk5OTk5OV0uCiAqCiAqIEByZXR1cm5zIHtzdHJpbmd9IGEgemVyby1wYWRkZWQgNi1kaWdpdCBudW1lcmljIHN0cmluZwogKi8KZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8qKgogKiBHZXQgdGhlIGN1cnJlbnQgSVNPLTg2MDEgVVRDIHRpbWVzdGFtcC4KICoKICogQHJldHVybnMge3N0cmluZ30gZS5nLiAiMjAyNi0wNC0yM1QxMjozNDo1Ni43ODlaIgogKi8KZnVuY3Rpb24gY3VycmVudFRpbWVzdGFtcCgpIHsKCXJldHVybiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7Cn0KCi8qKgogKiBDb252ZXJ0IGFuIElTTyA4NjAxIGR1cmF0aW9uIHN0cmluZyAoZS5nLiAiUFQxSDMwTSIsICJQMkRUM0giKSB0byB0b3RhbCBzZWNvbmRzLgogKgogKiBBcHByb3hpbWF0aW9ucyB1c2VkOiAxIHdlZWsgPSA3IGRheXMsIDEgbW9udGgg4omIIDMwLjQyIGRheXMgKDI2MjgyODggc2VjKSwKICogMSB5ZWFyID0gMzY1IGRheXMuIE5vdCBjYWxlbmRhci1leGFjdC4KICoKICogQHBhcmFtIHtzdHJpbmd9IGR1cmF0aW9uICBJU08gODYwMSBkdXJhdGlvbiBzdHJpbmcKICogQHJldHVybnMge251bWJlcn0gdG90YWwgc2Vjb25kczsgMCB3aGVuIHRoZSBpbnB1dCBpcyB1bnBhcnNlYWJsZQogKi8KZnVuY3Rpb24gaXNvRHVyVG9TZWMoZHVyYXRpb24pIHsKCWNvbnN0IGR1clJFID0KCQkvUCgoXGQrKVkpPygoXGQrKU0pPygoXGQrKVcpPygoXGQrKUQpP1Q/KChcZCspSCk/KChcZCspTSk/KChcZCspUyk/LzsKCWNvbnN0IHMgPSBkdXJSRS5leGVjKGR1cmF0aW9uKTsKCWlmICghcykgcmV0dXJuIDA7CgoJcmV0dXJuICgKCQkoTnVtYmVyKHM/LlsyXSkgfHwgMCkgKiAzMTUzNjAwMCArCgkJKE51bWJlcihzPy5bNF0pIHx8IDApICogMjYyODI4OCArCgkJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCQkoTnVtYmVyKHM/Lls4XSkgfHwgMCkgKiA4NjQwMCArCgkJKE51bWJlcihzPy5bMTBdKSB8fCAwKSAqIDM2MDAgKwoJCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkJKE51bWJlcihzPy5bMTRdKSB8fCAwKQoJKTsKfQoKLyoqCiAqIE11dGF0ZSBgcGF5bG9hZC5jb250ZXh0YCBpbiBwbGFjZSB0byBzZXQgdGhlIGNpdHkgY29kZSBmcm9tIGBpbnB1dHMuY2l0eV9jb2RlYC4KICoKICogVmVyc2lvbi1hd2FyZTogT05EQyB2MS54IHVzZXMgZmxhdCBgY29udGV4dC5jaXR5YCwgdjIueCB1c2VzIG5lc3RlZAogKiBgY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGVgLiBGYWxscyBiYWNrIHRvICIqIiB3aGVuIGBjaXR5X2NvZGVgIGlzIG1pc3NpbmcuCiAqIE5vLW9wIHdoZW4gYGlucHV0c2AgaXMgZmFsc3kuCiAqCiAqIEBwYXJhbSB7T2JqZWN0fSBwYXlsb2FkICBwYXlsb2FkIHdpdGggYSBgY29udGV4dGAgdG8gbXV0YXRlCiAqIEBwYXJhbSB7T2JqZWN0fG51bGx8dW5kZWZpbmVkfSBpbnB1dHMgIG9iamVjdCB3aXRoIG9wdGlvbmFsIGBjaXR5X2NvZGVgCiAqIEByZXR1cm5zIHtzdHJpbmd8dW5kZWZpbmVkfSAiKiIgd2hlbiBpbnB1dHMgaXMgZmFsc3k7IG90aGVyd2lzZSB1bmRlZmluZWQKICovCmZ1bmN0aW9uIHNldENpdHlGcm9tSW5wdXRzKHBheWxvYWQsIGlucHV0cykgewoJaWYgKCFpbnB1dHMpIHJldHVybiAiKiI7Cgljb25zdCB2ZXJzaW9uID0KCQlwYXlsb2FkLmNvbnRleHQudmVyc2lvbiB8fCBwYXlsb2FkLmNvbnRleHQuY29yZV92ZXJzaW9uIHx8ICIyLjAuMCI7CglpZiAodmVyc2lvbi5zdGFydHNXaXRoKCIxIikpIHsKCQlwYXlsb2FkLmNvbnRleHQuY2l0eSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfSBlbHNlIHsKCQlwYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gaW5wdXRzLmNpdHlfY29kZSA/PyAiKiI7Cgl9Cn0KCi8qKgogKiBCdWlsZCBhIGZvcm0gc3VibWlzc2lvbiBVUkwgZnJvbSBzZXNzaW9uIGRhdGEuCiAqCiAqIEBwYXJhbSB7c3RyaW5nfSBkb21haW4gICAgICAgT05EQyBkb21haW4gKGUuZy4gIk9OREM6UkVUMTAiKQogKiBAcGFyYW0ge3N0cmluZ30gZm9ybUlkICAgICAgIGZvcm0gaWRlbnRpZmllcgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgIHJlYWRzIGBtb2NrQmFzZVVybGAsIGB0cmFuc2FjdGlvbklkWzBdYCwgYHNlc3Npb25JZGAKICogQHJldHVybnMge3N0cmluZ30gYCR7YmFzZVVSTH0vZm9ybXMvJHtkb21haW59LyR7Zm9ybUlkfS8/dHJhbnNhY3Rpb25faWQ9Li4uJnNlc3Npb25faWQ9Li4uYAogKi8KZnVuY3Rpb24gY3JlYXRlRm9ybVVSTChkb21haW4sIGZvcm1JZCwgc2Vzc2lvbkRhdGEpIHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovKioKICogR2VuZXJhdGUgYSBjb25zZW50IGhhbmRsZXIgZnJvbSB0aGUgRmludnUgQUEgU2VydmljZS4KICoKICogUmVhZHMgdGhlIHNlcnZpY2UgYmFzZSBVUkwgZnJvbSBgc2Vzc2lvbkRhdGEuZmludnVVcmxgIOKAlCB0aGUgaW5zdGFsbGluZwogKiBzZXJ2aWNlIE1VU1QgaW5jbHVkZSB0aGF0IG9yaWdpbiBpbgogKiAgIE1vY2tSdW5uZXIuaW5pdFNoYXJlZFJ1bm5lcih7IGFsbG93ZWRGZXRjaEJhc2VVcmxzOiBbLi4uXSB9KQogKiBvdGhlcndpc2UgdGhlIHNhbmRib3hlZCBmZXRjaCB3aWxsIGJlIGJsb2NrZWQuCiAqCiAqIFRpbWVzIG91dCBhZnRlciAxMHMgdmlhIEFib3J0Q29udHJvbGxlci4KICoKICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhICBzZXNzaW9uIGRhdGE7IGBzZXNzaW9uRGF0YS5maW52dVVybGAgaXMgcmVxdWlyZWQKICogQHBhcmFtIHtPYmplY3R9IHBhcmFtcwogKiBAcGFyYW0ge3N0cmluZ30gcGFyYW1zLmN1c3RJZCAgICAgICAgICAgICAgICBjdXN0b21lciBJRCAocmVxdWlyZWQpCiAqIEBwYXJhbSB7c3RyaW5nfSBbcGFyYW1zLnRlbXBsYXRlTmFtZV0gICAgICAgIGRlZmF1bHRzIHRvICJGSU5WVURFTU9fVEVTVElORyIKICogQHBhcmFtIHtzdHJpbmd9IFtwYXJhbXMuY29uc2VudERlc2NyaXB0aW9uXSAgZGVmYXVsdHMgdG8gIkdvbGQgTG9hbiBBY2NvdW50IEFnZ3JlZ2F0b3IgQ29uc2VudCIKICogQHBhcmFtIHtzdHJpbmd9IFtwYXJhbXMucmVkaXJlY3RVcmxdICAgICAgICAgZGVmYXVsdHMgdG8gImh0dHBzOi8vZ29vZ2xlLmNvLmluIgogKiBAcmV0dXJucyB7UHJvbWlzZTxzdHJpbmc+fSB0aGUgYGNvbnNlbnRIYW5kbGVyYCByZXR1cm5lZCBieSB0aGUgQUEgc2VydmljZQogKiBAdGhyb3dzIHtFcnJvcn0gd2hlbiBgY3VzdElkYCBvciBgc2Vzc2lvbkRhdGEuZmludnVVcmxgIGlzIG1pc3NpbmcsIG9uIG5vbi1PSwogKiAgIHJlc3BvbnNlLCBvbiBtaXNzaW5nIGBjb25zZW50SGFuZGxlcmAgaW4gdGhlIGJvZHksIG9yIG9uIDEwcyB0aW1lb3V0CiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZUNvbnNlbnRIYW5kbGVyKAoJc2Vzc2lvbkRhdGEsCgl7CgkJY3VzdElkLAoJCXRlbXBsYXRlTmFtZSA9ICJGSU5WVURFTU9fVEVTVElORyIsCgkJY29uc2VudERlc2NyaXB0aW9uID0gIkdvbGQgTG9hbiBBY2NvdW50IEFnZ3JlZ2F0b3IgQ29uc2VudCIsCgkJcmVkaXJlY3RVcmwgPSAiaHR0cHM6Ly9nb29nbGUuY28uaW4iLAoJfSwKKSB7CglpZiAoIWN1c3RJZCkgewoJCXRocm93IG5ldyBFcnJvcigiY3VzdElkIGlzIHJlcXVpcmVkIik7Cgl9Cgljb25zdCBiYXNlVXJsID0gc2Vzc2lvbkRhdGEgJiYgc2Vzc2lvbkRhdGEuZmludnVVcmw7CglpZiAoIWJhc2VVcmwpIHsKCQl0aHJvdyBuZXcgRXJyb3IoInNlc3Npb25EYXRhLmZpbnZ1VXJsIGlzIHJlcXVpcmVkIik7Cgl9CgoJY29uc3QgdXJsID0gYCR7YmFzZVVybH0vZmludnUtYWEvY29uc2VudC9nZW5lcmF0ZWA7CgoJY29uc3QgcGF5bG9hZCA9IHsKCQljdXN0SWQsCgkJdGVtcGxhdGVOYW1lLAoJCWNvbnNlbnREZXNjcmlwdGlvbiwKCQlyZWRpcmVjdFVybCwKCX07CgoJY29uc29sZS5sb2coIkNhbGxpbmcgRmludnUgQUEgU2VydmljZToiLCB1cmwpOwoJY29uc29sZS5sb2coIkNvbnNlbnQgcmVxdWVzdCBwYXlsb2FkOiIsIHBheWxvYWQpOwoKCWNvbnN0IGNvbnRyb2xsZXIgPSBuZXcgQWJvcnRDb250cm9sbGVyKCk7Cgljb25zdCB0aW1lb3V0ID0gc2V0VGltZW91dCgoKSA9PiBjb250cm9sbGVyLmFib3J0KCksIDEwMDAwKTsKCgl0cnkgewoJCWNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKHVybCwgewoJCQltZXRob2Q6ICJQT1NUIiwKCQkJaGVhZGVyczogewoJCQkJIkNvbnRlbnQtVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uIiwKCQkJfSwKCQkJYm9keTogSlNPTi5zdHJpbmdpZnkocGF5bG9hZCksCgkJCXNpZ25hbDogY29udHJvbGxlci5zaWduYWwsCgkJfSk7CgoJCWlmICghcmVzLm9rKSB7CgkJCWNvbnN0IHRleHQgPSBhd2FpdCByZXMudGV4dCgpOwoJCQl0aHJvdyBuZXcgRXJyb3IoYFJlcXVlc3QgZmFpbGVkOiAke3Jlcy5zdGF0dXN9ICR7dGV4dH1gKTsKCQl9CgoJCWNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpOwoKCQlpZiAoIWRhdGEgfHwgIWRhdGEuY29uc2VudEhhbmRsZXIpIHsKCQkJdGhyb3cgbmV3IEVycm9yKCJJbnZhbGlkIHJlc3BvbnNlOiBjb25zZW50SGFuZGxlciBtaXNzaW5nIik7CgkJfQoKCQlyZXR1cm4gZGF0YS5jb25zZW50SGFuZGxlcjsKCX0gY2F0Y2ggKGVycikgewoJCWlmIChlcnIgJiYgZXJyLm5hbWUgPT09ICJBYm9ydEVycm9yIikgewoJCQl0aHJvdyBuZXcgRXJyb3IoIlJlcXVlc3QgdGltZWQgb3V0IGFmdGVyIDEwIHNlY29uZHMiKTsKCQl9CgkJdGhyb3cgZXJyOwoJfSBmaW5hbGx5IHsKCQljbGVhclRpbWVvdXQodGltZW91dCk7Cgl9Cn0K
