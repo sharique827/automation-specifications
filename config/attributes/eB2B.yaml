@@ -2138,6 +2138,147 @@ attribute_set:
             info: <placeholder description>
             owner: BAP
             type: object
+        payments:
+          uri:
+            _description:
+              required: false
+              usage: https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
+              info: A payment uri to be called by the Buyer App. If empty, payment is done
+                offline
+              owner: BAP
+              type: string
+          tl_method:
+            _description:
+              required: false
+              usage: http/get
+              info: Payment transport method such as http/get, http/post, payto, or upi
+              owner: BAP
+              type: string
+          params:
+            transaction_id:
+              _description:
+                required: false
+                usage: 072ccd93-3928-49d4-b6ef-9c8bf69745f8
+                info: Value placed in the $transaction_id url param or request body
+                owner: BAP
+                type: string
+            transaction_status:
+              _description:
+                required: false
+                usage: PAID
+                info: Current status of the transaction
+                owner: BAP
+                type: string
+            amount:
+              _description:
+                required: false
+                usage: "1150.00"
+                info: Payment amount
+                owner: BAP
+                type: string
+            currency:
+              _description:
+                required: true
+                usage: INR
+                info: ISO 4217 alphabetic currency code
+                owner: BAP
+                type: string
+            _description:
+              required: false
+              usage: --
+              info: Parameters used for payment execution
+              owner: BAP
+              type: object
+          type:
+            _description:
+              required: false
+              usage: ON-FULFILLMENT
+              info: Indicates when the payment is expected to occur
+              owner: BAP
+              type: string
+          status:
+            _description:
+              required: false
+              usage: NOT-PAID
+              info: Payment status for the order
+              owner: BAP
+              type: string
+          time:
+            _description:
+              required: false
+              usage: 2024-12-23T07:01:43.145Z
+              info: Payment timestamp
+              owner: BAP
+              type: string
+          collected_by:
+            _description:
+              required: false
+              usage: BPP
+              info: Indicates who collects the payment
+              owner: BAP
+              type: string
+          "@ondc/org/buyer_app_finder_fee_type":
+            _description:
+              required: false
+              usage: amount
+              info: Buyer app finder fee type
+              owner: BAP
+              type: string
+          "@ondc/org/buyer_app_finder_fee_amount":
+            _description:
+              required: false
+              usage: "10.00"
+              info: Buyer app finder fee amount
+              owner: BAP
+              type: string
+          "@ondc/org/withholding_amount":
+            _description:
+              required: false
+              usage: "5.00"
+              info: Withholding amount
+              owner: BAP
+              type: string
+          "@ondc/org/return_window":
+            _description:
+              required: false
+              usage: PT24H
+              info: Return window for withholding amount
+              owner: BAP
+              type: string
+          "@ondc/org/settlement_basis":
+            _description:
+              required: false
+              usage: shipment
+              info: Basis for settlement between counterparties
+              owner: BAP
+              type: string
+          "@ondc/org/settlement_window":
+            _description:
+              required: false
+              usage: PT48H
+              info: Settlement window for the counterparty
+              owner: BAP
+              type: string
+          tags:
+            _description:
+              required: false
+              usage: --
+              info: Optional payment tags
+              owner: BAP
+              type: array
+          "@ondc/org/settlement_details":
+            _description:
+              required: false
+              usage: --
+              info: Settlement details for the payment
+              owner: BAP
+              type: array
+          _description:
+            required: false
+            usage: --
+            info: Describe the payment details associated with the order
+            owner: BAP
+            type: object
         _description:
           required: false
           usage: --
