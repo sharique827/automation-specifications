@@ -2,9 +2,6 @@ meta:
   domain: ONDC:RETeB2B
   version: 1.2.5
   flowId: Order_to_confirm_to_fulfillment_(cod)
-  description: Buyer Search & Quotation
-  flowName: Order to confirm to fulfillment (cod)
-  use_case_id: eB2B
 transaction_data:
   transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
   latest_timestamp: 1970-01-01T00:00:00.000Z
@@ -174,7 +171,6 @@ steps:
             - type
             - city_code
             - items
-    examples: []
   - api: on_select
     action_id: on_select
     owner: BPP
@@ -275,7 +271,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments
         saved_items: $.message.order.items[*]
       inputs: {}
-    examples: []
   - api: init
     action_id: init
     owner: BAP
@@ -329,9 +324,9 @@ steps:
               phone: "9876543210"
               created_at: 2025-01-08T09:00:00.000Z
               updated_at: 2025-01-08T09:00:00.000Z
-            payment:
-              type: ON-FULFILLMENT
-              collected_by: BPP
+            payments:
+              - type: ON-FULFILLMENT
+                collected_by: BPP
             fulfillments:
               - id: F1
                 type: Delivery
@@ -362,7 +357,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments
         saved_items: $.message.order.items
       inputs: {}
-    examples: []
   - api: on_init
     action_id: on_init
     owner: BPP
@@ -472,23 +466,23 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              type: ON-ORDER
-              collected_by: BPP
-              uri: https://snp.com/pg
-              status: NOT-PAID
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - type: ON-ORDER
+                collected_by: BPP
+                uri: https://snp.com/pg
+                status: NOT-PAID
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -516,7 +510,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples: []
   - api: confirm
     action_id: confirm
     owner: BAP
@@ -631,31 +624,31 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              uri: https://ondc.transaction.com/payment
-              tl_method: http/get
-              params:
-                currency: INR
-                transaction_id: "3937"
-                amount: "1150"
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - uri: https://ondc.transaction.com/payment
+                tl_method: http/get
+                params:
+                  currency: INR
+                  transaction_id: "3937"
+                  amount: "1150"
+                status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -689,7 +682,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples: []
   - api: on_confirm
     action_id: on_confirm
     owner: BPP
@@ -821,28 +813,28 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              params:
-                currency: INR
-                amount: "1150.00"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  beneficiary_name: ABC Distributors
-                  settlement_type: upi
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                params:
+                  currency: INR
+                  amount: "1150.00"
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    beneficiary_name: ABC Distributors
+                    settlement_type: upi
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -874,7 +866,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_accepted
     owner: BPP
@@ -1022,25 +1013,25 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:03:35.230Z
       saveData:
@@ -1055,7 +1046,6 @@ steps:
         last_updated_at: $.message.order.updated_at
         saved_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_packed
     owner: BPP
@@ -1201,25 +1191,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:03:35.230Z
       saveData:
@@ -1234,7 +1224,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_agent_assigned
     owner: BPP
@@ -1382,25 +1371,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:04:58.230Z
       saveData:
@@ -1415,7 +1404,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_picked
     owner: BPP
@@ -1562,25 +1550,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -1595,7 +1583,6 @@ steps:
         bppUri: $.context.bpp_uri
         message_id: $.context.message_id
       inputs: {}
-    examples: []
   - api: track
     action_id: track
     owner: BAP
@@ -1632,7 +1619,6 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
       inputs: {}
-    examples: []
   - api: on_track
     action_id: on_track
     owner: BPP
@@ -1706,7 +1692,6 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_out_for_delivery
     owner: BPP
@@ -1853,25 +1838,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -1889,7 +1874,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples: []
   - api: on_status
     action_id: on_status_order_delivered
     owner: BPP
@@ -2037,25 +2021,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -2073,16 +2057,15 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples: []
 transaction_history:
   - action_id: select
     payload:
       context:
         domain: ONDC:RETeB2B
         action: select
-        timestamp: 2026-04-08T07:20:50.359Z
+        timestamp: 2026-05-06T08:54:44.295Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: e8f5e4b3-efdb-4c48-90f0-947840afca8f
+        message_id: 2b40f223-b5f3-4377-a056-667948c77295
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2098,13 +2081,11 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 12
+                count: 1
               fulfillment_id: F1
-          offers:
-            - id: discp10
           fulfillments:
             - end:
                 location:
@@ -2123,9 +2104,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_select
-        timestamp: 2026-04-08T07:20:50.379Z
+        timestamp: 2026-05-06T08:54:44.320Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: e8f5e4b3-efdb-4c48-90f0-947840afca8f
+        message_id: 2b40f223-b5f3-4377-a056-667948c77295
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2157,33 +2138,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2196,16 +2167,14 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
-                count: 12
-          offers:
-            - id: discp10
+                count: 1
     action: on_select
     saved_info: {}
   - action_id: init
@@ -2213,9 +2182,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: init
-        timestamp: 2026-04-08T07:20:50.425Z
+        timestamp: 2026-05-06T08:54:44.354Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: c7ee8473-f0e0-48ca-bfa8-2c0983815e49
+        message_id: f90d6330-19a8-4c68-a83f-193d20303c4d
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2231,10 +2200,10 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 12
+                count: 1
               fulfillment_id: F1
           offers:
             - id: discp10
@@ -2251,11 +2220,11 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.425Z
-            updated_at: 2026-04-08T07:20:50.425Z
-          payment:
-            type: ON-FULFILLMENT
-            collected_by: BPP
+            created_at: 2026-05-06T08:54:44.354Z
+            updated_at: 2026-05-06T08:54:44.354Z
+          payments:
+            - type: ON-FULFILLMENT
+              collected_by: BPP
           fulfillments:
             - id: F1
               type: Delivery
@@ -2279,33 +2248,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2318,7 +2277,7 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
     action: init
     saved_info: {}
@@ -2327,9 +2286,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_init
-        timestamp: 2026-04-08T07:20:50.463Z
+        timestamp: 2026-05-06T08:54:44.370Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: c7ee8473-f0e0-48ca-bfa8-2c0983815e49
+        message_id: f90d6330-19a8-4c68-a83f-193d20303c4d
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2345,10 +2304,10 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 12
+                count: 1
               fulfillment_id: F1
           billing:
             name: Sharma Kirana Store
@@ -2363,8 +2322,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.463Z
-            updated_at: 2026-04-08T07:20:50.463Z
+            created_at: 2026-05-06T08:54:44.370Z
+            updated_at: 2026-05-06T08:54:44.370Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -2389,33 +2348,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2428,24 +2377,25 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            status: NOT-PAID
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - type: ON-ORDER
+              collected_by: BPP
+              uri: https://snp.com/pg
+              status: NOT-PAID
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2458,9 +2408,10 @@ transaction_history:
                 - code: credit_limit
                   value: "25000.00"
                 - code: valid_till
-                  value: 2026-07-07T07:20:50.463Z
-          offers:
-            - id: discp10
+                  value: 2026-08-04T08:54:44.370Z
+          payment:
+            type: ON-FULFILLMENT
+            collected_by: BPP
     action: on_init
     saved_info: {}
   - action_id: confirm
@@ -2468,9 +2419,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: confirm
-        timestamp: 2026-04-08T07:20:50.524Z
+        timestamp: 2026-05-06T08:54:44.387Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 7a641af6-c6a9-466b-97a6-ffb98e867fbd
+        message_id: 6524ad6f-39d6-43b8-88cc-6bdb7d556b82
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2481,17 +2432,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: Created
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -2506,8 +2457,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.524Z
-            updated_at: 2026-04-08T07:20:50.524Z
+            created_at: 2026-05-06T08:54:44.387Z
+            updated_at: 2026-05-06T08:54:44.387Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -2534,33 +2485,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2573,30 +2514,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            params:
-              currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - uri: https://ondc.transaction.com/payment
+              tl_method: http/get
+              params:
+                currency: INR
+                transaction_id: "3937"
+                amount: "1150"
+              status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2612,10 +2556,16 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T07:20:50.524Z
-          updated_at: 2026-04-08T07:20:50.524Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T08:54:44.387Z
+          updated_at: 2026-05-06T08:54:44.387Z
+          payment:
+            params:
+              amount: "52.00"
+              currency: INR
+            type: ON-FULFILLMENT
+            status: NOT-PAID
+            collected_by: BPP
+            "@ondc/org/settlement_basis": delivery
     action: confirm
     saved_info: {}
   - action_id: on_confirm
@@ -2623,9 +2573,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_confirm
-        timestamp: 2026-04-08T07:20:50.583Z
+        timestamp: 2026-05-06T08:54:44.398Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 7a641af6-c6a9-466b-97a6-ffb98e867fbd
+        message_id: 6524ad6f-39d6-43b8-88cc-6bdb7d556b82
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2636,17 +2586,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: Accepted
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -2661,8 +2611,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.583Z
-            updated_at: 2026-04-08T07:20:50.583Z
+            created_at: 2026-05-06T08:54:44.398Z
+            updated_at: 2026-05-06T08:54:44.398Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": ABC Distributors
@@ -2707,33 +2657,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2746,30 +2686,30 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            params:
-              currency: INR
-              amount: "1150.00"
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                beneficiary_name: ABC Distributors
-                settlement_type: upi
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              params:
+                currency: INR
+                amount: "1150.00"
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  beneficiary_name: ABC Distributors
+                  settlement_type: upi
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2785,10 +2725,8 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T07:20:50.583Z
-          updated_at: 2026-04-08T07:20:50.583Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T08:54:44.398Z
+          updated_at: 2026-05-06T08:54:44.398Z
     action: on_confirm
     saved_info: {}
   - action_id: on_status_accepted
@@ -2796,9 +2734,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.614Z
+        timestamp: 2026-05-06T08:54:44.414Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 72de41ad-21c2-4487-950c-5a5119778c69
+        message_id: 275668be-774d-4fdb-b908-de9e3d9f87f7
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2809,17 +2747,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: Accepted
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -2834,8 +2772,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.614Z
-            updated_at: 2026-04-08T07:20:50.614Z
+            created_at: 2026-05-06T08:54:44.414Z
+            updated_at: 2026-05-06T08:54:44.414Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -2866,7 +2804,7 @@ transaction_history:
                     locality: my street name
                     name: my house or door or floor
                 time:
-                  timestamp: 2026-04-08T07:20:50.614Z
+                  timestamp: 2026-05-06T08:54:44.414Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -2887,7 +2825,7 @@ transaction_history:
                     locality: my street name
                     name: my house or door or floor
                 time:
-                  timestamp: 2026-04-08T07:20:50.614Z
+                  timestamp: 2026-05-06T08:54:44.414Z
               tags:
                 - code: routing
                   list:
@@ -2908,33 +2846,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2947,34 +2875,37 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T08:54:44.414Z
+          updated_at: 2026-05-06T08:54:44.414Z
           payment:
             params:
+              amount: "52.00"
               currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
             type: ON-FULFILLMENT
+            status: NOT-PAID
             collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
             "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:20:50.614Z
-          updated_at: 2026-04-08T07:20:50.614Z
-          offers:
-            - id: discp10
     action: on_status
     saved_info: {}
   - action_id: on_status_packed
@@ -2982,9 +2913,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.645Z
+        timestamp: 2026-05-06T08:54:44.429Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 3f490ed5-b600-4ca5-8708-024f1ef5046d
+        message_id: 7b0aed14-f5f5-421e-93f8-e66840e595d7
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2995,17 +2926,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -3020,8 +2951,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.645Z
-            updated_at: 2026-04-08T07:20:50.645Z
+            created_at: 2026-05-06T08:54:44.429Z
+            updated_at: 2026-05-06T08:54:44.429Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -3053,8 +2984,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:30:50.645Z
-                    end: 2026-04-08T07:40:50.645Z
+                    start: 2026-05-06T09:04:44.429Z
+                    end: 2026-05-06T09:14:44.429Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -3076,8 +3007,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:40:50.645Z
-                    end: 2026-04-08T08:30:50.645Z
+                    start: 2026-05-06T09:14:44.429Z
+                    end: 2026-05-06T10:04:44.429Z
               tags:
                 - code: routing
                   list:
@@ -3098,33 +3029,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3137,34 +3058,37 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T08:54:44.429Z
+          updated_at: 2026-05-06T08:54:44.429Z
           payment:
             params:
+              amount: "52.00"
               currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
             type: ON-FULFILLMENT
+            status: NOT-PAID
             collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
             "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:20:50.645Z
-          updated_at: 2026-04-08T07:20:50.645Z
-          offers:
-            - id: discp10
     action: on_status
     saved_info: {}
   - action_id: on_status_agent_assigned
@@ -3172,9 +3096,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.682Z
+        timestamp: 2026-05-06T08:54:44.457Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: d7acaa8f-59e6-4ed1-bf93-36736fc5cf8b
+        message_id: b31a1814-c873-4c68-9f29-37841b17897c
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3185,17 +3109,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -3210,8 +3134,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.682Z
-            updated_at: 2026-04-08T07:20:50.682Z
+            created_at: 2026-05-06T08:54:44.457Z
+            updated_at: 2026-05-06T08:54:44.457Z
           offers:
             - id: discp10
           fulfillments:
@@ -3245,8 +3169,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:30:50.645Z
-                    end: 2026-04-08T07:40:50.645Z
+                    start: 2026-05-06T09:04:44.429Z
+                    end: 2026-05-06T09:14:44.429Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -3268,8 +3192,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:40:50.645Z
-                    end: 2026-04-08T08:30:50.645Z
+                    start: 2026-05-06T09:14:44.429Z
+                    end: 2026-05-06T10:04:44.429Z
               tags:
                 - code: routing
                   list:
@@ -3290,33 +3214,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3329,32 +3243,37 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T08:54:44.457Z
+          updated_at: 2026-05-06T08:54:44.457Z
           payment:
             params:
+              amount: "52.00"
               currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
             type: ON-FULFILLMENT
+            status: NOT-PAID
             collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
             "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:20:50.682Z
-          updated_at: 2026-04-08T07:20:50.682Z
     action: on_status
     saved_info: {}
   - action_id: on_status_picked
@@ -3362,9 +3281,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.714Z
+        timestamp: 2026-05-06T08:54:44.492Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 21a6275b-0d42-42cb-89a7-6042a9341d5e
+        message_id: 771ea016-2ff9-47d5-b678-78b67d8b74eb
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3375,17 +3294,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -3400,8 +3319,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.714Z
-            updated_at: 2026-04-08T07:20:50.714Z
+            created_at: 2026-05-06T08:54:44.492Z
+            updated_at: 2026-05-06T08:54:44.492Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -3433,9 +3352,9 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:30:50.645Z
-                    end: 2026-04-08T07:40:50.645Z
-                  timestamp: 2026-04-08T07:20:50.714Z
+                    start: 2026-05-06T09:04:44.429Z
+                    end: 2026-05-06T09:14:44.429Z
+                  timestamp: 2026-05-06T08:54:44.492Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -3457,8 +3376,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:40:50.645Z
-                    end: 2026-04-08T08:30:50.645Z
+                    start: 2026-05-06T09:14:44.429Z
+                    end: 2026-05-06T10:04:44.429Z
               tags:
                 - code: routing
                   list:
@@ -3479,33 +3398,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3518,35 +3427,40 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            params:
-              currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:20:50.714Z
-          updated_at: 2026-04-08T07:20:50.714Z
+          created_at: 2026-05-06T08:54:44.492Z
+          updated_at: 2026-05-06T08:54:44.492Z
+          payment:
+            params:
+              amount: "52.00"
+              currency: INR
+            type: ON-FULFILLMENT
+            status: NOT-PAID
+            collected_by: BPP
+            "@ondc/org/settlement_basis": delivery
     action: on_status
     saved_info: {}
   - action_id: track
@@ -3554,9 +3468,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: track
-        timestamp: 2026-04-08T07:20:50.745Z
+        timestamp: 2026-05-06T08:54:44.523Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 22283450-9967-499e-b52b-b1f5e3eb37fa
+        message_id: c3fab59c-1ed8-40d7-aeeb-a2e62c5d213d
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3566,7 +3480,7 @@ transaction_history:
         city: std:060
         core_version: 1.2.5
       message:
-        order_id: "731022"
+        order_id: "460162"
     action: track
     saved_info: {}
   - action_id: on_track
@@ -3574,9 +3488,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_track
-        timestamp: 2026-04-08T07:20:50.776Z
+        timestamp: 2026-05-06T08:54:44.537Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 21a6275b-0d42-42cb-89a7-6042a9341d5e
+        message_id: 771ea016-2ff9-47d5-b678-78b67d8b74eb
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3591,15 +3505,15 @@ transaction_history:
           location:
             gps: 12.9740,77.6134
             time:
-              timestamp: 2026-04-08T07:20:50.776Z
-            updated_at: 2026-04-08T07:20:50.776Z
+              timestamp: 2026-05-06T08:54:44.537Z
+            updated_at: 2026-05-06T08:54:44.537Z
           url: https://snp.com/ondc/tracking/F1
           status: active
           tags:
             - code: order
               list:
                 - code: id
-                  value: "731022"
+                  value: "460162"
             - code: config
               list:
                 - code: attr
@@ -3631,9 +3545,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.807Z
+        timestamp: 2026-05-06T08:54:44.552Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 200cda99-358b-4e4a-a0aa-16e1379d3cd4
+        message_id: c545aa6a-6e64-43ab-94df-ce629a8b7ae6
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3644,17 +3558,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -3669,8 +3583,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.807Z
-            updated_at: 2026-04-08T07:20:50.807Z
+            created_at: 2026-05-06T08:54:44.552Z
+            updated_at: 2026-05-06T08:54:44.552Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -3702,8 +3616,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:30:50.645Z
-                    end: 2026-04-08T07:40:50.645Z
+                    start: 2026-05-06T09:04:44.429Z
+                    end: 2026-05-06T09:14:44.429Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -3725,8 +3639,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:40:50.645Z
-                    end: 2026-04-08T08:30:50.645Z
+                    start: 2026-05-06T09:14:44.429Z
+                    end: 2026-05-06T10:04:44.429Z
               tags:
                 - code: routing
                   list:
@@ -3747,33 +3661,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3786,37 +3690,40 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            params:
-              currency: INR
-              amount: "2484.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:20:50.807Z
-          updated_at: 2026-04-08T07:20:50.807Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T08:54:44.552Z
+          updated_at: 2026-05-06T08:54:44.552Z
+          payment:
+            params:
+              amount: "52.00"
+              currency: INR
+            type: ON-FULFILLMENT
+            status: NOT-PAID
+            collected_by: BPP
+            "@ondc/org/settlement_basis": delivery
     action: on_status
     saved_info: {}
   - action_id: on_status_order_delivered
@@ -3824,9 +3731,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:20:50.845Z
+        timestamp: 2026-05-06T08:54:44.567Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 20ba05f2-2388-405b-9784-e49aee9f3b06
+        message_id: c9c559d9-0b10-4768-8bd6-fa1f1c555129
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3837,17 +3744,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "731022"
+          id: "460162"
           state: Completed
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 12
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -3862,8 +3769,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:20:50.845Z
-            updated_at: 2026-04-08T07:20:50.845Z
+            created_at: 2026-05-06T08:54:44.567Z
+            updated_at: 2026-05-06T08:54:44.567Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -3895,8 +3802,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:30:50.645Z
-                    end: 2026-04-08T07:40:50.645Z
+                    start: 2026-05-06T09:04:44.429Z
+                    end: 2026-05-06T09:14:44.429Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -3918,9 +3825,9 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:40:50.645Z
-                    end: 2026-04-08T08:30:50.645Z
-                  timestamp: 2026-04-08T07:20:50.845Z
+                    start: 2026-05-06T09:14:44.429Z
+                    end: 2026-05-06T10:04:44.429Z
+                  timestamp: 2026-05-06T08:54:44.567Z
               tags:
                 - code: routing
                   list:
@@ -3941,33 +3848,23 @@ transaction_history:
                     code: std:060
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 12
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "2760.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-276.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-276.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3980,37 +3877,40 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2484.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            params:
-              currency: INR
-              amount: "2484.00"
-            status: PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:20:50.845Z
-          updated_at: 2026-04-08T07:20:50.845Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T08:54:44.567Z
+          updated_at: 2026-05-06T08:54:44.567Z
+          payment:
+            params:
+              amount: "52.00"
+              currency: INR
+            type: ON-FULFILLMENT
+            status: PAID
+            collected_by: BPP
+            "@ondc/org/settlement_basis": delivery
     action: on_status
     saved_info: {}
 validationLib: ""

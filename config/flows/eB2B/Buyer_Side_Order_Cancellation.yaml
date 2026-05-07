@@ -480,9 +480,9 @@ steps:
               phone: "9876543210"
               created_at: 2025-01-08T09:00:00.000Z
               updated_at: 2025-01-08T09:00:00.000Z
-            payment:
-              type: ON-FULFILLMENT
-              collected_by: BPP
+            payments:
+              - type: ON-FULFILLMENT
+                collected_by: BPP
             fulfillments:
               - id: F1
                 type: Delivery
@@ -747,23 +747,23 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              type: ON-ORDER
-              collected_by: BPP
-              uri: https://snp.com/pg
-              status: NOT-PAID
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - type: ON-ORDER
+                collected_by: BPP
+                uri: https://snp.com/pg
+                status: NOT-PAID
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -1055,31 +1055,31 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              uri: https://ondc.transaction.com/payment
-              tl_method: http/get
-              params:
-                currency: INR
-                transaction_id: "3937"
-                amount: "1150"
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - uri: https://ondc.transaction.com/payment
+                tl_method: http/get
+                params:
+                  currency: INR
+                  transaction_id: "3937"
+                  amount: "1150"
+                status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -1410,28 +1410,28 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              params:
-                currency: INR
-                amount: "1150.00"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  beneficiary_name: ABC Distributors
-                  settlement_type: upi
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                params:
+                  currency: INR
+                  amount: "1150.00"
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    beneficiary_name: ABC Distributors
+                    settlement_type: upi
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -1903,28 +1903,28 @@ steps:
                     currency: INR
                     value: "0"
               ttl: P1D
-            payment:
-              uri: https://razorpay.com/
-              tl_method: http/get
-              params:
-                amount: "2853.75"
-                currency: INR
-                transaction_id: 043e401b-8dc8-457a-b4cd-5a32180c4e05
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  upi_address: gft@oksbi
-                  settlement_bank_account_no: "34234343434"
-                  settlement_ifsc_code: SBIN0000123
-                  beneficiary_name: Seller Name
-                  bank_name: SBI
-                  branch_name: Nellore
+            payments:
+              - uri: https://razorpay.com/
+                tl_method: http/get
+                params:
+                  amount: "2853.75"
+                  currency: INR
+                  transaction_id: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    upi_address: gft@oksbi
+                    settlement_bank_account_no: "34234343434"
+                    settlement_ifsc_code: SBIN0000123
+                    beneficiary_name: Seller Name
+                    bank_name: SBI
+                    branch_name: Nellore
             id: 2024-08-08-250723
             created_at: 2024-08-08T07:41:04.771Z
             updated_at: 2024-08-08T07:41:39.871Z
@@ -2193,9 +2193,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: select
-        timestamp: 2026-04-08T08:22:58.754Z
+        timestamp: 2026-05-06T10:53:27.183Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 486624f3-4dd7-46af-8566-f40e9e25ef25
+        message_id: 0e3afa86-41bd-4145-b158-4075e3a19b73
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2211,13 +2211,11 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I5
+            - id: I1
               location_id: L1
               quantity:
-                count: 10
+                count: 1
               fulfillment_id: F1
-          offers:
-            - id: flat150
           fulfillments:
             - id: F1
               type: Delivery
@@ -2238,9 +2236,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_select
-        timestamp: 2026-04-08T08:22:58.790Z
+        timestamp: 2026-05-06T10:53:27.207Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 486624f3-4dd7-46af-8566-f40e9e25ef25
+        message_id: 0e3afa86-41bd-4145-b158-4075e3a19b73
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2267,33 +2265,23 @@ transaction_history:
                   code: Serviceable
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 10
-                title: Coca-Cola 300ml (Case of 24)
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "4800.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-150.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2306,16 +2294,14 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "4650.00"
+              value: "52.00"
             ttl: P1D
           items:
-            - id: I5
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
-                count: 10
-          offers:
-            - id: flat150
+                count: 1
     action: on_select
     saved_info: {}
   - action_id: init
@@ -2323,9 +2309,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: init
-        timestamp: 2026-04-08T08:22:58.843Z
+        timestamp: 2026-05-06T10:53:27.235Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 99548d7c-b2ef-4156-9ebc-360a4d936897
+        message_id: 7f12fa0e-9f35-4f8f-a244-80affc08c309
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2341,11 +2327,11 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I5
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
-                count: 10
+                count: 1
           offers:
             - id: discp10
           billing:
@@ -2361,11 +2347,11 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T08:22:58.843Z
-            updated_at: 2026-04-08T08:22:58.843Z
-          payment:
-            type: ON-FULFILLMENT
-            collected_by: BPP
+            created_at: 2026-05-06T10:53:27.235Z
+            updated_at: 2026-05-06T10:53:27.235Z
+          payments:
+            - type: ON-FULFILLMENT
+              collected_by: BPP
           fulfillments:
             - id: F1
               type: Delivery
@@ -2384,33 +2370,23 @@ transaction_history:
                   phone: "9876543210"
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 10
-                title: Coca-Cola 300ml (Case of 24)
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "4800.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-150.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2423,7 +2399,7 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "4650.00"
+              value: "52.00"
             ttl: P1D
     action: init
     saved_info: {}
@@ -2432,9 +2408,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_init
-        timestamp: 2026-04-08T08:22:58.867Z
+        timestamp: 2026-05-06T10:53:27.252Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 99548d7c-b2ef-4156-9ebc-360a4d936897
+        message_id: 7f12fa0e-9f35-4f8f-a244-80affc08c309
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2450,11 +2426,11 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I5
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
-                count: 10
+                count: 1
           billing:
             name: Sharma Kirana Store
             address:
@@ -2468,8 +2444,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T08:22:58.867Z
-            updated_at: 2026-04-08T08:22:58.867Z
+            created_at: 2026-05-06T10:53:27.252Z
+            updated_at: 2026-05-06T10:53:27.252Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -2489,33 +2465,23 @@ transaction_history:
                   phone: "9876543210"
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 10
-                title: Coca-Cola 300ml (Case of 24)
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "4800.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-150.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2528,25 +2494,25 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "4650.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            type: ON-ORDER
-            collected_by: BPP
-            uri: https://snp.com/pg
-            status: NOT-PAID
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - type: ON-ORDER
+              collected_by: BPP
+              uri: https://snp.com/pg
+              status: NOT-PAID
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2559,7 +2525,7 @@ transaction_history:
                 - code: credit_limit
                   value: "25000.00"
                 - code: valid_till
-                  value: 2026-07-07T08:22:58.867Z
+                  value: 2026-08-04T10:53:27.252Z
     action: on_init
     saved_info: {}
   - action_id: confirm
@@ -2567,9 +2533,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: confirm
-        timestamp: 2026-04-08T08:22:58.883Z
+        timestamp: 2026-05-06T10:53:27.265Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: aac74287-74ca-467a-ae7f-6b0fc8979e8b
+        message_id: 401eea60-6d68-4046-aec6-e5808f743bec
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2580,18 +2546,18 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "117732"
+          id: "609703"
           state: Created
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I5
+            - id: I1
               fulfillment_id: F1
               location_id: L1
               quantity:
-                count: 10
+                count: 1
           billing:
             name: Sharma Kirana Store
             address:
@@ -2605,8 +2571,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T08:22:58.883Z
-            updated_at: 2026-04-08T08:22:58.883Z
+            created_at: 2026-05-06T10:53:27.265Z
+            updated_at: 2026-05-06T10:53:27.265Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -2628,33 +2594,23 @@ transaction_history:
                   email: sharma.kirana@email.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 10
-                title: Coca-Cola 300ml (Case of 24)
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "4800.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-150.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2667,33 +2623,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "4650.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "6176"
-              amount: "4650.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - uri: https://ondc.transaction.com/payment
+              tl_method: http/get
+              params:
+                currency: INR
+                transaction_id: "3937"
+                amount: "1150"
+              status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2709,8 +2665,12 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T08:22:58.883Z
-          updated_at: 2026-04-08T08:22:58.883Z
+          created_at: 2026-05-06T10:53:27.265Z
+          updated_at: 2026-05-06T10:53:27.265Z
+          payment:
+            params:
+              transaction_id: "1529"
+              amount: "52.00"
     action: confirm
     saved_info: {}
   - action_id: on_confirm
@@ -2718,9 +2678,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_confirm
-        timestamp: 2026-04-08T08:22:58.910Z
+        timestamp: 2026-05-06T10:53:27.277Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: aac74287-74ca-467a-ae7f-6b0fc8979e8b
+        message_id: 401eea60-6d68-4046-aec6-e5808f743bec
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2731,18 +2691,18 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "117732"
+          id: "609703"
           state: Accepted
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I5
+            - id: I1
               fulfillment_id: F1
               location_id: L1
               quantity:
-                count: 10
+                count: 1
           billing:
             name: Sharma Kirana Store
             address:
@@ -2756,8 +2716,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T08:22:58.910Z
-            updated_at: 2026-04-08T08:22:58.910Z
+            created_at: 2026-05-06T10:53:27.277Z
+            updated_at: 2026-05-06T10:53:27.277Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": ABC Distributors
@@ -2797,33 +2757,23 @@ transaction_history:
                   email: sharma.kirana@email.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 10
-                title: Coca-Cola 300ml (Case of 24)
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "4800.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-150.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -2836,30 +2786,30 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "4650.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            params:
-              currency: INR
-              amount: "4650.00"
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                beneficiary_name: ABC Distributors
-                settlement_type: upi
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              params:
+                currency: INR
+                amount: "1150.00"
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  beneficiary_name: ABC Distributors
+                  settlement_type: upi
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -2877,8 +2827,11 @@ transaction_history:
                   value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T08:22:58.910Z
-          updated_at: 2026-04-08T08:22:58.910Z
+          created_at: 2026-05-06T10:53:27.277Z
+          updated_at: 2026-05-06T10:53:27.277Z
+          payment:
+            params:
+              amount: "52.00"
     action: on_confirm
     saved_info: {}
   - action_id: cancel
@@ -2886,9 +2839,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: cancel
-        timestamp: 2026-04-08T08:22:58.924Z
+        timestamp: 2026-05-06T10:53:27.283Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: d94da1fe-db76-4ef6-b536-2a99bf5f767e
+        message_id: c133c913-96a4-43fc-976a-8677cb4c589a
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2898,7 +2851,7 @@ transaction_history:
         city: std:060
         core_version: 1.2.5
       message:
-        order_id: "117732"
+        order_id: "609703"
         cancellation_reason_id: "051"
         descriptor:
           name: fulfillment
@@ -2917,9 +2870,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_cancel
-        timestamp: 2026-04-08T08:22:58.956Z
+        timestamp: 2026-05-06T10:53:27.297Z
         transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: d94da1fe-db76-4ef6-b536-2a99bf5f767e
+        message_id: c133c913-96a4-43fc-976a-8677cb4c589a
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -2932,14 +2885,14 @@ transaction_history:
         order:
           state: Cancelled
           items:
-            - id: I5
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
                 count: 0
-            - id: I5
+            - id: I1
               quantity:
-                count: 10
+                count: 1
               fulfillment_id: cancel_id_8189
           provider:
             id: P1
@@ -2958,8 +2911,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T08:22:58.956Z
-            updated_at: 2026-04-08T08:22:58.956Z
+            created_at: 2026-05-06T10:53:27.297Z
+            updated_at: 2026-05-06T10:53:27.297Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": ABC Distributors
@@ -3011,7 +2964,7 @@ transaction_history:
                     - code: fulfillment_state
                       value: Pending
                     - code: updated_at
-                      value: 2026-04-08T08:22:58.956Z
+                      value: 2026-05-06T10:53:27.297Z
             - id: cancel_id_8189
               type: Cancel
               state:
@@ -3023,27 +2976,17 @@ transaction_history:
                     - code: type
                       value: item
                     - code: id
-                      value: I5
+                      value: I1
                     - code: currency
                       value: INR
                     - code: value
-                      value: "-4800.00"
-                - code: quote_trail
-                  list:
-                    - code: type
-                      value: discount
-                    - code: id
-                      value: I5
-                    - code: currency
-                      value: INR
-                    - code: value
-                      value: "150.00"
+                      value: "-52.00"
           quote:
             breakup:
-              - "@ondc/org/item_id": I5
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
                   count: 0
-                title: Coca-Cola 300ml (Case of 24)
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
@@ -3051,22 +2994,12 @@ transaction_history:
                 item:
                   price:
                     currency: INR
-                    value: "480.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I5
-                title: Discount (flat150)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-150.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -3081,38 +3014,39 @@ transaction_history:
               currency: INR
               value: "0.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "6176"
-              amount: "4650.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          id: "117732"
-          created_at: 2026-04-08T08:22:58.956Z
-          updated_at: 2026-04-08T08:22:58.956Z
+          payments:
+            - uri: https://razorpay.com/
+              tl_method: http/get
+              params:
+                amount: "2853.75"
+                currency: INR
+                transaction_id: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  upi_address: gft@oksbi
+                  settlement_bank_account_no: "34234343434"
+                  settlement_ifsc_code: SBIN0000123
+                  beneficiary_name: Seller Name
+                  bank_name: SBI
+                  branch_name: Nellore
+          id: "609703"
+          created_at: 2026-05-06T10:53:27.297Z
+          updated_at: 2026-05-06T10:53:27.297Z
           cancellation:
             cancelled_by: sample-bap-id
             reason:
               id: "051"
+          payment:
+            params:
+              transaction_id: "1529"
+              amount: "52.00"
     action: on_cancel
     saved_info: {}
 validationLib: ""

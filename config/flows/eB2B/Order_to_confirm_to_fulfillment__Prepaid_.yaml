@@ -2,9 +2,6 @@ meta:
   domain: ONDC:RETeB2B
   version: 1.2.5
   flowId: Order_to_confirm_to_fulfillment_(Prepaid)
-  description: Buyer Search & Quotation
-  flowName: Order to confirm to fulfillment (Prepaid)
-  use_case_id: eB2B
 transaction_data:
   transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
   latest_timestamp: 1970-01-01T00:00:00.000Z
@@ -174,51 +171,6 @@ steps:
             - type
             - city_code
             - items
-    examples:
-      - name: Example for action "select"
-        description: Auto-generated example for action "select" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: 8d998b56-3924-481c-8ac5-801f88b4f70d
-            timestamp: 2026-03-23T11:50:33.619Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              fulfillments:
-                - customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  end:
-                    location:
-                      address:
-                        area_code: "400053"
-                      gps: 19.129076,72.825803
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              offers:
-                - id: discp10
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-        type: request
   - api: on_select
     action_id: on_select
     owner: BPP
@@ -319,88 +271,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments
         saved_items: $.message.order.items[*]
       inputs: {}
-    examples:
-      - name: Example for action "on_select"
-        description: Auto-generated example for action "on_select" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: 8d998b56-3924-481c-8ac5-801f88b4f70d
-            timestamp: 2026-03-23T11:50:33.887Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              fulfillments:
-                - "@ondc/org/TAT": PT4H
-                  "@ondc/org/category": Standard Delivery
-                  "@ondc/org/provider_name": ABC Distributors
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  id: F1
-                  state:
-                    descriptor:
-                      code: Serviceable
-                  tracking: false
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-        type: request
   - api: init
     action_id: init
     owner: BAP
@@ -454,9 +324,9 @@ steps:
               phone: "9876543210"
               created_at: 2025-01-08T09:00:00.000Z
               updated_at: 2025-01-08T09:00:00.000Z
-            payment:
-              type: ON-FULFILLMENT
-              collected_by: BPP
+            payments:
+              - type: ON-FULFILLMENT
+                collected_by: BPP
             fulfillments:
               - id: F1
                 type: Delivery
@@ -487,114 +357,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments
         saved_items: $.message.order.items
       inputs: {}
-    examples:
-      - name: Example for action "init"
-        description: Auto-generated example for action "init" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eca469-20ca-49c6-8ed7-8228f2ff98f6
-            timestamp: 2026-03-23T11:50:34.112Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:34.112Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:34.112Z
-              fulfillments:
-                - customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  end:
-                    contact:
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              offers:
-                - id: discp10
-              payment:
-                collected_by: BPP
-                type: ON-FULFILLMENT
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-        type: request
   - api: on_init
     action_id: on_init
     owner: BPP
@@ -704,23 +466,23 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              type: ON-ORDER
-              collected_by: BPP
-              uri: https://snp.com/pg
-              status: NOT-PAID
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - type: ON-ORDER
+                collected_by: BPP
+                uri: https://snp.com/pg
+                status: NOT-PAID
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -748,140 +510,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples:
-      - name: Example for action "on_init"
-        description: Auto-generated example for action "on_init" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eca469-20ca-49c6-8ed7-8228f2ff98f6
-            timestamp: 2026-03-23T11:50:34.299Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:34.299Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:34.299Z
-              fulfillments:
-                - customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  end:
-                    contact:
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  tracking: false
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                collected_by: BPP
-                status: NOT-PAID
-                type: ON-ORDER
-                uri: https://snp.com/pg
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              tags:
-                - code: bpp_terms
-                  list:
-                    - code: tax_number
-                      value: gst_number_of_sellerNP
-                    - code: provider_tax_number
-                      value: PAN_number_of_provider
-                - code: credit
-                  list:
-                    - code: credit_limit
-                      value: "25000.00"
-                    - code: valid_till
-                      value: 2026-06-21T11:50:34.299Z
-        type: request
   - api: confirm
     action_id: confirm
     owner: BAP
@@ -996,31 +624,31 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              uri: https://ondc.transaction.com/payment
-              tl_method: http/get
-              params:
-                currency: INR
-                transaction_id: "3937"
-                amount: "1150"
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - uri: https://ondc.transaction.com/payment
+                tl_method: http/get
+                params:
+                  currency: INR
+                  transaction_id: "3937"
+                  amount: "1150"
+                status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: upi
+                    beneficiary_name: ABC Distributors
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -1054,156 +682,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples:
-      - name: Example for action "confirm"
-        description: Auto-generated example for action "confirm" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: ea0e291e-a2ae-44df-8ca4-774f8f9c937f
-            timestamp: 2026-03-23T11:50:34.468Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:34.468Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:34.468Z
-              created_at: 2026-03-23T11:50:34.468Z
-              fulfillments:
-                - "@ondc/org/TAT": P2D
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  end:
-                    contact:
-                      email: sharma.kirana@email.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  tracking: false
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Created
-              tags:
-                - code: bpp_terms
-                  list:
-                    - code: tax_number
-                      value: gst_number_of_sellerNP
-                    - code: provider_tax_number
-                      value: PAN_number_of_provider
-                - code: bap_terms
-                  list:
-                    - code: accept_bpp_terms
-                      value: Y
-                    - code: static_terms
-                      value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
-                    - code: tax_number
-                      value: gst_number_of_buyerNP
-              updated_at: 2026-03-23T11:50:34.468Z
-        type: request
   - api: on_confirm
     action_id: on_confirm
     owner: BPP
@@ -1335,28 +813,28 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              params:
-                currency: INR
-                amount: "1150.00"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  beneficiary_name: ABC Distributors
-                  settlement_type: upi
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
+            payments:
+              - status: NOT-PAID
+                type: ON-FULFILLMENT
+                collected_by: BPP
+                params:
+                  currency: INR
+                  amount: "1150.00"
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                "@ondc/org/settlement_basis": delivery
+                "@ondc/org/settlement_window": P1D
+                "@ondc/org/withholding_amount": "0.00"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    beneficiary_name: ABC Distributors
+                    settlement_type: upi
+                    upi_address: abcdist@oksbi
+                    settlement_bank_account_no: XXXXXXXXXX
+                    settlement_ifsc_code: XXXXXXXXX
+                    bank_name: State Bank of India
+                    branch_name: Jayanagar Branch
             tags:
               - code: bpp_terms
                 list:
@@ -1388,171 +866,6 @@ steps:
         saved_fulfillments: $.message.order.fulfillments[*]
         saved_items: $.message.order.items
       inputs: {}
-    examples:
-      - name: Example for action "on_confirm"
-        description: Auto-generated example for action "on_confirm" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: ea0e291e-a2ae-44df-8ca4-774f8f9c937f
-            timestamp: 2026-03-23T11:50:34.656Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:34.656Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:34.656Z
-              created_at: 2026-03-23T11:50:34.656Z
-              fulfillments:
-                - "@ondc/org/TAT": P2D
-                  "@ondc/org/provider_name": ABC Distributors
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  end:
-                    contact:
-                      email: sharma.kirana@email.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  start:
-                    contact:
-                      email: warehouse@abcdist.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560076"
-                        city: Bengaluru
-                        locality: Jayanagar
-                        state: KA
-                      descriptor:
-                        name: ABC Distributors Warehouse
-                      gps: 12.9563,77.6368
-                      id: L1
-                  state:
-                    descriptor:
-                      code: Pending
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150.00"
-                  currency: INR
-                status: NOT-PAID
-                type: ON-FULFILLMENT
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              tags:
-                - code: bpp_terms
-                  list:
-                    - code: tax_number
-                      value: gst_number_of_sellerNP
-                    - code: provider_tax_number
-                      value: PAN_number_of_provider
-                - code: bap_terms
-                  list:
-                    - code: accept_bpp_terms
-                      value: Y
-                    - code: static_terms
-                      value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
-                    - code: tax_number
-                      value: gst_number_of_buyerNP
-              updated_at: 2026-03-23T11:50:34.656Z
-        type: request
   - api: on_status
     action_id: on_status_accepted
     owner: BPP
@@ -1700,25 +1013,25 @@ steps:
                     currency: INR
                     value: "0.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:03:35.230Z
       saveData:
@@ -1733,187 +1046,6 @@ steps:
         last_updated_at: $.message.order.updated_at
         saved_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
   - api: on_status
     action_id: on_status_packed
     owner: BPP
@@ -2059,25 +1191,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:03:35.230Z
       saveData:
@@ -2092,187 +1224,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
   - api: on_status
     action_id: on_status_agent_assigned
     owner: BPP
@@ -2420,25 +1371,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             created_at: 2024-12-23T07:03:30.516Z
             updated_at: 2024-12-23T07:04:58.230Z
       saveData:
@@ -2453,187 +1404,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
   - api: on_status
     action_id: on_status_picked
     owner: BPP
@@ -2780,25 +1550,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -2813,187 +1583,6 @@ steps:
         bppUri: $.context.bpp_uri
         message_id: $.context.message_id
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
   - api: track
     action_id: track
     owner: BAP
@@ -3031,28 +1620,6 @@ steps:
         bppUri: $.context.bpp_uri
         order_id: $.message.order_id
       inputs: {}
-    examples:
-      - name: Example for action "track"
-        description: Auto-generated example for action "track" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: track
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: 5509a7b0-d5aa-4561-b4ce-6bd1946fe7be
-            timestamp: 2026-03-23T11:51:55.930Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order_id: "498603"
-        type: request
   - api: on_track
     action_id: on_track
     owner: BPP
@@ -3126,65 +1693,6 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
       inputs: {}
-    examples:
-      - name: Example for action "on_track"
-        description: Auto-generated example for action "on_track" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_track
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: 06b007e0-6879-45d4-be15-3f906788000d
-            timestamp: 2026-03-23T11:51:56.094Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            tracking:
-              id: F1
-              location:
-                gps: 12.9740,77.6134
-                time:
-                  timestamp: 2026-03-23T11:51:56.094Z
-                updated_at: 2026-03-23T11:51:56.094Z
-              status: active
-              tags:
-                - code: order
-                  list:
-                    - code: id
-                      value: O1
-                - code: config
-                  list:
-                    - code: attr
-                      value: tracking.location.gps
-                    - code: type
-                      value: live_poll
-                - code: path
-                  list:
-                    - code: lat_lng
-                      value: 12.9740,77.6134
-                    - code: sequence
-                      value: "1"
-                - code: path
-                  list:
-                    - code: lat_lng
-                      value: 12.9740,77.6136
-                    - code: sequence
-                      value: "2"
-                - code: path
-                  list:
-                    - code: lat_lng
-                      value: 12.9740,77.6136
-                    - code: sequence
-                      value: "3"
-              url: https://snp.com/ondc/tracking/F1
-        type: request
   - api: on_status
     action_id: on_status_out_for_delivery
     owner: BPP
@@ -3331,25 +1839,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -3367,187 +1875,6 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
   - api: on_status
     action_id: on_status_order_delivered
     owner: BPP
@@ -3695,25 +2022,25 @@ steps:
                     currency: INR
                     value: "00.00"
               ttl: P1D
-            payment:
-              params:
-                amount: "100.00"
-                currency: INR
-                transaction_id: order_PjggJp7MccQmAa
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  beneficiary_name: xxxx
-                  settlement_bank_account_no: xxxx
-                  settlement_ifsc_code: xxxx
-                  bank_name: xxxx
-                  branch_name: xxxx
+            payments:
+              - params:
+                  amount: "100.00"
+                  currency: INR
+                  transaction_id: order_PjggJp7MccQmAa
+                status: PAID
+                type: ON-ORDER
+                collected_by: BAP
+                "@ondc/org/buyer_app_finder_fee_type": percent
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                "@ondc/org/settlement_details":
+                  - settlement_counterparty: seller-app
+                    settlement_phase: sale-amount
+                    settlement_type: neft
+                    beneficiary_name: xxxx
+                    settlement_bank_account_no: xxxx
+                    settlement_ifsc_code: xxxx
+                    bank_name: xxxx
+                    branch_name: xxxx
             documents:
               - url: https://invoice_url
                 label: Invoice
@@ -3731,196 +2058,15 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
         last_updated_at: $.message.order.updated_at
       inputs: {}
-    examples:
-      - name: Example for action "on_status"
-        description: Auto-generated example for action "on_status" in flow
-          "Order_to_confirm_to_fulfillment_(Prepaid)"
-        payload:
-          context:
-            action: on_status
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:090
-            core_version: 1.2.5
-            country: IND
-            domain: ONDC:RETeB2B
-            message_id: d5eb4ee6-adab-4aa3-afee-a0ff17031673
-            timestamp: 2026-03-23T11:50:48.203Z
-            transaction_id: 04438fb5-60fa-46a8-ae55-f5fb620b8bae
-            ttl: PT30S
-          message:
-            order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-23T11:50:48.203Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-23T11:50:48.203Z
-              created_at: 2026-03-23T11:50:48.203Z
-              fulfillments:
-                - "@ondc/org/TAT": PT60M
-                  "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
-                  agent:
-                    name: Ravi Kumar
-                    phone: "9876543210"
-                  customer:
-                    id: CUST-2024-007694
-                    organization:
-                      city:
-                        code: std:090
-                  documents:
-                    - label: Invoice
-                      url: https://sellerNP.com/invoice/O1.pdf
-                  end:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9898989898"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      gps: 19.131140,72.834091
-                    person:
-                      name: John Doe
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  id: F1
-                  start:
-                    contact:
-                      email: nobody@nomail.com
-                      phone: "9594663710"
-                    location:
-                      address:
-                        area_code: "400053"
-                        building: my building name or house
-                        city: Mumbai
-                        country: IND
-                        locality: my street name
-                        name: my house or door or floor
-                        state: Maharashtra
-                      descriptor:
-                        name: ABC Store
-                      gps: 19.129076,72.825803
-                      id: L1
-                    time:
-                      timestamp: 2026-03-23T11:50:48.203Z
-                  state:
-                    descriptor:
-                      code: Pending
-                  tags:
-                    - code: routing
-                      list:
-                        - code: type
-                          value: P2H2P
-                    - code: tracking
-                      list:
-                        - code: gps_enabled
-                          value: no
-                        - code: url_enabled
-                          value: yes
-                        - code: url
-                          value: https://sellerNP.com/ondc/tracking_url
-                  tracking: true
-                  type: Delivery
-              id: "498603"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 4
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
-              quote:
-                breakup:
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
-                      count: 4
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "52.00"
-                      quantity:
-                        available:
-                          count: "99"
-                        maximum:
-                          count: "100"
-                    price:
-                      currency: INR
-                      value: "208.00"
-                    title: Ashirwad Plain Atta 1kg
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
-                    price:
-                      currency: INR
-                      value: "00.00"
-                    title: Convenience Fee
-                price:
-                  currency: INR
-                  value: "208.00"
-                ttl: P1D
-              state: Accepted
-              updated_at: 2026-03-23T11:50:48.203Z
-        type: request
 transaction_history:
   - action_id: select
     payload:
       context:
         domain: ONDC:RETeB2B
         action: select
-        timestamp: 2026-04-08T07:18:29.315Z
+        timestamp: 2026-05-06T09:48:43.112Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 5049fabe-6e32-4b0a-916a-44c3c9c18494
+        message_id: 2e3e956a-bd14-44f8-b378-0f3390be7e12
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3936,13 +2082,11 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 14
+                count: 1
               fulfillment_id: F1
-          offers:
-            - id: discp10
           fulfillments:
             - end:
                 location:
@@ -3951,9 +2095,21 @@ transaction_history:
                     area_code: "400053"
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
     action: select
     saved_info: {}
   - action_id: on_select
@@ -3961,9 +2117,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_select
-        timestamp: 2026-04-08T07:18:29.343Z
+        timestamp: 2026-05-06T09:48:43.137Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 5049fabe-6e32-4b0a-916a-44c3c9c18494
+        message_id: 2e3e956a-bd14-44f8-b378-0f3390be7e12
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -3990,38 +2146,40 @@ transaction_history:
                   code: Serviceable
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4034,16 +2192,14 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               fulfillment_id: F1
               quantity:
-                count: 14
-          offers:
-            - id: discp10
+                count: 1
     action: on_select
     saved_info: {}
   - action_id: init
@@ -4051,9 +2207,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: init
-        timestamp: 2026-04-08T07:18:29.497Z
+        timestamp: 2026-05-06T09:48:43.177Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 850c812e-1fbf-4679-8029-74b94233e8dc
+        message_id: 0c6e5db1-774d-4701-9225-936dd16e9af5
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4069,10 +2225,10 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 14
+                count: 1
               fulfillment_id: F1
           offers:
             - id: discp10
@@ -4089,11 +2245,11 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.497Z
-            updated_at: 2026-04-08T07:18:29.497Z
-          payment:
-            type: ON-FULFILLMENT
-            collected_by: BPP
+            created_at: 2026-05-06T09:48:43.177Z
+            updated_at: 2026-05-06T09:48:43.177Z
+          payments:
+            - type: ON-FULFILLMENT
+              collected_by: BPP
           fulfillments:
             - id: F1
               type: Delivery
@@ -4112,38 +2268,40 @@ transaction_history:
                   phone: "9876543210"
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4156,7 +2314,7 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
     action: init
     saved_info: {}
@@ -4165,9 +2323,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_init
-        timestamp: 2026-04-08T07:18:29.544Z
+        timestamp: 2026-05-06T09:48:43.196Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 850c812e-1fbf-4679-8029-74b94233e8dc
+        message_id: 0c6e5db1-774d-4701-9225-936dd16e9af5
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4183,10 +2341,10 @@ transaction_history:
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               location_id: L1
               quantity:
-                count: 14
+                count: 1
               fulfillment_id: F1
           billing:
             name: Sharma Kirana Store
@@ -4201,8 +2359,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.544Z
-            updated_at: 2026-04-08T07:18:29.544Z
+            created_at: 2026-05-06T09:48:43.196Z
+            updated_at: 2026-05-06T09:48:43.196Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -4222,38 +2380,40 @@ transaction_history:
                   phone: "9876543210"
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4266,25 +2426,25 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            type: ON-ORDER
-            collected_by: BPP
-            uri: https://snp.com/pg
-            status: NOT-PAID
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - type: ON-ORDER
+              collected_by: BPP
+              uri: https://snp.com/pg
+              status: NOT-PAID
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -4297,9 +2457,7 @@ transaction_history:
                 - code: credit_limit
                   value: "25000.00"
                 - code: valid_till
-                  value: 2026-07-07T07:18:29.544Z
-          offers:
-            - id: discp10
+                  value: 2026-08-04T09:48:43.195Z
     action: on_init
     saved_info: {}
   - action_id: confirm
@@ -4307,9 +2465,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: confirm
-        timestamp: 2026-04-08T07:18:29.634Z
+        timestamp: 2026-05-06T09:48:43.214Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: f3ab1506-c73e-4f02-ac52-924093d282a3
+        message_id: d4279825-4b08-46ac-bdce-48cd1e8590ae
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4320,17 +2478,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: Created
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -4345,8 +2503,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.634Z
-            updated_at: 2026-04-08T07:18:29.634Z
+            created_at: 2026-05-06T09:48:43.214Z
+            updated_at: 2026-05-06T09:48:43.214Z
           fulfillments:
             - id: F1
               type: Delivery
@@ -4368,38 +2526,40 @@ transaction_history:
                   email: sharma.kirana@email.com
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4412,33 +2572,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - uri: https://ondc.transaction.com/payment
+              tl_method: http/get
+              params:
+                currency: INR
+                transaction_id: "3937"
+                amount: "1150"
+              status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: upi
+                  beneficiary_name: ABC Distributors
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -4454,10 +2614,12 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T07:18:29.634Z
-          updated_at: 2026-04-08T07:18:29.634Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T09:48:43.214Z
+          updated_at: 2026-05-06T09:48:43.214Z
+          payment:
+            params:
+              amount: "52.00"
+              transaction_id: "8966"
     action: confirm
     saved_info: {}
   - action_id: on_confirm
@@ -4465,9 +2627,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_confirm
-        timestamp: 2026-04-08T07:18:29.734Z
+        timestamp: 2026-05-06T09:48:43.227Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: f3ab1506-c73e-4f02-ac52-924093d282a3
+        message_id: d4279825-4b08-46ac-bdce-48cd1e8590ae
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4478,17 +2640,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: Accepted
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -4503,8 +2665,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.734Z
-            updated_at: 2026-04-08T07:18:29.734Z
+            created_at: 2026-05-06T09:48:43.227Z
+            updated_at: 2026-05-06T09:48:43.227Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": ABC Distributors
@@ -4544,38 +2706,40 @@ transaction_history:
                   email: sharma.kirana@email.com
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4588,33 +2752,30 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - status: NOT-PAID
+              type: ON-FULFILLMENT
+              collected_by: BPP
+              params:
+                currency: INR
+                amount: "1150.00"
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+              "@ondc/org/settlement_basis": delivery
+              "@ondc/org/settlement_window": P1D
+              "@ondc/org/withholding_amount": "0.00"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  beneficiary_name: ABC Distributors
+                  settlement_type: upi
+                  upi_address: abcdist@oksbi
+                  settlement_bank_account_no: XXXXXXXXXX
+                  settlement_ifsc_code: XXXXXXXXX
+                  bank_name: State Bank of India
+                  branch_name: Jayanagar Branch
           tags:
             - code: bpp_terms
               list:
@@ -4630,10 +2791,12 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: 2026-04-08T07:18:29.734Z
-          updated_at: 2026-04-08T07:18:29.734Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T09:48:43.227Z
+          updated_at: 2026-05-06T09:48:43.227Z
+          payment:
+            params:
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_confirm
     saved_info: {}
   - action_id: on_status_accepted
@@ -4641,9 +2804,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:29.797Z
+        timestamp: 2026-05-06T09:48:43.245Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 7888567b-c5d2-4141-bc6b-79eef0bc1cfc
+        message_id: 7f0381e2-8bac-4b85-a0af-ce9e4b180b2f
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4654,17 +2817,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: Accepted
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -4679,8 +2842,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.797Z
-            updated_at: 2026-04-08T07:18:29.797Z
+            created_at: 2026-05-06T09:48:43.245Z
+            updated_at: 2026-05-06T09:48:43.245Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -4711,7 +2874,7 @@ transaction_history:
                     locality: my street name
                     name: my house or door or floor
                 time:
-                  timestamp: 2026-04-08T07:18:29.797Z
+                  timestamp: 2026-05-06T09:48:43.245Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -4732,7 +2895,7 @@ transaction_history:
                     locality: my street name
                     name: my house or door or floor
                 time:
-                  timestamp: 2026-04-08T07:18:29.797Z
+                  timestamp: 2026-05-06T09:48:43.245Z
               tags:
                 - code: routing
                   list:
@@ -4748,38 +2911,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4792,37 +2957,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T09:48:43.245Z
+          updated_at: 2026-05-06T09:48:43.245Z
           payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
             params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:18:29.797Z
-          updated_at: 2026-04-08T07:18:29.797Z
-          offers:
-            - id: discp10
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
   - action_id: on_status_packed
@@ -4830,9 +2991,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:29.868Z
+        timestamp: 2026-05-06T09:48:43.262Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 3be085d8-3895-4266-8f04-e770a4e10fcf
+        message_id: f6c9bde1-b62d-4e23-9ec5-8e7856e93524
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -4843,17 +3004,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -4868,8 +3029,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.868Z
-            updated_at: 2026-04-08T07:18:29.868Z
+            created_at: 2026-05-06T09:48:43.262Z
+            updated_at: 2026-05-06T09:48:43.262Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -4901,8 +3062,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:28:29.868Z
-                    end: 2026-04-08T07:38:29.868Z
+                    start: 2026-05-06T09:58:43.262Z
+                    end: 2026-05-06T10:08:43.262Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -4924,8 +3085,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:38:29.868Z
-                    end: 2026-04-08T08:28:29.868Z
+                    start: 2026-05-06T10:08:43.262Z
+                    end: 2026-05-06T10:58:43.262Z
               tags:
                 - code: routing
                   list:
@@ -4941,38 +3102,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -4985,37 +3148,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T09:48:43.262Z
+          updated_at: 2026-05-06T09:48:43.262Z
           payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
             params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:18:29.868Z
-          updated_at: 2026-04-08T07:18:29.868Z
-          offers:
-            - id: discp10
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
   - action_id: on_status_agent_assigned
@@ -5023,9 +3182,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:29.913Z
+        timestamp: 2026-05-06T09:48:43.277Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 320713a8-ee96-4aa6-b9a2-bf254b65f8d4
+        message_id: 389c2061-9362-439e-92e7-576afabd9206
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5036,17 +3195,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -5061,8 +3220,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.913Z
-            updated_at: 2026-04-08T07:18:29.913Z
+            created_at: 2026-05-06T09:48:43.277Z
+            updated_at: 2026-05-06T09:48:43.277Z
           offers:
             - id: discp10
           fulfillments:
@@ -5096,8 +3255,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:28:29.868Z
-                    end: 2026-04-08T07:38:29.868Z
+                    start: 2026-05-06T09:58:43.262Z
+                    end: 2026-05-06T10:08:43.262Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -5119,8 +3278,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:38:29.868Z
-                    end: 2026-04-08T08:28:29.868Z
+                    start: 2026-05-06T10:08:43.262Z
+                    end: 2026-05-06T10:58:43.262Z
               tags:
                 - code: routing
                   list:
@@ -5136,38 +3295,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -5180,35 +3341,33 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
+          created_at: 2026-05-06T09:48:43.277Z
+          updated_at: 2026-05-06T09:48:43.277Z
           payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
             params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
-          created_at: 2026-04-08T07:18:29.913Z
-          updated_at: 2026-04-08T07:18:29.913Z
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
   - action_id: on_status_picked
@@ -5216,9 +3375,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:29.989Z
+        timestamp: 2026-05-06T09:48:43.292Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: a826356c-0f53-40da-9b1d-a0b40e28a6d0
+        message_id: 44e1f41a-9418-4248-914d-bb15abcf76a5
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5229,17 +3388,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -5254,8 +3413,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:29.989Z
-            updated_at: 2026-04-08T07:18:29.989Z
+            created_at: 2026-05-06T09:48:43.292Z
+            updated_at: 2026-05-06T09:48:43.292Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -5287,9 +3446,9 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:28:29.868Z
-                    end: 2026-04-08T07:38:29.868Z
-                  timestamp: 2026-04-08T07:18:29.989Z
+                    start: 2026-05-06T09:58:43.262Z
+                    end: 2026-05-06T10:08:43.262Z
+                  timestamp: 2026-05-06T09:48:43.292Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -5311,8 +3470,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:38:29.868Z
-                    end: 2026-04-08T08:28:29.868Z
+                    start: 2026-05-06T10:08:43.262Z
+                    end: 2026-05-06T10:58:43.262Z
               tags:
                 - code: routing
                   list:
@@ -5328,38 +3487,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -5372,40 +3533,36 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:18:29.989Z
-          updated_at: 2026-04-08T07:18:29.989Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T09:48:43.292Z
+          updated_at: 2026-05-06T09:48:43.292Z
+          payment:
+            params:
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
   - action_id: track
@@ -5413,9 +3570,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: track
-        timestamp: 2026-04-08T07:18:30.032Z
+        timestamp: 2026-05-06T09:48:43.307Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: a099498d-83da-431f-8e37-e7ef29d067e9
+        message_id: d080f522-6d8a-4943-b424-c76d8bba30d8
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5425,7 +3582,7 @@ transaction_history:
         city: std:060
         core_version: 1.2.5
       message:
-        order_id: "308444"
+        order_id: "792429"
     action: track
     saved_info: {}
   - action_id: on_track
@@ -5433,9 +3590,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_track
-        timestamp: 2026-04-08T07:18:30.083Z
+        timestamp: 2026-05-06T09:48:43.324Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: a826356c-0f53-40da-9b1d-a0b40e28a6d0
+        message_id: 44e1f41a-9418-4248-914d-bb15abcf76a5
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5450,15 +3607,15 @@ transaction_history:
           location:
             gps: 12.9740,77.6134
             time:
-              timestamp: 2026-04-08T07:18:30.083Z
-            updated_at: 2026-04-08T07:18:30.083Z
+              timestamp: 2026-05-06T09:48:43.324Z
+            updated_at: 2026-05-06T09:48:43.324Z
           url: https://snp.com/ondc/tracking/F1
           status: active
           tags:
             - code: order
               list:
                 - code: id
-                  value: "308444"
+                  value: "792429"
             - code: config
               list:
                 - code: attr
@@ -5490,9 +3647,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:30.111Z
+        timestamp: 2026-05-06T09:48:43.339Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 5fd1dca0-b423-483d-bf9c-6d6509887a2a
+        message_id: 2657cefd-f716-4dd8-a817-57aefb527e10
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5503,17 +3660,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: In-progress
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -5528,8 +3685,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:30.111Z
-            updated_at: 2026-04-08T07:18:30.111Z
+            created_at: 2026-05-06T09:48:43.339Z
+            updated_at: 2026-05-06T09:48:43.339Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -5561,8 +3718,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:28:29.868Z
-                    end: 2026-04-08T07:38:29.868Z
+                    start: 2026-05-06T09:58:43.262Z
+                    end: 2026-05-06T10:08:43.262Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -5584,8 +3741,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:38:29.868Z
-                    end: 2026-04-08T08:28:29.868Z
+                    start: 2026-05-06T10:08:43.262Z
+                    end: 2026-05-06T10:58:43.262Z
               tags:
                 - code: routing
                   list:
@@ -5601,38 +3758,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -5645,40 +3804,36 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:18:30.111Z
-          updated_at: 2026-04-08T07:18:30.111Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T09:48:43.339Z
+          updated_at: 2026-05-06T09:48:43.339Z
+          payment:
+            params:
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
   - action_id: on_status_order_delivered
@@ -5686,9 +3841,9 @@ transaction_history:
       context:
         domain: ONDC:RETeB2B
         action: on_status
-        timestamp: 2026-04-08T07:18:30.141Z
+        timestamp: 2026-05-06T09:48:43.356Z
         transaction_id: 3cd7243a-eef8-42e1-8d12-9c76eab6fcea
-        message_id: 13eb44aa-1c95-4797-95b5-9c19c951ca06
+        message_id: 91f2926a-ce43-4cff-8b1b-d6cb3388b413
         bap_id: sample-bap-id
         bap_uri: https://bap.example.com
         ttl: PT30S
@@ -5699,17 +3854,17 @@ transaction_history:
         core_version: 1.2.5
       message:
         order:
-          id: "308444"
+          id: "792429"
           state: Completed
           provider:
             id: P1
             locations:
               - id: L1
           items:
-            - id: I4
+            - id: I1
               fulfillment_id: F1
               quantity:
-                count: 14
+                count: 1
               location_id: L1
           billing:
             name: Sharma Kirana Store
@@ -5724,8 +3879,8 @@ transaction_history:
             tax_number: 29AABCU9603R1ZM
             email: sharma.kirana@email.com
             phone: "9876543210"
-            created_at: 2026-04-08T07:18:30.141Z
-            updated_at: 2026-04-08T07:18:30.141Z
+            created_at: 2026-05-06T09:48:43.356Z
+            updated_at: 2026-05-06T09:48:43.356Z
           fulfillments:
             - id: F1
               "@ondc/org/provider_name": 24x7 Wellness Forever - ANDHERI FOUR BUNGLOW
@@ -5757,8 +3912,8 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:28:29.868Z
-                    end: 2026-04-08T07:38:29.868Z
+                    start: 2026-05-06T09:58:43.262Z
+                    end: 2026-05-06T10:08:43.262Z
                 contact:
                   phone: "9594663710"
                   email: nobody@nomail.com
@@ -5780,9 +3935,9 @@ transaction_history:
                     name: my house or door or floor
                 time:
                   range:
-                    start: 2026-04-08T07:38:29.868Z
-                    end: 2026-04-08T08:28:29.868Z
-                  timestamp: 2026-04-08T07:18:30.141Z
+                    start: 2026-05-06T10:08:43.262Z
+                    end: 2026-05-06T10:58:43.262Z
+                  timestamp: 2026-05-06T09:48:43.356Z
               tags:
                 - code: routing
                   list:
@@ -5798,38 +3953,40 @@ transaction_history:
                       value: https://sellerNP.com/ondc/tracking_url
               customer:
                 id: CUST-2024-0015421
+                person:
+                  creds:
+                    - id: GSEETNUM
+                      type: tax_number
+                    - id: 1234p1234
+                      type: provider_tax_number
                 organization:
+                  descriptor:
+                    name: Test
+                  address: kharar
                   city:
                     code: std:060
+                contact:
+                  phone: "8428942871"
+                  email: testing@thewits.com
           quote:
             breakup:
-              - "@ondc/org/item_id": I4
+              - "@ondc/org/item_id": I1
                 "@ondc/org/item_quantity":
-                  count: 14
-                title: Fortune Chakki Atta 5kg
+                  count: 1
+                title: Ashirwad Plain Atta 1kg
                 "@ondc/org/title_type": item
                 price:
                   currency: INR
-                  value: "3220.00"
+                  value: "52.00"
                 item:
                   price:
                     currency: INR
-                    value: "230.00"
+                    value: "52.00"
                   quantity:
                     available:
                       count: "99"
                     maximum:
                       count: "99"
-              - "@ondc/org/item_id": I4
-                title: Discount (discp10)
-                "@ondc/org/title_type": discount
-                price:
-                  currency: INR
-                  value: "-322.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "-322.00"
               - "@ondc/org/item_id": F1
                 title: Delivery charges
                 "@ondc/org/title_type": delivery
@@ -5842,40 +3999,36 @@ transaction_history:
                     value: "0.00"
             price:
               currency: INR
-              value: "2898.00"
+              value: "52.00"
             ttl: P1D
-          payment:
-            uri: https://ondc.transaction.com/payment
-            tl_method: http/get
-            params:
-              currency: INR
-              transaction_id: "4169"
-              amount: "2898.00"
-            status: NOT-PAID
-            type: ON-FULFILLMENT
-            collected_by: BPP
-            "@ondc/org/buyer_app_finder_fee_type": percent
-            "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-            "@ondc/org/settlement_basis": delivery
-            "@ondc/org/settlement_window": P1D
-            "@ondc/org/withholding_amount": "0.00"
-            "@ondc/org/settlement_details":
-              - settlement_counterparty: seller-app
-                settlement_phase: sale-amount
-                settlement_type: upi
-                beneficiary_name: ABC Distributors
-                upi_address: abcdist@oksbi
-                settlement_bank_account_no: XXXXXXXXXX
-                settlement_ifsc_code: XXXXXXXXX
-                bank_name: State Bank of India
-                branch_name: Jayanagar Branch
+          payments:
+            - params:
+                amount: "100.00"
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              "@ondc/org/buyer_app_finder_fee_type": percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+              "@ondc/org/settlement_details":
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
           documents:
             - url: https://invoice_url
               label: Invoice
-          created_at: 2026-04-08T07:18:30.141Z
-          updated_at: 2026-04-08T07:18:30.141Z
-          offers:
-            - id: discp10
+          created_at: 2026-05-06T09:48:43.356Z
+          updated_at: 2026-05-06T09:48:43.356Z
+          payment:
+            params:
+              amount: "52.00"
+              transaction_id: "8966"
     action: on_status
     saved_info: {}
 validationLib: ""
