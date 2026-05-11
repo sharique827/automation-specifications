@@ -178,56 +178,49 @@ steps:
             - city_code
             - items
     examples:
-      - name: Example for action "select"
-        description: Auto-generated example for action "select" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for select
         payload:
           context:
-            action: select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 163d6ec4-319a-4d78-a7ee-3e42e9067076
-            timestamp: 2026-03-13T13:21:38.924Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: select
+            timestamp: 2026-05-08T12:21:15.552Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: 7fe45f8f-7eb1-4bc9-ae0d-e3488e7402fe
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              fulfillments:
-                - customer:
-                    organization:
-                      city:
-                        code: std:040
-                  end:
-                    location:
-                      address:
-                        area_code: "400053"
-                      gps: 19.129076,72.825803
-                  id: F1
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-              offers:
-                - id: discp10
               provider:
                 id: P1
                 locations:
                   - id: L1
+              items:
+                - id: I1
+                  location_id: L1
+                  quantity:
+                    count: 1
+                  fulfillment_id: F1
+              fulfillments:
+                - id: F1
+                  type: Delivery
+                  end:
+                    location:
+                      gps: 19.129076,72.825803
+                      address:
+                        area_code: "400053"
+                  customer:
+                    id: CUST-2024-0015421
+                    organization:
+                      city:
+                        code: std:060
         type: request
+        description: First Select where items are selected
   - api: on_select
     action_id: on_select
     owner: BPP
@@ -329,104 +322,79 @@ steps:
         tat: $.message.order.fulfillments[0]["@ondc/org/TAT"]
       inputs: {}
     examples:
-      - name: Example for action "on_select"
-        description: Auto-generated example for action "on_select" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for on_select
         payload:
           context:
-            action: on_select
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 163d6ec4-319a-4d78-a7ee-3e42e9067076
-            timestamp: 2026-03-13T13:21:39.146Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: on_select
+            timestamp: 2026-05-08T12:21:15.586Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: 7fe45f8f-7eb1-4bc9-ae0d-e3488e7402fe
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              fulfillments:
-                - "@ondc/org/TAT": PT4H
-                  "@ondc/org/category": Standard Delivery
-                  "@ondc/org/provider_name": ABC Distributors
-                  id: F1
-                  state:
-                    descriptor:
-                      code: Serviceable
-                  tracking: false
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
               provider:
                 id: P1
                 locations:
                   - id: L1
+              fulfillments:
+                - id: F1
+                  type: Delivery
+                  "@ondc/org/provider_name": ABC Distributors
+                  tracking: false
+                  "@ondc/org/category": Standard Delivery
+                  "@ondc/org/TAT": PT4H
+                  state:
+                    descriptor:
+                      code: Serviceable
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 1
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "52.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 1
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "10.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
-                      value: "50.00"
+                      value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
-                  value: "260.00"
+                  value: "52.00"
                 ttl: P1D
+              items:
+                - id: I1
+                  location_id: L1
+                  fulfillment_id: F1
+                  quantity:
+                    count: 1
         type: request
+        description: On-select response to select
   - api: init
     action_id: init
     owner: BAP
@@ -514,130 +482,105 @@ steps:
         selected_np_fees: $.message.order.items[*].tags[?(@.code=="np_fees")].list[?(@.code=="id")].value
       inputs: {}
     examples:
-      - name: Example for action "init"
-        description: Auto-generated example for action "init" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for init
         payload:
           context:
-            action: init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: d50a2422-cb0d-44e1-8dd5-e9e37f17789b
-            timestamp: 2026-03-13T13:21:39.286Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: init
+            timestamp: 2026-05-08T12:21:15.630Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: ff317919-f2e7-4ffe-8d61-12502d4d79ef
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-13T13:21:39.286Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-13T13:21:39.286Z
-              fulfillments:
-                - end:
-                    contact:
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-              offers:
-                - id: discp10
-              payment:
-                collected_by: BPP
-                type: ON-FULFILLMENT
               provider:
                 id: P1
                 locations:
                   - id: L1
+              items:
+                - id: I1
+                  location_id: L1
+                  fulfillment_id: F1
+                  quantity:
+                    count: 1
+              offers:
+                - id: discp10
+              billing:
+                name: Sharma Kirana Store
+                address:
+                  name: Shop No. 12
+                  building: Lakshmi Complex
+                  locality: MG Road
+                  city: Bengaluru
+                  state: Karnataka
+                  country: IND
+                  area_code: "560001"
+                tax_number: 29AABCU9603R1ZM
+                email: sharma.kirana@email.com
+                phone: "9876543210"
+                created_at: 2026-05-08T12:21:15.630Z
+                updated_at: 2026-05-08T12:21:15.630Z
+              payments:
+                - type: ON-FULFILLMENT
+                  collected_by: BPP
+              fulfillments:
+                - id: F1
+                  type: Delivery
+                  end:
+                    location:
+                      gps: 12.4535,77.9283
+                      address:
+                        name: Shop No. 12
+                        building: Lakshmi Complex
+                        locality: MG Road
+                        city: Bengaluru
+                        state: Karnataka
+                        country: IND
+                        area_code: "560001"
+                    contact:
+                      phone: "9876543210"
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 1
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "52.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 1
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "10.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
-                      value: "50.00"
+                      value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
-                  value: "260.00"
+                  value: "52.00"
                 ttl: P1D
         type: request
+        description: "Init "
   - api: on_init
     action_id: on_init
     owner: BPP
@@ -791,156 +734,131 @@ steps:
         fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
-      - name: Example for action "on_init"
-        description: Auto-generated example for action "on_init" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for on_init
         payload:
           context:
-            action: on_init
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: d50a2422-cb0d-44e1-8dd5-e9e37f17789b
-            timestamp: 2026-03-13T13:21:39.427Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: on_init
+            timestamp: 2026-05-08T12:21:15.651Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: ff317919-f2e7-4ffe-8d61-12502d4d79ef
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-13T13:21:39.427Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-13T13:21:39.427Z
-              fulfillments:
-                - end:
-                    contact:
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  tracking: false
-                  type: Delivery
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                collected_by: BPP
-                status: NOT-PAID
-                type: ON-ORDER
-                uri: https://snp.com/pg
               provider:
                 id: P1
                 locations:
                   - id: L1
+              items:
+                - id: I1
+                  location_id: L1
+                  fulfillment_id: F1
+                  quantity:
+                    count: 1
+              billing:
+                name: Sharma Kirana Store
+                address:
+                  name: Shop No. 12
+                  building: Lakshmi Complex
+                  locality: MG Road
+                  city: Bengaluru
+                  state: Karnataka
+                  country: IND
+                  area_code: "560001"
+                tax_number: 29AABCU9603R1ZM
+                email: sharma.kirana@email.com
+                phone: "9876543210"
+                created_at: 2026-05-08T12:21:15.651Z
+                updated_at: 2026-05-08T12:21:15.651Z
+              fulfillments:
+                - id: F1
+                  type: Delivery
+                  tracking: false
+                  end:
+                    location:
+                      gps: 12.4535,77.9283
+                      address:
+                        name: Shop No. 12
+                        building: Lakshmi Complex
+                        locality: MG Road
+                        city: Bengaluru
+                        state: Karnataka
+                        country: IND
+                        area_code: "560001"
+                    contact:
+                      phone: "9876543210"
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 1
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "52.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 1
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "10.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
-                      value: "50.00"
+                      value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
-                  value: "260.00"
+                  value: "52.00"
                 ttl: P1D
+              payments:
+                - type: ON-ORDER
+                  collected_by: BPP
+                  uri: https://snp.com/pg
+                  status: NOT-PAID
+                  "@ondc/org/buyer_app_finder_fee_type": percent
+                  "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                  "@ondc/org/settlement_details":
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      settlement_type: upi
+                      beneficiary_name: ABC Distributors
+                      upi_address: abcdist@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: State Bank of India
+                      branch_name: Jayanagar Branch
               tags:
                 - code: bpp_terms
                   list:
                     - code: tax_number
-                      value: gst_number_of_sellerNP
+                      value: 00ABCCH7409R1ZZ
                     - code: provider_tax_number
-                      value: PAN_number_of_provider
+                      value: ABCDE1234F
                 - code: credit
                   list:
                     - code: credit_limit
                       value: "25000.00"
                     - code: valid_till
-                      value: 2026-06-11T13:21:39.427Z
+                      value: 2026-08-06T12:21:15.651Z
         type: request
+        description: Response to Init call
   - api: confirm
     action_id: confirm
     owner: BAP
@@ -1113,162 +1031,135 @@ steps:
         order_id: $.message.order.id
       inputs: {}
     examples:
-      - name: Example for action "confirm"
-        description: Auto-generated example for action "confirm" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for confirm
         payload:
           context:
-            action: confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 27f85222-b20a-4350-9f6b-7c0412449cc8
-            timestamp: 2026-03-13T13:21:39.610Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: confirm
+            timestamp: 2026-05-08T12:21:15.677Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: c4c29a98-c3d4-4788-89a1-57fdc5c08289
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-13T13:21:39.610Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-13T13:21:39.610Z
-              created_at: 2026-03-13T13:21:39.610Z
-              fulfillments:
-                - "@ondc/org/TAT": P2D
-                  end:
-                    contact:
-                      email: sharma.kirana@email.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  tracking: false
-                  type: Delivery
-              id: "486551"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
+              id: "866641"
+              state: Created
               provider:
                 id: P1
                 locations:
                   - id: L1
+              items:
+                - id: I1
+                  fulfillment_id: F1
+                  location_id: L1
+                  quantity:
+                    count: 1
+              billing:
+                name: Sharma Kirana Store
+                address:
+                  name: Shop No. 12
+                  building: Lakshmi Complex
+                  locality: MG Road
+                  city: Bengaluru
+                  state: Karnataka
+                  country: IND
+                  area_code: "560001"
+                tax_number: 29AABCU9603R1ZM
+                email: sharma.kirana@email.com
+                phone: "9876543210"
+                created_at: 2026-05-08T12:21:15.677Z
+                updated_at: 2026-05-08T12:21:15.677Z
+              fulfillments:
+                - id: F1
+                  type: Delivery
+                  "@ondc/org/TAT": P2D
+                  tracking: false
+                  end:
+                    location:
+                      gps: 12.4535,77.9283
+                      address:
+                        name: Shop No. 12
+                        building: Lakshmi Complex
+                        locality: MG Road
+                        city: Bengaluru
+                        state: Karnataka
+                        country: IND
+                        area_code: "560001"
+                    contact:
+                      phone: "9876543210"
+                      email: sharma.kirana@email.com
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 1
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "52.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 1
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "10.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
-                      value: "50.00"
+                      value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
-                  value: "260.00"
+                  value: "52.00"
                 ttl: P1D
-              state: Created
+              payments:
+                - uri: https://ondc.transaction.com/payment
+                  tl_method: http/get
+                  params:
+                    currency: INR
+                    transaction_id: "3937"
+                    amount: "1150"
+                  status: NOT-PAID
+                  type: ON-FULFILLMENT
+                  collected_by: BPP
+                  "@ondc/org/buyer_app_finder_fee_type": percent
+                  "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                  "@ondc/org/settlement_basis": delivery
+                  "@ondc/org/settlement_window": P1D
+                  "@ondc/org/withholding_amount": "0.00"
+                  "@ondc/org/settlement_details":
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      settlement_type: upi
+                      beneficiary_name: ABC Distributors
+                      upi_address: abcdist@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: State Bank of India
+                      branch_name: Jayanagar Branch
               tags:
                 - code: bpp_terms
                   list:
                     - code: tax_number
-                      value: gst_number_of_sellerNP
+                      value: 00ABCCH7409R1ZZ
                     - code: provider_tax_number
-                      value: PAN_number_of_provider
+                      value: ABCDE1234F
                 - code: bap_terms
                   list:
                     - code: accept_bpp_terms
@@ -1277,8 +1168,14 @@ steps:
                       value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                     - code: tax_number
                       value: gst_number_of_buyerNP
-              updated_at: 2026-03-13T13:21:39.610Z
+              created_at: 2026-05-08T12:21:15.677Z
+              updated_at: 2026-05-08T12:21:15.677Z
+              payment:
+                params:
+                  transaction_id: "7158"
+                  amount: "52.00"
         type: request
+        description: Confirming the Order after Init
   - api: on_confirm
     action_id: on_confirm
     owner: BPP
@@ -1463,179 +1360,152 @@ steps:
         fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
-      - name: Example for action "on_confirm"
-        description: Auto-generated example for action "on_confirm" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for on_confirm
         payload:
           context:
-            action: on_confirm
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 27f85222-b20a-4350-9f6b-7c0412449cc8
-            timestamp: 2026-03-13T13:21:39.802Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: on_confirm
+            timestamp: 2026-05-08T12:21:15.691Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: c4c29a98-c3d4-4788-89a1-57fdc5c08289
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
-              billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-13T13:21:39.802Z
-                email: sharma.kirana@email.com
-                name: Sharma Kirana Store
-                phone: "9876543210"
-                tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-13T13:21:39.802Z
-              created_at: 2026-03-13T13:21:39.802Z
-              fulfillments:
-                - "@ondc/org/TAT": P2D
-                  "@ondc/org/provider_name": ABC Distributors
-                  end:
-                    contact:
-                      email: sharma.kirana@email.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                  id: F1
-                  start:
-                    contact:
-                      email: warehouse@abcdist.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560076"
-                        city: Bengaluru
-                        locality: Jayanagar
-                        state: KA
-                      descriptor:
-                        name: ABC Distributors Warehouse
-                      gps: 12.9563,77.6368
-                      id: L1
-                  state:
-                    descriptor:
-                      code: Pending
-                  tracking: true
-                  type: Delivery
-              id: "486551"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150.00"
-                  currency: INR
-                status: NOT-PAID
-                type: ON-FULFILLMENT
+              id: "866641"
+              state: Accepted
               provider:
                 id: P1
                 locations:
                   - id: L1
+              items:
+                - id: I1
+                  fulfillment_id: F1
+                  location_id: L1
+                  quantity:
+                    count: 1
+              billing:
+                name: Sharma Kirana Store
+                address:
+                  name: Shop No. 12
+                  building: Lakshmi Complex
+                  locality: MG Road
+                  city: Bengaluru
+                  state: Karnataka
+                  country: IND
+                  area_code: "560001"
+                tax_number: 29AABCU9603R1ZM
+                email: sharma.kirana@email.com
+                phone: "9876543210"
+                created_at: 2026-05-08T12:21:15.691Z
+                updated_at: 2026-05-08T12:21:15.691Z
+              fulfillments:
+                - id: F1
+                  "@ondc/org/provider_name": ABC Distributors
+                  state:
+                    descriptor:
+                      code: Pending
+                  type: Delivery
+                  tracking: true
+                  "@ondc/org/TAT": P2D
+                  start:
+                    location:
+                      id: L1
+                      descriptor:
+                        name: ABC Distributors Warehouse
+                      gps: 12.9563,77.6368
+                      address:
+                        locality: Jayanagar
+                        city: Bengaluru
+                        area_code: "560076"
+                        state: KA
+                    contact:
+                      phone: "9876543210"
+                      email: warehouse@abcdist.com
+                  end:
+                    location:
+                      gps: 12.4535,77.9283
+                      address:
+                        name: Shop No. 12
+                        building: Lakshmi Complex
+                        locality: MG Road
+                        city: Bengaluru
+                        state: Karnataka
+                        country: IND
+                        area_code: "560001"
+                    contact:
+                      phone: "9876543210"
+                      email: sharma.kirana@email.com
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 1
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "52.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 1
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "100.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "10.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
-                      value: "50.00"
+                      value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
-                  value: "260.00"
+                  value: "52.00"
                 ttl: P1D
-              state: Accepted
+              payments:
+                - status: NOT-PAID
+                  type: ON-FULFILLMENT
+                  collected_by: BPP
+                  params:
+                    currency: INR
+                    amount: "1150.00"
+                  "@ondc/org/buyer_app_finder_fee_type": percent
+                  "@ondc/org/buyer_app_finder_fee_amount": "3.54"
+                  "@ondc/org/settlement_basis": delivery
+                  "@ondc/org/settlement_window": P1D
+                  "@ondc/org/withholding_amount": "0.00"
+                  "@ondc/org/settlement_details":
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      beneficiary_name: ABC Distributors
+                      settlement_type: upi
+                      upi_address: abcdist@oksbi
+                      settlement_bank_account_no: XXXXXXXXXX
+                      settlement_ifsc_code: XXXXXXXXX
+                      bank_name: State Bank of India
+                      branch_name: Jayanagar Branch
               tags:
                 - code: bpp_terms
                   list:
                     - code: np_type
                       value: MSN
                     - code: tax_number
-                      value: gst_number_of_sellerNP
+                      value: 00ABCCH7409R1ZZ
                     - code: provider_tax_number
-                      value: PAN_number_of_provider
+                      value: ABCDE1234F
                     - code: accept_bap_terms
                       value: Y
                 - code: bap_terms
@@ -1644,8 +1514,13 @@ steps:
                       value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                     - code: tax_number
                       value: gst_number_of_buyerNP
-              updated_at: 2026-03-13T13:21:39.802Z
+              created_at: 2026-05-08T12:21:15.691Z
+              updated_at: 2026-05-08T12:21:15.691Z
+              payment:
+                params:
+                  amount: "52.00"
         type: request
+        description: On-confirm Response to the confirm call
   - api: cancel
     action_id: cancel
     owner: BAP
@@ -1673,7 +1548,7 @@ steps:
           ttl: PT30S
         message:
           order_id: O1
-          cancellation_reason_id: "051"
+          cancellation_reason_id: "003"
           descriptor:
             name: fulfillment
             short_desc: F1
@@ -1695,26 +1570,25 @@ steps:
         cancellation_reason_id: $.message.cancellation_reason_id
       inputs: {}
     examples:
-      - name: Example for action "cancel"
-        description: Auto-generated example for action "cancel" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for cancel
         payload:
           context:
-            action: cancel
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 91f717d6-9409-4f92-8f35-83766a708244
-            timestamp: 2026-03-13T13:21:39.934Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: cancel
+            timestamp: 2026-05-08T12:21:15.717Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: a82d111e-0b6e-431b-9a67-c889891f7336
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
-            cancellation_reason_id: "051"
+            order_id: "866641"
+            cancellation_reason_id: "003"
             descriptor:
               name: fulfillment
               short_desc: F1
@@ -1725,8 +1599,8 @@ steps:
                       value: no
                     - code: ttl_response
                       value: PT1H
-            order_id: "486551"
         type: request
+        description: cancel call initiated
   - api: on_cancel
     action_id: on_cancel
     owner: BPP
@@ -1945,88 +1819,98 @@ steps:
         on_status_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
-      - name: Example for action "on_cancel"
-        description: Auto-generated example for action "on_cancel" in flow
-          "Buyer_Side_Order_Cancellation"
+      - name: example for on_cancel
         payload:
           context:
-            action: on_cancel
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RETeB2B/1.2.5/seller
-            city: std:040
-            core_version: 1.2.5
-            country: IND
             domain: ONDC:RETeB2B
-            message_id: 91f717d6-9409-4f92-8f35-83766a708244
-            timestamp: 2026-03-13T13:21:40.078Z
-            transaction_id: bdd4e1dd-e955-4b15-b0dd-0ab473f6690c
+            action: on_cancel
+            timestamp: 2026-05-08T12:21:15.748Z
+            transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
+            message_id: a82d111e-0b6e-431b-9a67-c889891f7336
+            bap_id: sample-bap-id
+            bap_uri: https://bap.example.com
             ttl: PT30S
+            bpp_id: sample-bpp-id
+            bpp_uri: https://bpp.example.com
+            country: IND
+            city: std:060
+            core_version: 1.2.5
           message:
             order:
+              state: Cancelled
+              items:
+                - id: I1
+                  location_id: L1
+                  fulfillment_id: F1
+                  quantity:
+                    count: 0
+                - id: I1
+                  quantity:
+                    count: 1
+                  fulfillment_id: cancel_id_8189
+              provider:
+                id: P1
+                locations:
+                  - id: L1
               billing:
-                address:
-                  area_code: "560001"
-                  building: Lakshmi Complex
-                  city: Bengaluru
-                  country: IND
-                  locality: MG Road
-                  name: Shop No. 12
-                  state: Karnataka
-                created_at: 2026-03-13T13:21:40.078Z
-                email: sharma.kirana@email.com
                 name: Sharma Kirana Store
-                phone: "9876543210"
+                address:
+                  name: Shop No. 12
+                  building: Lakshmi Complex
+                  locality: MG Road
+                  city: Bengaluru
+                  state: Karnataka
+                  country: IND
+                  area_code: "560001"
                 tax_number: 29AABCU9603R1ZM
-                updated_at: 2026-03-13T13:21:40.078Z
-              cancellation:
-                cancelled_by: dev-automation.ondc.org
-                reason:
-                  id: "051"
-              created_at: 2026-03-13T13:21:40.078Z
+                email: sharma.kirana@email.com
+                phone: "9876543210"
+                created_at: 2026-05-08T12:21:15.748Z
+                updated_at: 2026-05-08T12:21:15.748Z
               fulfillments:
-                - "@ondc/org/TAT": P2D
+                - id: F1
                   "@ondc/org/provider_name": ABC Distributors
-                  end:
-                    contact:
-                      email: sharma.kirana@email.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560001"
-                        building: Lakshmi Complex
-                        city: Bengaluru
-                        country: IND
-                        locality: MG Road
-                        name: Shop No. 12
-                        state: Karnataka
-                      gps: 12.4535,77.9283
-                    person:
-                      name: Sharma Kirana Store
-                  id: F1
-                  start:
-                    contact:
-                      email: warehouse@abcdist.com
-                      phone: "9876543210"
-                    location:
-                      address:
-                        area_code: "560076"
-                        city: Bengaluru
-                        locality: Jayanagar
-                        state: KA
-                      descriptor:
-                        name: ABC Distributors Warehouse
-                      gps: 12.9563,77.6368
-                      id: L1
                   state:
                     descriptor:
                       code: Cancelled
+                  type: Delivery
+                  tracking: true
+                  "@ondc/org/TAT": P2D
+                  start:
+                    location:
+                      id: L1
+                      descriptor:
+                        name: ABC Distributors Warehouse
+                      gps: 12.9563,77.6368
+                      address:
+                        locality: Jayanagar
+                        city: Bengaluru
+                        area_code: "560076"
+                        state: KA
+                    contact:
+                      phone: "9876543210"
+                      email: warehouse@abcdist.com
+                  end:
+                    location:
+                      gps: 12.4535,77.9283
+                      address:
+                        name: Shop No. 12
+                        building: Lakshmi Complex
+                        locality: MG Road
+                        city: Bengaluru
+                        state: Karnataka
+                        country: IND
+                        area_code: "560001"
+                    contact:
+                      phone: "9876543210"
+                      email: sharma.kirana@email.com
+                    person:
+                      name: Sharma Kirana Store
                   tags:
                     - code: cancel_request
                       list:
                         - code: reason_id
-                          value: "051"
+                          value: "003"
                         - code: initiated_by
                           value: bap
                     - code: precancel_state
@@ -2034,10 +1918,9 @@ steps:
                         - code: fulfillment_state
                           value: Pending
                         - code: updated_at
-                          value: 2026-03-13T13:21:40.077Z
-                  tracking: true
-                  type: Delivery
+                          value: 2026-05-08T12:21:15.748Z
                 - id: cancel_id_8189
+                  type: Cancel
                   state:
                     descriptor:
                       code: Cancelled
@@ -2051,1003 +1934,75 @@ steps:
                         - code: currency
                           value: INR
                         - code: value
-                          value: "-100.00"
-                    - code: quote_trail
-                      list:
-                        - code: type
-                          value: item
-                        - code: id
-                          value: I2
-                        - code: currency
-                          value: INR
-                        - code: value
-                          value: "-100.00"
-                    - code: quote_trail
-                      list:
-                        - code: type
-                          value: tax
-                        - code: id
-                          value: F1
-                        - code: currency
-                          value: INR
-                        - code: value
-                          value: "-10.00"
-                    - code: quote_trail
-                      list:
-                        - code: type
-                          value: delivery
-                        - code: id
-                          value: F1
-                        - code: currency
-                          value: INR
-                        - code: value
-                          value: "-50.00"
-                  type: Cancel
-              id: "486551"
-              items:
-                - fulfillment_id: F1
-                  id: I1
-                  location_id: L1
-                  quantity:
-                    count: 0
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 0
-                - fulfillment_id: cancel_id_8189
-                  id: I1
-                  quantity:
-                    count: 1
-                - fulfillment_id: cancel_id_8189
-                  id: I2
-                  quantity:
-                    count: 1
-              payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_basis": delivery
-                "@ondc/org/settlement_details":
-                  - bank_name: State Bank of India
-                    beneficiary_name: ABC Distributors
-                    branch_name: Jayanagar Branch
-                    settlement_bank_account_no: XXXXXXXXXX
-                    settlement_counterparty: seller-app
-                    settlement_ifsc_code: XXXXXXXXX
-                    settlement_phase: sale-amount
-                    settlement_type: upi
-                    upi_address: abcdist@oksbi
-                "@ondc/org/settlement_window": P1D
-                "@ondc/org/withholding_amount": "0.00"
-                collected_by: BPP
-                params:
-                  amount: "1150"
-                  currency: INR
-                  transaction_id: "3937"
-                status: NOT-PAID
-                tl_method: http/get
-                type: ON-FULFILLMENT
-                uri: https://ondc.transaction.com/payment
-              provider:
-                id: P1
-                locations:
-                  - id: L1
+                          value: "-52.00"
               quote:
                 breakup:
                   - "@ondc/org/item_id": I1
                     "@ondc/org/item_quantity":
                       count: 0
+                    title: Ashirwad Plain Atta 1kg
                     "@ondc/org/title_type": item
+                    price:
+                      currency: INR
+                      value: "0.00"
                     item:
                       price:
                         currency: INR
-                        value: "100.00"
+                        value: "52.00"
                       quantity:
                         available:
                           count: "99"
                         maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "0.00"
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
-                      count: 0
-                    "@ondc/org/title_type": item
-                    item:
-                      price:
-                        currency: INR
-                        value: "100.00"
-                      quantity:
-                        available:
                           count: "99"
-                        maximum:
-                          count: "100"
-                        minimum:
-                          count: "1"
-                    price:
-                      currency: INR
-                      value: "0.00"
                   - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": tax
-                    price:
-                      currency: INR
-                      value: "0.00"
-                  - "@ondc/org/item_id": F1
+                    title: Delivery charges
                     "@ondc/org/title_type": delivery
                     price:
                       currency: INR
                       value: "0.00"
+                    item:
+                      price:
+                        currency: INR
+                        value: "0.00"
                 price:
                   currency: INR
                   value: "0.00"
                 ttl: P1D
-              state: Cancelled
-              updated_at: 2026-03-13T13:21:40.078Z
+              payments:
+                - uri: https://razorpay.com/
+                  tl_method: http/get
+                  params:
+                    amount: "2853.75"
+                    currency: INR
+                    transaction_id: 043e401b-8dc8-457a-b4cd-5a32180c4e05
+                  status: PAID
+                  type: ON-ORDER
+                  collected_by: BAP
+                  "@ondc/org/buyer_app_finder_fee_type": percent
+                  "@ondc/org/buyer_app_finder_fee_amount": "3.0"
+                  "@ondc/org/settlement_details":
+                    - settlement_counterparty: seller-app
+                      settlement_phase: sale-amount
+                      settlement_type: neft
+                      upi_address: gft@oksbi
+                      settlement_bank_account_no: "34234343434"
+                      settlement_ifsc_code: SBIN0000123
+                      beneficiary_name: Seller Name
+                      bank_name: SBI
+                      branch_name: Nellore
+              id: "866641"
+              created_at: 2026-05-08T12:21:15.748Z
+              updated_at: 2026-05-08T12:21:15.748Z
+              cancellation:
+                cancelled_by: sample-bap-id
+                reason:
+                  id: "003"
+              payment:
+                params:
+                  transaction_id: "7158"
+                  amount: "52.00"
         type: request
-transaction_history:
-  - action_id: select
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: select
-        timestamp: 2026-05-06T10:53:27.183Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 0e3afa86-41bd-4145-b158-4075e3a19b73
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          items:
-            - id: I1
-              location_id: L1
-              quantity:
-                count: 1
-              fulfillment_id: F1
-          fulfillments:
-            - id: F1
-              type: Delivery
-              end:
-                location:
-                  gps: 19.129076,72.825803
-                  address:
-                    area_code: "400053"
-              customer:
-                id: CUST-2024-0015421
-                organization:
-                  city:
-                    code: std:060
-    action: select
-    saved_info: {}
-  - action_id: on_select
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: on_select
-        timestamp: 2026-05-06T10:53:27.207Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 0e3afa86-41bd-4145-b158-4075e3a19b73
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          fulfillments:
-            - id: F1
-              type: Delivery
-              "@ondc/org/provider_name": ABC Distributors
-              tracking: false
-              "@ondc/org/category": Standard Delivery
-              "@ondc/org/TAT": PT4H
-              state:
-                descriptor:
-                  code: Serviceable
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 1
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "52.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "52.00"
-            ttl: P1D
-          items:
-            - id: I1
-              location_id: L1
-              fulfillment_id: F1
-              quantity:
-                count: 1
-    action: on_select
-    saved_info: {}
-  - action_id: init
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: init
-        timestamp: 2026-05-06T10:53:27.235Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 7f12fa0e-9f35-4f8f-a244-80affc08c309
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          items:
-            - id: I1
-              location_id: L1
-              fulfillment_id: F1
-              quantity:
-                count: 1
-          offers:
-            - id: discp10
-          billing:
-            name: Sharma Kirana Store
-            address:
-              name: Shop No. 12
-              building: Lakshmi Complex
-              locality: MG Road
-              city: Bengaluru
-              state: Karnataka
-              country: IND
-              area_code: "560001"
-            tax_number: 29AABCU9603R1ZM
-            email: sharma.kirana@email.com
-            phone: "9876543210"
-            created_at: 2026-05-06T10:53:27.235Z
-            updated_at: 2026-05-06T10:53:27.235Z
-          payments:
-            - type: ON-FULFILLMENT
-              collected_by: BPP
-          fulfillments:
-            - id: F1
-              type: Delivery
-              end:
-                location:
-                  gps: 12.4535,77.9283
-                  address:
-                    name: Shop No. 12
-                    building: Lakshmi Complex
-                    locality: MG Road
-                    city: Bengaluru
-                    state: Karnataka
-                    country: IND
-                    area_code: "560001"
-                contact:
-                  phone: "9876543210"
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 1
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "52.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "52.00"
-            ttl: P1D
-    action: init
-    saved_info: {}
-  - action_id: on_init
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: on_init
-        timestamp: 2026-05-06T10:53:27.252Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 7f12fa0e-9f35-4f8f-a244-80affc08c309
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          items:
-            - id: I1
-              location_id: L1
-              fulfillment_id: F1
-              quantity:
-                count: 1
-          billing:
-            name: Sharma Kirana Store
-            address:
-              name: Shop No. 12
-              building: Lakshmi Complex
-              locality: MG Road
-              city: Bengaluru
-              state: Karnataka
-              country: IND
-              area_code: "560001"
-            tax_number: 29AABCU9603R1ZM
-            email: sharma.kirana@email.com
-            phone: "9876543210"
-            created_at: 2026-05-06T10:53:27.252Z
-            updated_at: 2026-05-06T10:53:27.252Z
-          fulfillments:
-            - id: F1
-              type: Delivery
-              tracking: false
-              end:
-                location:
-                  gps: 12.4535,77.9283
-                  address:
-                    name: Shop No. 12
-                    building: Lakshmi Complex
-                    locality: MG Road
-                    city: Bengaluru
-                    state: Karnataka
-                    country: IND
-                    area_code: "560001"
-                contact:
-                  phone: "9876543210"
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 1
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "52.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "52.00"
-            ttl: P1D
-          payments:
-            - type: ON-ORDER
-              collected_by: BPP
-              uri: https://snp.com/pg
-              status: NOT-PAID
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
-          tags:
-            - code: bpp_terms
-              list:
-                - code: tax_number
-                  value: 00ABCCH7409R1ZZ
-                - code: provider_tax_number
-                  value: ABCDE1234F
-            - code: credit
-              list:
-                - code: credit_limit
-                  value: "25000.00"
-                - code: valid_till
-                  value: 2026-08-04T10:53:27.252Z
-    action: on_init
-    saved_info: {}
-  - action_id: confirm
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: confirm
-        timestamp: 2026-05-06T10:53:27.265Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 401eea60-6d68-4046-aec6-e5808f743bec
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          id: "609703"
-          state: Created
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          items:
-            - id: I1
-              fulfillment_id: F1
-              location_id: L1
-              quantity:
-                count: 1
-          billing:
-            name: Sharma Kirana Store
-            address:
-              name: Shop No. 12
-              building: Lakshmi Complex
-              locality: MG Road
-              city: Bengaluru
-              state: Karnataka
-              country: IND
-              area_code: "560001"
-            tax_number: 29AABCU9603R1ZM
-            email: sharma.kirana@email.com
-            phone: "9876543210"
-            created_at: 2026-05-06T10:53:27.265Z
-            updated_at: 2026-05-06T10:53:27.265Z
-          fulfillments:
-            - id: F1
-              type: Delivery
-              "@ondc/org/TAT": P2D
-              tracking: false
-              end:
-                location:
-                  gps: 12.4535,77.9283
-                  address:
-                    name: Shop No. 12
-                    building: Lakshmi Complex
-                    locality: MG Road
-                    city: Bengaluru
-                    state: Karnataka
-                    country: IND
-                    area_code: "560001"
-                contact:
-                  phone: "9876543210"
-                  email: sharma.kirana@email.com
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 1
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "52.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "52.00"
-            ttl: P1D
-          payments:
-            - uri: https://ondc.transaction.com/payment
-              tl_method: http/get
-              params:
-                currency: INR
-                transaction_id: "3937"
-                amount: "1150"
-              status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: upi
-                  beneficiary_name: ABC Distributors
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
-          tags:
-            - code: bpp_terms
-              list:
-                - code: tax_number
-                  value: 00ABCCH7409R1ZZ
-                - code: provider_tax_number
-                  value: ABCDE1234F
-            - code: bap_terms
-              list:
-                - code: accept_bpp_terms
-                  value: Y
-                - code: static_terms
-                  value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
-                - code: tax_number
-                  value: gst_number_of_buyerNP
-          created_at: 2026-05-06T10:53:27.265Z
-          updated_at: 2026-05-06T10:53:27.265Z
-          payment:
-            params:
-              transaction_id: "1529"
-              amount: "52.00"
-    action: confirm
-    saved_info: {}
-  - action_id: on_confirm
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: on_confirm
-        timestamp: 2026-05-06T10:53:27.277Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: 401eea60-6d68-4046-aec6-e5808f743bec
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          id: "609703"
-          state: Accepted
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          items:
-            - id: I1
-              fulfillment_id: F1
-              location_id: L1
-              quantity:
-                count: 1
-          billing:
-            name: Sharma Kirana Store
-            address:
-              name: Shop No. 12
-              building: Lakshmi Complex
-              locality: MG Road
-              city: Bengaluru
-              state: Karnataka
-              country: IND
-              area_code: "560001"
-            tax_number: 29AABCU9603R1ZM
-            email: sharma.kirana@email.com
-            phone: "9876543210"
-            created_at: 2026-05-06T10:53:27.277Z
-            updated_at: 2026-05-06T10:53:27.277Z
-          fulfillments:
-            - id: F1
-              "@ondc/org/provider_name": ABC Distributors
-              state:
-                descriptor:
-                  code: Pending
-              type: Delivery
-              tracking: true
-              "@ondc/org/TAT": P2D
-              start:
-                location:
-                  id: L1
-                  descriptor:
-                    name: ABC Distributors Warehouse
-                  gps: 12.9563,77.6368
-                  address:
-                    locality: Jayanagar
-                    city: Bengaluru
-                    area_code: "560076"
-                    state: KA
-                contact:
-                  phone: "9876543210"
-                  email: warehouse@abcdist.com
-              end:
-                location:
-                  gps: 12.4535,77.9283
-                  address:
-                    name: Shop No. 12
-                    building: Lakshmi Complex
-                    locality: MG Road
-                    city: Bengaluru
-                    state: Karnataka
-                    country: IND
-                    area_code: "560001"
-                contact:
-                  phone: "9876543210"
-                  email: sharma.kirana@email.com
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 1
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "52.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "52.00"
-            ttl: P1D
-          payments:
-            - status: NOT-PAID
-              type: ON-FULFILLMENT
-              collected_by: BPP
-              params:
-                currency: INR
-                amount: "1150.00"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.54"
-              "@ondc/org/settlement_basis": delivery
-              "@ondc/org/settlement_window": P1D
-              "@ondc/org/withholding_amount": "0.00"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  beneficiary_name: ABC Distributors
-                  settlement_type: upi
-                  upi_address: abcdist@oksbi
-                  settlement_bank_account_no: XXXXXXXXXX
-                  settlement_ifsc_code: XXXXXXXXX
-                  bank_name: State Bank of India
-                  branch_name: Jayanagar Branch
-          tags:
-            - code: bpp_terms
-              list:
-                - code: np_type
-                  value: MSN
-                - code: tax_number
-                  value: 00ABCCH7409R1ZZ
-                - code: provider_tax_number
-                  value: ABCDE1234F
-                - code: accept_bap_terms
-                  value: Y
-            - code: bap_terms
-              list:
-                - code: static_terms
-                  value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-                - code: tax_number
-                  value: gst_number_of_buyerNP
-          created_at: 2026-05-06T10:53:27.277Z
-          updated_at: 2026-05-06T10:53:27.277Z
-          payment:
-            params:
-              amount: "52.00"
-    action: on_confirm
-    saved_info: {}
-  - action_id: cancel
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: cancel
-        timestamp: 2026-05-06T10:53:27.283Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: c133c913-96a4-43fc-976a-8677cb4c589a
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order_id: "609703"
-        cancellation_reason_id: "051"
-        descriptor:
-          name: fulfillment
-          short_desc: F1
-          tags:
-            - code: params
-              list:
-                - code: force
-                  value: no
-                - code: ttl_response
-                  value: PT1H
-    action: cancel
-    saved_info: {}
-  - action_id: on_cancel
-    payload:
-      context:
-        domain: ONDC:RETeB2B
-        action: on_cancel
-        timestamp: 2026-05-06T10:53:27.297Z
-        transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-        message_id: c133c913-96a4-43fc-976a-8677cb4c589a
-        bap_id: sample-bap-id
-        bap_uri: https://bap.example.com
-        ttl: PT30S
-        bpp_id: sample-bpp-id
-        bpp_uri: https://bpp.example.com
-        country: IND
-        city: std:060
-        core_version: 1.2.5
-      message:
-        order:
-          state: Cancelled
-          items:
-            - id: I1
-              location_id: L1
-              fulfillment_id: F1
-              quantity:
-                count: 0
-            - id: I1
-              quantity:
-                count: 1
-              fulfillment_id: cancel_id_8189
-          provider:
-            id: P1
-            locations:
-              - id: L1
-          billing:
-            name: Sharma Kirana Store
-            address:
-              name: Shop No. 12
-              building: Lakshmi Complex
-              locality: MG Road
-              city: Bengaluru
-              state: Karnataka
-              country: IND
-              area_code: "560001"
-            tax_number: 29AABCU9603R1ZM
-            email: sharma.kirana@email.com
-            phone: "9876543210"
-            created_at: 2026-05-06T10:53:27.297Z
-            updated_at: 2026-05-06T10:53:27.297Z
-          fulfillments:
-            - id: F1
-              "@ondc/org/provider_name": ABC Distributors
-              state:
-                descriptor:
-                  code: Cancelled
-              type: Delivery
-              tracking: true
-              "@ondc/org/TAT": P2D
-              start:
-                location:
-                  id: L1
-                  descriptor:
-                    name: ABC Distributors Warehouse
-                  gps: 12.9563,77.6368
-                  address:
-                    locality: Jayanagar
-                    city: Bengaluru
-                    area_code: "560076"
-                    state: KA
-                contact:
-                  phone: "9876543210"
-                  email: warehouse@abcdist.com
-              end:
-                location:
-                  gps: 12.4535,77.9283
-                  address:
-                    name: Shop No. 12
-                    building: Lakshmi Complex
-                    locality: MG Road
-                    city: Bengaluru
-                    state: Karnataka
-                    country: IND
-                    area_code: "560001"
-                contact:
-                  phone: "9876543210"
-                  email: sharma.kirana@email.com
-                person:
-                  name: Sharma Kirana Store
-              tags:
-                - code: cancel_request
-                  list:
-                    - code: reason_id
-                      value: "051"
-                    - code: initiated_by
-                      value: bap
-                - code: precancel_state
-                  list:
-                    - code: fulfillment_state
-                      value: Pending
-                    - code: updated_at
-                      value: 2026-05-06T10:53:27.297Z
-            - id: cancel_id_8189
-              type: Cancel
-              state:
-                descriptor:
-                  code: Cancelled
-              tags:
-                - code: quote_trail
-                  list:
-                    - code: type
-                      value: item
-                    - code: id
-                      value: I1
-                    - code: currency
-                      value: INR
-                    - code: value
-                      value: "-52.00"
-          quote:
-            breakup:
-              - "@ondc/org/item_id": I1
-                "@ondc/org/item_quantity":
-                  count: 0
-                title: Ashirwad Plain Atta 1kg
-                "@ondc/org/title_type": item
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "52.00"
-                  quantity:
-                    available:
-                      count: "99"
-                    maximum:
-                      count: "99"
-              - "@ondc/org/item_id": F1
-                title: Delivery charges
-                "@ondc/org/title_type": delivery
-                price:
-                  currency: INR
-                  value: "0.00"
-                item:
-                  price:
-                    currency: INR
-                    value: "0.00"
-            price:
-              currency: INR
-              value: "0.00"
-            ttl: P1D
-          payments:
-            - uri: https://razorpay.com/
-              tl_method: http/get
-              params:
-                amount: "2853.75"
-                currency: INR
-                transaction_id: 043e401b-8dc8-457a-b4cd-5a32180c4e05
-              status: PAID
-              type: ON-ORDER
-              collected_by: BAP
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/settlement_details":
-                - settlement_counterparty: seller-app
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-                  upi_address: gft@oksbi
-                  settlement_bank_account_no: "34234343434"
-                  settlement_ifsc_code: SBIN0000123
-                  beneficiary_name: Seller Name
-                  bank_name: SBI
-                  branch_name: Nellore
-          id: "609703"
-          created_at: 2026-05-06T10:53:27.297Z
-          updated_at: 2026-05-06T10:53:27.297Z
-          cancellation:
-            cancelled_by: sample-bap-id
-            reason:
-              id: "051"
-          payment:
-            params:
-              transaction_id: "1529"
-              amount: "52.00"
-    action: on_cancel
-    saved_info: {}
+        description: on_cancel response to cancel call
+transaction_history: []
 validationLib: ""
 helperLib: ZnVuY3Rpb24gYXBwbHlEeW5hbWljVGltZXN0YW1wcyhwYXlsb2FkKSB7CiAgY29uc3Qgbm93ID0gbmV3IERhdGUoKTsKICBjb25zdCBub3dJU08gPSBub3cudG9JU09TdHJpbmcoKTsKCiAgLy8gZGVmYXVsdCB2YWxpZGl0eSA9ICs5MCBkYXlzCiAgY29uc3QgZnV0dXJlID0gbmV3IERhdGUobm93KTsKICBmdXR1cmUuc2V0RGF0ZShub3cuZ2V0RGF0ZSgpICsgOTApOwogIGNvbnN0IGZ1dHVyZUlTTyA9IGZ1dHVyZS50b0lTT1N0cmluZygpOwoKICBmdW5jdGlvbiB1cGRhdGUob2JqKSB7CiAgICBpZiAoIW9iaiB8fCB0eXBlb2Ygb2JqICE9PSAib2JqZWN0IikgcmV0dXJuOwoKICAgIGZvciAoY29uc3Qga2V5IGluIG9iaikgewoKICAgICAgaWYgKGtleSA9PT0gInRpbWVzdGFtcCIgfHwga2V5ID09PSAiY3JlYXRlZF9hdCIgfHwga2V5ID09PSAidXBkYXRlZF9hdCIpIHsKICAgICAgICBvYmpba2V5XSA9IG5vd0lTTzsKICAgICAgfQoKICAgICAgLy8gRml4IE9OREMgdGFnIHRpbWVzdGFtcHMgbGlrZSB2YWxpZF90aWxsCiAgICAgIGlmIChrZXkgPT09ICJjb2RlIiAmJiBvYmpba2V5XSA9PT0gInZhbGlkX3RpbGwiICYmIG9iai52YWx1ZSkgewogICAgICAgIG9iai52YWx1ZSA9IGZ1dHVyZUlTTzsKICAgICAgfQoKICAgICAgaWYgKHR5cGVvZiBvYmpba2V5XSA9PT0gIm9iamVjdCIpIHsKICAgICAgICB1cGRhdGUob2JqW2tleV0pOwogICAgICB9CiAgICB9CiAgfQoKICB1cGRhdGUocGF5bG9hZCk7CgogIHJldHVybiBwYXlsb2FkOwp9CmZ1bmN0aW9uIGdlbmVyYXRlUmFuZG9tTnVtZXJpY0lkKGxlbmd0aCA9IDYpIHsKCWNvbnN0IG1pbiA9IE1hdGgucG93KDEwLCBsZW5ndGggLSAxKTsKCWNvbnN0IG1heCA9IE1hdGgucG93KDEwLCBsZW5ndGgpIC0gMTsKCXJldHVybiBNYXRoLmZsb29yKG1pbiArIE1hdGgucmFuZG9tKCkgKiAobWF4IC0gbWluICsgMSkpLnRvU3RyaW5nKCk7Cn0KY29uc3QgUkVUZUIyQkNhdGFsb2cgPSBKU09OLnBhcnNlKAogIEpTT04uc3RyaW5naWZ5KHsKICAgIGNhdGFsb2c6IHsKICAgICAgImJwcC9kZXNjcmlwdG9yIjogewogICAgICAgICJpbWFnZXMiOiBbCiAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9sb2dvLnBuZyIKICAgICAgICBdLAogICAgICAgICJsb25nX2Rlc2MiOiAiQjJCIFdob2xlc2FsZSBEaXN0cmlidXRpb24gUGxhdGZvcm0gZm9yIFJldGFpbGVycyIsCiAgICAgICAgIm5hbWUiOiAiRGlzdHJpYnV0b3IgTWFya2V0cGxhY2UiLAogICAgICAgICJzaG9ydF9kZXNjIjogIkIyQiBXaG9sZXNhbGUgRGlzdHJpYnV0aW9uIFBsYXRmb3JtIiwKICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvbG9nby5wbmciLAogICAgICAgICJ0YWdzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiY29kZSI6ICJicHBfdGVybXMiLAogICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICJucF90eXBlIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJNU04iCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICJhY2NlcHRfYmFwX3Rlcm1zIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJZIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0KICAgICAgfSwKICAgICAgImJwcC9wcm92aWRlcnMiOiBbCiAgICAgICAgewogICAgICAgICAgImNhdGVnb3JpZXMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJuYW1lIjogIlBsYWluIEF0dGEgVmFyaWFudCBHcm91cCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJpZCI6ICJWMSIsCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInR5cGUiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ2YXJpYW50X2dyb3VwIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXR0ciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIm5hbWUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIml0ZW0udGFncy51bml0aXplZC5jb3VudCIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInNlcSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImF0dHIiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJuYW1lIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJpdGVtLnF1YW50aXR5LnVuaXRpemVkLm1lYXN1cmUiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJzZXEiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICAibmFtZSI6ICJTb2Z0IERyaW5rcyBWYXJpYW50IEdyb3VwIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImlkIjogIlYyIiwKICAgICAgICAgICAgICAidGFncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInR5cGUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInZhcmlhbnRfZ3JvdXAiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJhdHRyIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAibmFtZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiaXRlbS5xdWFudGl0eS51bml0aXplZC5tZWFzdXJlIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAic2VxIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIxIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXR0ciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIm5hbWUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIml0ZW0ucXVhbnRpdHkudW5pdGl6ZWQuY291bnQiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJzZXEiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9CiAgICAgICAgICBdLAogICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICJjb2RlIjogImRpc3RyaWJ1dG9yIiwKICAgICAgICAgICAgImltYWdlcyI6IFsKICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9hYmMtZGlzdC5wbmciCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJsb25nX2Rlc2MiOiAiTGVhZGluZyBGTUNHIFdob2xlc2FsZSBEaXN0cmlidXRvciBpbiBCYW5nYWxvcmUiLAogICAgICAgICAgICAibmFtZSI6ICJBQkMgTWFudWZhY3R1cmVyIiwKICAgICAgICAgICAgInNob3J0X2Rlc2MiOiAiRk1DRyBXaG9sZXNhbGUgRGlzdHJpYnV0b3IiLAogICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvYWJjLWRpc3QucG5nIgogICAgICAgICAgfSwKICAgICAgICAgICJmdWxmaWxsbWVudHMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY29udGFjdCI6IHsKICAgICAgICAgICAgICAgICJlbWFpbCI6ICJvcmRlcnNAYWJjZGlzdC5jb20iLAogICAgICAgICAgICAgICAgInBob25lIjogIjk4ODYwOTg4NjAiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiaWQiOiAiRjEiLAogICAgICAgICAgICAgICJ0eXBlIjogIkRlbGl2ZXJ5IgogICAgICAgICAgICB9CiAgICAgICAgICBdLAogICAgICAgICAgImlkIjogIlAxIiwKICAgICAgICAgICJpdGVtcyI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICJAb25kYy9vcmcvYXZhaWxhYmxlX29uX2NvZCI6IGZhbHNlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvY2FuY2VsbGFibGUiOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvY29udGFjdF9kZXRhaWxzX2NvbnN1bWVyX2NhcmUiOiAic3VwcG9ydCxzdXBwb3J0QGFiY2Rpc3QuY29tLDE4MDA0MjU0NDQ0IiwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybl93aW5kb3ciOiAiUDJEIiwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybmFibGUiOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvc2VsbGVyX3BpY2t1cF9yZXR1cm4iOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvc3RhdHV0b3J5X3JlcXNfcGFja2FnZWRfY29tbW9kaXRpZXMiOiB7CiAgICAgICAgICAgICAgICAiY29tbW9uX29yX2dlbmVyaWNfbmFtZV9vZl9jb21tb2RpdHkiOiAiV2hlYXQgRmxvdXIgKEF0dGEpIiwKICAgICAgICAgICAgICAgICJtYW51ZmFjdHVyZXJfb3JfcGFja2VyX2FkZHJlc3MiOiAiSVRDIFF1YWxpdHkgQ2FyZSBDZWxsLCBQLk8gQm94IE5vLjU5MiwgQmFuZ2Fsb3JlLTU2MDAwNSIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9uYW1lIjogIklUQyBMaW1pdGVkIiwKICAgICAgICAgICAgICAgICJtb250aF95ZWFyX29mX21hbnVmYWN0dXJlX3BhY2tpbmdfaW1wb3J0IjogIjEyLzIwMjQiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3ByZXBhY2thZ2VkX2Zvb2QiOiB7CiAgICAgICAgICAgICAgICAiYWRkaXRpdmVzX2luZm8iOiAiTm9uZSIsCiAgICAgICAgICAgICAgICAiYnJhbmRfb3duZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMjM0NTY3ODkwMTIzNCIsCiAgICAgICAgICAgICAgICAiaW1wb3J0ZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIiLAogICAgICAgICAgICAgICAgIm51dHJpdGlvbmFsX2luZm8iOiAiRW5lcmd5KEtDYWwpLShwZXIgMTAwZykgMzQ4OyBQcm90ZWluKGcpLShwZXIgMTAwZykgMTEuOCIsCiAgICAgICAgICAgICAgICAib3RoZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMjM0NTY3ODkwMTIzNCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJAb25kYy9vcmcvdGltZV90b19zaGlwIjogIlBUNEgiLAogICAgICAgICAgICAgICJjYXRlZ29yeV9pZCI6ICJBdHRhLCBGbG91cnMgYW5kIFNvb2ppIiwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogIjE6WFhYWFhYWFhYWFhYWCIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9hc2hpcndhZC1hdHRhLTFrZy5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICJQcmVtaXVtIHF1YWxpdHkgd2hlYXQgZmxvdXIiLAogICAgICAgICAgICAgICAgIm5hbWUiOiAiQXNoaXJ3YWQgUGxhaW4gQXR0YSAxa2ciLAogICAgICAgICAgICAgICAgInNob3J0X2Rlc2MiOiAiQXNoaXJ3YWQgUGxhaW4gQXR0YSAxa2cgUGFjayIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvYXNoaXJ3YWQtYXR0YS0xa2cucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTEiLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMSIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYxIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjU1LjAwIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI1Mi4wMCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJxdWFudGl0eSI6IHsKICAgICAgICAgICAgICAgICJhdmFpbGFibGUiOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICI5OSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAibWF4aW11bSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjEwMCIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAibWluaW11bSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjIwIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJ1bml0aXplZCI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjEwIiwKICAgICAgICAgICAgICAgICAgIm1lYXN1cmUiOiB7CiAgICAgICAgICAgICAgICAgICAgInVuaXQiOiAia2lsb2dyYW0iLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIxIgogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAidGFncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAib3JpZ2luIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiY291bnRyeSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiSU5EIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXR0cmlidXRlIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYnJhbmQiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkFzaGlyd2FkIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmVnX25vbnZlZyIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInZlZyIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiaW1hZ2UiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJiYWNrX2ltYWdlIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidXJsIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL2kxX2JhY2tfaW1hZ2UucG5nIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRpbWUiOiB7CiAgICAgICAgICAgICAgICAibGFiZWwiOiAiZW5hYmxlIiwKICAgICAgICAgICAgICAgICJ0aW1lc3RhbXAiOiAiMjAyNi0wMy0xNlQwODozMDo1Ni44NTNaIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICJAb25kYy9vcmcvYXZhaWxhYmxlX29uX2NvZCI6IGZhbHNlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvY2FuY2VsbGFibGUiOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvY29udGFjdF9kZXRhaWxzX2NvbnN1bWVyX2NhcmUiOiAic3VwcG9ydCxzdXBwb3J0QGFiY2Rpc3QuY29tLDE4MDA0MjU0NDQ0IiwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybl93aW5kb3ciOiAiUDJEIiwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybmFibGUiOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvc2VsbGVyX3BpY2t1cF9yZXR1cm4iOiB0cnVlLAogICAgICAgICAgICAgICJAb25kYy9vcmcvc3RhdHV0b3J5X3JlcXNfcGFja2FnZWRfY29tbW9kaXRpZXMiOiB7CiAgICAgICAgICAgICAgICAiY29tbW9uX29yX2dlbmVyaWNfbmFtZV9vZl9jb21tb2RpdHkiOiAiV2hlYXQgRmxvdXIgKEF0dGEpIiwKICAgICAgICAgICAgICAgICJtYW51ZmFjdHVyZXJfb3JfcGFja2VyX2FkZHJlc3MiOiAiSVRDIFF1YWxpdHkgQ2FyZSBDZWxsLCBQLk8gQm94IE5vLjU5MiwgQmFuZ2Fsb3JlLTU2MDAwNSIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9uYW1lIjogIklUQyBMaW1pdGVkIiwKICAgICAgICAgICAgICAgICJtb250aF95ZWFyX29mX21hbnVmYWN0dXJlX3BhY2tpbmdfaW1wb3J0IjogIjEyLzIwMjQiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3ByZXBhY2thZ2VkX2Zvb2QiOiB7CiAgICAgICAgICAgICAgICAiYWRkaXRpdmVzX2luZm8iOiAiTm9uZSIsCiAgICAgICAgICAgICAgICAiYnJhbmRfb3duZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMjM0NTY3ODkwMTIzNCIsCiAgICAgICAgICAgICAgICAiaW1wb3J0ZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIiLAogICAgICAgICAgICAgICAgIm51dHJpdGlvbmFsX2luZm8iOiAiRW5lcmd5KEtDYWwpLShwZXIgMTAwZykgMzQ4OyBQcm90ZWluKGcpLShwZXIgMTAwZykgMTEuOCIsCiAgICAgICAgICAgICAgICAib3RoZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMjM0NTY3ODkwMTIzNCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJAb25kYy9vcmcvdGltZV90b19zaGlwIjogIlBUNEgiLAogICAgICAgICAgICAgICJjYXRlZ29yeV9pZCI6ICJBdHRhLCBGbG91cnMgYW5kIFNvb2ppIiwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogIjE6WFhYWFhYWFhYWFhYWSIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9hc2hpcndhZC1hdHRhLTVrZy5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICJQcmVtaXVtIHF1YWxpdHkgd2hlYXQgZmxvdXIgLSBidWxrIHBhY2siLAogICAgICAgICAgICAgICAgIm5hbWUiOiAiQXNoaXJ3YWQgUGxhaW4gQXR0YSA1a2ciLAogICAgICAgICAgICAgICAgInNob3J0X2Rlc2MiOiAiQXNoaXJ3YWQgUGxhaW4gQXR0YSA1a2cgUGFjayIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvYXNoaXJ3YWQtYXR0YS01a2cucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTIiLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMiIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYxIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjI2MC4wMCIsCiAgICAgICAgICAgICAgICAidmFsdWUiOiAiMjQ1LjAwIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInF1YW50aXR5IjogewogICAgICAgICAgICAgICAgImF2YWlsYWJsZSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjk5IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJtYXhpbXVtIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiNTAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1pbmltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIxMCIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAidW5pdGl6ZWQiOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIxMiIsCiAgICAgICAgICAgICAgICAgICJtZWFzdXJlIjogewogICAgICAgICAgICAgICAgICAgICJ1bml0IjogImtpbG9ncmFtIiwKICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiNSIKICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm9yaWdpbiIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImNvdW50cnkiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIklORCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImF0dHJpYnV0ZSIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImJyYW5kIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJBc2hpcndhZCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInZlZ19ub252ZWciLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWciLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImltYWdlIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiYmFja19pbWFnZSIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInVybCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9pMl9iYWNrX2ltYWdlLnBuZyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0aW1lIjogewogICAgICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICAgICAidGltZXN0YW1wIjogIjIwMjYtMDMtMTZUMDg6MzA6NTYuODUzWiIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2F2YWlsYWJsZV9vbl9jb2QiOiBmYWxzZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NvbnRhY3RfZGV0YWlsc19jb25zdW1lcl9jYXJlIjogIlN1cHBvcnQsc3VwcG9ydEBhYmNkaXN0LmNvbSwxODAwNDI1NDQ0NCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlAyRCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5hYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3NlbGxlcl9waWNrdXBfcmV0dXJuIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3BhY2thZ2VkX2NvbW1vZGl0aWVzIjogewogICAgICAgICAgICAgICAgImNvbW1vbl9vcl9nZW5lcmljX25hbWVfb2ZfY29tbW9kaXR5IjogIldoZWF0IEZsb3VyIChBdHRhKSIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9hZGRyZXNzIjogIkZvcnR1bmUgSG91c2UsIEFobWVkYWJhZC0zODAwMDkiLAogICAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfbmFtZSI6ICJBZGFuaSBXaWxtYXIgTGltaXRlZCIsCiAgICAgICAgICAgICAgICAibW9udGhfeWVhcl9vZl9tYW51ZmFjdHVyZV9wYWNraW5nX2ltcG9ydCI6ICIxMi8yMDI0IgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wcmVwYWNrYWdlZF9mb29kIjogewogICAgICAgICAgICAgICAgImFkZGl0aXZlc19pbmZvIjogIk5vbmUiLAogICAgICAgICAgICAgICAgImJyYW5kX293bmVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAxMjUiLAogICAgICAgICAgICAgICAgImltcG9ydGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiIiwKICAgICAgICAgICAgICAgICJudXRyaXRpb25hbF9pbmZvIjogIkVuZXJneShLQ2FsKS0ocGVyIDEwMGcpIDM0MTsgUHJvdGVpbihnKS0ocGVyIDEwMGcpIDEyLjEiLAogICAgICAgICAgICAgICAgIm90aGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAxMjUiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3RpbWVfdG9fc2hpcCI6ICJQVDRIIiwKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWQiOiAiQXR0YSwgRmxvdXJzIGFuZCBTb29qaSIsCiAgICAgICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICIxOlhYWFhYWFhYWFhYWFoiLAogICAgICAgICAgICAgICAgImltYWdlcyI6IFsKICAgICAgICAgICAgICAgICAgImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvZm9ydHVuZS1hdHRhLTFrZy5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICIxMDAlIHdob2xlIHdoZWF0IGNoYWtraSBhdHRhIiwKICAgICAgICAgICAgICAgICJuYW1lIjogIkZvcnR1bmUgQ2hha2tpIEF0dGEgMWtnIiwKICAgICAgICAgICAgICAgICJzaG9ydF9kZXNjIjogIkZvcnR1bmUgQ2hha2tpIEZyZXNoIEF0dGEgMWtnIFBhY2siLAogICAgICAgICAgICAgICAgInN5bWJvbCI6ICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL2ZvcnR1bmUtYXR0YS0xa2cucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTMiLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMSIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYxIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjUyLjAwIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI0OC4wMCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJxdWFudGl0eSI6IHsKICAgICAgICAgICAgICAgICJhdmFpbGFibGUiOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICI5OSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAibWF4aW11bSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjgwIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJtaW5pbXVtIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiMjAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgInVuaXRpemVkIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiMTUiLAogICAgICAgICAgICAgICAgICAibWVhc3VyZSI6IHsKICAgICAgICAgICAgICAgICAgICAidW5pdCI6ICJraWxvZ3JhbSIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEiCiAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJ0YWdzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJvcmlnaW4iLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJjb3VudHJ5IiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJJTkQiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJhdHRyaWJ1dGUiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJicmFuZCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiRm9ydHVuZSIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInZlZ19ub252ZWciLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWciLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImltYWdlIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiYmFja19pbWFnZSIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInVybCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9pM19iYWNrX2ltYWdlLnBuZyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0aW1lIjogewogICAgICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICAgICAidGltZXN0YW1wIjogIjIwMjYtMDMtMTZUMDg6MzA6NTYuODUzWiIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2F2YWlsYWJsZV9vbl9jb2QiOiBmYWxzZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NvbnRhY3RfZGV0YWlsc19jb25zdW1lcl9jYXJlIjogIlN1cHBvcnQsc3VwcG9ydEBhYmNkaXN0LmNvbSwxODAwNDI1NDQ0NCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlAyRCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5hYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3NlbGxlcl9waWNrdXBfcmV0dXJuIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3BhY2thZ2VkX2NvbW1vZGl0aWVzIjogewogICAgICAgICAgICAgICAgImNvbW1vbl9vcl9nZW5lcmljX25hbWVfb2ZfY29tbW9kaXR5IjogIldoZWF0IEZsb3VyIChBdHRhKSIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9hZGRyZXNzIjogIkZvcnR1bmUgSG91c2UsIEFobWVkYWJhZC0zODAwMDkiLAogICAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfbmFtZSI6ICJBZGFuaSBXaWxtYXIgTGltaXRlZCIsCiAgICAgICAgICAgICAgICAibW9udGhfeWVhcl9vZl9tYW51ZmFjdHVyZV9wYWNraW5nX2ltcG9ydCI6ICIxMi8yMDI0IgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wcmVwYWNrYWdlZF9mb29kIjogewogICAgICAgICAgICAgICAgImFkZGl0aXZlc19pbmZvIjogIk5vbmUiLAogICAgICAgICAgICAgICAgImJyYW5kX293bmVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAxMjUiLAogICAgICAgICAgICAgICAgImltcG9ydGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiIiwKICAgICAgICAgICAgICAgICJudXRyaXRpb25hbF9pbmZvIjogIkVuZXJneShLQ2FsKS0ocGVyIDEwMGcpIDM0MTsgUHJvdGVpbihnKS0ocGVyIDEwMGcpIDEyLjEiLAogICAgICAgICAgICAgICAgIm90aGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAxMjUiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3RpbWVfdG9fc2hpcCI6ICJQVDRIIiwKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWQiOiAiQXR0YSwgRmxvdXJzIGFuZCBTb29qaSIsCiAgICAgICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICIxOlhYWFhYWFhYWFhYWFciLAogICAgICAgICAgICAgICAgImltYWdlcyI6IFsKICAgICAgICAgICAgICAgICAgImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvZm9ydHVuZS1hdHRhLTVrZy5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICIxMDAlIHdob2xlIHdoZWF0IGNoYWtraSBhdHRhIC0gYnVsayBwYWNrIiwKICAgICAgICAgICAgICAgICJuYW1lIjogIkZvcnR1bmUgQ2hha2tpIEF0dGEgNWtnIiwKICAgICAgICAgICAgICAgICJzaG9ydF9kZXNjIjogIkZvcnR1bmUgQ2hha2tpIEZyZXNoIEF0dGEgNWtnIFBhY2siLAogICAgICAgICAgICAgICAgInN5bWJvbCI6ICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL2ZvcnR1bmUtYXR0YS01a2cucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTQiLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMiIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYxIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjI1MC4wMCIsCiAgICAgICAgICAgICAgICAidmFsdWUiOiAiMjMwLjAwIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInF1YW50aXR5IjogewogICAgICAgICAgICAgICAgImF2YWlsYWJsZSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjk5IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJtYXhpbXVtIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiOTkiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1pbmltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIxMCIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAidW5pdGl6ZWQiOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICI1IiwKICAgICAgICAgICAgICAgICAgIm1lYXN1cmUiOiB7CiAgICAgICAgICAgICAgICAgICAgInVuaXQiOiAia2lsb2dyYW0iLAogICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI1IgogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAidGFncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAib3JpZ2luIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiY291bnRyeSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiSU5EIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXR0cmlidXRlIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYnJhbmQiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkZvcnR1bmUiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWdfbm9udmVnIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmVnIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ5ZXMiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJpbWFnZSIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInR5cGUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImJhY2tfaW1hZ2UiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ1cmwiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvaTRfYmFja19pbWFnZS5wbmciCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJlbmFibGUiLAogICAgICAgICAgICAgICAgInRpbWVzdGFtcCI6ICIyMDI2LTAzLTE2VDA4OjMwOjU2Ljg1M1oiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgIkBvbmRjL29yZy9hdmFpbGFibGVfb25fY29kIjogZmFsc2UsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9jYW5jZWxsYWJsZSI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9jb250YWN0X2RldGFpbHNfY29uc3VtZXJfY2FyZSI6ICJTdXBwb3J0LHN1cHBvcnRAYWJjZGlzdC5jb20sMTgwMDQyNTQ0NDQiLAogICAgICAgICAgICAgICJAb25kYy9vcmcvcmV0dXJuX3dpbmRvdyI6ICJQMUQiLAogICAgICAgICAgICAgICJAb25kYy9vcmcvcmV0dXJuYWJsZSI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zZWxsZXJfcGlja3VwX3JldHVybiI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wYWNrYWdlZF9jb21tb2RpdGllcyI6IHsKICAgICAgICAgICAgICAgICJjb21tb25fb3JfZ2VuZXJpY19uYW1lX29mX2NvbW1vZGl0eSI6ICJDYXJib25hdGVkIFNvZnQgRHJpbmsiLAogICAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfYWRkcmVzcyI6ICJDb2NhLUNvbGEgSW5kaWEgUHZ0IEx0ZCwgR3VyZ2FvbiwgSGFyeWFuYSIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9uYW1lIjogIkhpbmR1c3RhbiBDb2NhLUNvbGEgQmV2ZXJhZ2VzIFB2dCBMdGQiLAogICAgICAgICAgICAgICAgIm1vbnRoX3llYXJfb2ZfbWFudWZhY3R1cmVfcGFja2luZ19pbXBvcnQiOiAiMDEvMjAyNSIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJAb25kYy9vcmcvc3RhdHV0b3J5X3JlcXNfcHJlcGFja2FnZWRfZm9vZCI6IHsKICAgICAgICAgICAgICAgICJhZGRpdGl2ZXNfaW5mbyI6ICJDYXJib25hdGVkIFdhdGVyLCBTdWdhciwgQ2FyYW1lbCBDb2xvdXIsIFBob3NwaG9yaWMgQWNpZCwgQ2FmZmVpbmUiLAogICAgICAgICAgICAgICAgImJyYW5kX293bmVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAwMTEiLAogICAgICAgICAgICAgICAgImltcG9ydGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiIiwKICAgICAgICAgICAgICAgICJudXRyaXRpb25hbF9pbmZvIjogIkVuZXJneShLQ2FsKS0ocGVyIDEwMG1sKSA0MjsgU3VnYXJzKGcpLShwZXIgMTAwbWwpIDEwLjYiLAogICAgICAgICAgICAgICAgIm90aGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAwMTEiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3RpbWVfdG9fc2hpcCI6ICJQVDRIIiwKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWQiOiAiU29mdCBEcmlua3MgYW5kIEp1aWNlcyIsCiAgICAgICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICIxOkNPQ0FDT0xBMzAwTUwyNCIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9jb2tlLTMwMG1sLnBuZyIKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICAibG9uZ19kZXNjIjogIkNvY2EtQ29sYSAzMDBtbCBHbGFzcyBCb3R0bGUgLSBDYXNlIG9mIDI0IGJvdHRsZXMiLAogICAgICAgICAgICAgICAgIm5hbWUiOiAiQ29jYS1Db2xhIDMwMG1sIChDYXNlIG9mIDI0KSIsCiAgICAgICAgICAgICAgICAic2hvcnRfZGVzYyI6ICJDb2NhLUNvbGEgMzAwbWwgR2xhc3MgQm90dGxlIC0gQ2FzZSBvZiAyNCIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvY29rZS0zMDBtbC5wbmciCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiZnVsZmlsbG1lbnRfaWQiOiAiRjEiLAogICAgICAgICAgICAgICJpZCI6ICJJNSIsCiAgICAgICAgICAgICAgImxvY2F0aW9uX2lkIjogIkwxIiwKICAgICAgICAgICAgICAicGFyZW50X2l0ZW1faWQiOiAiVjIiLAogICAgICAgICAgICAgICJwcmljZSI6IHsKICAgICAgICAgICAgICAgICJjdXJyZW5jeSI6ICJJTlIiLAogICAgICAgICAgICAgICAgIm1heGltdW1fdmFsdWUiOiAiNTIwLjAwIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI0ODAuMDAiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAicXVhbnRpdHkiOiB7CiAgICAgICAgICAgICAgICAiYXZhaWxhYmxlIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiOTkiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1heGltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIyMCIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAibWluaW11bSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjUiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgInVuaXRpemVkIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiMjQiLAogICAgICAgICAgICAgICAgICAibWVhc3VyZSI6IHsKICAgICAgICAgICAgICAgICAgICAidW5pdCI6ICJtaWxsaWxpdHJlIiwKICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMzAwIgogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAidGFncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAib3JpZ2luIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiY291bnRyeSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiSU5EIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXR0cmlidXRlIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYnJhbmQiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkNvY2EtQ29sYSIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInZlZ19ub252ZWciLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWciLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0aW1lIjogewogICAgICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICAgICAidGltZXN0YW1wIjogIjIwMjYtMDMtMTZUMDg6MzA6NTYuODUzWiIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2F2YWlsYWJsZV9vbl9jb2QiOiBmYWxzZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NvbnRhY3RfZGV0YWlsc19jb25zdW1lcl9jYXJlIjogInN1cHBvcnQsc3VwcG9ydEBhYmNkaXN0LmNvbSwxODAwNDI1NDQ0NCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlAxRCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5hYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3NlbGxlcl9waWNrdXBfcmV0dXJuIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3BhY2thZ2VkX2NvbW1vZGl0aWVzIjogewogICAgICAgICAgICAgICAgImNvbW1vbl9vcl9nZW5lcmljX25hbWVfb2ZfY29tbW9kaXR5IjogIkNhcmJvbmF0ZWQgU29mdCBEcmluayIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9hZGRyZXNzIjogIkNvY2EtQ29sYSBJbmRpYSBQdnQgTHRkLCBHdXJnYW9uLCBIYXJ5YW5hIiwKICAgICAgICAgICAgICAgICJtYW51ZmFjdHVyZXJfb3JfcGFja2VyX25hbWUiOiAiSGluZHVzdGFuIENvY2EtQ29sYSBCZXZlcmFnZXMgUHZ0IEx0ZCIsCiAgICAgICAgICAgICAgICAibW9udGhfeWVhcl9vZl9tYW51ZmFjdHVyZV9wYWNraW5nX2ltcG9ydCI6ICIwMS8yMDI1IgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wcmVwYWNrYWdlZF9mb29kIjogewogICAgICAgICAgICAgICAgImFkZGl0aXZlc19pbmZvIjogIkNhcmJvbmF0ZWQgV2F0ZXIsIFN1Z2FyLCBDYXJhbWVsIENvbG91ciwgUGhvc3Bob3JpYyBBY2lkLCBDYWZmZWluZSIsCiAgICAgICAgICAgICAgICAiYnJhbmRfb3duZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMDAxMjAxMTAwMDAxMSIsCiAgICAgICAgICAgICAgICAiaW1wb3J0ZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIiLAogICAgICAgICAgICAgICAgIm51dHJpdGlvbmFsX2luZm8iOiAiRW5lcmd5KEtDYWwpLShwZXIgMTAwbWwpIDQyOyBTdWdhcnMoZyktKHBlciAxMDBtbCkgMTAuNiIsCiAgICAgICAgICAgICAgICAib3RoZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMDAxMjAxMTAwMDAxMSIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJAb25kYy9vcmcvdGltZV90b19zaGlwIjogIlBUNEgiLAogICAgICAgICAgICAgICJjYXRlZ29yeV9pZCI6ICJFbmVyZ3kgYW5kIFNvZnQgRHJpbmtzIiwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogIjE6Q09DQUNPTEEyTDYiLAogICAgICAgICAgICAgICAgImltYWdlcyI6IFsKICAgICAgICAgICAgICAgICAgImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvY29rZS0ybC5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICJDb2NhLUNvbGEgMiBMaXRlciBQRVQgQm90dGxlIC0gUGFjayBvZiA2IGJvdHRsZXMiLAogICAgICAgICAgICAgICAgIm5hbWUiOiAiQ29jYS1Db2xhIDJMIChQYWNrIG9mIDYpIiwKICAgICAgICAgICAgICAgICJzaG9ydF9kZXNjIjogIkNvY2EtQ29sYSAyIExpdGVyIFBFVCAtIFBhY2sgb2YgNiIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvY29rZS0ybC5wbmciCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiZnVsZmlsbG1lbnRfaWQiOiAiRjEiLAogICAgICAgICAgICAgICJpZCI6ICJJNiIsCiAgICAgICAgICAgICAgImxvY2F0aW9uX2lkIjogIkwyIiwKICAgICAgICAgICAgICAicGFyZW50X2l0ZW1faWQiOiAiVjIiLAogICAgICAgICAgICAgICJwcmljZSI6IHsKICAgICAgICAgICAgICAgICJjdXJyZW5jeSI6ICJJTlIiLAogICAgICAgICAgICAgICAgIm1heGltdW1fdmFsdWUiOiAiNzgwLjAwIiwKICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI3MjAuMDAiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAicXVhbnRpdHkiOiB7CiAgICAgICAgICAgICAgICAiYXZhaWxhYmxlIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiOTkiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1heGltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIxNSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAibWluaW11bSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjMiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgInVuaXRpemVkIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiNiIsCiAgICAgICAgICAgICAgICAgICJtZWFzdXJlIjogewogICAgICAgICAgICAgICAgICAgICJ1bml0IjogImxpdHJlIiwKICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMiIKICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm9yaWdpbiIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImNvdW50cnkiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIklORCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImF0dHJpYnV0ZSIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImJyYW5kIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJDb2NhLUNvbGEiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWdfbm9udmVnIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmVnIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ5ZXMiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJlbmFibGUiLAogICAgICAgICAgICAgICAgInRpbWVzdGFtcCI6ICIyMDI2LTAzLTE2VDA4OjMwOjU2Ljg1M1oiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgIkBvbmRjL29yZy9hdmFpbGFibGVfb25fY29kIjogZmFsc2UsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9jYW5jZWxsYWJsZSI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9jb250YWN0X2RldGFpbHNfY29uc3VtZXJfY2FyZSI6ICJTdXBwb3J0LHN1cHBvcnRAYWJjZGlzdC5jb20sMTgwMDQyNTQ0NDQiLAogICAgICAgICAgICAgICJAb25kYy9vcmcvcmV0dXJuX3dpbmRvdyI6ICJQMUQiLAogICAgICAgICAgICAgICJAb25kYy9vcmcvcmV0dXJuYWJsZSI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zZWxsZXJfcGlja3VwX3JldHVybiI6IHRydWUsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wYWNrYWdlZF9jb21tb2RpdGllcyI6IHsKICAgICAgICAgICAgICAgICJjb21tb25fb3JfZ2VuZXJpY19uYW1lX29mX2NvbW1vZGl0eSI6ICJDYXJib25hdGVkIFNvZnQgRHJpbmsiLAogICAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfYWRkcmVzcyI6ICJHdXJnYW9uLCBIYXJ5YW5hIiwKICAgICAgICAgICAgICAgICJtYW51ZmFjdHVyZXJfb3JfcGFja2VyX25hbWUiOiAiVmFydW4gQmV2ZXJhZ2VzIEx0ZCIsCiAgICAgICAgICAgICAgICAibW9udGhfeWVhcl9vZl9tYW51ZmFjdHVyZV9wYWNraW5nX2ltcG9ydCI6ICIwMS8yMDI1IgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9zdGF0dXRvcnlfcmVxc19wcmVwYWNrYWdlZF9mb29kIjogewogICAgICAgICAgICAgICAgImFkZGl0aXZlc19pbmZvIjogIkNhcmJvbmF0ZWQgV2F0ZXIsIFN1Z2FyLCBQaG9zcGhvcmljIEFjaWQsIENhZmZlaW5lIiwKICAgICAgICAgICAgICAgICJicmFuZF9vd25lcl9GU1NBSV9saWNlbnNlX25vIjogIjEwMDEyMDExMDAwMDIyIiwKICAgICAgICAgICAgICAgICJpbXBvcnRlcl9GU1NBSV9saWNlbnNlX25vIjogIiIsCiAgICAgICAgICAgICAgICAibnV0cml0aW9uYWxfaW5mbyI6ICJFbmVyZ3koS0NhbCktKHBlciAxMDBtbCkgNDQ7IFN1Z2FycyhnKS0ocGVyIDEwMG1sKSAxMSIsCiAgICAgICAgICAgICAgICAib3RoZXJfRlNTQUlfbGljZW5zZV9ubyI6ICIxMDAxMjAxMTAwMDAyMiIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJAb25kYy9vcmcvdGltZV90b19zaGlwIjogIlBUNEgiLAogICAgICAgICAgICAgICJjYXRlZ29yeV9pZCI6ICJFbmVyZ3kgYW5kIFNvZnQgRHJpbmtzIiwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogIjE6UEVQU0kzMDBNTDI0IiwKICAgICAgICAgICAgICAgICJpbWFnZXMiOiBbCiAgICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL3BlcHNpLTMwMG1sLnBuZyIKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICAibG9uZ19kZXNjIjogIlBlcHNpIDMwMG1sIEdsYXNzIEJvdHRsZSAtIENhc2Ugb2YgMjQgYm90dGxlcyIsCiAgICAgICAgICAgICAgICAibmFtZSI6ICJQZXBzaSAzMDBtbCAoQ2FzZSBvZiAyNCkiLAogICAgICAgICAgICAgICAgInNob3J0X2Rlc2MiOiAiUGVwc2kgMzAwbWwgR2xhc3MgQm90dGxlIC0gQ2FzZSBvZiAyNCIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvcGVwc2ktMzAwbWwucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTciLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMSIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYyIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjUwMC4wMCIsCiAgICAgICAgICAgICAgICAidmFsdWUiOiAiNDYwLjAwIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInF1YW50aXR5IjogewogICAgICAgICAgICAgICAgImF2YWlsYWJsZSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjk5IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJtYXhpbXVtIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiMjUiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1pbmltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICI1IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJ1bml0aXplZCI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjI0IiwKICAgICAgICAgICAgICAgICAgIm1lYXN1cmUiOiB7CiAgICAgICAgICAgICAgICAgICAgInVuaXQiOiAibWlsbGlsaXRyZSIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjMwMCIKICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm9yaWdpbiIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImNvdW50cnkiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIklORCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImF0dHJpYnV0ZSIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogImJyYW5kIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJQZXBzaSIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInZlZ19ub252ZWciLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWciLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0aW1lIjogewogICAgICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICAgICAidGltZXN0YW1wIjogIjIwMjYtMDMtMTZUMDg6MzA6NTYuODUzWiIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2F2YWlsYWJsZV9vbl9jb2QiOiBmYWxzZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL2NvbnRhY3RfZGV0YWlsc19jb25zdW1lcl9jYXJlIjogInN1cHBvcnQsc3VwcG9ydEBhYmNkaXN0LmNvbSwxODAwNDI1NDQ0NCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlAxRCIsCiAgICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5hYmxlIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3NlbGxlcl9waWNrdXBfcmV0dXJuIjogdHJ1ZSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3BhY2thZ2VkX2NvbW1vZGl0aWVzIjogewogICAgICAgICAgICAgICAgImNvbW1vbl9vcl9nZW5lcmljX25hbWVfb2ZfY29tbW9kaXR5IjogIkNhcmJvbmF0ZWQgU29mdCBEcmluayIsCiAgICAgICAgICAgICAgICAibWFudWZhY3R1cmVyX29yX3BhY2tlcl9hZGRyZXNzIjogIkd1cmdhb24sIEhhcnlhbmEiLAogICAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfbmFtZSI6ICJWYXJ1biBCZXZlcmFnZXMgTHRkIiwKICAgICAgICAgICAgICAgICJtb250aF95ZWFyX29mX21hbnVmYWN0dXJlX3BhY2tpbmdfaW1wb3J0IjogIjAxLzIwMjUiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3ByZXBhY2thZ2VkX2Zvb2QiOiB7CiAgICAgICAgICAgICAgICAiYWRkaXRpdmVzX2luZm8iOiAiQ2FyYm9uYXRlZCBXYXRlciwgU3VnYXIsIFBob3NwaG9yaWMgQWNpZCwgQ2FmZmVpbmUiLAogICAgICAgICAgICAgICAgImJyYW5kX293bmVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiMTAwMTIwMTEwMDAwMjIiLAogICAgICAgICAgICAgICAgImltcG9ydGVyX0ZTU0FJX2xpY2Vuc2Vfbm8iOiAiIiwKICAgICAgICAgICAgICAgICJudXRyaXRpb25hbF9pbmZvIjogIkVuZXJneShLQ2FsKS0ocGVyIDEwMG1sKSA0NDsgU3VnYXJzKGcpLShwZXIgMTAwbWwpIDExIiwKICAgICAgICAgICAgICAgICJvdGhlcl9GU1NBSV9saWNlbnNlX25vIjogIjEwMDEyMDExMDAwMDIyIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIkBvbmRjL29yZy90aW1lX3RvX3NoaXAiOiAiUFQ0SCIsCiAgICAgICAgICAgICAgImNhdGVnb3J5X2lkIjogIkVuZXJneSBhbmQgU29mdCBEcmlua3MiLAogICAgICAgICAgICAgICJkZXNjcmlwdG9yIjogewogICAgICAgICAgICAgICAgImNvZGUiOiAiMTpQRVBTSTJMNiIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9wZXBzaS0ybC5wbmciCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgImxvbmdfZGVzYyI6ICJQZXBzaSAyIExpdGVyIFBFVCBCb3R0bGUgLSBQYWNrIG9mIDYgYm90dGxlcyIsCiAgICAgICAgICAgICAgICAibmFtZSI6ICJQZXBzaSAyTCAoUGFjayBvZiA2KSIsCiAgICAgICAgICAgICAgICAic2hvcnRfZGVzYyI6ICJQZXBzaSAyIExpdGVyIFBFVCAtIFBhY2sgb2YgNiIsCiAgICAgICAgICAgICAgICAic3ltYm9sIjogImh0dHBzOi8vc2VsbGVyLW5wLmNvbS9pbWFnZXMvcGVwc2ktMmwucG5nIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImZ1bGZpbGxtZW50X2lkIjogIkYxIiwKICAgICAgICAgICAgICAiaWQiOiAiSTgiLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZCI6ICJMMiIsCiAgICAgICAgICAgICAgInBhcmVudF9pdGVtX2lkIjogIlYyIiwKICAgICAgICAgICAgICAicHJpY2UiOiB7CiAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICJtYXhpbXVtX3ZhbHVlIjogIjc1MC4wMCIsCiAgICAgICAgICAgICAgICAidmFsdWUiOiAiNjkwLjAwIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgInF1YW50aXR5IjogewogICAgICAgICAgICAgICAgImF2YWlsYWJsZSI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjk5IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJtYXhpbXVtIjogewogICAgICAgICAgICAgICAgICAiY291bnQiOiAiMTUiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgIm1pbmltdW0iOiB7CiAgICAgICAgICAgICAgICAgICJjb3VudCI6ICIzIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJ1bml0aXplZCI6IHsKICAgICAgICAgICAgICAgICAgImNvdW50IjogIjYiLAogICAgICAgICAgICAgICAgICAibWVhc3VyZSI6IHsKICAgICAgICAgICAgICAgICAgICAidW5pdCI6ICJsaXRyZSIsCiAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIiCiAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJ0YWdzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJvcmlnaW4iLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJjb3VudHJ5IiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJJTkQiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJhdHRyaWJ1dGUiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJicmFuZCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiUGVwc2kiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2ZWdfbm9udmVnIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmVnIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ5ZXMiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJlbmFibGUiLAogICAgICAgICAgICAgICAgInRpbWVzdGFtcCI6ICIyMDI2LTAzLTE2VDA4OjMwOjU2Ljg1M1oiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICBdLAogICAgICAgICAgImxvY2F0aW9ucyI6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICJhZGRyZXNzIjogewogICAgICAgICAgICAgICAgImFyZWFfY29kZSI6ICI1NjAwNzYiLAogICAgICAgICAgICAgICAgImNpdHkiOiAiQmVuZ2FsdXJ1IiwKICAgICAgICAgICAgICAgICJsb2NhbGl0eSI6ICJKYXlhbmFnYXIiLAogICAgICAgICAgICAgICAgInN0YXRlIjogIktBIiwKICAgICAgICAgICAgICAgICJzdHJlZXQiOiAiSmF5YW5hZ2FyIDR0aCBCbG9jayIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJncHMiOiAiMTIuOTY3NSw3Ny43NDk2IiwKICAgICAgICAgICAgICAiaWQiOiAiTDEiLAogICAgICAgICAgICAgICJ0aW1lIjogewogICAgICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICAgICAic2NoZWR1bGUiOiB7CiAgICAgICAgICAgICAgICAgICJob2xpZGF5cyI6IFsKICAgICAgICAgICAgICAgICAgICAiMjAyNS0wMS0yNlQwMDowMDowMC4wMDBaIiwKICAgICAgICAgICAgICAgICAgICAiMjAyNS0wOC0xNVQwMDowMDowMC4wMDBaIgogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgInRpbWVzdGFtcCI6ICIyMDI2LTAzLTE2VDA4OjMwOjU2Ljg1M1oiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImFkZHJlc3MiOiB7CiAgICAgICAgICAgICAgICAiYXJlYV9jb2RlIjogIjU2MDA3NiIsCiAgICAgICAgICAgICAgICAiY2l0eSI6ICJCZW5nYWx1cnUiLAogICAgICAgICAgICAgICAgImxvY2FsaXR5IjogIkJUTSBMYXlvdXQiLAogICAgICAgICAgICAgICAgInN0YXRlIjogIktBIiwKICAgICAgICAgICAgICAgICJzdHJlZXQiOiAiQlRNIExheW91dCAybmQgU3RhZ2UiCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiZ3BzIjogIjEyLjkzNTIsNzcuNjI0NSIsCiAgICAgICAgICAgICAgImlkIjogIkwyIiwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJlbmFibGUiLAogICAgICAgICAgICAgICAgInNjaGVkdWxlIjogewogICAgICAgICAgICAgICAgICAiaG9saWRheXMiOiBbCiAgICAgICAgICAgICAgICAgICAgIjIwMjUtMDEtMjZUMDA6MDA6MDAuMDAwWiIsCiAgICAgICAgICAgICAgICAgICAgIjIwMjUtMDgtMTVUMDA6MDA6MDAuMDAwWiIKICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJ0aW1lc3RhbXAiOiAiMjAyNi0wMy0xNlQwODozMDo1Ni44NTNaIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgXSwKICAgICAgICAgICJvZmZlcnMiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWRzIjogWwogICAgICAgICAgICAgICAgIkF0dGEsIEZsb3VycyBhbmQgU29vamkiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogImRpc2NvdW50IiwKICAgICAgICAgICAgICAgICJpbWFnZXMiOiBbCiAgICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL29mZmVyMS1iYW5uZXIud2VicCIKICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJpZCI6ICJkaXNjcDEwIiwKICAgICAgICAgICAgICAiaXRlbV9pZHMiOiBbCiAgICAgICAgICAgICAgICAiSTEiLAogICAgICAgICAgICAgICAgIkkyIiwKICAgICAgICAgICAgICAgICJJMyIsCiAgICAgICAgICAgICAgICAiSTQiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAibG9jYXRpb25faWRzIjogWwogICAgICAgICAgICAgICAgIkwxIgogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInF1YWxpZmllciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1pbl92YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiNTAwLjAwIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYmVuZWZpdCIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInZhbHVlX3R5cGUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInBlcmNlbnQiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiLTEwLjAwIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmFsdWVfY2FwIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICItMjAwMC4wMCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1ldGEiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJhZGRpdGl2ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXV0byIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAibm8iCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJ2YWxpZCIsCiAgICAgICAgICAgICAgICAicmFuZ2UiOiB7CiAgICAgICAgICAgICAgICAgICJlbmQiOiAiMjAyNS0wMS0zMVQyMzo1OTo1OS4wMDBaIiwKICAgICAgICAgICAgICAgICAgInN0YXJ0IjogIjIwMjUtMDEtMDFUMDA6MDA6MDAuMDAwWiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWRzIjogWwogICAgICAgICAgICAgICAgIlNvZnQgRHJpbmtzIGFuZCBKdWljZXMiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJjb2RlIjogImRpc2NvdW50IiwKICAgICAgICAgICAgICAgICJpbWFnZXMiOiBbCiAgICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL29mZmVyMi1iYW5uZXIud2VicCIKICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJpZCI6ICJmbGF0MTUwIiwKICAgICAgICAgICAgICAiaXRlbV9pZHMiOiBbCiAgICAgICAgICAgICAgICAiSTUiLAogICAgICAgICAgICAgICAgIkk2IiwKICAgICAgICAgICAgICAgICJJNyIsCiAgICAgICAgICAgICAgICAiSTgiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAibG9jYXRpb25faWRzIjogWwogICAgICAgICAgICAgICAgIkwxIgogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInF1YWxpZmllciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1pbl92YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMTAwMC4wMCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImJlbmVmaXQiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2YWx1ZV90eXBlIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJhbW91bnQiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiLTE1MC4wMCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1ldGEiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJhZGRpdGl2ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXV0byIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRpbWUiOiB7CiAgICAgICAgICAgICAgICAibGFiZWwiOiAidmFsaWQiLAogICAgICAgICAgICAgICAgInJhbmdlIjogewogICAgICAgICAgICAgICAgICAiZW5kIjogIjIwMjUtMDEtMzFUMjM6NTk6NTkuMDAwWiIsCiAgICAgICAgICAgICAgICAgICJzdGFydCI6ICIyMDI1LTAxLTAxVDAwOjAwOjAwLjAwMFoiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNhdGVnb3J5X2lkcyI6IFtdLAogICAgICAgICAgICAgICJkZXNjcmlwdG9yIjogewogICAgICAgICAgICAgICAgImNvZGUiOiAic2xhYiIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9zbGFiLW9mZmVyLWJhbm5lci53ZWJwIgogICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImlkIjogInNsYWIxIiwKICAgICAgICAgICAgICAiaXRlbV9pZHMiOiBbCiAgICAgICAgICAgICAgICAiSTUiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAibG9jYXRpb25faWRzIjogWwogICAgICAgICAgICAgICAgIkwxIgogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInF1YWxpZmllciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIml0ZW1fY291bnQiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEwIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiaXRlbV9jb3VudF91cHBlciIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMTkiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJiZW5lZml0IiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmFsdWVfdHlwZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAicGVyY2VudCIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInZhbHVlIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICItNS4wMCIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInZhbHVlX2NhcCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiLTUwMDAuMDAiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJtZXRhIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYWRkaXRpdmUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIm5vIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXV0byIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRpbWUiOiB7CiAgICAgICAgICAgICAgICAibGFiZWwiOiAidmFsaWQiLAogICAgICAgICAgICAgICAgInJhbmdlIjogewogICAgICAgICAgICAgICAgICAiZW5kIjogIjIwMjUtMDMtMzFUMjM6NTk6NTkuMDAwWiIsCiAgICAgICAgICAgICAgICAgICJzdGFydCI6ICIyMDI1LTAxLTAxVDAwOjAwOjAwLjAwMFoiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNhdGVnb3J5X2lkcyI6IFtdLAogICAgICAgICAgICAgICJkZXNjcmlwdG9yIjogewogICAgICAgICAgICAgICAgImNvZGUiOiAic2xhYiIsCiAgICAgICAgICAgICAgICAiaW1hZ2VzIjogWwogICAgICAgICAgICAgICAgICAiaHR0cHM6Ly9zZWxsZXItbnAuY29tL2ltYWdlcy9zbGFiLW9mZmVyLWJhbm5lci53ZWJwIgogICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImlkIjogInNsYWIyIiwKICAgICAgICAgICAgICAiaXRlbV9pZHMiOiBbCiAgICAgICAgICAgICAgICAiSTIiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAibG9jYXRpb25faWRzIjogWwogICAgICAgICAgICAgICAgIkwyIgogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInF1YWxpZmllciIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIml0ZW1fd2VpZ2h0IiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIxNTAiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJpdGVtX3dlaWdodF91cHBlciIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMjAwIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYmVuZWZpdCIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogInZhbHVlX3R5cGUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogInBlcmNlbnQiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2YWx1ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiLTE1LjAwIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmFsdWVfY2FwIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICItMTAwMC4wMCIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1ldGEiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJhZGRpdGl2ZSIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAibm8iCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJhdXRvIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ5ZXMiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgICAgICJsYWJlbCI6ICJ2YWxpZCIsCiAgICAgICAgICAgICAgICAicmFuZ2UiOiB7CiAgICAgICAgICAgICAgICAgICJlbmQiOiAiMjAyNS0wMy0zMVQyMzo1OTo1OS4wMDBaIiwKICAgICAgICAgICAgICAgICAgInN0YXJ0IjogIjIwMjUtMDEtMDFUMDA6MDA6MDAuMDAwWiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY2F0ZWdvcnlfaWRzIjogW10sCiAgICAgICAgICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICAiY29kZSI6ICJmcmVlYmllIiwKICAgICAgICAgICAgICAgICJpbWFnZXMiOiBbCiAgICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlci1ucC5jb20vaW1hZ2VzL2ZyZWViaWUtb2ZmZXItYmFubmVyLndlYnAiCiAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAiaWQiOiAiZnJlZWJpZTEiLAogICAgICAgICAgICAgICJpdGVtX2lkcyI6IFsKICAgICAgICAgICAgICAgICJJMSIKICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJsb2NhdGlvbl9pZHMiOiBbCiAgICAgICAgICAgICAgICAiTDEiCiAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAidGFncyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAicXVhbGlmaWVyIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiaXRlbV9jb3VudCIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAiNTAiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJtZXRhIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYWRkaXRpdmUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIm5vIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXV0byIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRpbWUiOiB7CiAgICAgICAgICAgICAgICAibGFiZWwiOiAidmFsaWQiLAogICAgICAgICAgICAgICAgInJhbmdlIjogewogICAgICAgICAgICAgICAgICAiZW5kIjogIjIwMjUtMDEtMzFUMjM6NTk6NTkuMDAwWiIsCiAgICAgICAgICAgICAgICAgICJzdGFydCI6ICIyMDI1LTAxLTAxVDAwOjAwOjAwLjAwMFoiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNhdGVnb3J5X2lkcyI6IFtdLAogICAgICAgICAgICAgICJkZXNjcmlwdG9yIjogewogICAgICAgICAgICAgICAgImNvZGUiOiAiYnV5WGdldFkiLAogICAgICAgICAgICAgICAgImltYWdlcyI6IFsKICAgICAgICAgICAgICAgICAgImh0dHBzOi8vc25wLmNvbS9pbWFnZXMvb2ZmZXIxLWJhbm5lci53ZWJwIgogICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImlkIjogImJ1eTJnZXQzIiwKICAgICAgICAgICAgICAiaXRlbV9pZHMiOiBbCiAgICAgICAgICAgICAgICAiSTEiLAogICAgICAgICAgICAgICAgIkkyIgogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgImxvY2F0aW9uX2lkcyI6IFsKICAgICAgICAgICAgICAgICJMMSIKICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICJ0YWdzIjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJxdWFsaWZpZXIiLAogICAgICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJpdGVtX2NvdW50IiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIyIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYmVuZWZpdCIsCiAgICAgICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIml0ZW1fY291bnQiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEiCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAiY29kZSI6ICJpdGVtX2lkIiwKICAgICAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJJMSIKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICJjb2RlIjogIml0ZW1fdmFsdWUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjAuMDAiCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICBdCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJtZXRhIiwKICAgICAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYWRkaXRpdmUiLAogICAgICAgICAgICAgICAgICAgICAgInZhbHVlIjogIm5vIgogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgImNvZGUiOiAiYXV0byIsCiAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiAieWVzIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgInRpbWUiOiB7CiAgICAgICAgICAgICAgICAibGFiZWwiOiAidmFsaWQiLAogICAgICAgICAgICAgICAgInJhbmdlIjogewogICAgICAgICAgICAgICAgICAiZW5kIjogIjIwMjUtMDEtMDFUMjM6MDA6MDAuMDAwWiIsCiAgICAgICAgICAgICAgICAgICJzdGFydCI6ICIyMDI1LTAxLTAxVDE2OjAwOjAwLjAwMFoiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICBdLAogICAgICAgICAgInRhZ3MiOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY29kZSI6ICJvcmRlcl92YWx1ZSIsCiAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogIm1pbl92YWx1ZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI1MDAuMDAiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAidGltaW5nIiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJPcmRlciIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkwxIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI3IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjAwMDAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIzNTkiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAidGltaW5nIiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJEZWxpdmVyeSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkwxIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI2IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjA5MDAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjE4MDAiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAidGltaW5nIiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJPcmRlciIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkwyIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI3IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjAwMDAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIzNTkiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAidGltaW5nIiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJEZWxpdmVyeSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkwyIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI2IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjA5MDAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjE4MDAiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAic2VydmljZWFiaWxpdHkiLAogICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJsb2NhdGlvbiIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJMMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImNhdGVnb3J5IiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkF0dGEsIEZsb3VycyBhbmQgU29vamkiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEwIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmFsIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjE1IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidW5pdCIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJrbSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY29kZSI6ICJzZXJ2aWNlYWJpbGl0eSIsCiAgICAgICAgICAgICAgImxpc3QiOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIkwyIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiY2F0ZWdvcnkiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiQXR0YSwgRmxvdXJzIGFuZCBTb29qaSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInR5cGUiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMTAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ2YWwiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMjAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ1bml0IiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogImttIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICJjb2RlIjogInNlcnZpY2VhYmlsaXR5IiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAibG9jYXRpb24iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiTDEiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJjYXRlZ29yeSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIqIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIxMyIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInVuaXQiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiZ2VvanNvbiIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInZhbCIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ7XCJ0eXBlXCI6IFwiRmVhdHVyZUNvbGxlY3Rpb25cIiwgXCJmZWF0dXJlc1wiOiBbe1widHlwZVwiOiBcIkZlYXR1cmVcIiwgXCJwcm9wZXJ0aWVzXCI6IHt9LCBcImdlb21ldHJ5XCI6IHtcImNvb3JkaW5hdGVzXCI6IFtbW1s3Ny40MzY2LCAxNC42MjMwXSwgWzc1LjU5NzMsIDEzLjI1MDddLCBbNzYuODM1OSwgMTEuOTMyOV0sIFs3OC43NzA5LCAxMS4zMjkwXV1dLCBbW1s3NS42OTQ4LCAxNS45OTI4XSwgWzc0LjgzMTksIDE0Ljg1MTVdLCBbNzcuNDAwNiwgMTUuMTIyOV0sIFs3NS42OTQ4LCAxNS45OTI4XV1dXSwgXCJ0eXBlXCI6IFwiTXVsdGlQb2x5Z29uXCJ9fV19IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiMSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICI3IgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEwMDAiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjIyMDAiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgImNvZGUiOiAic2VydmljZWFiaWxpdHkiLAogICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJsb2NhdGlvbiIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJMMiIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImNhdGVnb3J5IiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIioiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEzIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidW5pdCIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJnZW9qc29uIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidmFsIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIntcInR5cGVcIjogXCJGZWF0dXJlQ29sbGVjdGlvblwiLCBcImZlYXR1cmVzXCI6IFt7XCJ0eXBlXCI6IFwiRmVhdHVyZVwiLCBcInByb3BlcnRpZXNcIjoge30sIFwiZ2VvbWV0cnlcIjoge1wiY29vcmRpbmF0ZXNcIjogW1tbNzcuMTc1NSwgMjguNjc1OV0sIFs3Ny4xMjg3LCAyOC42MDA5XSwgWzc3LjQ0NjksIDI4LjU0NTNdLCBbNzcuMTc1NSwgMjguNjc1OV1dXSwgXCJ0eXBlXCI6IFwiUG9seWdvblwifX1dfSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImRheV9mcm9tIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogIjEiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJkYXlfdG8iLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiNyIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInRpbWVfZnJvbSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIxMDAwIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidGltZV90byIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICIyMjAwIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICJjb2RlIjogInJldGFpbGVyX2luZm9fcmVxdWlyZWQiLAogICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJwaG9uZV9udW1iZXIiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAidHJ1ZSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInRheF9udW1iZXIiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAiZmFsc2UiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJwcm92aWRlcl90YXhfbnVtYmVyIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogImZhbHNlIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAic2hvcF9uYW1lIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogInRydWUiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJlbWFpbCIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJmYWxzZSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogImFkZHJlc3MiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAidHJ1ZSIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICJjb2RlIjogInR5cGUiLAogICAgICAgICAgICAgICAgICAidmFsdWUiOiAibmV3IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICJjb2RlIjogInJldGFpbGVyX2luZm9fcmVxdWlyZWQiLAogICAgICAgICAgICAgICJsaXN0IjogWwogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJjdXN0b21lcl9pZCIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ0cnVlIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGlzdGluZyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAiY29kZSI6ICJyZXRhaWxlcl9pbmZvX3JlcXVpcmVkIiwKICAgICAgICAgICAgICAibGlzdCI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAicGhvbmVfbnVtYmVyIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogInRydWUiCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAiY29kZSI6ICJ0YXhfbnVtYmVyIiwKICAgICAgICAgICAgICAgICAgInZhbHVlIjogImZhbHNlIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAicHJvdmlkZXJfdGF4X251bWJlciIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJ0cnVlIgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgImNvZGUiOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICJ2YWx1ZSI6ICJleGlzdGluZyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0KICAgICAgICAgIF0sCiAgICAgICAgICAidGltZSI6IHsKICAgICAgICAgICAgImxhYmVsIjogImVuYWJsZSIsCiAgICAgICAgICAgICJ0aW1lc3RhbXAiOiAiMjAyNi0wMy0xNlQwODozMDo1Ni44NTNaIgogICAgICAgICAgfSwKICAgICAgICAgICJ0dGwiOiAiUDFEIgogICAgICAgIH0KICAgICAgXQogICAgfQogIH0KICApKQoKCg==
