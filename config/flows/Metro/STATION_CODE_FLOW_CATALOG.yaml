@@ -3,7 +3,9 @@ meta:
   version: 2.0.1
   flowId: STATION_CODE_FLOW_CATALOG
   config_version: 0.0.0001
-  description: A commuter searches for metro stations using a station code to discover transit services and station-specific information within the network.
+  description: A commuter searches for metro stations using a station code to
+    discover transit services and station-specific information within the
+    network.
   use_case_id: Metro
   flowName: STATION CODE FLOW CATALOG
 transaction_data:
@@ -19,10 +21,12 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP initiates a search for metro transit services by specifying the station location and transaction context to discover available BPP offerings.
+    description: The BAP sends a search request for available metro transit services
+      in the specified city, establishing the transaction context for the
+      cancellation flow.
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgdXNlcklucHV0PXNlc3Npb25EYXRhPy51c2VyX2lucHV0czsKICBleGlzdGluZ1BheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGU9dXNlcklucHV0Py5jaXR5X2NvZGU7CiAgZGVsZXRlIGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LmJwcF9pZAogIGRlbGV0ZSBleGlzdGluZ1BheWxvYWQuY29udGV4dC5icHBfdXJpCiAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKfQ==
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgc2VhcmNoIGludGVudCBwYXlsb2FkLgogKiAKICogQHBhcmFtIHtPYmplY3R9IHRhcmdldFBheWxvYWQgLSBJbmNvbWluZyBwYXlsb2FkCiAqIEBwYXJhbSB7T2JqZWN0fSBzZXNzaW9uRGF0YSAtIFNlc3Npb24gZGF0YQogKiAKICogQHJldHVybnMge09iamVjdH0gVmFsaWRhdGlvbiByZXN1bHQKICovCmZ1bmN0aW9uIHZhbGlkYXRlKHRhcmdldFBheWxvYWQsIHNlc3Npb25EYXRhKSB7Cgljb25zdCBpbnRlbnQgPQoJCXRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/LmludGVudDsKCglpZiAoIWludGVudCkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjogIk1pc3NpbmcgbWVzc2FnZS5pbnRlbnQiLAoJCX07Cgl9CgoJY29uc3QgdmVoaWNsZUNhdGVnb3J5ID0KCQlpbnRlbnQ/LmZ1bGZpbGxtZW50Py52ZWhpY2xlPy5jYXRlZ29yeTsKCglpZiAodmVoaWNsZUNhdGVnb3J5ICE9PSAiTUVUUk8iKSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJInZlaGljbGUuY2F0ZWdvcnkgbXVzdCBiZSBNRVRSTyIsCgkJfTsKCX0KCgljb25zdCBwYXltZW50ID0gaW50ZW50Py5wYXltZW50OwoKCWlmICghcGF5bWVudCkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjogIk1pc3NpbmcgcGF5bWVudCIsCgkJfTsKCX0KCglpZiAocGF5bWVudD8uY29sbGVjdGVkX2J5ICE9PSAiQkFQIikgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJwYXltZW50LmNvbGxlY3RlZF9ieSBtdXN0IGJlIEJBUCIsCgkJfTsKCX0KCgljb25zdCByZXF1aXJlZFRhZ3MgPSBbCgkJIkJVWUVSX0ZJTkRFUl9GRUVTIiwKCQkiU0VUVExFTUVOVF9URVJNUyIsCgldOwoKCWZvciAoY29uc3QgY29kZSBvZiByZXF1aXJlZFRhZ3MpIHsKCQljb25zdCB0YWdFeGlzdHMgPSBwYXltZW50Py50YWdzPy5zb21lKAoJCQkodGFnKSA9PgoJCQkJdGFnPy5kZXNjcmlwdG9yPy5jb2RlID09PSBjb2RlCgkJKTsKCgkJaWYgKCF0YWdFeGlzdHMpIHsKCQkJcmV0dXJuIHsKCQkJCXZhbGlkOiBmYWxzZSwKCQkJCWNvZGU6IDQwMCwKCQkJCWRlc2NyaXB0aW9uOgoJCQkJCWBNaXNzaW5nIHBheW1lbnQgdGFnICR7Y29kZX1gLAoJCQl9OwoJCX0KCX0KCglyZXR1cm4gewoJCXZhbGlkOiB0cnVlLAoJCWNvZGU6IDIwMCwKCQlkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiLAoJfTsKfQ==
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
@@ -32,12 +36,12 @@ steps:
           domain: ONDC:TRV11
           location:
             city:
-              code: std:0123
+              code: std:011
             country:
               code: IND
-          message_id: 860e5bd4-9844-46d9-a60f-ba5100234660
-          timestamp: 2026-03-17T09:55:06.322Z
-          transaction_id: b582b96f-5f4d-464c-a345-5c68e8cb346a
+          message_id: 3fb5a2dd-eee3-4e2c-92a6-5855ba881dc3
+          timestamp: 2026-03-12T11:57:08.871Z
+          transaction_id: 6401b2af-29d8-48a3-9259-de9ad0ff5db5
           ttl: PT30S
           version: 2.0.1
         message:
@@ -73,33 +77,44 @@ steps:
         bapUri: $.context.bap_uri
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
+        start_code: $.message.intent.fulfillment.stops[?(@.type=='START')].location.descriptor.code
+        end_code: $.message.intent.fulfillment.stops[?(@.type=='END')].location.descriptor.code
+        vehicle_type: $.message.intent.fulfillment.vehicle.category
+        buyer_app_fee: $.message.intent.payment.tags[?(@.descriptor.code=='BUYER_FINDER_FEES')].list[?(@.descriptor.code=='BUYER_FINDER_FEES_PERCENTAGE')].value
+        bap_id: $.context.bap_id
+        bap_uri: $.context.bap_uri
+        collected_by: $.message.intent.payment.collected_by
         city_code: $.context.location.city.code
       inputs:
-        oldInputs:
-          - name: city_code
-            label: Enter city code
-            type: text
-            payloadField: $.context.location.city.code
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            city_code:
+              type: string
+              default: std:011
+              pattern: ^std:\d{3,5}$
+          additionalProperties: true
+          default: {}
     examples:
-      - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow "STATION_CODE_FLOW_CATALOG"
+      - name: example for search
         payload:
           context:
-            action: search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.1/buyer
             domain: ONDC:TRV11
-            location:
-              city:
-                code: std:0123
-              country:
-                code: IND
-            message_id: 860e5bd4-9844-46d9-a60f-ba5100234660
-            timestamp: 2026-03-17T09:55:06.322Z
-            transaction_id: b582b96f-5f4d-464c-a345-5c68e8cb346a
+            action: search
+            timestamp: 2026-05-13T09:29:23.716Z
+            transaction_id: 2907fbb9-cb22-45bb-babc-084978954871
+            message_id: 96bbeb64-be1e-4117-aa76-c702815ea4b2
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
             ttl: PT30S
             version: 2.0.1
+            location:
+              country:
+                code: IND
+              city:
+                code: std:011
           message:
             intent:
               fulfillment:
@@ -126,15 +141,21 @@ steps:
                           code: STATIC_TERMS
                         value: https://www.abc.com/settlement-terms/
         type: request
+        description: The BAP sends a search request for available metro transit services
+          in the specified city, establishing the transaction context for the
+          cancellation flow.
   - api: on_search
     action_id: on_search1_METRO_201
     owner: BPP
     responseFor: search1_METRO_201
     unsolicited: false
-    description: The BPP responds to the BAP's metro search by providing available transit routes and services matching the specified station code and city location. This callback establishes the transaction context and messaging identifiers for subsequent browsing and selection steps.
+    description: The BPP responds with a catalog of available metro services
+      matching the BAP's location and search parameters. This search response
+      provides the transit options available for the user's booking
+      consideration.
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKZnVuY3Rpb24gZ2VuZXJhdGVUaW1lUmFuZ2UocGF5bG9hZCkgewogIGNvbnN0IG5vdyA9IG5ldyBEYXRlKCk7CgogIGNvbnN0IGlzdE5vdyA9IG5ldyBEYXRlKAogICAgbm93LmdldFRpbWUoKQogICk7CgogIGNvbnN0IHkgPSBpc3ROb3cuZ2V0RnVsbFllYXIoKTsKCiAgY29uc3QgbSA9IGlzdE5vdy5nZXRNb250aCgpOwoKICBjb25zdCBkID0gaXN0Tm93LmdldERhdGUoKTsKCiAgY29uc3Qgc3RhcnRJU1QgPSBuZXcgRGF0ZSgKICAgIERhdGUuVVRDKHksIG0sIGQsIDUgLSA1LCAzMCwgMCkKICApOwoKICBjb25zdCBlbmRJU1QgPSBuZXcgRGF0ZSgKICAgIERhdGUuVVRDKHksIG0sIGQsIDIzIC0gNSwgMzAsIDApCiAgKTsKCiAgY29uc3QgcHJvdmlkZXJzID0KICAgIHBheWxvYWQ/Lm1lc3NhZ2U/LmNhdGFsb2cKICAgICAgPy5wcm92aWRlcnMgfHwgW107CgogIHByb3ZpZGVycy5mb3JFYWNoKChwcm92aWRlcikgPT4gewogICAgcHJvdmlkZXIudGltZS5yYW5nZS5zdGFydCA9CiAgICAgIHN0YXJ0SVNULnRvSVNPU3RyaW5nKCk7CgogICAgcHJvdmlkZXIudGltZS5yYW5nZS5lbmQgPQogICAgICBlbmRJU1QudG9JU09TdHJpbmcoKTsKICB9KTsKCiAgcmV0dXJuIHBheWxvYWQ7Cn0KCgphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlPXNlc3Npb25EYXRhPy5jaXR5X2NvZGVbMF07CiAgZXhpc3RpbmdQYXlsb2FkID0gdXBkYXRlUGF5bWVudERldGFpbHMoZXhpc3RpbmdQYXlsb2FkLCBzZXNzaW9uRGF0YSk7CiAgZXhpc3RpbmdQYXlsb2FkID0gZ2VuZXJhdGVUaW1lUmFuZ2UoZXhpc3RpbmdQYXlsb2FkKTsKICByZXR1cm4gZXhpc3RpbmdQYXlsb2FkOwp9
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgb25fc2VhcmNoIHBheWxvYWQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gdGFyZ2V0UGF5bG9hZCAtIEluY29taW5nIHBheWxvYWQKICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gU2Vzc2lvbiBkYXRhCiAqIAogKiBAcmV0dXJucyB7T2JqZWN0fSBWYWxpZGF0aW9uIHJlc3VsdAogKi8KZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCWNvbnN0IGNhdGFsb2cgPQoJCXRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/LmNhdGFsb2c7CgoJaWYgKCFjYXRhbG9nKSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOiAiTWlzc2luZyBtZXNzYWdlLmNhdGFsb2ciLAoJCX07Cgl9CgoJaWYgKAoJCSFBcnJheS5pc0FycmF5KGNhdGFsb2c/LnByb3ZpZGVycykgfHwKCQljYXRhbG9nLnByb3ZpZGVycy5sZW5ndGggPT09IDAKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjogIk1pc3NpbmcgcHJvdmlkZXJzIiwKCQl9OwoJfQoKCWNvbnN0IHByb3ZpZGVyID0gY2F0YWxvZy5wcm92aWRlcnNbMF07CgoJaWYgKAoJCSFBcnJheS5pc0FycmF5KHByb3ZpZGVyPy5jYXRlZ29yaWVzKSB8fAoJCXByb3ZpZGVyLmNhdGVnb3JpZXMubGVuZ3RoID09PSAwCgkpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246ICJNaXNzaW5nIGNhdGVnb3JpZXMiLAoJCX07Cgl9CgoJY29uc3QgcmVxdWlyZWRDYXRlZ29yaWVzID0gWwoJCSJUSUNLRVQiLAoJCSJQQVNTIiwKCV07CgoKCWNvbnN0IHJvdXRlRnVsZmlsbG1lbnQgPQoJCXByb3ZpZGVyLmZ1bGZpbGxtZW50cy5maW5kKAoJCQkoZikgPT4gZj8udHlwZSA9PT0gIlJPVVRFIgoJCSk7CgoJaWYgKCFyb3V0ZUZ1bGZpbGxtZW50KSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJIk1pc3NpbmcgUk9VVEUgZnVsZmlsbG1lbnQiLAoJCX07Cgl9CgoJaWYgKAoJCXJvdXRlRnVsZmlsbG1lbnQ/LnZlaGljbGU/LmNhdGVnb3J5ICE9PQoJCSJNRVRSTyIKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJ2ZWhpY2xlLmNhdGVnb3J5IG11c3QgYmUgTUVUUk8iLAoJCX07Cgl9CgoJaWYgKAoJCSFBcnJheS5pc0FycmF5KHJvdXRlRnVsZmlsbG1lbnQ/LnN0b3BzKSB8fAoJCXJvdXRlRnVsZmlsbG1lbnQuc3RvcHMubGVuZ3RoID09PSAwCgkpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246ICJNaXNzaW5nIHJvdXRlIHN0b3BzIiwKCQl9OwoJfQoKCWNvbnN0IGhhc1N0YXJ0ID0KCQlyb3V0ZUZ1bGZpbGxtZW50LnN0b3BzLnNvbWUoCgkJCShzKSA9PiBzPy50eXBlID09PSAiU1RBUlQiCgkJKTsKCgljb25zdCBoYXNFbmQgPQoJCXJvdXRlRnVsZmlsbG1lbnQuc3RvcHMuc29tZSgKCQkJKHMpID0+IHM/LnR5cGUgPT09ICJFTkQiCgkJKTsKCglpZiAoIWhhc1N0YXJ0IHx8ICFoYXNFbmQpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246CgkJCQkiU1RBUlQgYW5kIEVORCBzdG9wcyBhcmUgcmVxdWlyZWQiLAoJCX07Cgl9CgoJaWYgKAoJCSFBcnJheS5pc0FycmF5KHByb3ZpZGVyPy5wYXltZW50cykgfHwKCQlwcm92aWRlci5wYXltZW50cy5sZW5ndGggPT09IDAKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjogIk1pc3NpbmcgcGF5bWVudHMiLAoJCX07Cgl9CgoJY29uc3QgcGF5bWVudCA9IHByb3ZpZGVyLnBheW1lbnRzWzBdOwoKCWlmIChwYXltZW50Py5jb2xsZWN0ZWRfYnkgIT09ICJCQVAiKSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJInBheW1lbnRzLmNvbGxlY3RlZF9ieSBtdXN0IGJlIEJBUCIsCgkJfTsKCX0KCglyZXR1cm4gewoJCXZhbGlkOiB0cnVlLAoJCWNvZGU6IDIwMCwKCQlkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiLAoJfTsKfQ==
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
@@ -146,38 +167,44 @@ steps:
           domain: ONDC:TRV11
           location:
             city:
-              code: std:0123
+              code: std:011
             country:
               code: IND
-          message_id: 860e5bd4-9844-46d9-a60f-ba5100234660
-          timestamp: 2026-03-17T09:55:06.528Z
-          transaction_id: b582b96f-5f4d-464c-a345-5c68e8cb346a
+          message_id: 3fb5a2dd-eee3-4e2c-92a6-5855ba881dc3
+          timestamp: 2026-03-12T11:57:09.047Z
+          transaction_id: 6401b2af-29d8-48a3-9259-de9ad0ff5db5
           ttl: PT30S
           version: 2.0.1
         message:
           catalog:
             descriptor:
+              name: Transit Solutions
               images:
                 - url: https://transitsolutions.in/logos/logo.ico
-              name: Transit Solutions
             providers:
-              - categories:
+              - id: P1
+                categories:
                   - descriptor:
-                      code: TICKET
                       name: Ticket
+                      code: TICKET
                     id: C1
                   - descriptor:
-                      code: PASS
                       name: Pass
+                      code: PASS
                     id: C2
+                time:
+                  range:
+                    start: 2023-09-14T05:30:00.000Z
+                    end: 2023-09-14T23:30:00.000Z
                 descriptor:
+                  name: ONDC Metro Rail Limited
                   images:
                     - url: https://delhimetrorail.com/logos/logo.ico
-                  name: ONDC Metro Rail Limited
                 fulfillments:
                   - id: F1
+                    type: ROUTE
                     stops:
-                      - id: "1"
+                      - type: START
                         instructions:
                           name: Stop 1
                         location:
@@ -185,8 +212,8 @@ steps:
                             code: MOCK_STATION_1
                             name: MOCK_STATION_1
                           gps: 28.744676, 77.138332
-                        type: START
-                      - id: "2"
+                        id: "1"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 2
                         location:
@@ -194,9 +221,9 @@ steps:
                             code: MOCK_STATION_2
                             name: MOCK_STATION_2
                           gps: 28.738416, 77.139132
+                        id: "2"
                         parent_stop_id: "1"
-                        type: INTERMEDIATE_STOP
-                      - id: "3"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 3
                         location:
@@ -204,9 +231,9 @@ steps:
                             code: MOCK_STATION_3
                             name: MOCK_STATION_3
                           gps: 28.738876, 77.119932
+                        id: "3"
                         parent_stop_id: "2"
-                        type: INTERMEDIATE_STOP
-                      - id: "4"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 4
                         location:
@@ -214,9 +241,9 @@ steps:
                             code: MOCK_STATION_4
                             name: MOCK_STATION_4
                           gps: 28.738411, 77.131132
+                        id: "4"
                         parent_stop_id: "3"
-                        type: INTERMEDIATE_STOP
-                      - id: "5"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 5
                         location:
@@ -224,9 +251,9 @@ steps:
                             code: MOCK_STATION_5
                             name: MOCK_STATION_5
                           gps: 28.738176, 77.139932
+                        id: "5"
                         parent_stop_id: "4"
-                        type: INTERMEDIATE_STOP
-                      - id: "6"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 66
                           short_desc: Change for Pink Line
@@ -235,9 +262,9 @@ steps:
                             code: MOCK_STATION_6
                             name: MOCK_STATION_6
                           gps: 28.738426, 77.139932
+                        id: "6"
                         parent_stop_id: "5"
-                        type: INTERMEDIATE_STOP
-                      - id: "7"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 7
                         location:
@@ -245,9 +272,9 @@ steps:
                             code: MOCK_STATION_7
                             name: MOCK_STATION_7
                           gps: 28.718476, 77.129932
+                        id: "7"
                         parent_stop_id: "6"
-                        type: INTERMEDIATE_STOP
-                      - id: "8"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 8
                         location:
@@ -255,9 +282,9 @@ steps:
                             code: MOCK_STATION_8
                             name: MOCK_STATION_8
                           gps: 28.738576, 77.139532
+                        id: "8"
                         parent_stop_id: "7"
-                        type: INTERMEDIATE_STOP
-                      - id: "9"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 9
                         location:
@@ -265,9 +292,9 @@ steps:
                             code: MOCK_STATION_9
                             name: MOCK_STATION_9
                           gps: 28.731406, 77.131032
+                        id: "9"
                         parent_stop_id: "8"
-                        type: INTERMEDIATE_STOP
-                      - id: "10"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 10
                         location:
@@ -275,9 +302,9 @@ steps:
                             code: MOCK_STATION_10
                             name: MOCK_STATION_10
                           gps: 28.718476, 77.133932
+                        id: "10"
                         parent_stop_id: "9"
-                        type: INTERMEDIATE_STOP
-                      - id: "11"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 11
                         location:
@@ -285,9 +312,9 @@ steps:
                             code: MOCK_STATION_11
                             name: MOCK_STATION_11
                           gps: 28.798416, 77.119902
+                        id: "11"
                         parent_stop_id: "10"
-                        type: INTERMEDIATE_STOP
-                      - id: "12"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 12
                           short_desc: Change for Red and Violet Line
@@ -296,9 +323,9 @@ steps:
                             code: MOCK_STATION_12
                             name: MOCK_STATION_12
                           gps: 28.738426, 77.139922
+                        id: "12"
                         parent_stop_id: "11"
-                        type: INTERMEDIATE_STOP
-                      - id: "13"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 13
                         location:
@@ -306,9 +333,9 @@ steps:
                             code: MOCK_STATION_13
                             name: MOCK_STATION_13
                           gps: 28.738446, 77.139942
+                        id: "13"
                         parent_stop_id: "12"
-                        type: INTERMEDIATE_STOP
-                      - id: "14"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 14
                         location:
@@ -316,9 +343,9 @@ steps:
                             code: MOCK_STATION_14
                             name: MOCK_STATION_14
                           gps: 28.738477, 77.139937
+                        id: "14"
                         parent_stop_id: "13"
-                        type: INTERMEDIATE_STOP
-                      - id: "15"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 15
                           short_desc: Change for Airport Express
@@ -327,9 +354,9 @@ steps:
                             code: MOCK_STATION_15
                             name: MOCK_STATION_15
                           gps: 28.738276, 77.132932
+                        id: "15"
                         parent_stop_id: "14"
-                        type: INTERMEDIATE_STOP
-                      - id: "16"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 16
                           short_desc: Change for Blue Line
@@ -338,9 +365,9 @@ steps:
                             code: MOCK_STATION_16
                             name: MOCK_STATION_16
                           gps: 28.738436, 77.139332
+                        id: "16"
                         parent_stop_id: "15"
-                        type: INTERMEDIATE_STOP
-                      - id: "17"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 17
                         location:
@@ -348,9 +375,9 @@ steps:
                             code: MOCK_STATION_17
                             name: MOCK_STATION_17
                           gps: 28.738126, 77.133432
+                        id: "17"
                         parent_stop_id: "16"
-                        type: INTERMEDIATE_STOP
-                      - id: "18"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 18
                           short_desc: Change for Violet Line
@@ -359,9 +386,9 @@ steps:
                             code: MOCK_STATION_18
                             name: MOCK_STATION_18
                           gps: 28.732076, 77.130192
+                        id: "18"
                         parent_stop_id: "17"
-                        type: INTERMEDIATE_STOP
-                      - id: "19"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 19
                         location:
@@ -369,9 +396,9 @@ steps:
                             code: MOCK_STATION_19
                             name: MOCK_STATION_19
                           gps: 28.611076, 77.212232
+                        id: "19"
                         parent_stop_id: "18"
-                        type: INTERMEDIATE_STOP
-                      - id: "20"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 20
                         location:
@@ -379,9 +406,9 @@ steps:
                             code: MOCK_STATION_20
                             name: MOCK_STATION_20
                           gps: 28.738176, 77.139132
+                        id: "20"
                         parent_stop_id: "19"
-                        type: INTERMEDIATE_STOP
-                      - id: "21"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 21
                         location:
@@ -389,9 +416,9 @@ steps:
                             code: MOCK_STATION_21
                             name: MOCK_STATION_21
                           gps: 28.587876, 77.215332
+                        id: "21"
                         parent_stop_id: "20"
-                        type: INTERMEDIATE_STOP
-                      - id: "22"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 222
                           short_desc: Change for Pink Line
@@ -400,9 +427,9 @@ steps:
                             code: MOCK_STATION_22
                             name: MOCK_STATION_22
                           gps: 28.567276, 77.210032
+                        id: "22"
                         parent_stop_id: "21"
-                        type: INTERMEDIATE_STOP
-                      - id: "23"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 23
                         location:
@@ -410,9 +437,9 @@ steps:
                             code: MOCK_STATION_23
                             name: MOCK_STATION_23
                           gps: 28.731976, 77.139032
+                        id: "23"
                         parent_stop_id: "22"
-                        type: INTERMEDIATE_STOP
-                      - id: "24"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 24
                         location:
@@ -420,9 +447,9 @@ steps:
                             code: MOCK_STATION_24
                             name: MOCK_STATION_24
                           gps: 28.558476, 77.202932
+                        id: "24"
                         parent_stop_id: "23"
-                        type: INTERMEDIATE_STOP
-                      - id: "25"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 25
                           short_desc: Change for Magenta Line
@@ -431,9 +458,9 @@ steps:
                             code: MOCK_STATION_25
                             name: MOCK_STATION_25
                           gps: 28.547912, 77.203132
+                        id: "25"
                         parent_stop_id: "24"
-                        type: INTERMEDIATE_STOP
-                      - id: "26"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 26
                         location:
@@ -441,9 +468,9 @@ steps:
                             code: MOCK_STATION_26
                             name: MOCK_STATION_26
                           gps: 28.534276, 77.209432
+                        id: "26"
                         parent_stop_id: "25"
-                        type: INTERMEDIATE_STOP
-                      - id: "27"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 27
                         location:
@@ -451,9 +478,9 @@ steps:
                             code: MOCK_STATION_27
                             name: MOCK_STATION_27
                           gps: 28.522176, 77.210232
+                        id: "27"
                         parent_stop_id: "26"
-                        type: INTERMEDIATE_STOP
-                      - id: "28"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 28
                         location:
@@ -461,9 +488,9 @@ steps:
                             code: MOCK_STATION_28
                             name: MOCK_STATION_28
                           gps: 28.524576, 77.185532
+                        id: "28"
                         parent_stop_id: "27"
-                        type: INTERMEDIATE_STOP
-                      - id: "29"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 29
                         location:
@@ -471,9 +498,9 @@ steps:
                             code: MOCK_STATION_29
                             name: MOCK_STATION_29
                           gps: 28.495976, 77.184832
+                        id: "29"
                         parent_stop_id: "28"
-                        type: INTERMEDIATE_STOP
-                      - id: "30"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 30
                         location:
@@ -481,9 +508,9 @@ steps:
                             code: MOCK_STATION_30
                             name: MOCK_STATION_30
                           gps: 28.496776, 77.163432
+                        id: "30"
                         parent_stop_id: "29"
-                        type: INTERMEDIATE_STOP
-                      - id: "31"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 31
                         location:
@@ -491,9 +518,9 @@ steps:
                             code: MOCK_STATION_31
                             name: MOCK_STATION_31
                           gps: 28.496476, 77.139432
+                        id: "31"
                         parent_stop_id: "30"
-                        type: INTERMEDIATE_STOP
-                      - id: "32"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 32
                         location:
@@ -501,9 +528,9 @@ steps:
                             code: MOCK_STATION_32
                             name: MOCK_STATION_32
                           gps: 28.480976, 77.125932
+                        id: "32"
                         parent_stop_id: "31"
-                        type: INTERMEDIATE_STOP
-                      - id: "33"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 33
                         location:
@@ -511,9 +538,9 @@ steps:
                             code: MOCK_STATION_33
                             name: MOCK_STATION_33
                           gps: 28.568476, 77.089932
+                        id: "33"
                         parent_stop_id: "32"
-                        type: INTERMEDIATE_STOP
-                      - id: "34"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 34
                           short_desc: Change for Rapid Metro
@@ -522,9 +549,9 @@ steps:
                             code: MOCK_STATION_34
                             name: MOCK_STATION_34
                           gps: 28.778476, 77.199932
+                        id: "34"
                         parent_stop_id: "33"
-                        type: INTERMEDIATE_STOP
-                      - id: "35"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 35
                         location:
@@ -532,9 +559,9 @@ steps:
                             code: MOCK_STATION_35
                             name: MOCK_STATION_35
                           gps: 28.418476, 77.133268
+                        id: "35"
                         parent_stop_id: "34"
-                        type: INTERMEDIATE_STOP
-                      - id: "36"
+                      - type: INTERMEDIATE_STOP
                         instructions:
                           name: Stop 36
                         location:
@@ -542,9 +569,9 @@ steps:
                             code: MOCK_STATION_36
                             name: MOCK_STATION_36
                           gps: 28.472276, 77.072432
+                        id: "36"
                         parent_stop_id: "35"
-                        type: INTERMEDIATE_STOP
-                      - id: "37"
+                      - type: END
                         instructions:
                           name: Stop 37
                         location:
@@ -552,8 +579,10 @@ steps:
                             code: MOCK_STATION_37
                             name: MOCK_STATION_37
                           gps: 28.459276, 77.072532
+                        id: "37"
                         parent_stop_id: "36"
-                        type: END
+                    vehicle:
+                      category: METRO
                     tags:
                       - descriptor:
                           code: ROUTE_INFO
@@ -564,10 +593,6 @@ steps:
                           - descriptor:
                               code: ROUTE_NAME
                             value: Yellow Line
-                    type: ROUTE
-                    vehicle:
-                      category: METRO
-                id: P1
                 payments:
                   - collected_by: BAP
                     tags:
@@ -605,10 +630,6 @@ steps:
                       - descriptor:
                           code: GTFS
                         value: https://metro-transit/gtfs-realtime
-                time:
-                  range:
-                    end: 2026-03-17T18:30:00.000Z
-                    start: 2026-03-17T00:30:00.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -617,53 +638,69 @@ steps:
         bapUri: $.context.bap_uri
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
+        vehicle_category: $.message.intent.fulfillment.vehicle.category
+        category_ids: $.message.catalog.providers[*].categories[*].id
+        categories: $.message.catalog.providers[*].categories[*]
+        ticket_category_id: $.message.catalog.providers[*].categories[?(@.descriptor.name=='Ticket')].id
+        fulfillments: $.message.catalog.providers[*].fulfillments[*]
+        provider_id: $.message.catalog.providers[*].id
+        fulfillment_ids: $.message.catalog.providers[*].fulfillments[*].id
+        items: $.message.catalog.providers[*].items[*]
+        item_ids: $.message.catalog.providers[*].items[*].id
+        bpp_id: $.context.bpp_id
+        bpp_uri: $.context.bpp_uri
         city_code: $.context.location.city.code
       inputs: {}
     examples:
-      - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow "STATION_CODE_FLOW_CATALOG"
+      - name: example for on_search
         payload:
           context:
-            action: on_search
-            bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.1/buyer
-            bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.1/seller
             domain: ONDC:TRV11
+            action: on_search
+            timestamp: 2026-05-13T09:29:23.738Z
+            transaction_id: 2907fbb9-cb22-45bb-babc-084978954871
+            message_id: 96bbeb64-be1e-4117-aa76-c702815ea4b2
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
+            ttl: PT30S
+            bpp_id: bpp.example.com
+            bpp_uri: https://bpp.example.com
+            version: 2.0.1
             location:
-              city:
-                code: std:0123
               country:
                 code: IND
-            message_id: 860e5bd4-9844-46d9-a60f-ba5100234660
-            timestamp: 2026-03-17T09:55:06.528Z
-            transaction_id: b582b96f-5f4d-464c-a345-5c68e8cb346a
-            ttl: PT30S
-            version: 2.0.1
+              city:
+                code: std:011
           message:
             catalog:
               descriptor:
+                name: Transit Solutions
                 images:
                   - url: https://transitsolutions.in/logos/logo.ico
-                name: Transit Solutions
               providers:
-                - categories:
+                - id: P1
+                  categories:
                     - descriptor:
-                        code: TICKET
                         name: Ticket
+                        code: TICKET
                       id: C1
                     - descriptor:
-                        code: PASS
                         name: Pass
+                        code: PASS
                       id: C2
+                  time:
+                    range:
+                      start: 2026-05-13T00:30:00.000Z
+                      end: 2026-05-13T18:30:00.000Z
                   descriptor:
+                    name: ONDC Metro Rail Limited
                     images:
                       - url: https://delhimetrorail.com/logos/logo.ico
-                    name: ONDC Metro Rail Limited
                   fulfillments:
                     - id: F1
+                      type: ROUTE
                       stops:
-                        - id: "1"
+                        - type: START
                           instructions:
                             name: Stop 1
                           location:
@@ -671,8 +708,8 @@ steps:
                               code: MOCK_STATION_1
                               name: MOCK_STATION_1
                             gps: 28.744676, 77.138332
-                          type: START
-                        - id: "2"
+                          id: "1"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 2
                           location:
@@ -680,9 +717,9 @@ steps:
                               code: MOCK_STATION_2
                               name: MOCK_STATION_2
                             gps: 28.738416, 77.139132
+                          id: "2"
                           parent_stop_id: "1"
-                          type: INTERMEDIATE_STOP
-                        - id: "3"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 3
                           location:
@@ -690,9 +727,9 @@ steps:
                               code: MOCK_STATION_3
                               name: MOCK_STATION_3
                             gps: 28.738876, 77.119932
+                          id: "3"
                           parent_stop_id: "2"
-                          type: INTERMEDIATE_STOP
-                        - id: "4"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 4
                           location:
@@ -700,9 +737,9 @@ steps:
                               code: MOCK_STATION_4
                               name: MOCK_STATION_4
                             gps: 28.738411, 77.131132
+                          id: "4"
                           parent_stop_id: "3"
-                          type: INTERMEDIATE_STOP
-                        - id: "5"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 5
                           location:
@@ -710,9 +747,9 @@ steps:
                               code: MOCK_STATION_5
                               name: MOCK_STATION_5
                             gps: 28.738176, 77.139932
+                          id: "5"
                           parent_stop_id: "4"
-                          type: INTERMEDIATE_STOP
-                        - id: "6"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 66
                             short_desc: Change for Pink Line
@@ -721,9 +758,9 @@ steps:
                               code: MOCK_STATION_6
                               name: MOCK_STATION_6
                             gps: 28.738426, 77.139932
+                          id: "6"
                           parent_stop_id: "5"
-                          type: INTERMEDIATE_STOP
-                        - id: "7"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 7
                           location:
@@ -731,9 +768,9 @@ steps:
                               code: MOCK_STATION_7
                               name: MOCK_STATION_7
                             gps: 28.718476, 77.129932
+                          id: "7"
                           parent_stop_id: "6"
-                          type: INTERMEDIATE_STOP
-                        - id: "8"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 8
                           location:
@@ -741,9 +778,9 @@ steps:
                               code: MOCK_STATION_8
                               name: MOCK_STATION_8
                             gps: 28.738576, 77.139532
+                          id: "8"
                           parent_stop_id: "7"
-                          type: INTERMEDIATE_STOP
-                        - id: "9"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 9
                           location:
@@ -751,9 +788,9 @@ steps:
                               code: MOCK_STATION_9
                               name: MOCK_STATION_9
                             gps: 28.731406, 77.131032
+                          id: "9"
                           parent_stop_id: "8"
-                          type: INTERMEDIATE_STOP
-                        - id: "10"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 10
                           location:
@@ -761,9 +798,9 @@ steps:
                               code: MOCK_STATION_10
                               name: MOCK_STATION_10
                             gps: 28.718476, 77.133932
+                          id: "10"
                           parent_stop_id: "9"
-                          type: INTERMEDIATE_STOP
-                        - id: "11"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 11
                           location:
@@ -771,9 +808,9 @@ steps:
                               code: MOCK_STATION_11
                               name: MOCK_STATION_11
                             gps: 28.798416, 77.119902
+                          id: "11"
                           parent_stop_id: "10"
-                          type: INTERMEDIATE_STOP
-                        - id: "12"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 12
                             short_desc: Change for Red and Violet Line
@@ -782,9 +819,9 @@ steps:
                               code: MOCK_STATION_12
                               name: MOCK_STATION_12
                             gps: 28.738426, 77.139922
+                          id: "12"
                           parent_stop_id: "11"
-                          type: INTERMEDIATE_STOP
-                        - id: "13"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 13
                           location:
@@ -792,9 +829,9 @@ steps:
                               code: MOCK_STATION_13
                               name: MOCK_STATION_13
                             gps: 28.738446, 77.139942
+                          id: "13"
                           parent_stop_id: "12"
-                          type: INTERMEDIATE_STOP
-                        - id: "14"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 14
                           location:
@@ -802,9 +839,9 @@ steps:
                               code: MOCK_STATION_14
                               name: MOCK_STATION_14
                             gps: 28.738477, 77.139937
+                          id: "14"
                           parent_stop_id: "13"
-                          type: INTERMEDIATE_STOP
-                        - id: "15"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 15
                             short_desc: Change for Airport Express
@@ -813,9 +850,9 @@ steps:
                               code: MOCK_STATION_15
                               name: MOCK_STATION_15
                             gps: 28.738276, 77.132932
+                          id: "15"
                           parent_stop_id: "14"
-                          type: INTERMEDIATE_STOP
-                        - id: "16"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 16
                             short_desc: Change for Blue Line
@@ -824,9 +861,9 @@ steps:
                               code: MOCK_STATION_16
                               name: MOCK_STATION_16
                             gps: 28.738436, 77.139332
+                          id: "16"
                           parent_stop_id: "15"
-                          type: INTERMEDIATE_STOP
-                        - id: "17"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 17
                           location:
@@ -834,9 +871,9 @@ steps:
                               code: MOCK_STATION_17
                               name: MOCK_STATION_17
                             gps: 28.738126, 77.133432
+                          id: "17"
                           parent_stop_id: "16"
-                          type: INTERMEDIATE_STOP
-                        - id: "18"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 18
                             short_desc: Change for Violet Line
@@ -845,9 +882,9 @@ steps:
                               code: MOCK_STATION_18
                               name: MOCK_STATION_18
                             gps: 28.732076, 77.130192
+                          id: "18"
                           parent_stop_id: "17"
-                          type: INTERMEDIATE_STOP
-                        - id: "19"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 19
                           location:
@@ -855,9 +892,9 @@ steps:
                               code: MOCK_STATION_19
                               name: MOCK_STATION_19
                             gps: 28.611076, 77.212232
+                          id: "19"
                           parent_stop_id: "18"
-                          type: INTERMEDIATE_STOP
-                        - id: "20"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 20
                           location:
@@ -865,9 +902,9 @@ steps:
                               code: MOCK_STATION_20
                               name: MOCK_STATION_20
                             gps: 28.738176, 77.139132
+                          id: "20"
                           parent_stop_id: "19"
-                          type: INTERMEDIATE_STOP
-                        - id: "21"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 21
                           location:
@@ -875,9 +912,9 @@ steps:
                               code: MOCK_STATION_21
                               name: MOCK_STATION_21
                             gps: 28.587876, 77.215332
+                          id: "21"
                           parent_stop_id: "20"
-                          type: INTERMEDIATE_STOP
-                        - id: "22"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 222
                             short_desc: Change for Pink Line
@@ -886,9 +923,9 @@ steps:
                               code: MOCK_STATION_22
                               name: MOCK_STATION_22
                             gps: 28.567276, 77.210032
+                          id: "22"
                           parent_stop_id: "21"
-                          type: INTERMEDIATE_STOP
-                        - id: "23"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 23
                           location:
@@ -896,9 +933,9 @@ steps:
                               code: MOCK_STATION_23
                               name: MOCK_STATION_23
                             gps: 28.731976, 77.139032
+                          id: "23"
                           parent_stop_id: "22"
-                          type: INTERMEDIATE_STOP
-                        - id: "24"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 24
                           location:
@@ -906,9 +943,9 @@ steps:
                               code: MOCK_STATION_24
                               name: MOCK_STATION_24
                             gps: 28.558476, 77.202932
+                          id: "24"
                           parent_stop_id: "23"
-                          type: INTERMEDIATE_STOP
-                        - id: "25"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 25
                             short_desc: Change for Magenta Line
@@ -917,9 +954,9 @@ steps:
                               code: MOCK_STATION_25
                               name: MOCK_STATION_25
                             gps: 28.547912, 77.203132
+                          id: "25"
                           parent_stop_id: "24"
-                          type: INTERMEDIATE_STOP
-                        - id: "26"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 26
                           location:
@@ -927,9 +964,9 @@ steps:
                               code: MOCK_STATION_26
                               name: MOCK_STATION_26
                             gps: 28.534276, 77.209432
+                          id: "26"
                           parent_stop_id: "25"
-                          type: INTERMEDIATE_STOP
-                        - id: "27"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 27
                           location:
@@ -937,9 +974,9 @@ steps:
                               code: MOCK_STATION_27
                               name: MOCK_STATION_27
                             gps: 28.522176, 77.210232
+                          id: "27"
                           parent_stop_id: "26"
-                          type: INTERMEDIATE_STOP
-                        - id: "28"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 28
                           location:
@@ -947,9 +984,9 @@ steps:
                               code: MOCK_STATION_28
                               name: MOCK_STATION_28
                             gps: 28.524576, 77.185532
+                          id: "28"
                           parent_stop_id: "27"
-                          type: INTERMEDIATE_STOP
-                        - id: "29"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 29
                           location:
@@ -957,9 +994,9 @@ steps:
                               code: MOCK_STATION_29
                               name: MOCK_STATION_29
                             gps: 28.495976, 77.184832
+                          id: "29"
                           parent_stop_id: "28"
-                          type: INTERMEDIATE_STOP
-                        - id: "30"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 30
                           location:
@@ -967,9 +1004,9 @@ steps:
                               code: MOCK_STATION_30
                               name: MOCK_STATION_30
                             gps: 28.496776, 77.163432
+                          id: "30"
                           parent_stop_id: "29"
-                          type: INTERMEDIATE_STOP
-                        - id: "31"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 31
                           location:
@@ -977,9 +1014,9 @@ steps:
                               code: MOCK_STATION_31
                               name: MOCK_STATION_31
                             gps: 28.496476, 77.139432
+                          id: "31"
                           parent_stop_id: "30"
-                          type: INTERMEDIATE_STOP
-                        - id: "32"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 32
                           location:
@@ -987,9 +1024,9 @@ steps:
                               code: MOCK_STATION_32
                               name: MOCK_STATION_32
                             gps: 28.480976, 77.125932
+                          id: "32"
                           parent_stop_id: "31"
-                          type: INTERMEDIATE_STOP
-                        - id: "33"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 33
                           location:
@@ -997,9 +1034,9 @@ steps:
                               code: MOCK_STATION_33
                               name: MOCK_STATION_33
                             gps: 28.568476, 77.089932
+                          id: "33"
                           parent_stop_id: "32"
-                          type: INTERMEDIATE_STOP
-                        - id: "34"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 34
                             short_desc: Change for Rapid Metro
@@ -1008,9 +1045,9 @@ steps:
                               code: MOCK_STATION_34
                               name: MOCK_STATION_34
                             gps: 28.778476, 77.199932
+                          id: "34"
                           parent_stop_id: "33"
-                          type: INTERMEDIATE_STOP
-                        - id: "35"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 35
                           location:
@@ -1018,9 +1055,9 @@ steps:
                               code: MOCK_STATION_35
                               name: MOCK_STATION_35
                             gps: 28.418476, 77.133268
+                          id: "35"
                           parent_stop_id: "34"
-                          type: INTERMEDIATE_STOP
-                        - id: "36"
+                        - type: INTERMEDIATE_STOP
                           instructions:
                             name: Stop 36
                           location:
@@ -1028,9 +1065,9 @@ steps:
                               code: MOCK_STATION_36
                               name: MOCK_STATION_36
                             gps: 28.472276, 77.072432
+                          id: "36"
                           parent_stop_id: "35"
-                          type: INTERMEDIATE_STOP
-                        - id: "37"
+                        - type: END
                           instructions:
                             name: Stop 37
                           location:
@@ -1038,8 +1075,10 @@ steps:
                               code: MOCK_STATION_37
                               name: MOCK_STATION_37
                             gps: 28.459276, 77.072532
+                          id: "37"
                           parent_stop_id: "36"
-                          type: END
+                      vehicle:
+                        category: METRO
                       tags:
                         - descriptor:
                             code: ROUTE_INFO
@@ -1050,10 +1089,6 @@ steps:
                             - descriptor:
                                 code: ROUTE_NAME
                               value: Yellow Line
-                      type: ROUTE
-                      vehicle:
-                        category: METRO
-                  id: P1
                   payments:
                     - collected_by: BAP
                       tags:
@@ -1091,11 +1126,11 @@ steps:
                         - descriptor:
                             code: GTFS
                           value: https://metro-transit/gtfs-realtime
-                  time:
-                    range:
-                      end: 2026-03-17T18:30:00.000Z
-                      start: 2026-03-17T00:30:00.000Z
         type: request
+        description: The BPP responds with a catalog of available metro services
+          matching the BAP's location and search parameters. This search
+          response provides the transit options available for the user's booking
+          consideration.
 transaction_history: []
 validationLib: ""
-helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLCBmb3JtSWQsIHNlc3Npb25EYXRhKSA9PiB7Cgljb25zdCBiYXNlVVJMID0gc2Vzc2lvbkRhdGEubW9ja0Jhc2VVcmw7Cgljb25zdCB0cmFuc2FjdGlvbklkID0gc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25JZFswXTsKCWNvbnN0IHNlc3Npb25JZCA9IHNlc3Npb25EYXRhLnNlc3Npb25JZDsKCXJldHVybiBgJHtiYXNlVVJMfS9mb3Jtcy8ke2RvbWFpbn0vJHtmb3JtSWR9Lz90cmFuc2FjdGlvbl9pZD0ke3RyYW5zYWN0aW9uSWR9JnNlc3Npb25faWQ9JHtzZXNzaW9uSWR9YDsKfQoKLy8gR2VuZXJhdGVzIGEgVVVJRCB2NApmdW5jdGlvbiB1dWlkdjQoKSB7CglyZXR1cm4gJ3h4eHh4eHh4LXh4eHgtNHh4eC15eHh4LXh4eHh4eHh4eHh4eCcucmVwbGFjZSgvW3h5XS9nLCBmdW5jdGlvbiAoYykgewoJCWNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJCWNvbnN0IHYgPSBjID09PSAneCcgPyByIDogKHIgJiAweDMgfCAweDgpOwoJCXJldHVybiB2LnRvU3RyaW5nKDE2KTsKCX0pOwp9CgovLyBHZW5lcmF0ZSBhIDYgZGlnaXQgc3RyaW5nIElECmZ1bmN0aW9uIGdlbmVyYXRlNkRpZ2l0SWQoKSB7CglyZXR1cm4gTWF0aC5mbG9vcigxMDAwMDAgKyBNYXRoLnJhbmRvbSgpICogOTAwMDAwKS50b1N0cmluZygpOwp9CgovLyBSZXR1cm5zIHRoZSBjdXJyZW50IElTTyB0aW1lc3RhbXAKZnVuY3Rpb24gY3VycmVudFRpbWVzdGFtcCgpIHsKCXJldHVybiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7Cn0KCi8vIENvbnZlcnRzIElTTyA4NjAxIGR1cmF0aW9uIHN0cmluZyB0byB0b3RhbCBzZWNvbmRzCmNvbnN0IGlzb0R1clRvU2VjID0gKGR1cmF0aW9uKSA9PiB7Cgljb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87Cgljb25zdCBzID0gZHVyUkUuZXhlYyhkdXJhdGlvbik7CglpZiAoIXMpIHJldHVybiAwOwoKCXJldHVybiAoTnVtYmVyKHM/LlsyXSkgfHwgMCkgKiAzMTUzNjAwMCArCgkJKE51bWJlcihzPy5bNF0pIHx8IDApICogMjYyODI4OCArCgkJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCQkoTnVtYmVyKHM/Lls4XSkgfHwgMCkgKiA4NjQwMCArCgkJKE51bWJlcihzPy5bMTBdKSB8fCAwKSAqIDM2MDAgKwoJCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkJKE51bWJlcihzPy5bMTRdKSB8fCAwKTsKfTsKCmNvbnN0IHNldENpdHlGcm9tSW5wdXRzID0gKHBheWxvYWQsIGlucHV0cykgPT4gewoJaWYgKCFpbnB1dHMpIHJldHVybiAiKiI7CglsZXQgdmVyc2lvbiA9IHBheWxvYWQuY29udGV4dC52ZXJzaW9uIHx8IHBheWxvYWQuY29udGV4dC5jb3JlX3ZlcnNpb24gfHwgIjIuMC4wIjsKCWlmICh2ZXJzaW9uLnN0YXJ0c1dpdGgoIjEiKSkgewoJCXBheWxvYWQuY29udGV4dC5jaXR5ID0gaW5wdXRzLmNpdHlfY29kZSA/PyAiKiI7Cgl9IGVsc2UgewoJCXBheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGUgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0KfQoKY29uc3QgZXhhbXBsZUZ1bGxmaWxsbWVudCA9IHsKCWZ1bGZpbGxtZW50czogWwoJCXsKCQkJaWQ6ICJGMSIsCgkJCXR5cGU6ICJST1VURSIsCgkJCXN0b3BzOiBbCgkJCQl7CgkJCQkJdHlwZTogIlNUQVJUIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMSIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAibW9ja19zdGF0aW9uXzAxMV9BIiwKCQkJCQkJCW5hbWU6ICJNb2NrIFN0YXRpb24gMDExIEEiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43NDQ2NzYsIDc3LjEzODMzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjEiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAyIiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJST0hJTklfU0VDVE9SMTgsMTkiLAoJCQkJCQkJbmFtZTogIlJvaGluaSBTZWN0b3IgMTggMTkiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg0MTYsIDc3LjEzOTEzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjIiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMSIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDMiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkhBSURFUlBVUl9CQURMSV9NT1IiLAoJCQkJCQkJbmFtZTogIkhhaWRlcnB1ciBCYWRsaSBNb3IiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg4NzYsIDc3LjExOTkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjMiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMiIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDQiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkpBSEFOR0lSUFVSSSIsCgkJCQkJCQluYW1lOiAiSmFoYW5naXJwdXJpIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzM4NDExLCA3Ny4xMzExMzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICI0IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjMiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCA1IiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJBREFSU0hfTkFHQVIiLAoJCQkJCQkJbmFtZTogIkFkYXJzaCBOYWdhciIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjczODE3NiwgNzcuMTM5OTMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiNSIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICI0IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIlRSQU5TSVRfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDYiLAoJCQkJCQlzaG9ydF9kZXNjOiAiQ2hhbmdlIGZvciBQaW5rIExpbmUiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkFaQURQVVIiLAoJCQkJCQkJbmFtZTogIkF6YWRwdXIiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg0MjYsIDc3LjEzOTkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjYiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiNSIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDciLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIk1PREVMX1RPV04iLAoJCQkJCQkJbmFtZTogIk1vZGVsIFRvd24iLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43MTg0NzYsIDc3LjEyOTkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjciLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiNiIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDgiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkdUQl9OQUdBUiIsCgkJCQkJCQluYW1lOiAiR1RCIE5hZ2FyIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzM4NTc2LCA3Ny4xMzk1MzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICI4IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjciLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCA5IiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJWSVNIV0FfVklEWUFMQVlBIiwKCQkJCQkJCW5hbWU6ICJWaXNod2EgVmlkeWFsYXlhIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzMxNDA2LCA3Ny4xMzEwMzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICI5IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjgiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAxMCIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiVklESEFOX1NBQkhBIiwKCQkJCQkJCW5hbWU6ICJWaWRoYW4gU2FiaGEiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43MTg0NzYsIDc3LjEzMzkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjEwIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjkiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAxMSIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiQ0lWSUxfTElORVMiLAoJCQkJCQkJbmFtZTogIkNpdmlsIExpbmVzIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzk4NDE2LCA3Ny4xMTk5MDIiLAoJCQkJCX0sCgkJCQkJaWQ6ICIxMSIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICIxMCIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJUUkFOU0lUX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAxMiIsCgkJCQkJCXNob3J0X2Rlc2M6ICJDaGFuZ2UgZm9yIFJlZCBhbmQgVmlvbGV0IExpbmUiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIktBU0hNRVJFX0dBVEUiLAoJCQkJCQkJbmFtZTogIkthc2htZXJlIEdhdGUiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg0MjYsIDc3LjEzOTkyMiIsCgkJCQkJfSwKCQkJCQlpZDogIjEyIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjExIiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMTMiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkNIQU5ETklfQ0hPV0siLAoJCQkJCQkJbmFtZTogIkNoYW5kbmkgQ2hvd2siLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg0NDYsIDc3LjEzOTk0MiIsCgkJCQkJfSwKCQkJCQlpZDogIjEzIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjEyIiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMTQiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkNIQVdSSV9CQVpBUiIsCgkJCQkJCQluYW1lOiAiQ2hhd3JpIEJhemFyIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzM4NDc3LCA3Ny4xMzk5MzciLAoJCQkJCX0sCgkJCQkJaWQ6ICIxNCIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICIxMyIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJUUkFOU0lUX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAxNSIsCgkJCQkJCXNob3J0X2Rlc2M6ICJDaGFuZ2UgZm9yIEFpcnBvcnQgRXhwcmVzcyIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiTkVXX0RFTEhJIiwKCQkJCQkJCW5hbWU6ICJOZXcgRGVsaGkiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43MzgyNzYsIDc3LjEzMjkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjE1IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjE0IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIlRSQU5TSVRfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDE2IiwKCQkJCQkJc2hvcnRfZGVzYzogIkNoYW5nZSBmb3IgQmx1ZSBMaW5lIiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJSQUpJVl9DSE9XSyIsCgkJCQkJCQluYW1lOiAiUmFqaXYgQ2hvd2siLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Mzg0MzYsIDc3LjEzOTMzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjE2IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjE1IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMTciLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIlBBVEVMX0NIT1dLIiwKCQkJCQkJCW5hbWU6ICJQYXRlbCBDaG93ayIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjczODEyNiwgNzcuMTMzNDMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMTciLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMTYiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiVFJBTlNJVF9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMTgiLAoJCQkJCQlzaG9ydF9kZXNjOiAiQ2hhbmdlIGZvciBWaW9sZXQgTGluZSIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiQ0VOVFJBTF9TRUNSRVRBUklBVCIsCgkJCQkJCQluYW1lOiAiQ2VudHJhbCBTZWNyZXRhcmlhdCIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjczMjA3NiwgNzcuMTMwMTkyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMTgiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMTciLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAxOSIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiVURZT0dfQkhBV0FOIiwKCQkJCQkJCW5hbWU6ICJVZHlvZyBCaGF3YW4iLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC42MTEwNzYsIDc3LjIxMjIzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjE5IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjE4IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMjAiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkxPS19LQUxZQU5fTUFSRyIsCgkJCQkJCQluYW1lOiAiTG9rIEthbHlhbiBNYXJnIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNzM4MTc2LCA3Ny4xMzkxMzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICIyMCIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICIxOSIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDIxIiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJKT1JfQkFHSCIsCgkJCQkJCQluYW1lOiAiSm9yIEJhZ2giLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC41ODc4NzYsIDc3LjIxNTMzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjIxIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjIwIiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIlRSQU5TSVRfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDIyIiwKCQkJCQkJc2hvcnRfZGVzYzogIkNoYW5nZSBmb3IgUGluayBMaW5lIiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJESUxMSV9IQUFUX0lOQSIsCgkJCQkJCQluYW1lOiAiRGlsbGkgSGFhdCBJTkEiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC41NjcyNzYsIDc3LjIxMDAzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjIyIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjIxIiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMjMiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkFJSU1TIiwKCQkJCQkJCW5hbWU6ICJBSUlNUyIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjczMTk3NiwgNzcuMTM5MDMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMjMiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMjIiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAyNCIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiR1JFRU5fUEFSSyIsCgkJCQkJCQluYW1lOiAiR3JlZW4gUGFyayIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjU1ODQ3NiwgNzcuMjAyOTMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMjQiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMjMiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiVFJBTlNJVF9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMjUiLAoJCQkJCQlzaG9ydF9kZXNjOiAiQ2hhbmdlIGZvciBNYWdlbnRhIExpbmUiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkhBVVpfS0hBUyIsCgkJCQkJCQluYW1lOiAiSGF1eiBLaGFzIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNTQ3OTEyLCA3Ny4yMDMxMzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICIyNSIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICIyNCIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDI2IiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJNQUxWSVlBX05BR0FSIiwKCQkJCQkJCW5hbWU6ICJNYWx2aXlhIE5hZ2FyIiwKCQkJCQkJfSwKCQkJCQkJZ3BzOiAiMjguNTM0Mjc2LCA3Ny4yMDk0MzIiLAoJCQkJCX0sCgkJCQkJaWQ6ICIyNiIsCgkJCQkJcGFyZW50X3N0b3BfaWQ6ICIyNSIsCgkJCQl9LAoJCQkJewoJCQkJCXR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCgkJCQkJaW5zdHJ1Y3Rpb25zOiB7CgkJCQkJCW5hbWU6ICJTdG9wIDI3IiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJTQUtFVCIsCgkJCQkJCQluYW1lOiAiU2FrZXQiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC41MjIxNzYsIDc3LjIxMDIzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjI3IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjI2IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMjgiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIlFVVEFCX01JTkFSIiwKCQkJCQkJCW5hbWU6ICJRdXRhYiBNaW5hciIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjUyNDU3NiwgNzcuMTg1NTMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMjgiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMjciLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAyOSIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiQ0hIQVRBUlBVUiIsCgkJCQkJCQluYW1lOiAiQ2hoYXRhcnB1ciIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjQ5NTk3NiwgNzcuMTg0ODMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMjkiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMjgiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAzMCIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiU1VMVEFOUFVSIiwKCQkJCQkJCW5hbWU6ICJTdWx0YW5wdXIiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC40OTY3NzYsIDc3LjE2MzQzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjMwIiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjI5IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMzEiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkdISVRPUk5JIiwKCQkJCQkJCW5hbWU6ICJHaGl0b3JuaSIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjQ5NjQ3NiwgNzcuMTM5NDMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMzEiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMzAiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAzMiIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiQVJKQU5fR0FSSCIsCgkJCQkJCQluYW1lOiAiQXJqYW4gR2FyaCIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjQ4MDk3NiwgNzcuMTI1OTMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMzIiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMzEiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAzMyIsCgkJCQkJfSwKCQkJCQlsb2NhdGlvbjogewoJCQkJCQlkZXNjcmlwdG9yOiB7CgkJCQkJCQljb2RlOiAiR1VSVV9EUk9OQUNIQVJZQSIsCgkJCQkJCQluYW1lOiAiR3VydSBEcm9uYWNoYXJ5YSIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjU2ODQ3NiwgNzcuMDg5OTMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMzMiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMzIiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAoJCQkJCWluc3RydWN0aW9uczogewoJCQkJCQluYW1lOiAiU3RvcCAzNCIsCgkJCQkJCXNob3J0X2Rlc2M6ICJDaGFuZ2UgZm9yIFJhcGlkIE1ldHJvIiwKCQkJCQl9LAoJCQkJCWxvY2F0aW9uOiB7CgkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCWNvZGU6ICJTSUtBTkRFUlBVUiIsCgkJCQkJCQluYW1lOiAiU2lrYW5kZXJwdXIiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC43Nzg0NzYsIDc3LjE5OTkzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjM0IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjMzIiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMzUiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIk1HX1JPQUQiLAoJCQkJCQkJbmFtZTogIk1HIFJvYWQiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC40MTg0NzYsIDc3LjEzMzI2OCIsCgkJCQkJfSwKCQkJCQlpZDogIjM1IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjM0IiwKCQkJCX0sCgkJCQl7CgkJCQkJdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMzYiLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIklGRkNPX0NIT1dLIiwKCQkJCQkJCW5hbWU6ICJJRkZDTyBDaG93ayIsCgkJCQkJCX0sCgkJCQkJCWdwczogIjI4LjQ3MjI3NiwgNzcuMDcyNDMyIiwKCQkJCQl9LAoJCQkJCWlkOiAiMzYiLAoJCQkJCXBhcmVudF9zdG9wX2lkOiAiMzUiLAoJCQkJfSwKCQkJCXsKCQkJCQl0eXBlOiAiRU5EIiwKCQkJCQlpbnN0cnVjdGlvbnM6IHsKCQkJCQkJbmFtZTogIlN0b3AgMzciLAoJCQkJCX0sCgkJCQkJbG9jYXRpb246IHsKCQkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQkJY29kZTogIkhVREFfQ0lUWV9DRU5UUkUiLAoJCQkJCQkJbmFtZTogIkhVREEgQ2l0eSBDZW50cmUiLAoJCQkJCQl9LAoJCQkJCQlncHM6ICIyOC40NTkyNzYsIDc3LjA3MjUzMiIsCgkJCQkJfSwKCQkJCQlpZDogIjM3IiwKCQkJCQlwYXJlbnRfc3RvcF9pZDogIjM2IiwKCQkJCX0sCgkJCV0sCgkJCXZlaGljbGU6IHsKCQkJCWNhdGVnb3J5OiAiTUVUUk8iLAoJCQl9LAoJCQl0YWdzOiBbCgkJCQl7CgkJCQkJZGVzY3JpcHRvcjogewoJCQkJCQljb2RlOiAiUk9VVEVfSU5GTyIsCgkJCQkJfSwKCQkJCQlsaXN0OiBbCgkJCQkJCXsKCQkJCQkJCWRlc2NyaXB0b3I6IHsKCQkJCQkJCQljb2RlOiAiUk9VVEVfSUQiLAoJCQkJCQkJfSwKCQkJCQkJCXZhbHVlOiAiMjQyIiwKCQkJCQkJfSwKCQkJCQldLAoJCQkJfSwKCQkJXSwKCQl9LAoJXSwKfTsKY29uc3QgY3JlYXRlRnVsbGZpbGxtZW50ID0gKGNpdHlDb2RlKSA9PiB7Cgljb25zdCBmYWtlID0gZXhhbXBsZUZ1bGxmaWxsbWVudC5mdWxmaWxsbWVudHM7CglsZXQgaW5kZXggPSAxOwoJZm9yIChjb25zdCBmdWxsIG9mIGZha2UpIHsKCQlmdWxsLnN0b3BzLmZvckVhY2goKHN0b3ApID0+IHsKCQkJc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPSBgTU9DS19TVEFUSU9OXyR7aW5kZXh9YDsKCQkJaW5kZXgrKzsKCQl9KTsKCX0KCXJldHVybiB7IGZ1bGZpbGxtZW50czogZmFrZSB9Owp9Cgpjb25zdCB1cGRhdGVQYXltZW50RGV0YWlscyA9ICgKCXBheWxvYWQsCglzZXNzaW9uRGF0YQopID0+IHsKCWNvbnN0IHByb3ZpZGVycyA9IHBheWxvYWQ/Lm1lc3NhZ2U/LmNhdGFsb2c/LnByb3ZpZGVycyB8fCBbXTsKCglwcm92aWRlcnMuZm9yRWFjaCgocHJvdmlkZXIpID0+IHsKCQljb25zdCBwYXltZW50cyA9IHByb3ZpZGVyPy5wYXltZW50cyB8fCBbXTsKCQlwYXltZW50cy5mb3JFYWNoKChwYXltZW50KSA9PiB7CgkJCXBheW1lbnQuY29sbGVjdGVkX2J5ID0gc2Vzc2lvbkRhdGEuY29sbGVjdGVkX2J5WzBdOwoKCQkJYnV5ZXJGaW5kZXJUYWcgPSBwYXltZW50LnRhZ3M/LmZpbmQoCgkJCQkodGFnKSA9PiB0YWcuZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJVWUVSX0ZJTkRFUl9GRUVTIgoJCQkpOwoKCQkJaWYgKGJ1eWVyRmluZGVyVGFnPy5saXN0KSB7CgkJCQljb25zdCBmZWVFbnRyeSA9IGJ1eWVyRmluZGVyVGFnLmxpc3QuZmluZCgKCQkJCQkoaXRlbSkgPT4gaXRlbS5kZXNjcmlwdG9yPy5jb2RlID09PSAiQlVZRVJfRklOREVSX0ZFRVNfUEVSQ0VOVEFHRSIKCQkJCSk7CgoJCQkJaWYgKGZlZUVudHJ5KSB7CgkJCQkJY29uc29sZS5sb2coImZlZUVudHJ5IiwgSlNPTi5zdHJpbmdpZnkoc2Vzc2lvbkRhdGEuYnV5ZXJfYXBwX2ZlZSkpCgkJCQkJZmVlRW50cnkudmFsdWUgPSBzZXNzaW9uRGF0YS5idXllcl9hcHBfZmVlWzBdOwoJCQkJfSBlbHNlIHsKCQkJCQlidXllckZpbmRlclRhZy5saXN0LnB1c2goewoJCQkJCQlkZXNjcmlwdG9yOiB7IGNvZGU6ICJCVVlFUl9GSU5ERVJfRkVFU19QRVJDRU5UQUdFIiB9LAoJCQkJCQl2YWx1ZTogc2Vzc2lvbkRhdGEuYnV5ZXJfYXBwX2ZlZVswXQoJCQkJCX0pOwoJCQkJfQoJCQl9CgkJfSk7Cgl9KTsKCglyZXR1cm4gcGF5bG9hZDsKfQoKY29uc3QgY3JlYXRlQ3VzdG9tUm91dGUgPSAoCglyb3V0ZURhdGEsCglzdGFydFN0YXRpb25Db2RlLAoJZW5kU3RhdGlvbkNvZGUKKSA9PiB7CglyZXR1cm4gcm91dGVEYXRhLm1hcCgocm91dGUpID0+IHsKCQljb25zdCBzdG9wcyA9IHJvdXRlLnN0b3BzOwoKCQljb25zdCBzdGFydEluZGV4ID0gc3RvcHMuZmluZEluZGV4KAoJCQkoc3RvcCkgPT4gc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPT09IHN0YXJ0U3RhdGlvbkNvZGUKCQkpOwoJCWNvbnN0IGVuZEluZGV4ID0gc3RvcHMuZmluZEluZGV4KAoJCQkoc3RvcCkgPT4gc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPT09IGVuZFN0YXRpb25Db2RlCgkJKTsKCgkJaWYgKHN0YXJ0SW5kZXggPT09IC0xIHx8IGVuZEluZGV4ID09PSAtMSkgewoJCQl0aHJvdyBuZXcgRXJyb3IoYFN0YXJ0IG9yIEVuZCBzdGF0aW9uIG5vdCBmb3VuZCBpbiB0aGUgcm91dGVgKTsKCQl9CgoJCWlmIChzdGFydEluZGV4ID09PSBlbmRJbmRleCkgewoJCQl0aHJvdyBuZXcgRXJyb3IoYFN0YXJ0IGFuZCBFbmQgc3RhdGlvbnMgbXVzdCBiZSBkaWZmZXJlbnRgKTsKCQl9CgoJCWxldCBzZWxlY3RlZFN0b3BzOwoJCWlmIChzdGFydEluZGV4ID4gZW5kSW5kZXgpIHsKCQkJc2VsZWN0ZWRTdG9wcyA9IHN0b3BzLnNsaWNlKGVuZEluZGV4LCBzdGFydEluZGV4ICsgMSkucmV2ZXJzZSgpOwoJCX0gZWxzZSB7CgkJCXNlbGVjdGVkU3RvcHMgPSBzdG9wcy5zbGljZShzdGFydEluZGV4LCBlbmRJbmRleCArIDEpOwoJCX0KCgkJc2VsZWN0ZWRTdG9wcy5mb3JFYWNoKChzdG9wLCBpbmRleCkgPT4gewoJCQlzdG9wLmlkID0gKGluZGV4ICsgMSkudG9TdHJpbmcoKTsKCQkJaWYgKGluZGV4ID09PSAwKSB7CgkJCQlzdG9wLnR5cGUgPSAiU1RBUlQiOwoJCQkJZGVsZXRlIHN0b3AucGFyZW50X3N0b3BfaWQ7CgkJCX0gZWxzZSBpZiAoaW5kZXggPT09IHNlbGVjdGVkU3RvcHMubGVuZ3RoIC0gMSkgewoJCQkJc3RvcC50eXBlID0gIkVORCI7CgkJCQlzdG9wLnBhcmVudF9zdG9wX2lkID0gc2VsZWN0ZWRTdG9wc1tpbmRleCAtIDFdLmlkOwoJCQl9IGVsc2UgewoJCQkJc3RvcC50eXBlID0gIklOVEVSTUVESUFURV9TVE9QIjsKCQkJCXN0b3AucGFyZW50X3N0b3BfaWQgPSBzZWxlY3RlZFN0b3BzW2luZGV4IC0gMV0uaWQ7CgkJCX0KCQl9KTsKCgkJcmV0dXJuIHsKCQkJaWQ6IHJvdXRlLmlkLAoJCQlzdG9wczogc2VsZWN0ZWRTdG9wcywKCQkJdHlwZTogcm91dGUudHlwZSwKCQkJdmVoaWNsZTogcm91dGUudmVoaWNsZSwKCQl9OwoJfSk7Cn07Cgo=
