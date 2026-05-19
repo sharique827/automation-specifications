@@ -102,9 +102,9 @@ steps:
           context:
             domain: ONDC:RETeB2B
             action: search
-            timestamp: 2026-05-08T06:40:58.619Z
+            timestamp: 2026-05-19T09:50:52.162Z
             transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-            message_id: 3fb945db-d54d-4afd-982a-5d8500ad2b59
+            message_id: 65920cf3-ef47-45b3-a3b1-b224d8f93ec3
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -128,10 +128,12 @@ steps:
                     - code: static_terms_new
                       value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                     - code: effective_date
-                      value: 2026-05-18T06:40:58.625Z
+                      value: 2026-05-29T09:50:52.166Z
                 - code: bap_features
                   list:
                     - code: 01A
+                      value: yes
+                    - code: "0091"
                       value: yes
         type: request
         description: Category-level broadcast search for regional distributor discovery
@@ -201,8 +203,8 @@ steps:
                       timestamp: 2025-01-08T07:30:30.000Z
                       schedule:
                         holidays:
-                          - 2026-05-26
-                          - 2026-08-15
+                          - 2026-05-26T00:00:00.000Z
+                          - 2026-08-15T00:00:00.000Z
                     gps: 12.9675,77.7496
                     address:
                       locality: Jayanagar
@@ -216,8 +218,8 @@ steps:
                       timestamp: 2025-01-08T07:30:30.000Z
                       schedule:
                         holidays:
-                          - 2026-06-26
-                          - 2026-08-15
+                          - 2026-06-26T00:00:00.000Z
+                          - 2026-08-15T00:00:00.000Z
                     gps: 12.9352,77.6245
                     address:
                       locality: BTM Layout
@@ -1187,9 +1189,9 @@ steps:
           context:
             domain: ONDC:RETeB2B
             action: on_search
-            timestamp: 2026-05-08T06:40:58.633Z
+            timestamp: 2026-05-19T09:50:52.180Z
             transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-            message_id: 3fb945db-d54d-4afd-982a-5d8500ad2b59
+            message_id: 65920cf3-ef47-45b3-a3b1-b224d8f93ec3
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1216,7 +1218,7 @@ steps:
                 - id: P1
                   time:
                     label: enable
-                    timestamp: 2026-05-08T06:40:58.633Z
+                    timestamp: 2026-05-19T09:50:52.180Z
                   descriptor:
                     name: ABC Manufacturer
                     code: distributor
@@ -1236,15 +1238,15 @@ steps:
                     - id: L1
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                         schedule:
                           holidays:
-                            - 2026-05-08
-                            - 2026-05-09
-                            - 2026-05-10
-                            - 2026-05-11
-                            - 2026-05-12
-                            - 2026-05-13
+                            - 2026-05-19
+                            - 2026-05-20
+                            - 2026-05-21
+                            - 2026-05-22
+                            - 2026-05-23
+                            - 2026-05-24
                       gps: 12.9675,77.7496
                       address:
                         locality: Jayanagar
@@ -1255,15 +1257,15 @@ steps:
                     - id: L2
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                         schedule:
                           holidays:
-                            - 2026-05-08
-                            - 2026-05-09
-                            - 2026-05-10
-                            - 2026-05-11
-                            - 2026-05-12
-                            - 2026-05-13
+                            - 2026-05-19
+                            - 2026-05-20
+                            - 2026-05-21
+                            - 2026-05-22
+                            - 2026-05-23
+                            - 2026-05-24
                       gps: 12.9352,77.6245
                       address:
                         locality: BTM Layout
@@ -1330,8 +1332,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1368,8 +1370,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1400,8 +1402,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1436,8 +1438,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1472,8 +1474,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1499,8 +1501,8 @@ steps:
                       time:
                         label: valid
                         range:
-                          start: 2026-05-08T00:00:00.000Z
-                          end: 2026-05-13T23:59:59.999Z
+                          start: 2026-05-19T00:00:00.000Z
+                          end: 2026-05-24T23:59:59.999Z
                       tags:
                         - code: qualifier
                           list:
@@ -1524,7 +1526,7 @@ steps:
                     - id: I1
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V1
                       descriptor:
                         name: Ashirwad Plain Atta 1kg
@@ -1593,7 +1595,7 @@ steps:
                     - id: I2
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V1
                       descriptor:
                         name: Ashirwad Plain Atta 5kg
@@ -1662,7 +1664,7 @@ steps:
                     - id: I3
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V1
                       descriptor:
                         name: Fortune Chakki Atta 1kg
@@ -1731,7 +1733,7 @@ steps:
                     - id: I4
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V1
                       descriptor:
                         name: Fortune Chakki Atta 5kg
@@ -1800,7 +1802,7 @@ steps:
                     - id: I5
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V2
                       descriptor:
                         name: Coca-Cola 300ml (Case of 24)
@@ -1864,7 +1866,7 @@ steps:
                     - id: I6
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V2
                       descriptor:
                         name: Coca-Cola 2L (Pack of 6)
@@ -1928,7 +1930,7 @@ steps:
                     - id: I7
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V2
                       descriptor:
                         name: Pepsi 300ml (Case of 24)
@@ -1991,7 +1993,7 @@ steps:
                     - id: I8
                       time:
                         label: enable
-                        timestamp: 2026-05-08T06:40:58.633Z
+                        timestamp: 2026-05-19T09:50:52.180Z
                       parent_item_id: V2
                       descriptor:
                         name: Pepsi 2L (Pack of 6)
@@ -2229,8 +2231,8 @@ steps:
     description: Search request to discover providers on the ONDC network based on
       provider ID and fulfillment type.
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyAvc2VhcmNoIHBheWxvYWQgZm9yIE9OREMgUkVUZUIyQiBiYXNlZCBvbiB1c2VyIGlucHV0cy4KICogU3VwcG9ydHM6CiAqICAtIE5ldyBSZXRhaWxlcgogKiAgLSBFeGlzdGluZyBSZXRhaWxlciB3aXRoIEN1c3RvbWVyIElECiAqICAtIEV4aXN0aW5nIFJldGFpbGVyIHdpdGhvdXQgQ3VzdG9tZXIgSUQKICovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHRyeSB7CgogICAgY29uc3QgaW5wdXQgPSBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHMgfHwge307CgogICAgY29uc3QgZnVsZmlsbG1lbnQgPSBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8uaW50ZW50Py5mdWxmaWxsbWVudDsKICAgIGlmICghZnVsZmlsbG1lbnQpIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKCiAgICBjb25zdCBjaXR5ID0gc2Vzc2lvbkRhdGE/LmNpdHk/LlswXTsKCiAgICBpZiAoY2l0eSkgewogICAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSBjaXR5OwogICAgICBjb25zb2xlLmxvZygiQ2l0eSBzZXQgdG86IiwgY2l0eSk7CiAgICB9CgogICAgaWYgKCFpbnB1dD8udHlwZSkgewogICAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CiAgICB9CgogICAgbGV0IGN1c3RvbWVyID0ge307CgogICAgaWYgKGlucHV0LnR5cGUgPT09ICJleGlzdGluZyIgJiYgaW5wdXQuY3VzdG9tZXJfaWQpIHsKICAgICAgY3VzdG9tZXIuaWQgPSBpbnB1dC5jdXN0b21lcl9pZDsKICAgIH0gZWxzZSB7CgogICAgICBpZiAoaW5wdXQudGF4X251bWJlciB8fCBpbnB1dC5wcm92aWRlcl90YXhfbnVtYmVyKSB7CiAgICAgICAgY3VzdG9tZXIucGVyc29uID0geyBjcmVkczogW10gfTsKCiAgICAgICAgaWYgKGlucHV0LnRheF9udW1iZXIpIHsKICAgICAgICAgIGN1c3RvbWVyLnBlcnNvbi5jcmVkcy5wdXNoKHsKICAgICAgICAgICAgaWQ6IGlucHV0LnRheF9udW1iZXIsCiAgICAgICAgICAgIHR5cGU6ICJ0YXhfbnVtYmVyIgogICAgICAgICAgfSk7CiAgICAgICAgfQoKICAgICAgICBpZiAoaW5wdXQucHJvdmlkZXJfdGF4X251bWJlcikgewogICAgICAgICAgY3VzdG9tZXIucGVyc29uLmNyZWRzLnB1c2goewogICAgICAgICAgICBpZDogaW5wdXQucHJvdmlkZXJfdGF4X251bWJlciwKICAgICAgICAgICAgdHlwZTogInByb3ZpZGVyX3RheF9udW1iZXIiCiAgICAgICAgICB9KTsKICAgICAgICB9CiAgICAgIH0KCiAgICAgIGlmIChpbnB1dC50eXBlID09PSAibmV3IiAmJiBpbnB1dC5zaG9wX25hbWUpIHsKICAgICAgICBjdXN0b21lci5vcmdhbml6YXRpb24gPSB7CiAgICAgICAgICBkZXNjcmlwdG9yOiB7IG5hbWU6IGlucHV0LnNob3BfbmFtZSB9LAogICAgICAgICAgYWRkcmVzczogaW5wdXQuYWRkcmVzcywKICAgICAgICAgIGNpdHk6IHsgY29kZTogaW5wdXQuY2l0eV9jb2RlIH0sCiAgICAgICAgICBzdGF0ZTogeyBjb2RlOiBpbnB1dC5zdGF0ZV9jb2RlIHx8ICJLQSIgfQogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmIChpbnB1dC5waG9uZV9udW1iZXIgfHwgaW5wdXQuZW1haWwpIHsKICAgICAgICBjdXN0b21lci5jb250YWN0ID0ge307CiAgICAgICAgaWYgKGlucHV0LnBob25lX251bWJlcikgY3VzdG9tZXIuY29udGFjdC5waG9uZSA9IGlucHV0LnBob25lX251bWJlcjsKICAgICAgICBpZiAoaW5wdXQuZW1haWwpIGN1c3RvbWVyLmNvbnRhY3QuZW1haWwgPSBpbnB1dC5lbWFpbDsKICAgICAgfQogICAgfQoKICAgIGlmIChPYmplY3Qua2V5cyhjdXN0b21lcikubGVuZ3RoID4gMCkgewogICAgICBmdWxmaWxsbWVudC5jdXN0b21lciA9IGN1c3RvbWVyOwogICAgfSBlbHNlIHsKICAgICAgY29uc29sZS5sb2coIkN1c3RvbWVyIG9iamVjdCBlbXB0eSDigJQgbm90aGluZyBhcHBlbmRlZCIpOwogICAgfQogIGNvbnNvbGUubG9nKCJjb250ZXh0OiAiLCBKU09OLnN0cmluZ2lmeShkZWZhdWx0UGF5bG9hZD8uY29udGV4dCkpOwogIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQgPSB7CiAgLi4uZGVmYXVsdFBheWxvYWQuY29udGV4dCwKICBicHBfaWQ6ICJzYW1wbGUtYnBwLWlkIiwKICBicHBfdXJpOiAiaHR0cHM6Ly9icHAuZXhhbXBsZS5jb20iLAp9OwoKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKCiAgfSBjYXRjaCAoZXJyKSB7CiAgICBjb25zb2xlLmVycm9yKCJFUlJPUjoiLCBlcnIpOwogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwogIH0KfQoKCg==
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      generate: LyoqCiAqIEdlbmVyYXRlcyAvc2VhcmNoIHBheWxvYWQgZm9yIE9OREMgUkVUZUIyQiBiYXNlZCBvbiB1c2VyIGlucHV0cy4KICogU3VwcG9ydHM6CiAqICAtIE5ldyBSZXRhaWxlcgogKiAgLSBFeGlzdGluZyBSZXRhaWxlciB3aXRoIEN1c3RvbWVyIElECiAqICAtIEV4aXN0aW5nIFJldGFpbGVyIHdpdGhvdXQgQ3VzdG9tZXIgSUQKICovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHRyeSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmJwcF9pZCA9IHNlc3Npb25EYXRhLmJwcElkWzBdCiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmJwcF91cmkgPSBzZXNzaW9uRGF0YS5icHBVcmlbMF0KICAgIGNvbnN0IGlucHV0ID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzIHx8IHt9OwoKICAgIGNvbnN0IGZ1bGZpbGxtZW50ID0gZGVmYXVsdFBheWxvYWQ/Lm1lc3NhZ2U/LmludGVudD8uZnVsZmlsbG1lbnQ7CiAgICBpZiAoIWZ1bGZpbGxtZW50KSByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CgogICAgY29uc3QgY2l0eSA9IHNlc3Npb25EYXRhPy5jaXR5Py5bMF07CgogICAgaWYgKGNpdHkpIHsKICAgICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gY2l0eTsKICAgICAgY29uc29sZS5sb2coIkNpdHkgc2V0IHRvOiIsIGNpdHkpOwogICAgfQoKICAgIGlmICghaW5wdXQ/LnR5cGUpIHsKICAgICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwogICAgfQoKICAgIGxldCBjdXN0b21lciA9IHt9OwoKICAgIGlmIChpbnB1dC50eXBlID09PSAiZXhpc3RpbmciICYmIGlucHV0LmN1c3RvbWVyX2lkKSB7CiAgICAgIGN1c3RvbWVyLmlkID0gaW5wdXQuY3VzdG9tZXJfaWQ7CiAgICB9IGVsc2UgewoKICAgICAgaWYgKGlucHV0LnRheF9udW1iZXIgfHwgaW5wdXQucHJvdmlkZXJfdGF4X251bWJlcikgewogICAgICAgIGN1c3RvbWVyLnBlcnNvbiA9IHsgY3JlZHM6IFtdIH07CgogICAgICAgIGlmIChpbnB1dC50YXhfbnVtYmVyKSB7CiAgICAgICAgICBjdXN0b21lci5wZXJzb24uY3JlZHMucHVzaCh7CiAgICAgICAgICAgIGlkOiBpbnB1dC50YXhfbnVtYmVyLAogICAgICAgICAgICB0eXBlOiAidGF4X251bWJlciIKICAgICAgICAgIH0pOwogICAgICAgIH0KCiAgICAgICAgaWYgKGlucHV0LnByb3ZpZGVyX3RheF9udW1iZXIpIHsKICAgICAgICAgIGN1c3RvbWVyLnBlcnNvbi5jcmVkcy5wdXNoKHsKICAgICAgICAgICAgaWQ6IGlucHV0LnByb3ZpZGVyX3RheF9udW1iZXIsCiAgICAgICAgICAgIHR5cGU6ICJwcm92aWRlcl90YXhfbnVtYmVyIgogICAgICAgICAgfSk7CiAgICAgICAgfQogICAgICB9CgogICAgICBpZiAoaW5wdXQudHlwZSA9PT0gIm5ldyIgJiYgaW5wdXQuc2hvcF9uYW1lKSB7CiAgICAgICAgY3VzdG9tZXIub3JnYW5pemF0aW9uID0gewogICAgICAgICAgZGVzY3JpcHRvcjogeyBuYW1lOiBpbnB1dC5zaG9wX25hbWUgfSwKICAgICAgICAgIGFkZHJlc3M6IGlucHV0LmFkZHJlc3MsCiAgICAgICAgICBjaXR5OiB7IGNvZGU6IGlucHV0LmNpdHlfY29kZSB9LAogICAgICAgICAgc3RhdGU6IHsgY29kZTogaW5wdXQuc3RhdGVfY29kZSB8fCAiS0EiIH0KICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoaW5wdXQucGhvbmVfbnVtYmVyIHx8IGlucHV0LmVtYWlsKSB7CiAgICAgICAgY3VzdG9tZXIuY29udGFjdCA9IHt9OwogICAgICAgIGlmIChpbnB1dC5waG9uZV9udW1iZXIpIGN1c3RvbWVyLmNvbnRhY3QucGhvbmUgPSBpbnB1dC5waG9uZV9udW1iZXI7CiAgICAgICAgaWYgKGlucHV0LmVtYWlsKSBjdXN0b21lci5jb250YWN0LmVtYWlsID0gaW5wdXQuZW1haWw7CiAgICAgIH0KICAgIH0KCiAgICBpZiAoT2JqZWN0LmtleXMoY3VzdG9tZXIpLmxlbmd0aCA+IDApIHsKICAgICAgZnVsZmlsbG1lbnQuY3VzdG9tZXIgPSBjdXN0b21lcjsKICAgIH0gZWxzZSB7CiAgICAgIGNvbnNvbGUubG9nKCJDdXN0b21lciBvYmplY3QgZW1wdHkg4oCUIG5vdGhpbmcgYXBwZW5kZWQiKTsKICAgIH0KICBjb25zb2xlLmxvZygiY29udGV4dDogIiwgSlNPTi5zdHJpbmdpZnkoZGVmYXVsdFBheWxvYWQ/LmNvbnRleHQpKTsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0ID0gewogIC4uLmRlZmF1bHRQYXlsb2FkLmNvbnRleHQsCiAgYnBwX2lkOiAic2FtcGxlLWJwcC1pZCIsCiAgYnBwX3VyaTogImh0dHBzOi8vYnBwLmV4YW1wbGUuY29tIiwKfTsKCiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CgogIH0gY2F0Y2ggKGVycikgewogICAgY29uc29sZS5lcnJvcigiRVJST1I6IiwgZXJyKTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKICB9Cn0KCgo=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGlmICghdGFyZ2V0UGF5bG9hZD8uaW50ZW50Py5mdWxmaWxsbWVudD8uY3VzdG9tZXIpewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZSBjdXN0b21lciBkZXRhaWxzIiB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
@@ -2241,8 +2243,8 @@ steps:
           message_id: M1
           bap_id: sample-bap-id
           bap_uri: https://bap.example.com
-          bpp_id: sample-bpp-id
-          bpp_uri: https://bpp.example.com
+          bpp_id: ""
+          bpp_uri: ""
           ttl: PT30S
           country: IND
           city: "*"
@@ -2349,9 +2351,9 @@ steps:
           context:
             domain: ONDC:RETeB2B
             action: search
-            timestamp: 2026-05-08T06:41:09.893Z
+            timestamp: 2026-05-19T09:51:07.035Z
             transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-            message_id: cdadf22e-f67b-44f4-abfc-c51642002cdc
+            message_id: bc875950-6217-4dec-82e2-bf6e3f792527
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2493,9 +2495,9 @@ steps:
           context:
             domain: ONDC:RETeB2B
             action: on_search
-            timestamp: 2026-05-08T06:41:09.906Z
+            timestamp: 2026-05-19T09:51:07.047Z
             transaction_id: 9e8654ed-0dd3-4315-81f2-814780f13e79
-            message_id: cdadf22e-f67b-44f4-abfc-c51642002cdc
+            message_id: bc875950-6217-4dec-82e2-bf6e3f792527
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2518,7 +2520,7 @@ steps:
                             - code: remaining_quantity
                               value: "35"
                             - code: valid_till
-                              value: 2026-08-06T06:41:09.906Z
+                              value: 2026-08-17T09:51:07.047Z
                             - code: tier
                               value: silver
                     - id: flat150
@@ -2530,7 +2532,7 @@ steps:
                             - code: remaining_quantity
                               value: "50"
                             - code: valid_till
-                              value: 2026-08-06T06:41:09.906Z
+                              value: 2026-08-17T09:51:07.047Z
                             - code: tier
                               value: silver
                     - id: slab1
@@ -2542,7 +2544,7 @@ steps:
                             - code: remaining_purchase_value
                               value: "25700"
                             - code: valid_till
-                              value: 2026-08-06T06:41:09.906Z
+                              value: 2026-08-17T09:51:07.047Z
                             - code: tier
                               value: silver
                     - id: freebie1
@@ -2554,7 +2556,7 @@ steps:
                             - code: remaining_quantity
                               value: "50"
                             - code: valid_till
-                              value: 2026-08-06T06:41:09.906Z
+                              value: 2026-08-17T09:51:07.047Z
                             - code: tier
                               value: silver
                     - id: buy2get3
@@ -2566,7 +2568,7 @@ steps:
                             - code: remaining_quantity
                               value: "50"
                             - code: valid_till
-                              value: 2026-08-06T06:41:09.906Z
+                              value: 2026-08-17T09:51:07.047Z
                             - code: tier
                               value: silver
                   tags:
@@ -2575,7 +2577,7 @@ steps:
                         - code: credit_limit
                           value: "25000.00"
                         - code: valid_till
-                          value: 2026-08-06T06:41:09.906Z
+                          value: 2026-08-17T09:51:07.047Z
                     - code: poc
                       list:
                         - code: name
