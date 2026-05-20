@@ -94,15 +94,27 @@ flows:
     description: IntraCity - Unlimited Passes Flow(Code Based)
     config:
       $ref: ./Bus/IntraCity_Unlimited_Passes_Flow_Code_Based_.yaml
-  # - type: playground
-  #   id: IntraCity_User_Based_Confirmation_flow
-  #   usecase: Bus
-  #   tags:
-  #     - WORKBENCH
-  #     - OPTIONAL
-  #   description: IntraCity - User Based Confirmation flow
-  #   config:
-  #     $ref: ./Bus/IntraCity_User_Based_Confirmation_flow.yaml
+  - type: playground
+    id: IntraCity_User_Based_Confirmation_flow
+    usecase: Bus
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+    description: IntraCity - User Based Confirmation flow
+    config:
+      $ref: ./Bus/IntraCity_User_Based_Confirmation_flow.yaml
+  
+  - type: playground
+    id: IntraCity_Seller_Based_Confirmation_Flow
+    usecase: Bus
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+    description: IntraCity - Seller Based Confirmation flow
+    config:
+      $ref: ./Bus/IntraCity_Seller_Based_Confirmation_Flow.yaml    
+
+      
   - type: playground
     id: IntraCity_User_Cancellation_Flow
     usecase: Bus
@@ -114,24 +126,24 @@ flows:
     description: IntraCity - User Cancellation Flow
     config:
       $ref: ./Bus/IntraCity_User_Cancellation_Flow.yaml
-  # - type: playground
-  #   id: IntraCity_Vehicle_Based_Confirmation_flow(With Update Call)
-  #   usecase: Bus
-  #   tags:
-  #     - WORKBENCH
-  #     - OPTIONAL
-  #   description: IntraCity - Vehicle Based Confirmation flow
-  #   config:
-  #     $ref: ./Bus/IntraCity_Vehicle_Based_Confirmation_flow_With_Update_Call_.yaml
-  # - type: playground
-  #   id: IntraCity_Vehicle_Based_Confirmation_flow(Without Update Call)
-  #   usecase: Bus
-  #   tags:
-  #     - WORKBENCH
-  #     - OPTIONAL
-  #   description: IntraCity - Vehicle Based Confirmation flow(Without Update Call)
-  #   config:
-  #     $ref: ./Bus/IntraCity_Vehicle_Based_Confirmation_flow_Without_Update_Call_.yaml
+  - type: playground
+    id: IntraCity_Vehicle_Based_Confirmation_flow_With_Update_Call
+    usecase: Bus
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+    description: IntraCity - Vehicle Based Confirmation flow
+    config:
+      $ref: ./Bus/IntraCity_Vehicle_Based_Confirmation_flow_With_Update_Call_.yaml
+  - type: playground
+    id: IntraCity_Vehicle_Based_Confirmation_flow_Without_Update_Call
+    usecase: Bus
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+    description: IntraCity - Vehicle Based Confirmation flow(Without Update Call)
+    config:
+      $ref: ./Bus/IntraCity_Vehicle_Based_Confirmation_flow_Without_Update_Call_.yaml
   # - type: playground
   #   id: DELAYED_CANCELLATION_FLOW_ACCEPTED
   #   usecase: Metro
