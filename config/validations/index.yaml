@@ -131,40 +131,6 @@ _TESTS_:
             - BAP
           _CONTINUE_: "!(attr are present)"
           _RETURN_: attr any in enumList
-        - _NAME_: OPTIONAL_PAYMENT_TAGS_GROUPS
-          validTags_a3: &a3
-            - BUYER_FINDER_FEES
-            - SETTLEMENT_TERMS
-          validValues_a5: &a5
-            - SETTLEMENT_TERMS
-          tagPath: $.message.intent.payment.tags[*].descriptor.code
-          _CONTINUE_: "!(tagPath are present)"
-          _RETURN_:
-            - _NAME_: REQUIRED_BUYER_FINDER_FEES_LIST
-              _SCOPE_: $.message.intent.payment.tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]
-              subTags: $.list[*].descriptor.code
-              validValues: &a4
-                - BUYER_FINDER_FEES_TYPE
-                - BUYER_FINDER_FEES_PERCENTAGE
-              _CONTINUE_: "!(subTags are present)"
-              _RETURN_: subTags all in validValues
-            - _NAME_: VALID_BUYER_FINDER_FEES_TYPE_VALUE
-              _SCOPE_: $.message.intent.payment.tags[?(@.descriptor.code=='BUYER_FINDER_FEES')].list[?(@.descriptor.code=='BUYER_FINDER_FEES_TYPE')]
-              attr: $.value
-              enumList:
-                - percent-annualized
-                - percent
-                - amount
-              _RETURN_: attr all in enumList
-            - _NAME_: REQUIRED_SETTLEMENT_TERMS_LIST
-              _SCOPE_: $.message.intent.payment.tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]
-              subTags: $.list[*].descriptor.code
-              validValues:
-                - DELAY_INTEREST
-                - STATIC_TERMS
-                - OFFLINE_CONTRACT
-              _CONTINUE_: "!(subTags are present)"
-              _RETURN_: subTags all in validValues
   on_search:
     - _NAME_: ON_SEARCH_CONTEXT
       action:
