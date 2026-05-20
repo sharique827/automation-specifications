@@ -98,6 +98,20 @@ _TESTS_:
                 - ^P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$
               _CONTINUE_: "!(attr are present)"
               _RETURN_: attr follow regex reg
+    - _NAME_: ANCHOR_DEFINITIONS
+      validTags_a3: &a3
+        - BUYER_FINDER_FEES
+        - SETTLEMENT_TERMS
+      validValues_a4: &a4
+        - BUYER_FINDER_FEES_TYPE
+        - BUYER_FINDER_FEES_PERCENTAGE
+      validTags_a5: &a5
+        - SETTLEMENT_TERMS
+      _CONTINUE_: "true"
+      _RETURN_:
+        - _NAME_: DUMMY
+          attr: $.context.action
+          _RETURN_: attr are present
     - _NAME_: SEARCH_CATEGORY_CODE
       action:
         - search
