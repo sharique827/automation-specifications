@@ -115,6 +115,11 @@ steps:
                 - BAP
                 - BPP
               default: BAP
+          required:
+            - city_code
+            - start_time
+            - end_time
+            - collected_by
           additionalProperties: true
           default: {}
     examples:
@@ -224,100 +229,103 @@ steps:
         message:
           catalog:
             descriptor:
-              images:
-                - size_type: xs
-                  url: 'https://api.unreserved-entry-pass.com/logos/logo.ico'
-              long_desc: Online ticket booking service
               name: India tourism
               short_desc: Online ticket booking service
+              long_desc: Online ticket booking service
+              images:
+                - url: 'https://api.unreserved-entry-pass.com/logos/logo.ico'
+                  size_type: xs
             providers:
-              - categories:
+              - id: P1
+                descriptor:
+                  name: India tourism
+                  short_desc: Online Ticket Booking Service
+                  images:
+                    - url: >-
+                        https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                      size_type: xs
+                categories:
                   - descriptor:
-                      code: CULTURE_HERITAGE
                       name: Culture & Heritage
+                      code: CULTURE_HERITAGE
                     id: C1
                   - descriptor:
                       name: Standard
-                    id: C2
                     parent_category_id: C1
+                    id: C2
                   - descriptor:
                       name: Premium
+                    parent_category_id: C1
                     id: C3
-                    parent_category_id: C1
                   - descriptor:
-                      code: MONUMENT_HISTORICAL_SITE
                       name: Monument & Historical Site
-                    id: C4
+                      code: MONUMENT_HISTORICAL_SITE
                     parent_category_id: C1
+                    id: C4
                   - descriptor:
-                      code: MUSEUM
                       name: Museum
+                      code: MUSEUM
                       short_desc: >-
                         Represents type of category, possible values can be
                         GALLERIES also.
+                    parent_category_id: C1
                     id: C5
-                    parent_category_id: C1
                   - descriptor:
-                      code: MEMORIAL
                       name: Memorial
+                      code: MEMORIAL
+                    parent_category_id: C1
                     id: C6
-                    parent_category_id: C1
                   - descriptor:
-                      code: EXHIBITION
                       name: Exhibition
+                      code: EXHIBITION
+                    parent_category_id: C1
                     id: C7
-                    parent_category_id: C1
                   - descriptor:
-                      code: OTHERS
                       name: Others
-                    id: C8
+                      code: OTHERS
                     parent_category_id: C1
-                descriptor:
-                  images:
-                    - size_type: xs
-                      url: >-
-                        https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
-                  name: India tourism
-                  short_desc: Online Ticket Booking Service
-                id: P1
+                    id: C8
+                time:
+                  range:
+                    start: '2024-06-14T05:30:00.000Z'
+                    end: '2024-06-14T23:30:00.000Z'
                 locations:
-                  - descriptor:
-                      additional_desc:
-                        content_type: text/plain
-                        url: >-
-                          https://api.unreserved-entry-pass.com/sites/additional-info
-                      images:
-                        - size_type: md
-                          url: >-
-                            https://api.unreserved-entry-pass.com/sites/images/location.png
+                  - id: L1
+                    gps: '28.524596, 77.185577'
+                    descriptor:
                       name: Qutab Minar
                       short_desc: >-
                         Seth Sarai, Mehrauli, New Delhi, Delhi. The Qutb Minar,
                         also spelled Qutub Minar and Qutab Minar, is a minaret
                         and "victory tower" that forms part of the Qutb complex
-                    gps: '28.524596, 77.185577'
-                    id: L1
-                    rating: '5'
-                  - descriptor:
                       additional_desc:
-                        content_type: text/plain
                         url: >-
                           https://api.unreserved-entry-pass.com/sites/additional-info
+                        content_type: text/plain
                       images:
-                        - size_type: md
-                          url: >-
+                        - url: >-
                             https://api.unreserved-entry-pass.com/sites/images/location.png
+                          size_type: md
+                    rating: '5'
+                  - id: L2
+                    gps: '28.5244946, 77.1855177'
+                    descriptor:
                       name: Red Fort
                       short_desc: >-
                         Red Fort, Mughal fort in Old Delhi, India. It was built
                         by Shah Jahān in the mid-17th century and remains a
                         major tourist attraction.
-                    gps: '28.5244946, 77.1855177'
-                    id: L2
+                      additional_desc:
+                        url: >-
+                          https://api.unreserved-entry-pass.com/sites/additional-info
+                        content_type: text/plain
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/images/location.png
+                          size_type: md
                     rating: '4'
                 payments:
                   - collected_by: BAP
-                time: {}
             tags:
               - descriptor:
                   code: BAP_TERMS
@@ -332,7 +340,7 @@ steps:
                     value: percent
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://dev-automation.ondc.org/booking/terms'
+                    value: 'https://api.example-bap.com/booking/terms'
                   - descriptor:
                       code: SETTLEMENT_BASIS
                     value: INVOICE_RECEIPT
@@ -352,7 +360,7 @@ steps:
                     value: percent
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://dev-automation.ondc.org/booking/terms'
+                    value: 'https://api.example-bap.com/booking/terms'
                   - descriptor:
                       code: MANDATORY_ARBITRATION
                     value: 'true'
@@ -667,7 +675,10 @@ steps:
                       code: HANDLOOM
                     parent_category_id: C1
                     id: C10
-                time: {}
+                time:
+                  range:
+                    start: '2024-06-14T05:30:00.000Z'
+                    end: '2024-06-14T23:30:00.000Z'
                 locations:
                   - id: L1
                     gps: '28.524596, 77.185577'
@@ -762,6 +773,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -829,6 +848,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -896,6 +923,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I0_1
                     descriptor:
                       name: Parent Item for Culture & Heritage
@@ -953,6 +988,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I3
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1020,6 +1063,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I4
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1087,6 +1138,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I5
                     location_ids:
                       - L1
@@ -1116,6 +1175,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -1128,6 +1195,31 @@ steps:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: END
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
                     agent:
                       organization:
                         contact:
@@ -1149,6 +1241,15 @@ steps:
                             start: '2024-06-14T05:30:00.000Z'
                             end: '2024-06-14T05:45:00.000Z'
                     agent:
+                      person:
+                        name: John Doe
+                        descriptor:
+                          name: John Doe
+                          short_desc: Descriptoion about host details
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
                       organization:
                         contact:
                           phone: +91-9999999999
@@ -1605,6 +1706,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1672,6 +1781,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1739,6 +1856,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I0_1
                     descriptor:
                       name: Parent Item for Culture & Heritage
@@ -1749,6 +1874,8 @@ steps:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1796,6 +1923,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I3
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1807,6 +1942,8 @@ steps:
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
                     parent_item_id: I0_1
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1863,6 +2000,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I4
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1874,6 +2019,8 @@ steps:
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
                     parent_item_id: I0_1
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1930,6 +2077,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I5
                     location_ids:
                       - L1
@@ -1959,6 +2114,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -1971,6 +2134,31 @@ steps:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: END
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
                     agent:
                       organization:
                         contact:
@@ -1992,6 +2180,15 @@ steps:
                             start: '2024-06-14T05:30:00.000Z'
                             end: '2024-06-14T05:45:00.000Z'
                     agent:
+                      person:
+                        name: John Doe
+                        descriptor:
+                          name: John Doe
+                          short_desc: Descriptoion about host details
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
                       organization:
                         contact:
                           phone: +91-9999999999
@@ -2763,9 +2960,9 @@ steps:
     description: please add relevant description
     mock:
       generate: >-
-        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZXhpc3RpbmdQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlPXNlc3Npb25EYXRhLmNpdHlfY29kZVswXTsKCiAgaWYgKHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zKSB7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zOwogIH0KICBpZiAoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRzKSB7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudHM7CiAgfQogIGlmIChzZXNzaW9uRGF0YS5zZWxlY3RlZF9wcm92aWRlcikgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9wcm92aWRlclswXTsKICB9CiAgaWYgKHNlc3Npb25EYXRhLnRhZ3MubGVuZ3RoPjApIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLnRhZ3MgPSBbey4uLnNlc3Npb25EYXRhLnRhZ3NbMF19XTsKICB9CiAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKfQ==
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZXhpc3RpbmdQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZT1zZXNzaW9uRGF0YS5jaXR5X2NvZGVbMF07CgogIGlmIChzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtcykgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtczsKICB9CiAgaWYgKHNlc3Npb25EYXRhLnNlbGVjdGVkX2Z1bGZpbGxtZW50cykgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRzOwogIH0KICBpZiAoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfcHJvdmlkZXIpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfcHJvdmlkZXJbMF07CiAgfQogIGlmIChzZXNzaW9uRGF0YS50YWdzLmxlbmd0aD4wKSB7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci50YWdzID0gW3suLi5zZXNzaW9uRGF0YS50YWdzWzBdfV07CiAgfQogIHJldHVybiBleGlzdGluZ1BheWxvYWQ7Cn0=
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbC4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gSW5jb21pbmcgcGF5bG9hZAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBTZXNzaW9uIGRhdGEKICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFZhbGlkYXRpb24gcmVzdWx0CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHRyeSB7CiAgICBjb25zdCBvcmRlciA9IHRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyOwogICAgY29uc3QgY29udGV4dCA9IHRhcmdldFBheWxvYWQ/LmNvbnRleHQ7CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBDSVRZIENPREUgVkFMSURBVElPTiAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKAogICAgICBzZXNzaW9uRGF0YT8uY2l0eV9jb2RlPy5bMF0gJiYKICAgICAgY29udGV4dD8ubG9jYXRpb24/LmNpdHk/LmNvZGUgIT09IHNlc3Npb25EYXRhLmNpdHlfY29kZVswXQogICAgKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIkNpdHkgY29kZSBtaXNtYXRjaCIKICAgICAgfTsKICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIElURU1TIFZBTElEQVRJT04gLS0tLS0tLS0tLS0tLS0tLQoKICAgIGlmIChzZXNzaW9uRGF0YT8uc2VsZWN0ZWRfaXRlbXMpIHsKICAgICAgaWYgKCFBcnJheS5pc0FycmF5KG9yZGVyPy5pdGVtcykpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJNaXNzaW5nIG9yZGVyIGl0ZW1zIgogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICgKICAgICAgICBKU09OLnN0cmluZ2lmeShvcmRlci5pdGVtcykgIT09CiAgICAgICAgSlNPTi5zdHJpbmdpZnkoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbXMpCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIk9yZGVyIGl0ZW1zIG1pc21hdGNoIgogICAgICAgIH07CiAgICAgIH0KICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIEZVTEZJTExNRU5UUyBWQUxJREFUSU9OIC0tLS0tLS0tLS0tLS0tLS0KCiAgICBpZiAoc2Vzc2lvbkRhdGE/LnNlbGVjdGVkX2Z1bGZpbGxtZW50cykgewogICAgICBpZiAoIUFycmF5LmlzQXJyYXkob3JkZXI/LmZ1bGZpbGxtZW50cykpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJNaXNzaW5nIGZ1bGZpbGxtZW50cyIKICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoCiAgICAgICAgSlNPTi5zdHJpbmdpZnkob3JkZXIuZnVsZmlsbG1lbnRzKSAhPT0KICAgICAgICBKU09OLnN0cmluZ2lmeShzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudHMpCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIkZ1bGZpbGxtZW50cyBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBQUk9WSURFUiBWQUxJREFUSU9OIC0tLS0tLS0tLS0tLS0tLS0KCiAgICBpZiAoc2Vzc2lvbkRhdGE/LnNlbGVjdGVkX3Byb3ZpZGVyPy5bMF0pIHsKICAgICAgaWYgKCFvcmRlcj8ucHJvdmlkZXIpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJNaXNzaW5nIHByb3ZpZGVyIgogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICgKICAgICAgICBKU09OLnN0cmluZ2lmeShvcmRlci5wcm92aWRlcikgIT09CiAgICAgICAgSlNPTi5zdHJpbmdpZnkoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfcHJvdmlkZXJbMF0pCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIlByb3ZpZGVyIG1pc21hdGNoIgogICAgICAgIH07CiAgICAgIH0KICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIFRBR1MgVkFMSURBVElPTiAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKHNlc3Npb25EYXRhPy50YWdzPy5sZW5ndGggPiAwKSB7CiAgICAgIGlmICghQXJyYXkuaXNBcnJheShvcmRlcj8udGFncykpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRhZ3MiCiAgICAgICAgfTsKICAgICAgfQoKICAgICAgaWYgKAogICAgICAgIEpTT04uc3RyaW5naWZ5KG9yZGVyLnRhZ3NbMF0pICE9PQogICAgICAgIEpTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnRhZ3NbMF0pCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIlRhZ3MgbWlzbWF0Y2giCiAgICAgICAgfTsKICAgICAgfQogICAgfQoKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiB0cnVlLAogICAgICBjb2RlOiAyMDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIKICAgIH07CgogIH0gY2F0Y2ggKGVycm9yKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDUwMCwKICAgICAgZGVzY3JpcHRpb246IGVycm9yLm1lc3NhZ2UKICAgIH07CiAgfQp9
       requirements: >-
         ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zIHx8ICFzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtcy5sZW5ndGgpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk5vIHNlbGVjdGVkX2l0ZW1zIGF2YWlsYWJsZSBpbiBzZXNzaW9uIGRhdGEiIH07CiAgfQogIGlmICghc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRzIHx8ICFzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudHMubGVuZ3RoKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJObyBzZWxlY3RlZF9mdWxmaWxsbWVudHMgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9wcm92aWRlcikgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTm8gc2VsZWN0ZWRfcHJvdmlkZXIgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
@@ -2895,7 +3092,7 @@ steps:
       generate: >-
         LyoqCiAqIE9uX0luaXQgR2VuZXJhdG9yIGZvciBUUlYxNAogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZXhpc3RpbmdQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlPXNlc3Npb25EYXRhLmNpdHlfY29kZVswXTsKCiAgaWYgKHNlc3Npb25EYXRhLml0ZW1zKSB7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zLm1hcCgoaXRlbSkgPT4gewogICAgICBjb25zdCB7IHhpbnB1dCwgLi4ucmVzdCB9ID0gaXRlbTsKICAgICAgcmV0dXJuIHJlc3Q7CiAgICB9KTsKICB9CiAgaWYgKHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cykgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzOwogIH0KICBpZiAoc2Vzc2lvbkRhdGEucHJvdmlkZXIpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXJbMF07CiAgfQogIGlmIChzZXNzaW9uRGF0YS5xdW90ZSkgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUgPSBzZXNzaW9uRGF0YS5xdW90ZVswXTsKICB9CiAgaWYgKHNlc3Npb25EYXRhLmNhbmNlbGxhdGlvbl90ZXJtcykgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY2FuY2VsbGF0aW9uX3Rlcm1zID0gc2Vzc2lvbkRhdGEuY2FuY2VsbGF0aW9uX3Rlcm1zPy5mbGF0KCk7CiAgfQogIGlmIChzZXNzaW9uRGF0YS5yZXBsYWNlbWVudF90ZXJtcykgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucmVwbGFjZW1lbnRfdGVybXMgPSBzZXNzaW9uRGF0YS5yZXBsYWNlbWVudF90ZXJtcz8uZmxhdCgpOwogIH0KICBpZiAoc2Vzc2lvbkRhdGEucGF5bWVudHMpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzID0gc2Vzc2lvbkRhdGEucGF5bWVudHM7CiAgfQogIGlmIChzZXNzaW9uRGF0YS5iaWxsaW5nKSB7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5vcmRlci5iaWxsaW5nID0gc2Vzc2lvbkRhdGEuYmlsbGluZ1swXTsKICB9CiAgY29uc3QgdGFncyA9IFtdOwogIGNvbnN0IGNvbGxlY3RvciA9IHNlc3Npb25EYXRhPy5jb2xsZWN0ZWRfYnk/LlswXTsKY29uc3QgcXVvdGVWYWx1ZSA9IE51bWJlcihzZXNzaW9uRGF0YT8ucXVvdGU/LlswXT8ucHJpY2U/LnZhbHVlIHx8IDApOwoKY29uc3Qgc2V0dGxlbWVudEFtb3VudCA9CiAgY29sbGVjdG9yID09PSAiQlBQIgogICAgPyBOdW1iZXIoKHF1b3RlVmFsdWUgLyAxMDApLnRvRml4ZWQoMikpCiAgICA6IE51bWJlcigocXVvdGVWYWx1ZSAtIHF1b3RlVmFsdWUgLyAxMDApLnRvRml4ZWQoMikpOwoKICB0YWdzLnB1c2goey4uLnNlc3Npb25EYXRhLnRhZ3NbMF19KTsKICBjb25zdCBicHBUZXJtcyA9IHsKICAgICJkZXNjcmlwdG9yIjogewogICAgICAiY29kZSI6ICJCUFBfVEVSTVMiLAogICAgICAibmFtZSI6ICJCUFAgVGVybXMgb2YgRW5nYWdlbWVudCIKICAgIH0sCiAgICAiZGlzcGxheSI6IGZhbHNlLAogICAgImxpc3QiOiBbCiAgICAgIHsgImRlc2NyaXB0b3IiOiB7ICJjb2RlIjogIkJVWUVSX0ZJTkRFUl9GRUVTX1BFUkNFTlRBR0UiIH0sICJ2YWx1ZSI6ICIxIiB9LAogICAgICB7ICJkZXNjcmlwdG9yIjogeyAiY29kZSI6ICJCVVlFUl9GSU5ERVJfRkVFU19UWVBFIiB9LCAidmFsdWUiOiAicGVyY2VudCIgfSwKICAgICAgeyAiZGVzY3JpcHRvciI6IHsgImNvZGUiOiAiU1RBVElDX1RFUk1TIiB9LCAidmFsdWUiOiAiaHR0cHM6Ly9kZXYtYXV0b21hdGlvbi5vbmRjLm9yZy9ib29raW5nL3Rlcm1zIiB9LAogICAgICB7ICJkZXNjcmlwdG9yIjogeyAiY29kZSI6ICJNQU5EQVRPUllfQVJCSVRSQVRJT04iIH0sICJ2YWx1ZSI6ICJ0cnVlIiB9LAogICAgICB7ICJkZXNjcmlwdG9yIjogeyAiY29kZSI6ICJDT1VSVF9KVVJJU0RJQ1RJT04iIH0sICJ2YWx1ZSI6ICJOZXcgRGVsaGkiIH0sCiAgICAgIHsgImRlc2NyaXB0b3IiOiB7ICJjb2RlIjogIkRFTEFZX0lOVEVSRVNUIiB9LCAidmFsdWUiOiAiMi41ICUiIH0sCiAgICAgIHsgImRlc2NyaXB0b3IiOiB7ICJjb2RlIjogIlNFVFRMRU1FTlRfQU1PVU5UIiB9LCAidmFsdWUiOiAgc2V0dGxlbWVudEFtb3VudC50b1N0cmluZygpIH0sCiAgICAgIHsgImRlc2NyaXB0b3IiOiB7ICJjb2RlIjogIlNFVFRMRU1FTlRfVFlQRSIgfSwgInZhbHVlIjogInVwaSIgfSwKICAgICAgeyAiZGVzY3JpcHRvciI6IHsgImNvZGUiOiAiU0VUVExFTUVOVF9CQU5LX0NPREUiIH0sICJ2YWx1ZSI6ICJYWFhYWFhYWCIgfSwKICAgICAgeyAiZGVzY3JpcHRvciI6IHsgImNvZGUiOiAiU0VUVExFTUVOVF9CQU5LX0FDQ09VTlRfTlVNQkVSIiB9LCAidmFsdWUiOiAieHh4eHh4eHh4eHh4eHgiIH0KICAgIF0KICB9OwogIHRhZ3MucHVzaChicHBUZXJtcyk7CiAgaWYgKHRhZ3MubGVuZ3RoID4gMCkgewogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudGFncyA9IHRhZ3M7CiAgfQogIHJldHVybiBleGlzdGluZ1BheWxvYWQ7Cn0=
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkLgogKiAKICogQHBhcmFtIHtPYmplY3R9IHRhcmdldFBheWxvYWQgLSBJbmNvbWluZyBwYXlsb2FkCiAqIEBwYXJhbSB7T2JqZWN0fSBzZXNzaW9uRGF0YSAtIFNlc3Npb24gZGF0YQogKiAKICogQHJldHVybnMge09iamVjdH0gVmFsaWRhdGlvbiByZXN1bHQKICovCmZ1bmN0aW9uIHZhbGlkYXRlKHRhcmdldFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgdHJ5IHsKICAgIGNvbnN0IGNvbnRleHQgPSB0YXJnZXRQYXlsb2FkPy5jb250ZXh0OwogICAgY29uc3Qgb3JkZXIgPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIENJVFkgQ09ERSAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKAogICAgICBzZXNzaW9uRGF0YT8uY2l0eV9jb2RlPy5bMF0gJiYKICAgICAgY29udGV4dD8ubG9jYXRpb24/LmNpdHk/LmNvZGUgIT09IHNlc3Npb25EYXRhLmNpdHlfY29kZVswXQogICAgKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIkNpdHkgY29kZSBtaXNtYXRjaCIKICAgICAgfTsKICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIElURU1TIC0tLS0tLS0tLS0tLS0tLS0KCiAgICBpZiAoc2Vzc2lvbkRhdGE/Lml0ZW1zKSB7CiAgICAgIGNvbnN0IGV4cGVjdGVkSXRlbXMgPSBzZXNzaW9uRGF0YS5pdGVtcy5tYXAoKGl0ZW0pID0+IHsKICAgICAgICBjb25zdCB7IHhpbnB1dCwgLi4ucmVzdCB9ID0gaXRlbTsKICAgICAgICByZXR1cm4gcmVzdDsKICAgICAgfSk7CgogICAgICBpZiAoCiAgICAgICAgSlNPTi5zdHJpbmdpZnkob3JkZXI/Lml0ZW1zKSAhPT0KICAgICAgICBKU09OLnN0cmluZ2lmeShleHBlY3RlZEl0ZW1zKQogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJJdGVtcyBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBGVUxGSUxMTUVOVFMgLS0tLS0tLS0tLS0tLS0tLQoKICAgIGlmIChzZXNzaW9uRGF0YT8uZnVsZmlsbG1lbnRzKSB7CiAgICAgIGlmICgKICAgICAgICBKU09OLnN0cmluZ2lmeShvcmRlcj8uZnVsZmlsbG1lbnRzKSAhPT0KICAgICAgICBKU09OLnN0cmluZ2lmeShzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIkZ1bGZpbGxtZW50cyBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBQUk9WSURFUiAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKHNlc3Npb25EYXRhPy5wcm92aWRlcj8uWzBdKSB7CiAgICAgIGlmICgKICAgICAgICBKU09OLnN0cmluZ2lmeShvcmRlcj8ucHJvdmlkZXIpICE9PQogICAgICAgIEpTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnByb3ZpZGVyWzBdKQogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJQcm92aWRlciBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBRVU9URSAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKHNlc3Npb25EYXRhPy5xdW90ZT8uWzBdKSB7CiAgICAgIGlmICgKICAgICAgICBKU09OLnN0cmluZ2lmeShvcmRlcj8ucXVvdGUpICE9PQogICAgICAgIEpTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnF1b3RlWzBdKQogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJRdW90ZSBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBDQU5DRUxMQVRJT04gVEVSTVMgLS0tLS0tLS0tLS0tLS0tLQoKICAgIGlmIChzZXNzaW9uRGF0YT8uY2FuY2VsbGF0aW9uX3Rlcm1zKSB7CiAgICAgIGNvbnN0IGV4cGVjdGVkQ2FuY2VsbGF0aW9uVGVybXMgPQogICAgICAgIHNlc3Npb25EYXRhLmNhbmNlbGxhdGlvbl90ZXJtcy5mbGF0KCk7CgogICAgICBpZiAoCiAgICAgICAgSlNPTi5zdHJpbmdpZnkob3JkZXI/LmNhbmNlbGxhdGlvbl90ZXJtcykgIT09CiAgICAgICAgSlNPTi5zdHJpbmdpZnkoZXhwZWN0ZWRDYW5jZWxsYXRpb25UZXJtcykKICAgICAgKSB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICAgIGNvZGU6IDQwMCwKICAgICAgICAgIGRlc2NyaXB0aW9uOiAiQ2FuY2VsbGF0aW9uIHRlcm1zIG1pc21hdGNoIgogICAgICAgIH07CiAgICAgIH0KICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIFJFUExBQ0VNRU5UIFRFUk1TIC0tLS0tLS0tLS0tLS0tLS0KCiAgICBpZiAoc2Vzc2lvbkRhdGE/LnJlcGxhY2VtZW50X3Rlcm1zKSB7CiAgICAgIGNvbnN0IGV4cGVjdGVkUmVwbGFjZW1lbnRUZXJtcyA9CiAgICAgICAgc2Vzc2lvbkRhdGEucmVwbGFjZW1lbnRfdGVybXMuZmxhdCgpOwoKICAgICAgaWYgKAogICAgICAgIEpTT04uc3RyaW5naWZ5KG9yZGVyPy5yZXBsYWNlbWVudF90ZXJtcykgIT09CiAgICAgICAgSlNPTi5zdHJpbmdpZnkoZXhwZWN0ZWRSZXBsYWNlbWVudFRlcm1zKQogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJSZXBsYWNlbWVudCB0ZXJtcyBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLSBQQVlNRU5UUyAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKHNlc3Npb25EYXRhPy5wYXltZW50cykgewogICAgICBpZiAoCiAgICAgICAgSlNPTi5zdHJpbmdpZnkob3JkZXI/LnBheW1lbnRzKSAhPT0KICAgICAgICBKU09OLnN0cmluZ2lmeShzZXNzaW9uRGF0YS5wYXltZW50cykKICAgICAgKSB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICAgIGNvZGU6IDQwMCwKICAgICAgICAgIGRlc2NyaXB0aW9uOiAiUGF5bWVudHMgbWlzbWF0Y2giCiAgICAgICAgfTsKICAgICAgfQogICAgfQoKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0gQklMTElORyAtLS0tLS0tLS0tLS0tLS0tCgogICAgaWYgKHNlc3Npb25EYXRhPy5iaWxsaW5nPy5bMF0pIHsKICAgICAgaWYgKAogICAgICAgIEpTT04uc3RyaW5naWZ5KG9yZGVyPy5iaWxsaW5nKSAhPT0KICAgICAgICBKU09OLnN0cmluZ2lmeShzZXNzaW9uRGF0YS5iaWxsaW5nWzBdKQogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246ICJCaWxsaW5nIG1pc21hdGNoIgogICAgICAgIH07CiAgICAgIH0KICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tIFRBR1MgLS0tLS0tLS0tLS0tLS0tLQoKICAgIGlmICghQXJyYXkuaXNBcnJheShvcmRlcj8udGFncykpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiTWlzc2luZyB0YWdzIgogICAgICB9OwogICAgfQoKICAgIC8vIFZhbGlkYXRlIGZpcnN0IHRhZwogICAgaWYgKHNlc3Npb25EYXRhPy50YWdzPy5bMF0pIHsKICAgICAgaWYgKAogICAgICAgIEpTT04uc3RyaW5naWZ5KG9yZGVyLnRhZ3NbMF0pICE9PQogICAgICAgIEpTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnRhZ3NbMF0pCiAgICAgICkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogIkZpcnN0IHRhZyBtaXNtYXRjaCIKICAgICAgICB9OwogICAgICB9CiAgICB9CgogICAgLy8gVmFsaWRhdGUgQlBQX1RFUk1TIHNldHRsZW1lbnQgYW1vdW50CiAgICBjb25zdCBjb2xsZWN0b3IgPSBzZXNzaW9uRGF0YT8uY29sbGVjdGVkX2J5Py5bMF07CgogICAgY29uc3QgcXVvdGVWYWx1ZSA9IE51bWJlcigKICAgICAgc2Vzc2lvbkRhdGE/LnF1b3RlPy5bMF0/LnByaWNlPy52YWx1ZSB8fCAwCiAgICApOwoKICAgIGNvbnN0IGV4cGVjdGVkU2V0dGxlbWVudEFtb3VudCA9CiAgICAgIGNvbGxlY3RvciA9PT0gIkJQUCIKICAgICAgICA/IE51bWJlcigocXVvdGVWYWx1ZSAvIDEwMCkudG9GaXhlZCgyKSkKICAgICAgICA6IE51bWJlcigocXVvdGVWYWx1ZSAtIHF1b3RlVmFsdWUgLyAxMDApLnRvRml4ZWQoMikpOwoKICAgIGNvbnN0IGJwcFRlcm1zID0gb3JkZXIudGFncy5maW5kKAogICAgICAodGFnKSA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCUFBfVEVSTVMiCiAgICApOwoKICAgIGlmICghYnBwVGVybXMpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBCUFBfVEVSTVMgdGFnIgogICAgICB9OwogICAgfQoKICAgIGNvbnN0IHNldHRsZW1lbnRBbW91bnRPYmogPSBicHBUZXJtcy5saXN0Py5maW5kKAogICAgICAoaXRlbSkgPT4KICAgICAgICBpdGVtPy5kZXNjcmlwdG9yPy5jb2RlID09PSAiU0VUVExFTUVOVF9BTU9VTlQiCiAgICApOwoKICAgIGlmICghc2V0dGxlbWVudEFtb3VudE9iaikgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJNaXNzaW5nIFNFVFRMRU1FTlRfQU1PVU5UIgogICAgICB9OwogICAgfQoKICAgIGlmICgKICAgICAgc2V0dGxlbWVudEFtb3VudE9iai52YWx1ZSAhPT0KICAgICAgZXhwZWN0ZWRTZXR0bGVtZW50QW1vdW50LnRvU3RyaW5nKCkKICAgICkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJTZXR0bGVtZW50IGFtb3VudCBtaXNtYXRjaCIKICAgICAgfTsKICAgIH0KCiAgICByZXR1cm4gewogICAgICB2YWxpZDogdHJ1ZSwKICAgICAgY29kZTogMjAwLAogICAgICBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiCiAgICB9OwoKICB9IGNhdGNoIChlcnJvcikgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA1MDAsCiAgICAgIGRlc2NyaXB0aW9uOiBlcnJvci5tZXNzYWdlCiAgICB9OwogIH0KfQ==
       requirements: >-
         ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhLml0ZW1zIHx8ICFzZXNzaW9uRGF0YS5pdGVtcy5sZW5ndGgpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk5vIGl0ZW1zIGF2YWlsYWJsZSBpbiBzZXNzaW9uIGRhdGEiIH07CiAgfQogIGlmICghc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzIHx8ICFzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMubGVuZ3RoKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJObyBmdWxmaWxsbWVudHMgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5wcm92aWRlcikgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTm8gcHJvdmlkZXIgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5xdW90ZSkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTm8gcXVvdGUgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5wYXltZW50cykgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTm8gcGF5bWVudHMgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5iaWxsaW5nKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJObyBiaWxsaW5nIGluZm9ybWF0aW9uIGF2YWlsYWJsZSBpbiBzZXNzaW9uIGRhdGEiIH07CiAgfQogIGlmICghc2Vzc2lvbkRhdGEuY2FuY2VsbGF0aW9uX3Rlcm1zKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJObyBjYW5jZWxsYXRpb24gdGVybXMgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgaWYgKCFzZXNzaW9uRGF0YS5yZXBsYWNlbWVudF90ZXJtcykgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTm8gcmVwbGFjZW1lbnQgdGVybXMgYXZhaWxhYmxlIGluIHNlc3Npb24gZGF0YSIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
@@ -5701,6 +5898,8 @@ steps:
             resolution_accept:
               type: string
               default: RESOLUTION123
+          required:
+            - resolution_accept    
           additionalProperties: true
           default: {}
     examples:
@@ -6398,6 +6597,8 @@ steps:
                 - THUMBS_UP
                 - THUMBS_DOWN
               default: THUMBS_UP
+          required:
+            - rating    
           additionalProperties: true
           default: {}
     examples:

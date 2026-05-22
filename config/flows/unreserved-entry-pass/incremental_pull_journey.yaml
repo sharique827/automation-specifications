@@ -115,6 +115,11 @@ steps:
                 - BAP
                 - BPP
               default: BAP
+          required:
+            - city_code
+            - start_time
+            - end_time
+            - collected_by
           additionalProperties: true
           default: {}
     examples:
@@ -224,100 +229,103 @@ steps:
         message:
           catalog:
             descriptor:
-              images:
-                - size_type: xs
-                  url: 'https://api.unreserved-entry-pass.com/logos/logo.ico'
-              long_desc: Online ticket booking service
               name: India tourism
               short_desc: Online ticket booking service
+              long_desc: Online ticket booking service
+              images:
+                - url: 'https://api.unreserved-entry-pass.com/logos/logo.ico'
+                  size_type: xs
             providers:
-              - categories:
+              - id: P1
+                descriptor:
+                  name: India tourism
+                  short_desc: Online Ticket Booking Service
+                  images:
+                    - url: >-
+                        https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                      size_type: xs
+                categories:
                   - descriptor:
-                      code: CULTURE_HERITAGE
                       name: Culture & Heritage
+                      code: CULTURE_HERITAGE
                     id: C1
                   - descriptor:
                       name: Standard
-                    id: C2
                     parent_category_id: C1
+                    id: C2
                   - descriptor:
                       name: Premium
+                    parent_category_id: C1
                     id: C3
-                    parent_category_id: C1
                   - descriptor:
-                      code: MONUMENT_HISTORICAL_SITE
                       name: Monument & Historical Site
-                    id: C4
+                      code: MONUMENT_HISTORICAL_SITE
                     parent_category_id: C1
+                    id: C4
                   - descriptor:
-                      code: MUSEUM
                       name: Museum
+                      code: MUSEUM
                       short_desc: >-
                         Represents type of category, possible values can be
                         GALLERIES also.
+                    parent_category_id: C1
                     id: C5
-                    parent_category_id: C1
                   - descriptor:
-                      code: MEMORIAL
                       name: Memorial
+                      code: MEMORIAL
+                    parent_category_id: C1
                     id: C6
-                    parent_category_id: C1
                   - descriptor:
-                      code: EXHIBITION
                       name: Exhibition
+                      code: EXHIBITION
+                    parent_category_id: C1
                     id: C7
-                    parent_category_id: C1
                   - descriptor:
-                      code: OTHERS
                       name: Others
-                    id: C8
+                      code: OTHERS
                     parent_category_id: C1
-                descriptor:
-                  images:
-                    - size_type: xs
-                      url: >-
-                        https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
-                  name: India tourism
-                  short_desc: Online Ticket Booking Service
-                id: P1
+                    id: C8
+                time:
+                  range:
+                    start: '2024-06-14T05:30:00.000Z'
+                    end: '2024-06-14T23:30:00.000Z'
                 locations:
-                  - descriptor:
-                      additional_desc:
-                        content_type: text/plain
-                        url: >-
-                          https://api.unreserved-entry-pass.com/sites/additional-info
-                      images:
-                        - size_type: md
-                          url: >-
-                            https://api.unreserved-entry-pass.com/sites/images/location.png
+                  - id: L1
+                    gps: '28.524596, 77.185577'
+                    descriptor:
                       name: Qutab Minar
                       short_desc: >-
                         Seth Sarai, Mehrauli, New Delhi, Delhi. The Qutb Minar,
                         also spelled Qutub Minar and Qutab Minar, is a minaret
                         and "victory tower" that forms part of the Qutb complex
-                    gps: '28.524596, 77.185577'
-                    id: L1
-                    rating: '5'
-                  - descriptor:
                       additional_desc:
-                        content_type: text/plain
                         url: >-
                           https://api.unreserved-entry-pass.com/sites/additional-info
+                        content_type: text/plain
                       images:
-                        - size_type: md
-                          url: >-
+                        - url: >-
                             https://api.unreserved-entry-pass.com/sites/images/location.png
+                          size_type: md
+                    rating: '5'
+                  - id: L2
+                    gps: '28.5244946, 77.1855177'
+                    descriptor:
                       name: Red Fort
                       short_desc: >-
                         Red Fort, Mughal fort in Old Delhi, India. It was built
                         by Shah Jahān in the mid-17th century and remains a
                         major tourist attraction.
-                    gps: '28.5244946, 77.1855177'
-                    id: L2
+                      additional_desc:
+                        url: >-
+                          https://api.unreserved-entry-pass.com/sites/additional-info
+                        content_type: text/plain
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/images/location.png
+                          size_type: md
                     rating: '4'
                 payments:
                   - collected_by: BAP
-                time: {}
             tags:
               - descriptor:
                   code: BAP_TERMS
@@ -332,7 +340,7 @@ steps:
                     value: percent
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://dev-automation.ondc.org/booking/terms'
+                    value: 'https://api.example-bap.com/booking/terms'
                   - descriptor:
                       code: SETTLEMENT_BASIS
                     value: INVOICE_RECEIPT
@@ -352,7 +360,7 @@ steps:
                     value: percent
                   - descriptor:
                       code: STATIC_TERMS
-                    value: 'https://dev-automation.ondc.org/booking/terms'
+                    value: 'https://api.example-bap.com/booking/terms'
                   - descriptor:
                       code: MANDATORY_ARBITRATION
                     value: 'true'
@@ -667,7 +675,10 @@ steps:
                       code: HANDLOOM
                     parent_category_id: C1
                     id: C10
-                time: {}
+                time:
+                  range:
+                    start: '2024-06-14T05:30:00.000Z'
+                    end: '2024-06-14T23:30:00.000Z'
                 locations:
                   - id: L1
                     gps: '28.524596, 77.185577'
@@ -762,6 +773,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -829,6 +848,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -896,6 +923,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I0_1
                     descriptor:
                       name: Parent Item for Culture & Heritage
@@ -953,6 +988,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I3
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1020,6 +1063,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I4
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1087,6 +1138,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I5
                     location_ids:
                       - L1
@@ -1116,6 +1175,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -1128,6 +1195,31 @@ steps:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: END
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
                     agent:
                       organization:
                         contact:
@@ -1149,6 +1241,15 @@ steps:
                             start: '2024-06-14T05:30:00.000Z'
                             end: '2024-06-14T05:45:00.000Z'
                     agent:
+                      person:
+                        name: John Doe
+                        descriptor:
+                          name: John Doe
+                          short_desc: Descriptoion about host details
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
                       organization:
                         contact:
                           phone: +91-9999999999
@@ -1605,6 +1706,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1672,6 +1781,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1739,6 +1856,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I0_1
                     descriptor:
                       name: Parent Item for Culture & Heritage
@@ -1749,6 +1874,8 @@ steps:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1796,6 +1923,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I3
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -1807,6 +1942,8 @@ steps:
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
                     parent_item_id: I0_1
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1863,6 +2000,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I4
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -1874,6 +2019,8 @@ steps:
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
                     parent_item_id: I0_1
+                    creds:
+                      - type: Provided By KSTDC
                     location_ids:
                       - L1
                     category_ids:
@@ -1930,6 +2077,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                   - id: I5
                     location_ids:
                       - L1
@@ -1959,6 +2114,14 @@ steps:
                               code: TNC_LINK
                               name: Terms & Conditions
                             value: 'https://api.unreserved-entry-pass/beckn/tnc.html'
+                          - descriptor:
+                              name: What to pack
+                            value: >-
+                              Expect the weather to be very cold, so pack winter
+                              clothes. Trekking shoes are a must, without a
+                              trekking shoe, you will not be allowed to
+                              participate in the trek. Also, carry 2 torches per
+                              person along with a spare battery
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -1971,6 +2134,31 @@ steps:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: CHECKPOINT
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
+                      - type: END
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          duration: PT2H
                     agent:
                       organization:
                         contact:
@@ -1992,6 +2180,15 @@ steps:
                             start: '2024-06-14T05:30:00.000Z'
                             end: '2024-06-14T05:45:00.000Z'
                     agent:
+                      person:
+                        name: John Doe
+                        descriptor:
+                          name: John Doe
+                          short_desc: Descriptoion about host details
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
                       organization:
                         contact:
                           phone: +91-9999999999
