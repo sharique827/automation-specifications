@@ -322,7 +322,8 @@ steps:
         on_select_fulfillments: $.message.order.fulfillments[*]
         on_select_items: $.message.order.items[*]
         tat: $.message.order.fulfillments[0]["@ondc/org/TAT"]
-        out_of_stock_item_ids: $.message.order.quote.breakup[?(@.item.quantity.available.count
+        out_of_stock_item_ids:
+          $.message.order.quote.breakup[?(@.item.quantity.available.count
           == '0')]['@ondc/org/item_id']
       inputs: {}
     examples:
