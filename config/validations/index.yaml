@@ -418,6 +418,8 @@ _TESTS_:
               attr: $.message.catalog.providers[*].fulfillments[*].stops[*].type
               enumList:
                 - START
+                - CHECKPOINT
+                - END
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_CATEGORY
               attr: $.message.catalog.providers[*].fulfillments[*].vehicle.category
@@ -524,6 +526,8 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].stops[*].type
               enumList:
                 - START
+                - CHECKPOINT
+                - END
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_ORDER_FULFILLMENT_TIME
               attr: $.message.order.fulfillments[*].stops[*].time.timestamp
@@ -813,6 +817,8 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].stops[*].type
               enumList:
                 - START
+                - END
+                - CHECKPOINT
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_MESSAGE_FULFILLMENTS_CATEGORY
               attr: $.message.order.fulfillments[*].vehicle.category
@@ -1416,6 +1422,8 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].stops[*].type
               enumList:
                 - START
+                - CHECKPOINT
+                - END
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_ORDER_FULFILLMENT_TIME
               attr: $.message.order.fulfillments[*].stops[*].time.timestamp
@@ -1617,6 +1625,8 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].stops[*].type
               enumList:
                 - START
+                - CHECKPOINT
+                - END
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_ORDER_FULFILLMENT_TIME
               attr: $.message.order.fulfillments[*].stops[*].time.timestamp

@@ -12,8 +12,9 @@ paths:
       tags:
         - Provider Platform
         - Gateway
-      description: Consumer Platform declares the customer's intent to buy/avail
-        products or services
+      description: >-
+        Consumer Platform declares the customer's intent to buy/avail products
+        or services
       requestBody:
         content:
           application/json:
@@ -23,7 +24,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - properties:
                         action:
                           enum:
@@ -33,19 +34,20 @@ paths:
                   additionalProperties: false
                   properties:
                     intent:
-                      $ref: "#/components/schemas/Intent"
+                      $ref: '#/components/schemas/Intent'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /select:
     post:
       tags:
         - Provider Platform
-      description: Consumer Platform declares the customer's cart (or equivalent)
-        created by selecting objects from the catalog
+      description: >-
+        Consumer Platform declares the customer's cart (or equivalent) created
+        by selecting objects from the catalog
       requestBody:
         content:
           application/json:
@@ -55,7 +57,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -68,7 +70,7 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
               required:
@@ -76,7 +78,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /init:
     post:
       tags:
@@ -91,7 +93,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -104,7 +106,7 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
               required:
@@ -112,7 +114,8 @@ paths:
                 - message
       responses:
         default:
-          description: Acknowledgement of message received after successful validation of
+          description: >-
+            Acknowledgement of message received after successful validation of
             schema and signature
           content:
             application/json:
@@ -124,7 +127,7 @@ paths:
                     properties:
                       ack:
                         allOf:
-                          - $ref: "#/components/schemas/Ack"
+                          - $ref: '#/components/schemas/Ack'
                           - type: object
                           - properties:
                               status:
@@ -134,7 +137,7 @@ paths:
                     required:
                       - ack
                   error:
-                    $ref: "#/components/schemas/Error"
+                    $ref: '#/components/schemas/Error'
                 required:
                   - message
   /confirm:
@@ -151,7 +154,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -164,7 +167,7 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
               required:
@@ -172,7 +175,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /status:
     post:
       tags:
@@ -187,7 +190,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -200,15 +203,15 @@ paths:
                   additionalProperties: false
                   properties:
                     ref_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /track:
     post:
       tags:
@@ -223,7 +226,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -236,7 +239,7 @@ paths:
                   additionalProperties: false
                   properties:
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     callback_url:
                       type: string
                       format: uri
@@ -247,7 +250,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /cancel:
     post:
       tags:
@@ -262,7 +265,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -275,11 +278,11 @@ paths:
                   additionalProperties: false
                   properties:
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     cancellation_reason_id:
-                      $ref: "#/components/schemas/Option/properties/id"
+                      $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
-                      $ref: "#/components/schemas/Descriptor"
+                      $ref: '#/components/schemas/Descriptor'
                   required:
                     - order_id
               required:
@@ -287,7 +290,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /update:
     post:
       tags:
@@ -302,7 +305,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -315,14 +318,15 @@ paths:
                   additionalProperties: false
                   properties:
                     update_target:
-                      description: 'Comma separated values of order objects being updated. For
-                        example:
-                        ```"update_target":"item,billing,fulfillment"```'
+                      description: >-
+                        Comma separated values of order objects being updated.
+                        For example:
+                        ```"update_target":"item,billing,fulfillment"```
                       type: string
                     order:
                       description: Updated order object
                       allOf:
-                        - $ref: "#/components/schemas/Order"
+                        - $ref: '#/components/schemas/Order'
                   required:
                     - update_target
                     - order
@@ -331,7 +335,7 @@ paths:
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /rating:
     post:
       tags:
@@ -346,7 +350,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -358,19 +362,17 @@ paths:
                   type: object
                   properties:
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     ratings:
                       type: array
                       items:
-                        $ref: "#/components/schemas/Rating"
-                  required:
-                    - order_id
+                        $ref: '#/components/schemas/Rating'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /support:
     post:
       tags:
@@ -385,7 +387,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -397,13 +399,13 @@ paths:
                   type: object
                   properties:
                     support:
-                      $ref: "#/components/schemas/Support"
+                      $ref: '#/components/schemas/Support'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_search:
     post:
       tags:
@@ -418,7 +420,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -431,17 +433,17 @@ paths:
                   additionalProperties: false
                   properties:
                     catalog:
-                      $ref: "#/components/schemas/Catalog"
+                      $ref: '#/components/schemas/Catalog'
                   required:
                     - catalog
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_select:
     post:
       tags:
@@ -456,7 +458,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -469,15 +471,15 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_init:
     post:
       tags:
@@ -492,7 +494,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -505,16 +507,16 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_confirm:
     post:
       tags:
@@ -529,7 +531,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -542,16 +544,16 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_track:
     post:
       tags:
@@ -566,7 +568,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -579,23 +581,24 @@ paths:
                   additionalProperties: false
                   properties:
                     tracking:
-                      $ref: "#/components/schemas/Tracking"
+                      $ref: '#/components/schemas/Tracking'
                   required:
                     - tracking
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_cancel:
     post:
       tags:
         - Consumer Platform
-      description: Send cancellation request_id with reasons list in case of
-        cancellation request. Else send cancelled order object
+      description: >-
+        Send cancellation request_id with reasons list in case of cancellation
+        request. Else send cancelled order object
       requestBody:
         content:
           application/json:
@@ -605,7 +608,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -618,16 +621,16 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_update:
     post:
       tags:
@@ -642,7 +645,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -655,17 +658,17 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_status:
     post:
       tags:
@@ -680,7 +683,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -693,17 +696,17 @@ paths:
                   additionalProperties: false
                   properties:
                     order:
-                      $ref: "#/components/schemas/Order"
+                      $ref: '#/components/schemas/Order'
                   required:
                     - order
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_rating:
     post:
       tags:
@@ -718,7 +721,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -727,25 +730,21 @@ paths:
                       required:
                         - action
                 message:
-                  additionalProperties: false
                   type: object
                   properties:
                     order_id:
-                      $ref: "#/components/schemas/Order/properties/id"
+                      $ref: '#/components/schemas/Order/properties/id'
                     ratings:
                       type: array
                       items:
-                        $ref: "#/components/schemas/Rating"
-                  required:
-                    - order_id
+                        $ref: '#/components/schemas/Rating'
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
+          $ref: '#/paths/~1init/post/responses/default'
   /on_support:
     post:
       tags:
@@ -760,7 +759,7 @@ paths:
               properties:
                 context:
                   allOf:
-                    - $ref: "#/components/schemas/Context"
+                    - $ref: '#/components/schemas/Context'
                     - type: object
                       properties:
                         action:
@@ -772,207 +771,32 @@ paths:
                   type: object
                   properties:
                     support:
-                      $ref: "#/components/schemas/Support"
+                      $ref: '#/components/schemas/Support'
                 error:
-                  $ref: "#/components/schemas/Error"
+                  $ref: '#/components/schemas/Error'
               required:
                 - context
                 - message
       responses:
         default:
-          $ref: "#/paths/~1init/post/responses/default"
-  /issue:
-    post:
-      tags:
-        - Complaint lifecycle management
-      description: |
-        ###  Operation Description
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
-              required:
-                - context
-                - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-  /on_issue:
-    post:
-      tags:
-        - Complaint lifecycle management
-      description: Send the issue resolution details object
-      requestBody:
-        description: Seller confirms order
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
-                  required:
-                    - issue
-                error:
-                  $ref: "#/components/schemas/Error"
-              required:
-                - context
-                - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-  /issue_status:
-    post:
-      tags:
-        - Complaint lifecycle management
-      description: Request for latest status of the complaint
-      requestBody:
-        description: Seller confirms order
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  type: object
-                  properties:
-                    issue_id:
-                      description: Network issue identifier is a unique number assigned to a complaint
-                        by the interfacing application
-                      type: string
-                  required:
-                    - issue_id
-              required:
-                - context
-                - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
-  /on_issue_status:
-    post:
-      tags:
-        - Complaint lifecycle management
-      description: Send the issue resolution details object
-      requestBody:
-        description: Seller confirms order
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  $ref: "#/components/schemas/Context"
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
-                  required:
-                    - issue
-                error:
-                  $ref: "#/components/schemas/Error"
-              required:
-                - context
-                - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
+          $ref: '#/paths/~1init/post/responses/default'
 components:
   securitySchemes:
     SubscriberAuth:
       type: apiKey
       in: header
       name: Authorization
-      description: "Signature of message body using Consumer Platform or Provider
-        Platform subscriber's signing public key.
+      description: >-
+        Signature of message body using Consumer Platform or Provider Platform
+        subscriber's signing public key.
         <br/><br/>Format:<br/><br/><code>Authorization : Signature
-        keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\",algorithm=\"ed255\
-        19\",created=\"1606970629\",expires=\"1607030629\",headers=\"(created)
-        (expires) digest\",signature=\"Base64(signing string)\"</code>"
+        keyId="{subscriber_id}|{unique_key_id}|{algorithm}",algorithm="ed25519",created="1606970629",expires="1607030629",headers="(created)
+        (expires) digest",signature="Base64(signing string)"</code>
   schemas:
     Ack:
-      description: Describes the acknowledgement sent in response to an API call. If
-        the implementation uses HTTP/S, then Ack must be returned in the same
+      description: >-
+        Describes the acknowledgement sent in response to an API call. If the
+        implementation uses HTTP/S, then Ack must be returned in the same
         session. Every API call to a BPP must be responded to with an Ack
         whether the BPP intends to respond with a callback or not. This has one
         property called `status` that indicates the status of the
@@ -982,7 +806,8 @@ components:
       properties:
         status:
           type: string
-          description: The status of the acknowledgement. If the request passes the
+          description: >-
+            The status of the acknowledgement. If the request passes the
             validation criteria of the BPP, then this is set to ACK. If a BPP
             responds with status = `ACK` to a request, it is required to respond
             with a callback. If the request fails the validation criteria, then
@@ -993,15 +818,17 @@ components:
             - ACK
             - NACK
         tags:
-          description: A list of tags containing any additional information sent along
-            with the Acknowledgement.
+          description: >-
+            A list of tags containing any additional information sent along with
+            the Acknowledgement.
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     AddOn:
-      description: Describes an additional item offered as a value-addition to a
-        product or service. This does not exist independently in a catalog and
-        is always associated with an item.
+      description: >-
+        Describes an additional item offered as a value-addition to a product or
+        service. This does not exist independently in a catalog and is always
+        associated with an item.
       type: object
       additionalProperties: false
       properties:
@@ -1009,16 +836,17 @@ components:
           description: Provider-defined ID of the add-on
           type: string
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         price:
-          $ref: "#/components/schemas/Price"
+          $ref: '#/components/schemas/Price'
         quantity:
-          $ref: "#/components/schemas/ItemQuantity"
+          $ref: '#/components/schemas/ItemQuantity'
     Address:
       description: Describes a postal address.
       type: string
     Agent:
-      description: Describes the direct performer, driver or executor that fulfills an
+      description: >-
+        Describes the direct performer, driver or executor that fulfills an
         order. It is usually a person. But in some rare cases, it could be a
         non-living entity like a drone, or a bot. Some examples of agents are
         Doctor in the healthcare sector, a driver in the mobility sector, or a
@@ -1034,15 +862,16 @@ components:
       additionalProperties: false
       properties:
         person:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         organization:
-          $ref: "#/components/schemas/Organization"
+          $ref: '#/components/schemas/Organization'
         rating:
-          $ref: "#/components/schemas/Rating/properties/value"
+          $ref: '#/components/schemas/Rating/properties/value'
     Authorization:
-      description: Describes an authorization mechanism used to start or end the
+      description: >-
+        Describes an authorization mechanism used to start or end the
         fulfillment of an order. For example, in the mobility sector, the driver
         may require a one-time password to initiate the ride. In the healthcare
         sector, a patient may need to provide a password to open a video
@@ -1051,11 +880,13 @@ components:
       additionalProperties: false
       properties:
         type:
-          description: Type of authorization mechanism used. The allowed values for this
+          description: >-
+            Type of authorization mechanism used. The allowed values for this
             field can be published as part of the network policy.
           type: string
         token:
-          description: Token used for authorization. This is typically generated at the
+          description: >-
+            Token used for authorization. This is typically generated at the
             BPP. The BAP can send this value to the user via any channel that it
             uses to authenticate the user like SMS, Email, Push notification, or
             in-app rendering.
@@ -1072,8 +903,9 @@ components:
           description: Status of the token
           type: string
     Billing:
-      description: Describes the billing details of an entity.<br>This has properties
-        like name,organization,address,email,phone,time,tax_number,
+      description: >-
+        Describes the billing details of an entity.<br>This has properties like
+        name,organization,address,email,phone,time,tax_number,
         created_at,updated_at
       type: object
       additionalProperties: false
@@ -1084,20 +916,21 @@ components:
         organization:
           description: Details of the organization being billed.
           allOf:
-            - $ref: "#/components/schemas/Organization"
+            - $ref: '#/components/schemas/Organization'
         address:
           description: The address of the billable entity
           allOf:
-            - $ref: "#/components/schemas/Address"
+            - $ref: '#/components/schemas/Address'
         state:
-          description: The state where the billable entity resides. This is important for
+          description: >-
+            The state where the billable entity resides. This is important for
             state-level tax calculation
           allOf:
-            - $ref: "#/components/schemas/State"
+            - $ref: '#/components/schemas/State'
         city:
           description: The city where the billable entity resides.
           allOf:
-            - $ref: "#/components/schemas/City"
+            - $ref: '#/components/schemas/City'
         email:
           description: Email address where the bill is sent to
           type: string
@@ -1108,7 +941,7 @@ components:
         time:
           description: Details regarding the billing period
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         tax_id:
           description: ID of the billable entity as recognized by the taxation authority
           type: string
@@ -1129,47 +962,49 @@ components:
         reason:
           description: The reason for cancellation
           allOf:
-            - $ref: "#/components/schemas/Option"
+            - $ref: '#/components/schemas/Option'
         additional_description:
           description: Any additional information regarding the nature of cancellation
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
     CancellationTerm:
-      description: Describes the cancellation terms of an item or an order. This can
-        be referenced at an item or order level. Item-level cancellation terms
-        can override the terms at the order level.
+      description: >-
+        Describes the cancellation terms of an item or an order. This can be
+        referenced at an item or order level. Item-level cancellation terms can
+        override the terms at the order level.
       type: object
       additionalProperties: false
       properties:
         fulfillment_state:
           description: The state of fulfillment during which this term is applicable.
           allOf:
-            - $ref: "#/components/schemas/FulfillmentState"
+            - $ref: '#/components/schemas/FulfillmentState'
         reason_required:
           description: Indicates whether a reason is required to cancel the order
           type: boolean
         cancel_by:
           description: Information related to the time of cancellation.
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         cancellation_fee:
-          $ref: "#/components/schemas/Fee"
+          $ref: '#/components/schemas/Fee'
         xinput:
-          $ref: "#/components/schemas/XInput"
+          $ref: '#/components/schemas/XInput'
         external_ref:
-          $ref: "#/components/schemas/MediaFile"
+          $ref: '#/components/schemas/MediaFile'
         cancellation_eligible:
           description: Indicates if cancellation is eligible
           type: boolean
     Catalog:
-      description: Describes the products or services offered by a BPP. This is
-        typically sent as the response to a search intent from a BAP. The
-        payment terms, offers and terms of fulfillment supported by the BPP can
-        also be included here. The BPP can show hierarchical nature of
-        products/services in its catalog using the parent_category_id in
-        categories. The BPP can also send a ttl (time to live) in the context
-        which is the duration for which a BAP can cache the catalog and use the
-        cached catalog.  <br>This has properties like
+      description: >-
+        Describes the products or services offered by a BPP. This is typically
+        sent as the response to a search intent from a BAP. The payment terms,
+        offers and terms of fulfillment supported by the BPP can also be
+        included here. The BPP can show hierarchical nature of products/services
+        in its catalog using the parent_category_id in categories. The BPP can
+        also send a ttl (time to live) in the context which is the duration for
+        which a BAP can cache the catalog and use the cached catalog.  <br>This
+        has properties like
         bbp/descriptor,bbp/categories,bbp/fulfillments,bbp/payments,bbp/offers,bbp/providers
         and exp<br>This is used in the following situations.<br><ul><li>This is
         typically used in the discovery stage when the BPP sends the details of
@@ -1179,34 +1014,37 @@ components:
       additionalProperties: false
       properties:
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         fulfillments:
-          description: Fulfillment modes offered at the BPP level. This is used when a BPP
+          description: >-
+            Fulfillment modes offered at the BPP level. This is used when a BPP
             itself offers fulfillments on behalf of the providers it has
             onboarded.
           type: array
           items:
-            $ref: "#/components/schemas/Fulfillment"
+            $ref: '#/components/schemas/Fulfillment'
         payments:
-          description: Payment terms offered by the BPP for all transactions. This can be
+          description: >-
+            Payment terms offered by the BPP for all transactions. This can be
             overriden at the provider level.
           type: array
           items:
-            $ref: "#/components/schemas/Payment"
+            $ref: '#/components/schemas/Payment'
         offers:
-          description: Offers at the BPP-level. This is common across all providers
+          description: >-
+            Offers at the BPP-level. This is common across all providers
             onboarded by the BPP.
           type: array
           items:
-            $ref: "#/components/schemas/Offer"
+            $ref: '#/components/schemas/Offer'
         providers:
           type: array
           items:
-            $ref: "#/components/schemas/Provider"
+            $ref: '#/components/schemas/Provider'
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
         exp:
           description: Timestamp after which catalog will expire
           type: string
@@ -1223,27 +1061,28 @@ components:
           description: ID of the category
           type: string
         parent_category_id:
-          $ref: "#/components/schemas/Category/properties/id"
+          $ref: '#/components/schemas/Category/properties/id'
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         time:
-          $ref: "#/components/schemas/Time"
+          $ref: '#/components/schemas/Time'
         ttl:
           description: Time to live for an instance of this schema
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     Circle:
-      description: Describes a circular region of a specified radius centered at a
+      description: >-
+        Describes a circular region of a specified radius centered at a
         specified GPS coordinate.
       type: object
       additionalProperties: false
       properties:
         gps:
-          $ref: "#/components/schemas/Gps"
+          $ref: '#/components/schemas/Gps'
         radius:
-          $ref: "#/components/schemas/Scalar"
+          $ref: '#/components/schemas/Scalar'
     City:
       description: Describes a city
       type: object
@@ -1269,12 +1108,13 @@ components:
           additionalProperties: false
           description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
     Context:
-      description: Every API call in beckn protocol has a context. It provides a
-        high-level overview to the receiver about the nature of the intended
-        transaction. Typically, it is the BAP that sets the transaction context
-        based on the consumer's location and action on their UI. But sometimes,
-        during unsolicited callbacks, the BPP also sets the transaction context
-        but it is usually the same as the context of a previous full-cycle,
+      description: >-
+        Every API call in beckn protocol has a context. It provides a high-level
+        overview to the receiver about the nature of the intended transaction.
+        Typically, it is the BAP that sets the transaction context based on the
+        consumer's location and action on their UI. But sometimes, during
+        unsolicited callbacks, the BPP also sets the transaction context but it
+        is usually the same as the context of a previous full-cycle,
         request-callback interaction between the BAP and the BPP. The context
         object contains four types of fields. <ol><li>Demographic information
         about the transaction using fields like `domain`, `country`, and
@@ -1296,15 +1136,16 @@ components:
         domain:
           description: Domain code that is relevant to this transaction context
           allOf:
-            - $ref: "#/components/schemas/Domain/properties/code"
+            - $ref: '#/components/schemas/Domain/properties/code'
               type: string
         location:
           description: The location where the transaction is intended to be fulfilled.
           allOf:
-            - $ref: "#/components/schemas/Location"
+            - $ref: '#/components/schemas/Location'
         action:
-          description: The Beckn protocol method being called by the sender and executed
-            at the receiver.
+          description: >-
+            The Beckn protocol method being called by the sender and executed at
+            the receiver.
           type: string
         version:
           type: string
@@ -1312,26 +1153,29 @@ components:
         bap_id:
           description: Subscriber ID of the BAP
           allOf:
-            - description: A globally unique identifier of the platform, Typically it is the
-                fully qualified domain name (FQDN) of the platform.
+            - description: >-
+                A globally unique identifier of the platform, Typically it is
+                the fully qualified domain name (FQDN) of the platform.
               type: string
         bap_uri:
           description: Subscriber URL of the BAP for accepting callbacks from BPPs.
           allOf:
-            - description: The callback URL of the Subscriber. This should necessarily contain
-                the same domain name as set in `subscriber_id``.
+            - description: >-
+                The callback URL of the Subscriber. This should necessarily
+                contain the same domain name as set in `subscriber_id``.
               type: string
               format: uri
         bpp_id:
           description: Subscriber ID of the BPP
           allOf:
-            - $ref: "#/components/schemas/Context/properties/bap_id/allOf/0"
+            - $ref: '#/components/schemas/Context/properties/bap_id/allOf/0'
         bpp_uri:
           description: Subscriber URL of the BPP for accepting calls from BAPs.
           allOf:
-            - $ref: "#/components/schemas/Context/properties/bap_uri/allOf/0"
+            - $ref: '#/components/schemas/Context/properties/bap_uri/allOf/0'
         transaction_id:
-          description: This is a unique value which persists across all API calls from
+          description: >-
+            This is a unique value which persists across all API calls from
             `search` through `confirm`. This is done to indicate an active user
             session across multiple requests. The BPPs can use this value to
             push personalized recommendations, and dynamic offerings related to
@@ -1340,7 +1184,8 @@ components:
           type: string
           format: uuid
         message_id:
-          description: This is a unique value which persists during a request / callback
+          description: >-
+            This is a unique value which persists during a request / callback
             cycle. Since beckn protocol APIs are asynchronous, BAPs need a
             common value to match an incoming callback from a BPP to an earlier
             call. This value can also be used to ignore duplicate messages
@@ -1357,7 +1202,8 @@ components:
           description: The encryption public key of the sender
           type: string
         ttl:
-          description: The duration in ISO8601 format after timestamp for which this
+          description: >-
+            The duration in ISO8601 format after timestamp for which this
             message holds valid
           type: string
     Country:
@@ -1391,13 +1237,13 @@ components:
       additionalProperties: false
       properties:
         person:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
     DecimalValue:
       description: Describes a numerical value in decimal form
       type: string
-      pattern: "[+-]?([0-9]*[.])?[0-9]+"
+      pattern: '[+-]?([0-9]*[.])?[0-9]+'
     Descriptor:
       description: Physical description of something.
       type: object
@@ -1426,26 +1272,26 @@ components:
         media:
           type: array
           items:
-            $ref: "#/components/schemas/MediaFile"
+            $ref: '#/components/schemas/MediaFile'
         images:
           type: array
           items:
-            $ref: "#/components/schemas/Image"
+            $ref: '#/components/schemas/Image'
     Domain:
-      description: Described the industry sector or sub-sector. The network policy
-        should contain codes for all the industry sectors supported by the
-        network. Domains can be created in varying levels of granularity. The
-        granularity of a domain can be decided by the participants of the
-        network. Too broad domains will result in irrelevant search broadcast
-        calls to BPPs that don't have services supporting the domain. Too narrow
-        domains will result in a large number of registry entries for each BPP.
-        It is recommended that network facilitators actively collaborate with
-        various working groups and network participants to carefully choose
-        domain codes keeping in mind relevance, performance, and opportunity
-        cost. It is recommended that networks choose broad domains like
-        mobility, logistics, healthcare etc, and progressively granularize them
-        as and when the number of network participants for each domain grows
-        large.
+      description: >-
+        Described the industry sector or sub-sector. The network policy should
+        contain codes for all the industry sectors supported by the network.
+        Domains can be created in varying levels of granularity. The granularity
+        of a domain can be decided by the participants of the network. Too broad
+        domains will result in irrelevant search broadcast calls to BPPs that
+        don't have services supporting the domain. Too narrow domains will
+        result in a large number of registry entries for each BPP. It is
+        recommended that network facilitators actively collaborate with various
+        working groups and network participants to carefully choose domain codes
+        keeping in mind relevance, performance, and opportunity cost. It is
+        recommended that networks choose broad domains like mobility, logistics,
+        healthcare etc, and progressively granularize them as and when the
+        number of network participants for each domain grows large.
       type: object
       additionalProperties: false
       properties:
@@ -1453,19 +1299,21 @@ components:
           description: Name of the domain
           type: string
         code:
-          description: Standard code representing the domain. The standard is usually
+          description: >-
+            Standard code representing the domain. The standard is usually
             published as part of the network policy. Furthermore, the network
             facilitator should also provide a mechanism to provide the supported
             domains of a network.
         additional_info:
           description: A url that contains addtional information about that domain.
           allOf:
-            - $ref: "#/components/schemas/MediaFile"
+            - $ref: '#/components/schemas/MediaFile'
     Duration:
       description: Describes duration as per ISO8601 format
       type: string
     Error:
-      description: Describes an error object that is returned by a BAP, BPP or BG as a
+      description: >-
+        Describes an error object that is returned by a BAP, BPP or BG as a
         response or callback to an action by another network participant. This
         object is sent when any request received by a network participant is
         unacceptable. This object can be sent either during Ack or with the
@@ -1475,15 +1323,18 @@ components:
       properties:
         code:
           type: string
-          description: Standard error code. For full list of error codes, refer to
+          description: >-
+            Standard error code. For full list of error codes, refer to
             docs/protocol-drafts/BECKN-005-ERROR-CODES-DRAFT-01.md of this repo"
         paths:
           type: string
-          description: Path to json schema generating the error. Used only during json
+          description: >-
+            Path to json schema generating the error. Used only during json
             schema validation errors
         message:
           type: string
-          description: Human readable message describing the error. Used mainly for
+          description: >-
+            Human readable message describing the error. Used mainly for
             logging. Not recommended to be shown to the user.
     Fee:
       description: A fee applied on a particular entity
@@ -1493,11 +1344,11 @@ components:
         percentage:
           description: Percentage of a value
           allOf:
-            - $ref: "#/components/schemas/DecimalValue"
+            - $ref: '#/components/schemas/DecimalValue'
         amount:
           description: A fixed value
           allOf:
-            - $ref: "#/components/schemas/Price"
+            - $ref: '#/components/schemas/Price'
     Form:
       description: Describes a form
       type: object
@@ -1507,13 +1358,14 @@ components:
           description: The form identifier.
           type: string
         url:
-          description: The URL from where the form can be fetched. The content fetched
-            from the url must be processed as per the mime_type specified in
-            this object. Once fetched, the rendering platform can choosed to
-            render the form as-is as an embeddable element; or process it
-            further to blend with the theme of the application. In case the
-            interface is non-visual, the the render can process the form data
-            and reproduce it as per the standard specified in the form.
+          description: >-
+            The URL from where the form can be fetched. The content fetched from
+            the url must be processed as per the mime_type specified in this
+            object. Once fetched, the rendering platform can choosed to render
+            the form as-is as an embeddable element; or process it further to
+            blend with the theme of the application. In case the interface is
+            non-visual, the the render can process the form data and reproduce
+            it as per the standard specified in the form.
           type: string
           format: uri
         data:
@@ -1522,7 +1374,8 @@ components:
           additionalProperties:
             type: string
         mime_type:
-          description: This field indicates the nature and format of the form received by
+          description: >-
+            This field indicates the nature and format of the form received by
             querying the url. MIME types are defined and standardized in IETF's
             RFC 6838.
           type: string
@@ -1543,12 +1396,13 @@ components:
           description: Unique reference ID to the fulfillment of an order
           type: string
         type:
-          description: A code that describes the mode of fulfillment. This is typically
-            set when there are multiple ways an order can be fulfilled. For
-            example, a retail order can be fulfilled either via store pickup or
-            a home delivery. Similarly, a medical consultation can be provided
-            either in-person or via tele-consultation. The network policy must
-            publish standard fulfillment type codes for the different modes of
+          description: >-
+            A code that describes the mode of fulfillment. This is typically set
+            when there are multiple ways an order can be fulfilled. For example,
+            a retail order can be fulfilled either via store pickup or a home
+            delivery. Similarly, a medical consultation can be provided either
+            in-person or via tele-consultation. The network policy must publish
+            standard fulfillment type codes for the different modes of
             fulfillment.
           type: string
         rateable:
@@ -1557,13 +1411,14 @@ components:
         rating:
           description: The rating value of the fulfullment service.
           allOf:
-            - $ref: "#/components/schemas/Rating/properties/value"
+            - $ref: '#/components/schemas/Rating/properties/value'
         state:
-          description: The current state of fulfillment. The BPP must set this value
+          description: >-
+            The current state of fulfillment. The BPP must set this value
             whenever the state of the order fulfillment changes and fire an
             unsolicited `on_status` call.
           allOf:
-            - $ref: "#/components/schemas/FulfillmentState"
+            - $ref: '#/components/schemas/FulfillmentState'
         tracking:
           type: boolean
           description: Indicates whether the fulfillment allows tracking
@@ -1571,36 +1426,38 @@ components:
         customer:
           description: The person that will ultimately receive the order
           allOf:
-            - $ref: "#/components/schemas/Customer"
+            - $ref: '#/components/schemas/Customer'
         agent:
           description: The agent that is currently handling the fulfillment of the order
           allOf:
-            - $ref: "#/components/schemas/Agent"
+            - $ref: '#/components/schemas/Agent'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         vehicle:
-          $ref: "#/components/schemas/Vehicle"
+          $ref: '#/components/schemas/Vehicle'
         stops:
-          description: The list of logical stops encountered during the fulfillment of an
+          description: >-
+            The list of logical stops encountered during the fulfillment of an
             order.
           type: array
           items:
-            $ref: "#/components/schemas/Stop"
+            $ref: '#/components/schemas/Stop'
         path:
-          description: The physical path taken by the agent that can be rendered on a map.
+          description: >-
+            The physical path taken by the agent that can be rendered on a map.
             The allowed format of this property can be set by the network.
           type: string
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     FulfillmentState:
       description: Describes the state of fulfillment
       type: object
       additionalProperties: false
       properties:
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         updated_at:
           type: string
           format: date-time
@@ -1610,7 +1467,8 @@ components:
     Gps:
       description: Describes a GPS coordinate
       type: string
-      pattern: ^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$
+      pattern: >-
+        ^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$
     Image:
       description: Describes an image
       type: object
@@ -1621,7 +1479,8 @@ components:
           type: string
           format: uri
         size_type:
-          description: The size of the image. The network policy can define the default
+          description: >-
+            The size of the image. The network policy can define the default
             dimensions of each type
           type: string
           enum:
@@ -1638,13 +1497,13 @@ components:
           description: Height of the image in pixels
           type: string
     Intent:
-      description: The intent to buy or avail a product or a service. The BAP can
-        declare the intent of the consumer containing <ul><li>What they want (A
-        product, service, offer)</li><li>Who they want (A seller, service
-        provider, agent etc)</li><li>Where they want it and where they want it
-        from</li><li>When they want it (start and end time of
-        fulfillment</li><li>How they want to pay for it</li></ul><br>This has
-        properties like
+      description: >-
+        The intent to buy or avail a product or a service. The BAP can declare
+        the intent of the consumer containing <ul><li>What they want (A product,
+        service, offer)</li><li>Who they want (A seller, service provider, agent
+        etc)</li><li>Where they want it and where they want it from</li><li>When
+        they want it (start and end time of fulfillment</li><li>How they want to
+        pay for it</li></ul><br>This has properties like
         descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This
         is typically used by the BAP to send the purpose of the user's search to
         the BPP. This will be used by the BPP to find products or services it
@@ -1682,45 +1541,49 @@ components:
       additionalProperties: false
       properties:
         descriptor:
-          description: A raw description of the search intent. Free text search strings,
+          description: >-
+            A raw description of the search intent. Free text search strings,
             raw audio, etc can be sent in this object.
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
         provider:
-          description: The provider from which the customer wants to place to the order from
+          description: >-
+            The provider from which the customer wants to place to the order
+            from
           allOf:
-            - $ref: "#/components/schemas/Provider"
+            - $ref: '#/components/schemas/Provider'
         fulfillment:
           description: Details on how the customer wants their order fulfilled
           allOf:
-            - $ref: "#/components/schemas/Fulfillment"
+            - $ref: '#/components/schemas/Fulfillment'
         payment:
           description: Details on how the customer wants to pay for the order
           allOf:
-            - $ref: "#/components/schemas/Payment"
+            - $ref: '#/components/schemas/Payment'
         category:
           description: Details on the item category
           allOf:
-            - $ref: "#/components/schemas/Category"
+            - $ref: '#/components/schemas/Category'
         offer:
           description: details on the offer the customer wants to avail
           allOf:
-            - $ref: "#/components/schemas/Offer"
+            - $ref: '#/components/schemas/Offer'
         item:
           description: Details of the item that the consumer wants to order
           allOf:
-            - $ref: "#/components/schemas/Item"
+            - $ref: '#/components/schemas/Item'
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     ItemQuantity:
       description: Describes the count or amount of an item
       type: object
       additionalProperties: false
       properties:
         allocated:
-          description: This represents the exact quantity allocated for purchase of the
+          description: >-
+            This represents the exact quantity allocated for purchase of the
             item.
           type: object
           additionalProperties: false
@@ -1729,9 +1592,10 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
         available:
-          description: This represents the exact quantity available for purchase of the
+          description: >-
+            This represents the exact quantity available for purchase of the
             item. The buyer can only purchase multiples of this
           type: object
           additionalProperties: false
@@ -1740,9 +1604,11 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
         maximum:
-          description: This represents the maximum quantity allowed for purchase of the item
+          description: >-
+            This represents the maximum quantity allowed for purchase of the
+            item
           type: object
           additionalProperties: false
           properties:
@@ -1750,9 +1616,11 @@ components:
               type: integer
               minimum: 1
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
         minimum:
-          description: This represents the minimum quantity allowed for purchase of the item
+          description: >-
+            This represents the minimum quantity allowed for purchase of the
+            item
           type: object
           additionalProperties: false
           properties:
@@ -1760,7 +1628,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
         selected:
           description: This represents the quantity selected for purchase of the item
           type: object
@@ -1770,7 +1638,7 @@ components:
               type: integer
               minimum: 0
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
         unitized:
           description: This represents the quantity available in a single unit of the item
           type: object
@@ -1781,9 +1649,10 @@ components:
               minimum: 1
               maximum: 1
             measure:
-              $ref: "#/components/schemas/Scalar"
+              $ref: '#/components/schemas/Scalar'
     Item:
-      description: Describes a product or a service offered to the end consumer by the
+      description: >-
+        Describes a product or a service offered to the end consumer by the
         provider. In the mobility sector, it can represent a fare product like
         one way journey. In the logistics sector, it can represent the delivery
         service offering. In the retail domain it can represent a product like a
@@ -1797,60 +1666,60 @@ components:
         parent_item_id:
           description: ID of the item, this item is a variant of
           allOf:
-            - $ref: "#/components/schemas/Item/properties/id"
+            - $ref: '#/components/schemas/Item/properties/id'
         parent_item_quantity:
           description: The number of units of the parent item this item is a multiple of
           allOf:
-            - $ref: "#/components/schemas/ItemQuantity"
+            - $ref: '#/components/schemas/ItemQuantity'
         descriptor:
           description: Physical description of the item
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
         creator:
           description: The creator of this item
           allOf:
-            - $ref: "#/components/schemas/Organization"
+            - $ref: '#/components/schemas/Organization'
         price:
           description: The price of this item, if it has intrinsic value
           allOf:
-            - $ref: "#/components/schemas/Price"
+            - $ref: '#/components/schemas/Price'
         quantity:
           description: The selling quantity of the item
           allOf:
-            - $ref: "#/components/schemas/ItemQuantity"
+            - $ref: '#/components/schemas/ItemQuantity'
         category_ids:
           description: Categories this item can be listed under
           type: array
           items:
             allOf:
-              - $ref: "#/components/schemas/Category/properties/id"
+              - $ref: '#/components/schemas/Category/properties/id'
         fulfillment_ids:
           description: Modes through which this item can be fulfilled
           type: array
           items:
             allOf:
-              - $ref: "#/components/schemas/Fulfillment/properties/id"
+              - $ref: '#/components/schemas/Fulfillment/properties/id'
         location_ids:
           description: Provider Locations this item is available in
           type: array
           items:
             allOf:
-              - $ref: "#/components/schemas/Location/properties/id"
+              - $ref: '#/components/schemas/Location/properties/id'
         payment_ids:
           description: Payment modalities through which this item can be ordered
           type: array
           items:
             allOf:
-              - $ref: "#/components/schemas/Payment/properties/id"
+              - $ref: '#/components/schemas/Payment/properties/id'
         add_ons:
           type: array
           items:
-            $ref: "#/components/schemas/AddOn"
+            $ref: '#/components/schemas/AddOn'
         cancellation_terms:
           description: Cancellation terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/CancellationTerm"
+            $ref: '#/components/schemas/CancellationTerm'
         refund_terms:
           description: Refund terms of this item
           type: array
@@ -1862,44 +1731,47 @@ components:
               fulfillment_state:
                 description: The state of fulfillment during which this term is applicable.
                 allOf:
-                  - $ref: "#/components/schemas/State"
+                  - $ref: '#/components/schemas/State'
               refund_eligible:
                 description: Indicates if cancellation will result in a refund
                 type: boolean
               refund_within:
-                description: Time within which refund will be processed after successful
+                description: >-
+                  Time within which refund will be processed after successful
                   cancellation.
                 allOf:
-                  - $ref: "#/components/schemas/Time"
+                  - $ref: '#/components/schemas/Time'
               refund_amount:
-                $ref: "#/components/schemas/Price"
+                $ref: '#/components/schemas/Price'
         replacement_terms:
           description: Terms that are applicable be met when this item is replaced
           type: array
           items:
-            $ref: "#/components/schemas/ReplacementTerm"
+            $ref: '#/components/schemas/ReplacementTerm'
         return_terms:
           description: Terms that are applicable when this item is returned
           type: array
           items:
-            $ref: "#/components/schemas/ReturnTerm"
+            $ref: '#/components/schemas/ReturnTerm'
         xinput:
-          description: Additional input required from the customer to purchase / avail
-            this item
+          description: >-
+            Additional input required from the customer to purchase / avail this
+            item
           allOf:
-            - $ref: "#/components/schemas/XInput"
+            - $ref: '#/components/schemas/XInput'
         time:
-          description: Temporal attributes of this item. This property is used when the
+          description: >-
+            Temporal attributes of this item. This property is used when the
             item exists on the catalog only for a limited period of time.
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         rateable:
           description: Whether this item can be rated
           type: boolean
         rating:
           description: The rating of the item
           allOf:
-            - $ref: "#/components/schemas/Rating/properties/value"
+            - $ref: '#/components/schemas/Rating/properties/value'
         matched:
           description: Whether this item is an exact match of the request
           type: boolean
@@ -1915,7 +1787,11 @@ components:
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Location:
       description: The physical location of something
       type: object
@@ -1924,42 +1800,43 @@ components:
         id:
           type: string
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         map_url:
-          description: The url to the map of the location. This can be a globally
+          description: >-
+            The url to the map of the location. This can be a globally
             recognized map url or the one specified by the network policy.
           type: string
           format: uri
         gps:
           description: The GPS co-ordinates of this location.
           allOf:
-            - $ref: "#/components/schemas/Gps"
+            - $ref: '#/components/schemas/Gps'
         updated_at:
           type: string
           format: date-time
         address:
           description: The address of this location.
           allOf:
-            - $ref: "#/components/schemas/Address"
+            - $ref: '#/components/schemas/Address'
         city:
           description: The city this location is, or is located within
           allOf:
-            - $ref: "#/components/schemas/City"
+            - $ref: '#/components/schemas/City'
         district:
           description: The state this location is, or is located within
           type: string
         state:
           description: The state this location is, or is located within
           allOf:
-            - $ref: "#/components/schemas/State"
+            - $ref: '#/components/schemas/State'
         country:
           description: The country this location is, or is located within
           allOf:
-            - $ref: "#/components/schemas/Country"
+            - $ref: '#/components/schemas/Country'
         area_code:
           type: string
         circle:
-          $ref: "#/components/schemas/Circle"
+          $ref: '#/components/schemas/Circle'
         polygon:
           description: The boundary polygon of this location
           type: string
@@ -1969,16 +1846,16 @@ components:
         rating:
           description: The rating of this location
           allOf:
-            - $ref: "#/components/schemas/Rating/properties/value"
+            - $ref: '#/components/schemas/Rating/properties/value'
     MediaFile:
       description: This object contains a url to a media file.
       type: object
       additionalProperties: false
       properties:
         mimetype:
-          description: indicates the nature and format of the document, file, or
-            assortment of bytes. MIME types are defined and standardized in
-            IETF's RFC 6838
+          description: >-
+            indicates the nature and format of the document, file, or assortment
+            of bytes. MIME types are defined and standardized in IETF's RFC 6838
           type: string
         url:
           description: The URL of the file
@@ -1991,33 +1868,34 @@ components:
           description: The signing algorithm used by the sender
           type: string
     Offer:
-      description: An offer associated with a catalog. This is typically used to
-        promote a particular product and enable more purchases.
+      description: >-
+        An offer associated with a catalog. This is typically used to promote a
+        particular product and enable more purchases.
       type: object
       additionalProperties: false
       properties:
         id:
           type: string
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         location_ids:
           type: array
           items:
-            $ref: "#/components/schemas/Location/properties/id"
+            $ref: '#/components/schemas/Location/properties/id'
         category_ids:
           type: array
           items:
-            $ref: "#/components/schemas/Category/properties/id"
+            $ref: '#/components/schemas/Category/properties/id'
         item_ids:
           type: array
           items:
-            $ref: "#/components/schemas/Item/properties/id"
+            $ref: '#/components/schemas/Item/properties/id'
         time:
-          $ref: "#/components/schemas/Time"
+          $ref: '#/components/schemas/Time'
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     Option:
       description: Describes a selectable option
       type: object
@@ -2026,16 +1904,18 @@ components:
         id:
           type: string
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
     Order:
-      description: Describes a legal purchase order. It contains the complete details
-        of the legal contract created between the buyer and the seller.
+      description: >-
+        Describes a legal purchase order. It contains the complete details of
+        the legal contract created between the buyer and the seller.
       type: object
       additionalProperties: false
       properties:
         id:
           type: string
-          description: Human-readable ID of the order. This is generated at the BPP layer.
+          description: >-
+            Human-readable ID of the order. This is generated at the BPP layer.
             The BPP can either generate order id within its system or forward
             the order ID created at the provider level.
         ref_order_ids:
@@ -2045,7 +1925,8 @@ components:
             type: string
             description: ID of a previous order
         status:
-          description: Status of the order. Allowed values can be defined by the network
+          description: >-
+            Status of the order. Allowed values can be defined by the network
             policy
           type: string
           enum:
@@ -2060,7 +1941,8 @@ components:
             - CONFIRM_UPDATE
             - UPDATED
         type:
-          description: This is used to indicate the type of order being created to BPPs.
+          description: >-
+            This is used to indicate the type of order being created to BPPs.
             Sometimes orders can be linked to previous orders, like a
             replacement order in a retail domain. A follow-up consultation in
             healthcare domain. A single order part of a subscription order. The
@@ -2073,40 +1955,40 @@ components:
         provider:
           description: Details of the provider whose catalog items have been selected.
           allOf:
-            - $ref: "#/components/schemas/Provider"
+            - $ref: '#/components/schemas/Provider'
         items:
           description: The items purchased / availed in this order
           type: array
           items:
-            $ref: "#/components/schemas/Item"
+            $ref: '#/components/schemas/Item'
         add_ons:
           description: The add-ons purchased / availed in this order
           type: array
           items:
-            $ref: "#/components/schemas/AddOn"
+            $ref: '#/components/schemas/AddOn'
         offers:
           description: The offers applied in this order
           type: array
           items:
-            $ref: "#/components/schemas/Offer"
+            $ref: '#/components/schemas/Offer'
         billing:
           description: The billing details of this order
           allOf:
-            - $ref: "#/components/schemas/Billing"
+            - $ref: '#/components/schemas/Billing'
         fulfillments:
           description: The fulfillments involved in completing this order
           type: array
           items:
-            $ref: "#/components/schemas/Fulfillment"
+            $ref: '#/components/schemas/Fulfillment'
         cancellation:
           description: The cancellation details of this order
           allOf:
-            - $ref: "#/components/schemas/Cancellation"
+            - $ref: '#/components/schemas/Cancellation'
         cancellation_terms:
           description: Cancellation terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/CancellationTerm"
+            $ref: '#/components/schemas/CancellationTerm'
         documents:
           type: array
           items:
@@ -2115,11 +1997,12 @@ components:
             additionalProperties: false
             properties:
               descriptor:
-                $ref: "#/components/schemas/Descriptor"
+                $ref: '#/components/schemas/Descriptor'
               mime_type:
-                description: This field indicates the nature and format of the form received by
-                  querying the url. MIME types are defined and standardized in
-                  IETF's RFC 6838.
+                description: >-
+                  This field indicates the nature and format of the form
+                  received by querying the url. MIME types are defined and
+                  standardized in IETF's RFC 6838.
                 type: string
                 enum:
                   - text/html
@@ -2127,35 +2010,36 @@ components:
                   - application/xml
                   - application/pdf
               url:
-                description: The URL from where the form can be fetched. The content fetched
-                  from the url must be processed as per the mime_type specified
-                  in this object.
+                description: >-
+                  The URL from where the form can be fetched. The content
+                  fetched from the url must be processed as per the mime_type
+                  specified in this object.
                 type: string
                 format: uri
         refund_terms:
           description: Refund terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/Item/properties/refund_terms/items"
+            $ref: '#/components/schemas/Item/properties/refund_terms/items'
         replacement_terms:
           description: Replacement terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/ReplacementTerm"
+            $ref: '#/components/schemas/ReplacementTerm'
         return_terms:
           description: Return terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/ReturnTerm"
+            $ref: '#/components/schemas/ReturnTerm'
         quote:
           description: The mutually agreed upon quotation for this order.
           allOf:
-            - $ref: "#/components/schemas/Quotation"
+            - $ref: '#/components/schemas/Quotation'
         payments:
           description: The terms of settlement for this order
           type: array
           items:
-            $ref: "#/components/schemas/Payment"
+            $ref: '#/components/schemas/Payment'
         created_at:
           description: The date-time of creation of this order
           type: string
@@ -2167,34 +2051,35 @@ components:
         xinput:
           description: Additional input required from the customer to confirm this order
           allOf:
-            - $ref: "#/components/schemas/XInput"
+            - $ref: '#/components/schemas/XInput'
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     Organization:
       description: An organization. Usually a recognized business entity.
       type: object
       additionalProperties: false
       properties:
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         address:
           description: The postal address of the organization
           allOf:
-            - $ref: "#/components/schemas/Address"
+            - $ref: '#/components/schemas/Address'
         state:
           description: The state where the organization's address is registered
           allOf:
-            - $ref: "#/components/schemas/State"
+            - $ref: '#/components/schemas/State'
         city:
           description: The city where the the organization's address is registered
           allOf:
-            - $ref: "#/components/schemas/City"
+            - $ref: '#/components/schemas/City'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
     Payment:
-      description: Describes the terms of settlement between the BAP and the BPP for a
+      description: >-
+        Describes the terms of settlement between the BAP and the BPP for a
         single transaction. When instantiated, this object contains <ol><li>the
         amount that has to be settled,</li><li>The payment destination
         destination details</li><li>When the settlement should happen,
@@ -2211,11 +2096,13 @@ components:
       additionalProperties: false
       properties:
         id:
-          description: ID of the payment term that can be referred at an item or an order
+          description: >-
+            ID of the payment term that can be referred at an item or an order
             level in a catalog
           type: string
         collected_by:
-          description: This field indicates who is the collector of payment. The BAP can
+          description: >-
+            This field indicates who is the collector of payment. The BAP can
             set this value to 'bap' if it wants to collect the payment first
             and  settle it to the BPP. If the BPP agrees to those terms, the BPP
             should not send the payment url. Alternatively, the BPP can set this
@@ -2224,9 +2111,10 @@ components:
           type: string
         url:
           type: string
-          description: A payment url to be called by the BAP. If empty, then the payment
-            is to be done offline. The details of payment should be present in
-            the params object. If tl_method = http/get, then the payment details
+          description: >-
+            A payment url to be called by the BAP. If empty, then the payment is
+            to be done offline. The details of payment should be present in the
+            params object. If tl_method = http/get, then the payment details
             will be sent as url params. Two url param values,
             ```$transaction_id``` and ```$amount``` are mandatory.
           format: uri
@@ -2270,11 +2158,11 @@ components:
             - PAID
             - NOT-PAID
         time:
-          $ref: "#/components/schemas/Time"
+          $ref: '#/components/schemas/Time'
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
     Person:
       description: Describes a person as any individual
       type: object
@@ -2291,26 +2179,27 @@ components:
           description: the name of the person
           type: string
         image:
-          $ref: "#/components/schemas/Image"
+          $ref: '#/components/schemas/Image'
         age:
           description: Age of the person
           allOf:
-            - $ref: "#/components/schemas/Duration"
+            - $ref: '#/components/schemas/Duration'
         dob:
           description: Date of birth of the person
           type: string
           format: date
         gender:
           type: string
-          description: Gender of something, typically a Person, but possibly also
-            fictional characters, animals, etc. While Male and Female may be
-            used, text strings are also acceptable for people who do not
-            identify as a binary gender.Allowed values for this field can be
-            published in the network policy
+          description: >-
+            Gender of something, typically a Person, but possibly also fictional
+            characters, animals, etc. While Male and Female may be used, text
+            strings are also acceptable for people who do not identify as a
+            binary gender.Allowed values for this field can be published in the
+            network policy
         creds:
           type: array
           items:
-            $ref: "#/components/schemas/Credential"
+            $ref: '#/components/schemas/Credential'
         languages:
           type: array
           items:
@@ -2336,7 +2225,9 @@ components:
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
+        descriptor:
+          $ref: '#/components/schemas/Descriptor'
     Price:
       description: Describes the price of a product or service
       type: object
@@ -2345,19 +2236,19 @@ components:
         currency:
           type: string
         value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         estimated_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         computed_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         listed_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         offered_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         minimum_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         maximum_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
     Provider:
       description: Describes the catalog of a business.
       type: object
@@ -2367,38 +2258,38 @@ components:
           type: string
           description: Id of the provider
         descriptor:
-          $ref: "#/components/schemas/Descriptor"
+          $ref: '#/components/schemas/Descriptor'
         category_id:
           type: string
           description: Category Id of the provider at the BPP-level catalog
         rating:
-          $ref: "#/components/schemas/Rating/properties/value"
+          $ref: '#/components/schemas/Rating/properties/value'
         time:
-          $ref: "#/components/schemas/Time"
+          $ref: '#/components/schemas/Time'
         categories:
           type: array
           items:
-            $ref: "#/components/schemas/Category"
+            $ref: '#/components/schemas/Category'
         fulfillments:
           type: array
           items:
-            $ref: "#/components/schemas/Fulfillment"
+            $ref: '#/components/schemas/Fulfillment'
         payments:
           type: array
           items:
-            $ref: "#/components/schemas/Payment"
+            $ref: '#/components/schemas/Payment'
         locations:
           type: array
           items:
-            $ref: "#/components/schemas/Location"
+            $ref: '#/components/schemas/Location'
         offers:
           type: array
           items:
-            $ref: "#/components/schemas/Offer"
+            $ref: '#/components/schemas/Offer'
         items:
           type: array
           items:
-            $ref: "#/components/schemas/Item"
+            $ref: '#/components/schemas/Item'
         exp:
           type: string
           description: Time after which catalog has to be refreshed
@@ -2407,33 +2298,34 @@ components:
           description: Whether this provider can be rated or not
           type: boolean
         ttl:
-          description: The time-to-live in seconds, for this object. This can be overriden
+          description: >-
+            The time-to-live in seconds, for this object. This can be overriden
             at deeper levels. A value of -1 indicates that this object is not
             cacheable.
           type: string
         tags:
           type: array
           items:
-            $ref: "#/components/schemas/TagGroup"
+            $ref: '#/components/schemas/TagGroup'
         cancellation_terms:
           description: Cancellation terms of this item
           type: array
           items:
-            $ref: "#/components/schemas/CancellationTerm"
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
-      description: Describes a quote. It is the estimated price of products or
-        services from the BPP.<br>This has properties like price, breakup, ttl
+      description: >-
+        Describes a quote. It is the estimated price of products or services
+        from the BPP.<br>This has properties like price, breakup, ttl
       type: object
       additionalProperties: false
       properties:
         id:
           description: ID of the quote.
           type: string
-          format: uuid
         price:
           description: The total quoted price
           allOf:
-            - $ref: "#/components/schemas/Price"
+            - $ref: '#/components/schemas/Price'
         breakup:
           description: the breakup of the total quoted price
           type: array
@@ -2442,13 +2334,13 @@ components:
             additionalProperties: false
             properties:
               item:
-                $ref: "#/components/schemas/Item"
+                $ref: '#/components/schemas/Item'
               title:
                 type: string
               price:
-                $ref: "#/components/schemas/Price"
+                $ref: '#/components/schemas/Price'
         ttl:
-          $ref: "#/components/schemas/Duration"
+          $ref: '#/components/schemas/Duration'
     Rating:
       description: Describes the rating of an entity
       type: object
@@ -2468,26 +2360,22 @@ components:
           description: Id of the object being rated
           type: string
         value:
-          description: Rating value given to the object. This can be a single value or can
+          description: >-
+            Rating value given to the object. This can be a single value or can
             also contain an inequality operator like gt, gte, lt, lte. This can
             also contain an inequality expression containing logical operators
             like && and ||.
           type: string
-        feedback:
-          description: feedback for rating
-          type: string
-        feedback_form:
-          description: A feedback form to allow the user to provide additional information
-            on the rating provided
-          $ref: "#/components/schemas/Form"
     Region:
-      description: Describes an arbitrary region of space. The network policy should
+      description: >-
+        Describes an arbitrary region of space. The network policy should
         contain a published list of supported regions by the network.
       type: object
       additionalProperties: false
       properties:
         dimensions:
-          description: The number of dimensions that are used to describe any point inside
+          description: >-
+            The number of dimensions that are used to describe any point inside
             that region. The most common dimensionality of a region is 2, that
             represents an area on a map. There are regions on the map that can
             be approximated to one-dimensional regions like roads, railway
@@ -2496,11 +2384,12 @@ components:
             fulfillment services.
           type: string
           enum:
-            - "1"
-            - "2"
-            - "3"
+            - '1'
+            - '2'
+            - '3'
         type:
-          description: The type of region. This is used to specify the granularity of the
+          description: >-
+            The type of region. This is used to specify the granularity of the
             region represented by this object. Various examples of
             two-dimensional region types are city, country, state, district, and
             so on. The network policy should contain a list of all possible
@@ -2511,17 +2400,20 @@ components:
           description: Name of the region as specified on the map where that region exists.
         code:
           type: string
-          description: A standard code representing the region. This should be interpreted
+          description: >-
+            A standard code representing the region. This should be interpreted
             in the same way by all network participants.
         boundary:
           type: string
-          description: A string representing the boundary of the region. One-dimensional
+          description: >-
+            A string representing the boundary of the region. One-dimensional
             regions are represented by polylines. Two-dimensional regions are
             represented by polygons, and three-dimensional regions can
             represented by polyhedra.
         map_url:
           type: string
-          description: The url to the map of the region. This can be a globally recognized
+          description: >-
+            The url to the map of the region. This can be a globally recognized
             map or the one specified by the network policy.
     ReplacementTerm:
       description: The replacement policy of an item or an order
@@ -2531,15 +2423,16 @@ components:
         fulfillment_state:
           description: The state of fulfillment during which this term is applicable.
           allOf:
-            - $ref: "#/components/schemas/State"
+            - $ref: '#/components/schemas/State'
         replace_within:
-          description: Applicable only for buyer managed returns where the buyer has to
+          description: >-
+            Applicable only for buyer managed returns where the buyer has to
             replace the item before a certain date-time, failing which they will
             not be eligible for replacement
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         external_ref:
-          $ref: "#/components/schemas/MediaFile"
+          $ref: '#/components/schemas/MediaFile'
     ReturnTerm:
       description: Describes the return policy of an item or an order
       type: object
@@ -2548,20 +2441,21 @@ components:
         fulfillment_state:
           description: The state of fulfillment during which this term IETF''s applicable.
           allOf:
-            - $ref: "#/components/schemas/State"
+            - $ref: '#/components/schemas/State'
         return_eligible:
           description: Indicates whether the item is eligible for return
           type: boolean
         return_time:
-          description: Applicable only for buyer managed returns where the buyer has to
+          description: >-
+            Applicable only for buyer managed returns where the buyer has to
             return the item to the origin before a certain date-time, failing
             which they will not be eligible for refund.
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         return_location:
           description: The location where the item or order must / will be returned to
           allOf:
-            - $ref: "#/components/schemas/Location"
+            - $ref: '#/components/schemas/Location'
         fulfillment_managed_by:
           description: The entity that will perform the return
           type: string
@@ -2579,23 +2473,24 @@ components:
             - CONSTANT
             - VARIABLE
         value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         estimated_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         computed_value:
-          $ref: "#/components/schemas/DecimalValue"
+          $ref: '#/components/schemas/DecimalValue'
         range:
           type: object
           additionalProperties: false
           properties:
             min:
-              $ref: "#/components/schemas/DecimalValue"
+              $ref: '#/components/schemas/DecimalValue'
             max:
-              $ref: "#/components/schemas/DecimalValue"
+              $ref: '#/components/schemas/DecimalValue'
         unit:
           type: string
     Schedule:
-      description: Describes schedule as a repeating time period used to describe a
+      description: >-
+        Describes schedule as a repeating time period used to describe a
         regularly recurring event. At a minimum a schedule will specify
         frequency which describes the interval between occurrences of the event.
         Additional information can be provided to specify the schedule more
@@ -2607,7 +2502,7 @@ components:
       additionalProperties: false
       properties:
         frequency:
-          $ref: "#/components/schemas/Duration"
+          $ref: '#/components/schemas/Duration'
         holidays:
           type: array
           items:
@@ -2641,29 +2536,30 @@ components:
         location:
           description: Location of the stop
           allOf:
-            - $ref: "#/components/schemas/Location"
+            - $ref: '#/components/schemas/Location'
         type:
-          description: The type of stop. Allowed values of this property can be defined by
+          description: >-
+            The type of stop. Allowed values of this property can be defined by
             the network policy.
           type: string
         time:
           description: Timings applicable at the stop.
           allOf:
-            - $ref: "#/components/schemas/Time"
+            - $ref: '#/components/schemas/Time'
         instructions:
           description: Instructions that need to be followed at the stop
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
         contact:
           description: Contact details of the stop
           allOf:
-            - $ref: "#/components/schemas/Contact"
+            - $ref: '#/components/schemas/Contact'
         person:
           description: The details of the person present at the stop
           allOf:
-            - $ref: "#/components/schemas/Person"
+            - $ref: '#/components/schemas/Person'
         authorization:
-          $ref: "#/components/schemas/Authorization"
+          $ref: '#/components/schemas/Authorization'
     Support:
       description: Details of customer support
       type: object
@@ -2684,8 +2580,9 @@ components:
           type: string
           format: uri
     Tag:
-      description: Describes a tag. This is used to contain extended metadata. This
-        object can be added as a property to any schema to describe extended
+      description: >-
+        Describes a tag. This is used to contain extended metadata. This object
+        can be added as a property to any schema to describe extended
         attributes. For BAPs, tags can be sent during search to optimize and
         filter search results. BPPs can use tags to index their catalog to allow
         better search functionality. Tags are sent by the BPP as part of the
@@ -2699,27 +2596,31 @@ components:
         descriptor:
           description: Description of the Tag, can be used to store detailed information.
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
         value:
-          description: The value of the tag. This set by the BPP and rendered as-is by the
+          description: >-
+            The value of the tag. This set by the BPP and rendered as-is by the
             BAP.
           type: string
         display:
-          description: This value indicates if the tag is intended for display purposes.
-            If set to `true`, then this tag must be displayed. If it is set to
+          description: >-
+            This value indicates if the tag is intended for display purposes. If
+            set to `true`, then this tag must be displayed. If it is set to
             `false`, it should not be displayed. This value can override the
             group display value.
           type: boolean
     TagGroup:
-      description: A collection of tag objects with group level attributes. For
-        detailed documentation on the Tags and Tag Groups schema go to
+      description: >-
+        A collection of tag objects with group level attributes. For detailed
+        documentation on the Tags and Tag Groups schema go to
         https://github.com/beckn/protocol-specifications/discussions/316
       type: object
       additionalProperties: false
       properties:
         display:
-          description: Indicates the display properties of the tag group. If display is
-            set to false, then the group will not be displayed. If it is set to
+          description: >-
+            Indicates the display properties of the tag group. If display is set
+            to false, then the group will not be displayed. If it is set to
             true, it should be displayed. However, group-level display
             properties can be overriden by individual tag-level display
             property. As this schema is purely for catalog display purposes, it
@@ -2727,23 +2628,26 @@ components:
           type: boolean
           default: true
         descriptor:
-          description: Description of the TagGroup, can be used to store detailed
+          description: >-
+            Description of the TagGroup, can be used to store detailed
             information.
           allOf:
-            - $ref: "#/components/schemas/Descriptor"
+            - $ref: '#/components/schemas/Descriptor'
         list:
-          description: An array of Tag objects listed under this group. This property can
+          description: >-
+            An array of Tag objects listed under this group. This property can
             be set by BAPs during search to narrow the `search` and achieve more
             relevant results. When received during `on_search`, BAPs must render
             this list under the heading described by the `name` property of this
             schema.
           type: array
           items:
-            $ref: "#/components/schemas/Tag"
+            $ref: '#/components/schemas/Tag'
     Time:
-      description: Describes time in its various forms. It can be a single point in
-        time; duration; or a structured timetable of operations<br>This has
-        properties like label, time stamp,duration,range, days, schedule
+      description: >-
+        Describes time in its various forms. It can be a single point in time;
+        duration; or a structured timetable of operations<br>This has properties
+        like label, time stamp,duration,range, days, schedule
       type: object
       additionalProperties: false
       properties:
@@ -2753,7 +2657,7 @@ components:
           type: string
           format: date-time
         duration:
-          $ref: "#/components/schemas/Duration"
+          $ref: '#/components/schemas/Duration'
         range:
           type: object
           additionalProperties: false
@@ -2768,11 +2672,12 @@ components:
           type: string
           description: comma separated values representing days of the week
         schedule:
-          $ref: "#/components/schemas/Schedule"
+          $ref: '#/components/schemas/Schedule'
     Tracking:
-      description: Contains tracking information that can be used by the BAP to track
-        the fulfillment of an order in real-time. which is useful for knowing
-        the location of time sensitive deliveries.
+      description: >-
+        Contains tracking information that can be used by the BAP to track the
+        fulfillment of an order in real-time. which is useful for knowing the
+        location of time sensitive deliveries.
       type: object
       additionalProperties: false
       properties:
@@ -2780,7 +2685,8 @@ components:
           description: A unique tracking reference number
           type: string
         url:
-          description: A URL to the tracking endpoint. This can be a link to a tracking
+          description: >-
+            A URL to the tracking endpoint. This can be a link to a tracking
             webpage, a webhook URL created by the BAP where BPP can push the
             tracking data, or a GET url creaed by the BPP which the BAP can poll
             to get the tracking data. It can also be a websocket URL where the
@@ -2788,14 +2694,16 @@ components:
           type: string
           format: uri
         location:
-          description: In case there is no real-time tracking endpoint available, this
+          description: >-
+            In case there is no real-time tracking endpoint available, this
             field will contain the latest location of the entity being tracked.
             The BPP will update this value everytime the BAP calls the track
             API.
           allOf:
-            - $ref: "#/components/schemas/Location"
+            - $ref: '#/components/schemas/Location'
         status:
-          description: This value indicates if the tracking is currently active or not. If
+          description: >-
+            This value indicates if the tracking is currently active or not. If
             this value is `active`, then the BAP can begin tracking the order.
             If this value is `inactive`, the tracking URL is considered to be
             expired and the BAP should stop tracking the order.
@@ -2804,9 +2712,10 @@ components:
             - active
             - inactive
     Vehicle:
-      description: Describes a vehicle is a device that is designed or used to
-        transport people or cargo over land, water, air, or through
-        space.<br>This has properties like category, capacity, make, model,
+      description: >-
+        Describes a vehicle is a device that is designed or used to transport
+        people or cargo over land, water, air, or through space.<br>This has
+        properties like category, capacity, make, model,
         size,variant,color,energy_type,registration
       type: object
       additionalProperties: false
@@ -2840,14 +2749,15 @@ components:
         emission_standard:
           type: string
     XInput:
-      description: Contains any additional or extended inputs required to confirm an
-        order. This is typically a Form Input. Sometimes, selection of catalog
-        elements is not enough for the BPP to confirm an order. For example, to
-        confirm a flight ticket, the airline requires details of the passengers
-        along with information on baggage, identity, in addition to the class of
-        ticket. Similarly, a logistics company may require details on the nature
-        of shipment in order to confirm the shipping. A recruiting firm may
-        require additional details on the applicant in order to confirm a job
+      description: >-
+        Contains any additional or extended inputs required to confirm an order.
+        This is typically a Form Input. Sometimes, selection of catalog elements
+        is not enough for the BPP to confirm an order. For example, to confirm a
+        flight ticket, the airline requires details of the passengers along with
+        information on baggage, identity, in addition to the class of ticket.
+        Similarly, a logistics company may require details on the nature of
+        shipment in order to confirm the shipping. A recruiting firm may require
+        additional details on the applicant in order to confirm a job
         application. For all such purposes, the BPP can choose to send this
         object attached to any object in the catalog that is required to be sent
         while placing the order. This object can typically be sent at an item
@@ -2864,7 +2774,7 @@ components:
           additionalProperties: false
           properties:
             descriptor:
-              $ref: "#/components/schemas/Descriptor"
+              $ref: '#/components/schemas/Descriptor'
             index:
               type: object
               additionalProperties: false
@@ -2881,7 +2791,7 @@ components:
                 type: string
                 description: The heading names of the forms
         form:
-          $ref: "#/components/schemas/Form"
+          $ref: '#/components/schemas/Form'
         form_response:
           description: Describes the response to a form submission
           type: object
@@ -2897,827 +2807,9 @@ components:
             errors:
               type: array
               items:
-                $ref: "#/components/schemas/Error"
+                $ref: '#/components/schemas/Error'
         required:
-          description: Indicates whether the form data is mandatorily required by the BPP
+          description: >-
+            Indicates whether the form data is mandatorily required by the BPP
             to confirm the order.
           type: boolean
-    Issue:
-      description: >
-        *  Describes the Issue/complaint raised for a particular order,
-        transaction or fulfillment or item for which an issue is faced by the
-        buyer.
-
-        * It also describes the Issue/complaint raised by the network
-        participants to its conuter party or casacaded counterparty apps as and
-        when applicable
-
-        * Describes the issue when it is escalated as a Grievance or a Dispute
-
-        *  supplementary Information  Describes and details evidence of the
-        information about the issue . When the complainant or respondent seeks
-        an issue update the addtional information about the update are populated
-        as part of the supplementary information. 
-          the supplementary information section , details information including but not limited to any of the following or more: 
-            * comments from the complaintant/ respondent for seeking more information about the issue
-            * comments from the complaintant/ respondent providing the update on the issue with more information on the issue 
-            * Picutres providing further information about the issue
-            * documents attachment/links providing further information about the issue etc
-      type: object
-      properties:
-        id:
-          description: >
-            * Network issue identifier is an unique number assigned to any
-            complaint by the interfacing application at the source.
-
-
-            * **During the life cycle of a complaint, this number will not
-            change and will be communicated to counterparty application.**
-
-
-            * Any subsequent issues created with the interfacing,counterpary or
-            casacaded counter party apps are responsible for providing the
-            correalted and relevant network-issue-id which helps all this
-            inteacting systems to traverse back to the main issue.
-          type: string
-        complainant_info:
-          $ref: "#/components/schemas/Complainant"
-        order_details:
-          $ref: "#/components/schemas/OrderDetails"
-        category:
-          $ref: "#/components/schemas/IssueCategory"
-        sub_category:
-          $ref: "#/components/schemas/IssueSubCategory"
-        level:
-          $ref: "#/components/schemas/Level"
-        issue_type:
-          description: |
-            identifies the type of the issue raised
-            * the complainant being raised can be a regular ```Issue```, 
-            * which then subsequently can be escalated to be a ```Grievance``` 
-            * which may be further escalated to be a ```Dispute```
-          type: string
-          enum:
-            - ISSUE
-            - GRIEVANCE
-            - DISPUTE
-        source:
-          $ref: "#/components/schemas/IssueSource"
-        expected_response_time:
-          $ref: "#/components/schemas/Time"
-        expected_resolution_time:
-          $ref: "#/components/schemas/Time"
-        status:
-          description: >
-            ### Statues
-              1. Open : indicating that the issue is opened and further action is yet to be taken on the issue
-              2. CLOSED : indicating that the issue is closed and no further action/update/info/resolution action/status change are expected/accepted on this issue.
-          type: string
-          enum:
-            - OPEN
-            - CLOSED
-            - INFO_PROVIDED
-        issue_actions:
-          $ref: "#/components/schemas/IssueActions"
-        selected_odrs_info:
-          description: >
-            details of the ODRs selected by the resolution provider .
-
-            one of this would be subsequently finalized to be the ODR resposbile
-            to resolve the issue . 
-
-            This is a required object if and when the issue type is "Dispute"
-          type: array
-          items:
-            $ref: "#/components/schemas/SelectedODRs"
-        finalized_odr:
-          $ref: "#/components/schemas/ODR"
-        refs:
-          description: will give bref about refs
-          type: array
-          items:
-            type: object
-            properties:
-              ref_id:
-                type: string
-              ref_type:
-                type: string
-        actors:
-          description: Describes the actors involved in the transaction
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                description: Describes id of the actors that are their
-                type: string
-              type:
-                description: Describes the type of actor
-                type: string
-              info:
-                description: Describes the information about actor
-                type: object
-                properties:
-                  person:
-                    $ref: "#/components/schemas/Person"
-                  contact:
-                    $ref: "#/components/schemas/Contact"
-                  org:
-                    type: object
-        source_id:
-          description: Describes the source of the issue
-          type: string
-        complainant_id:
-          description: Describes the complainant id
-          type: string
-        respondent_ids:
-          description: Describes the respondent id
-          type: array
-          items:
-            type: string
-        resolver_ids:
-          description: Describes the resolver id
-          type: array
-          items:
-            type: string
-        descriptor:
-          $ref: "#/components/schemas/DescriptorIgm"
-        last_action_id:
-          description: Describes the last action id
-          type: string
-        actions:
-          description: Describes the actions taken on the issue
-          type: array
-          items:
-            $ref: "#/components/schemas/Action"
-        rating:
-          description: rating by the complainant for issue resolution
-          type: string
-          enum:
-            - THUMBS-UP
-            - THUMBS-DOWN
-        resolution_provider:
-          $ref: "#/components/schemas/ResolutionProvider"
-        resolutions:
-          description: Describes the actions taken on the issue
-          type: array
-          items:
-            $ref: "#/components/schemas/IssueResolution"
-        additional_info_required:
-          type: array
-          items:
-            $ref: "#/components/schemas/AdditionalInfoRequired"
-        created_at:
-          description: timestamp for the creation of the issue
-          type: string
-          format: date-time
-        updated_at:
-          description: timestamp for the capturing the time an issue was last updated
-          type: string
-          format: date-time
-          required:
-            - id
-            - created_at
-            - updated_at
-      additionalProperties: false
-    IssueSubCategory:
-      description: Identifies what is the sub-category of this issue
-      type: string
-      enum:
-        - ORD01
-        - ORD02
-        - ORD03
-        - ITM01
-        - ITM02
-        - ITM03
-        - ITM04
-        - FLM01
-        - FLM02
-        - FLM03
-        - FLM04
-        - FLM05
-        - FLM06
-        - FLM07
-        - AGT01
-        - AGT02
-        - PMT01
-        - PMT02
-        - PMT03
-        - PMT04
-        - FLM201
-    IssueCategory:
-      description: >
-        Identifies what is the category of this issue
-
-        ### CATEGORIES:
-
-        1. Order : Indicactes that the issue is related to  Order.
-
-        2. Transaction : Indicactes that the issue is related to  Transaction.
-
-        3. Fulfillment : Indicactes that the issue is related to  Fulfillment.
-
-        4. Product : Indicactes that the issue is related to  Product.
-
-        5. Product Service : Indicactes that the issue is related to  Product
-        Service.
-
-        6. Service : Indicactes that the issue is related to  Service.
-
-        7. Payment : Indicactes that the issue is related to  Payments.
-      type: string
-    IssueSource:
-      description: source of the issue
-      type: object
-      properties:
-        network_participant_id:
-          type: string
-          description: unique identifier of the network participant of the source of this
-            issue. It can be one of buyer-id in the buyer- interfacing app , or
-            any of the relevant network provider id based on what causes the
-            issue
-        type:
-          description: >
-            Indicates the source from where the issue is raised. 
-
-            ### TYPES
-                1. Consumer : indicating that the Consumer(Buyer) of a product or a service has raised the issue
-                2. Seller : indicating that the Seller of a product or a service has raised the issue
-                3. Intefacing NP : indicating that the Interfacing NP has identified and raised the issue
-          type: string
-          enum:
-            - CONSUMER
-            - SELLER
-            - INTERFACING-NP
-      additionalProperties: false
-    IssueActions:
-      description: >
-        Status of the issue updated by respondent or the complainant
-
-        The issue may attain different status based on its lifecycle. TODO add
-        info of enums in here and in issue-source
-      type: object
-      properties:
-        complainant_actions:
-          type: array
-          items:
-            $ref: "#/components/schemas/ComplainantAction"
-        respondent_actions:
-          type: array
-          items:
-            $ref: "#/components/schemas/RespondentAction"
-      additionalProperties: false
-    OrderDetails:
-      type: object
-      properties:
-        id:
-          description: the value of this field will be the combination of
-            context.transaction_id and order.id.
-          type: string
-        state:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/Item"
-        fulfillments:
-          type: array
-          items:
-            $ref: "#/components/schemas/Fulfillment"
-        provider_id:
-          type: string
-        merchant_order_id:
-          type: string
-      additionalProperties: false
-    Complainant:
-      description: >
-        - Describes an entity that raises a complaint with an interfacing app. 
-
-        - The complainant may be an end user (buyer or seller) or a network
-        participant (buyer app/ seller app/ logistic services  provider app)
-      type: object
-      properties:
-        person:
-          $ref: "#/components/schemas/Person"
-        contact:
-          allOf:
-            - $ref: "#/components/schemas/Contact"
-            - type: object
-              required:
-                - phone
-      required:
-        - contact
-      additionalProperties: false
-    ComplainantAction:
-      type: object
-      properties:
-        complainant_action:
-          description: >
-            Describes the action taken by the complainant who has raised the
-            issue. 
-
-            the value should be populated when the complainant has taken any of
-            the below actions to anotate the action taken. the actions can be, 
-
-            ### Actions
-
-            1. Complainant can ```open``` the issue if he isn't satisfied with
-            the products or services he has purchased or used 
-
-            2. Complainant can ```escalate``` the issue if he isn't satisfied
-            with the issue resolution
-
-            3. Complainant can ```close``` the issue if he doesn't expect any
-            more additonal action on the issue and he is satisfied with the
-            resolution/actions taken on the issue till the time of closure of
-            the issue.
-          type: string
-          enum:
-            - OPEN
-            - ESCALATE
-            - CLOSE
-        updated_at:
-          description: timestamp for the capturing the time an issue status was last updated
-          type: string
-          format: date-time
-        updated_by:
-          $ref: "#/components/schemas/Organization"
-        short_desc:
-          description: details of the remarks when the issue status is changed, can be
-            captured when the complainant triggers an action
-          type: string
-    Level:
-      description: Describes the level of a issue
-      type: string
-    ODR:
-      description: >
-        * Describes the details of the Online Dispute Resolution Provider.
-
-        ODR Service Providers (ODR SP) via dispute resolution methods such as
-        mediation/ conciliation and/or arbitration, will attempt to resolve
-        disputes
-
-        NOTE : ```ODR``` stands for Online Dispute Resolution.
-
-        * May also describe the details of the ODR finalized or identified by
-        the intefacing app, to whom the issue will be assigned for resolution.
-      type: object
-      properties:
-        name:
-          description: Name of the ODR provider
-          type: string
-        short_desc:
-          description: Information about the ODR provider
-          type: string
-        long_desc:
-          description: Detailed information about the ODR provider
-          type: string
-        url:
-          description: URL link to the ODR provider
-          type: string
-        organization:
-          $ref: "#/components/schemas/Organization"
-        pricing_model:
-          description: Details of the pricing modle of the ODR
-          type: object
-          properties:
-            price:
-              $ref: "#/components/schemas/Price"
-            pricing_info:
-              description: addtional information about the pricing model
-              type: string
-        resolution_ratings:
-          $ref: "#/components/schemas/Rating"
-      required:
-        - name
-        - short_desc
-        - url
-        - pricing_model
-        - resolution_ratings
-      additionalProperties: false
-    SelectedODRs:
-      type: object
-      properties:
-        respondent_info:
-          type: object
-          $ref: "#/components/schemas/Organization"
-        odrs:
-          type: array
-          items:
-            $ref: "#/components/schemas/ODR"
-      additionalProperties: false
-    RespondentAction:
-      type: object
-      properties:
-        respondent_action:
-          type: string
-          enum:
-            - PROCESSING
-            - CASCADED
-            - RESOLVED
-            - NEED-MORE-INFO
-        updated_at:
-          description: timestamp for the capturing the time an issue status was last updated
-          type: string
-          format: date-time
-        updated_by:
-          $ref: "#/components/schemas/Organization"
-        short_desc:
-          description: details of the remarks when the issue status is changed, can be
-            captured when the respondent triggers an action
-          type: string
-        cascaded_level:
-          description: the default value will be 1, whenever the issue will be cascaded to
-            the next level the value of this field should be incremented by 1 it
-            will upgrade it indicates to the next sub-level.
-          type: integer
-      additionalProperties: false
-    GRO:
-      description: >
-        Grievance Redressal Officer is appointed by each network participant
-        (buyer app, seller app, logistic provider app) for consumer grievance
-        redressal
-
-        Details of the GRO appointed by the resolution provider to support in
-        issue resolution .
-
-        This is a required object if and when the issue type is "Grievance"
-      type: object
-      properties:
-        person:
-          $ref: "#/components/schemas/Person"
-        contact:
-          $ref: "#/components/schemas/Contact"
-          required:
-            - phone
-            - email
-        gro_type:
-          type: string
-          description: >
-            Indicates the system through which the GRO is assigned to this
-            issue. 
-
-            ### TYPES
-                1. Intefacing NP GRO : indicating the GRO is assigned by the NP where or through which the issue is raised
-                2. Transaction Counterparty NP GRO : indicating the GRO is assigned by the first level of counterparty network provider with which the interfacing NP is interacting with to get an issue resolution.
-                3. Cascaded Counterparty NP GRO : indicating the GRO is assigned by the second or any further downstream levels of counterparty network provider, with which the NP is interacting with, to get an issue resolution.
-          enum:
-            - INTEFACING-NP-GRO
-            - TRANSACTION-COUNTERPARTY-NP-GRO
-            - CASCADED-COUNTERPARTY-NP-GRO
-      required:
-        - contact
-        - gro_type
-      additionalProperties: false
-    IssueResolution:
-      description: Describes the issue resolution for the issue raised by a Complainant
-      type: object
-      properties:
-        short_desc:
-          description: resolution
-          type: string
-        long_desc:
-          description: remarks of the resolution of the issue by the respondent
-          type: string
-        gro_remarks:
-          description: resolution remarks provided by the gro
-          type: string
-        odr_remarks:
-          description: remarks of the result of the dispute, if applicable
-          type: string
-        action_triggered:
-          type: string
-          enum:
-            - REFUND
-            - REPLACEMENT
-            - RETURN
-            - CANCEL
-            - NO-ACTION
-        action:
-          description: >
-            Indicactes the action taken while addressing the issue.
-             ### Actions
-              1. resolve : indicating the issue being resolved. 
-              2. reject : indicating that the issue is rejected by the respondent or the resolution provider.
-          type: string
-          enum:
-            - RESOLVE
-            - REJECT
-        refund_amount:
-          type: string
-        id:
-          description: unique identifier of the issue resolution
-          type: string
-        proposed_by:
-          type: string
-        updated_at:
-          description: timestamp for the capturing the time an issue resolution was last
-            updated
-          type: string
-          format: date-time
-        descriptor:
-          $ref: "#/components/schemas/Descriptor"
-        tags:
-          $ref: "#/components/schemas/Tag1"
-        ref_id:
-          description: Describes the reference id
-          type: string
-        ref_type:
-          description: Describes the type of reference
-          type: string
-      required:
-        - short_desc
-        - action_triggered
-      additionalProperties: false
-    SupplementaryInformation:
-      type: object
-      properties:
-        updated_at:
-          description: timestamp for the capturing the time an issue was last updated
-          type: string
-          format: date-time
-        message_id:
-          type: string
-      additionalProperties: false
-    DescriptorIgm:
-      description: Describes the description of a real-world object.
-      type: object
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-        symbol:
-          type: string
-        short_desc:
-          type: string
-        long_desc:
-          type: string
-        additional_desc:
-          type: object
-          properties:
-            url:
-              type: string
-            content_type:
-              type: string
-              enum:
-                - text/plain
-                - text/html
-                - application/json
-          additionalProperties: false
-        images:
-          type: array
-          items:
-            $ref: "#/components/schemas/ImageIgm"
-        media:
-          type: array
-          items:
-            $ref: "#/components/schemas/MediaFile"
-        audio:
-          type: string
-          format: uri
-        3d_render:
-          type: string
-          format: uri
-        tags:
-          description: A list of tags containing any additional information sent along
-            with the Acknowledgement.
-          type: array
-          items:
-            $ref: "#/components/schemas/TagGroup"
-      additionalProperties: false
-    ImageIgm:
-      description: "Image of an object. <br/><br/> A url based image will look like
-        <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be
-        sent as a data string. For example : <br/><br/>
-        ```data:js87y34ilhriuho84r3i4```"
-      type: object
-      properties:
-        url:
-          type: string
-          format: uri
-        size_type:
-          type: string
-      additionalProperties: false
-    ResolutionProvider:
-      description: Describes the details of the entity that provides the resolution
-        for the issue
-      type: object
-      properties:
-        respondent_info:
-          description: the respondent represents the details of the entity identfied by
-            the resolution provider or the complainant himself (when he has to
-            select the ODRs)
-          type: object
-          properties:
-            type:
-              description: >
-                Indicates the type of the resolution provider NP type.
-
-                ### TYPES
-
-                1. Interfacing NP : indicating the NP where or through which the
-                issue is raised
-
-                2. Transaction Counterparty NP : indicating the first level of
-                transaction counterparty network provider with which the
-                interfacing NP is interacting with to get an issue resolution.
-
-                3. Cascaded Counterparty NP : indicating the second or any
-                further downstream levels of counterparty network provider with
-                which the NP is interacting with to get an issue resolution.
-              type: string
-              enum:
-                - INTERFACING-NP
-                - TRANSACTION-COUNTERPARTY-NP
-                - CASCADED-COUNTERPARTY-NP
-            organization:
-              $ref: "#/components/schemas/Organization"
-            resolution_support:
-              $ref: "#/components/schemas/ResolutionSupport"
-      required:
-        - respondent_info
-    ResolutionSupport:
-      description: >
-        Any one of these resolution support deatils are mandatory to be speficed
-        whenever an issue resolution is proposed.
-
-        In case of Issue, Either a respondent ChatLink, email or faq deatils
-        should be provided or any of the additional sources of support should be
-        provided
-
-        In case of Grievance : the GRO details are manadatory to be provided 
-
-        In case of Dispute : the selected ODR details are mandatory to be
-        provided 
-
-        Porvides details of the resolution support for the respondent /
-        complainant to interact with the respondent
-      type: object
-      properties:
-        chat_link:
-          description: chatbot link for the respondent for complainant to interact with
-            the respondent
-          type: string
-        contact:
-          $ref: "#/components/schemas/Contact"
-        faqs:
-          description: frequently asked questions for the respondent for complainant to
-            get information as required
-          type: array
-          items:
-            $ref: "#/components/schemas/Faq"
-        additional_sources:
-          type: array
-          items:
-            $ref: "#/components/schemas/ResolutionSource"
-        gros:
-          description: >
-            Details of the GRO appointed by the resolution provider to support
-            in issue resolution .
-
-            This is a required object if and when the issue type is "Grievance"
-          type: array
-          items:
-            $ref: "#/components/schemas/GRO"
-    Action:
-      type: object
-      properties:
-        id:
-          description: Describes id of the action
-          type: string
-        ref_id:
-          description: Describes the reference id
-          type: string
-        ref_type:
-          description: Describes the refence type
-          type: string
-        descriptor:
-          allOf:
-            - $ref: "#/components/schemas/DescriptorIgm"
-            - type: object
-              properties:
-                code:
-                  type: string
-                  enum:
-                    - OPEN
-                    - PROCESSING
-                    - CLOSED
-                    - CASCADED
-                    - INFO_REQUESTED
-                    - INFO_PROCESSING
-                    - INFO_PROVIDED
-                    - INFO_NOT_AVAILABLE
-                    - RESOLUTION_PROPOSED
-                    - RESOLUTION_FORWARDED
-                    - RESOLUTION_PROCESSING
-                    - RESOLUTION_ACCEPTED
-                    - RESOLUTION_REJECTED
-                    - RESOLVED
-        updated_at:
-          type: string
-          format: date-time
-          description: Timestamp in RFC3339 format when the action was updated
-        action_by:
-          type: string
-          description: Describes the actor who performed the action
-        actor_details:
-          type: object
-          properties:
-            name:
-              description: Describes id of the actor
-              type: string
-        tags:
-          type: array
-          description: List of tag objects
-          items:
-            type: object
-            properties:
-              descriptor:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    description: Descriptor code of the tag group
-                required:
-                  - code
-              list:
-                type: array
-                description: List of key_value tag entries
-                items:
-                  type: object
-                  properties:
-                    descriptor:
-                      type: object
-                      properties:
-                        code:
-                          type: string
-                          description: Descriptor code of the individual tag
-                      required:
-                        - code
-                    value:
-                      type: string
-                      description: Value of the tag
-                      enum:
-                        - THUMBS_UP
-                        - THUMBS_DOWN
-                  required:
-                    - descriptor
-                    - value
-            required:
-              - descriptor
-              - list
-      additionalProperties: false
-    Faq:
-      type: object
-      description: |
-        faqs
-      properties:
-        question:
-          type: string
-        answer:
-          type: string
-      additionalProperties: false
-    ResolutionSource:
-      description: >
-        the resolution source provide details of any addtional resolution
-        resources thier types and a link eg : AI enabled chatbot,
-        support/contact webpage link , lnik to IVR detials etc
-      type: object
-      properties:
-        type:
-          type: string
-        link:
-          type: string
-      additionalProperties: false
-    Tag1:
-      type: array
-      items:
-        type: object
-        properties:
-          descriptor:
-            type: object
-          list:
-            type: array
-            items:
-              type: object
-              properties:
-                descriptor:
-                  type: object
-                  properties:
-                    code:
-                      type: string
-                  additionalProperties: false
-                value:
-                  type: string
-              additionalProperties: false
-        additionalProperties: false
-    AdditionalInfoRequired:
-      type: object
-      properties:
-        info_required:
-          type: object
-          $ref: "#/components/schemas/SupplementaryInformation"
-        info_provided:
-          type: object
-          $ref: "#/components/schemas/SupplementaryInformation"
