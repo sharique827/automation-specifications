@@ -66,6 +66,10 @@ supportedActions:
     - on_update
   rating:
     - on_rating
+  on_rating:
+    - rating
+    - status
+    - on_status
   issue:
     - on_issue
     - issue
@@ -171,9 +175,13 @@ apiProperties:
     transaction_partner:
       - update
   rating:
-    async_predecessor: on_status
+    async_predecessor: null
     transaction_partner:
       - on_status
+  on_rating:
+    async_predecessor: rating
+    transaction_partner:
+      - rating
   issue:
     async_predecessor: null
     transaction_partner: []  
