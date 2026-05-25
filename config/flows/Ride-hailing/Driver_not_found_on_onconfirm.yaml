@@ -79,6 +79,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        start_location: "$.message.intent.fulfillment.stops[?(@.type=='START')].location.gps"
+        intermediate_location: "$.message.intent.fulfillment.stops[?(@.type=='INTERMEDIATE_STOP')].location.gps"
+        end_location: "$.message.intent.fulfillment.stops[?(@.type=='END')].location.gps"
+        payment_collected_by: "$.message.intent.payment.collected_by"
+        stops: "$.message.intent.fulfillment.stops[*]"
+        collected_by: "$.message.intent.payment.collected_by"
+
       inputs:
         oldInputs:
           - name: city_code
@@ -301,6 +308,15 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        fulfillments: "$.message.catalog.providers[*].fulfillments[*]"
+        categories: "$.message.catalog.providers[*].categories[*]"
+        provider_id: "$.message.catalog.providers[*].id"
+        fulfillment_ids: "$.message.catalog.providers[*].fulfillments[*].id"
+        items: "$.message.catalog.providers[*].items[*]"
+        item_ids: "$.message.catalog.providers[*].items[*].id"
+        locations: "$.message.catalog.providers[*].locations"
+        locations_id: "$.message.catalog.providers[*].locations[*].id"
+        payments: "$.message.catalog.providers[*].payments[*]"
       inputs: {}
     examples:
       - name: Example for action "on_search"
@@ -481,6 +497,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        selected_item_id: "$.message.order.items[*].id"
+        selected_items: "$.message.order.items[*]"
+        selected_provider_id: "$.message.order.provider.id"
+        updated_price: "$.message.order.items[0].price.value"
+        selected_add_ons: "$.message.order.items[*].add_ons[*]"
       inputs:
         oldInputs:
           - name: select_input
@@ -662,6 +683,10 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        selected_fulfillments: "$.message.order.fulfillments[*]"
+        quote: "$.message.order.quote"
+        items: "$.message.order.items[*]"
+        selected_fulfillment_id: "$.message.order.fulfillments[*].id"
       inputs: {}
     examples:
       - name: Example for action "on_select"
@@ -900,6 +925,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        message_id: "$.context.message_id"
+        billing: "$.message.order.billing"
+        payments: "$.message.order.payments[*]"
+        fulfillments: "$.message.order.fulfillments[*]"
+        provider_id: "$.message.order.provider.id"
       inputs: {}
     examples:
       - name: Example for action "init"
@@ -1219,6 +1249,12 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        cancellation_terms: "$.message.order.cancellation_terms[*]"
+        selected_fulfillments: "$.message.order.fulfillments[*]"
+        payments: "$.message.order.payments[*]"
+        payment_ids: "$.message.order.payments[*].id"
+        items: "$.message.order.items[*]"
+
       inputs: {}
     examples:
       - name: Example for action "on_init"
@@ -1539,6 +1575,12 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        message_id: "$.context.message_id"
+        fulfillment_id: "$.message.order.fulfillments[0].id"
+        payment_id: "$.message.order.payments[0].id"
+        provider_id: "$.message.order.provider.id"
+        bap_items: "$.message.order.items[*]"
+        ttl: "$.context.ttl"
       inputs: {}
     examples:
       - name: Example for action "confirm"
@@ -1674,6 +1716,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        order_id: "$.message.order.id"
+        order: "$.message.order"
+        status: "$.message.order.status"
+        selected_fulfillments: "$.message.order.fulfillments[*]"
+        created_at: "$.message.order.created_at"
       inputs: {}
     examples:
       - name: Example for action "on_confirm"
