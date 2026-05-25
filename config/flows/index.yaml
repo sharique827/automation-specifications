@@ -1,6 +1,8 @@
 flows:
     - type: playground
-      id: Personal_Loan_Offline
+      id: Personal_Loan_
+      meta:
+          order: 0
       usecase: PERSONAL LOAN
       tags:
           - WORKBENCH
@@ -10,6 +12,8 @@ flows:
           $ref: ./PERSONAL LOAN/Personal_Loan_Offline.yaml
     - type: playground
       id: Personal_Loan_Single_Redirection
+      meta:
+          order: 1
       usecase: PERSONAL LOAN
       tags:
           - WORKBENCH
@@ -19,6 +23,8 @@ flows:
           $ref: ./PERSONAL LOAN/Personal_Loan_Single_Redirection.yaml
     - type: playground
       id: Personal_Loan_Dedupe_Check
+      meta:
+          order: 2
       usecase: PERSONAL LOAN
       tags:
           - WORKBENCH
@@ -139,6 +145,8 @@ flows:
     - type: playground
       id: Personal_Loan_Foreclosure_Offline
       usecase: PERSONAL LOAN
+      meta:
+          order: 3
       tags:
           - WORKBENCH
           - REPORTABLE
@@ -147,6 +155,8 @@ flows:
           $ref: ./PERSONAL LOAN/Personal_Loan_Foreclosure_Offline.yaml
     - type: playground
       id: Personal_Loan_missed_emi_payment_Offline
+      meta:
+          order: 5
       usecase: PERSONAL LOAN
       tags:
           - WORKBENCH
@@ -157,6 +167,8 @@ flows:
     - type: playground
       id: Personal_Loan_Pre_Part_Payment_Offline
       usecase: PERSONAL LOAN
+      meta:
+          order: 4
       tags:
           - WORKBENCH
           - REPORTABLE
