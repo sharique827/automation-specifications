@@ -1,8 +1,8 @@
 name: Build and Deploy ONIX Service
 
 # ── Triggers ─────────────────────────────────────────────────────────
-# 1. Push to draft-* with config/ changes → auto build + deploy to DEV
-# 2. Manual workflow_dispatch (GitHub UI) → promote dev image to PROD
+# 1. Push to draft-* → auto build + deploy to DEV
+# 2. Manual workflow_dispatch (GitHub UI) → build DEV or promote to PROD
 on:
   push:
     branches:
@@ -14,19 +14,21 @@ on:
         description: "Action to perform"
         required: true
         type: choice
+        default: build-dev
         options:
+          - build-dev
           - promote-to-prod
       image_tag:
-        description: "Dev image tag to promote to prod (e.g. dev-abc1234)"
-        required: true
+        description: "Dev image tag to promote to prod (required for promote-to-prod)"
+        required: false
         type: string
       domain:
-        description: "Domain name (e.g. ONDC:TRV11)"
-        required: true
+        description: "Domain name (e.g. ONDC:TRV11, required for promote-to-prod)"
+        required: false
         type: string
       version:
-        description: "Domain version (e.g. 2.0.1)"
-        required: true
+        description: "Domain version (e.g. 2.0.1, required for promote-to-prod)"
+        required: false
         type: string
 
 env:
@@ -37,7 +39,7 @@ env:
 jobs:
   # ──────────────────────────────────────────────────────────────────
   # JOB 1: Build image and deploy to DEV
-  # Runs on: push to draft-* with config/ changes
+  # Runs on: push to draft-* or manual build-dev dispatch
   # ──────────────────────────────────────────────────────────────────
   build-and-deploy-dev:
     runs-on: ubuntu-latest
@@ -255,6 +257,12 @@ jobs:
       packages: write
 
     steps:
+      - name: Validate promote-to-prod inputs
+        run: |
+          test -n "${{ inputs.image_tag }}" || { echo "image_tag is required for promote-to-prod"; exit 1; }
+          test -n "${{ inputs.domain }}" || { echo "domain is required for promote-to-prod"; exit 1; }
+          test -n "${{ inputs.version }}" || { echo "version is required for promote-to-prod"; exit 1; }
+
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
