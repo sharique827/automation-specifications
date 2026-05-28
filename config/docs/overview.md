@@ -25,7 +25,7 @@ According to the use case, the actors who transact are:
 - Foreclose a loan completely before maturity
 
 ## Key Concepts
-- **ONDC**: The open network protocol that connects buyer apps and lender apps
+- **ONDC**: The open network protocol that connects buyer apps and lender apps.
 - **Credit Products**: Gold loans and personal loans offered by lenders to borrowers
 - **Single Redirection**: Borrower selects a loan offer in the buyer app, then completes verification and signing on the lender's platform
 - **Real-time Loan Tracking**: Lenders send status updates throughout the loan lifecycle so borrowers see progress without switching apps
