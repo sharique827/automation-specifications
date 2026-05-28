@@ -23,20 +23,6 @@ flows:
     config:
       $ref: ./Logistics (P2P)/CANCELLATION_TERMS_FLOW.yaml
   - type: playground
-    id: CANCELLATION_TERMS_FLOW_INIT_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - INIT
-      - CT
-      - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). Here the LSP provides cancellation
-      terms which would be applicable in case of a cancellation.
-    config:
-      $ref: ./Logistics (P2P)/CANCELLATION_TERMS_FLOW_INIT_DEV_PORTAL.yaml
-  - type: playground
     id: CASH_ON_DELIVERY_FLOW
     usecase: Logistics (P2P)
     tags:
@@ -49,45 +35,6 @@ flows:
       Buyer Network Participants (LBNPs) and Logistics Service Providers (LSPs).
     config:
       $ref: ./Logistics (P2P)/CASH_ON_DELIVERY_FLOW.yaml
-  - type: playground
-    id: CASH_ON_DELIVERY_FLOW_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - COD
-      - REPORTABLE
-    description: This flow defines the logistics process for Cash on Delivery (COD)
-      retail orders, ensuring proper tracking and settlement between Logistics
-      Buyer Network Participants (LBNPs) and Logistics Service Providers (LSPs).
-    config:
-      $ref: ./Logistics (P2P)/CASH_ON_DELIVERY_FLOW_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
-    id: CASH_ON_DELIVERY_FLOW_INIT_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - INIT
-      - COD
-      - REPORTABLE
-    description: This flow defines the logistics process for Cash on Delivery (COD)
-      retail orders, ensuring proper tracking and settlement between Logistics
-      Buyer Network Participants (LBNPs) and Logistics Service Providers (LSPs).
-    config:
-      $ref: ./Logistics (P2P)/CASH_ON_DELIVERY_FLOW_INIT_DEV_PORTAL.yaml
-  - type: playground
-    id: CASH_ON_DELIVERY_FLOW_SEARCH_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - SEARCH
-      - COD
-      - REPORTABLE
-    description: This flow defines the logistics process for Cash on Delivery (COD)
-      retail orders, ensuring proper tracking and settlement between Logistics
-      Buyer Network Participants (LBNPs) and Logistics Service Providers (LSPs).
-    config:
-      $ref: ./Logistics (P2P)/CASH_ON_DELIVERY_FLOW_SEARCH_DEV_PORTAL.yaml
   - type: playground
     id: Call-Masking
     usecase: Logistics (P2P)
@@ -129,18 +76,6 @@ flows:
     config:
       $ref: ./Logistics (P2P)/FEATURE_DISCOVERY.yaml
   - type: playground
-    id: FEATURE_DISCOVERY_SEARCH_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - SEARCH
-      - SPSD
-      - FD
-      - REPORTABLE
-    description: Feature discovery for point-to-point logistics operations
-    config:
-      $ref: ./Logistics (P2P)/FEATURE_DISCOVERY_SEARCH_DEV_PORTAL.yaml
-  - type: playground
     id: FIFO_FLOW
     usecase: Logistics (P2P)
     tags:
@@ -169,21 +104,6 @@ flows:
     config:
       $ref: ./Logistics (P2P)/IMMEDIATE_DELIVERY_FLOW.yaml
   - type: playground
-    id: IMMEDIATE_DELIVERY_FLOW_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - UFID
-      - REPORTABLE
-    description: The Immediate Delivery Flow outlines the process for confirming and
-      updating logistics orders with the Logistics Service Provider (LSP) and
-      the Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B
-      and Grocery orders. Ship to delivery (S2D) TAT for the same is less than
-      60 minutes.
-    config:
-      $ref: ./Logistics (P2P)/IMMEDIATE_DELIVERY_FLOW_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
     id: ORDER_FLOW_BASE_LINE
     usecase: Logistics (P2P)
     tags:
@@ -193,28 +113,6 @@ flows:
     description: Standard point-to-point delivery flow including baseline features
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE.yaml
-  - type: playground
-    id: ORDER_FLOW_BASE_LINE_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - SPSD
-      - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-    config:
-      $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
-    id: ORDER_FLOW_BASE_LINE_INIT_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - INIT
-      - SPSD
-      - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-    config:
-      $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_INIT_DEV_PORTAL.yaml
   - type: playground
     id: ORDER_FLOW_BASE_LINE_PUBLIC_SPECIAL_CAPABILITIES
     usecase: Logistics (P2P)
@@ -246,39 +144,6 @@ flows:
     description: Standard point-to-point delivery flow including baseline features
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_SLA_METRICS.yaml
-  - type: playground
-    id: ORDER_FLOW_BASE_LINE_STATUS_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - STATUS
-      - SPSD
-      - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-    config:
-      $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_STATUS_DEV_PORTAL.yaml
-  - type: playground
-    id: ORDER_FLOW_BASE_LINE_TRACK_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - TRACK
-      - SPSD
-      - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-    config:
-      $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_TRACK_DEV_PORTAL.yaml
-  - type: playground
-    id: ORDER_FLOW_BASE_LINE_UPDATE_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - UPDATE
-      - SPSD
-      - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-    config:
-      $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_UPDATE_DEV_PORTAL.yaml
   - type: playground
     id: ORDER_FLOW_BASE_LINE_WITH_IGM(v-1.0.0)
     usecase: Logistics (P2P)
@@ -433,20 +298,6 @@ flows:
     config:
       $ref: ./Logistics (P2P)/STATIC_OTP_PICKUP_DELIVERY.yaml
   - type: playground
-    id: STATIC_OTP_PICKUP_DELIVERY_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - SOV_P&D
-      - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). Here the LBNP provides static OTP
-      for pickup and delivery verification.
-    config:
-      $ref: ./Logistics (P2P)/STATIC_OTP_PICKUP_DELIVERY_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
     id: STATIC_OTP_RTO_DELIVERY
     usecase: Logistics (P2P)
     tags:
@@ -462,51 +313,6 @@ flows:
     config:
       $ref: ./Logistics (P2P)/STATIC_OTP_RTO_DELIVERY.yaml
   - type: playground
-    id: STATIC_OTP_RTO_DELIVERY_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - SOV_RTO
-      - REPORTABLE
-    description: Flow for Return to Origin (RTO) when buyer is unavailable or
-      delivery fails. A separate RTO fulfillment is created and linked to the
-      forward shipment. RTO quote is added before RTO completes. RTO ends with
-      Delivered or Disposed, completing the order. Here LBNP provides static OTP
-      for RTO delivery verification.
-    config:
-      $ref: ./Logistics (P2P)/STATIC_OTP_RTO_DELIVERY_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
-    id: STATIC_OTP_RTO_DELIVERY_INIT_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - INIT
-      - SOV_RTO
-      - REPORTABLE
-    description: Flow for Return to Origin (RTO) when buyer is unavailable or
-      delivery fails. A separate RTO fulfillment is created and linked to the
-      forward shipment. RTO quote is added before RTO completes. RTO ends with
-      Delivered or Disposed, completing the order. Here LBNP provides static OTP
-      for RTO delivery verification.
-    config:
-      $ref: ./Logistics (P2P)/STATIC_OTP_RTO_DELIVERY_INIT_DEV_PORTAL.yaml
-  - type: playground
-    id: STATIC_OTP_RTO_DELIVERY_SEARCB_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - SEARCH
-      - SOV_RTO
-      - REPORTABLE
-    description: Flow for Return to Origin (RTO) when buyer is unavailable or
-      delivery fails. A separate RTO fulfillment is created and linked to the
-      forward shipment. RTO quote is added before RTO completes. RTO ends with
-      Delivered or Disposed, completing the order. Here LBNP provides static OTP
-      for RTO delivery verification.
-    config:
-      $ref: ./Logistics (P2P)/STATIC_OTP_RTO_DELIVERY_SEARCB_DEV_PORTAL.yaml
-  - type: playground
     id: SURGE_FEE_FLOW
     usecase: Logistics (P2P)
     tags:
@@ -521,36 +327,6 @@ flows:
       operational reason.
     config:
       $ref: ./Logistics (P2P)/SURGE_FEE_FLOW.yaml
-  - type: playground
-    id: SURGE_FEE_FLOW_CONFIRM_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - CONFIRM
-      - SF
-      - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B and
-      Grocery orders. Here the LSP adds an additional surge charge due to any
-      operational reason.
-    config:
-      $ref: ./Logistics (P2P)/SURGE_FEE_FLOW_CONFIRM_DEV_PORTAL.yaml
-  - type: playground
-    id: SURGE_FEE_FLOW_SEARCB_DEV_PORTAL
-    usecase: Logistics (P2P)
-    tags:
-      - DEV_PORTAL
-      - SEARCH
-      - SF
-      - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B and
-      Grocery orders. Here the LSP adds an additional surge charge due to any
-      operational reason.
-    config:
-      $ref: ./Logistics (P2P)/SURGE_FEE_FLOW_SEARCB_DEV_PORTAL.yaml
   - type: playground
     id: UPDATE_DELIVERY_ADDRESS
     usecase: Logistics (P2P)
