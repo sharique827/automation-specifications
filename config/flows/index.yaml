@@ -152,7 +152,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (SNP collecting paymen)
+    description: Retail 1.2.5 (SNP collecting payment)
     config:
       $ref: ./ELECTRONICS/SNP_Collecting_Payment_Flow.yaml
   - type: playground
@@ -164,3 +164,14 @@ flows:
     description: Retail 1.2.5 (Cancellation)
     config:
       $ref: ./ELECTRONICS/Seller_Cancellation_Flow.yaml
+  - type: playground
+    id: Replacement_Flow
+    usecase: ELECTRONICS
+    tags:
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+      - WORKBENCH
+    description: Retail 1.2.5 (Replacement)
+    config:
+      $ref: ./ELECTRONICS/Replacement_Flow.yaml
