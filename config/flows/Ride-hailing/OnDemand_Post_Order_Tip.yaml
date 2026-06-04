@@ -7050,3 +7050,306 @@ extra_steps:
             additionalProperties: false
           sampleData:
             code: RIDE_ARRIVED_PICKUP
+
+    - api: on_update
+      action_id: on_update_state
+      owner: BPP
+      responseFor: null
+      unsolicited: true
+      description: Manual ride-end update for the ride map (RIDE_ENDED delivered via on_update; side-channel via trigger_extra).
+      repeatCount: null
+      mock:
+        generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgY29kZSA9IHNlc3Npb25EYXRhICYmIHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzICYmIHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmNvZGU7CiAgY29uc3QgZmYgPSAoZGVmYXVsdFBheWxvYWQgJiYgZGVmYXVsdFBheWxvYWQubWVzc2FnZSAmJiBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyICYmIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzKSB8fCBbXTsKICBmb3IgKGNvbnN0IGYgb2YgZmYpIHsgaWYgKGYgJiYgZi5zdGF0ZSAmJiBmLnN0YXRlLmRlc2NyaXB0b3IpIHsgZi5zdGF0ZS5kZXNjcmlwdG9yLmNvZGUgPSBjb2RlOyB9IH0KICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+        validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+        requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+        defaultPayload:
+          context:
+            action: on_update
+            bap_id: dev-automation.ondc.org
+            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV10/2.1.0/buyer
+            bpp_id: dev-automation.ondc.org
+            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV10/2.1.0/seller
+            domain: ONDC:TRV10
+            location:
+              city:
+                code: std:011
+              country:
+                code: IND
+            message_id: d7a26402-236d-4b5e-8265-69bb9e93e1c4
+            timestamp: '2026-03-23T08:44:50.371Z'
+            transaction_id: 76a25692-e192-4287-a038-e9554f614acf
+            ttl: PT30S
+            version: 2.1.0
+          message:
+            order:
+              tags:
+                - descriptor:
+                    name: BAP Terms of Engagement
+                    code: BAP_TERMS
+                  display: false
+                  list:
+                    - descriptor:
+                        code: BUYER_FINDER_FEES_PERCENTAGE
+                      value: '1'
+                    - descriptor:
+                        code: DELAY_INTEREST
+                      value: '5'
+                    - descriptor:
+                        code: SETTLEMENT_TYPE
+                      value: UPI
+                    - descriptor:
+                        code: SETTLEMENT_WINDOW
+                      value: PT60M
+                    - descriptor:
+                        code: SETTLEMENT_BASIS
+                      value: DELIVERY
+                    - descriptor:
+                        code: MANDATORY_ARBITRATION
+                      value: 'true'
+                    - descriptor:
+                        code: COURT_JURISDICTION
+                      value: New Delhi
+                    - descriptor:
+                        code: STATIC_TERMS
+                      value: https://example-test-bap.com/static-terms.txt
+                    - descriptor:
+                        code: SETTLEMENT_AMOUNT
+                      value: '1.96'
+                    - descriptor:
+                        code: SETTLEMENT_BANK_CODE
+                      value: XXXXXXXX
+                    - descriptor:
+                        code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                      value: xxxxxxxxxxxxxx
+                    - descriptor:
+                        code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                      value: 9988199772@okicic
+                - descriptor:
+                    name: BPP Terms of Engagement
+                    code: BPP_TERMS
+                  display: false
+                  list:
+                    - descriptor:
+                        code: BUYER_FINDER_FEES_PERCENTAGE
+                      value: '1'
+                    - descriptor:
+                        code: DELAY_INTEREST
+                      value: '5'
+                    - descriptor:
+                        code: SETTLEMENT_TYPE
+                      value: UPI
+                    - descriptor:
+                        code: SETTLEMENT_WINDOW
+                      value: PT60M
+                    - descriptor:
+                        code: SETTLEMENT_BASIS
+                      value: DELIVERY
+                    - descriptor:
+                        code: MANDATORY_ARBITRATION
+                      value: 'true'
+                    - descriptor:
+                        code: COURT_JURISDICTION
+                      value: New Delhi
+                    - descriptor:
+                        code: STATIC_TERMS
+                      value: https://example-test-bpp.com/static-terms.txt
+                    - descriptor:
+                        code: SETTLEMENT_AMOUNT
+                      value: '1.96'
+              cancellation_terms:
+                - cancellation_fee:
+                    percentage: '0'
+                  fulfillment_state:
+                    descriptor:
+                      code: RIDE_ASSIGNED
+                  reason_required: true
+                - cancellation_fee:
+                    amount:
+                      currency: INR
+                      value: '10'
+                  fulfillment_state:
+                    descriptor:
+                      code: RIDE_ENROUTE_PICKUP
+                  reason_required: true
+                - cancellation_fee:
+                    amount:
+                      currency: INR
+                      value: '10'
+                  fulfillment_state:
+                    descriptor:
+                      code: RIDE_ARRIVED_PICKUP
+                  reason_required: true
+                - cancellation_fee:
+                    percentage: '100'
+                  fulfillment_state:
+                    descriptor:
+                      code: RIDE_STARTED
+                  reason_required: true
+              fulfillments:
+                - agent:
+                    contact:
+                      phone: '9856798567'
+                    person:
+                      name: Jason Roy
+                  customer:
+                    contact:
+                      phone: '9876556789'
+                    person:
+                      name: Joe Adams
+                  id: F1
+                  state:
+                    descriptor:
+                      code: RIDE_ENDED
+                      name: Your ride has ended
+                  stops:
+                    - authorization:
+                        token: '234234'
+                        type: OTP
+                        valid_to: '2023-12-10T08:05:34.294Z'
+                        status: UNCLAIMED
+                      location:
+                        gps: 13.008935, 77.644408
+                      instructions:
+                        short_desc: short description of the location
+                        long_desc: long description of the location
+                      type: START
+                    - location:
+                        gps: 12.971186, 77.586812
+                      type: END
+                  tags:
+                    - descriptor:
+                        code: ROUTE_INFO
+                        name: Route Information
+                      display: true
+                      list:
+                        - descriptor:
+                            code: ENCODED_POLYLINE
+                            name: Path
+                          value: qZ|nL~Hr`E_tuAxfKpmC~oBvUd@s
+                        - descriptor:
+                            code: WAYPOINTS
+                            name: Waypoints
+                          value: '[{ "gps": "12.909901,77.611578" },{ "gps": "12.910165,77.611820" },{ "gps": "12.909732,77.611792" },{ "gps": "12.910023,77.611905" }]'
+                  type: DELIVERY
+                  vehicle:
+                    category: AUTO_RICKSHAW
+                    variant: AUTO_RICKSHAW
+                    make: Bajaj
+                    model: Compact RE
+                    registration: KA-01-AD-9876
+              id: O1
+              items:
+                - descriptor:
+                    code: RIDE
+                    name: Auto Ride
+                  fulfillment_ids:
+                    - F1
+                  id: I1
+                  category_ids:
+                    - C1
+                  location_ids:
+                    - L1
+                    - L3
+                  payment_ids:
+                    - PA1
+                  price:
+                    currency: INR
+                    maximum_value: '176'
+                    minimum_value: '136'
+                    value: '146'
+                  tags:
+                    - descriptor:
+                        code: FARE_POLICY
+                        name: Daytime Charges
+                      display: true
+                      list:
+                        - descriptor:
+                            code: MIN_FARE
+                          value: '30'
+                        - descriptor:
+                            code: MIN_FARE_DISTANCE_KM
+                          value: '2'
+                        - descriptor:
+                            code: PER_KM_CHARGE
+                          value: '15'
+                        - descriptor:
+                            code: PICKUP_CHARGE
+                          value: '10'
+                        - descriptor:
+                            code: WAITING_CHARGE_PER_MIN
+                          value: '2'
+                        - descriptor:
+                            code: NIGHT_CHARGE_MULTIPLIER
+                          value: '1.5'
+                        - descriptor:
+                            code: NIGHT_SHIFT_START_TIME
+                          value: '22:00:00'
+                        - descriptor:
+                            code: NIGHT_SHIFT_END_TIME
+                          value: '05:00:00'
+                    - descriptor:
+                        code: INFO
+                        name: General Information
+                      display: true
+                      list:
+                        - descriptor:
+                            code: DISTANCE_TO_NEAREST_DRIVER_METER
+                          value: '430'
+                        - descriptor:
+                            code: ETA_TO_NEAREST_DRIVER_MIN
+                          value: '1.5'
+              payments:
+                - collected_by: BPP
+                  id: PA1
+                  status: NOT-PAID
+                  type: ON-FULFILLMENT
+              provider:
+                id: P1
+              quote:
+                breakup:
+                  - price:
+                      currency: INR
+                      value: '30'
+                    title: BASE_FARE
+                  - price:
+                      currency: INR
+                      value: '116'
+                    title: DISTANCE_FARE
+                price:
+                  currency: INR
+                  value: '146'
+                ttl: PT30S
+              status: ACTIVE
+              created_at: '2023-03-23T04:48:34.53Z'
+              updated_at: '2023-03-23T04:49:34.53Z'
+        saveData:
+          transactionId: $.context.transaction_id
+          latestMessage_id: $.context.message_id
+          latestTimestamp: $.context.timestamp
+          bapId: $.context.bap_id
+          bapUri: $.context.bap_uri
+          bppId: $.context.bpp_id
+          bppUri: $.context.bpp_uri
+          city_code: $.context.location.city.code
+          order_id: $.message.order.id
+          status: $.message.order.status
+          selected_fulfillments: $.message.order.fulfillments[*]
+          quote: $.message.order.quote
+          items: $.message.order.items[*]
+          payments: $.message.order.payments[*]
+          fulfillments_copy: $.message.order.fulfillments[*]
+        inputs:
+          id: RideStateInput
+          jsonSchema:
+            $schema: http://json-schema.org/draft-07/schema#
+            type: object
+            properties:
+              code:
+                type: string
+                description: Ride fulfillment state code
+                x-payloadField: $.message.order.fulfillments[*].state.descriptor.code
+            required:
+              - code
+            additionalProperties: false
+          sampleData:
+            code: RIDE_ARRIVED_PICKUP
