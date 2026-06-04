@@ -336,3 +336,62 @@ flows:
     description: A user searches for metro services, initiates and confirms a booking, and then cancels the confirmed reservation. This flow validates the end-to-end cancellation experience for metro transit transactions on the ONDC network.
     config:
       $ref: ./Metro/USER_CANCELLATION_FLOW__W_O_Search_and_Select_.yaml
+  - type: playground
+    id: PARTIAL_CANCELLATION_FLOW
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: >-
+      Customer searches for available metro routes, selects a preferred service,
+      completes booking confirmation, and later performs a partial cancellation.
+      The system updates the order, applies applicable cancellation charges or
+      refunds, and shares the updated status throughout the transaction lifecycle.
+    config:
+      $ref: ./Metro/PARTIAL_CANCELLATION_FLOW.yaml
+  - type: playground
+    id: PARTIAL_CANCELLATION_FLOW (W/O Search1 and Select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: >-
+      Customer searches for available metro routes, selects a preferred service,
+      completes booking confirmation, and later performs a partial cancellation.
+      The system updates the order, applies applicable cancellation charges or
+      refunds, and shares the updated status throughout the transaction lifecycle.
+    config:
+      $ref: ./Metro/PARTIAL_CANCELLATION_FLOW_W_O_Search_and_Select.yaml
+  - type: playground
+    id: OFFLINE_CANCELLATION_FLOW
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: >-
+      A customer searches for available metro transit services, selects a preferred
+      service, and completes the booking. Later, the customer cancels the metro
+      booking offline. The system processes the cancellation, updates the order
+      status, applies any applicable charges or refunds, and communicates the
+      cancellation details through the order lifecycle.
+    config:
+      $ref: ./Metro/OFFLINE_CANCELLATION_FLOW.yaml
+  - type: playground
+    id: OFFLINE_CANCELLATION_FLOW (W/O Search1 and Select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: >-
+    description: >-
+      A customer searches for available metro transit services, selects a preferred
+      service, and completes the booking. Later, the customer cancels the metro
+      booking offline. The system processes the cancellation, updates the order
+      status, applies any applicable charges or refunds, and communicates the
+      cancellation details through the order lifecycle.
+    config:
+      $ref: ./Metro/OFFLINE_CANCELLATION_FLOW_W_O_Search_and_Select.yaml
