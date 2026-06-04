@@ -38,8 +38,15 @@ flows:
     description: User cancels the bus booking
     config:
       $ref: ./Bus/USER_CANCELLATION_FLOW.yaml
+
+
+      # ________________METRO_____________
+
+
   - type: playground
     id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_RJT
+    meta:
+      order: 7
     usecase: Metro
     tags:
       - WORKBENCH
@@ -53,6 +60,8 @@ flows:
       $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_RJT.yaml
   - type: playground
     id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT
+    meta:
+      order: 6
     usecase: Metro
     tags:
       - WORKBENCH
@@ -65,6 +74,8 @@ flows:
       $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT.yaml
   - type: playground
     id: STATION_CODE_FLOW_CATALOG
+    meta:
+      order: 0
     usecase: Metro
     tags:
       - WORKBENCH
@@ -77,6 +88,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_CATALOG.yaml
   - type: playground
     id: TECHNICAL_CANCELLATION_FLOW
+    meta:
+      order: 8
     usecase: Metro
     tags:
       - WORKBENCH
@@ -89,6 +102,8 @@ flows:
       $ref: ./Metro/TECHNICAL_CANCELLATION_FLOW.yaml
   - type: playground
     id: USER_CANCELLATION_FLOW
+    meta:
+      order: 9
     usecase: Metro
     tags:
       - WORKBENCH
@@ -105,6 +120,8 @@ flows:
   - type: playground
     id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_RJT (W/O search_1 & select)
     usecase: Metro
+    meta:
+      order: 2
     tags:
       - WORKBENCH
       - OPTIONAL
@@ -115,6 +132,8 @@ flows:
 
   - type: playground
     id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT (W/O search_1 & select)
+    meta:
+      order: 1
     usecase: Metro
     tags:
       - WORKBENCH
@@ -126,6 +145,8 @@ flows:
 
   - type: playground
     id: TECHNICAL_CANCELLATION_FLOW (W/O search_1 & select)
+    meta:
+      order: 3
     usecase: Metro
     tags:
       - WORKBENCH
@@ -137,6 +158,8 @@ flows:
 
   - type: playground
     id: USER_CANCELLATION_FLOW (W/O search_1 & select)
+    meta:
+      order: 4
     usecase: Metro
     tags:
       - WORKBENCH
@@ -144,4 +167,21 @@ flows:
       - REPORTABLE
     description: This flow illustrates the user cancellation flow where the buyer intends to cancel their metro ticket
     config:
-      $ref: ./Metro/USER_CANCELLATION_FLOW_WITHOUT_SEARCH_ND_SELECT.yaml          
+      $ref: ./Metro/USER_CANCELLATION_FLOW_WITHOUT_SEARCH_ND_SELECT.yaml   
+
+
+  # ___________IGM_METRO(1.0.0)_____________   
+
+  - type: playground
+    id: ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT (W/O search_1 & select) With_IGM(v-1.0.0)
+    meta:
+      order: 5
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: This flow illustrates a Single Journey Ticket purchase from search to
+      journey completion with IGM 1.0.0
+    config:
+      $ref: ./Metro/ORDER_TO_CONFIRM_TO_JOURNEY_COMPLETION_SJT_WITHOUT_SEARCH_ND_SELECT_WITH_IGM_1_0_0.yaml    
