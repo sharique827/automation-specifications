@@ -1200,6 +1200,7 @@ _TESTS_:
       validTags:
         - bap_terms
         - lbnp_sla_terms
+        - bpp_terms
       tagPath: $.message.order.tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
@@ -1208,6 +1209,12 @@ _TESTS_:
       subTags: $.list[*].code
       validValues:
         - accept_bpp_terms
+      _RETURN_: subTags all in validValues
+    - _NAME_: validate_tag_4_bpp_terms
+      _SCOPE_: $.message.order.tags[?(@.code=='bpp_terms')]
+      subTags: $.list[*].code
+      validValues:
+        - static_terms
       _RETURN_: subTags all in validValues
     - _NAME_: validate_tag_4_lbnp_sla_terms
       _SCOPE_: $.message.order.tags[?(@.code=='lbnp_sla_terms')]
