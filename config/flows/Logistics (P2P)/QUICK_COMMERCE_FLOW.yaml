@@ -95,70 +95,90 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.city
       inputs:
-        oldInputs:
-          - name: retailCategory
-            label: Select retail item category
-            type: select
-            values:
-              - F&B
-              - Grocery
-              - Fashion
-              - BPC
-              - Electronics
-              - Appliances
-              - Home & Kitchen
-              - Health & Wellness
-              - Pharma
-              - Auto components
-              - C2C parcels
-          - name: category
-            label: Select a category
-            type: select
-            values:
-              - Instant Delivery
-              - Immediate Delivery
-              - Next Day Delivery
-              - Same Day Delivery
-            payloadField: $.message.intent.category.id
-          - name: paymentType
-            label: Select payment type
-            type: select
-            values:
-              - POST-FULFILLMENT
-              - ON-ORDER
-              - ON-FULFILLMENT
-            payloadField: $.message.intent.payment.type
-          - name: fulfillRequest
-            label: Select fulfillment request parameter
-            type: select
-            values:
-              - Rider
-              - Order
-          - name: fulfillReqCount
-            label: Select Rider/Order count
-            type: text
-            default: "2"
-          - name: city_code
-            label: Enter city code
-            type: text
-            payloadField: $.context.city
-            default: std:080
-          - name: start_gps
-            label: Enter start gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.gps
-            default: 12.4535,77.9283
-          - name: start_code
-            label: Enter start area code
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.address.area_code
-            default: "560001"
-          - name: end_code
-            label: Enter end area code
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.address.area_code
-            default: "560001"
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            retailCategory:
+              title: Select retail item category
+              type: string
+              enum:
+                - F&B
+                - Grocery
+                - Fashion
+                - BPC
+                - Electronics
+                - Appliances
+                - Home & Kitchen
+                - Health & Wellness
+                - Pharma
+                - Auto components
+                - C2C parcels
+              default: F&B
+            category:
+              title: Select a category
+              payloadField: $.message.intent.category.id
+              type: string
+              enum:
+                - Instant Delivery
+                - Immediate Delivery
+                - Next Day Delivery
+                - Same Day Delivery
+              default: Immediate Delivery
+            paymentType:
+              title: Select payment type
+              payloadField: $.message.intent.payment.type
+              type: string
+              enum:
+                - POST-FULFILLMENT
+                - ON-ORDER
+                - ON-FULFILLMENT
+              default: POST-FULFILLMENT
+            fulfillRequest:
+              title: Select fulfillment request parameter
+              type: string
+              enum:
+                - Rider
+                - Order
+              default: Rider
+            fulfillReqCount:
+              title: Select Rider/Order count
+              type: string
+              default: '2'
+            city_code:
+              title: Enter city code
+              payloadField: $.context.city
+              type: string
+              default: std:080
+              description: Enter the city code
+              minLength: 1
+            start_gps:
+              title: Enter start gps coordinates
+              payloadField: $.message.intent.fulfillment.start.location.gps
+              type: string
+              default: 12.4535,77.9283
+            start_code:
+              title: Enter start area code
+              payloadField: $.message.intent.fulfillment.start.location.address.area_code
+              type: string
+              default: '560001'
+            end_code:
+              title: Enter end area code
+              payloadField: $.message.intent.fulfillment.end.location.address.area_code
+              type: string
+              default: '560001'
+          required:
+            - retailCategory
+            - category
+            - paymentType
+            - fulfillRequest
+            - fulfillReqCount
+            - city_code
+            - start_gps
+            - start_code
+            - end_code
+          additionalProperties: false
     examples:
       - name: Example for action "search"
         description: Auto-generated example for action "search" in flow
@@ -395,14 +415,30 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.city
       inputs:
-        oldInputs:
-          - name: feature_discovery
-            display: false
-            default:
-              - "005"
-              - "006"
-              - "007"
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            feature_discovery:
+              display: false
+              type: object
+              title: feature_discovery
+              default:
+                '005': true
+                '006': true
+                '007': true
+              properties:
+                '005':
+                  type: boolean
+                  title: '005'
+                '006':
+                  type: boolean
+                  title: '006'
+                '007':
+                  type: boolean
+                  title: '007'
+          additionalProperties: false
     examples:
       - name: Example for action "on_search"
         description: Auto-generated example for action "on_search" in flow
