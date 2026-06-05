@@ -2,6 +2,9 @@ meta:
   domain: 'ONDC:RET10'
   version: 1.2.0
   flowId: Discovery_Flow_incremental_catalog_refresh_pull
+  description: Buyer Search & Quotation
+  flowName: Discovery Flow incremental catalog refresh pull
+  use_case_id: GROCERY
 transaction_data:
   transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
   latest_timestamp: '1970-01-01T00:00:00.000Z'
@@ -176,7 +179,6 @@ steps:
                       timestamp: '2024-12-23T06:45:02.015Z'
                       schedule:
                         holidays: []
-                      
                     gps: '19.129076,72.825803'
                     address:
                       street: '1 & 2,AMAR JYOTI CHS.BLDG.,OPP.NAND KRIPA HALL'
@@ -184,7 +186,6 @@ steps:
                       city: Mumbai
                       state: Maharashtra
                       area_code: '400053'
-                 
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -731,14 +732,12 @@ steps:
                       days: '1,2,3,4,5,6,7'
                       schedule:
                         holidays: []
-                   
                     gps: '19.129076,72.825803'
                     address:
                       street: '1 & 2,AMAR JYOTI CHS.BLDG.,OPP.NAND KRIPA HALL'
                       locality: ANDHERI FOUR BUNGLOW AMAR JYOTI CHS
                       city: Mumbai
                       state: Maharashtra
-                
                 fulfillments:
                   - id: F1
                     type: Delivery
@@ -851,9 +850,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: search
-        timestamp: '2026-06-05T10:57:41.662Z'
+        timestamp: '2026-06-05T11:25:06.100Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: c6cd036d-1652-4104-a9d2-51c90539a52d
+        message_id: 03031294-71bb-461d-bb3b-14ab154324ff
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -874,7 +873,7 @@ transaction_history:
                   value: >-
                     https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
-                  value: '2026-06-15T10:57:41.670Z'
+                  value: '2026-06-15T11:25:06.106Z'
     action: search
     saved_info: {}
   - action_id: on_search1
@@ -882,9 +881,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: on_search
-        timestamp: '2026-06-05T10:57:42.424Z'
+        timestamp: '2026-06-05T11:25:06.979Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: c6cd036d-1652-4104-a9d2-51c90539a52d
+        message_id: 03031294-71bb-461d-bb3b-14ab154324ff
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1148,9 +1147,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: search
-        timestamp: '2026-06-05T10:57:42.444Z'
+        timestamp: '2026-06-05T11:25:06.996Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 32e9ad6a-5cef-4bfe-960c-a0c14e5747e1
+        message_id: 8ff3fa67-0dc1-4e54-9ea7-8308aa41f5f3
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1166,9 +1165,9 @@ transaction_history:
             - code: catalog_inc
               list:
                 - code: start_time
-                  value: '2026-06-05T08:57:42.444Z'
+                  value: '2026-06-05T09:25:06.996Z'
                 - code: end_time
-                  value: '2026-06-05T10:57:42.444Z'
+                  value: '2026-06-05T11:25:06.996Z'
             - code: bap_terms
               list:
                 - code: static_terms
@@ -1178,7 +1177,7 @@ transaction_history:
                   value: >-
                     https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
-                  value: '2026-06-05T10:57:42.444Z'
+                  value: '2026-06-05T11:25:06.996Z'
     action: search
     saved_info: {}
   - action_id: on_search_inc_pull
@@ -1186,9 +1185,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: on_search
-        timestamp: '2026-06-05T10:57:42.451Z'
+        timestamp: '2026-06-05T11:25:07.003Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 32e9ad6a-5cef-4bfe-960c-a0c14e5747e1
+        message_id: 8ff3fa67-0dc1-4e54-9ea7-8308aa41f5f3
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1233,15 +1232,12 @@ transaction_history:
                     timestamp: '2024-12-23T06:45:02.015Z'
                     schedule:
                       holidays: []
-                   
                   gps: '19.129076,72.825803'
                   address:
                     street: '1 & 2,AMAR JYOTI CHS.BLDG.,OPP.NAND KRIPA HALL'
                     locality: ANDHERI FOUR BUNGLOW AMAR JYOTI CHS
                     city: Mumbai
                     state: Maharashtra
-                    area_code: '400053'
-              
               fulfillments:
                 - id: F1
                   type: Delivery
@@ -1287,7 +1283,7 @@ transaction_history:
                     month_year_of_manufacture_packing_import: 01/2023
                   time:
                     label: enable
-                    timestamp: '2026-06-05T10:11:47.843Z'
+                    timestamp: '2026-06-05T10:32:31.681Z'
                   tags:
                     - code: origin
                       list:
