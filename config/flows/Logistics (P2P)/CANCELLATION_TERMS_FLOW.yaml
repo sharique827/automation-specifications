@@ -145,68 +145,89 @@ steps:
         insurance_required: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
         insurance_owner: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
       inputs:
-        oldInputs:
-          - name: retailCategory
-            label: Select retail item category
-            type: select
-            values:
-              - F&B
-              - Grocery
-              - Fashion
-              - BPC
-              - Electronics
-              - Appliances
-              - Home & Kitchen
-              - Health & Wellness
-              - Pharma
-              - Auto components
-              - C2C parcels
-          - name: category
-            label: Select a category
-            type: select
-            values:
-              - Standard Delivery
-              - Next Day Delivery
-              - Same Day Delivery
-            payloadField: $.message.intent.category.id
-          - name: paymentType
-            label: Select payment type
-            type: select
-            values:
-              - POST-FULFILLMENT
-              - ON-ORDER
-              - ON-FULFILLMENT
-            payloadField: $.message.intent.payment.type
-          - name: city_code
-            label: Enter city code
-            type: text
-            payloadField: $.context.city
-            default: std:080
-          - name: start_gps
-            label: Enter start gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.gps
-            default: 12.4535,77.9283
-          - name: end_gps
-            label: Enter end gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.gps
-            default: 12.4535,77.9283
-          - name: start_code
-            label: Enter start area code
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.address.area_code
-            default: "560001"
-          - name: end_code
-            label: Enter end area code
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.address.area_code
-            default: "560001"
-          - name: default_feature
-            display: false
-            default:
-              - 01A
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            retailCategory:
+              title: Select retail item category
+              type: string
+              enum:
+                - F&B
+                - Grocery
+                - Fashion
+                - BPC
+                - Electronics
+                - Appliances
+                - Home & Kitchen
+                - Health & Wellness
+                - Pharma
+                - Auto components
+                - C2C parcels
+              default: F&B
+            category:
+              title: Select a category
+              payloadField: $.message.intent.category.id
+              type: string
+              enum:
+                - Standard Delivery
+                - Next Day Delivery
+                - Same Day Delivery
+              default: Standard Delivery
+            paymentType:
+              title: Select payment type
+              payloadField: $.message.intent.payment.type
+              type: string
+              enum:
+                - POST-FULFILLMENT
+                - ON-ORDER
+                - ON-FULFILLMENT
+              default: POST-FULFILLMENT
+            city_code:
+              title: Enter city code
+              payloadField: $.context.city
+              type: string
+              default: std:080
+              description: Enter the city code
+              minLength: 1
+            start_gps:
+              title: Enter start gps coordinates
+              payloadField: $.message.intent.fulfillment.start.location.gps
+              type: string
+              default: 12.4535,77.9283
+            end_gps:
+              title: Enter end gps coordinates
+              payloadField: $.message.intent.fulfillment.end.location.gps
+              type: string
+              default: 12.4535,77.9283
+            start_code:
+              title: Enter start area code
+              payloadField: $.message.intent.fulfillment.start.location.address.area_code
+              type: string
+              default: '560001'
+            end_code:
+              title: Enter end area code
+              payloadField: $.message.intent.fulfillment.end.location.address.area_code
+              type: string
+              default: '560001'
+            default_feature:
+              display: false
+              type: array
+              items:
+                type: string
+              default:
+                - 01A
+          required:
+            - retailCategory
+            - category
+            - paymentType
+            - city_code
+            - start_gps
+            - end_gps
+            - start_code
+            - end_code
+          additionalProperties: false
     examples:
       - name: Example for action "search"
         description: Auto-generated example for action "search" in flow
@@ -429,12 +450,19 @@ steps:
         rider_count: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")].tags[?(@.code=="fulfill_response")].list[?(@.code=="rider_count")].value
         order_count: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")].tags[?(@.code=="fulfill_response")].list[?(@.code=="order_count")].value
       inputs:
-        oldInputs:
-          - name: default_feature
-            display: false
-            default:
-              - 01A
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            default_feature:
+              display: false
+              type: array
+              items:
+                type: string
+              default:
+                - 01A
+          additionalProperties: false
     examples:
       - name: Example for action "on_search"
         description: Auto-generated example for action "on_search" in flow

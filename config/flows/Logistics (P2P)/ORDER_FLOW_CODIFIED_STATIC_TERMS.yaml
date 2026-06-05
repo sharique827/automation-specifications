@@ -148,7 +148,6 @@ steps:
             retailCategory:
               title: Select retail item category
               type: string
-              default: F&B
               enum:
                 - F&B
                 - Grocery
@@ -161,52 +160,52 @@ steps:
                 - Pharma
                 - Auto components
                 - C2C parcels
+              default: F&B
             category:
               title: Select a category
               payloadField: $.message.intent.category.id
               type: string
-              default: Immediate Delivery
               enum:
                 - Standard Delivery
-                - Immediate Delivery
                 - Next Day Delivery
                 - Same Day Delivery
+              default: Standard Delivery
             paymentType:
               title: Select payment type
               payloadField: $.message.intent.payment.type
               type: string
-              default: POST-FULFILLMENT
               enum:
                 - POST-FULFILLMENT
                 - ON-ORDER
                 - ON-FULFILLMENT
+              default: POST-FULFILLMENT
             city_code:
-              type: string
               title: Enter city code
-              description: Enter the city code
               payloadField: $.context.city
+              type: string
               default: std:080
+              description: Enter the city code
               minLength: 1
             start_gps:
               title: Enter start gps coordinates
               payloadField: $.message.intent.fulfillment.start.location.gps
-              default: 12.4535,77.9283
               type: string
+              default: 12.4535,77.9283
             end_gps:
               title: Enter end gps coordinates
               payloadField: $.message.intent.fulfillment.end.location.gps
-              default: 12.4535,77.9283
               type: string
+              default: 12.4535,77.9283
             start_code:
               title: Enter start area code
               payloadField: $.message.intent.fulfillment.start.location.address.area_code
-              default: "560001"
               type: string
+              default: '560001'
             end_code:
               title: Enter end area code
               payloadField: $.message.intent.fulfillment.end.location.address.area_code
-              default: "560001"
               type: string
+              default: '560001'
           required:
             - retailCategory
             - category

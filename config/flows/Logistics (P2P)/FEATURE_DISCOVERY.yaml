@@ -148,7 +148,6 @@ steps:
             retailCategory:
               title: Select retail item category
               type: string
-              default: F&B
               enum:
                 - F&B
                 - Grocery
@@ -161,61 +160,59 @@ steps:
                 - Pharma
                 - Auto components
                 - C2C parcels
+              default: F&B
             category:
               title: Select a category
               payloadField: $.message.intent.category.id
               type: string
-              default: Immediate Delivery
               enum:
                 - Standard Delivery
                 - Immediate Delivery
                 - Next Day Delivery
                 - Same Day Delivery
+              default: Immediate Delivery
             paymentType:
               title: Select payment type
               payloadField: $.message.intent.payment.type
               type: string
-              default: POST-FULFILLMENT
               enum:
                 - POST-FULFILLMENT
                 - ON-ORDER
                 - ON-FULFILLMENT
+              default: POST-FULFILLMENT
             city_code:
-              type: string
               title: Enter city code
-              description: Enter the city code
               payloadField: $.context.city
+              type: string
               default: std:080
+              description: Enter the city code
               minLength: 1
             start_gps:
               title: Enter start gps coordinates
               payloadField: $.message.intent.fulfillment.start.location.gps
-              default: 12.4535,77.9283
               type: string
+              default: 12.4535,77.9283
             end_gps:
               title: Enter end gps coordinates
               payloadField: $.message.intent.fulfillment.end.location.gps
-              default: 12.4535,77.9283
               type: string
+              default: 12.4535,77.9283
             start_code:
               title: Enter start area code
               payloadField: $.message.intent.fulfillment.start.location.address.area_code
-              default: "560001"
               type: string
+              default: '560001'
             end_code:
               title: Enter end area code
               payloadField: $.message.intent.fulfillment.end.location.address.area_code
-              default: "560001"
               type: string
+              default: '560001'
             feature_discovery:
-              type: object
               title: Features supported
-              payloadField: $.message.intent.tags[?(@.code=='feature_discovery')].list
+              type: object
+              payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
               properties:
-                "19":
-                  type: boolean
-                  title: eWay bill (019)
-                "003":
+                '003':
                   type: boolean
                   title: Rate Card for P2P (003)
                 00B:
@@ -230,9 +227,12 @@ steps:
                 00F:
                   type: boolean
                   title: ePOD (00F)
-                "017":
+                '017':
                   type: boolean
                   title: Surge fee (017)
+                '019':
+                  type: boolean
+                  title: eWay bill (019)
                 01A:
                   type: boolean
                   title: Cancellation terms (01A)
@@ -248,10 +248,10 @@ steps:
                 01F:
                   type: boolean
                   title: Codified static terms (01F)
-                "020":
+                '020':
                   type: boolean
                   title: Exchange customer support contact details (020)
-                "021":
+                '021':
                   type: boolean
                   title: Differential weight charges (021)
           required:
@@ -482,34 +482,82 @@ steps:
           type: object
           properties:
             feature_discovery:
-              type: object
               title: Features supported
+              type: object
               payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
               properties:
-                "19":
-                  type: boolean
-                  title: eWay bill (019)
-                "003":
+                '003':
                   type: boolean
                   title: Rate Card for P2P (003)
+                '005':
+                  type: boolean
+                  title: Quick Commerce Logistics (005)
+                '006':
+                  type: boolean
+                  title: Milk Run Logistics (006)
+                '007':
+                  type: boolean
+                  title: Single pickup multi drop (SPMD) (007)
+                '008':
+                  type: boolean
+                  title: COD order (008)
+                '009':
+                  type: boolean
+                  title: Static OTP verification (pickup & delivery) (009)
+                00A:
+                  type: boolean
+                  title: Static OTP verification (RTO) (00A)
                 00B:
                   type: boolean
                   title: Updated cancellation codes (00B)
                 00C:
                   type: boolean
                   title: FIFO orders (00C)
+                00D:
+                  type: boolean
+                  title: Payment wallet (00D)
                 00E:
                   type: boolean
                   title: Pickup & delivery attempt trail (P2H2P) (00E)
                 00F:
                   type: boolean
                   title: ePOD (00F)
-                "017":
+                '010':
+                  type: boolean
+                  title: Call Masking (010)
+                '011':
+                  type: boolean
+                  title: Update delivery address (011)
+                '012':
+                  type: boolean
+                  title: Update pickup & delivery authorization (012)
+                '013':
+                  type: boolean
+                  title: Seller & buyer instructions (013)
+                '014':
+                  type: boolean
+                  title: Seller Creds (014)
+                '015':
+                  type: boolean
+                  title: Dynamic OTP verification (pickup & delivery) (015)
+                '016':
+                  type: boolean
+                  title: Dynamic OTP verification (RTO) (016)
+                '017':
                   type: boolean
                   title: Surge fee (017)
+                '018':
+                  type: boolean
+                  title: Partial RTO (018)
+                '019':
+                  type: boolean
+                  title: eWay bill (019)
                 01A:
                   type: boolean
                   title: Cancellation terms (01A)
+                01B:
+                  type: boolean
+                  title: Reverse QC (01B)
                 01C:
                   type: boolean
                   title: SLA metrics (01C)
@@ -522,12 +570,15 @@ steps:
                 01F:
                   type: boolean
                   title: Codified static terms (01F)
-                "020":
+                '020':
                   type: boolean
                   title: Exchange customer support contact details (020)
-                "021":
+                '021':
                   type: boolean
                   title: Differential weight charges (021)
+                '022':
+                  type: boolean
+                  title: RTO (with return) (022)
           additionalProperties: false
     examples:
       - name: example for on_search
