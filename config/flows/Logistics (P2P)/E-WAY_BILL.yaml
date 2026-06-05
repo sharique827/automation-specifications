@@ -2590,6 +2590,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        quote: $.message.order.quote
+        on_update_tags: $.message.order.tags[*]
       inputs: {}
     examples:
       - name: Example for action "on_update"

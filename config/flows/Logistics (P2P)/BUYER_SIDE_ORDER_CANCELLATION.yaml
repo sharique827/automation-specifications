@@ -2827,6 +2827,10 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        cancellation_reason_id: $.message.cancellation_reason_id
+        message_id: $.context.message_id
+        is_cancel_called: $.context.action
+        order_id: $.message.order_id
       inputs:
         id: ExampleInputId
         jsonSchema:
@@ -3131,6 +3135,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        cancellation: $.message.order.cancellation
+        items: $.message.order.items[*]
+        quote: $.message.order.quote
+        payment: $.message.order.payment
       inputs: {}
     examples:
       - name: Example for action "on_cancel"
