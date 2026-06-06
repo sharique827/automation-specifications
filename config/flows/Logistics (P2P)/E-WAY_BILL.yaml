@@ -1202,6 +1202,20 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        confirm_create_at_timestamp: $.message.order.created_at
+        tat: $.message.order.items[0].time.duration
+        fulfillments: $.message.order.fulfillments[*]
+        confirm_fulfillments: $.message.order.fulfillments[*]
+        items: $.message.order.items[*]
+        quote: $.message.order.quote
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        rto_action: $.message.order.fulfillments[*].tags[?(@.code=="rto_action")].list[?(@.code=="return_to_origin")].value
+        rto_verification_code: $.message.order.fulfillments[*].tags[?(@.code=="rto_verification")].list[?(@.code=="short_desc")].value
+        confirm_tags: $.message.order.tags
+        b2b_payments: $.message.order.payments
       inputs: {}
     examples:
       - name: Example for action "confirm"
@@ -2154,6 +2168,9 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        is_ready_to_ship: $.message.order.fulfillments[*].tags[?(@.code=="state")].list[?(@.code=="ready_to_ship")].value
+        update_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
       - name: Example for action "update"
