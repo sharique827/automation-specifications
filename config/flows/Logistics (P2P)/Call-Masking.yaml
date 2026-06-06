@@ -648,7 +648,7 @@ steps:
         items: $.message.order.items[*]
         payment: $.message.order.payment
         insurance_required: $.message.order.fulfillments[*].tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
-        insurance_owner: $.message.order.fulfillments[*].tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].valuey
+        insurance_owner: $.message.order.fulfillments[*].tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
       inputs: {}
     examples:
       - name: Example for action "init"

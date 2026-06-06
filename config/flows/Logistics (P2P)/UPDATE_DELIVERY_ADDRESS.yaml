@@ -2134,6 +2134,9 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        is_ready_to_ship: $.message.order.fulfillments[*].tags[?(@.code=="state")].list[?(@.code=="ready_to_ship")].value
+        update_fulfillments: $.message.order.fulfillments[*]
       inputs:
         id: ExampleInputId
         jsonSchema:
