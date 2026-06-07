@@ -123,97 +123,131 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.city
       inputs:
-        oldInputs:
-          - name: retailCategory
-            label: Select retail item category
-            type: select
-            values:
-              - Grocery
-              - Fashion
-              - BPC
-              - Electronics
-              - Appliances
-              - Home & Kitchen
-              - Health & Wellness
-              - Pharma
-              - Auto components
-              - C2C parcels
-          - name: category
-            label: Select a category
-            type: select
-            values:
-              - Standard Delivery
-              - Immediate Delivery
-              - Next Day Delivery
-              - Same Day Delivery
-              - Express Delivery
-            payloadField: $.message.intent.category.id
-          - name: paymentType
-            label: Select payment type
-            type: select
-            values:
-              - POST-FULFILLMENT
-              - ON-ORDER
-              - ON-FULFILLMENT
-            payloadField: $.message.intent.payment.type
-          - name: city_code
-            label: Enter city code
-            type: text
-            payloadField: $.context.city
-            default: std:080
-          - name: start_gps
-            label: Enter start gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.gps
-            default: 12.4535,77.9283
-          - name: end_gps
-            label: Enter end gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.gps
-            default: 12.4535,77.9283
-          - name: start_code
-            label: Enter start area code
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.address.area_code
-            default: "560001"
-          - name: end_code
-            label: Enter end area code
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.address.area_code
-            default: "560001"
-          - name: feature_discovery
-            label: Features supported
-            type: checkbox
-            options:
-              - code: "004"
-                name: Rate Card for P2H2P
-              - code: 00B
-                name: Updated cancellation codes
-              - code: 00C
-                name: FIFO orders
-              - code: 00E
-                name: Pickup & delivery attempt trail (P2H2P)
-              - code: 00F
-                name: ePOD
-              - code: "017"
-                name: Surge fee
-              - code: "019"
-                name: eWay bill
-              - code: 01A
-                name: Cancellation terms
-              - code: 01C
-                name: SLA metrics
-              - code: 01D
-                name: Publish special capabilities
-              - code: 01E
-                name: RCM self-declaration
-              - code: 01F
-                name: Codified static terms
-              - code: "020"
-                name: Exchange customer support contact details
-              - code: "021"
-                name: Differential weight charges
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            retailCategory:
+              title: Select retail item category
+              type: string
+              enum:
+                - Grocery
+                - Fashion
+                - BPC
+                - Electronics
+                - Appliances
+                - Home & Kitchen
+                - Health & Wellness
+                - Pharma
+                - Auto components
+                - C2C parcels
+              default: Grocery
+            category:
+              title: Select a category
+              payloadField: $.message.intent.category.id
+              type: string
+              enum:
+                - Standard Delivery
+                - Immediate Delivery
+                - Next Day Delivery
+                - Same Day Delivery
+                - Express Delivery
+              default: Standard Delivery
+            paymentType:
+              title: Select payment type
+              payloadField: $.message.intent.payment.type
+              type: string
+              enum:
+                - POST-FULFILLMENT
+                - ON-ORDER
+                - ON-FULFILLMENT
+              default: POST-FULFILLMENT
+            city_code:
+              title: Enter city code
+              payloadField: $.context.city
+              type: string
+              default: std:080
+              description: Enter the city code
+              minLength: 1
+            start_gps:
+              title: Enter start gps coordinates
+              payloadField: $.message.intent.fulfillment.start.location.gps
+              type: string
+              default: 12.4535,77.9283
+            end_gps:
+              title: Enter end gps coordinates
+              payloadField: $.message.intent.fulfillment.end.location.gps
+              type: string
+              default: 12.4535,77.9283
+            start_code:
+              title: Enter start area code
+              payloadField: $.message.intent.fulfillment.start.location.address.area_code
+              type: string
+              default: '560001'
+            end_code:
+              title: Enter end area code
+              payloadField: $.message.intent.fulfillment.end.location.address.area_code
+              type: string
+              default: '560001'
+            feature_discovery:
+              title: Features supported
+              payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
+              type: object
+              properties:
+                '004':
+                  type: boolean
+                  title: Rate Card for P2H2P (004)
+                00B:
+                  type: boolean
+                  title: Updated cancellation codes (00B)
+                00C:
+                  type: boolean
+                  title: FIFO orders (00C)
+                00E:
+                  type: boolean
+                  title: Pickup & delivery attempt trail (P2H2P) (00E)
+                00F:
+                  type: boolean
+                  title: ePOD (00F)
+                '017':
+                  type: boolean
+                  title: Surge fee (017)
+                '019':
+                  type: boolean
+                  title: eWay bill (019)
+                01A:
+                  type: boolean
+                  title: Cancellation terms (01A)
+                01C:
+                  type: boolean
+                  title: SLA metrics (01C)
+                01D:
+                  type: boolean
+                  title: Publish special capabilities (01D)
+                01E:
+                  type: boolean
+                  title: RCM self-declaration (01E)
+                01F:
+                  type: boolean
+                  title: Codified static terms (01F)
+                '020':
+                  type: boolean
+                  title: Exchange customer support contact details (020)
+                '021':
+                  type: boolean
+                  title: Differential weight charges (021)
+              additionalProperties: false
+          additionalProperties: false
+          required:
+            - retailCategory
+            - category
+            - paymentType
+            - city_code
+            - start_gps
+            - end_gps
+            - start_code
+            - end_code
     examples:
       - name: Example for action "search"
         description: Auto-generated example for action "search" in flow "RATE_CARD (P2H2P)"
@@ -342,74 +376,111 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.city
       inputs:
-        oldInputs:
-          - name: feature_discovery
-            label: Features supported
-            type: checkbox
-            options:
-              - code: "004"
-                name: Rate Card for P2H2P
-              - code: "005"
-                name: Quick Commerce Logistics
-              - code: "006"
-                name: Milk Run Logistics
-              - code: "007"
-                name: Single pickup multi drop (SPMD)
-              - code: "008"
-                name: COD order
-              - code: "009"
-                name: Static OTP verification (pickup & delivery)
-              - code: 00A
-                name: Static OTP verification (RTO)
-              - code: 00B
-                name: Updated cancellation codes
-              - code: 00C
-                name: FIFO orders
-              - code: 00D
-                name: Payment wallet
-              - code: 00E
-                name: Pickup & delivery attempt trail (P2H2P)
-              - code: 00F
-                name: ePOD
-              - code: "010"
-                name: Call Masking
-              - code: "011"
-                name: Update delivery address
-              - code: "012"
-                name: Update pickup & delivery authorization
-              - code: "013"
-                name: Seller & buyer instructions
-              - code: "014"
-                name: Seller Creds
-              - code: "015"
-                name: Dynamic OTP verification (pickup & delivery)
-              - code: "016"
-                name: Dynamic OTP verification (RTO)
-              - code: "017"
-                name: Surge fee
-              - code: "018"
-                name: Partial RTO
-              - code: "019"
-                name: eWay bill
-              - code: 01A
-                name: Cancellation terms
-              - code: 01B
-                name: Reverse QC
-              - code: 01C
-                name: SLA metrics
-              - code: 01D
-                name: Publish special capabilities
-              - code: 01E
-                name: RCM self-declaration
-              - code: 01F
-                name: Codified static terms
-              - code: "020"
-                name: Exchange customer support contact details
-              - code: "021"
-                name: Differential weight charges
-              - code: "022"
-                name: RTO (with return)
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            feature_discovery:
+              title: Features supported
+              payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
+              type: object
+              properties:
+                '004':
+                  type: boolean
+                  title: Rate Card for P2H2P (004)
+                '005':
+                  type: boolean
+                  title: Quick Commerce Logistics (005)
+                '006':
+                  type: boolean
+                  title: Milk Run Logistics (006)
+                '007':
+                  type: boolean
+                  title: Single pickup multi drop (SPMD) (007)
+                '008':
+                  type: boolean
+                  title: COD order (008)
+                '009':
+                  type: boolean
+                  title: Static OTP verification (pickup & delivery) (009)
+                00A:
+                  type: boolean
+                  title: Static OTP verification (RTO) (00A)
+                00B:
+                  type: boolean
+                  title: Updated cancellation codes (00B)
+                00C:
+                  type: boolean
+                  title: FIFO orders (00C)
+                00D:
+                  type: boolean
+                  title: Payment wallet (00D)
+                00E:
+                  type: boolean
+                  title: Pickup & delivery attempt trail (P2H2P) (00E)
+                00F:
+                  type: boolean
+                  title: ePOD (00F)
+                '010':
+                  type: boolean
+                  title: Call Masking (010)
+                '011':
+                  type: boolean
+                  title: Update delivery address (011)
+                '012':
+                  type: boolean
+                  title: Update pickup & delivery authorization (012)
+                '013':
+                  type: boolean
+                  title: Seller & buyer instructions (013)
+                '014':
+                  type: boolean
+                  title: Seller Creds (014)
+                '015':
+                  type: boolean
+                  title: Dynamic OTP verification (pickup & delivery) (015)
+                '016':
+                  type: boolean
+                  title: Dynamic OTP verification (RTO) (016)
+                '017':
+                  type: boolean
+                  title: Surge fee (017)
+                '018':
+                  type: boolean
+                  title: Partial RTO (018)
+                '019':
+                  type: boolean
+                  title: eWay bill (019)
+                01A:
+                  type: boolean
+                  title: Cancellation terms (01A)
+                01B:
+                  type: boolean
+                  title: Reverse QC (01B)
+                01C:
+                  type: boolean
+                  title: SLA metrics (01C)
+                01D:
+                  type: boolean
+                  title: Publish special capabilities (01D)
+                01E:
+                  type: boolean
+                  title: RCM self-declaration (01E)
+                01F:
+                  type: boolean
+                  title: Codified static terms (01F)
+                '020':
+                  type: boolean
+                  title: Exchange customer support contact details (020)
+                '021':
+                  type: boolean
+                  title: Differential weight charges (021)
+                '022':
+                  type: boolean
+                  title: RTO (with return) (022)
+              additionalProperties: false
+          additionalProperties: false
     examples:
       - name: Example for action "on_search"
         description: Auto-generated example for action "on_search" in flow "RATE_CARD

@@ -157,97 +157,124 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.city
       inputs:
-        oldInputs:
-          - name: retailCategory
-            label: Select retail item category
-            type: select
-            values:
-              - Grocery
-              - Fashion
-              - BPC
-              - Electronics
-              - Appliances
-              - Home & Kitchen
-              - Health & Wellness
-              - Pharma
-              - Auto components
-              - C2C parcels
-          - name: cold_storage
-            label: Do you want cold storage?
-            type: select
-            values:
-              - yes
-              - no
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="cold_storage")].value
-          - name: insurance_required
-            label: Do you want insurance?
-            type: select
-            values:
-              - yes
-              - no
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
-          - name: insurance_owner
-            label: Select insurance owner?
-            type: select
-            values:
-              - lsp
-              - lbnp
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
-          - name: fulfillmentType
-            label: Select a fulfillment type
-            type: select
-            values:
-              - FTL
-              - PTL
-            payloadField: $.message.intent.fulfillment.type
-          - name: dangerous_goods
-            label: Dangerous Goods?
-            type: select
-            default: no
-            values:
-              - no
-              - yes
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="dangerous_goods")].value
-          - name: fragile_handling
-            label: Fragile Handling?
-            type: select
-            values:
-              - no
-              - yes
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="fragile_handling")].value
-          - name: transit_risk_owner
-            label: Select Transit Risk Owner?
-            type: select
-            values:
-              - lbnp
-              - lsp
-            payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="transit_risk_owner")].value
-          - name: city_code
-            label: Enter city code
-            type: text
-            payloadField: $.context.city
-            default: std:080
-          - name: start_gps
-            label: Enter start gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.gps
-            default: 12.4535,77.9283
-          - name: end_gps
-            label: Enter end gps coordinates
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.gps
-            default: 12.4535,77.9283
-          - name: start_code
-            label: Enter start area code
-            type: text
-            payloadField: $.message.intent.fulfillment.start.location.address.area_code
-            default: "560001"
-          - name: end_code
-            label: Enter end area code
-            type: text
-            payloadField: $.message.intent.fulfillment.end.location.address.area_code
-            default: "560001"
-        id: old_inputs
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            retailCategory:
+              title: Select retail item category
+              type: string
+              enum:
+                - Grocery
+                - Fashion
+                - BPC
+                - Electronics
+                - Appliances
+                - Home & Kitchen
+                - Health & Wellness
+                - Pharma
+                - Auto components
+                - C2C parcels
+              default: Grocery
+            cold_storage:
+              title: Do you want cold storage?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="cold_storage")].value
+              type: string
+              enum:
+                - 'yes'
+                - 'no'
+              default: 'yes'
+            insurance_required:
+              title: Do you want insurance?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
+              type: string
+              enum:
+                - 'yes'
+                - 'no'
+              default: 'yes'
+            insurance_owner:
+              title: Select insurance owner?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
+              type: string
+              enum:
+                - lsp
+                - lbnp
+              default: lsp
+            fulfillmentType:
+              title: Select a fulfillment type
+              payloadField: $.message.intent.fulfillment.type
+              type: string
+              enum:
+                - FTL
+                - PTL
+              default: FTL
+            dangerous_goods:
+              title: Dangerous Goods?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="dangerous_goods")].value
+              type: string
+              enum:
+                - 'no'
+                - 'yes'
+              default: 'no'
+            fragile_handling:
+              title: Fragile Handling?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="fragile_handling")].value
+              type: string
+              enum:
+                - 'no'
+                - 'yes'
+              default: 'no'
+            transit_risk_owner:
+              title: Select Transit Risk Owner?
+              payloadField: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="transit_risk_owner")].value
+              type: string
+              enum:
+                - lbnp
+                - lsp
+              default: lbnp
+            city_code:
+              title: Enter city code
+              payloadField: $.context.city
+              type: string
+              default: std:080
+              description: Enter the city code
+              minLength: 1
+            start_gps:
+              title: Enter start gps coordinates
+              payloadField: $.message.intent.fulfillment.start.location.gps
+              type: string
+              default: 12.4535,77.9283
+            end_gps:
+              title: Enter end gps coordinates
+              payloadField: $.message.intent.fulfillment.end.location.gps
+              type: string
+              default: 12.4535,77.9283
+            start_code:
+              title: Enter start area code
+              payloadField: $.message.intent.fulfillment.start.location.address.area_code
+              type: string
+              default: '560001'
+            end_code:
+              title: Enter end area code
+              payloadField: $.message.intent.fulfillment.end.location.address.area_code
+              type: string
+              default: '560001'
+          additionalProperties: false
+          required:
+            - retailCategory
+            - cold_storage
+            - insurance_required
+            - insurance_owner
+            - fulfillmentType
+            - dangerous_goods
+            - fragile_handling
+            - transit_risk_owner
+            - city_code
+            - start_gps
+            - end_gps
+            - start_code
+            - end_code
     examples:
       - name: Example for action "search"
         description: Auto-generated example for action "search" in flow "ORDER_FLOW_B2B"
