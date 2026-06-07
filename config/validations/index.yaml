@@ -1910,6 +1910,7 @@ _TESTS_:
         - distance
         - fulfill_request
         - fulfill_response
+        - motorable_distance
       tagPath: $.message.catalog['bpp/providers'][*].fulfillments[*].tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
