@@ -127,6 +127,22 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        category_id: $.message.intent.category.id
+        domain: $.context.domain
+        start_location: $.message.intent.fulfillment.start.location.gps
+        start_area_code: $.message.intent.fulfillment.start.location.address.area_code
+        end_location: $.message.intent.fulfillment.end.location.gps
+        end_area_code: $.message.intent.fulfillment.end.location.address.area_code
+        fulfillment: $.message.intent.fulfillment
+        payment_type: $.message.intent.payment.type
+        is_cod: $.message.intent.fulfillment.tags[?(@.code == "linked_order")].list[?(@.code == "cod_order")].value
+        rate_basis: $.message.intent.fulfillment.tags[?(@.code=="fulfill_request")].list[?(@.code=="rate_basis")].value
+        retail_category: $.message.intent.fulfillment.tags[?(@.code=="linked_order")].list[?(@.code=="category")].value
+        collection_amount: $.message.intent.fulfillment.tags[?(@.code=="linked_order")].list[?(@.code=="collection_amount")].value
+        static_pickup_otp: $.message.intent.fulfillment.start.instructions.code
+        static_delivery_otp: $.message.intent.fulfillment.end.instructions.code
+        insurance_required: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
+        insurance_owner: $.message.intent.fulfillment.tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
       inputs:
         id: ExampleInputId
         jsonSchema:
@@ -404,6 +420,18 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        provider_id: $.message.catalog["bpp/providers"][0].id
+        location_id: $.message.catalog["bpp/providers"][0].locations[0].id
+        rto_id: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="RTO")].id
+        on_seach_categories: $.message.catalog["bpp/providers"][*].categories
+        on_search_items: $.message.catalog["bpp/providers"][*].items[*]
+        on_search_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Delivery" || @.type=="FTL" || @.type=="PTL" || @.type=="FIFO")]
+        on_search_batch_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")]
+        on_search_return_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Return")]
+        feature_surge_fee: $.message.catalog.tags[?(@.code=="lsp_features")].list[?(@.code=="017")].value
+        feature_cancellation_terms: $.message.catalog.tags[?(@.code=="lsp_features")].list[?(@.code=="01A")].value
+        rider_count: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")].tags[?(@.code=="fulfill_response")].list[?(@.code=="rider_count")].value
+        order_count: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")].tags[?(@.code=="fulfill_response")].list[?(@.code=="order_count")].value
       inputs: {}
     examples:
       - name: Example for action "on_search"
@@ -605,6 +633,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        billing: $.message.order.billing
+        message_id: $.context.message_id
+        items: $.message.order.items[*]
+        payment: $.message.order.payment
+        insurance_required: $.message.order.fulfillments[*].tags[?(@.code=="special_req")].list[?(@.code=="insurance_required")].value
+        insurance_owner: $.message.order.fulfillments[*].tags[?(@.code=="special_req")].list[?(@.code=="insurance_owner")].value
       inputs: {}
     examples:
       - name: Example for action "init"
@@ -818,6 +853,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        quote_price: $.message.order.quote.price
+        quote: $.message.order.quote
+        payment: $.message.order.payment
+        on_init_items: $.message.order.items[*]
+        cancellation_terms: $.message.order.cancellation_terms[*]
+        on_init_tags: $.message.order.tags[*]
       inputs: {}
     examples:
       - name: Example for action "on_init"
@@ -1199,6 +1241,20 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        confirm_create_at_timestamp: $.message.order.created_at
+        tat: $.message.order.items[0].time.duration
+        fulfillments: $.message.order.fulfillments[*]
+        confirm_fulfillments: $.message.order.fulfillments[*]
+        items: $.message.order.items[*]
+        quote: $.message.order.quote
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        rto_action: $.message.order.fulfillments[*].tags[?(@.code=="rto_action")].list[?(@.code=="return_to_origin")].value
+        rto_verification_code: $.message.order.fulfillments[*].tags[?(@.code=="rto_verification")].list[?(@.code=="short_desc")].value
+        confirm_tags: $.message.order.tags
+        b2b_payments: $.message.order.payments
       inputs: {}
     examples:
       - name: Example for action "confirm"
@@ -1749,6 +1805,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_status: $.message.order.state
+        fulfillment_status: $.message.order.fulfillments[0].state.descriptor.code
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        quote: $.message.order.quote
+        items: $.message.order.items[*]
+        on_confirm_tags: $.message.order.tags[*]
       inputs: {}
     examples:
       - name: Example for action "on_confirm"
@@ -2220,6 +2284,9 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        is_ready_to_ship: $.message.order.fulfillments[*].tags[?(@.code=="state")].list[?(@.code=="ready_to_ship")].value
+        update_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
       - name: Example for action "update"
@@ -2685,6 +2752,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        quote: $.message.order.quote
+        on_update_tags: $.message.order.tags[*]
       inputs: {}
     examples:
       - name: Example for action "on_update"
@@ -3236,6 +3308,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -3793,6 +3873,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -4350,6 +4438,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -4907,6 +5003,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -5464,6 +5568,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -6021,6 +6133,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -6578,6 +6698,14 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_id: $.message.order.id
+        order_status: $.message.order.state
+        fulfillment_pickup_timestamp: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.timestamp
+        fulfillments: $.message.order.fulfillments[*]
+        order_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        linked_order: $.message.order["@ondc/org/linked_order"]
+        fulfillment_stops: $.message.order.fulfillments[?(@.type=='FIFO')].stops
       inputs: {}
     examples:
       - name: Example for action "on_status"
