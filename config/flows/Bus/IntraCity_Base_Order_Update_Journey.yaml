@@ -1,5 +1,5 @@
 meta:
-  domain: ONDC:TRV11
+  domain: 'ONDC:TRV11'
   version: 2.1.0
   flowId: IntraCity_Base_Order_Update_Journey
   config_version: 0.0.0001
@@ -8,11 +8,11 @@ meta:
   flowName: IntraCity Base Order Update Journey
 transaction_data:
   transaction_id: 5ad6e0ee-aeed-48b1-8aee-8c8683c591d2
-  latest_timestamp: 1970-01-01T00:00:00.000Z
+  latest_timestamp: '1970-01-01T00:00:00.000Z'
   bap_id: bap.example.com
-  bap_uri: https://bap.example.com
+  bap_uri: 'https://bap.example.com'
   bpp_id: bpp.example.com
-  bpp_uri: https://bpp.example.com
+  bpp_uri: 'https://bpp.example.com'
 steps:
   - api: update
     action_id: update_BUS_Base_Order_Update_210
@@ -21,40 +21,32 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlciA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIgfHwge307CgogIGNvbnN0IHVzZXJJdGVtcyA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uaXRlbXMgPz8gW107CgogIGNvbnN0IGZ1bGZpbGxtZW50SWQgPSBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LmZ1bGZpbGxtZW50SWQgPz8gIkYxIgoKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmlkID0gYE9SRCR7RGF0ZS5ub3coKS50b1N0cmluZygpLnNsaWNlKC01KX0ke01hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDEwMDApfWA7CgogIGNvbnN0IG9yZGVySWRzID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5vcmRlcklkcyA/PyBbXTsKCmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gWwogIHsKICAgIGlkOiBmdWxmaWxsbWVudElkLAogICAgdHlwZTogIkFHRU5UX1RJQ0tFVElORyIsCiAgICB0YWdzOiBbCiAgICAgIHsKICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICBjb2RlOiAiUkVGX09SREVSX0lEUyIsCiAgICAgICAgfSwKICAgICAgICBsaXN0OiBvcmRlcklkcy5tYXAoKG9yZGVySWQpID0+ICh7CiAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgIGNvZGU6ICJDSElMRF9PUkRFUl9JRCIsCiAgICAgICAgICAgIG5hbWU6ICJDaGlsZCBPcmRlciBJZHMiLAogICAgICAgICAgfSwKICAgICAgICAgIHZhbHVlOiBvcmRlcklkLAogICAgICAgIH0pKSwKICAgICAgfSwKICAgIF0sCiAgfSwKXTsKCiAgY29uc3QgYnJlYWt1cCA9IFtdOwogIGxldCBxdW90ZVByaWNlID0gMDsKCiAgdXNlckl0ZW1zLmZvckVhY2goKGl0ZW0sIGluZGV4KSA9PiB7CiAgICBjb25zdCBpdGVtSWQgPSBpdGVtPy5pdGVtSWQgPz8gIiI7CiAgICBjb25zdCBxdWFudGl0eSA9IE51bWJlcihpdGVtPy5xdWFudGl0eSA/PyAxKTsKCiAgICAvLyBTYW1wbGUgZmFyZSBsb2dpYwogICAgY29uc3QgYmFzZUZhcmUgPSBpbmRleCA9PT0gMCA/IDM1IDogMjU7CgogICAgY29uc3QgaXRlbVRvdGFsID0gcXVhbnRpdHkgKiBiYXNlRmFyZTsKCiAgICBicmVha3VwLnB1c2goewogICAgICB0aXRsZTogIkJBU0VfRkFSRSIsCiAgICAgIGl0ZW06IHsKICAgICAgICBpZDogaXRlbUlkLAogICAgICAgICJwcmljZSI6IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY3VycmVuY3kiOiAiSU5SIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAidmFsdWUiOiBTdHJpbmcoYmFzZUZhcmUpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgIHF1YW50aXR5OiB7CiAgICAgICAgICBzZWxlY3RlZDogewogICAgICAgICAgICBjb3VudDogcXVhbnRpdHksCiAgICAgICAgICB9LAogICAgICAgIH0sCiAgICAgIH0sCiAgICAgIHByaWNlOiB7CiAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgIHZhbHVlOiBTdHJpbmcoaXRlbVRvdGFsKSwKICAgICAgfSwKICAgIH0pOwoKICAgIHF1b3RlUHJpY2UgKz0gaXRlbVRvdGFsOwogIH0pOwoKICBicmVha3VwLnB1c2goCiAgICB7CiAgICAgIHRpdGxlOiAiT0ZGRVIiLAogICAgICBwcmljZTogewogICAgICAgIGN1cnJlbmN5OiAiSU5SIiwKICAgICAgICB2YWx1ZTogIjAiLAogICAgICB9LAogICAgfSwKICAgIHsKICAgICAgdGl0bGU6ICJUT0xMIiwKICAgICAgcHJpY2U6IHsKICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgdmFsdWU6ICIwIiwKICAgICAgfSwKICAgIH0sCiAgICB7CiAgICAgIHRpdGxlOiAiVEFYIiwKICAgICAgcHJpY2U6IHsKICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgdmFsdWU6ICIwIiwKICAgICAgfSwKICAgICAgaXRlbTogewogICAgICAgIHRhZ3M6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIGNvZGU6ICJUQVgiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgICAgICBjb2RlOiAiQ0dTVCIsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgdmFsdWU6ICIwIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgICAgY29kZTogIlNHU1QiLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgXSwKICAgICAgfSwKICAgIH0sCiAgICB7CiAgICAgIHRpdGxlOiAiT1RIRVJfQ0hBUkdFUyIsCiAgICAgIHByaWNlOiB7CiAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgIHZhbHVlOiAiMCIsCiAgICAgIH0sCiAgICAgIGl0ZW06IHsKICAgICAgICB0YWdzOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBjb2RlOiAiT1RIRVJfQ0hBUkdFUyIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICAgIGNvZGU6ICJTVVJDSEFSR0UiLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgXSwKICAgICAgfSwKICAgIH0KICApOwoKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlID0gewogICAgcHJpY2U6IHsKICAgICAgdmFsdWU6IFN0cmluZyhxdW90ZVByaWNlKSwKICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgfSwKICAgIGJyZWFrdXAsCiAgfTsKCiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: update
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
-          domain: ONDC:TRV11
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller'
+          domain: 'ONDC:TRV11'
           location:
             city:
-              code: std:011
+              code: 'std:011'
             country:
               code: IND
           message_id: 17ae4161-204e-47f3-ac85-67f3f0eff1f0
-          timestamp: 2026-03-03T09:28:15.647Z
+          timestamp: '2026-03-03T09:28:15.647Z'
           transaction_id: fb672b48-04dd-4a6f-bfd2-356bdc8a72de
           ttl: PT30S
           version: 2.1.0
         message:
           order:
-            fulfillments:
-              - id: F11
-                tags:
-                  - descriptor:
-                      code: REF_ORDER_IDS
-                    list:
-                      - descriptor:
-                          code: CHILD_ORDER_ID
-                          name: Child Order Ids
-                        value: CHILD_ORDER_ID_1
-                type: AGENT_TICKETING
             id: 249e5f15
             quote:
               breakup:
@@ -65,27 +57,27 @@ steps:
                         count: 50
                   price:
                     currency: INR
-                    value: "1750"
+                    value: '1750'
                   title: BASE_FARE
                 - item:
                     id: I2
                     price:
                       currency: INR
-                      value: "25"
+                      value: '25'
                     quantity:
                       selected:
                         count: 40
                   price:
                     currency: INR
-                    value: "1000"
+                    value: '1000'
                   title: BASE_FARE
                 - price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: OFFER
                 - price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: TOLL
                 - item:
                     tags:
@@ -94,13 +86,13 @@ steps:
                         list:
                           - descriptor:
                               code: CGST
-                            value: "0"
+                            value: '0'
                           - descriptor:
                               code: SGST
-                            value: "0"
+                            value: '0'
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: TAX
                 - item:
                     tags:
@@ -109,14 +101,14 @@ steps:
                         list:
                           - descriptor:
                               code: SURCHARGE
-                            value: "0"
+                            value: '0'
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: OTHER_CHARGES
               price:
                 currency: INR
-                value: "2750"
+                value: '2750'
           update_target: order.quote
       saveData:
         transactionId: $.context.transaction_id
@@ -127,26 +119,84 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
-      inputs: {}
+        message_id: $.context.message_id
+        update_fulfillments: $.message.order.fulfillments
+        update_quote: $.message.order.quote
+        update_order_id: $.message.order.id
+      inputs:
+        id: ExampleInputId
+        jsonSchema:
+          $schema: 'http://json-schema.org/draft-07/schema#'
+          type: object
+          properties:
+            bpp_id:
+              type: string
+              description: Enter bpp id
+              default: dev-workbench.ondc.tech
+            bpp_uri:
+              type: string
+              description: Enter bpp uri
+              default: >-
+                https://dev-workbench.ondc.tech/api-service/ONDC:FIS12/2.3.0/seller
+            orderIds:
+              type: array
+              description: Enter Order Ids
+              items:
+                type: string
+              default:
+                - I1
+            fulfillmentId:
+              type: string
+              description: Enter Fulfillment Id
+              default: F11
+            items:
+              type: array
+              description: Enter Items and Quantity
+              items:
+                type: object
+                properties:
+                  itemId:
+                    type: string
+                    description: Item Id
+                  quantity:
+                    type: integer
+                    description: Quantity
+                    minimum: 1
+                    default: 1
+                required:
+                  - itemId
+                  - quantity
+              default:
+                - itemId: I1
+                  quantity: 1
+          required:
+            - bpp_id
+            - bpp_uri
+            - orderIds
+            - fulfillmentId
+            - items
+          additionalProperties: false
     examples:
       - name: Example for action "update"
-        description: Auto-generated example for action "update" in flow
+        description: >-
+          Auto-generated example for action "update" in flow
           "IntraCity_Base_Order_Update_Journey"
         payload:
           context:
             action: update
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
-            domain: ONDC:TRV11
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
+            domain: 'ONDC:TRV11'
             location:
               city:
-                code: std:011
+                code: 'std:011'
               country:
                 code: IND
             message_id: 17ae4161-204e-47f3-ac85-67f3f0eff1f0
-            timestamp: 2026-03-03T09:28:15.647Z
+            timestamp: '2026-03-03T09:28:15.647Z'
             transaction_id: fb672b48-04dd-4a6f-bfd2-356bdc8a72de
             ttl: PT30S
             version: 2.1.0
@@ -173,27 +223,27 @@ steps:
                           count: 50
                     price:
                       currency: INR
-                      value: "1750"
+                      value: '1750'
                     title: BASE_FARE
                   - item:
                       id: I2
                       price:
                         currency: INR
-                        value: "25"
+                        value: '25'
                       quantity:
                         selected:
                           count: 40
                     price:
                       currency: INR
-                      value: "1000"
+                      value: '1000'
                     title: BASE_FARE
                   - price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: OFFER
                   - price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: TOLL
                   - item:
                       tags:
@@ -202,13 +252,13 @@ steps:
                           list:
                             - descriptor:
                                 code: CGST
-                              value: "0"
+                              value: '0'
                             - descriptor:
                                 code: SGST
-                              value: "0"
+                              value: '0'
                     price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: TAX
                   - item:
                       tags:
@@ -217,14 +267,14 @@ steps:
                           list:
                             - descriptor:
                                 code: SURCHARGE
-                              value: "0"
+                              value: '0'
                     price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: OTHER_CHARGES
                 price:
                   currency: INR
-                  value: "2750"
+                  value: '2750'
             update_target: order.quote
         type: request
   - api: on_update
@@ -234,79 +284,82 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3Qgcm91dGVGdWxmaWxsbWVudElkID0gIkYxIjsKICBjb25zdCBkdXJhdGlvbiA9ICJQMkQiOwogIGxldCB2YWxpZGl0eUVuZERhdGUgPSBuZXcgRGF0ZSgpOwogIGNvbnN0IGRheXNNYXRjaCA9IGR1cmF0aW9uLm1hdGNoKC9QKD86VCk/KFxkKylELyk7CiAgaWYgKGRheXNNYXRjaCkgewogICAgY29uc3QgZGF5cyA9IHBhcnNlSW50KGRheXNNYXRjaFsxXSwgMTApOwogICAgdmFsaWRpdHlFbmREYXRlLnNldERhdGUodmFsaWRpdHlFbmREYXRlLmdldERhdGUoKSArIGRheXMpOwogIH0KICBjb25zdCBkYXRlID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS51cGRhdGVfb3JkZXJfaWRbMF0gPz8gIiI7CiAgY29uc3QgYnJlYWt1cCA9IHNlc3Npb25EYXRhPy51cGRhdGVfcXVvdGVbMF0/LmJyZWFrdXA/Lm1hcCgoYnJlYWt1cCkgPT4gewogICAgaWYgKGJyZWFrdXA/LnRpdGxlID09PSAiQkFTRV9GQVJFIiAmJiAhYnJlYWt1cC5pdGVtLnByaWNlKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgLi4uYnJlYWt1cCwKICAgICAgICBpdGVtOiB7CiAgICAgICAgICAuLi5icmVha3VwLml0ZW0sCiAgICAgICAgICBwcmljZTogewogICAgICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgICAgIHZhbHVlOiBTdHJpbmcoCiAgICAgICAgICAgICAgTnVtYmVyKAogICAgICAgICAgICAgICAgYnJlYWt1cD8ucHJpY2U/LnZhbHVlIC8KICAgICAgICAgICAgICAgICAgYnJlYWt1cD8uaXRlbT8ucXVhbnRpdHk/LnNlbGVjdGVkPy5jb3VudCwKICAgICAgICAgICAgICApLAogICAgICAgICAgICApLAogICAgICAgICAgfSwKICAgICAgICB9LAogICAgICB9OwogICAgfQogICAgcmV0dXJuIGJyZWFrdXA7CiAgfSk7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHsKICAgIC4uLnNlc3Npb25EYXRhPy51cGRhdGVfcXVvdGVbMF0sCiAgICBicmVha3VwLAogIH07CiAgY29uc3QgY3JlYXRlQWdlbnRUaWNrZXRpbmcgPSBzZXNzaW9uRGF0YT8udXBkYXRlX2Z1bGZpbGxtZW50cwogICAgPy5mbGF0KCkKICAgID8ubWFwKChmdWxmaWxsbWVudCkgPT4gewogICAgICByZXR1cm4gewogICAgICAgIGlkOiBmdWxmaWxsbWVudD8uaWQgPz8gIiIsCiAgICAgICAgdHlwZTogZnVsZmlsbG1lbnQ/LnR5cGUgPz8gIiIsCiAgICAgICAgdmVoaWNsZTogewogICAgICAgICAgY2F0ZWdvcnk6ICJCVVMiLAogICAgICAgICAgcmVnaXN0cmF0aW9uOiAiREwgMTFBIDEyM0YiLAogICAgICAgIH0sCiAgICAgICAgYWdlbnQ6IHsKICAgICAgICAgIHBlcnNvbjogewogICAgICAgICAgICBpZDogImVtcDpFNTI0MzIiLAogICAgICAgICAgfSwKICAgICAgICB9LAogICAgICAgIHN0YXRlOiB7CiAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgIGNvZGU6ICJDT01QTEVURUQiLAogICAgICAgICAgfSwKICAgICAgICB9LAogICAgICAgIHRhZ3M6IFsKICAgICAgICAgIC4uLmZ1bGZpbGxtZW50Py50YWdzLAogICAgICAgICAgewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgY29kZTogIklORk8iLAogICAgICAgICAgICB9LAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgICAgICBjb2RlOiAiUEFSRU5UX0lEIiwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB2YWx1ZTogcm91dGVGdWxmaWxsbWVudElkLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICB9LAogICAgICAgIF0sCiAgICAgIH07CiAgICB9KTsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IFsKICAgIHsKICAgICAgaWQ6IHJvdXRlRnVsZmlsbG1lbnRJZCwKICAgICAgdHlwZTogIlJPVVRFIiwKICAgICAgc3RvcHM6IFsKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiU1RBUlQiLAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJNT0NLX1NUQVRJT05fMSIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8xIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjY2NTc2LCA3Ny4yMzMzMzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMSIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJNT0NLX1NUQVRJT05fMiIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8yIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjI0MDk3LCA3Ny4yMDQ5OTEiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMiIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjEiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAiTU9DS19TVEFUSU9OXzMiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fMyIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjYyNTk3Miw3Ny4yMDk5MTciLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMyIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjIiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAiTU9DS19TVEFUSU9OXzQiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fNCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjYxMDk3Miw3Ny4yMDE3MTciLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiNCIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjMiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAiTU9DS19TVEFUSU9OXzUiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fNSIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjYyMzA5Nyw3Ny4yMDk5MTciLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiNSIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjQiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIkVORCIsCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIk1PQ0tfU1RBVElPTl82IiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzYiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC41NDgyMzAsIDc3LjIzODAzOSIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICI2IiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiNSIsCiAgICAgICAgfSwKICAgICAgXSwKICAgICAgdmVoaWNsZTogewogICAgICAgIGNhdGVnb3J5OiAiQlVTIiwKICAgICAgfSwKICAgICAgdGFnczogWwogICAgICAgIHsKICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgY29kZTogIlJPVVRFX0lORk8iLAogICAgICAgICAgfSwKICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgIGNvZGU6ICJST1VURV9JRCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB2YWx1ZTogIjI0MiIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICBjb2RlOiAiUk9VVEVfRElSRUNUSU9OIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHZhbHVlOiAiVVAiLAogICAgICAgICAgICB9LAogICAgICAgICAgXSwKICAgICAgICB9LAogICAgICBdLAogICAgfSwKICAgIC4uLmNyZWF0ZUFnZW50VGlja2V0aW5nLAogIF07CgogIGNvbnN0IGZ1bGZpbGxtZW50X2lkcyA9IGRlZmF1bHRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlci5mdWxmaWxsbWVudHM/Lm1hcCgKICAgIChmdWxmaWxsbWVudCkgPT4gZnVsZmlsbG1lbnQ/LmlkLAogICk7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IFsKICAgIHsKICAgICAgaWQ6ICJJMTAiLAogICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgbmFtZTogIkFnZW50IExvZ2luIiwKICAgICAgICBjb2RlOiAiQUdFTlRfVElDS0VUSU5HIiwKICAgICAgICBpbWFnZXM6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgdXJsOiAiaHR0cHM6Ly9kdGMuZGVsaGkuZ292LmluL3NpdGVzL2RlZmF1bHQvZmlsZXMvRFRDL2xvZ28vZHRjX2xvZ29fMi5wbmciLAogICAgICAgICAgICBzaXplX3R5cGU6ICJ4cyIsCiAgICAgICAgICB9LAogICAgICAgIF0sCiAgICAgIH0sCiAgICAgIGNhdGVnb3J5X2lkczogWyJDMSJdLAogICAgICBmdWxmaWxsbWVudF9pZHMsCiAgICAgIHByaWNlOiB7CiAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgIHZhbHVlOiAiMCIsCiAgICAgIH0sCiAgICAgIHRpbWU6IHsKICAgICAgICBsYWJlbDogIlZhbGlkaXR5IiwKICAgICAgICBkdXJhdGlvbjogZHVyYXRpb24sCiAgICAgICAgdGltZXN0YW1wOiB2YWxpZGl0eUVuZERhdGUudG9JU09TdHJpbmcoKSwKICAgICAgfSwKICAgIH0sCiAgXTsKCiAgLy9fX19fX19TRVRUTEVNRU5UX0FNT1VOVF9fX19fX19fX19fXwogIGNvbnN0IHRhZ3MgPSBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8ub3JkZXI/LnRhZ3M7CiAgaWYgKCF0YWdzKSByZXR1cm47CgogIGNvbnN0IGNvbGxlY3RlZEJ5ID0gIkJBUCI7CiAgY29uc3QgcHJpY2UgPSBOdW1iZXIoZGVmYXVsdFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyPy5xdW90ZT8ucHJpY2U/LnZhbHVlKTsKCiAgY29uc3QgYnV5ZXJGaW5kZXJGZWVzVGFnID0gdGFncz8uZmluZCgKICAgICh0YWcpID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIkJBUF9URVJNUyIsCiAgKTsKCiAgY29uc3QgZmVlUGVyY2VudGFnZSA9IE51bWJlcigKICAgIGJ1eWVyRmluZGVyRmVlc1RhZz8ubGlzdD8uZmluZCgKICAgICAgKGl0ZW0pID0+IGl0ZW0/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCVVlFUl9GSU5ERVJfRkVFU19QRVJDRU5UQUdFIiwKICAgICk/LnZhbHVlID8/IDAsCiAgKTsKCiAgY29uc3QgZmVlQW1vdW50ID0gKHByaWNlICogZmVlUGVyY2VudGFnZSkgLyAxMDA7CgogIGxldCBzZXR0bGVtZW50QW1vdW50ID0gMDsKICBpZiAoY29sbGVjdGVkQnkgPT09ICJCQVAiKSB7CiAgICBzZXR0bGVtZW50QW1vdW50ID0gcHJpY2UgLSBmZWVBbW91bnQ7CiAgfSBlbHNlIGlmIChjb2xsZWN0ZWRCeSA9PT0gIkJQUCIpIHsKICAgIHNldHRsZW1lbnRBbW91bnQgPSBmZWVBbW91bnQ7CiAgfSBlbHNlIHsKICAgIHNldHRsZW1lbnRBbW91bnQgPSBwcmljZTsKICB9CgogIGNvbnN0IHNldHRsZW1lbnRUZXJtc1RhZyA9IHRhZ3M/LmZpbmQoCiAgICAodGFnKSA9PiB0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJCQVBfVEVSTVMiLAogICk7CgogIGNvbnN0IHNldHRsZW1lbnRBbW91bnRJdGVtID0gc2V0dGxlbWVudFRlcm1zVGFnPy5saXN0Py5maW5kKAogICAgKGl0ZW0pID0+IGl0ZW0/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJTRVRUTEVNRU5UX0FNT1VOVCIsCiAgKTsKCiAgaWYgKHNldHRsZW1lbnRBbW91bnRJdGVtKSB7CiAgICBzZXR0bGVtZW50QW1vdW50SXRlbS52YWx1ZSA9IHNldHRsZW1lbnRBbW91bnQudG9TdHJpbmcoKTsKICB9CgogIGNvbnN0IGJwcFRlcm1zVGFnID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci50YWdzPy5maW5kKAogICAgKGl0ZW0pID0+IGl0ZW0uZGVzY3JpcHRvci5jb2RlID09PSAiQlBQX1RFUk1TIiwKICApOwoKICBpZiAoYnBwVGVybXNUYWcpIHsKICAgIGNvbnN0IGJwcFNldHRsZW1lbnRBbW91bnRJdGVtID0gYnBwVGVybXNUYWcubGlzdD8uZmluZCgKICAgICAgKGkpID0+IGkuZGVzY3JpcHRvci5jb2RlID09PSAiU0VUVExFTUVOVF9BTU9VTlQiLAogICAgKTsKCiAgICBpZiAoYnBwU2V0dGxlbWVudEFtb3VudEl0ZW0pIHsKICAgICAgYnBwU2V0dGxlbWVudEFtb3VudEl0ZW0udmFsdWUgPSBzZXR0bGVtZW50QW1vdW50LnRvU3RyaW5nKCk7CiAgICB9CiAgfQogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY3JlYXRlZF9hdCA9IGRhdGU7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gZGF0ZTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBvcmRlciA9IHRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyOwoKICBpZiAoIW9yZGVyKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJPcmRlciBpcyBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBjb25zdCBleHBlY3RlZEZ1bGZpbGxtZW50SWRzID0KICAgIHNlc3Npb25EYXRhPy51cGRhdGVfZnVsZmlsbG1lbnRzPy5mbGF0KCk/Lm1hcCgoZikgPT4gZi5pZCkgPz8gW107CgogIGNvbnN0IGFjdHVhbEZ1bGZpbGxtZW50SWRzID0KICAgIG9yZGVyPy5mdWxmaWxsbWVudHM/Lm1hcCgoZikgPT4gZi5pZCkgPz8gW107CgogIGZvciAoY29uc3QgZnVsZmlsbG1lbnRJZCBvZiBleHBlY3RlZEZ1bGZpbGxtZW50SWRzKSB7CiAgICBpZiAoIWFjdHVhbEZ1bGZpbGxtZW50SWRzLmluY2x1ZGVzKGZ1bGZpbGxtZW50SWQpKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogYEZ1bGZpbGxtZW50IGlkICR7ZnVsZmlsbG1lbnRJZH0gbm90IGZvdW5kYCwKICAgICAgfTsKICAgIH0KICB9CgogIGNvbnN0IGV4cGVjdGVkSXRlbUlkID0KICAgIHNlc3Npb25EYXRhPy51cGRhdGVfaXRlbUlkPy5bMF0gPz8gIkkxMCI7CgogIGNvbnN0IGFjdHVhbEl0ZW1JZCA9CiAgICBvcmRlcj8uaXRlbXM/LlswXT8uaWQ7CgogIGlmIChhY3R1YWxJdGVtSWQgIT09IGV4cGVjdGVkSXRlbUlkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246IGBJbnZhbGlkIGl0ZW0gaWQuIEV4cGVjdGVkICR7ZXhwZWN0ZWRJdGVtSWR9LCBnb3QgJHthY3R1YWxJdGVtSWR9YCwKICAgIH07CiAgfQoKICBjb25zdCBleHBlY3RlZFF1b3RlID0KICAgIHNlc3Npb25EYXRhPy51cGRhdGVfcXVvdGU/LlswXTsKCiAgaWYgKAogICAgZXhwZWN0ZWRRdW90ZT8ucHJpY2U/LnZhbHVlICYmCiAgICBvcmRlcj8ucXVvdGU/LnByaWNlPy52YWx1ZSAhPT0gZXhwZWN0ZWRRdW90ZT8ucHJpY2U/LnZhbHVlCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246IGBJbnZhbGlkIHF1b3RlIHByaWNlLiBFeHBlY3RlZCAke2V4cGVjdGVkUXVvdGU/LnByaWNlPy52YWx1ZX0sIGdvdCAke29yZGVyPy5xdW90ZT8ucHJpY2U/LnZhbHVlfWAsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8uaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk9yZGVyIGlkIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIHJldHVybiB7CiAgICB2YWxpZDogdHJ1ZSwKICAgIGNvZGU6IDIwMCwKICAgIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIsCiAgfTsKfQ==
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_update
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
-          domain: ONDC:TRV11
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller'
+          domain: 'ONDC:TRV11'
           location:
             city:
-              code: std:011
+              code: 'std:011'
             country:
               code: IND
           message_id: 17ae4161-204e-47f3-ac85-67f3f0eff1f0
-          timestamp: 2026-03-03T09:28:15.800Z
+          timestamp: '2026-03-03T09:28:15.800Z'
           transaction_id: fb672b48-04dd-4a6f-bfd2-356bdc8a72de
           ttl: PT30S
           version: 2.1.0
         message:
           order:
-            created_at: 2026-03-03T09:28:15.795Z
+            created_at: '2026-03-03T09:28:15.795Z'
             fulfillments:
               - id: F1
                 stops:
-                  - id: "1"
+                  - id: '1'
                     location:
                       descriptor:
                         code: MOCK_STATION_1
                         name: MOCK_STATION_1
-                      gps: 28.666576, 77.233332
+                      gps: '28.666576, 77.233332'
                     type: START
-                  - id: "2"
+                  - id: '2'
                     location:
                       descriptor:
                         code: MOCK_STATION_2
                         name: MOCK_STATION_2
-                      gps: 28.624097, 77.204991
-                    parent_stop_id: "1"
+                      gps: '28.624097, 77.204991'
+                    parent_stop_id: '1'
                     type: INTERMEDIATE_STOP
-                  - id: "3"
+                  - id: '3'
                     location:
                       descriptor:
                         code: MOCK_STATION_3
                         name: MOCK_STATION_3
-                      gps: 28.625972,77.209917
-                    parent_stop_id: "2"
+                      gps: '28.625972,77.209917'
+                    parent_stop_id: '2'
                     type: INTERMEDIATE_STOP
-                  - id: "4"
+                  - id: '4'
                     location:
                       descriptor:
                         code: MOCK_STATION_4
                         name: MOCK_STATION_4
-                      gps: 28.610972,77.201717
-                    parent_stop_id: "3"
+                      gps: '28.610972,77.201717'
+                    parent_stop_id: '3'
                     type: INTERMEDIATE_STOP
-                  - id: "5"
+                  - id: '5'
                     location:
                       descriptor:
                         code: MOCK_STATION_5
                         name: MOCK_STATION_5
-                      gps: 28.623097,77.209917
-                    parent_stop_id: "4"
+                      gps: '28.623097,77.209917'
+                    parent_stop_id: '4'
                     type: INTERMEDIATE_STOP
-                  - id: "6"
+                  - id: '6'
                     location:
                       descriptor:
                         code: MOCK_STATION_6
                         name: MOCK_STATION_6
-                      gps: 28.548230, 77.238039
-                    parent_stop_id: "5"
+                      gps: '28.548230, 77.238039'
+                    parent_stop_id: '5'
                     type: END
                 tags:
                   - descriptor:
@@ -314,7 +367,7 @@ steps:
                     list:
                       - descriptor:
                           code: ROUTE_ID
-                        value: "242"
+                        value: '242'
                       - descriptor:
                           code: ROUTE_DIRECTION
                         value: UP
@@ -323,7 +376,7 @@ steps:
                   category: BUS
               - agent:
                   person:
-                    id: emp:E52432
+                    id: 'emp:E52432'
                 id: F11
                 state:
                   descriptor:
@@ -354,7 +407,8 @@ steps:
                   code: AGENT_TICKETING
                   images:
                     - size_type: xs
-                      url: https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                      url: >-
+                        https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
                   name: Agent Login
                 fulfillment_ids:
                   - F1
@@ -362,16 +416,17 @@ steps:
                 id: I10
                 price:
                   currency: INR
-                  value: "0"
+                  value: '0'
                 time:
                   duration: P2D
                   label: Validity
-                  timestamp: 2026-03-05T09:28:15.795Z
+                  timestamp: '2026-03-05T09:28:15.795Z'
             provider:
               descriptor:
                 images:
                   - size_type: xs
-                    url: https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                    url: >-
+                      https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
                 name: Delhi Transport Corporation
               id: P1
             quote:
@@ -380,33 +435,33 @@ steps:
                     id: I1
                     price:
                       currency: INR
-                      value: "35"
+                      value: '35'
                     quantity:
                       selected:
                         count: 50
                   price:
                     currency: INR
-                    value: "1750"
+                    value: '1750'
                   title: BASE_FARE
                 - item:
                     id: I2
                     price:
                       currency: INR
-                      value: "25"
+                      value: '25'
                     quantity:
                       selected:
                         count: 40
                   price:
                     currency: INR
-                    value: "1000"
+                    value: '1000'
                   title: BASE_FARE
                 - price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: OFFER
                 - price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: TOLL
                 - item:
                     tags:
@@ -415,13 +470,13 @@ steps:
                         list:
                           - descriptor:
                               code: CGST
-                            value: "0"
+                            value: '0'
                           - descriptor:
                               code: SGST
-                            value: "0"
+                            value: '0'
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: TAX
                 - item:
                     tags:
@@ -430,14 +485,14 @@ steps:
                         list:
                           - descriptor:
                               code: SURCHARGE
-                            value: "0"
+                            value: '0'
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   title: OTHER_CHARGES
               price:
                 currency: INR
-                value: "2750"
+                value: '2750'
             status: COMPLETED
             tags:
               - descriptor:
@@ -447,7 +502,7 @@ steps:
                 list:
                   - descriptor:
                       code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: "1"
+                    value: '1'
                   - descriptor:
                       code: SETTLEMENT_WINDOW
                     value: PT60M
@@ -459,19 +514,19 @@ steps:
                     value: upi
                   - descriptor:
                       code: MANDATORY_ARBITRATION
-                    value: "true"
+                    value: 'true'
                   - descriptor:
                       code: COURT_JURISDICTION
                     value: New Delhi
                   - descriptor:
                       code: DELAY_INTEREST
-                    value: "2.5"
+                    value: '2.5'
                   - descriptor:
                       code: STATIC_TERMS
-                    value: https://www.abc.com/settlement-terms/
+                    value: 'https://www.abc.com/settlement-terms/'
                   - descriptor:
                       code: SETTLEMENT_AMOUNT
-                    value: "2722.5"
+                    value: '2722.5'
               - descriptor:
                   code: BPP_TERMS
                   name: BPP Terms of Engagement
@@ -479,7 +534,7 @@ steps:
                 list:
                   - descriptor:
                       code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: "1"
+                    value: '1'
                   - descriptor:
                       code: SETTLEMENT_WINDOW
                     value: PT60M
@@ -491,26 +546,26 @@ steps:
                     value: upi
                   - descriptor:
                       code: MANDATORY_ARBITRATION
-                    value: "true"
+                    value: 'true'
                   - descriptor:
                       code: COURT_JURISDICTION
                     value: New Delhi
                   - descriptor:
                       code: DELAY_INTEREST
-                    value: "2.5"
+                    value: '2.5'
                   - descriptor:
                       code: STATIC_TERMS
-                    value: https://www.abc.com/settlement-terms/
+                    value: 'https://www.abc.com/settlement-terms/'
                   - descriptor:
                       code: SETTLEMENT_AMOUNT
-                    value: "2722.5"
+                    value: '2722.5'
                   - descriptor:
                       code: SETTLEMENT_BANK_CODE
                     value: XXXXXXXX
                   - descriptor:
                       code: SETTLEMENT_BANK_ACCOUNT_NUMBER
                     value: xxxxxxxxxxxxxx
-            updated_at: 2026-03-03T09:28:15.795Z
+            updated_at: '2026-03-03T09:28:15.795Z'
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -520,81 +575,87 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
+        order_id: $.message.order.id
+        status: $.message.order.status
+        updated_payments: '$.message.order.payments[*]'
+        created_at: $.message.order.created_at
       inputs: {}
     examples:
       - name: Example for action "on_update"
-        description: Auto-generated example for action "on_update" in flow
+        description: >-
+          Auto-generated example for action "on_update" in flow
           "IntraCity_Base_Order_Update_Journey"
         payload:
           context:
             action: on_update
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
-            domain: ONDC:TRV11
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.1.0/seller
+            domain: 'ONDC:TRV11'
             location:
               city:
-                code: std:011
+                code: 'std:011'
               country:
                 code: IND
             message_id: 17ae4161-204e-47f3-ac85-67f3f0eff1f0
-            timestamp: 2026-03-03T09:28:15.800Z
+            timestamp: '2026-03-03T09:28:15.800Z'
             transaction_id: fb672b48-04dd-4a6f-bfd2-356bdc8a72de
             ttl: PT30S
             version: 2.1.0
           message:
             order:
-              created_at: 2026-03-03T09:28:15.795Z
+              created_at: '2026-03-03T09:28:15.795Z'
               fulfillments:
                 - id: F1
                   stops:
-                    - id: "1"
+                    - id: '1'
                       location:
                         descriptor:
                           code: MOCK_STATION_1
                           name: MOCK_STATION_1
-                        gps: 28.666576, 77.233332
+                        gps: '28.666576, 77.233332'
                       type: START
-                    - id: "2"
+                    - id: '2'
                       location:
                         descriptor:
                           code: MOCK_STATION_2
                           name: MOCK_STATION_2
-                        gps: 28.624097, 77.204991
-                      parent_stop_id: "1"
+                        gps: '28.624097, 77.204991'
+                      parent_stop_id: '1'
                       type: INTERMEDIATE_STOP
-                    - id: "3"
+                    - id: '3'
                       location:
                         descriptor:
                           code: MOCK_STATION_3
                           name: MOCK_STATION_3
-                        gps: 28.625972,77.209917
-                      parent_stop_id: "2"
+                        gps: '28.625972,77.209917'
+                      parent_stop_id: '2'
                       type: INTERMEDIATE_STOP
-                    - id: "4"
+                    - id: '4'
                       location:
                         descriptor:
                           code: MOCK_STATION_4
                           name: MOCK_STATION_4
-                        gps: 28.610972,77.201717
-                      parent_stop_id: "3"
+                        gps: '28.610972,77.201717'
+                      parent_stop_id: '3'
                       type: INTERMEDIATE_STOP
-                    - id: "5"
+                    - id: '5'
                       location:
                         descriptor:
                           code: MOCK_STATION_5
                           name: MOCK_STATION_5
-                        gps: 28.623097,77.209917
-                      parent_stop_id: "4"
+                        gps: '28.623097,77.209917'
+                      parent_stop_id: '4'
                       type: INTERMEDIATE_STOP
-                    - id: "6"
+                    - id: '6'
                       location:
                         descriptor:
                           code: MOCK_STATION_6
                           name: MOCK_STATION_6
-                        gps: 28.548230, 77.238039
-                      parent_stop_id: "5"
+                        gps: '28.548230, 77.238039'
+                      parent_stop_id: '5'
                       type: END
                   tags:
                     - descriptor:
@@ -602,7 +663,7 @@ steps:
                       list:
                         - descriptor:
                             code: ROUTE_ID
-                          value: "242"
+                          value: '242'
                         - descriptor:
                             code: ROUTE_DIRECTION
                           value: UP
@@ -611,7 +672,7 @@ steps:
                     category: BUS
                 - agent:
                     person:
-                      id: emp:E52432
+                      id: 'emp:E52432'
                   id: F11
                   state:
                     descriptor:
@@ -642,7 +703,8 @@ steps:
                     code: AGENT_TICKETING
                     images:
                       - size_type: xs
-                        url: https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                        url: >-
+                          https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
                     name: Agent Login
                   fulfillment_ids:
                     - F1
@@ -650,16 +712,17 @@ steps:
                   id: I10
                   price:
                     currency: INR
-                    value: "0"
+                    value: '0'
                   time:
                     duration: P2D
                     label: Validity
-                    timestamp: 2026-03-05T09:28:15.795Z
+                    timestamp: '2026-03-05T09:28:15.795Z'
               provider:
                 descriptor:
                   images:
                     - size_type: xs
-                      url: https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                      url: >-
+                        https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
                   name: Delhi Transport Corporation
                 id: P1
               quote:
@@ -668,33 +731,33 @@ steps:
                       id: I1
                       price:
                         currency: INR
-                        value: "35"
+                        value: '35'
                       quantity:
                         selected:
                           count: 50
                     price:
                       currency: INR
-                      value: "1750"
+                      value: '1750'
                     title: BASE_FARE
                   - item:
                       id: I2
                       price:
                         currency: INR
-                        value: "25"
+                        value: '25'
                       quantity:
                         selected:
                           count: 40
                     price:
                       currency: INR
-                      value: "1000"
+                      value: '1000'
                     title: BASE_FARE
                   - price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: OFFER
                   - price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: TOLL
                   - item:
                       tags:
@@ -703,13 +766,13 @@ steps:
                           list:
                             - descriptor:
                                 code: CGST
-                              value: "0"
+                              value: '0'
                             - descriptor:
                                 code: SGST
-                              value: "0"
+                              value: '0'
                     price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: TAX
                   - item:
                       tags:
@@ -718,14 +781,14 @@ steps:
                           list:
                             - descriptor:
                                 code: SURCHARGE
-                              value: "0"
+                              value: '0'
                     price:
                       currency: INR
-                      value: "0"
+                      value: '0'
                     title: OTHER_CHARGES
                 price:
                   currency: INR
-                  value: "2750"
+                  value: '2750'
               status: COMPLETED
               tags:
                 - descriptor:
@@ -735,7 +798,7 @@ steps:
                   list:
                     - descriptor:
                         code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: "1"
+                      value: '1'
                     - descriptor:
                         code: SETTLEMENT_WINDOW
                       value: PT60M
@@ -747,19 +810,19 @@ steps:
                       value: upi
                     - descriptor:
                         code: MANDATORY_ARBITRATION
-                      value: "true"
+                      value: 'true'
                     - descriptor:
                         code: COURT_JURISDICTION
                       value: New Delhi
                     - descriptor:
                         code: DELAY_INTEREST
-                      value: "2.5"
+                      value: '2.5'
                     - descriptor:
                         code: STATIC_TERMS
-                      value: https://www.abc.com/settlement-terms/
+                      value: 'https://www.abc.com/settlement-terms/'
                     - descriptor:
                         code: SETTLEMENT_AMOUNT
-                      value: "2722.5"
+                      value: '2722.5'
                 - descriptor:
                     code: BPP_TERMS
                     name: BPP Terms of Engagement
@@ -767,7 +830,7 @@ steps:
                   list:
                     - descriptor:
                         code: BUYER_FINDER_FEES_PERCENTAGE
-                      value: "1"
+                      value: '1'
                     - descriptor:
                         code: SETTLEMENT_WINDOW
                       value: PT60M
@@ -779,27 +842,383 @@ steps:
                       value: upi
                     - descriptor:
                         code: MANDATORY_ARBITRATION
-                      value: "true"
+                      value: 'true'
                     - descriptor:
                         code: COURT_JURISDICTION
                       value: New Delhi
                     - descriptor:
                         code: DELAY_INTEREST
-                      value: "2.5"
+                      value: '2.5'
                     - descriptor:
                         code: STATIC_TERMS
-                      value: https://www.abc.com/settlement-terms/
+                      value: 'https://www.abc.com/settlement-terms/'
                     - descriptor:
                         code: SETTLEMENT_AMOUNT
-                      value: "2722.5"
+                      value: '2722.5'
                     - descriptor:
                         code: SETTLEMENT_BANK_CODE
                       value: XXXXXXXX
                     - descriptor:
                         code: SETTLEMENT_BANK_ACCOUNT_NUMBER
                       value: xxxxxxxxxxxxxx
-              updated_at: 2026-03-03T09:28:15.795Z
+              updated_at: '2026-03-03T09:28:15.795Z'
         type: request
-transaction_history: []
-validationLib: ""
-helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+transaction_history:
+  - action_id: update_BUS_Base_Order_Update_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: update
+        timestamp: '2026-06-08T11:09:24.147Z'
+        transaction_id: 5ad6e0ee-aeed-48b1-8aee-8c8683c591d2
+        message_id: 5870131b-5272-4537-a304-139fd11466fb
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          id: ORD64152392
+          quote:
+            price:
+              value: '35'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '35'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '35'
+              - title: OFFER
+                price:
+                  currency: INR
+                  value: '0'
+              - title: TOLL
+                price:
+                  currency: INR
+                  value: '0'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          fulfillments:
+            - id: F11
+              type: AGENT_TICKETING
+              tags:
+                - descriptor:
+                    code: REF_ORDER_IDS
+                  list:
+                    - descriptor:
+                        code: CHILD_ORDER_ID
+                        name: Child Order Ids
+                      value: I1
+        update_target: order.quote
+    action: update
+    saved_info: {}
+  - action_id: on_update_BUS_Base_Order_Update_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_update
+        timestamp: '2026-06-08T11:09:25.465Z'
+        transaction_id: 5ad6e0ee-aeed-48b1-8aee-8c8683c591d2
+        message_id: 5870131b-5272-4537-a304-139fd11466fb
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          created_at: '2026-06-08T11:09:25.470Z'
+          fulfillments:
+            - id: F1
+              type: ROUTE
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_1
+                      code: MOCK_STATION_1
+                    gps: '28.666576, 77.233332'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_2
+                      code: MOCK_STATION_2
+                    gps: '28.624097, 77.204991'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_3
+                      code: MOCK_STATION_3
+                    gps: '28.625972,77.209917'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_4
+                      code: MOCK_STATION_4
+                    gps: '28.610972,77.201717'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_5
+                      code: MOCK_STATION_5
+                    gps: '28.623097,77.209917'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: END
+                  location:
+                    descriptor:
+                      name: MOCK_STATION_6
+                      code: MOCK_STATION_6
+                    gps: '28.548230, 77.238039'
+                  id: '6'
+                  parent_stop_id: '5'
+              vehicle:
+                category: BUS
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_DIRECTION
+                      value: UP
+            - id: F11
+              type: AGENT_TICKETING
+              vehicle:
+                category: BUS
+                registration: DL 11A 123F
+              agent:
+                person:
+                  id: 'emp:E52432'
+              state:
+                descriptor:
+                  code: COMPLETED
+              tags:
+                - descriptor:
+                    code: REF_ORDER_IDS
+                  list:
+                    - descriptor:
+                        code: CHILD_ORDER_ID
+                        name: Child Order Ids
+                      value: I1
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+          id: ORD64152392
+          items:
+            - id: I10
+              descriptor:
+                name: Agent Login
+                code: AGENT_TICKETING
+                images:
+                  - url: >-
+                      https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                    size_type: xs
+              category_ids:
+                - C1
+              fulfillment_ids:
+                - F1
+                - F11
+              price:
+                currency: INR
+                value: '0'
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-10T11:09:25.470Z'
+          provider:
+            descriptor:
+              images:
+                - size_type: xs
+                  url: >-
+                    https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+              name: Delhi Transport Corporation
+            id: P1
+          quote:
+            price:
+              value: '35'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '35'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '35'
+              - title: OFFER
+                price:
+                  currency: INR
+                  value: '0'
+              - title: TOLL
+                price:
+                  currency: INR
+                  value: '0'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          status: COMPLETED
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: PT60M
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: upi
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://www.abc.com/settlement-terms/'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '34.65'
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: PT60M
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: upi
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://www.abc.com/settlement-terms/'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '34.65'
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+          updated_at: '2026-06-08T11:09:25.470Z'
+    action: on_update
+    saved_info: {}
+validationLib: ''
+helperLib: >-
+  LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
