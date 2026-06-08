@@ -145,7 +145,7 @@ Error codes for this domain:
 ### `config/actions/index.yaml`
 Supported actions and API orchestration properties:
 
-| Field | Type | Description |
+| Field | Type | Description | 
 |-------|------|-------------|
 | `supportedActions` | object | Maps each action to allowed next actions |
 | `apiProperties` | object | Per-action async and transaction-partner metadata |
