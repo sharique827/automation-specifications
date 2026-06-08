@@ -92,8 +92,8 @@ steps:
                 enum:
                   - '012'
                   - '017'
-                  - '01A'
-                  - '01B'
+                  - 01A
+                  - 01B
                   - '005'
               uniqueItems: true
               default: []
@@ -419,6 +419,11 @@ steps:
                       locality: Jayanagar
                       state: Karnataka
                       street: Jayanagar
+                    circle:
+                      gps: '12.925810,77.583624'
+                      radius:
+                        unit: km
+                        value: '5'
                     gps: '12.925810,77.583624'
                     id: L1
                     time:
@@ -893,19 +898,19 @@ steps:
         LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgaWYgKCFzZXNzaW9uRGF0YT8uY2F0YWxvZ19pbmNfc3RhcnRfdGltZT8uWzBdKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJzZXNzaW9uRGF0YS5jYXRhbG9nX2luY19zdGFydF90aW1lIGlzIG1pc3NpbmciCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YT8uY2F0YWxvZ19pbmNfZW5kX3RpbWU/LlswXSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAic2Vzc2lvbkRhdGEuY2F0YWxvZ19pbmNfZW5kX3RpbWUgaXMgbWlzc2luZyIKICAgIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiUmVxdWlyZW1lbnRzIG1ldCIgfTsKfQ==
       defaultPayload:
         context:
-          domain: 'ONDC:RET13'
           action: on_search
-          timestamp: '2026-06-03T17:12:48.106Z'
-          transaction_id: 11292185-e962-452b-88ef-83be14c3d0ed
-          message_id: 82c32385-e6c1-4ae6-bc73-735cfcdc5ba3
-          bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
-          ttl: PT30S
-          bpp_id: bpp.example.com
-          bpp_uri: 'https://bpp.example.com'
-          country: IND
-          city: '*'
+          bap_id: dev-automation.ondc.org
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
+          bpp_id: dev-automation.ondc.org
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:011'
           core_version: 1.2.5
+          country: IND
+          domain: 'ONDC:RET13'
+          message_id: f6b53290-cc47-46f4-90e6-0646cf131a4a
+          timestamp: '2026-03-23T08:53:58.699Z'
+          transaction_id: 40d5852c-1ddc-48c1-8ba8-aae351f7d7d0
+          ttl: PT30S
         message:
           catalog:
             bpp/descriptor:
@@ -1158,9 +1163,15 @@ steps:
                       locality: Jayanagar
                       state: Karnataka
                       street: Jayanagar
+                    circle:
+                      gps: '12.925810,77.583624'
+                      radius:
+                        unit: km
+                        value: '5'
                     gps: '12.925810,77.583624'
                     id: L1
                     time:
+                      days: '1,2,3,4,5'
                       label: enable
                       schedule:
                         holidays: []
@@ -1224,9 +1235,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET13'
         action: search
-        timestamp: '2026-06-04T16:44:22.759Z'
+        timestamp: '2026-06-08T08:47:10.120Z'
         transaction_id: 11292185-e962-452b-88ef-83be14c3d0ed
-        message_id: 0ede007e-ed20-4cb6-996e-f0d7ec58ffc9
+        message_id: 7293a030-814f-43f5-a2ba-9fa92a06226e
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1261,9 +1272,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET13'
         action: on_search
-        timestamp: '2026-06-04T16:44:22.777Z'
+        timestamp: '2026-06-08T08:47:10.134Z'
         transaction_id: 11292185-e962-452b-88ef-83be14c3d0ed
-        message_id: 0ede007e-ed20-4cb6-996e-f0d7ec58ffc9
+        message_id: 7293a030-814f-43f5-a2ba-9fa92a06226e
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1523,6 +1534,11 @@ transaction_history:
                     locality: Jayanagar
                     state: Karnataka
                     street: Jayanagar
+                  circle:
+                    gps: '12.925810,77.583624'
+                    radius:
+                      unit: km
+                      value: '5'
                   gps: '12.925810,77.583624'
                   id: L1
                   time:
@@ -1580,9 +1596,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET13'
         action: search
-        timestamp: '2026-06-04T16:44:22.787Z'
+        timestamp: '2026-06-08T08:47:10.143Z'
         transaction_id: 11292185-e962-452b-88ef-83be14c3d0ed
-        message_id: 1a6fc7e2-2200-4560-b233-ec50b252ffdb
+        message_id: 2e997580-5c33-43eb-8bf5-c6ab49729710
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1598,9 +1614,9 @@ transaction_history:
             - code: catalog_inc
               list:
                 - code: start_time
-                  value: '2026-06-04T14:44:22.787Z'
+                  value: '2026-06-08T06:47:10.143Z'
                 - code: end_time
-                  value: '2026-06-04T16:44:22.787Z'
+                  value: '2026-06-08T08:47:10.143Z'
             - code: bap_terms
               list:
                 - code: static_terms
@@ -1610,7 +1626,7 @@ transaction_history:
                   value: >-
                     https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
-                  value: '2026-06-04T16:44:22.787Z'
+                  value: '2026-06-08T08:47:10.143Z'
     action: search
     saved_info: {}
   - action_id: on_search_inc_pull
@@ -1618,9 +1634,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET13'
         action: on_search
-        timestamp: '2026-06-04T16:44:22.862Z'
+        timestamp: '2026-06-08T08:47:10.147Z'
         transaction_id: 11292185-e962-452b-88ef-83be14c3d0ed
-        message_id: 1a6fc7e2-2200-4560-b233-ec50b252ffdb
+        message_id: 2e997580-5c33-43eb-8bf5-c6ab49729710
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1758,7 +1774,7 @@ transaction_history:
                           value: Minimalist
                   time:
                     label: enable
-                    timestamp: '2026-06-04T15:42:34.995Z'
+                    timestamp: '2026-06-08T07:34:09.472Z'
                 - '@ondc/org/available_on_cod': true
                   '@ondc/org/cancellable': true
                   '@ondc/org/contact_details_consumer_care': 'Seller Business,test@gmail.com,9876543210'
@@ -1817,7 +1833,7 @@ transaction_history:
                           value: Minamilist
                   time:
                     label: enable
-                    timestamp: '2026-06-04T15:42:34.995Z'
+                    timestamp: '2026-06-08T07:34:09.472Z'
                 - '@ondc/org/available_on_cod': true
                   '@ondc/org/cancellable': true
                   '@ondc/org/contact_details_consumer_care': 'Minimalist Customer Care,support@gmail.com,2343453434'
@@ -1872,7 +1888,7 @@ transaction_history:
                           value: Minimalist
                   time:
                     label: enable
-                    timestamp: '2026-06-04T15:42:34.995Z'
+                    timestamp: '2026-06-08T07:34:09.472Z'
               locations:
                 - address:
                     area_code: '560011'
@@ -1880,9 +1896,15 @@ transaction_history:
                     locality: Jayanagar
                     state: Karnataka
                     street: Jayanagar
+                  circle:
+                    gps: '12.925810,77.583624'
+                    radius:
+                      unit: km
+                      value: '5'
                   gps: '12.925810,77.583624'
                   id: L1
                   time:
+                    days: '1,2,3,4,5'
                     label: enable
                     schedule:
                       holidays: []
