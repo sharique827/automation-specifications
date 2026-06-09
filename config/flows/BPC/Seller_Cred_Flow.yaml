@@ -1,5 +1,5 @@
 meta:
-  domain: ONDC:RET13
+  domain: 'ONDC:RET13'
   version: 1.2.5
   flowId: Seller_Cred_Flow
   config_version: 0.0.0001
@@ -8,11 +8,11 @@ meta:
   flowName: Seller Cred Flow
 transaction_data:
   transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
-  latest_timestamp: 1970-01-01T00:00:00.000Z
+  latest_timestamp: '1970-01-01T00:00:00.000Z'
   bap_id: bap.example.com
-  bap_uri: https://bap.example.com
+  bap_uri: 'https://bap.example.com'
   bpp_id: bpp.example.com
-  bpp_uri: https://bpp.example.com
+  bpp_uri: 'https://bpp.example.com'
 steps:
   - api: select
     action_id: select
@@ -21,45 +21,44 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCgoKICBjb25zdCBpbnB1dHMgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0cyA7CglpZiAoIWlucHV0cykgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwoKCWlmKGlucHV0cy5wcm92aWRlcil7CgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9IGlucHV0cy5wcm92aWRlcgoJfQoKIGlmIChpbnB1dHMucHJvdmlkZXJfbG9jYXRpb24gJiYgQXJyYXkuaXNBcnJheShpbnB1dHMucHJvdmlkZXJfbG9jYXRpb24pKSB7CgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5sb2NhdGlvbnMgPQoJCQlpbnB1dHMucHJvdmlkZXJfbG9jYXRpb24ubWFwKChsb2NhdGlvbikgPT4gewoJCQkJcmV0dXJuIHsKCQkJCQlpZDogbG9jYXRpb24sCgkJCQl9OwoJCQl9KTsKCX0gZWxzZSBpZiAoCgkJaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uICYmCgkJdHlwZW9mIGlucHV0cy5wcm92aWRlcl9sb2NhdGlvbiA9PT0gInN0cmluZyIKCSkgewoJCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIubG9jYXRpb25zID0gWwoJCQl7CgkJCQlpZDogaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uLAoJCQl9LAoJCV07Cgl9Cgljb25zb2xlLmxvZygiZmluYWwgaW5wdXQiLGlucHV0cyk7CgkKCWlmIChpbnB1dHMubG9jYXRpb25fZ3BzKSB7CgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0uZW5kLmxvY2F0aW9uLmdwcyA9CgkJCWlucHV0cy5sb2NhdGlvbl9ncHM7Cgl9CgkKCQlpZiAoaW5wdXRzLmxvY2F0aW9uX3Bpbl9jb2RlKSB7CgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0uZW5kLmxvY2F0aW9uLmFkZHJlc3MuYXJlYV9jb2RlID0KCQkJaW5wdXRzLmxvY2F0aW9uX3Bpbl9jb2RlOwoJCWRlZmF1bHRQYXlsb2FkLmNvbnRleHQuY2l0eSA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmNpdHlfY29kZTsKCX0KCWlmIChpbnB1dHMuaXRlbXMpIHsKCQlkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gaW5wdXRzLml0ZW1zLm1hcCgoaXRlbSkgPT4gewoJCQlyZXR1cm4gewoJCQkJaWQ6IGl0ZW0uaXRlbUlkLAoJCQkJcXVhbnRpdHk6IHsKCQkJCQljb3VudDogaXRlbS5xdWFudGl0eSwKCQkJCX0sCgkJCQlsb2NhdGlvbl9pZDogaXRlbS5sb2NhdGlvbiwKCQkJfTsKCQl9KTsKCX0KICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICBjb25zdCBvcmRlciA9IHRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyOwoKICBpZiAoIW9yZGVyPy5wcm92aWRlcj8uaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlByb3ZpZGVyIGlkIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoCiAgICAhQXJyYXkuaXNBcnJheShvcmRlcj8ucHJvdmlkZXI/LmxvY2F0aW9ucykgfHwKICAgIG9yZGVyLnByb3ZpZGVyLmxvY2F0aW9ucy5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlByb3ZpZGVyIGxvY2F0aW9ucyBhcmUgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICgKICAgICFvcmRlcj8uZnVsZmlsbG1lbnRzPy5bMF0/LmVuZD8ubG9jYXRpb24/LmdwcwogICkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiRnVsZmlsbG1lbnQgZW5kIGxvY2F0aW9uIGdwcyBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIW9yZGVyPy5mdWxmaWxsbWVudHM/LlswXT8uZW5kPy5sb2NhdGlvbj8uYWRkcmVzcz8uYXJlYV9jb2RlCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJGdWxmaWxsbWVudCBlbmQgbG9jYXRpb24gYXJlYV9jb2RlIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIUFycmF5LmlzQXJyYXkob3JkZXI/Lml0ZW1zKSB8fCBvcmRlci5pdGVtcy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk9yZGVyIGl0ZW1zIGFyZSByZXF1aXJlZCIsCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgICBjb25zdCBpbnB1dHMgPSBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM7CgogCiAgaWYgKCFpbnB1dHMucHJvdmlkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInByb3ZpZGVyIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIWlucHV0cy5wcm92aWRlcl9sb2NhdGlvbikgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAicHJvdmlkZXJfbG9jYXRpb24gaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghaW5wdXRzLmxvY2F0aW9uX2dwcykgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAibG9jYXRpb25fZ3BzIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIWlucHV0cy5sb2NhdGlvbl9waW5fY29kZSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAibG9jYXRpb25fcGluX2NvZGUgaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghaW5wdXRzLmNpdHlfY29kZSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiY2l0eV9jb2RlIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIUFycmF5LmlzQXJyYXkoaW5wdXRzLml0ZW1zKSB8fCBpbnB1dHMuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJBdCBsZWFzdCBvbmUgaXRlbSBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgY29uc3QgaW52YWxpZEl0ZW0gPSBpbnB1dHMuaXRlbXMuZmluZCgKICAgIChpdGVtKSA9PgogICAgICAhaXRlbS5pdGVtSWQgfHwKICAgICAgIWl0ZW0ucXVhbnRpdHkgfHwKICAgICAgIWl0ZW0ubG9jYXRpb24KICApOwoKICBpZiAoaW52YWxpZEl0ZW0pIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjoKICAgICAgICAiRWFjaCBpdGVtIG11c3QgY29udGFpbiBpdGVtSWQsIHF1YW50aXR5IGFuZCBsb2NhdGlvbiIsCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: select
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
-          message_id: b1ad3a08-8541-435c-aba8-dd521c31c7d8
-          timestamp: 2026-03-18T09:34:15.965Z
-          transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+          domain: 'ONDC:RET13'
+          message_id: d7bcf4a2-7766-407e-9bd0-3cfc1c7ae3a4
+          timestamp: '2026-03-18T11:26:32.906Z'
+          transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
           ttl: PT30S
         message:
           order:
-            fulfillments:
-              - end:
-                  location:
-                    address:
-                      area_code: "560027"
-                    gps: 13.0778684,77.591476
-            items:
-              - id: I2
-                location_id: L1
-                quantity:
-                  count: 1
-              - id: I1
-                location_id: L1
-                quantity:
-                  count: 1
             provider:
               id: P1
               locations:
                 - id: L1
+            items:
+              - id: I1
+                quantity:
+                  count: 1
+                location_id: L1
+            fulfillments:
+              - end:
+                  location:
+                    gps: '12.966545,77.592074'
+                    address:
+                      area_code: '560027'
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -69,28 +68,68 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        selected_items: '$.message.order.items[*]'
+        selected_fulfillments: '$.message.order.fulfillments[*]'
+        provider: $.message.order.provider
+        selected_offers: '$.message.order.offers[*]'
       inputs:
-        oldInputs:
-          - name: fashion_select
-            type: ret10_grocery_select
-        id: old_inputs
+        id: ret10_grocery_select
+        jsonSchema:
+          $schema: 'http://json-schema.org/draft-07/schema#'
+          type: object
+          properties:
+            city_code:
+              type: string
+              default: 'std:011'
+            provider:
+              type: string
+              default: P1
+            provider_location:
+              type: string
+              default: L1
+            location_gps:
+              type: string
+              default: '19.129076,72.825803'
+            location_pin_code:
+              type: string
+              default: '400053'
+            items:
+              type: array
+              default: []
+              items:
+                type: object
+                properties:
+                  itemId:
+                    type: string
+                    default: I1
+                  quantity:
+                    type: number
+                    default: 1
+                  location:
+                    type: string
+                    default: L1
+                additionalProperties: true
+                default: {}
+          additionalProperties: true
+          default: {}
     examples:
       - name: Example for action "select"
-        description: Auto-generated example for action "select" in flow "Seller_Cred_Flow"
+        description: Auto-generated example for action "select" in flow "Delivery_Flow"
         payload:
           context:
             action: select
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
-            message_id: b1ad3a08-8541-435c-aba8-dd521c31c7d8
-            timestamp: 2026-03-18T09:34:15.965Z
-            transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+            domain: 'ONDC:RET13'
+            message_id: d7bcf4a2-7766-407e-9bd0-3cfc1c7ae3a4
+            timestamp: '2026-03-18T11:26:32.906Z'
+            transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
             ttl: PT30S
           message:
             order:
@@ -98,14 +137,14 @@ steps:
                 - end:
                     location:
                       address:
-                        area_code: "560027"
-                      gps: 13.0778684,77.591476
+                        area_code: '560027'
+                      gps: '13.0778684,77.591476'
               items:
-                - id: I2
+                - id: I1
                   location_id: L1
                   quantity:
                     count: 1
-                - id: I1
+                - id: I2
                   location_id: L1
                   quantity:
                     count: 1
@@ -121,97 +160,81 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIgPSBzZXNzaW9uRGF0YS5wcm92aWRlclswXTsKICBjb25zdCBzZWxlY3RlZEl0ZW1zT2JqID0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbXMgOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZWxlY3RlZEl0ZW1zT2JqLm1hcCgoaXRlbSkgPT4gewogICAgcmV0dXJuIHsKICAgICAgaWQ6IGl0ZW0uaWQsCiAgICAgIGZ1bGZpbGxtZW50X2lkOiBpdGVtLmZ1bGZpbGxtZW50X2lkIHx8ICJGMSIsCiAgICB9OwogIH0pOwoKICBjb25zdCBxdW90ZSA9IGNyZWF0ZVF1b3RlKAogICAgc2VsZWN0ZWRJdGVtc09iai5tYXAoKGl0ZW0pID0+IHsKICAgICAgcmV0dXJuIHsKICAgICAgICBpZDogaXRlbS5pZCwKICAgICAgICBjb3VudDogaXRlbS5xdWFudGl0eS5jb3VudCwKICAgICAgICBmdWxmaWxsbWVudF9pZDogIkYxIiwKICAgICAgfTsKICAgIH0pLAogICAgc2Vzc2lvbkRhdGEsCiAgICBkZWZhdWx0UGF5bG9hZCwKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzCiAgKTsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlID0gcXVvdGU7CiAgY29uc29sZS5sb2coImRlZmF1bHRQYXlsb2FkIiwgSlNPTi5zdHJpbmdpZnkoZGVmYXVsdFBheWxvYWQpKTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3Qgb3JkZXIgPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCiAgaWYgKCFvcmRlcj8ucHJvdmlkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlByb3ZpZGVyIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghQXJyYXkuaXNBcnJheShvcmRlcj8uaXRlbXMpIHx8IG9yZGVyLml0ZW1zLmxlbmd0aCA9PT0gMCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiT3JkZXIgaXRlbXMgYXJlIG1pc3NpbmciLAogICAgfTsKICB9CgogIGNvbnN0IGludmFsaWRJdGVtID0gb3JkZXIuaXRlbXMuZmluZCgKICAgIChpdGVtKSA9PiAhaXRlbS5pZCB8fCAhaXRlbS5mdWxmaWxsbWVudF9pZAogICk7CgogIGlmIChpbnZhbGlkSXRlbSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiRWFjaCBpdGVtIG11c3QgY29udGFpbiBpZCBhbmQgZnVsZmlsbG1lbnRfaWQiLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LnF1b3RlKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJRdW90ZSBpcyBtaXNzaW5nIiwKICAgIH07CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgICBpZiAoIXNlc3Npb25EYXRhLnByb3ZpZGVyKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJwcm92aWRlciBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbXMpIHx8CiAgICBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtcy5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInNlbGVjdGVkX2l0ZW1zIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBjb25zdCBpbnZhbGlkSXRlbSA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zLmZpbmQoCiAgICAoaXRlbSkgPT4KICAgICAgIWl0ZW0uaWQgfHwKICAgICAgIWl0ZW0ucXVhbnRpdHkgfHwKICAgICAgaXRlbS5xdWFudGl0eS5jb3VudCA9PT0gdW5kZWZpbmVkCiAgKTsKCiAgaWYgKGludmFsaWRJdGVtKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246CiAgICAgICAgIkVhY2ggc2VsZWN0ZWQgaXRlbSBtdXN0IGNvbnRhaW4gaWQgYW5kIHF1YW50aXR5LmNvdW50IiwKICAgIH07CiAgfQoKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: on_select
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
-          message_id: b1ad3a08-8541-435c-aba8-dd521c31c7d8
-          timestamp: 2026-03-18T09:34:16.178Z
-          transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+          domain: 'ONDC:RET13'
+          message_id: d7bcf4a2-7766-407e-9bd0-3cfc1c7ae3a4
+          timestamp: '2026-03-18T11:26:33.241Z'
+          transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
           ttl: PT30S
         message:
           order:
-            fulfillments:
-              - "@ondc/org/TAT": P3D
-                "@ondc/org/category": Standard Delivery
-                "@ondc/org/provider_name": LSP or Provider Name
-                id: F1
-                state:
-                  descriptor:
-                    code: Serviceable
-                tracking: true
-                type: Delivery
-            items:
-              - fulfillment_id: F1
-                id: I2
-              - fulfillment_id: F1
-                id: I1
             provider:
               id: P1
               locations:
                 - id: L1
+            fulfillments:
+              - id: F1
+                type: Delivery
+                '@ondc/org/provider_name': Seller Business
+                tracking: true
+                '@ondc/org/category': Standard Delivery
+                '@ondc/org/TAT': P3D
+                state:
+                  descriptor:
+                    code: Serviceable
             quote:
-              breakup:
-                - "@ondc/org/item_id": I2
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2360"
-                    quantity:
-                      available:
-                        count: "99"
-                      maximum:
-                        count: "10"
-                  price:
-                    currency: INR
-                    value: "2360.00"
-                  title: Marula Oil 05% Moisturizer
-                - "@ondc/org/item_id": I1
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2260"
-                    quantity:
-                      available:
-                        count: "99"
-                      maximum:
-                        count: "10"
-                  price:
-                    currency: INR
-                    value: "2260.00"
-                  title: AHA PHA BHA 32%
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": delivery
-                  price:
-                    currency: INR
-                    value: "493.75"
-                  title: Delivery charges
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": misc
-                  price:
-                    currency: INR
-                    value: "3.00"
-                  title: Convenience Fee
               price:
+                value: '2756.75'
                 currency: INR
-                value: "5116.75"
+              breakup:
+                - '@ondc/org/item_id': I1
+                  '@ondc/org/item_quantity':
+                    count: 1
+                  title: Butterfly Beautiful 13 Gold Necklace
+                  '@ondc/org/title_type': item
+                  price:
+                    currency: INR
+                    value: '2260.00'
+                  item:
+                    quantity:
+                      available:
+                        count: '99'
+                      maximum:
+                        count: '10'
+                    price:
+                      currency: INR
+                      value: '2260.00'
+                - '@ondc/org/item_id': F1
+                  title: Delivery charges
+                  '@ondc/org/title_type': delivery
+                  price:
+                    currency: INR
+                    value: '493.75'
+                - '@ondc/org/item_id': F1
+                  title: Convenience Fee
+                  '@ondc/org/title_type': misc
+                  price:
+                    currency: INR
+                    value: '3.00'
               ttl: P1D
+            items:
+              - id: I1
+                fulfillment_id: F1
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -221,32 +244,36 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        quote: $.message.order.quote
+        on_select_fulfillments: '$.message.order.fulfillments[*]'
+        on_select_items: '$.message.order.items[*]'
+        tat: '$.message.order.fulfillments[0]["@ondc/org/TAT"]'
       inputs: {}
     examples:
       - name: Example for action "on_select"
-        description: Auto-generated example for action "on_select" in flow
-          "Seller_Cred_Flow"
+        description: Auto-generated example for action "on_select" in flow "Delivery_Flow"
         payload:
           context:
             action: on_select
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
-            message_id: b1ad3a08-8541-435c-aba8-dd521c31c7d8
-            timestamp: 2026-03-18T09:34:16.178Z
-            transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+            domain: 'ONDC:RET13'
+            message_id: d7bcf4a2-7766-407e-9bd0-3cfc1c7ae3a4
+            timestamp: '2026-03-18T11:26:33.241Z'
+            transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
             ttl: PT30S
           message:
             order:
               fulfillments:
-                - "@ondc/org/TAT": P3D
-                  "@ondc/org/category": Standard Delivery
-                  "@ondc/org/provider_name": LSP or Provider Name
+                - '@ondc/org/TAT': P3D
+                  '@ondc/org/category': Standard Delivery
+                  '@ondc/org/provider_name': Seller Business
                   id: F1
                   state:
                     descriptor:
@@ -255,64 +282,64 @@ steps:
                   type: Delivery
               items:
                 - fulfillment_id: F1
-                  id: I2
-                - fulfillment_id: F1
                   id: I1
+                - fulfillment_id: F1
+                  id: I2
               provider:
                 id: P1
                 locations:
                   - id: L1
               quote:
                 breakup:
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I1
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2360"
+                        value: '2260'
                       quantity:
                         available:
-                          count: "99"
+                          count: '99'
                         maximum:
-                          count: "10"
+                          count: '10'
                     price:
                       currency: INR
-                      value: "2360.00"
-                    title: Marula Oil 05% Moisturizer
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
+                      value: '2260.00'
+                    title: Butterfly Beautiful 12 Gold Necklace
+                  - '@ondc/org/item_id': I2
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2260"
+                        value: '2360'
                       quantity:
                         available:
-                          count: "99"
+                          count: '99'
                         maximum:
-                          count: "10"
+                          count: '10'
                     price:
                       currency: INR
-                      value: "2260.00"
-                    title: AHA PHA BHA 32%
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
+                      value: '2360.00'
+                    title: Butterfly Necklace 2nd
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': delivery
                     price:
                       currency: INR
-                      value: "493.75"
+                      value: '493.75'
                     title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': misc
                     price:
                       currency: INR
-                      value: "3.00"
+                      value: '3.00'
                     title: Convenience Fee
                 price:
                   currency: INR
-                  value: "5116.75"
+                  value: '5116.75'
                 ttl: P1D
         type: request
   - api: init
@@ -322,72 +349,70 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAJY29uc3QgaXRlbXMgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtcyA7Cgljb25zdCBvblNlbGVjdERhdGEgPSBzZXNzaW9uRGF0YS5vbl9zZWxlY3RfZnVsZmlsbG1lbnRzIDsKCWNvbnNvbGUubG9nKCJPTlNFTEVDVERBVEEiKQoJY29uc29sZS5sb2cob25TZWxlY3REYXRhKQoJY29uc3QgZklkID0gb25TZWxlY3REYXRhLmZpbmQoKGYpID0+IGYudHlwZSA9PT0gIkRlbGl2ZXJ5Iik/LmlkIHx8ICJGMSI7CgoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IGl0ZW1zPy5tYXAoKGl0ZW0pID0+IHsKCQlyZXR1cm4gewoJCQlpZDogaXRlbS5pZCwKCQkJZnVsZmlsbG1lbnRfaWQ6IGZJZCwKCQkJcXVhbnRpdHk6IHsKCQkJCWNvdW50OiBpdGVtLnF1YW50aXR5LmNvdW50LAoJCQl9LAoJCQlsb2NhdGlvbl9pZDogaXRlbS5sb2NhdGlvbl9pZCwKCQl9OwoJfSk7CglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmJpbGxpbmcgPSBnZXRVcGRhdGVkQmlsbGluZygKCQlkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmJpbGxpbmcsCgkJdHJ1ZQoJKTsKCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gY3JlYXRlRnVsZmlsbG1lbnRzKAoJCSJpbml0IiwKCQkiaW5pdCIsCgkJc2Vzc2lvbkRhdGEsCgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMKCSk7CglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXJbMF07CglpZiAoc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfb2ZmZXJzKSB7CgkJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5vZmZlcnMgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9vZmZlcnM/Lm1hcCgKCQkJKG9mZmVyKSA9PiB7CgkJCQlyZXR1cm4gewoJCQkJCWlkOiBvZmZlci5pZCwKCQkJCQl0YWdzOiBbCgkJCQkJCXsKCQkJCQkJCWNvZGU6ICJzZWxlY3Rpb24iLAoJCQkJCQkJbGlzdDogWwoJCQkJCQkJCXsKCQkJCQkJCQkJY29kZTogImFwcGx5IiwKCQkJCQkJCQkJdmFsdWU6ICJ5ZXMiLAoJCQkJCQkJCX0sCgkJCQkJCQldLAoJCQkJCQl9LAoJCQkJCV0sCgkJCQl9OwoJCQl9CgkJKTsKCX0KICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICgKICAgICFBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zKSB8fAogICAgc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbXMubGVuZ3RoID09PSAwCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJzZWxlY3RlZF9pdGVtcyBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgY29uc3QgaW52YWxpZEl0ZW0gPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtcy5maW5kKAogICAgKGl0ZW0pID0+CiAgICAgICFpdGVtLmlkIHx8CiAgICAgICFpdGVtLnF1YW50aXR5Py5jb3VudAogICk7CgogIGlmIChpbnZhbGlkSXRlbSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOgogICAgICAgICJFYWNoIHNlbGVjdGVkIGl0ZW0gbXVzdCBjb250YWluIGlkIGFuZCBxdWFudGl0eS5jb3VudCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGEub25fc2VsZWN0X2Z1bGZpbGxtZW50cykgfHwKICAgIHNlc3Npb25EYXRhLm9uX3NlbGVjdF9mdWxmaWxsbWVudHMubGVuZ3RoID09PSAwCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJvbl9zZWxlY3RfZnVsZmlsbG1lbnRzIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoCiAgICAhQXJyYXkuaXNBcnJheShzZXNzaW9uRGF0YS5wcm92aWRlcikgfHwKICAgIHNlc3Npb25EYXRhLnByb3ZpZGVyLmxlbmd0aCA9PT0gMAogICkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAicHJvdmlkZXIgaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: init
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
-          message_id: f9de360d-5ef8-4a24-a258-0958c1f5011b
-          timestamp: 2026-03-18T09:34:16.344Z
-          transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+          domain: 'ONDC:RET13'
+          message_id: 832be02d-46ea-4c91-930d-f4a59e932039
+          timestamp: '2026-03-18T11:26:33.447Z'
+          transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
           ttl: PT30S
         message:
           order:
-            billing:
-              address:
-                area_code: "560027"
-                building: my building name or house
-                city: Bengaluru
-                country: IND
-                locality: my street name
-                name: my house or door or floor
-                state: Karnataka
-              created_at: 2026-03-18T09:34:11.345Z
-              email: nobody@nomail.com
-              name: ONDC Buyer
-              phone: "9898989898"
-              updated_at: 2026-03-18T09:34:11.345Z
-            fulfillments:
-              - end:
-                  contact:
-                    email: nobody@nomail.com
-                    phone: "9898989898"
-                  location:
-                    address:
-                      area_code: "560027"
-                      building: mock-building
-                      city: mock-city
-                      country: IND
-                      locality: mock-locality
-                      name: mock-house-name
-                      state: mock-state
-                    gps: 13.0778684,77.591476
-                id: F1
-                type: Delivery
-            items:
-              - fulfillment_id: F1
-                id: I2
-                location_id: L1
-                quantity:
-                  count: 1
-              - fulfillment_id: F1
-                id: I1
-                location_id: L1
-                quantity:
-                  count: 1
             provider:
               id: P1
               locations:
                 - id: L1
+            items:
+              - id: I1
+                quantity:
+                  count: 1
+                location_id: L1
+                fulfillment_id: F1
+            billing:
+              address:
+                building: my building name or house
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560027'
+                locality: my street name
+                name: my house or door or floor
+              phone: '9898989898'
+              name: ONDC Buyer
+              email: nobody@nomail.com
+              created_at: '2024-08-14T09:10:34.369Z'
+              updated_at: '2024-08-14T09:10:34.369Z'
+            fulfillments:
+              - id: F1
+                type: Delivery
+                end:
+                  contact:
+                    email: nobody@nomail.com
+                    phone: '9898989898'
+                  location:
+                    gps: '12.966545,77.592074'
+                    address:
+                      building: my building name or house
+                      city: Bengaluru
+                      state: Karnataka
+                      country: IND
+                      area_code: '560027'
+                      locality: my street name
+                      name: my house or door or floor
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -397,69 +422,75 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        items: '$.message.order.items[*]'
+        provider: $.message.order.provider
+        billing: $.message.order.billing
+        fulfillments: '$.message.order.fulfillments[*]'
       inputs: {}
     examples:
       - name: Example for action "init"
-        description: Auto-generated example for action "init" in flow "Seller_Cred_Flow"
+        description: Auto-generated example for action "init" in flow "Delivery_Flow"
         payload:
           context:
             action: init
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
-            message_id: f9de360d-5ef8-4a24-a258-0958c1f5011b
-            timestamp: 2026-03-18T09:34:16.344Z
-            transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+            domain: 'ONDC:RET13'
+            message_id: 832be02d-46ea-4c91-930d-f4a59e932039
+            timestamp: '2026-03-18T11:26:33.447Z'
+            transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
             ttl: PT30S
           message:
             order:
               billing:
                 address:
-                  area_code: "560027"
+                  area_code: '560027'
                   building: my building name or house
                   city: Bengaluru
                   country: IND
                   locality: my street name
                   name: my house or door or floor
                   state: Karnataka
-                created_at: 2026-03-18T09:34:11.345Z
+                created_at: '2026-03-18T11:26:28.452Z'
                 email: nobody@nomail.com
                 name: ONDC Buyer
-                phone: "9898989898"
-                updated_at: 2026-03-18T09:34:11.345Z
+                phone: '9898989898'
+                updated_at: '2026-03-18T11:26:28.452Z'
               fulfillments:
                 - end:
                     contact:
                       email: nobody@nomail.com
-                      phone: "9898989898"
+                      phone: '9898989898'
                     location:
                       address:
-                        area_code: "560027"
+                        area_code: '560027'
                         building: mock-building
                         city: mock-city
                         country: IND
                         locality: mock-locality
                         name: mock-house-name
                         state: mock-state
-                      gps: 13.0778684,77.591476
+                      gps: '13.0778684,77.591476'
                   id: F1
                   type: Delivery
               items:
-                - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
                 - fulfillment_id: F1
                   id: I1
                   location_id: L1
                   quantity:
                     count: 1
+                - fulfillment_id: F1
+                  id: I2
+                  location_id: L1
+                  quantity:
+                    count: 1
+              offers: []
               provider:
                 id: P1
                 locations:
@@ -472,127 +503,112 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gc2Vzc2lvbkRhdGEuaXRlbXM7CglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IGNyZWF0ZUZ1bGZpbGxtZW50cygKCQkib25faW5pdCIsCgkJIm9uX2luaXQiLAoJCXNlc3Npb25EYXRhLAoJCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzCgkpOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5iaWxsaW5nID0gZ2V0VXBkYXRlZEJpbGxpbmcoCgkJc2Vzc2lvbkRhdGEuYmlsbGluZ1swXQoJKTsKCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIgPSBzZXNzaW9uRGF0YS5wcm92aWRlclswXTsKCWNvbnN0IHF1b3RlID0gcmVtb3ZlSXRlbVF1YW50aXRpZXNGcm9tUXVvdGUoc2Vzc2lvbkRhdGEucXVvdGUpOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHF1b3RlWzBdOwogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGNvbnN0IG9yZGVyID0gdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8ub3JkZXI7CgogIGlmICghQXJyYXkuaXNBcnJheShvcmRlcj8uaXRlbXMpIHx8IG9yZGVyLml0ZW1zLmxlbmd0aCA9PT0gMCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiT3JkZXIgaXRlbXMgYXJlIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICgKICAgICFBcnJheS5pc0FycmF5KG9yZGVyPy5mdWxmaWxsbWVudHMpIHx8CiAgICBvcmRlci5mdWxmaWxsbWVudHMubGVuZ3RoID09PSAwCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJPcmRlciBmdWxmaWxsbWVudHMgYXJlIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LmJpbGxpbmcpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkJpbGxpbmcgZGV0YWlscyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8ucHJvdmlkZXI/LmlkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJQcm92aWRlciBpcyBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyPy5xdW90ZSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiUXVvdGUgaXMgbWlzc2luZyIsCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICghQXJyYXkuaXNBcnJheShzZXNzaW9uRGF0YS5pdGVtcykgfHwgc2Vzc2lvbkRhdGEuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJpdGVtcyBhcmUgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICgKICAgICFBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cykgfHwKICAgIHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cy5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogImZ1bGZpbGxtZW50cyBhcmUgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICgKICAgICFBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhLmJpbGxpbmcpIHx8CiAgICBzZXNzaW9uRGF0YS5iaWxsaW5nLmxlbmd0aCA9PT0gMAogICkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiYmlsbGluZyBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGEucHJvdmlkZXIpIHx8CiAgICBzZXNzaW9uRGF0YS5wcm92aWRlci5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInByb3ZpZGVyIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLnF1b3RlKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJxdW90ZSBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: on_init
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
-          message_id: f9de360d-5ef8-4a24-a258-0958c1f5011b
-          timestamp: 2026-03-18T09:34:16.550Z
-          transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+          domain: 'ONDC:RET13'
+          message_id: 832be02d-46ea-4c91-930d-f4a59e932039
+          timestamp: '2026-03-18T11:26:33.625Z'
+          transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
           ttl: PT30S
         message:
           order:
-            billing:
-              address:
-                area_code: "560027"
-                building: my building name or house
-                city: Bengaluru
-                country: IND
-                locality: my street name
-                name: my house or door or floor
-                state: Karnataka
-              created_at: 2026-03-18T09:34:11.345Z
-              email: nobody@nomail.com
-              name: ONDC Buyer
-              phone: "9898989898"
-              updated_at: 2026-03-18T09:34:11.345Z
-            fulfillments:
-              - end:
-                  contact:
-                    email: nobody@nomail.com
-                    phone: "9898989898"
-                  location:
-                    address:
-                      area_code: "560027"
-                      building: mock-building
-                      city: mock-city
-                      country: IND
-                      locality: mock-locality
-                      name: mock-house-name
-                      state: mock-state
-                    gps: 13.0778684,77.591476
-                id: F1
-                tracking: true
-                type: Delivery
-            items:
-              - fulfillment_id: F1
-                id: I2
-                location_id: L1
-                quantity:
-                  count: 1
-              - fulfillment_id: F1
-                id: I1
-                location_id: L1
-                quantity:
-                  count: 1
-            payment:
-              "@ondc/org/buyer_app_finder_fee_amount": "3"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/settlement_details":
-                - bank_name: XXXX
-                  beneficiary_name: xxxx
-                  branch_name: XXXX
-                  settlement_bank_account_no: XXXX
-                  settlement_counterparty: seller-app
-                  settlement_ifsc_code: XXXX
-                  settlement_phase: sale-amount
-                  settlement_type: neft
             provider:
               id: P1
               locations:
                 - id: L1
+            items:
+              - id: I1
+                quantity:
+                  count: 1
+                fulfillment_id: F1
+            billing:
+              address:
+                building: my building name or house
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560027'
+                locality: my street name
+                name: my house or door or floor
+              phone: '9898989898'
+              name: ONDC Buyer
+              email: nobody@nomail.com
+              created_at: '2024-08-14T09:10:34.369Z'
+              updated_at: '2024-08-14T09:10:34.369Z'
+            fulfillments:
+              - id: F1
+                type: Delivery
+                end:
+                  contact:
+                    email: nobody@nomail.com
+                    phone: '9898989898'
+                  location:
+                    gps: '12.966545,77.592074'
+                    address:
+                      building: my building name or house
+                      city: Bengaluru
+                      state: Karnataka
+                      country: IND
+                      area_code: '560027'
+                      locality: my street name
+                      name: my house or door or floor
+                tracking: true
             quote:
-              breakup:
-                - "@ondc/org/item_id": I2
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2360"
-                  price:
-                    currency: INR
-                    value: "2360.00"
-                  title: Marula Oil 05% Moisturizer
-                - "@ondc/org/item_id": I1
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2260"
-                  price:
-                    currency: INR
-                    value: "2260.00"
-                  title: AHA PHA BHA 32%
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": delivery
-                  price:
-                    currency: INR
-                    value: "493.75"
-                  title: Delivery charges
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": misc
-                  price:
-                    currency: INR
-                    value: "3.00"
-                  title: Convenience Fee
               price:
+                value: '2756.75'
                 currency: INR
-                value: "5116.75"
+              breakup:
+                - '@ondc/org/item_id': I1
+                  '@ondc/org/item_quantity':
+                    count: 1
+                  title: Plain Atta
+                  '@ondc/org/title_type': item
+                  price:
+                    currency: INR
+                    value: '2260.00'
+                  item:
+                    price:
+                      currency: INR
+                      value: '2260.00'
+                - '@ondc/org/item_id': F1
+                  title: Delivery charges
+                  '@ondc/org/title_type': delivery
+                  price:
+                    currency: INR
+                    value: '493.75'
+                - '@ondc/org/item_id': F1
+                  title: Convenience Fee
+                  '@ondc/org/title_type': misc
+                  price:
+                    currency: INR
+                    value: '3.00'
               ttl: P1D
+            payment:
+              '@ondc/org/buyer_app_finder_fee_type': percent
+              '@ondc/org/buyer_app_finder_fee_amount': '3'
+              '@ondc/org/settlement_details':
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: XXXX
+                  settlement_ifsc_code: XXXX
+                  bank_name: XXXX
+                  branch_name: XXXX
             tags:
               - code: bpp_terms
                 list:
@@ -611,74 +627,80 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: '$.message.order.fulfillments[*]'
+        tags: '$.message.order.tags[*]'
+        bpp_terms: '$.message.order.tags[?(@.code == ''bpp_terms'')]'
+        quote: $.message.order.quote
+        payment: $.message.order.payment
       inputs: {}
     examples:
       - name: Example for action "on_init"
-        description: Auto-generated example for action "on_init" in flow "Seller_Cred_Flow"
+        description: Auto-generated example for action "on_init" in flow "Delivery_Flow"
         payload:
           context:
             action: on_init
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
-            message_id: f9de360d-5ef8-4a24-a258-0958c1f5011b
-            timestamp: 2026-03-18T09:34:16.550Z
-            transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
+            domain: 'ONDC:RET13'
+            message_id: 832be02d-46ea-4c91-930d-f4a59e932039
+            timestamp: '2026-03-18T11:26:33.625Z'
+            transaction_id: 8ce8e962-41f6-4375-a91b-816877b4977d
             ttl: PT30S
           message:
             order:
               billing:
                 address:
-                  area_code: "560027"
+                  area_code: '560027'
                   building: my building name or house
                   city: Bengaluru
                   country: IND
                   locality: my street name
                   name: my house or door or floor
                   state: Karnataka
-                created_at: 2026-03-18T09:34:11.345Z
+                created_at: '2026-03-18T11:26:28.452Z'
                 email: nobody@nomail.com
                 name: ONDC Buyer
-                phone: "9898989898"
-                updated_at: 2026-03-18T09:34:11.345Z
+                phone: '9898989898'
+                updated_at: '2026-03-18T11:26:28.452Z'
               fulfillments:
                 - end:
                     contact:
                       email: nobody@nomail.com
-                      phone: "9898989898"
+                      phone: '9898989898'
                     location:
                       address:
-                        area_code: "560027"
+                        area_code: '560027'
                         building: mock-building
                         city: mock-city
                         country: IND
                         locality: mock-locality
                         name: mock-house-name
                         state: mock-state
-                      gps: 13.0778684,77.591476
+                      gps: '13.0778684,77.591476'
                   id: F1
                   tracking: true
                   type: Delivery
               items:
                 - fulfillment_id: F1
-                  id: I2
-                  location_id: L1
-                  quantity:
-                    count: 1
-                - fulfillment_id: F1
                   id: I1
                   location_id: L1
                   quantity:
                     count: 1
+                - fulfillment_id: F1
+                  id: I2
+                  location_id: L1
+                  quantity:
+                    count: 1
               payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_details":
+                '@ondc/org/buyer_app_finder_fee_amount': '3'
+                '@ondc/org/buyer_app_finder_fee_type': percent
+                '@ondc/org/settlement_details':
                   - bank_name: XXXX
                     beneficiary_name: xxxx
                     branch_name: XXXX
@@ -693,45 +715,45 @@ steps:
                   - id: L1
               quote:
                 breakup:
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I1
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2360"
+                        value: '2260'
                     price:
                       currency: INR
-                      value: "2360.00"
-                    title: Marula Oil 05% Moisturizer
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
+                      value: '2260.00'
+                    title: Butterfly Beautiful 12 Gold Necklace
+                  - '@ondc/org/item_id': I2
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2260"
+                        value: '2360'
                     price:
                       currency: INR
-                      value: "2260.00"
-                    title: AHA PHA BHA 32%
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
+                      value: '2360.00'
+                    title: Butterfly Necklace 2nd
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': delivery
                     price:
                       currency: INR
-                      value: "493.75"
+                      value: '493.75'
                     title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': misc
                     price:
                       currency: INR
-                      value: "3.00"
+                      value: '3.00'
                     title: Convenience Fee
                 price:
                   currency: INR
-                  value: "5116.75"
+                  value: '5116.75'
                 ttl: P1D
               tags:
                 - code: bpp_terms
@@ -750,142 +772,126 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAJCglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmlkID0gZ2VuZXJhdGVTaXhEaWdpdENvZGUoKTsKCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY3JlYXRlZF9hdCA9IGRlZmF1bHRQYXlsb2FkLmNvbnRleHQudGltZXN0YW1wOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXA7CmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUgPSByZW1vdmVJdGVtUXVhbnRpdGllc0Zyb21RdW90ZShzZXNzaW9uRGF0YS5xdW90ZVswXSk7CmNvbnN0IGJpbGxpbmcgPSBnZXRVcGRhdGVkQmlsbGluZygKCQlzZXNzaW9uRGF0YS5iaWxsaW5nCgkpOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5iaWxsaW5nID0gYmlsbGluZ1swXQoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlciA9IHNlc3Npb25EYXRhLnByb3ZpZGVyWzBdOwoJZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50LnBhcmFtcy5hbW91bnQgPQoJCXNlc3Npb25EYXRhLnF1b3RlWzBdPy5wcmljZT8udmFsdWU7CglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnQucGFyYW1zLnRyYW5zYWN0aW9uX2lkID0KCQkibW9ja19wYXltZW50X2lkXzEyMyI7CglkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IGNyZWF0ZUZ1bGZpbGxtZW50cygKCQkiY29uZmlybSIsCgkJImNvbmZpcm0iLAoJCXNlc3Npb25EYXRhLAoJCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzCgkpOwoJY29uc3QgZXhpc3RpbmdUYWdzID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci50YWdzIDsKCWNvbnN0IGJwcFRlcm1zID0gZXhpc3RpbmdUYWdzLmZpbmQoKGYpID0+IGYuY29kZSA9PT0gImJwcF90ZXJtcyIpOwoJaWYgKGJwcFRlcm1zKSB7CgkJYnBwVGVybXMubGlzdCA9IHNlc3Npb25EYXRhLmJwcF90ZXJtc1swXS5saXN0OwoJfQoJCWRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzLmZvckVhY2goKGZ1bGZpbGxtZW50KSA9PiB7CgkvLyBSZW1vdmUgdW53YW50ZWQgcHJvcGVydGllcyBmcm9tIGZ1bGZpbGxtZW50CQoJaWYoIGZ1bGZpbGxtZW50WyJAb25kYy9vcmcvY2F0ZWdvcnkiXSkgewoJCWRlbGV0ZSBmdWxmaWxsbWVudFsiQG9uZGMvb3JnL2NhdGVnb3J5Il07Cgl9Cgl9KTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3Qgb3JkZXIgPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCiAgaWYgKCFvcmRlcj8uaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk9yZGVyIGlkIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LmNyZWF0ZWRfYXQgfHwgIW9yZGVyPy51cGRhdGVkX2F0KSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJPcmRlciB0aW1lc3RhbXBzIGFyZSBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBpZiAoIUFycmF5LmlzQXJyYXkob3JkZXI/Lml0ZW1zKSB8fCBvcmRlci5pdGVtcy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk9yZGVyIGl0ZW1zIGFyZSBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyPy5wcm92aWRlcikgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgaXMgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8uYmlsbGluZykgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiQmlsbGluZyBkZXRhaWxzIGFyZSBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyPy5xdW90ZSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiUXVvdGUgaXMgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8ucGF5bWVudD8ucGFyYW1zPy5hbW91bnQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlBheW1lbnQgYW1vdW50IGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LnBheW1lbnQ/LnBhcmFtcz8udHJhbnNhY3Rpb25faWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlBheW1lbnQgdHJhbnNhY3Rpb25faWQgaXMgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkob3JkZXI/LmZ1bGZpbGxtZW50cykgfHwKICAgIG9yZGVyLmZ1bGZpbGxtZW50cy5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkZ1bGZpbGxtZW50cyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgY29uc3QgaW52YWxpZEZ1bGZpbGxtZW50ID0gb3JkZXIuZnVsZmlsbG1lbnRzLmZpbmQoCiAgICAoZikgPT4gZlsiQG9uZGMvb3JnL2NhdGVnb3J5Il0gIT09IHVuZGVmaW5lZAogICk7CgogIGlmIChpbnZhbGlkRnVsZmlsbG1lbnQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjoKICAgICAgICAiQG9uZGMvb3JnL2NhdGVnb3J5IHNob3VsZCBub3QgYmUgcHJlc2VudCBpbiBmdWxmaWxsbWVudHMiLAogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICghc2Vzc2lvbkRhdGEucXVvdGUpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInF1b3RlIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLmJpbGxpbmcpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogImJpbGxpbmcgaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEuaXRlbXMgfHwgc2Vzc2lvbkRhdGEuaXRlbXMubGVuZ3RoID09PSAwKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJpdGVtcyBhcmUgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEucHJvdmlkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInByb3ZpZGVyIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoCiAgICAhQXJyYXkuaXNBcnJheShzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpIHx8CiAgICBzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMubGVuZ3RoID09PSAwCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJmdWxmaWxsbWVudHMgYXJlIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKIAogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiUmVxdWlyZW1lbnRzIG1ldCIgfTsKfQ==
       defaultPayload:
         context:
           action: confirm
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
+          domain: 'ONDC:RET13'
           message_id: 845dc535-3d88-4581-a562-4a2b55cd5a05
-          timestamp: 2026-03-18T09:34:16.708Z
+          timestamp: '2026-03-18T09:34:16.708Z'
           transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
           ttl: PT30S
         message:
           order:
+            id: O1
+            state: Created
             billing:
               address:
-                area_code: "560027"
                 building: my building name or house
                 city: Bengaluru
+                state: Karnataka
                 country: IND
+                area_code: '560027'
                 locality: my street name
                 name: my house or door or floor
-                state: Karnataka
-              created_at: 2026-03-18T09:34:11.345Z
+              phone: '9898989898'
+              name: ONDC buyer
               email: nobody@nomail.com
-              name: ONDC Buyer
-              phone: "9898989898"
-              updated_at: 2026-03-18T09:34:11.345Z
-            created_at: 2026-03-18T09:34:16.708Z
-            fulfillments:
-              - "@ondc/org/TAT": P3D
-                end:
-                  contact:
-                    email: nobody@nomail.com
-                    phone: "9898989898"
-                  location:
-                    address:
-                      area_code: "560027"
-                      building: mock-building
-                      city: mock-city
-                      country: IND
-                      locality: mock-locality
-                      name: mock-house-name
-                      state: mock-state
-                    gps: 13.0778684,77.591476
-                  person:
-                    name: mock-person
-                id: F1
-                tracking: true
-                type: Delivery
-            id: "894534"
+              created_at: '2024-08-14T09:10:34.369Z'
+              updated_at: '2024-08-14T09:10:34.369Z'
             items:
-              - fulfillment_id: F1
-                id: I2
-                location_id: L1
+              - id: I1
                 quantity:
                   count: 1
-              - fulfillment_id: F1
-                id: I1
-                location_id: L1
-                quantity:
-                  count: 1
-            payment:
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/settlement_details":
-                - bank_name: XXXX
-                  beneficiary_name: xxxx
-                  branch_name: XXXX
-                  settlement_bank_account_no: XXXX
-                  settlement_counterparty: seller-app
-                  settlement_ifsc_code: XXXX
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-              collected_by: BAP
-              params:
-                amount: "5116.75"
-                currency: INR
-                transaction_id: mock_payment_id_123
-              status: PAID
-              tl_method: http/get
-              type: ON-ORDER
-              uri: https://razorpay.com/
+                fulfillment_id: F1
             provider:
               id: P1
               locations:
                 - id: L1
+            fulfillments:
+              - '@ondc/org/TAT': P3D
+                id: F1
+                tracking: true
+                end:
+                  contact:
+                    email: nobody@nomail.com
+                    phone: '9898989898'
+                  person:
+                    name: ONDC Buyer
+                  location:
+                    gps: '12.966545,77.592074'
+                    address:
+                      building: my building name or house
+                      city: Bengaluru
+                      state: Karnataka
+                      country: IND
+                      area_code: '560027'
+                      locality: my street name
+                      name: my house or door or floor
+                type: Delivery
+            payment:
+              params:
+                amount: '2756.75'
+                currency: INR
+                transaction_id: order_PjggJp7MccQmAa
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              uri: 'https://razorpay.com/'
+              tl_method: http/get
+              '@ondc/org/buyer_app_finder_fee_type': percent
+              '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+              '@ondc/org/settlement_details':
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: XXXX
+                  settlement_ifsc_code: XXXX
+                  bank_name: XXXX
+                  branch_name: XXXX
             quote:
-              breakup:
-                - "@ondc/org/item_id": I2
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2360"
-                  price:
-                    currency: INR
-                    value: "2360.00"
-                  title: Marula Oil 05% Moisturizer
-                - "@ondc/org/item_id": I1
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2260"
-                  price:
-                    currency: INR
-                    value: "2260.00"
-                  title: AHA PHA BHA 32%
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": delivery
-                  price:
-                    currency: INR
-                    value: "493.75"
-                  title: Delivery charges
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": misc
-                  price:
-                    currency: INR
-                    value: "3.00"
-                  title: Convenience Fee
               price:
                 currency: INR
-                value: "5116.75"
+                value: '2756.75'
+              breakup:
+                - '@ondc/org/item_id': I1
+                  '@ondc/org/item_quantity':
+                    count: 1
+                  title: Butterfly Beutiful 13 Gold Necklace
+                  '@ondc/org/title_type': item
+                  price:
+                    currency: INR
+                    value: '2260.00'
+                  item:
+                    price:
+                      currency: INR
+                      value: '2260.00'
+                - '@ondc/org/item_id': F1
+                  title: Delivery charges
+                  '@ondc/org/title_type': delivery
+                  price:
+                    currency: INR
+                    value: '493.75'
+                - '@ondc/org/item_id': F1
+                  title: Convenience Fee
+                  '@ondc/org/title_type': misc
+                  price:
+                    currency: INR
+                    value: '3.00'
               ttl: P1D
-            state: Created
             tags:
               - code: bpp_terms
                 list:
@@ -898,12 +904,14 @@ steps:
               - code: bap_terms
                 list:
                   - code: accept_bpp_terms
-                    value: Y
+                    value: 'Y'
                   - code: static_terms
-                    value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+                    value: >-
+                      https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                   - code: tax_number
                     value: 37BABCA6712B1Z6
-            updated_at: 2026-03-18T09:34:16.708Z
+            created_at: '2024-08-14T09:11:00.810Z'
+            updated_at: '2024-08-14T09:11:00.810Z'
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -913,6 +921,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        order_id: $.message.order.id
+        order_state: $.message.order.state
+        order_created_at: $.message.order.created_at
+        bap_terms: '$.message.order.tags[?(@.code == ''bap_terms'')]'
+        fulfillments: '$.message.order.fulfillments[*]'
+        payment: $.message.order.payment
       inputs: {}
     examples:
       - name: Example for action "confirm"
@@ -921,56 +936,57 @@ steps:
           context:
             action: confirm
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
+            domain: 'ONDC:RET13'
             message_id: 845dc535-3d88-4581-a562-4a2b55cd5a05
-            timestamp: 2026-03-18T09:34:16.708Z
+            timestamp: '2026-03-18T09:34:16.708Z'
             transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
             ttl: PT30S
           message:
             order:
               billing:
                 address:
-                  area_code: "560027"
+                  area_code: '560027'
                   building: my building name or house
                   city: Bengaluru
                   country: IND
                   locality: my street name
                   name: my house or door or floor
                   state: Karnataka
-                created_at: 2026-03-18T09:34:11.345Z
+                created_at: '2026-03-18T09:34:11.345Z'
                 email: nobody@nomail.com
                 name: ONDC Buyer
-                phone: "9898989898"
-                updated_at: 2026-03-18T09:34:11.345Z
-              created_at: 2026-03-18T09:34:16.708Z
+                phone: '9898989898'
+                updated_at: '2026-03-18T09:34:11.345Z'
+              created_at: '2026-03-18T09:34:16.708Z'
               fulfillments:
-                - "@ondc/org/TAT": P3D
+                - '@ondc/org/TAT': P3D
                   end:
                     contact:
                       email: nobody@nomail.com
-                      phone: "9898989898"
+                      phone: '9898989898'
                     location:
                       address:
-                        area_code: "560027"
+                        area_code: '560027'
                         building: mock-building
                         city: mock-city
                         country: IND
                         locality: mock-locality
                         name: mock-house-name
                         state: mock-state
-                      gps: 13.0778684,77.591476
+                      gps: '13.0778684,77.591476'
                     person:
                       name: mock-person
                   id: F1
                   tracking: true
                   type: Delivery
-              id: "894534"
+              id: '894534'
               items:
                 - fulfillment_id: F1
                   id: I2
@@ -983,9 +999,9 @@ steps:
                   quantity:
                     count: 1
               payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_details":
+                '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+                '@ondc/org/buyer_app_finder_fee_type': percent
+                '@ondc/org/settlement_details':
                   - bank_name: XXXX
                     beneficiary_name: xxxx
                     branch_name: XXXX
@@ -996,58 +1012,58 @@ steps:
                     settlement_type: neft
                 collected_by: BAP
                 params:
-                  amount: "5116.75"
+                  amount: '5116.75'
                   currency: INR
                   transaction_id: mock_payment_id_123
                 status: PAID
                 tl_method: http/get
                 type: ON-ORDER
-                uri: https://razorpay.com/
+                uri: 'https://razorpay.com/'
               provider:
                 id: P1
                 locations:
                   - id: L1
               quote:
                 breakup:
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I2
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2360"
+                        value: '2360'
                     price:
                       currency: INR
-                      value: "2360.00"
+                      value: '2360.00'
                     title: Marula Oil 05% Moisturizer
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I1
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2260"
+                        value: '2260'
                     price:
                       currency: INR
-                      value: "2260.00"
+                      value: '2260.00'
                     title: AHA PHA BHA 32%
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': delivery
                     price:
                       currency: INR
-                      value: "493.75"
+                      value: '493.75'
                     title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': misc
                     price:
                       currency: INR
-                      value: "3.00"
+                      value: '3.00'
                     title: Convenience Fee
                 price:
                   currency: INR
-                  value: "5116.75"
+                  value: '5116.75'
                 ttl: P1D
               state: Created
               tags:
@@ -1062,12 +1078,13 @@ steps:
                 - code: bap_terms
                   list:
                     - code: accept_bpp_terms
-                      value: Y
+                      value: 'Y'
                     - code: static_terms
-                      value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+                      value: >-
+                        https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                     - code: tax_number
                       value: 37BABCA6712B1Z6
-              updated_at: 2026-03-18T09:34:16.708Z
+              updated_at: '2026-03-18T09:34:16.708Z'
         type: request
   - api: on_confirm
     action_id: on_confirm_seller_cred
@@ -1076,168 +1093,150 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: >-
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnVwZGF0ZWRfYXQgPSBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LnRpbWVzdGFtcApkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmNyZWF0ZWRfYXQgPSBzZXNzaW9uRGF0YS5vcmRlcl9jcmVhdGVkX2F0WzBdCmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZFswXQpjb25zdCBiaWxsaW5nID0gZ2V0VXBkYXRlZEJpbGxpbmcoc2Vzc2lvbkRhdGEuYmlsbGluZykKZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5iaWxsaW5nID0gYmlsbGluZ1swXQpkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gc2Vzc2lvbkRhdGEuaXRlbXMKZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlciA9IHNlc3Npb25EYXRhLnByb3ZpZGVyWzBdCmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gY3JlYXRlRnVsZmlsbG1lbnRzKAogICJvbl9jb25maXJtIiwKICAib25fY29uZmlybSIsCiAgc2Vzc2lvbkRhdGEsCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMKKQpkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlID0gc2Vzc2lvbkRhdGEucXVvdGVbMF0KZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50ID0gc2Vzc2lvbkRhdGEucGF5bWVudFswXQpjb25zdCBleGlzdGluZ1RhZ3MgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnRhZ3MKY29uc3QgYmFwVGVybXMgPSBleGlzdGluZ1RhZ3MuZmluZChmID0+IGYuY29kZSA9PT0gImJhcF90ZXJtcyIpCmlmIChiYXBUZXJtcykgewogIGJhcFRlcm1zLmxpc3QgPSBzZXNzaW9uRGF0YS5iYXBfdGVybXNbMF0ubGlzdAogICAgPy5maWx0ZXIoaSA9PiBpLmNvZGUgIT09ICJhY2NlcHRfYnBwX3Rlcm1zIikgLy8gcmVtb3ZlCiAgICAubWFwKGkgPT4KICAgICAgaS5jb2RlID09PSAic3RhdGljX3Rlcm1zIgogICAgICAgID8gewogICAgICAgICAgICAuLi5pLAogICAgICAgICAgICB2YWx1ZToKICAgICAgICAgICAgICAiaHR0cHM6Ly9naXRodWIuY29tL09OREMtT2ZmaWNpYWwvcHJvdG9jb2wtbmV0d29yay1leHRlbnNpb24vZGlzY3Vzc2lvbnMvNzkiCiAgICAgICAgICB9CiAgICAgICAgOiBpCiAgICApCn0KCmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIuY3JlZHMgPQogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIuY3JlZHMgfHwgW10KZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5jcmVkcy5wdXNoKHsKICBpZDp1dWlkdjQoKSwKICBkZXNjcmlwdG9yOiB7CiAgICBjb2RlOiAiU2VsbGVyX0NyZWRlbnRpYWwiLAogICAgc2hvcnRfZGVzYzogIkdJIgogIH0KfSkKCgpjb25zb2xlLmxvZygiZGVmYXVsdFBheWxvYWQiLEpTT04uc3RyaW5naWZ5KGRlZmF1bHRQYXlsb2FkKSkKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: >-
+        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3Qgb3JkZXIgPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCgogIGlmICghb3JkZXI/LmlkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJPcmRlciBpZCBpcyBtaXNzaW5nIiwKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyPy5jcmVhdGVkX2F0IHx8ICFvcmRlcj8udXBkYXRlZF9hdCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiT3JkZXIgdGltZXN0YW1wcyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8ucHJvdmlkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlByb3ZpZGVyIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghQXJyYXkuaXNBcnJheShvcmRlcj8uaXRlbXMpIHx8IG9yZGVyLml0ZW1zLmxlbmd0aCA9PT0gMCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiT3JkZXIgaXRlbXMgYXJlIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LmJpbGxpbmcpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkJpbGxpbmcgZGV0YWlscyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlcj8ucXVvdGUpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlF1b3RlIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGlmICghb3JkZXI/LnBheW1lbnQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlBheW1lbnQgZGV0YWlscyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkob3JkZXI/LmZ1bGZpbGxtZW50cykgfHwKICAgIG9yZGVyLmZ1bGZpbGxtZW50cy5sZW5ndGggPT09IDAKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkZ1bGZpbGxtZW50cyBhcmUgbWlzc2luZyIsCiAgICB9OwogIH0KCiAgY29uc3QgYmFwVGVybXMgPSBvcmRlcj8udGFncz8uZmluZCgKICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAiYmFwX3Rlcm1zIgogICk7CgoKICBpZiAoIWJhcFRlcm1zKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJiYXBfdGVybXMgdGFnIGlzIG1pc3NpbmciLAogICAgfTsKICB9CgogIGNvbnN0IHNlbGxlckNyZWRlbnRpYWwgPSBvcmRlcj8ucHJvdmlkZXI/LmNyZWRzPy5maW5kKAogICAgKGNyZWQpID0+IGNyZWQ/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJTZWxsZXJfQ3JlZGVudGlhbCIKICApOwoKICBpZiAoIXNlbGxlckNyZWRlbnRpYWwpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlNlbGxlcl9DcmVkZW50aWFsIGlzIG1pc3NpbmcgaW4gcHJvdmlkZXIuY3JlZHMiLAogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+      requirements: >-
+        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgaWYgKCFzZXNzaW9uRGF0YS5vcmRlcl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXJfaWQgaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEub3JkZXJfY3JlYXRlZF9hdCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXJfY3JlYXRlZF9hdCBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5iaWxsaW5nKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJiaWxsaW5nIGlzIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLml0ZW1zIHx8IHNlc3Npb25EYXRhLml0ZW1zLmxlbmd0aCA9PT0gMCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiaXRlbXMgYXJlIHJlcXVpcmVkIiwKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLnByb3ZpZGVyKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJwcm92aWRlciBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIUFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzKSB8fAogICAgc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmxlbmd0aCA9PT0gMAogICkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiZnVsZmlsbG1lbnRzIGFyZSByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5xdW90ZSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAicXVvdGUgaXMgcmVxdWlyZWQiLAogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEucGF5bWVudCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAicGF5bWVudCBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KCiAgaWYgKAogICAgIXNlc3Npb25EYXRhLmJhcF90ZXJtcyB8fAogICAgIUFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGEuYmFwX3Rlcm1zWzBdLmxpc3QpCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJiYXBfdGVybXMubGlzdCBpcyByZXF1aXJlZCIsCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlJlcXVpcmVtZW50cyBtZXQiIH07Cn0=
       defaultPayload:
         context:
           action: on_confirm
           bap_id: dev-automation.ondc.org
-          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+          bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
           bpp_id: dev-automation.ondc.org
-          bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-          city: std:080
+          bpp_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller'
+          city: 'std:080'
           core_version: 1.2.5
           country: IND
-          domain: ONDC:RET13
+          domain: 'ONDC:RET13'
           message_id: 845dc535-3d88-4581-a562-4a2b55cd5a05
-          timestamp: 2026-03-18T09:34:16.877Z
+          timestamp: '2026-03-18T09:34:16.877Z'
           transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
           ttl: PT30S
         message:
           order:
-            billing:
-              address:
-                area_code: "560027"
-                building: my building name or house
-                city: Bengaluru
-                country: IND
-                locality: my street name
-                name: my house or door or floor
-                state: Karnataka
-              created_at: 2026-03-18T09:34:11.345Z
-              email: nobody@nomail.com
-              name: ONDC Buyer
-              phone: "9898989898"
-              updated_at: 2026-03-18T09:34:11.345Z
-            created_at: 2026-03-18T09:34:16.708Z
-            fulfillments:
-              - "@ondc/org/TAT": P3D
-                "@ondc/org/provider_name": mock_provider_name_0
-                end:
-                  contact:
-                    email: nobody@nomail.com
-                    phone: "9898989898"
-                  location:
-                    address:
-                      area_code: "560027"
-                      building: mock-building
-                      city: mock-city
-                      country: IND
-                      locality: mock-locality
-                      name: mock-house-name
-                      state: mock-state
-                    gps: 13.0778684,77.591476
-                  person:
-                    name: mock-person
-                id: F1
-                start:
-                  contact:
-                    email: nobody@nomail.com
-                    phone: "9594663710"
-                  location:
-                    address:
-                      area_code: "400053"
-                      building: my building name or house
-                      city: Mumbai
-                      country: IND
-                      locality: my street name
-                      name: my house or door or floor
-                      state: Maharashtra
-                    descriptor:
-                      name: ABC Store
-                    gps: 19.129076,72.825803
-                    id: L1
-                state:
-                  descriptor:
-                    code: Pending
-                tracking: true
-                type: Delivery
-            id: "894534"
-            items:
-              - fulfillment_id: F1
-                id: I2
-                location_id: L1
-                quantity:
-                  count: 1
-              - fulfillment_id: F1
-                id: I1
-                location_id: L1
-                quantity:
-                  count: 1
-            payment:
-              "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-              "@ondc/org/buyer_app_finder_fee_type": percent
-              "@ondc/org/settlement_details":
-                - bank_name: XXXX
-                  beneficiary_name: xxxx
-                  branch_name: XXXX
-                  settlement_bank_account_no: XXXX
-                  settlement_counterparty: seller-app
-                  settlement_ifsc_code: XXXX
-                  settlement_phase: sale-amount
-                  settlement_type: neft
-              collected_by: BAP
-              params:
-                amount: "5116.75"
-                currency: INR
-                transaction_id: mock_payment_id_123
-              status: PAID
-              tl_method: http/get
-              type: ON-ORDER
-              uri: https://razorpay.com/
+            id: O1
+            state: Created
             provider:
-              creds:
-                - descriptor:
-                    code: Seller_Credential
-                    short_desc: GI
-                  id: 781f77e5-f1e5-4f7e-ab54-fd0d7527a183
               id: P1
               locations:
                 - id: L1
+              creds:
+                - id: gi-12345678
+                  descriptor:
+                    code: Social Sector
+                    short_desc: GI
+            items:
+              - id: I1
+                quantity:
+                  count: 1
+                fulfillment_id: F1
+            billing:
+              address:
+                building: my building name or house
+                city: Bengaluru
+                state: Karnataka
+                country: IND
+                area_code: '560027'
+                locality: my street name
+                name: my house or door or floor
+              phone: '9898989898'
+              name: ONDC buyer
+              email: nobody@nomail.com
+              created_at: '2024-08-14T09:10:34.369Z'
+              updated_at: '2024-08-14T09:10:34.369Z'
+            fulfillments:
+              - id: F1
+                '@ondc/org/provider_name': Seller Business
+                '@ondc/org/TAT': P3D
+                state:
+                  descriptor:
+                    code: Pending
+                type: Delivery
+                tracking: true
+                start:
+                  location:
+                    id: L1
+                    descriptor:
+                      name: Seller Business
+                    gps: '12.925810,77.583624'
+                    address:
+                      building: my building name or house
+                      country: IND
+                      locality: my street name
+                      city: Bengaluru
+                      area_code: '560011'
+                      state: Karnataka
+                      name: my house or door or floor
+                  contact:
+                    phone: '9594663710'
+                    email: nobody@nomail.com
+                end:
+                  person:
+                    name: John Doe
+                  contact:
+                    email: nobody@nomail.com
+                    phone: '9898989898'
+                  location:
+                    gps: '12.966545,77.592074'
+                    address:
+                      building: my building name or house
+                      city: Bengaluru
+                      state: Karnataka
+                      country: IND
+                      area_code: '560027'
+                      locality: my street name
+                      name: my house or door or floor
             quote:
-              breakup:
-                - "@ondc/org/item_id": I2
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2360"
-                  price:
-                    currency: INR
-                    value: "2360.00"
-                  title: Marula Oil 05% Moisturizer
-                - "@ondc/org/item_id": I1
-                  "@ondc/org/item_quantity":
-                    count: 1
-                  "@ondc/org/title_type": item
-                  item:
-                    price:
-                      currency: INR
-                      value: "2260"
-                  price:
-                    currency: INR
-                    value: "2260.00"
-                  title: AHA PHA BHA 32%
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": delivery
-                  price:
-                    currency: INR
-                    value: "493.75"
-                  title: Delivery charges
-                - "@ondc/org/item_id": F1
-                  "@ondc/org/title_type": misc
-                  price:
-                    currency: INR
-                    value: "3.00"
-                  title: Convenience Fee
               price:
                 currency: INR
-                value: "5116.75"
+                value: '2756.75'
+              breakup:
+                - '@ondc/org/item_id': I1
+                  '@ondc/org/item_quantity':
+                    count: 1
+                  title: Butterfly Beautiful 13 Gold Necklace
+                  '@ondc/org/title_type': item
+                  price:
+                    currency: INR
+                    value: '2260.00'
+                  item:
+                    price:
+                      currency: INR
+                      value: '2260.00'
+                - '@ondc/org/item_id': F1
+                  title: Delivery charges
+                  '@ondc/org/title_type': delivery
+                  price:
+                    currency: INR
+                    value: '493.75'
+                - '@ondc/org/item_id': F1
+                  title: Convenience Fee
+                  '@ondc/org/title_type': misc
+                  price:
+                    currency: INR
+                    value: '3.00'
               ttl: P1D
-            state: Created
+            payment:
+              params:
+                amount: '2756.75'
+                currency: INR
+                transaction_id: order_Okj0iihMKJod0V
+              status: PAID
+              type: ON-ORDER
+              collected_by: BAP
+              '@ondc/org/buyer_app_finder_fee_type': percent
+              '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+              '@ondc/org/settlement_details':
+                - settlement_counterparty: seller-app
+                  settlement_phase: sale-amount
+                  settlement_type: neft
+                  beneficiary_name: xxxx
+                  settlement_bank_account_no: xxxx
+                  settlement_ifsc_code: xxxx
+                  bank_name: xxxx
+                  branch_name: xxxx
             tags:
               - code: bpp_terms
                 list:
@@ -1248,14 +1247,16 @@ steps:
                   - code: provider_tax_number
                     value: USYDS6482D
                   - code: accept_bap_terms
-                    value: Y
+                    value: 'Y'
               - code: bap_terms
                 list:
                   - code: static_terms
-                    value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                    value: >-
+                      https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - code: tax_number
-                    value: 37BABCA6712B1Z6
-            updated_at: 2026-03-18T09:34:16.877Z
+                    value: 37ABACA6712B1Z6
+            created_at: '2024-08-14T09:11:00.810Z'
+            updated_at: '2024-08-14T09:11:01.239Z'
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1265,70 +1266,77 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_confirm_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        fulfillments: '$.message.order.fulfillments[*]'
+        bpp_id: $.context.bpp_id
       inputs: {}
     examples:
       - name: Example for action "on_confirm"
-        description: Auto-generated example for action "on_confirm" in flow
+        description: >-
+          Auto-generated example for action "on_confirm" in flow
           "Seller_Cred_Flow"
         payload:
           context:
             action: on_confirm
             bap_id: dev-automation.ondc.org
-            bap_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer
+            bap_uri: 'https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer'
             bpp_id: dev-automation.ondc.org
-            bpp_uri: https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
-            city: std:080
+            bpp_uri: >-
+              https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller
+            city: 'std:080'
             core_version: 1.2.5
             country: IND
-            domain: ONDC:RET13
+            domain: 'ONDC:RET13'
             message_id: 845dc535-3d88-4581-a562-4a2b55cd5a05
-            timestamp: 2026-03-18T09:34:16.877Z
+            timestamp: '2026-03-18T09:34:16.877Z'
             transaction_id: 31e51f6d-6054-4b29-8694-336d910eb8df
             ttl: PT30S
           message:
             order:
               billing:
                 address:
-                  area_code: "560027"
+                  area_code: '560027'
                   building: my building name or house
                   city: Bengaluru
                   country: IND
                   locality: my street name
                   name: my house or door or floor
                   state: Karnataka
-                created_at: 2026-03-18T09:34:11.345Z
+                created_at: '2026-03-18T09:34:11.345Z'
                 email: nobody@nomail.com
                 name: ONDC Buyer
-                phone: "9898989898"
-                updated_at: 2026-03-18T09:34:11.345Z
-              created_at: 2026-03-18T09:34:16.708Z
+                phone: '9898989898'
+                updated_at: '2026-03-18T09:34:11.345Z'
+              created_at: '2026-03-18T09:34:16.708Z'
               fulfillments:
-                - "@ondc/org/TAT": P3D
-                  "@ondc/org/provider_name": mock_provider_name_0
+                - '@ondc/org/TAT': P3D
+                  '@ondc/org/provider_name': mock_provider_name_0
                   end:
                     contact:
                       email: nobody@nomail.com
-                      phone: "9898989898"
+                      phone: '9898989898'
                     location:
                       address:
-                        area_code: "560027"
+                        area_code: '560027'
                         building: mock-building
                         city: mock-city
                         country: IND
                         locality: mock-locality
                         name: mock-house-name
                         state: mock-state
-                      gps: 13.0778684,77.591476
+                      gps: '13.0778684,77.591476'
                     person:
                       name: mock-person
                   id: F1
                   start:
                     contact:
                       email: nobody@nomail.com
-                      phone: "9594663710"
+                      phone: '9594663710'
                     location:
                       address:
-                        area_code: "400053"
+                        area_code: '400053'
                         building: my building name or house
                         city: Mumbai
                         country: IND
@@ -1337,14 +1345,14 @@ steps:
                         state: Maharashtra
                       descriptor:
                         name: ABC Store
-                      gps: 19.129076,72.825803
+                      gps: '19.129076,72.825803'
                       id: L1
                   state:
                     descriptor:
                       code: Pending
                   tracking: true
                   type: Delivery
-              id: "894534"
+              id: '894534'
               items:
                 - fulfillment_id: F1
                   id: I2
@@ -1357,9 +1365,9 @@ steps:
                   quantity:
                     count: 1
               payment:
-                "@ondc/org/buyer_app_finder_fee_amount": "3.0"
-                "@ondc/org/buyer_app_finder_fee_type": percent
-                "@ondc/org/settlement_details":
+                '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+                '@ondc/org/buyer_app_finder_fee_type': percent
+                '@ondc/org/settlement_details':
                   - bank_name: XXXX
                     beneficiary_name: xxxx
                     branch_name: XXXX
@@ -1370,13 +1378,13 @@ steps:
                     settlement_type: neft
                 collected_by: BAP
                 params:
-                  amount: "5116.75"
+                  amount: '5116.75'
                   currency: INR
                   transaction_id: mock_payment_id_123
                 status: PAID
                 tl_method: http/get
                 type: ON-ORDER
-                uri: https://razorpay.com/
+                uri: 'https://razorpay.com/'
               provider:
                 creds:
                   - descriptor:
@@ -1388,45 +1396,45 @@ steps:
                   - id: L1
               quote:
                 breakup:
-                  - "@ondc/org/item_id": I2
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I2
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2360"
+                        value: '2360'
                     price:
                       currency: INR
-                      value: "2360.00"
+                      value: '2360.00'
                     title: Marula Oil 05% Moisturizer
-                  - "@ondc/org/item_id": I1
-                    "@ondc/org/item_quantity":
+                  - '@ondc/org/item_id': I1
+                    '@ondc/org/item_quantity':
                       count: 1
-                    "@ondc/org/title_type": item
+                    '@ondc/org/title_type': item
                     item:
                       price:
                         currency: INR
-                        value: "2260"
+                        value: '2260'
                     price:
                       currency: INR
-                      value: "2260.00"
+                      value: '2260.00'
                     title: AHA PHA BHA 32%
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": delivery
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': delivery
                     price:
                       currency: INR
-                      value: "493.75"
+                      value: '493.75'
                     title: Delivery charges
-                  - "@ondc/org/item_id": F1
-                    "@ondc/org/title_type": misc
+                  - '@ondc/org/item_id': F1
+                    '@ondc/org/title_type': misc
                     price:
                       currency: INR
-                      value: "3.00"
+                      value: '3.00'
                     title: Convenience Fee
                 price:
                   currency: INR
-                  value: "5116.75"
+                  value: '5116.75'
                 ttl: P1D
               state: Created
               tags:
@@ -1439,15 +1447,611 @@ steps:
                     - code: provider_tax_number
                       value: USYDS6482D
                     - code: accept_bap_terms
-                      value: Y
+                      value: 'Y'
                 - code: bap_terms
                   list:
                     - code: static_terms
-                      value: https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                      value: >-
+                        https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                     - code: tax_number
                       value: 37BABCA6712B1Z6
-              updated_at: 2026-03-18T09:34:16.877Z
+              updated_at: '2026-03-18T09:34:16.877Z'
         type: request
-transaction_history: []
-validationLib: ""
-helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+transaction_history:
+  - action_id: select
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: select
+        timestamp: '2026-06-09T07:10:29.600Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: 44a131bf-7caf-4310-9481-f670861359a2
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: 'std:011'
+        core_version: 1.2.5
+      message:
+        order:
+          provider:
+            id: P1
+            locations:
+              - id: L1
+          items:
+            - id: I1
+              quantity:
+                count: 1
+              location_id: L1
+          fulfillments:
+            - end:
+                location:
+                  gps: '19.129076,72.825803'
+                  address:
+                    area_code: '400053'
+    action: select
+    saved_info: {}
+  - action_id: on_select
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: on_select
+        timestamp: '2026-06-09T07:10:29.616Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: 44a131bf-7caf-4310-9481-f670861359a2
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: '*'
+        core_version: 1.2.5
+      message:
+        order:
+          provider:
+            id: P1
+            locations:
+              - id: L1
+          fulfillments:
+            - id: F1
+              type: Delivery
+              '@ondc/org/provider_name': Seller Business
+              tracking: true
+              '@ondc/org/category': Standard Delivery
+              '@ondc/org/TAT': P3D
+              state:
+                descriptor:
+                  code: Serviceable
+          quote:
+            breakup:
+              - '@ondc/org/item_id': I1
+                '@ondc/org/item_quantity':
+                  count: 1
+                title: AHA PHA BHA 32%
+                '@ondc/org/title_type': item
+                price:
+                  currency: INR
+                  value: '2260.00'
+                item:
+                  quantity:
+                    available:
+                      count: '99'
+                    maximum:
+                      count: '10'
+                  price:
+                    currency: INR
+                    value: '2260'
+              - '@ondc/org/item_id': F1
+                title: Delivery charges
+                '@ondc/org/title_type': delivery
+                price:
+                  currency: INR
+                  value: '493.75'
+              - '@ondc/org/item_id': F1
+                title: Convenience Fee
+                '@ondc/org/title_type': misc
+                price:
+                  currency: INR
+                  value: '3.00'
+            price:
+              currency: INR
+              value: '2756.75'
+            ttl: P1D
+          items:
+            - id: I1
+              fulfillment_id: F1
+    action: on_select
+    saved_info: {}
+  - action_id: init
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: init
+        timestamp: '2026-06-09T07:10:29.631Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: 6c5418a8-d675-445d-b9a5-bdb4a1fdc0b5
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: '*'
+        core_version: 1.2.5
+      message:
+        order:
+          provider:
+            id: P1
+            locations:
+              - id: L1
+          items:
+            - id: I1
+              fulfillment_id: F1
+              quantity:
+                count: 1
+              location_id: L1
+          billing:
+            address:
+              building: my building name or house
+              city: Bengaluru
+              state: Karnataka
+              country: IND
+              area_code: '560027'
+              locality: my street name
+              name: my house or door or floor
+            phone: '9898989898'
+            name: ONDC Buyer
+            email: nobody@nomail.com
+            created_at: '2026-06-09T07:10:24.634Z'
+            updated_at: '2026-06-09T07:10:24.634Z'
+          fulfillments:
+            - id: F1
+              type: Delivery
+              end:
+                contact:
+                  email: nobody@nomail.com
+                  phone: '9898989898'
+                location:
+                  gps: '19.129076,72.825803'
+                  address:
+                    building: mock-building
+                    city: mock-city
+                    state: mock-state
+                    country: IND
+                    area_code: '400053'
+                    locality: mock-locality
+                    name: mock-house-name
+          offers: []
+    action: init
+    saved_info: {}
+  - action_id: on_init
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: on_init
+        timestamp: '2026-06-09T07:10:29.647Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: 6c5418a8-d675-445d-b9a5-bdb4a1fdc0b5
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: '*'
+        core_version: 1.2.5
+      message:
+        order:
+          provider:
+            id: P1
+            locations:
+              - id: L1
+          items:
+            - id: I1
+              fulfillment_id: F1
+              quantity:
+                count: 1
+              location_id: L1
+          billing:
+            address:
+              building: my building name or house
+              city: Bengaluru
+              state: Karnataka
+              country: IND
+              area_code: '560027'
+              locality: my street name
+              name: my house or door or floor
+            phone: '9898989898'
+            name: ONDC Buyer
+            email: nobody@nomail.com
+            created_at: '2026-06-09T07:10:24.634Z'
+            updated_at: '2026-06-09T07:10:24.634Z'
+          fulfillments:
+            - id: F1
+              type: Delivery
+              end:
+                contact:
+                  email: nobody@nomail.com
+                  phone: '9898989898'
+                location:
+                  gps: '19.129076,72.825803'
+                  address:
+                    building: mock-building
+                    city: mock-city
+                    state: mock-state
+                    country: IND
+                    area_code: '400053'
+                    locality: mock-locality
+                    name: mock-house-name
+              tracking: true
+          quote:
+            breakup:
+              - '@ondc/org/item_id': I1
+                '@ondc/org/item_quantity':
+                  count: 1
+                title: AHA PHA BHA 32%
+                '@ondc/org/title_type': item
+                price:
+                  currency: INR
+                  value: '2260.00'
+                item:
+                  quantity:
+                    available:
+                      count: '99'
+                    maximum:
+                      count: '10'
+                  price:
+                    currency: INR
+                    value: '2260'
+              - '@ondc/org/item_id': F1
+                title: Delivery charges
+                '@ondc/org/title_type': delivery
+                price:
+                  currency: INR
+                  value: '493.75'
+              - '@ondc/org/item_id': F1
+                title: Convenience Fee
+                '@ondc/org/title_type': misc
+                price:
+                  currency: INR
+                  value: '3.00'
+            price:
+              currency: INR
+              value: '2756.75'
+            ttl: P1D
+          payment:
+            '@ondc/org/buyer_app_finder_fee_type': percent
+            '@ondc/org/buyer_app_finder_fee_amount': '3'
+            '@ondc/org/settlement_details':
+              - settlement_counterparty: seller-app
+                settlement_phase: sale-amount
+                settlement_type: neft
+                beneficiary_name: xxxx
+                settlement_bank_account_no: XXXX
+                settlement_ifsc_code: XXXX
+                bank_name: XXXX
+                branch_name: XXXX
+          tags:
+            - code: bpp_terms
+              list:
+                - code: np_type
+                  value: MSN
+                - code: tax_number
+                  value: 37ABACA6712B1Z6
+                - code: provider_tax_number
+                  value: USYDS6482D
+    action: on_init
+    saved_info: {}
+  - action_id: confirm_seller_cred
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: confirm
+        timestamp: '2026-06-09T07:10:29.661Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: e515f89a-2c49-4b9b-9cbe-de0a5a1983c5
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: '*'
+        core_version: 1.2.5
+      message:
+        order:
+          id: '916478'
+          state: Created
+          billing:
+            address:
+              building: my building name or house
+              city: Bengaluru
+              state: Karnataka
+              country: IND
+              area_code: '560027'
+              locality: my street name
+              name: my house or door or floor
+            phone: '9898989898'
+            name: ONDC Buyer
+            email: nobody@nomail.com
+            created_at: '2026-06-09T07:10:24.634Z'
+            updated_at: '2026-06-09T07:10:24.634Z'
+          items:
+            - id: I1
+              fulfillment_id: F1
+              quantity:
+                count: 1
+              location_id: L1
+          provider:
+            id: P1
+            locations:
+              - id: L1
+          fulfillments:
+            - id: F1
+              type: Delivery
+              end:
+                contact:
+                  email: nobody@nomail.com
+                  phone: '9898989898'
+                person:
+                  name: mock-person
+                location:
+                  gps: '19.129076,72.825803'
+                  address:
+                    building: mock-building
+                    city: mock-city
+                    state: mock-state
+                    country: IND
+                    area_code: '400053'
+                    locality: mock-locality
+                    name: mock-house-name
+              tracking: true
+              '@ondc/org/TAT': P3D
+          payment:
+            params:
+              amount: '2756.75'
+              currency: INR
+              transaction_id: mock_payment_id_123
+            status: PAID
+            type: ON-ORDER
+            collected_by: BAP
+            uri: 'https://razorpay.com/'
+            tl_method: http/get
+            '@ondc/org/buyer_app_finder_fee_type': percent
+            '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+            '@ondc/org/settlement_details':
+              - settlement_counterparty: seller-app
+                settlement_phase: sale-amount
+                settlement_type: neft
+                beneficiary_name: xxxx
+                settlement_bank_account_no: XXXX
+                settlement_ifsc_code: XXXX
+                bank_name: XXXX
+                branch_name: XXXX
+          quote:
+            breakup:
+              - '@ondc/org/item_id': I1
+                '@ondc/org/item_quantity':
+                  count: 1
+                title: AHA PHA BHA 32%
+                '@ondc/org/title_type': item
+                price:
+                  currency: INR
+                  value: '2260.00'
+                item:
+                  price:
+                    currency: INR
+                    value: '2260'
+              - '@ondc/org/item_id': F1
+                title: Delivery charges
+                '@ondc/org/title_type': delivery
+                price:
+                  currency: INR
+                  value: '493.75'
+              - '@ondc/org/item_id': F1
+                title: Convenience Fee
+                '@ondc/org/title_type': misc
+                price:
+                  currency: INR
+                  value: '3.00'
+            price:
+              currency: INR
+              value: '2756.75'
+            ttl: P1D
+          tags:
+            - code: bpp_terms
+              list:
+                - code: np_type
+                  value: MSN
+                - code: tax_number
+                  value: 37ABACA6712B1Z6
+                - code: provider_tax_number
+                  value: USYDS6482D
+            - code: bap_terms
+              list:
+                - code: accept_bpp_terms
+                  value: 'Y'
+                - code: static_terms
+                  value: >-
+                    https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
+                - code: tax_number
+                  value: 37BABCA6712B1Z6
+          created_at: '2026-06-09T07:10:29.661Z'
+          updated_at: '2026-06-09T07:10:29.661Z'
+    action: confirm
+    saved_info: {}
+  - action_id: on_confirm_seller_cred
+    payload:
+      context:
+        domain: 'ONDC:RET13'
+        action: on_confirm
+        timestamp: '2026-06-09T07:10:29.679Z'
+        transaction_id: 3b771a6b-bd64-4d18-bc63-cce2e63a92d0
+        message_id: b7f3ba81-2b1b-4ab3-8dfb-4cb2d3f2f370
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        country: IND
+        city: '*'
+        core_version: 1.2.5
+      message:
+        order:
+          id: '916478'
+          state: Created
+          provider:
+            id: P1
+            locations:
+              - id: L1
+            creds:
+              - id: 1d20793c-6357-4089-8882-2a56447e0f3c
+                descriptor:
+                  code: Seller_Credential
+                  short_desc: GI
+          items:
+            - id: I1
+              fulfillment_id: F1
+              quantity:
+                count: 1
+              location_id: L1
+          billing:
+            address:
+              building: my building name or house
+              city: Bengaluru
+              state: Karnataka
+              country: IND
+              area_code: '560027'
+              locality: my street name
+              name: my house or door or floor
+            phone: '9898989898'
+            name: ONDC Buyer
+            email: nobody@nomail.com
+            created_at: '2026-06-09T07:10:24.634Z'
+            updated_at: '2026-06-09T07:10:24.634Z'
+          fulfillments:
+            - id: F1
+              type: Delivery
+              tracking: true
+              state:
+                descriptor:
+                  code: Pending
+              '@ondc/org/TAT': P3D
+              '@ondc/org/provider_name': mock_provider_name_0
+              start:
+                location:
+                  id: L1
+                  descriptor:
+                    name: ABC Store
+                  gps: '19.129076,72.825803'
+                  address:
+                    building: my building name or house
+                    city: Mumbai
+                    state: Maharashtra
+                    country: IND
+                    area_code: '400053'
+                    locality: my street name
+                    name: my house or door or floor
+                contact:
+                  phone: '9594663710'
+                  email: nobody@nomail.com
+              end:
+                contact:
+                  email: nobody@nomail.com
+                  phone: '9898989898'
+                person:
+                  name: mock-person
+                location:
+                  gps: '19.129076,72.825803'
+                  address:
+                    building: mock-building
+                    city: mock-city
+                    state: mock-state
+                    country: IND
+                    area_code: '400053'
+                    locality: mock-locality
+                    name: mock-house-name
+          quote:
+            breakup:
+              - '@ondc/org/item_id': I1
+                '@ondc/org/item_quantity':
+                  count: 1
+                title: AHA PHA BHA 32%
+                '@ondc/org/title_type': item
+                price:
+                  currency: INR
+                  value: '2260.00'
+                item:
+                  quantity:
+                    available:
+                      count: '99'
+                    maximum:
+                      count: '10'
+                  price:
+                    currency: INR
+                    value: '2260'
+              - '@ondc/org/item_id': F1
+                title: Delivery charges
+                '@ondc/org/title_type': delivery
+                price:
+                  currency: INR
+                  value: '493.75'
+              - '@ondc/org/item_id': F1
+                title: Convenience Fee
+                '@ondc/org/title_type': misc
+                price:
+                  currency: INR
+                  value: '3.00'
+            price:
+              currency: INR
+              value: '2756.75'
+            ttl: P1D
+          payment:
+            params:
+              amount: '2756.75'
+              currency: INR
+              transaction_id: mock_payment_id_123
+            status: PAID
+            type: ON-ORDER
+            collected_by: BAP
+            uri: 'https://razorpay.com/'
+            tl_method: http/get
+            '@ondc/org/buyer_app_finder_fee_type': percent
+            '@ondc/org/buyer_app_finder_fee_amount': '3.0'
+            '@ondc/org/settlement_details':
+              - settlement_counterparty: seller-app
+                settlement_phase: sale-amount
+                settlement_type: neft
+                beneficiary_name: xxxx
+                settlement_bank_account_no: XXXX
+                settlement_ifsc_code: XXXX
+                bank_name: XXXX
+                branch_name: XXXX
+          tags:
+            - code: bpp_terms
+              list:
+                - code: np_type
+                  value: MSN
+                - code: tax_number
+                  value: 37ABACA6712B1Z6
+                - code: provider_tax_number
+                  value: USYDS6482D
+                - code: accept_bap_terms
+                  value: 'Y'
+            - code: bap_terms
+              list:
+                - code: static_terms
+                  value: >-
+                    https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                - code: tax_number
+                  value: 37BABCA6712B1Z6
+          created_at: '2026-06-09T07:10:29.661Z'
+          updated_at: '2026-06-09T07:10:29.679Z'
+    action: on_confirm
+    saved_info: {}
+validationLib: ''
+helperLib: >-
+  LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9CgoKZnVuY3Rpb24gY3JlYXRlUXVvdGUoCiAgc2VsZWN0ZWRJdGVtcywKICBzZXNzaW9uRGF0YSwKICBleGlzdGluZ1BheWxvYWQsCiAgZnVsZmlsbG1lbnRzLAogIGNhbmNlbGxlZCA9IGZhbHNlCikgewogIGNvbnNvbGUubG9nKCJcbiAjIyBDcmVhdGluZyBRdW90ZSB3aXRoIHNlbGVjdGVkIGl0ZW1zOiBcbiIsIHNlbGVjdGVkSXRlbXMpCgogIGxldCB0b3RhbFByaWNlID0gMAogIGxldCB0b3RhbFF1YW50aXR5ID0gMAogIGxldCBpdGVtU2V0ID0gbmV3IFNldCgpCiAgY29uc3QgYnJlYWt1cE9iamVjdCA9IFtdCiAgY29uc3QgY2F0YWxvZ0l0ZW1zID0gUkVUMTNCUEMxMjVDYXRhbG9nLmNhdGFsb2dbCiAgICAiYnBwL3Byb3ZpZGVycyIKICBdWzBdLml0ZW1zLmZpbHRlcihpID0+IHsKICAgIGNvbnNvbGUubG9nKCJDYXRhbG9nIEl0ZW06ICIsIGkuaWQpCiAgICBjb25zdCBpZE1hcCA9IHNlbGVjdGVkSXRlbXM/Lm1hcChpdGVtID0+IGl0ZW0uaWQpCiAgICBjb25zb2xlLmxvZygiSUQgTWFwOiAiLCBpZE1hcCkKICAgIHJldHVybiBpZE1hcC5pbmNsdWRlcyhpLmlkKQogIH0pCiAgZm9yIChjb25zdCBzZWxlY3RlZEl0ZW0gb2Ygc2VsZWN0ZWRJdGVtcyA/PyBbXSkgewogICAgY29uc3QgZnVsZmlsbG1lbnQgPSBmdWxmaWxsbWVudHMuZmluZCgKICAgICAgZiA9PiBmLmlkID09PSBzZWxlY3RlZEl0ZW0uZnVsZmlsbG1lbnRfaWQKICAgICkKICAgIGlmICgKICAgICAgIWZ1bGZpbGxtZW50IHx8CiAgICAgICFbIkRlbGl2ZXJ5IiwgIlNlbGYtUGlja3VwIiwgIkJ1eWVyLURlbGl2ZXJ5Il0uaW5jbHVkZXMoCiAgICAgICAgZnVsZmlsbG1lbnQudHlwZSA/PyAiIgogICAgICApCiAgICApIHsKICAgICAgY29udGludWUKICAgIH0KICAgIGNvbnN0IGNhdGFsb2dJdGVtID0gY2F0YWxvZ0l0ZW1zLmZpbmQoaSA9PiBpLmlkID09PSBzZWxlY3RlZEl0ZW0uaWQpCiAgICBpZiAoIWNhdGFsb2dJdGVtKSBjb250aW51ZSAvLyBTa2lwIGlmIGl0ZW0gbm90IGZvdW5kIGluIGNhdGFsb2cKCiAgICBjb25zdCBxdWFudGl0eSA9IGNhbmNlbGxlZCA/IDAgOiBzZWxlY3RlZEl0ZW0uY291bnQgPz8gMQogICAgY29uc3QgcHJpY2UgPSBwYXJzZUZsb2F0KGNhdGFsb2dJdGVtLnByaWNlLnZhbHVlKSAqIHF1YW50aXR5CiAgICBjb25zb2xlLmxvZygiUHJpY2U6ICIsIHByaWNlLCBjYXRhbG9nSXRlbS5wcmljZS52YWx1ZSkKICAgIHRvdGFsUHJpY2UgKz0gcHJpY2UKCiAgICBjb25zdCBicmVha3VwQ2xvbmUgPSBKU09OLnBhcnNlKEpTT04uc3RyaW5naWZ5KGJyZWFrdXBJdGVtKSkKICAgIGJyZWFrdXBDbG9uZVsiQG9uZGMvb3JnL2l0ZW1faWQiXSA9IGNhdGFsb2dJdGVtLmlkCiAgICBicmVha3VwQ2xvbmUudGl0bGUgPSBjYXRhbG9nSXRlbS5kZXNjcmlwdG9yLm5hbWUKICAgIGJyZWFrdXBDbG9uZVsiQG9uZGMvb3JnL2l0ZW1fcXVhbnRpdHkiXS5jb3VudCA9IHF1YW50aXR5CiAgICBicmVha3VwQ2xvbmUucHJpY2UudmFsdWUgPSBgJHtwcmljZS50b0ZpeGVkKDIpfWAKICAgIGJyZWFrdXBDbG9uZS5pdGVtLnByaWNlLnZhbHVlID0gY2F0YWxvZ0l0ZW0ucHJpY2UudmFsdWUKICAgIGJyZWFrdXBPYmplY3QucHVzaChicmVha3VwQ2xvbmUpCgogICAgaWYgKHNlc3Npb25EYXRhLm91dF9vZl9zdG9ja19pdGVtX2lkcz8uaW5jbHVkZXMoY2F0YWxvZ0l0ZW0uaWQpKSB7CiAgICAgIGJyZWFrdXBDbG9uZS5pdGVtLnF1YW50aXR5LmF2YWlsYWJsZS5jb3VudCA9ICIwIgogICAgICBicmVha3VwQ2xvbmUuaXRlbS5xdWFudGl0eS5tYXhpbXVtLmNvdW50ID0gIjAiCiAgICAgIGJyZWFrdXBDbG9uZVsiQG9uZGMvb3JnL3RpdGxlX3R5cGUiXSA9ICJpdGVtIgogICAgICBleGlzdGluZ1BheWxvYWQuZXJyb3IgPSB7CiAgICAgICAgdHlwZTogIkRPTUFJTi1FUlJPUiIsCiAgICAgICAgY29kZTogIjQwMDAyIiwKICAgICAgICBtZXNzYWdlOiBgSXRlbSB3aXRoIGlkOiAke2NhdGFsb2dJdGVtLmlkfSBpcyBvdXQgb2Ygc3RvY2tgCiAgICAgIH0KICAgIH0gZWxzZSB7CiAgICAgIHRvdGFsUXVhbnRpdHkgKz0gc2VsZWN0ZWRJdGVtLmNvdW50ID8/IDAKICAgICAgaWYgKHF1YW50aXR5ID4gMCkgaXRlbVNldC5hZGQoY2F0YWxvZ0l0ZW0uaWQpCiAgICB9CiAgfQoKICBicmVha3VwT2JqZWN0LnB1c2goYnJlYWt1cFswXSkKICBicmVha3VwT2JqZWN0LnB1c2goYnJlYWt1cFsxXSkKICB0b3RhbFByaWNlICs9IHBhcnNlRmxvYXQoYnJlYWt1cFswXS5wcmljZS52YWx1ZSkKICB0b3RhbFByaWNlICs9IHBhcnNlRmxvYXQoYnJlYWt1cFsxXS5wcmljZS52YWx1ZSkKICBjb25zb2xlLmxvZyhgVG90YWwgUHJpY2U6ICR7dG90YWxQcmljZS50b0ZpeGVkKDIpfWApCiAgY29uc29sZS5sb2coYFRvdGFsIFF1YW50aXR5OiAke0pTT04uc3RyaW5naWZ5KGJyZWFrdXBPYmplY3QpfWApCiAgcmV0dXJuIHsKICAgIGJyZWFrdXA6IGJyZWFrdXBPYmplY3QsCiAgICBwcmljZTogewogICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgIHZhbHVlOiBgJHt0b3RhbFByaWNlLnRvRml4ZWQoMil9YAogICAgfSwKICAgIHR0bDogIlAxRCIKICB9Cn0KCgogY29uc3QgUkVUMTNCUEMxMjVDYXRhbG9nID0gewogIGNhdGFsb2c6IHsKICAgICJicHAvZnVsZmlsbG1lbnRzIjogWwogICAgICB7CiAgICAgICAgaWQ6ICJGMSIsCiAgICAgICAgdHlwZTogIkRlbGl2ZXJ5IiwKICAgICAgfSwKICAgIF0sCiAgICAiYnBwL2Rlc2NyaXB0b3IiOiB7CiAgICAgIG5hbWU6ICJNb2NrIFNlbGxlciBOUCIsCiAgICAgIHN5bWJvbDogImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9ucC5wbmciLAogICAgICBzaG9ydF9kZXNjOiAiU2VsbGVyIE1hcmtldHBsYWNlIiwKICAgICAgbG9uZ19kZXNjOiAiU2VsbGVyIE1hcmtldHBsYWNlIiwKICAgICAgaW1hZ2VzOiBbImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9ucC5wbmciXSwKICAgICAgdGFnczogWwogICAgICAgIHsKICAgICAgICAgIGNvZGU6ICJicHBfdGVybXMiLAogICAgICAgICAgbGlzdDogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgY29kZTogIm5wX3R5cGUiLAogICAgICAgICAgICAgIHZhbHVlOiAiTVNOIiwKICAgICAgICAgICAgfSwKICAgICAgICAgIF0sCiAgICAgICAgfSwKICAgICAgXSwKICAgIH0sCiAgICAiYnBwL3Byb3ZpZGVycyI6IFsKICAgICAgewogICAgICAgIGlkOiAiUDEiLAogICAgICAgIHRpbWU6IHsKICAgICAgICAgIGxhYmVsOiAiZW5hYmxlIiwKICAgICAgICAgIHRpbWVzdGFtcDogIjIwMjQtMDgtMTNUMDY6NDY6MTkuNzM2WiIsCiAgICAgICAgfSwKICAgICAgICB0dGw6ICJQVDI0SCIsCiAgICAgICAgbG9jYXRpb25zOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgIGlkOiAiTDEiLAogICAgICAgICAgICBncHM6ICIxMi45MjU4MTAsNzcuNTgzNjI0IiwKICAgICAgICAgICAgYWRkcmVzczogewogICAgICAgICAgICAgIGNpdHk6ICJCZW5nYWx1cnUiLAogICAgICAgICAgICAgIHN0YXRlOiAiS2FybmF0YWthIiwKICAgICAgICAgICAgICBhcmVhX2NvZGU6ICI1NjAwMTEiLAogICAgICAgICAgICAgIHN0cmVldDogIkpheWFuYWdhciIsCiAgICAgICAgICAgICAgbG9jYWxpdHk6ICJKYXlhbmFnYXIiLAogICAgICAgICAgICB9LAogICAgICAgICAgICB0aW1lOiB7CiAgICAgICAgICAgICAgbGFiZWw6ICJlbmFibGUiLAogICAgICAgICAgICAgIHRpbWVzdGFtcDogIjIwMjQtMDgtMTNUMDY6NDY6MTkuNzM2WiIsCiAgICAgICAgICAgICAgZGF5czogIjEsMiwzLDQsNSIsCiAgICAgICAgICAgICAgc2NoZWR1bGU6IHsKICAgICAgICAgICAgICAgIGhvbGlkYXlzOiBbXSwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHJhbmdlOiB7CiAgICAgICAgICAgICAgICBzdGFydDogIjAwMDAiLAogICAgICAgICAgICAgICAgZW5kOiAiMjM1OSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgY2lyY2xlOiB7CiAgICAgICAgICAgICAgZ3BzOiAiMTIuOTI1ODEwLDc3LjU4MzYyNCIsCiAgICAgICAgICAgICAgcmFkaXVzOiB7CiAgICAgICAgICAgICAgICB1bml0OiAia20iLAogICAgICAgICAgICAgICAgdmFsdWU6ICI1IiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICB9LAogICAgICAgICAgfSwKICAgICAgICBdLAogICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgIG5hbWU6ICJTdG9yZSAxIiwKICAgICAgICAgIHN5bWJvbDogImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9zdG9yZTEucG5nIiwKICAgICAgICAgIHNob3J0X2Rlc2M6ICJTdG9yZSAxIiwKICAgICAgICAgIGxvbmdfZGVzYzogIlN0b3JlIDEiLAogICAgICAgICAgaW1hZ2VzOiBbImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9zdG9yZTEucG5nIl0sCiAgICAgICAgfSwKICAgICAgICBjYXRlZ29yaWVzOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgIGlkOiAiVjEiLAogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIlZhcmlhbnQgR3JvdXAgMSIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHRhZ3M6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidHlwZSIsCiAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAidHlwZSIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJ2YXJpYW50X2dyb3VwIiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiYXR0ciIsCiAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAibmFtZSIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJpdGVtLnRhZ3MuYXR0cmlidXRlLnBsYXRpbmciLAogICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogInNlcSIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICIxIiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgXSwKICAgICAgICBpdGVtczogWwogICAgICAgICAgewogICAgICAgICAgICBpZDogIkkxIiwKICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgIGxhYmVsOiAiZW5hYmxlIiwKICAgICAgICAgICAgICB0aW1lc3RhbXA6ICIyMDI0LTA4LTEyVDA1OjMwOjQ4Ljk5OFoiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBwYXJlbnRfaXRlbV9pZDogIlYxIiwKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJBSEEgUEhBIEJIQSAzMiUiLAogICAgICAgICAgICAgIGNvZGU6ICIxOjg4MDkzMjYzMzM2NjEiLAogICAgICAgICAgICAgIHN5bWJvbDogImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9pMS5wbmciLAogICAgICAgICAgICAgIHNob3J0X2Rlc2M6ICJXZWVrZW5kIEV4Zm9saWF0aW5nIEZhY2lhbCIsCiAgICAgICAgICAgICAgbG9uZ19kZXNjOiAiQSBwb3dlcmZ1bCBwZWVsaW5nIHRyaW8gb2YgMjUlIEFIQSwgNSUgUEhBICYgMiUgQkhBIHRoYXQgcHJvdmlkZXMgbXVsdGktbGV2ZWwgZXhmb2xpYXRpb24sIGJvdGggb24gdGhlIHN1cmZhY2UgJiBpbnNpZGUgdGhlIHBvcmVzLCBnaXZpbmcgeW91IGEgaGVhbHRoeSwgcGx1bXAsIGFuZCBnbG93aW5nIHNraW4uRnJhZ3JhbmNlIGZyZWUuIE5vbi1jb21lZG9nZW5pYyAzMG1sIiwKICAgICAgICAgICAgICBpbWFnZXM6IFsKICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlck5QLmNvbS9pbWFnZXMvaTEucG5nIiwKICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlck5QLmNvbS9pbWFnZXMvaTEucG5nIiwKICAgICAgICAgICAgICAgICJodHRwczovL3NlbGxlck5QLmNvbS9pbWFnZXMvaTEucG5nIgogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgcXVhbnRpdHk6IHsKICAgICAgICAgICAgICB1bml0aXplZDogewogICAgICAgICAgICAgICAgbWVhc3VyZTogewogICAgICAgICAgICAgICAgICB1bml0OiAibWlsaWxldGVyIiwKICAgICAgICAgICAgICAgICAgdmFsdWU6ICIzMCIsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgYXZhaWxhYmxlOiB7CiAgICAgICAgICAgICAgICBjb3VudDogIjk5IiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIG1heGltdW06IHsKICAgICAgICAgICAgICAgIGNvdW50OiAiOCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgcHJpY2U6IHsKICAgICAgICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgICAgICAgdmFsdWU6ICIyMjYwIiwKICAgICAgICAgICAgICBtYXhpbXVtX3ZhbHVlOiAiMjI2MCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGNhdGVnb3J5X2lkOiAiU2tpbiBDYXJlIC0gRmFjZSBDbGVhbnNlcnMiLAogICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybmFibGUiOiB0cnVlLAogICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlA3RCIsCiAgICAgICAgICAgICJAb25kYy9vcmcvc2VsbGVyX3BpY2t1cF9yZXR1cm4iOiBmYWxzZSwKICAgICAgICAgICAgIkBvbmRjL29yZy90aW1lX3RvX3NoaXAiOiAiUFQ1TSIsCiAgICAgICAgICAgICJAb25kYy9vcmcvYXZhaWxhYmxlX29uX2NvZCI6IHRydWUsCiAgICAgICAgICAgICJAb25kYy9vcmcvY29udGFjdF9kZXRhaWxzX2NvbnN1bWVyX2NhcmUiOiAiTWluaW1hbGlzdCBDdXN0b21lciBDYXJlLGhlbHBAYmVtaW5pbWFsaXN0LmNvLDk3NzIzNDY1NTUiLAogICAgICAgICAgICBsb2NhdGlvbl9pZDogIkwxIiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRfaWQ6ICJGMSIsCiAgICAgICAgICAgICJAb25kYy9vcmcvc3RhdHV0b3J5X3JlcXNfcGFja2FnZWRfY29tbW9kaXRpZXMiOiB7CiAgICAgICAgICAgICAgbWFudWZhY3R1cmVyX29yX3BhY2tlcl9uYW1lOiAiU2VsbGVyIEJ1c2luZXNzIiwKICAgICAgICAgICAgICBtYW51ZmFjdHVyZXJfb3JfcGFja2VyX2FkZHJlc3M6CiAgICAgICAgICAgICAgICAiU2VsbGVyIEJ1aWxkaW5nIEFkZHJlc3MsIEpheWFuYWdhciwgQmVuZ2FsdXJ1LCBLYXJuYXRha2EsIEluZGlhIC0gNTYwMDExIiwKICAgICAgICAgICAgICBjb21tb25fb3JfZ2VuZXJpY19uYW1lX29mX2NvbW1vZGl0eTogIkFIQXMgKEFscGhhIEh5ZHJveHkgQWNpZHMpIGFuZCBCSEFzIChCZXRhIEh5ZHJveHkgQWNpZHMpIGFuZCBQSEEgKFBvbHloeWRyb3h5IEFjaWQpIiwKICAgICAgICAgICAgICBtb250aF95ZWFyX29mX21hbnVmYWN0dXJlX3BhY2tpbmdfaW1wb3J0OiAiMDMvMjAyNCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgdGFnczogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJvcmlnaW4iLAogICAgICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogImNvdW50cnkiLAogICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiSU5EIiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiYXR0cmlidXRlIiwKICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJicmFuZCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJNaW5pbWFsaXN0IgogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICB9LAogICAgICAgICAgewogICAgICAgICAgICBpZDogIkkyIiwKICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgIGxhYmVsOiAiZW5hYmxlIiwKICAgICAgICAgICAgICB0aW1lc3RhbXA6ICIyMDI0LTA4LTEyVDEwOjI3OjQ4LjkxM1oiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBwYXJlbnRfaXRlbV9pZDogIlYxIiwKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJNYXJ1bGEgT2lsIDA1JSBNb2lzdHVyaXplciIsCiAgICAgICAgICAgICAgY29kZTogIjE6ODkwNjEyODEwMDQzNiIsCiAgICAgICAgICAgICAgc3ltYm9sOiAiaHR0cHM6Ly9zZWxsZXJOUC5jb20vaW1hZ2VzL2kxLnBuZyIsCiAgICAgICAgICAgICAgc2hvcnRfZGVzYzogIkRlZXAgJiBJbnRlbnNlIE1vaXN0dXJpemF0aW9uLiBUcmVhdHMgRHJ5bmVzcywgUm91Z2huZXNzIGFuZCBGbGFraW5lc3MiLAogICAgICAgICAgICAgIGxvbmdfZGVzYzogIkFuIGV2ZXJ5ZGF5IG1vaXN0dXJpemluZyBjcmVhbSB3aXRoIDUlIE1hcnVsYSBPaWwsIHBhaXJlZCB3aXRoIFZpdGFtaW4gRiBhbmQgVml0YW1pbiBFIHRvIG5vdXJpc2gsIG1vaXN0dXJpemUgYW5kIGltcHJvdmUgc2tpbiBzb2Z0bmVzcy4gSXQncyBhIGhlYXZ5IGNyZWFtLCBzdWl0YWJsZSBmb3IgZHJ5L2RhbWFnZWQgdG8gbm9ybWFsIHNraW4gdHlwZXMuRnJhZ3JhbmNlIGZyZWUgICAgTm9uLWNvbWVkb2dlbmljICAgICA1MGciLAogICAgICAgICAgICAgIGltYWdlczogWyJodHRwczovL3NlbGxlck5QLmNvbS9pbWFnZXMvaTEucG5nIl0sCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHF1YW50aXR5OiB7CiAgICAgICAgICAgICAgdW5pdGl6ZWQ6IHsKICAgICAgICAgICAgICAgIG1lYXN1cmU6IHsKICAgICAgICAgICAgICAgICAgdW5pdDogImdyYW0iLAogICAgICAgICAgICAgICAgICB2YWx1ZTogIjUwIiwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICBhdmFpbGFibGU6IHsKICAgICAgICAgICAgICAgIGNvdW50OiAiOTkiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgbWF4aW11bTogewogICAgICAgICAgICAgICAgY291bnQ6ICIxMCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgcHJpY2U6IHsKICAgICAgICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgICAgICAgdmFsdWU6ICIyMzYwIiwKICAgICAgICAgICAgICBtYXhpbXVtX3ZhbHVlOiAiMjM2MCIsCiAgICAgICAgICAgIH0sCgogICAgICAgICAgICBjYXRlZ29yeV9pZDogIlNraW4gQ2FyZSAtIExvdGlvbnMsIE1vaXN0dXJpc2VycywgYW5kIENyZWFtcyIsCiAgICAgICAgICAgICJAb25kYy9vcmcvcmV0dXJuYWJsZSI6IHRydWUsCiAgICAgICAgICAgICJAb25kYy9vcmcvY2FuY2VsbGFibGUiOiB0cnVlLAogICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybl93aW5kb3ciOiAiUDdEIiwKICAgICAgICAgICAgIkBvbmRjL29yZy9zZWxsZXJfcGlja3VwX3JldHVybiI6IGZhbHNlLAogICAgICAgICAgICAiQG9uZGMvb3JnL3RpbWVfdG9fc2hpcCI6ICJQVDVNIiwKICAgICAgICAgICAgIkBvbmRjL29yZy9hdmFpbGFibGVfb25fY29kIjogdHJ1ZSwKCgogICAgICAgICAgICBsb2NhdGlvbl9pZDogIkwxIiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRfaWQ6ICJGMSIsCiAgICAgICAgICAgICJAb25kYy9vcmcvY29udGFjdF9kZXRhaWxzX2NvbnN1bWVyX2NhcmUiOgogICAgICAgICAgICAgICJTZWxsZXIgQnVzaW5lc3MsdGVzdEBnbWFpbC5jb20sOTg3NjU0MzIxMCIsCiAgICAgICAgICAgICJAb25kYy9vcmcvc3RhdHV0b3J5X3JlcXNfcGFja2FnZWRfY29tbW9kaXRpZXMiOiB7CiAgICAgICAgICAgICAgbWFudWZhY3R1cmVyX29yX3BhY2tlcl9uYW1lOiAiU2VsbGVyIEJ1c2luZXNzIiwKICAgICAgICAgICAgICBtYW51ZmFjdHVyZXJfb3JfcGFja2VyX2FkZHJlc3M6CiAgICAgICAgICAgICAgICAiU2VsbGVyIEJ1aWxkaW5nIEFkZHJlc3MsIEpheWFuYWdhciwgQmVuZ2FsdXJ1LCBLYXJuYXRha2EsIEluZGlhIC0gNTYwMDExIiwKICAgICAgICAgICAgICBjb21tb25fb3JfZ2VuZXJpY19uYW1lX29mX2NvbW1vZGl0eTogIk1hcnVsYSBPaWwiLAogICAgICAgICAgICAgIG1vbnRoX3llYXJfb2ZfbWFudWZhY3R1cmVfcGFja2luZ19pbXBvcnQ6ICIwMy8yMDI0IgogICAgICAgICAgICB9LAogICAgICAgICAgICB0YWdzOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogIm9yaWdpbiIsCiAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAiY291bnRyeSIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJJTkQiLAogICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJhdHRyaWJ1dGUiLAogICAgICAgICAgICAgICAgbGlzdDogWwoKICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJicmFuZCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJNaW5hbWlsaXN0IiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgIGlkOiAiSTMiLAogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIk5pYWNpbmFtaWRlIDA1JSIsCiAgICAgICAgICAgICAgY29kZTogIjE6ODkwNjEyODEwMDEwOCIsCiAgICAgICAgICAgICAgc3ltYm9sOiAiaHR0cHM6Ly9zZWxsZXJOUC5jb20vaW1hZ2VzL2kxLnBuZyIsCiAgICAgICAgICAgICAgc2hvcnRfZGVzYzogIkh5ZHJhdGVzLCBSZXBhaXJzICYgU29vdGhlcyBTa2luIiwKICAgICAgICAgICAgICBsb25nX2Rlc2M6ICJBIG5vdXJpc2hpbmcgJiBoeWRyYXRpbmcgZGFpbHkgc2VydW0gdGhhdCByZXBhaXJzIGRhbWFnZWQgYmFycmllciAmIHNvb3RoZXMgc2Vuc2l0aXZlIHNraW4uIElkZWFsIGZvciBwZW9wbGUgd2l0aCBkcnksIHNlbnNpdGl2ZSBza2luICYgdGhvc2Ugd2hvIGZpbmQgTmlhY2luYW1pZGUgMTAlIGEgbGl0dGxlIHN0cm9uZy5GcmFncmFuY2UgZnJlZSAgICBOb24tY29tZWRvZ2VuaWMgMzBtbCIsCiAgICAgICAgICAgICAgaW1hZ2VzOiBbImh0dHBzOi8vc2VsbGVyTlAuY29tL2ltYWdlcy9pMS5wbmciXSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgcHJpY2U6IHsKICAgICAgICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgICAgICAgdmFsdWU6ICI0OTkuMDAiLAogICAgICAgICAgICAgIG1heGltdW1fdmFsdWU6ICIxMTk5LjAwIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImNhdGVnb3J5X2lkIjogIlNraW4gQ2FyZSAtIExvdGlvbnMsIE1vaXN0dXJpc2VycywgYW5kIENyZWFtcyIsCiAgICAgICAgICAgICJmdWxmaWxsbWVudF9pZCI6ICIxIiwKICAgICAgICAgICAgImxvY2F0aW9uX2lkIjogIjEiLAogICAgICAgICAgICAiQG9uZGMvb3JnL3JldHVybmFibGUiOiB0cnVlLAogICAgICAgICAgICAiQG9uZGMvb3JnL2NhbmNlbGxhYmxlIjogdHJ1ZSwKICAgICAgICAgICAgIkBvbmRjL29yZy9yZXR1cm5fd2luZG93IjogIlA3RCIsCiAgICAgICAgICAgICJAb25kYy9vcmcvc2VsbGVyX3BpY2t1cF9yZXR1cm4iOiBmYWxzZSwKICAgICAgICAgICAgIkBvbmRjL29yZy90aW1lX3RvX3NoaXAiOiAiUFQ1TSIsCiAgICAgICAgICAgICJAb25kYy9vcmcvYXZhaWxhYmxlX29uX2NvZCI6IHRydWUsCiAgICAgICAgICAgICJAb25kYy9vcmcvY29udGFjdF9kZXRhaWxzX2NvbnN1bWVyX2NhcmUiOiAiTWluaW1hbGlzdCBDdXN0b21lciBDYXJlLHN1cHBvcnRAZ21haWwuY29tLDIzNDM0NTM0MzQiLAogICAgICAgICAgICAiQG9uZGMvb3JnL3N0YXR1dG9yeV9yZXFzX3BhY2thZ2VkX2NvbW1vZGl0aWVzIjogewogICAgICAgICAgICAgICJtYW51ZmFjdHVyZXJfb3JfcGFja2VyX25hbWUiOiAiTWluaW1hbGlzdCIsCiAgICAgICAgICAgICAgIm1hbnVmYWN0dXJlcl9vcl9wYWNrZXJfYWRkcmVzcyI6ICJTZWxsZXIgQnVpbGRpbmcgQWRkcmVzcywgSmF5YW5hZ2FyLCBCZW5nYWx1cnUsIEthcm5hdGFrYSwgSW5kaWEgLSA1NjAwMTEiLAogICAgICAgICAgICAgICJjb21tb25fb3JfZ2VuZXJpY19uYW1lX29mX2NvbW1vZGl0eSI6ICJOaWFjaW5hbWlkZSIsCiAgICAgICAgICAgICAgIm1vbnRoX3llYXJfb2ZfbWFudWZhY3R1cmVfcGFja2luZ19pbXBvcnQiOiAiMDMvMjAyNCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgIGxhYmVsOiAiZW5hYmxlIiwKICAgICAgICAgICAgICB0aW1lc3RhbXA6ICIyMDI0LTA4LTEyVDEwOjI3OjQ4LjkxM1oiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBxdWFudGl0eTogewogICAgICAgICAgICAgIGF2YWlsYWJsZTogewogICAgICAgICAgICAgICAgY291bnQ6ICI5OSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICBtYXhpbXVtOiB7CiAgICAgICAgICAgICAgICBjb3VudDogIjk5IiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHVuaXRpemVkOiB7CiAgICAgICAgICAgICAgICBtZWFzdXJlOiB7CiAgICAgICAgICAgICAgICAgIHZhbHVlOiAiMSIsCiAgICAgICAgICAgICAgICAgIHVuaXQ6ICJ1bml0IiwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgdGFnczogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJvcmlnaW4iLAogICAgICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogImNvdW50cnkiLAogICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiSU5EIiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiYXR0cmlidXRlIiwKICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJicmFuZCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJNaW5pbWFsaXN0IiwKICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgXSwKICAgICAgICBmdWxmaWxsbWVudHM6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgaWQ6ICJGMSIsCiAgICAgICAgICAgIHR5cGU6ICJEZWxpdmVyeSIsCiAgICAgICAgICAgIGNvbnRhY3Q6IHsKICAgICAgICAgICAgICBwaG9uZTogIjk4NzY1NDMyMTAiLAogICAgICAgICAgICAgIGVtYWlsOiAidGVzdEBnbWFpbC5jb20iLAogICAgICAgICAgICB9LAogICAgICAgICAgfSwKICAgICAgICBdLAogICAgICAgIGNyZWRzOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgIGlkOiAiZ2ktMTIzNDU2NzgiLAogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgY29kZTogIlNvY2lhbCBTZWN0b3IiLAogICAgICAgICAgICAgIHNob3J0X2Rlc2M6ICJHSSIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHVybDogImh0dHBzOi8vYWJjZC5jZG4uY29tL2ltYWdlcy9iYWRnZS1pbWciLAogICAgICAgICAgICB0YWdzOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZlcmlmaWNhdGlvbiIsCiAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAidmVyaWZ5X3VybCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJodHRwczovL2FiY2QuZ2kuY29tL3ZlcmlmeT9pZD1naS0xMjM0NTY3OCciLAogICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogInZlcmlmaWVyIiwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIkNTUC1BQkMiLAogICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogImlzc3VlciIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJFeGFtcGxlIEF1dGhvcml0eSIsCiAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAidmFsaWRfZnJvbSIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICIyMDIzLTA2LTAzVDAwOjAwOjAwOjAwMFoiLAogICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogInZhbGlkX3RvIiwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIjIwMjQtMDYtMDNUMjM6NTk6NTk6OTk5WiIsCiAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICB9LAogICAgICAgIF0sCiAgICAgICAgdGFnczogWwogICAgICAgICAgewogICAgICAgICAgICBjb2RlOiAic2VydmljZWFiaWxpdHkiLAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiTDEiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImNhdGVnb3J5IiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiU2tpbiBDYXJlIC0gTG90aW9ucywgTW9pc3R1cmlzZXJzLCBhbmQgQ3JlYW1zIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInR5cGUiLAogICAgICAgICAgICAgICAgdmFsdWU6ICIxMSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidW5pdCIsCiAgICAgICAgICAgICAgICB2YWx1ZTogInBpbmNvZGUiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZhbCIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIjU2MDAwMS01NjAwNzYsNTYwMDgzIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdLAogICAgICAgICAgfSwKICAgICAgICAgIHsKICAgICAgICAgICAgY29kZTogInNlcnZpY2VhYmlsaXR5IiwKICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJsb2NhdGlvbiIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIkwxIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJjYXRlZ29yeSIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIlNraW4gQ2FyZSAtIEZhY2UgQ2xlYW5zZXJzIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInR5cGUiLAogICAgICAgICAgICAgICAgdmFsdWU6ICIxMiIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidW5pdCIsCiAgICAgICAgICAgICAgICB2YWx1ZTogImNvdW50cnkiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZhbCIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIklORCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgIGNvZGU6ICJ0aW1pbmciLAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInR5cGUiLAogICAgICAgICAgICAgICAgdmFsdWU6ICJBbGwiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImxvY2F0aW9uIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiTDEiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImRheV9mcm9tIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiZGF5X3RvIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiNiIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidGltZV9mcm9tIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMDAwMCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidGltZV90byIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIjIzNTkiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICB9LAogICAgICAgIF0sCiAgICAgIH0sCiAgICBdLAogIH0sCiB9OwoKY29uc3QgYnJlYWt1cEl0ZW0gPSB7CiAgIkBvbmRjL29yZy9pdGVtX2lkIjogIkkxIiwKICAiQG9uZGMvb3JnL2l0ZW1fcXVhbnRpdHkiOiB7CiAgICBjb3VudDogMSwKICB9LAogIHRpdGxlOiAiQnV0dGVyZmx5IEJlYXV0aWZ1bCAxMyBHb2xkIE5lY2tsYWNlIiwKICAiQG9uZGMvb3JnL3RpdGxlX3R5cGUiOiAiaXRlbSIsCiAgcHJpY2U6IHsKICAgIGN1cnJlbmN5OiAiSU5SIiwKICAgIHZhbHVlOiAiMjI2MC4wMCIsCiAgfSwKICBpdGVtOiB7CiAgICBxdWFudGl0eTogewogICAgICBhdmFpbGFibGU6IHsKICAgICAgICBjb3VudDogIjk5IiwKICAgICAgfSwKICAgICAgbWF4aW11bTogewogICAgICAgIGNvdW50OiAiMTAiLAogICAgICB9LAogICAgfSwKICAgIHByaWNlOiB7CiAgICAgIGN1cnJlbmN5OiAiSU5SIiwKICAgICAgdmFsdWU6ICIyMjYwLjAwIiwKICAgIH0sCiAgfSwKfTsKCmNvbnN0IGJyZWFrdXAgPSBbCiAgewogICAgIkBvbmRjL29yZy9pdGVtX2lkIjogIkYxIiwKICAgIHRpdGxlOiAiRGVsaXZlcnkgY2hhcmdlcyIsCiAgICAiQG9uZGMvb3JnL3RpdGxlX3R5cGUiOiAiZGVsaXZlcnkiLAogICAgcHJpY2U6IHsKICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICB2YWx1ZTogIjQ5My43NSIsCiAgICB9LAogIH0sCiAgewogICAgIkBvbmRjL29yZy9pdGVtX2lkIjogIkYxIiwKICAgIHRpdGxlOiAiQ29udmVuaWVuY2UgRmVlIiwKICAgICJAb25kYy9vcmcvdGl0bGVfdHlwZSI6ICJtaXNjIiwKICAgIHByaWNlOiB7CiAgICAgIGN1cnJlbmN5OiAiSU5SIiwKICAgICAgdmFsdWU6ICIzLjAwIiwKICAgIH0sCiAgfSwKXTsKCmZ1bmN0aW9uIGdldFVwZGF0ZWRCaWxsaW5nKHNhdmVkQmlsbGluZywgaW5pdGlhbGl6ZSA9IGZhbHNlKSB7CiAgaWYgKGluaXRpYWxpemUpIHsKICAgIGNvbnN0IG5ld0lzbyA9IG5ldyBEYXRlKG5ldyBEYXRlKCkuZ2V0VGltZSgpIC0gNSAqIDEwMDApLnRvSVNPU3RyaW5nKCkKICAgIHNhdmVkQmlsbGluZy5jcmVhdGVkX2F0ID0gbmV3SXNvCiAgICBzYXZlZEJpbGxpbmcudXBkYXRlZF9hdCA9IG5ld0lzbwogIH0KICByZXR1cm4gc2F2ZWRCaWxsaW5nCn0KCgpmdW5jdGlvbiBjcmVhdGVGdWxmaWxsbWVudHMoCiAgYWN0aW9uLAogIGFjdGlvbklkLAogIHNlc3Npb25EYXRhLAogIGRlZmF1bHRGdWxmaWxsbWVudHMKKSB7CiAgaWYgKGRlZmF1bHRGdWxmaWxsbWVudHMubGVuZ3RoIDwgMSkgewogICAgdGhyb3cgbmV3IEVycm9yKCJFbXB0eSBmdWxmaWxsbWVudHMgZm91bmQiKQogIH0KICBpZiAoYWN0aW9uID09PSAic2VsZWN0IikgewogICAgLy8gdGhpcyBmdW5jdGlvbiBpcyBub3QgdXNlZCBpbiBzZWxlY3QKICB9CiAgY29uc3Qgb25TZWxlY3RGdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5vbl9zZWxlY3RfZnVsZmlsbG1lbnRzCiAgaWYgKGFjdGlvbiA9PT0gImluaXQiKSB7CiAgICBjb25zdCBzZWxlY3RlZCA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX2Z1bGZpbGxtZW50cwogICAgY29uc3QgZGVmYXVsdEVuZCA9IHsKICAgICAgZW5kOiB7CiAgICAgICAgY29udGFjdDogewogICAgICAgICAgZW1haWw6ICJub2JvZHlAbm9tYWlsLmNvbSIsCiAgICAgICAgICBwaG9uZTogIjk4OTg5ODk4OTgiCiAgICAgICAgfSwKICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgZ3BzOiBzZWxlY3RlZFswXS5lbmQ/LmxvY2F0aW9uPy5ncHMsCiAgICAgICAgICBhZGRyZXNzOiB7CiAgICAgICAgICAgIGJ1aWxkaW5nOiAibW9jay1idWlsZGluZyIsCiAgICAgICAgICAgIGNpdHk6ICJtb2NrLWNpdHkiLAogICAgICAgICAgICBzdGF0ZTogIm1vY2stc3RhdGUiLAogICAgICAgICAgICBjb3VudHJ5OiAiSU5EIiwKICAgICAgICAgICAgYXJlYV9jb2RlOgogICAgICAgICAgICAgIHNlbGVjdGVkWzBdLmVuZD8ubG9jYXRpb24/LmFkZHJlc3M/LmFyZWFfY29kZSB8fCAiNDAwMDUzIiwKICAgICAgICAgICAgbG9jYWxpdHk6ICJtb2NrLWxvY2FsaXR5IiwKICAgICAgICAgICAgbmFtZTogIm1vY2staG91c2UtbmFtZSIKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0KCiAgICBsZXQgdGFyZ2V0RnVsZmlsbG1lbnQgPSB7fQogICAgdGFyZ2V0RnVsZmlsbG1lbnQgPSBvblNlbGVjdEZ1bGZpbGxtZW50cy5maW5kKGYgPT4gZi50eXBlID09PSAiRGVsaXZlcnkiKQogICAgY29uc3QgaW5pdEZ1bGZpbGxtZW50cyA9IFsKICAgICAgewogICAgICAgIGlkOiB0YXJnZXRGdWxmaWxsbWVudD8uaWQgfHwgIkYzIiwKICAgICAgICB0eXBlOiB0YXJnZXRGdWxmaWxsbWVudD8udHlwZSB8fCAiRGVsaXZlcnkiLAogICAgICAgIGVuZDogZGVmYXVsdEVuZC5lbmQKICAgICAgfQogICAgXQoKICAgIHJldHVybiBpbml0RnVsZmlsbG1lbnRzCiAgfQogIGlmIChhY3Rpb24gPT09ICJvbl9pbml0IikgewogICAgY29uc3QgZnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzCiAgICByZXR1cm4gZnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgIHJldHVybiB7CiAgICAgICAgaWQ6IGYuaWQsCiAgICAgICAgdHlwZTogZi50eXBlLAogICAgICAgIGVuZDogZi5lbmQsCiAgICAgICAgdHJhY2tpbmc6IHRydWUKICAgICAgfQogICAgfSkKICB9CiAgaWYgKGFjdGlvbiA9PT0gImNvbmZpcm0iKSB7CiAgICBjb25zdCBmdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMKICAgIHJldHVybiBmdWxmaWxsbWVudHM/Lm1hcChmID0+IHsKICAgICAgY29uc3Qgb25TZWxlY3RGdWxmaWxsbWVudCA9IG9uU2VsZWN0RnVsZmlsbG1lbnRzLmZpbmQoCiAgICAgICAgb2YgPT4gb2YuaWQgPT09IGYuaWQKICAgICAgKQogICAgICByZXR1cm4gewogICAgICAgIGlkOiBmLmlkLAogICAgICAgIHR5cGU6IGYudHlwZSwKICAgICAgICBlbmQ6IHsKICAgICAgICAgIGNvbnRhY3Q6IGYuZW5kPy5jb250YWN0LAogICAgICAgICAgcGVyc29uOiB7CiAgICAgICAgICAgIG5hbWU6ICJtb2NrLXBlcnNvbiIKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogZi5lbmQ/LmxvY2F0aW9uCiAgICAgICAgfSwKICAgICAgICB0cmFja2luZzogZi50cmFja2luZywKICAgICAgICAiQG9uZGMvb3JnL2NhdGVnb3J5Ijogb25TZWxlY3RGdWxmaWxsbWVudD8uWyJAb25kYy9vcmcvY2F0ZWdvcnkiXSwKICAgICAgICAiQG9uZGMvb3JnL1RBVCI6IG9uU2VsZWN0RnVsZmlsbG1lbnQ/LlsiQG9uZGMvb3JnL1RBVCJdCiAgICAgIH0KICAgIH0pCiAgfQogIGlmIChhY3Rpb24gPT09ICJvbl9jb25maXJtIikgewogICAgY29uc3QgZnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzCiAgICByZXR1cm4gZnVsZmlsbG1lbnRzCiAgICAgIC5maWx0ZXIoZiA9PiBvblNlbGVjdEZ1bGZpbGxtZW50cy5zb21lKHNmID0+IHNmLmlkID09PSBmLmlkKSkKICAgICAgPy5tYXAoKGYsIGluZGV4KSA9PiB7CiAgICAgICAgY29uc3Qgc2VsZWN0ZWQgPSBvblNlbGVjdEZ1bGZpbGxtZW50cy5maW5kKHNmID0+IHNmLmlkID09PSBmLmlkKQoKICAgICAgICByZXR1cm4gewogICAgICAgICAgaWQ6IGYuaWQsCiAgICAgICAgICB0eXBlOiBmLnR5cGUsCiAgICAgICAgICB0cmFja2luZzogZi50cmFja2luZywKICAgICAgICAgIHN0YXRlOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBjb2RlOiAiUGVuZGluZyIKICAgICAgICAgICAgfQogICAgICAgICAgfSwKICAgICAgICAgICJAb25kYy9vcmcvVEFUIjogc2VsZWN0ZWRbIkBvbmRjL29yZy9UQVQiXSwKICAgICAgICAgICJAb25kYy9vcmcvcHJvdmlkZXJfbmFtZSI6IGBtb2NrX3Byb3ZpZGVyX25hbWVfJHtpbmRleH1gLAogICAgICAgICAgc3RhcnQ6IHsKICAgICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgICBpZDogIkwxIiwKICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICBuYW1lOiAiQUJDIFN0b3JlIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgZ3BzOiAiMTkuMTI5MDc2LDcyLjgyNTgwMyIsCiAgICAgICAgICAgICAgYWRkcmVzczogewogICAgICAgICAgICAgICAgYnVpbGRpbmc6ICJteSBidWlsZGluZyBuYW1lIG9yIGhvdXNlIiwKICAgICAgICAgICAgICAgIGNpdHk6ICJNdW1iYWkiLAogICAgICAgICAgICAgICAgc3RhdGU6ICJNYWhhcmFzaHRyYSIsCiAgICAgICAgICAgICAgICBjb3VudHJ5OiAiSU5EIiwKICAgICAgICAgICAgICAgIGFyZWFfY29kZTogIjQwMDA1MyIsCiAgICAgICAgICAgICAgICBsb2NhbGl0eTogIm15IHN0cmVldCBuYW1lIiwKICAgICAgICAgICAgICAgIG5hbWU6ICJteSBob3VzZSBvciBkb29yIG9yIGZsb29yIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgY29udGFjdDogewogICAgICAgICAgICAgIHBob25lOiAiOTU5NDY2MzcxMCIsCiAgICAgICAgICAgICAgZW1haWw6ICJub2JvZHlAbm9tYWlsLmNvbSIKICAgICAgICAgICAgfQogICAgICAgICAgfSwKICAgICAgICAgIGVuZDogZi5lbmQKICAgICAgICB9CiAgICAgIH0pCiAgfQogIGlmIChhY3Rpb24gPT09ICJvbl9zdGF0dXMiKSB7CiAgICBjb25zb2xlLmxvZygiIyMjIyMjIyMgY3JlYXRlRnVsZmlsbG1lbnRzIG9uX3N0YXR1cyAjIyMjIyMjIyMiKQogICAgbGV0IGZ1bGZpbGxtZW50cyA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cwogICAgY29uc3QgdGFncyA9IHsKICAgICAgdGFnczogWwogICAgICAgIHsKICAgICAgICAgIGNvZGU6ICJyb3V0aW5nIiwKICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgIGNvZGU6ICJ0eXBlIiwKICAgICAgICAgICAgICB2YWx1ZTogIlAyUCIKICAgICAgICAgICAgfQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgY29kZTogInRyYWNraW5nIiwKICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgIGNvZGU6ICJncHNfZW5hYmxlZCIsCiAgICAgICAgICAgICAgdmFsdWU6ICJubyIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgIGNvZGU6ICJ1cmxfZW5hYmxlZCIsCiAgICAgICAgICAgICAgdmFsdWU6ICJ5ZXMiCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAidXJsIiwKICAgICAgICAgICAgICB2YWx1ZTogImh0dHBzOi8vc2VsbGVyTlAuY29tL29uZGMvdHJhY2tpbmdfdXJsIgogICAgICAgICAgICB9CiAgICAgICAgICBdCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgICBsZXQgZmluYWxGdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5vbl9zdGF0dXNfZnVsZmlsbG1lbnRzCiAgICBpZiAoc2Vzc2lvbkRhdGEub25fc3RhdHVzX2Z1bGZpbGxtZW50cy5sZW5ndGggPD0gMCkgewogICAgICBjb25zdCB0aW1lID0gbmV3IERhdGUobmV3IERhdGUoKS5nZXRUaW1lKCkgKyAxMCAqIDEwMDAgKiA2MCkKICAgICAgY29uc3Qgc3RhcnRfZW5kID0gbmV3IERhdGUodGltZS5nZXRUaW1lKCkgKyAxMCAqIDEwMDAgKiA2MCkudG9JU09TdHJpbmcoKQogICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZ1bGZpbGxtZW50cwogICAgICAgIC8vIC5maWx0ZXIoKGYpID0+IGYudHlwZSA9PSAiRGVsaXZlcnkiKQogICAgICAgID8ubWFwKGYgPT4gewogICAgICAgICAgaWYgKGYudHlwZSA9PSAiRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgLi4uZiwKICAgICAgICAgICAgICBzdGFydDogewogICAgICAgICAgICAgICAgLi4uZi5zdGFydCwKICAgICAgICAgICAgICAgIHRpbWU6IHsKICAgICAgICAgICAgICAgICAgcmFuZ2U6IHsKICAgICAgICAgICAgICAgICAgICBzdGFydDogdGltZS50b0lTT1N0cmluZygpLAogICAgICAgICAgICAgICAgICAgIGVuZDogc3RhcnRfZW5kCiAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIGVuZDogewogICAgICAgICAgICAgICAgLi4uZi5lbmQsCiAgICAgICAgICAgICAgICB0aW1lOiB7CiAgICAgICAgICAgICAgICAgIHJhbmdlOiB7CiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IHN0YXJ0X2VuZCwKICAgICAgICAgICAgICAgICAgICBlbmQ6IG5ldyBEYXRlKAogICAgICAgICAgICAgICAgICAgICAgdGltZS5nZXRUaW1lKCkgKwogICAgICAgICAgICAgICAgICAgICAgICAxMDAwICogaXNvRHVyVG9TZWMoZlsiQG9uZGMvb3JnL1RBVCJdIHx8ICJQVDBIIikKICAgICAgICAgICAgICAgICAgICApLnRvSVNPU3RyaW5nKCkKICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgdGFnczogdGFncy50YWdzCiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICAgIHJldHVybiBmCiAgICAgICAgfSkKICAgIH0KICAgIGxldCBzdGF0ZSA9ICJQZW5kaW5nIgogICAgc3dpdGNoIChhY3Rpb25JZCkgewogICAgICBjYXNlICJvbl9zdGF0dXNfcGFja2VkIjoKICAgICAgICBzdGF0ZSA9ICJQYWNrZWQiCiAgICAgICAgYnJlYWsKICAgICAgY2FzZSAib25fc3RhdHVzX2FjY2VwdGVkIjoKICAgICAgICBzdGF0ZSA9ICJQZW5kaW5nIgogICAgICAgIGJyZWFrCiAgICAgIGNhc2UgIm9uX3N0YXR1c19hZ2VudF9hc3NpZ25lZCI6CiAgICAgICAgc3RhdGUgPSAiQWdlbnQtYXNzaWduZWQiCiAgICAgICAgYnJlYWsKICAgICAgY2FzZSAib25fc3RhdHVzX3BpY2tlZCI6CiAgICAgICAgc3RhdGUgPSAiT3JkZXItcGlja2VkLXVwIgogICAgICAgIGZpbmFsRnVsZmlsbG1lbnRzID0gZmluYWxGdWxmaWxsbWVudHM/Lm1hcChmID0+IHsKICAgICAgICAgIGlmIChmLnR5cGUgPT09ICJEZWxpdmVyeSIpIHsKICAgICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgICAuLi5mLAogICAgICAgICAgICAgIHN0YXJ0OiB7CiAgICAgICAgICAgICAgICAuLi5mLnN0YXJ0LAogICAgICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgICAuLi5mLnN0YXJ0Py50aW1lLAogICAgICAgICAgICAgICAgICB0aW1lc3RhbXA6IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgdGFnczogdGFncy50YWdzCiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICAgIHJldHVybiBmCiAgICAgICAgfSkKICAgICAgICBicmVhawogICAgICBjYXNlICJvbl9zdGF0dXNfb3V0X2Zvcl9kZWxpdmVyeSI6CiAgICAgICAgc3RhdGUgPSAiT3V0LWZvci1kZWxpdmVyeSIKICAgICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgICAgICBpZiAoZi50eXBlID09PSAiRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgLi4uZiwKICAgICAgICAgICAgICBzdGFydDogewogICAgICAgICAgICAgICAgLi4uZi5zdGFydCwKICAgICAgICAgICAgICAgIHRpbWU6IHsKICAgICAgICAgICAgICAgICAgLi4uZi5zdGFydD8udGltZSwKICAgICAgICAgICAgICAgICAgdGltZXN0YW1wOiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHRhZ3M6IHRhZ3MudGFncwogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgICByZXR1cm4gZgogICAgICAgIH0pCiAgICAgICAgY29uc29sZS5sb2coIkZpbmFsIEZ1bGZpbGxtZW50czogIiwgSlNPTi5zdHJpbmdpZnkoZmluYWxGdWxmaWxsbWVudHMpKQogICAgICAgIGJyZWFrCiAgICAgIGNhc2UgIm9uX3N0YXR1c19vcmRlcl9kZWxpdmVyZWQiOgogICAgICAgIHN0YXRlID0gIk9yZGVyLWRlbGl2ZXJlZCIKICAgICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgICAgICBpZiAoZi50eXBlID09PSAiRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgLi4uZiwKICAgICAgICAgICAgICBlbmQ6IHsKICAgICAgICAgICAgICAgIC4uLmYuZW5kLAogICAgICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgICAuLi5mLmVuZD8udGltZSwKICAgICAgICAgICAgICAgICAgdGltZXN0YW1wOiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHRhZ3M6IHRhZ3MudGFncwogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgICByZXR1cm4gZgogICAgICAgIH0pCiAgICAgICAgYnJlYWsKICAgICAgY2FzZSAib25fc3RhdHVzX3J0b19kZWxpdmVyZWQiOgogICAgICAgIHN0YXRlID0gIkNhbmNlbGxlZCIKICAgICAgY2FzZSAib25fc3RhdHVzX3JlYWR5X3RvX3NoaXAiOgogICAgICAgIHN0YXRlID0gIlBhY2tlZCIKICAgICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgICAgICBpZiAoZi50eXBlID09PSAiQnV5ZXItRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIGNvbnN0IHRhZ3MgPSBmLnRhZ3MgfHwgW10KICAgICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgICAuLi5mLAogICAgICAgICAgICAgIHRhZ3M6IFsKICAgICAgICAgICAgICAgIC4uLnRhZ3MsCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgIGNvZGU6ICJzdGF0ZSIsCiAgICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAicmVhZHlfdG9fc2hpcCIsCiAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgIGNvZGU6ICJyb3V0aW5nIiwKICAgICAgICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgIGNvZGU6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiUDJQIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfQogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIGYKICAgICAgICB9KQogICAgICAgIGJyZWFrCgogICAgICBkZWZhdWx0OgogICAgICAgIGJyZWFrCiAgICB9CiAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgIGlmIChmLnR5cGUgPT09ICJEZWxpdmVyeSIpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgLi4uZiwKICAgICAgICAgIHN0YXRlOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBjb2RlOiBzdGF0ZQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9CiAgICAgIHJldHVybiBmCiAgICB9KQogICAgcmV0dXJuIGZpbmFsRnVsZmlsbG1lbnRzCiAgfQogIGlmIChhY3Rpb24gPT09ICJvbl9zdGF0dXNfcmVwIikgewogICAgY29uc29sZS5sb2coIiMjIyMjIyMjIGNyZWF0ZUZ1bGZpbGxtZW50cyBvbl9zdGF0dXMgIyMjIyMjIyMjIikKICAgIGxldCBmdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMKICAgIGNvbnN0IHRhZ3MgPSB7CiAgICAgIHRhZ3M6IFsKICAgICAgICB7CiAgICAgICAgICBjb2RlOiAicm91dGluZyIsCiAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAidHlwZSIsCiAgICAgICAgICAgICAgdmFsdWU6ICJQMlAiCiAgICAgICAgICAgIH0KICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIGNvZGU6ICJ0cmFja2luZyIsCiAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAiZ3BzX2VuYWJsZWQiLAogICAgICAgICAgICAgIHZhbHVlOiAibm8iCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAidXJsX2VuYWJsZWQiLAogICAgICAgICAgICAgIHZhbHVlOiAieWVzIgogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgY29kZTogInVybCIsCiAgICAgICAgICAgICAgdmFsdWU6ICJodHRwczovL3NlbGxlck5QLmNvbS9vbmRjL3RyYWNraW5nX3VybCIKICAgICAgICAgICAgfQogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXQogICAgfQogICAgbGV0IGZpbmFsRnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEub25fc3RhdHVzX2Z1bGZpbGxtZW50cwogICAgaWYgKHNlc3Npb25EYXRhLm9uX3N0YXR1c19mdWxmaWxsbWVudHMubGVuZ3RoIDw9IDApIHsKICAgICAgY29uc3QgdGltZSA9IG5ldyBEYXRlKG5ldyBEYXRlKCkuZ2V0VGltZSgpICsgMTAgKiAxMDAwICogNjApCiAgICAgIGNvbnN0IHN0YXJ0X2VuZCA9IG5ldyBEYXRlKHRpbWUuZ2V0VGltZSgpICsgMTAgKiAxMDAwICogNjApLnRvSVNPU3RyaW5nKCkKICAgICAgZmluYWxGdWxmaWxsbWVudHMgPSBmdWxmaWxsbWVudHMKICAgICAgICAvLyAuZmlsdGVyKChmKSA9PiBmLnR5cGUgPT0gIkRlbGl2ZXJ5IikKICAgICAgICA/Lm1hcChmID0+IHsKICAgICAgICAgIGlmIChmLnR5cGUgPT0gIkRlbGl2ZXJ5IikgewogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgIC4uLmYsCiAgICAgICAgICAgICAgc3RhcnQ6IHsKICAgICAgICAgICAgICAgIC4uLmYuc3RhcnQsCiAgICAgICAgICAgICAgICB0aW1lOiB7CiAgICAgICAgICAgICAgICAgIHJhbmdlOiB7CiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IHRpbWUudG9JU09TdHJpbmcoKSwKICAgICAgICAgICAgICAgICAgICBlbmQ6IHN0YXJ0X2VuZAogICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICBlbmQ6IHsKICAgICAgICAgICAgICAgIC4uLmYuZW5kLAogICAgICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgICByYW5nZTogewogICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBzdGFydF9lbmQsCiAgICAgICAgICAgICAgICAgICAgZW5kOiBuZXcgRGF0ZSgKICAgICAgICAgICAgICAgICAgICAgIHRpbWUuZ2V0VGltZSgpICsKICAgICAgICAgICAgICAgICAgICAgICAgMTAwMCAqIGlzb0R1clRvU2VjKGZbIkBvbmRjL29yZy9UQVQiXSB8fCAiUFQwSCIpCiAgICAgICAgICAgICAgICAgICAgKS50b0lTT1N0cmluZygpCiAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHRhZ3M6IHRhZ3MudGFncwogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgICByZXR1cm4gZgogICAgICAgIH0pCiAgICB9CiAgICBsZXQgc3RhdGUgPSAiUGVuZGluZyIKICAgIHN3aXRjaCAoYWN0aW9uSWQpIHsKICAgICAgY2FzZSAib25fc3RhdHVzX3BhY2tlZCI6CiAgICAgICAgc3RhdGUgPSAiUGFja2VkIgogICAgICAgIGJyZWFrCiAgICAgIGNhc2UgIm9uX3N0YXR1c19hY2NlcHRlZCI6CiAgICAgICAgc3RhdGUgPSAiUGVuZGluZyIKICAgICAgICBicmVhawogICAgICBjYXNlICJvbl9zdGF0dXNfYWdlbnRfYXNzaWduZWQiOgogICAgICAgIHN0YXRlID0gIkFnZW50LWFzc2lnbmVkIgogICAgICAgIGJyZWFrCiAgICAgIGNhc2UgIm9uX3N0YXR1c19waWNrZWQiOgogICAgICAgIHN0YXRlID0gIk9yZGVyLXBpY2tlZC11cCIKICAgICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgICAgICBpZiAoZi50eXBlID09PSAiRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgLi4uZiwKICAgICAgICAgICAgICBzdGFydDogewogICAgICAgICAgICAgICAgLi4uZi5zdGFydCwKICAgICAgICAgICAgICAgIHRpbWU6IHsKICAgICAgICAgICAgICAgICAgLi4uZi5zdGFydD8udGltZSwKICAgICAgICAgICAgICAgICAgdGltZXN0YW1wOiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgIH0KICAgICAgICAgIHJldHVybiBmCiAgICAgICAgfSkKICAgICAgICBicmVhawogICAgICBjYXNlICJvbl9zdGF0dXNfb3V0X2Zvcl9kZWxpdmVyeSI6CiAgICAgICAgc3RhdGUgPSAiT3V0LWZvci1kZWxpdmVyeSIKICAgICAgICBicmVhawogICAgICBjYXNlICJvbl9zdGF0dXNfb3JkZXJfZGVsaXZlcmVkIjoKICAgICAgICBzdGF0ZSA9ICJPcmRlci1kZWxpdmVyZWQiCiAgICAgICAgZmluYWxGdWxmaWxsbWVudHMgPSBmaW5hbEZ1bGZpbGxtZW50cz8ubWFwKGYgPT4gewogICAgICAgICAgaWYgKGYudHlwZSA9PT0gIkRlbGl2ZXJ5IikgewogICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgIC4uLmYsCiAgICAgICAgICAgICAgZW5kOiB7CiAgICAgICAgICAgICAgICAuLi5mLmVuZCwKICAgICAgICAgICAgICAgIHRpbWU6IHsKICAgICAgICAgICAgICAgICAgLi4uZi5lbmQ/LnRpbWUsCiAgICAgICAgICAgICAgICAgIHRpbWVzdGFtcDogbmV3IERhdGUoKS50b0lTT1N0cmluZygpCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgICByZXR1cm4gZgogICAgICAgIH0pCiAgICAgICAgYnJlYWsKICAgICAgY2FzZSAib25fc3RhdHVzX3J0b19kZWxpdmVyZWQiOgogICAgICAgIHN0YXRlID0gIkNhbmNlbGxlZCIKICAgICAgY2FzZSAib25fc3RhdHVzX3JlYWR5X3RvX3NoaXAiOgogICAgICAgIHN0YXRlID0gIlBhY2tlZCIKICAgICAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgICAgICBpZiAoZi50eXBlID09PSAiQnV5ZXItRGVsaXZlcnkiKSB7CiAgICAgICAgICAgIGNvbnN0IHRhZ3MgPSBmLnRhZ3MgfHwgW10KICAgICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgICAuLi5mLAogICAgICAgICAgICAgIHRhZ3M6IFsKICAgICAgICAgICAgICAgIC4uLnRhZ3MsCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgIGNvZGU6ICJzdGF0ZSIsCiAgICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAicmVhZHlfdG9fc2hpcCIsCiAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogInllcyIKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgIGNvZGU6ICJyb3V0aW5nIiwKICAgICAgICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgIGNvZGU6ICJ0eXBlIiwKICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiUDJQIgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgXQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIF0KICAgICAgICAgICAgfQogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIGYKICAgICAgICB9KQogICAgICAgIGJyZWFrCgogICAgICBkZWZhdWx0OgogICAgICAgIGJyZWFrCiAgICB9CiAgICBmaW5hbEZ1bGZpbGxtZW50cyA9IGZpbmFsRnVsZmlsbG1lbnRzPy5tYXAoZiA9PiB7CiAgICAgIGlmIChmLnR5cGUgPT09ICJEZWxpdmVyeSIpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgLi4uZiwKICAgICAgICAgIHN0YXRlOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBjb2RlOiBzdGF0ZQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9CiAgICAgIHJldHVybiBmCiAgICB9KQogICAgcmV0dXJuIGZpbmFsRnVsZmlsbG1lbnRzCiAgfQogIHJldHVybiBkZWZhdWx0RnVsZmlsbG1lbnRzCn0KCgpmdW5jdGlvbiByZW1vdmVJdGVtUXVhbnRpdGllc0Zyb21RdW90ZShxdW90ZSkgewogIHJldHVybiB7CiAgICAuLi5xdW90ZSwKICAgIGJyZWFrdXA6IHF1b3RlLmJyZWFrdXA/Lm1hcChpdGVtID0+IHsKICAgICAgLy8gUmVtb3ZlIGl0ZW0ucXVhbnRpdHkgaWYgcHJlc2VudAogICAgICBsZXQgdXBkYXRlZEl0ZW0gPSB7IC4uLml0ZW0gfQogICAgICBpZiAodXBkYXRlZEl0ZW0uaXRlbT8ucXVhbnRpdHkpIHsKICAgICAgICBjb25zdCB7IHF1YW50aXR5LCAuLi5yZXN0SXRlbSB9ID0gdXBkYXRlZEl0ZW0uaXRlbQogICAgICAgIHVwZGF0ZWRJdGVtLml0ZW0gPSByZXN0SXRlbQogICAgICB9CgogICAgICByZXR1cm4gdXBkYXRlZEl0ZW0KICAgIH0pCiAgfQp9CmZ1bmN0aW9uIGdlbmVyYXRlU2l4RGlnaXRDb2RlKCkgewoJcmV0dXJuIE1hdGguZmxvb3IoMTAwMDAwICsgTWF0aC5yYW5kb20oKSAqIDkwMDAwMCkudG9TdHJpbmcoKTsKfQo=
