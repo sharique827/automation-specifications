@@ -336,13 +336,35 @@ paths:
                             properties:
                               fulfillment_id:
                                 type: string
+                              fulfillment_ids:
+                                type: array
+                                items:
+                                  type: string
                               id:
+                                type: string
+                              location_id:
                                 type: string
                               quantity: &quantity
                                 type: object
                                 properties:
                                   count:
                                     type: integer
+                              tags:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
+                                    list:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          code:
+                                            type: string
+                                          value:
+                                            type: string
                         payment: &payment
                           type: object
                           properties:
@@ -487,8 +509,19 @@ paths:
                               type:
                                 type: string
                         items: *items
-                        offers:
+                        offers: &offers
                           type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                              tags: *tags
                         provider: *provider
       responses: *responses
   /on_cancel:
@@ -827,11 +860,19 @@ paths:
                                           type: string
                                         days:
                                           type: string
+                                        frequency:
+                                          type: string
                                         schedule:
                                           type: object
                                           properties:
                                             holidays:
                                               type: array
+                                              items:
+                                                type: string
+                                            times:
+                                              type: array
+                                              items:
+                                                type: string
                                         range: &range
                                           type: object
                                           properties:
@@ -921,6 +962,19 @@ paths:
                                       type: boolean
                                     "@ondc/org/contact_details_consumer_care":
                                       type: string
+                                    "@ondc/org/statutory_reqs_prepackaged_food":
+                                      type: object
+                                      properties:
+                                        additives_info:
+                                          type: string
+                                        brand_owner_FSSAI_license_no:
+                                          type: string
+                                        importer_FSSAI_license_no:
+                                          type: string
+                                        nutritional_info:
+                                          type: string
+                                        other_FSSAI_license_no:
+                                          type: string
                                     "@ondc/org/statutory_reqs_packaged_commodities":
                                       type: object
                                       properties:
@@ -950,6 +1004,17 @@ paths:
                                       type: string
                                     tags: *tags
                                     descriptor: *person
+                              offers:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
+                                    tags: *tags
                               id:
                                 type: string
                               rating:
@@ -986,6 +1051,7 @@ paths:
                               id:
                                 type: string
                               state: *state
+                              tags: *tags
                               tracking:
                                 type: boolean
                               type:
@@ -997,8 +1063,15 @@ paths:
                             properties:
                               fulfillment_id:
                                 type: string
+                              fulfillment_ids:
+                                type: array
+                                items:
+                                  type: string
                               id:
                                 type: string
+                              location_id:
+                                type: string
+                              quantity: *quantity
                         provider: *provider
                         quote: *quote_2
                 error:
@@ -1260,7 +1333,10 @@ paths:
                                 type: string
                               location:
                                 type: string
+                              location_id:
+                                type: string
                               quantity: *quantity
+                        offers: *offers
                         provider: *provider
       responses: *responses
   /track:
