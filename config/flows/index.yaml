@@ -7,7 +7,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Return Flow for F&B
+    description: A comprehensive transaction flow for Food and Beverage services enabling buyers to initiate and track full or partial order returns, managing the lifecycle from initial request and confirmation through to status updates and final resolution.
     config:
       $ref: ./F&B/Buyer_Initiated_Return__Full_Order_and_Partial_Order_.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for F&B
+    description: A food and beverage transaction lifecycle where a buyer discovers a service, initializes and confirms an order, and subsequently executes a full cancellation.
     config:
       $ref: ./F&B/Buyer_Side_Order_Cancellation.yaml
   - type: playground
@@ -29,7 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: RTO and Part Cancellation Flow for F&B
+    description: This flow manages the end-to-end process for food and beverage orders where a merchant initiates a return-to-origin or partial order cancellation, covering the sequence from initial selection and confirmation to final status synchronization.
     config:
       $ref: ./F&B/Merchant_Side_RTO_and_Part_Order_Cancellation_Flow.yaml
   - type: playground
@@ -40,7 +40,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for F&B
+    description: An end-to-end prepaid food and beverage order lifecycle covering item selection, payment initialization, order confirmation, and real-time fulfillment tracking through to final delivery status updates.
     config:
       $ref: ./F&B/Order_to_confirm_to_fulfillment__Prepaid_.yaml
   - type: playground
@@ -51,7 +51,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Out of Stock Flow for F&B
+    description: A B2C Food and Beverage transaction flow where an order is initiated but subsequently fails due to an item becoming out of stock, triggering a sequence of status updates to handle the error and order cancellation.
     config:
       $ref: ./F&B/Out_of_Stock_Error_code_.yaml
   - type: playground
@@ -62,7 +62,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Full Catalog) for F&B
+    description: A discovery flow for Food and Beverage services enabling a buyer to search and retrieve a full catalog of offerings within a specific city.
     config:
       $ref: ./F&B/Search_and_Custom_Menu__Full_Catalog_City_.yaml
   - type: playground
@@ -73,7 +73,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Buyer Delivery Flow for F&B
+    description: This flow governs the end-to-end lifecycle of a food and beverage order, encompassing item selection, order initialization, confirmation, and subsequent status and order updates through to delivery.
     config:
       $ref: ./F&B/Buyer_Delivery.yaml
   - type: playground
@@ -84,7 +84,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Incremental Catalog) for F&B
+    description: A discovery sequence for Food and Beverage services that validates the incremental push of catalog updates through repeated search requests to ensure real-time menu synchronization.
     config:
       $ref: ./F&B/Search_and_Custom_Menu__Incremental_Push_.yaml
   - type: playground
@@ -92,7 +92,7 @@ flows:
     usecase: F&B
     tags:
       - WORKBENCH
-    description: Auto Flow for F&B
+    description: An automated test sequence simulating a Food and Beverage discovery journey by executing a search request followed by multiple consecutive search iterations to validate catalog responsiveness and stability.
     config:
       $ref: ./F&B/Complete_Auto_Flow.yaml
   - type: playground
@@ -100,7 +100,7 @@ flows:
     usecase: F&B
     tags:
       - WORKBENCH
-    description: Complete Non Auto Flow for F&B
+    description: A multi-step discovery sequence for Food and Beverage services to validate the iterative search and filtering process across multiple provider responses.
     config:
       $ref: ./F&B/Complete_Non_Auto_Flow.yaml
   - type: playground
@@ -108,6 +108,6 @@ flows:
     usecase: F&B
     tags:
       - WORKBENCH
-    description: Partial Auto Flow for F&B
+    description: A sequence of repeated search and search-result discovery requests to validate the stability and accuracy of product catalog retrieval in a Food and Beverage scenario.
     config:
       $ref: ./F&B/Partial_Auto_Flow.yaml

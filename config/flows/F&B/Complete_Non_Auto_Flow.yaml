@@ -1,54 +1,51 @@
 meta:
-  domain: 'ONDC:RET11'
+  domain: ONDC:RET11
   version: 1.2.0
   flowId: Complete_Non_Auto_Flow
   config_version: 0.0.0001
-  description: ''
-  use_case_id: ''
+  description: A multi-step discovery sequence for Food and Beverage services to validate the iterative search and filtering process across multiple provider responses.
+  use_case_id: ""
 transaction_data:
   transaction_id: 82769785-011f-4aa1-838a-118433ee4278
-  latest_timestamp: '1970-01-01T00:00:00.000Z'
+  latest_timestamp: 1970-01-01T00:00:00.000Z
   bap_id: bap.example.com
-  bap_uri: 'https://bap.example.com'
+  bap_uri: https://bap.example.com
   bpp_id: bpp.example.com
-  bpp_uri: 'https://bpp.example.com'
+  bpp_uri: https://bpp.example.com
 steps:
   - api: search
     action_id: search_auto
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to discover available F&B offerings within a specific city.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          domain: 'ONDC:RET11'
+          domain: ONDC:RET11
           action: search
-          timestamp: '2026-04-17T09:16:04.109Z'
+          timestamp: 2026-04-17T09:16:04.109Z
           transaction_id: T1
           message_id: M1
           bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
+          bap_uri: https://bap.example.com
           ttl: PT30S
           country: IND
-          city: 'std:080'
+          city: std:080
           core_version: 1.2.0
         message:
           intent:
             payment:
-              '@ondc/org/buyer_app_finder_fee_amount': '3'
-              '@ondc/org/buyer_app_finder_fee_type': percent
+              "@ondc/org/buyer_app_finder_fee_amount": "3"
+              "@ondc/org/buyer_app_finder_fee_type": percent
             tags:
               - code: catalog_full
                 list:
                   - code: auto
-                    value: 'false'
+                    value: "false"
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -64,45 +61,42 @@ steps:
     owner: BPP
     responseFor: search_auto
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to the BPP to discover available food and beverage offerings based on the specified city and catalog criteria.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_search
           bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
+          bap_uri: https://bap.example.com
           bpp_id: bpp.example.com
-          bpp_uri: 'https://bpp.example.com'
-          city: 'std:080'
+          bpp_uri: https://bpp.example.com
+          city: std:080
           core_version: 1.2.0
           country: IND
-          domain: 'ONDC:RET11'
+          domain: ONDC:RET11
           message_id: M1
-          timestamp: '2026-03-23T10:16:31.799Z'
+          timestamp: 2026-03-23T10:16:31.799Z
           transaction_id: T1
           ttl: PT30S
         message:
           catalog:
             bpp/descriptor:
               images:
-                - 'https://snp.com/images/np.png'
+                - https://snp.com/images/np.png
               long_desc: Seller Marketplace
               name: Seller NP
               short_desc: Seller Marketplace
-              symbol: 'https://snp.com/images/np.png'
+              symbol: https://snp.com/images/np.png
               tags:
                 - code: bpp_terms
                   list:
                     - code: np_type
                       value: MSN
                     - code: accept_bap_terms
-                      value: 'Y'
+                      value: Y
             bpp/providers:
               - id: P1
               - id: P2
@@ -122,45 +116,42 @@ steps:
     owner: BPP
     responseFor: search_auto
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to the BPP to discover available food and beverage offerings based on the specified city and fulfillment preferences.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_search
           bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
+          bap_uri: https://bap.example.com
           bpp_id: bpp.example-1.com
-          bpp_uri: 'https://bpp.example-1.com'
-          city: 'std:080'
+          bpp_uri: https://bpp.example-1.com
+          city: std:080
           core_version: 1.2.0
           country: IND
-          domain: 'ONDC:RET11'
+          domain: ONDC:RET11
           message_id: M1
-          timestamp: '2026-03-23T10:16:31.799Z'
+          timestamp: 2026-03-23T10:16:31.799Z
           transaction_id: T1
           ttl: PT30S
         message:
           catalog:
             bpp/descriptor:
               images:
-                - 'https://snp.com/images/np.png'
+                - https://snp.com/images/np.png
               long_desc: Seller Marketplace
               name: Seller NP
               short_desc: Seller Marketplace
-              symbol: 'https://snp.com/images/np.png'
+              symbol: https://snp.com/images/np.png
               tags:
                 - code: bpp_terms
                   list:
                     - code: np_type
                       value: MSN
                     - code: accept_bap_terms
-                      value: 'Y'
+                      value: Y
             bpp/providers:
               - id: P4
               - id: P5
@@ -177,7 +168,7 @@ steps:
       inputs:
         id: ExampleInputId
         jsonSchema:
-          $schema: 'http://json-schema.org/draft-07/schema#'
+          $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
             email:
@@ -194,7 +185,7 @@ steps:
             password:
               type: string
               minLength: 8
-              pattern: '^(?=.*[A-Z])(?=.*[0-9]).+$'
+              pattern: ^(?=.*[A-Z])(?=.*[0-9]).+$
               description: Must contain uppercase and number
             website:
               type: string
@@ -214,35 +205,32 @@ steps:
           email: john.doe@example.com
           age: 28
           password: SecurePass1
-          website: 'https://example.com'
+          website: https://example.com
           country: US
   - api: search
     action_id: search_choose
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search request to discover available F&B services and providers within a specific city.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLnByb3ZpZGVyX2lkCiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
-      validate: >-
-        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLnByb3ZpZGVyX2lkCiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
-          domain: 'ONDC:RET11'
+          domain: ONDC:RET11
           action: search
-          timestamp: '2026-04-17T09:16:04.109Z'
+          timestamp: 2026-04-17T09:16:04.109Z
           transaction_id: T2
           message_id: M2
           bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
+          bap_uri: https://bap.example.com
           bpp_id: bpp.example.com
-          bpp_uri: 'https://bpp.example.com'
+          bpp_uri: https://bpp.example.com
           ttl: PT30S
           country: IND
-          city: 'std:080'
+          city: std:080
           core_version: 1.2.0
         message:
           intent:
@@ -261,7 +249,7 @@ steps:
       inputs:
         id: Input
         jsonSchema:
-          $schema: 'http://json-schema.org/draft-07/schema#'
+          $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
             provider_id:
@@ -278,42 +266,39 @@ steps:
     owner: BPP
     responseFor: search_choose
     unsolicited: false
-    description: please add relevant description
+    description: The BAP sends a search request to the BPP to discover available food and beverage offerings based on the specified city and fulfillment preferences.
     mock:
-      generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBpZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdOwoKICBjb25zdCBwcm92aWRlcnMgPSBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8uY2F0YWxvZz8uWyJicHAvcHJvdmlkZXJzIl07CgogIHByb3ZpZGVyc1swXS5pZCA9IGlkOwoKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: >-
-        LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: >-
-        LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBpZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdOwoKICBjb25zdCBwcm92aWRlcnMgPSBkZWZhdWx0UGF5bG9hZD8ubWVzc2FnZT8uY2F0YWxvZz8uWyJicHAvcHJvdmlkZXJzIl07CgogIHByb3ZpZGVyc1swXS5pZCA9IGlkOwoKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
+      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
         context:
           action: on_search
           bap_id: bap.example.com
-          bap_uri: 'https://bap.example.com'
+          bap_uri: https://bap.example.com
           bpp_id: bpp.example.com
-          bpp_uri: 'https://bpp.example.com'
-          city: 'std:080'
+          bpp_uri: https://bpp.example.com
+          city: std:080
           core_version: 1.2.0
           country: IND
-          domain: 'ONDC:RET11'
+          domain: ONDC:RET11
           message_id: M2
-          timestamp: '2026-03-23T10:16:31.799Z'
+          timestamp: 2026-03-23T10:16:31.799Z
           transaction_id: T2
           ttl: PT30S
         message:
           catalog:
             bpp/providers:
-              - '@ondc/org/fssai_license_no': '12345678901234'
+              - "@ondc/org/fssai_license_no": "12345678901234"
                 categories:
                   - descriptor:
                       images:
-                        - 'https://snp.com/ondc/m005.png'
+                        - https://snp.com/ondc/m005.png
                       long_desc: American and Italian Veg and Non-Veg Pizza
                       name: Pizza
                       short_desc: Veg and Non-Veg pizza
-                    id: '5'
-                    parent_category_id: ''
+                    id: "5"
+                    parent_category_id: ""
                     tags:
                       - code: type
                         list:
@@ -322,17 +307,17 @@ steps:
                       - code: timing
                         list:
                           - code: day_from
-                            value: '1'
+                            value: "1"
                           - code: day_to
-                            value: '5'
+                            value: "5"
                           - code: time_from
-                            value: '1800'
+                            value: "1800"
                           - code: time_to
-                            value: '2200'
+                            value: "2200"
                       - code: display
                         list:
                           - code: rank
-                            value: '1'
+                            value: "1"
                   - descriptor:
                       name: Crust (any 1 option)
                     id: CG1
@@ -344,13 +329,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '1'
+                            value: "1"
                   - descriptor:
                       name: Size (any 1 option)
                     id: CG2
@@ -362,13 +347,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '2'
+                            value: "2"
                   - descriptor:
                       name: Size (any 1 option)
                     id: CG3
@@ -380,13 +365,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '2'
+                            value: "2"
                   - descriptor:
                       name: Toppings (up to 2 options)
                     id: CG4
@@ -398,13 +383,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '2'
+                            value: "2"
                           - code: input
                             value: select
                           - code: seq
-                            value: '3'
+                            value: "3"
                   - descriptor:
                       name: Toppings (up to 2 options)
                     id: CG5
@@ -416,13 +401,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '2'
+                            value: "2"
                           - code: input
                             value: select
                           - code: seq
-                            value: '3'
+                            value: "3"
                   - descriptor:
                       name: Toppings (up to 2 options)
                     id: CG6
@@ -434,21 +419,21 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '2'
+                            value: "2"
                           - code: input
                             value: select
                           - code: seq
-                            value: '3'
+                            value: "3"
                   - descriptor:
                       images:
-                        - 'https://snp.com/ondc/m005.png'
-                      long_desc: 'American and Italian Veg,Non-Veg and Egg Pizza'
+                        - https://snp.com/ondc/m005.png
+                      long_desc: American and Italian Veg,Non-Veg and Egg Pizza
                       name: Pizza
-                      short_desc: 'Veg,Non-Veg and Egg pizza'
-                    id: '6'
-                    parent_category_id: ''
+                      short_desc: Veg,Non-Veg and Egg pizza
+                    id: "6"
+                    parent_category_id: ""
                     tags:
                       - code: type
                         list:
@@ -457,17 +442,17 @@ steps:
                       - code: timing
                         list:
                           - code: day_from
-                            value: '1'
+                            value: "1"
                           - code: day_to
-                            value: '5'
+                            value: "5"
                           - code: time_from
-                            value: '1800'
+                            value: "1800"
                           - code: time_to
-                            value: '2200'
+                            value: "2200"
                       - code: display
                         list:
                           - code: rank
-                            value: '2'
+                            value: "2"
                   - descriptor:
                       name: Variant (1 option)
                     id: CG11
@@ -479,13 +464,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '1'
+                            value: "1"
                   - descriptor:
                       name: Choice of bread (1 option)
                     id: CG12
@@ -497,13 +482,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '2'
+                            value: "2"
                   - descriptor:
                       name: Choice of preparation
                     id: CG13
@@ -515,13 +500,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '1'
+                            value: "1"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '3'
+                            value: "3"
                   - descriptor:
                       name: Choose Add Ons (up to 1 option)
                     id: CG14
@@ -533,13 +518,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '4'
+                            value: "4"
                   - descriptor:
                       name: Choose Add Ons (up to 1 option)
                     id: CG15
@@ -551,13 +536,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '4'
+                            value: "4"
                   - descriptor:
                       name: Choose Veggies (up to 1 option)
                     id: CG16
@@ -569,13 +554,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '5'
+                            value: "5"
                   - descriptor:
                       name: Choose Sauces (up to 1 option)
                     id: CG17
@@ -587,13 +572,13 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '6'
+                            value: "6"
                   - descriptor:
                       name: Choose Offers (up to 1 option)
                     id: CG18
@@ -605,78 +590,78 @@ steps:
                       - code: config
                         list:
                           - code: min
-                            value: '0'
+                            value: "0"
                           - code: max
-                            value: '1'
+                            value: "1"
                           - code: input
                             value: select
                           - code: seq
-                            value: '7'
+                            value: "7"
                 descriptor:
                   images:
-                    - 'https://snp.com/images/store1.png'
+                    - https://snp.com/images/store1.png
                   long_desc: Store 1
                   name: Store 1
                   short_desc: Store 1
-                  symbol: 'https://snp.com/images/store1.png'
+                  symbol: https://snp.com/images/store1.png
                 fulfillments:
                   - contact:
                       email: abc@xyz.com
-                      phone: '9886098860'
+                      phone: "9886098860"
                     id: F1
                     type: Delivery
                   - contact:
                       email: abc@xyz.com
-                      phone: '9886098860'
+                      phone: "9886098860"
                     id: F2
                     type: Self-Pickup
                   - contact:
                       email: abc@xyz.com
-                      phone: '9886098860'
+                      phone: "9886098860"
                     id: F3
                     type: Buyer-Delivery
                 id: P1
                 items:
-                  - '@ondc/org/available_on_cod': false
-                    '@ondc/org/cancellable': false
-                    '@ondc/org/contact_details_consumer_care': 'Ramesh,ramesh@abc.com,18004254444'
-                    '@ondc/org/return_window': PT1H
-                    '@ondc/org/returnable': false
-                    '@ondc/org/seller_pickup_return': false
-                    '@ondc/org/time_to_ship': PT45M
+                  - "@ondc/org/available_on_cod": false
+                    "@ondc/org/cancellable": false
+                    "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+                    "@ondc/org/return_window": PT1H
+                    "@ondc/org/returnable": false
+                    "@ondc/org/seller_pickup_return": false
+                    "@ondc/org/time_to_ship": PT45M
                     category_id: F&B
                     category_ids:
-                      - '5:1'
+                      - 5:1
                     descriptor:
                       images:
-                        - 'https://snp.com/images/i1.png'
+                        - https://snp.com/images/i1.png
                       long_desc: Farm House Pizza
                       name: Farm House Pizza
                       short_desc: Farm House Pizza
-                      symbol: 'https://snp.com/images/i1.png'
+                      symbol: https://snp.com/images/i1.png
                     fulfillment_id: F1
                     id: I1
                     location_id: L1
                     price:
                       currency: INR
-                      maximum_value: '269.00'
+                      maximum_value: "269.00"
                       tags:
                         - code: range
                           list:
                             - code: lower
-                              value: '269.00'
+                              value: "269.00"
                             - code: upper
-                              value: '894.00'
-                      value: '269.00'
+                              value: "894.00"
+                      value: "269.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                       unitized:
                         measure:
                           unit: unit
-                          value: '1'
+                          value: "1"
                     recommended: true
                     related: false
                     tags:
@@ -691,37 +676,37 @@ steps:
                       - code: timing
                         list:
                           - code: day_from
-                            value: '1'
+                            value: "1"
                           - code: day_to
-                            value: '5'
+                            value: "5"
                           - code: time_from
-                            value: '1800'
+                            value: "1800"
                           - code: time_to
-                            value: '2200'
+                            value: "2200"
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                     time:
                       label: enable
-                      timestamp: '2025-01-08T07:30:00.000Z'
+                      timestamp: 2025-01-08T07:30:00.000Z
                   - category_id: F&B
                     descriptor:
                       name: New Hand Tossed
                     id: C1
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                       unitized:
                         measure:
                           unit: unit
-                          value: '1'
+                          value: "1"
                     related: true
                     tags:
                       - code: type
@@ -733,7 +718,7 @@ steps:
                           - code: id
                             value: CG1
                           - code: default
-                            value: 'yes'
+                            value: yes
                       - code: child
                         list:
                           - code: id
@@ -741,20 +726,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: 100% Wheat Thin Crust
                     id: C2
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -766,7 +751,7 @@ steps:
                           - code: id
                             value: CG1
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -774,20 +759,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Regular
                     id: C3
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -799,7 +784,7 @@ steps:
                           - code: id
                             value: CG2
                           - code: default
-                            value: 'yes'
+                            value: yes
                       - code: child
                         list:
                           - code: id
@@ -807,20 +792,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Large
                     id: C4
                     price:
                       currency: INR
-                      maximum_value: '450.00'
-                      value: '450.00'
+                      maximum_value: "450.00"
+                      value: "450.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -832,7 +817,7 @@ steps:
                           - code: id
                             value: CG2
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -840,20 +825,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Medium
                     id: C5
                     price:
                       currency: INR
-                      maximum_value: '210.00'
-                      value: '210.00'
+                      maximum_value: "210.00"
+                      value: "210.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -865,7 +850,7 @@ steps:
                           - code: id
                             value: CG2
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -873,20 +858,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Regular
                     id: C6
                     price:
                       currency: INR
-                      maximum_value: '45.00'
-                      value: '45.00'
+                      maximum_value: "45.00"
+                      value: "45.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -898,7 +883,7 @@ steps:
                           - code: id
                             value: CG3
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -906,20 +891,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Medium
                     id: C7
                     price:
                       currency: INR
-                      maximum_value: '275.00'
-                      value: '275.00'
+                      maximum_value: "275.00"
+                      value: "275.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -931,7 +916,7 @@ steps:
                           - code: id
                             value: CG3
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -939,20 +924,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Grilled Mushrooms
                     id: C8
                     price:
                       currency: INR
-                      maximum_value: '35.00'
-                      value: '35.00'
+                      maximum_value: "35.00"
+                      value: "35.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -964,24 +949,24 @@ steps:
                           - code: id
                             value: CG4
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Fresh Tomato
                     id: C9
                     price:
                       currency: INR
-                      maximum_value: '35.00'
-                      value: '35.00'
+                      maximum_value: "35.00"
+                      value: "35.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -993,24 +978,24 @@ steps:
                           - code: id
                             value: CG4
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Pepper Barbeque Chicken
                     id: C10
                     price:
                       currency: INR
-                      maximum_value: '50.00'
-                      value: '50.00'
+                      maximum_value: "50.00"
+                      value: "50.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1022,24 +1007,24 @@ steps:
                           - code: id
                             value: CG4
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: non_veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Grilled Mushrooms
                     id: C11
                     price:
                       currency: INR
-                      maximum_value: '80.00'
-                      value: '80.00'
+                      maximum_value: "80.00"
+                      value: "80.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1051,24 +1036,24 @@ steps:
                           - code: id
                             value: CG5
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Fresh Tomato
                     id: C12
                     price:
                       currency: INR
-                      maximum_value: '80.00'
-                      value: '80.00'
+                      maximum_value: "80.00"
+                      value: "80.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1080,24 +1065,24 @@ steps:
                           - code: id
                             value: CG5
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Pepper Barbeque Chicken
                     id: C13
                     price:
                       currency: INR
-                      maximum_value: '95.00'
-                      value: '95.00'
+                      maximum_value: "95.00"
+                      value: "95.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1109,24 +1094,24 @@ steps:
                           - code: id
                             value: CG5
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: non_veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Grilled Mushrooms
                     id: C14
                     price:
                       currency: INR
-                      maximum_value: '80.00'
-                      value: '80.00'
+                      maximum_value: "80.00"
+                      value: "80.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1138,24 +1123,24 @@ steps:
                           - code: id
                             value: CG6
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Fresh Tomato
                     id: C15
                     price:
                       currency: INR
-                      maximum_value: '80.00'
-                      value: '80.00'
+                      maximum_value: "80.00"
+                      value: "80.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1167,24 +1152,24 @@ steps:
                           - code: id
                             value: CG6
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Pepper Barbeque Chicken
                     id: C16
                     price:
                       currency: INR
-                      maximum_value: '95.00'
-                      value: '95.00'
+                      maximum_value: "95.00"
+                      value: "95.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1196,51 +1181,51 @@ steps:
                           - code: id
                             value: CG6
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: non_veg
-                            value: 'yes'
-                  - '@ondc/org/available_on_cod': false
-                    '@ondc/org/cancellable': false
-                    '@ondc/org/contact_details_consumer_care': 'Ramesh,ramesh@abc.com,18004254444'
-                    '@ondc/org/return_window': PT1H
-                    '@ondc/org/returnable': false
-                    '@ondc/org/seller_pickup_return': false
-                    '@ondc/org/time_to_ship': PT45M
+                            value: yes
+                  - "@ondc/org/available_on_cod": false
+                    "@ondc/org/cancellable": false
+                    "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+                    "@ondc/org/return_window": PT1H
+                    "@ondc/org/returnable": false
+                    "@ondc/org/seller_pickup_return": false
+                    "@ondc/org/time_to_ship": PT45M
                     category_id: F&B
                     category_ids:
-                      - '6:1'
+                      - 6:1
                     descriptor:
                       images:
-                        - 'https://snp.com/images/i1.png'
+                        - https://snp.com/images/i1.png
                       long_desc: Mexican Patty Sandwich
                       name: Mexican Patty Sandwich
                       short_desc: Mexican Patty Sandwich
-                      symbol: 'https://snp.com/images/i1.png'
+                      symbol: https://snp.com/images/i1.png
                     fulfillment_id: F1
                     id: I2
                     location_id: L1
                     price:
                       currency: INR
-                      maximum_value: '229.00'
+                      maximum_value: "229.00"
                       tags:
                         - code: range
                           list:
                             - code: lower
-                              value: '229.00'
+                              value: "229.00"
                             - code: upper
-                              value: '718.00'
-                      value: '229.00'
+                              value: "718.00"
+                      value: "229.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                       unitized:
                         measure:
                           unit: unit
-                          value: '1'
+                          value: "1"
                     recommended: true
                     related: false
                     tags:
@@ -1255,27 +1240,27 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                     time:
                       label: enable
-                      timestamp: '2025-01-08T07:30:00.000Z'
+                      timestamp: 2025-01-08T07:30:00.000Z
                   - category_id: F&B
                     descriptor:
-                      name: 'Mexican Bean Patty 15cm [6 inches]'
+                      name: Mexican Bean Patty 15cm [6 inches]
                     id: C17
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                       unitized:
                         measure:
                           unit: unit
-                          value: '1'
+                          value: "1"
                     related: true
                     tags:
                       - code: type
@@ -1287,7 +1272,7 @@ steps:
                           - code: id
                             value: CG11
                           - code: default
-                            value: 'yes'
+                            value: yes
                       - code: child
                         list:
                           - code: id
@@ -1305,20 +1290,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Make Cheese Pull Mexican Patty 30cm
                     id: C18
                     price:
                       currency: INR
-                      maximum_value: '270.00'
-                      value: '270.00'
+                      maximum_value: "270.00"
+                      value: "270.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1330,7 +1315,7 @@ steps:
                           - code: id
                             value: CG11
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: child
                         list:
                           - code: id
@@ -1344,20 +1329,20 @@ steps:
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Multigrain Honey Oats
                     id: C19
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1369,24 +1354,24 @@ steps:
                           - code: id
                             value: CG12
                           - code: default
-                            value: 'yes'
+                            value: yes
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Parmesan Oregano
                     id: C20
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1398,24 +1383,24 @@ steps:
                           - code: id
                             value: CG12
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Plain bread
                     id: C21
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1427,24 +1412,24 @@ steps:
                           - code: id
                             value: CG13
                           - code: default
-                            value: 'yes'
+                            value: yes
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Toasted bread
                     id: C22
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1456,24 +1441,24 @@ steps:
                           - code: id
                             value: CG13
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Extra Cheese Slice
                     id: C23
                     price:
                       currency: INR
-                      maximum_value: '30.00'
-                      value: '30.00'
+                      maximum_value: "30.00"
+                      value: "30.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1485,24 +1470,24 @@ steps:
                           - code: id
                             value: CG14
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Extra Mexican Bean Patty Footlong
                     id: C24
                     price:
                       currency: INR
-                      maximum_value: '120.00'
-                      value: '120.00'
+                      maximum_value: "120.00"
+                      value: "120.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1514,24 +1499,24 @@ steps:
                           - code: id
                             value: CG15
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Lettuce
                     id: C25
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1543,24 +1528,24 @@ steps:
                           - code: id
                             value: CG16
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Eggless Mayo
                     id: C26
                     price:
                       currency: INR
-                      maximum_value: '0.00'
-                      value: '0.00'
+                      maximum_value: "0.00"
+                      value: "0.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1572,24 +1557,24 @@ steps:
                           - code: id
                             value: CG17
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                   - category_id: F&B
                     descriptor:
                       name: Dark Chunk Choc Cookies
                     id: C27
                     price:
                       currency: INR
-                      maximum_value: '99.00'
-                      value: '99.00'
+                      maximum_value: "99.00"
+                      value: "99.00"
                     quantity:
                       available:
-                        count: '99'
+                        count: "99"
                       maximum:
-                        count: '99'
+                        count: "99"
                     related: true
                     tags:
                       - code: type
@@ -1601,36 +1586,36 @@ steps:
                           - code: id
                             value: CG18
                           - code: default
-                            value: 'no'
+                            value: no
                       - code: veg_nonveg
                         list:
                           - code: veg
-                            value: 'yes'
+                            value: yes
                 locations:
                   - address:
-                      area_code: '144203'
+                      area_code: "144203"
                       city: my store city
                       locality: my store locality
                       state: my store state
                       street: my store street
                     circle:
-                      gps: '77.2045,28.5697'
+                      gps: 77.2045,28.5697
                       radius:
                         unit: km
-                        value: '3'
-                    gps: '77.2045,28.5697'
+                        value: "3"
+                    gps: 77.2045,28.5697
                     id: L1
                     time:
-                      days: '1,2,3,4,5,6,7'
+                      days: 1,2,3,4,5,6,7
                       label: enable
                       range:
-                        end: '2200'
-                        start: '1000'
+                        end: "2200"
+                        start: "1000"
                       schedule:
                         holidays:
-                          - '2026-04-02'
-                          - '2026-04-07'
-                      timestamp: '2025-01-08T07:30:30.000Z'
+                          - 2026-04-02
+                          - 2026-04-07
+                      timestamp: 2025-01-08T07:30:30.000Z
                 tags:
                   - code: timing
                     list:
@@ -1639,13 +1624,13 @@ steps:
                       - code: location
                         value: L1
                       - code: day_from
-                        value: '1'
+                        value: "1"
                       - code: day_to
-                        value: '7'
+                        value: "7"
                       - code: time_from
-                        value: '1000'
+                        value: "1000"
                       - code: time_to
-                        value: '2200'
+                        value: "2200"
                   - code: serviceability
                     list:
                       - code: location
@@ -1653,27 +1638,22 @@ steps:
                       - code: category
                         value: F&B
                       - code: type
-                        value: '13'
+                        value: "13"
                       - code: unit
                         value: geojson
                       - code: val
-                        value: >-
-                          {"type": "FeatureCollection", "features": [{"type":
-                          "Feature", "properties": {}, "geometry":
-                          {"coordinates": [[[77.1755, 28.6759], [77.1287,
-                          28.6009], [77.4469, 28.5453], [77.1755, 28.6759]]],
-                          "type": "Polygon"}}]}
+                        value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469, 28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}'
                       - code: day_from
-                        value: '1'
+                        value: "1"
                       - code: day_to
-                        value: '7'
+                        value: "7"
                       - code: time_from
-                        value: '1000'
+                        value: "1000"
                       - code: time_to
-                        value: '2200'
+                        value: "2200"
                 time:
                   label: enable
-                  timestamp: '2025-01-08T07:00:30.000Z'
+                  timestamp: 2025-01-08T07:00:30.000Z
                 ttl: P1D
       saveData:
         transactionId: $.context.transaction_id
@@ -1689,61 +1669,61 @@ transaction_history:
   - action_id: search_auto
     payload:
       context:
-        domain: 'ONDC:RET11'
+        domain: ONDC:RET11
         action: search
-        timestamp: '2026-04-17T13:27:51.380Z'
+        timestamp: 2026-04-17T13:27:51.380Z
         transaction_id: 82769785-011f-4aa1-838a-118433ee4278
         message_id: 7782ab82-eff7-4d20-ac6e-b7b45e804a55
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         country: IND
-        city: '*'
+        city: "*"
         core_version: 1.2.0
       message:
         intent:
           payment:
-            '@ondc/org/buyer_app_finder_fee_amount': '3'
-            '@ondc/org/buyer_app_finder_fee_type': percent
+            "@ondc/org/buyer_app_finder_fee_amount": "3"
+            "@ondc/org/buyer_app_finder_fee_type": percent
           tags:
             - code: catalog_full
               list:
                 - code: auto
-                  value: 'false'
+                  value: "false"
     action: search
     saved_info: {}
   - action_id: on_search0
     payload:
       context:
-        domain: 'ONDC:RET11'
+        domain: ONDC:RET11
         action: on_search
-        timestamp: '2026-04-17T13:27:51.388Z'
+        timestamp: 2026-04-17T13:27:51.388Z
         transaction_id: 82769785-011f-4aa1-838a-118433ee4278
         message_id: 7782ab82-eff7-4d20-ac6e-b7b45e804a55
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         bpp_id: bpp.example.com
-        bpp_uri: 'https://bpp.example.com'
+        bpp_uri: https://bpp.example.com
         country: IND
-        city: '*'
+        city: "*"
         core_version: 1.2.0
       message:
         catalog:
           bpp/descriptor:
             images:
-              - 'https://snp.com/images/np.png'
+              - https://snp.com/images/np.png
             long_desc: Seller Marketplace
             name: Seller NP
             short_desc: Seller Marketplace
-            symbol: 'https://snp.com/images/np.png'
+            symbol: https://snp.com/images/np.png
             tags:
               - code: bpp_terms
                 list:
                   - code: np_type
                     value: MSN
                   - code: accept_bap_terms
-                    value: 'Y'
+                    value: Y
           bpp/providers:
             - id: P1
             - id: P2
@@ -1755,16 +1735,16 @@ transaction_history:
   - action_id: search_choose
     payload:
       context:
-        domain: 'ONDC:RET11'
+        domain: ONDC:RET11
         action: search
-        timestamp: '2026-04-17T13:27:53.563Z'
+        timestamp: 2026-04-17T13:27:53.563Z
         transaction_id: 82769785-011f-4aa1-838a-118433ee4278
         message_id: 4dd20f7b-d546-44c6-98f4-eafac0fae418
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         country: IND
-        city: '*'
+        city: "*"
         core_version: 1.2.0
       message:
         intent:
@@ -1775,32 +1755,32 @@ transaction_history:
   - action_id: on_search_chosen
     payload:
       context:
-        domain: 'ONDC:RET11'
+        domain: ONDC:RET11
         action: on_search
-        timestamp: '2026-04-17T13:27:53.571Z'
+        timestamp: 2026-04-17T13:27:53.571Z
         transaction_id: 82769785-011f-4aa1-838a-118433ee4278
         message_id: 4dd20f7b-d546-44c6-98f4-eafac0fae418
         bap_id: bap.example.com
-        bap_uri: 'https://bap.example.com'
+        bap_uri: https://bap.example.com
         ttl: PT30S
         bpp_id: bpp.example.com
-        bpp_uri: 'https://bpp.example.com'
+        bpp_uri: https://bpp.example.com
         country: IND
-        city: '*'
+        city: "*"
         core_version: 1.2.0
       message:
         catalog:
           bpp/providers:
-            - '@ondc/org/fssai_license_no': '12345678901234'
+            - "@ondc/org/fssai_license_no": "12345678901234"
               categories:
                 - descriptor:
                     images:
-                      - 'https://snp.com/ondc/m005.png'
+                      - https://snp.com/ondc/m005.png
                     long_desc: American and Italian Veg and Non-Veg Pizza
                     name: Pizza
                     short_desc: Veg and Non-Veg pizza
-                  id: '5'
-                  parent_category_id: ''
+                  id: "5"
+                  parent_category_id: ""
                   tags:
                     - code: type
                       list:
@@ -1809,17 +1789,17 @@ transaction_history:
                     - code: timing
                       list:
                         - code: day_from
-                          value: '1'
+                          value: "1"
                         - code: day_to
-                          value: '5'
+                          value: "5"
                         - code: time_from
-                          value: '1800'
+                          value: "1800"
                         - code: time_to
-                          value: '2200'
+                          value: "2200"
                     - code: display
                       list:
                         - code: rank
-                          value: '1'
+                          value: "1"
                 - descriptor:
                     name: Crust (any 1 option)
                   id: CG1
@@ -1831,13 +1811,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '1'
+                          value: "1"
                 - descriptor:
                     name: Size (any 1 option)
                   id: CG2
@@ -1849,13 +1829,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '2'
+                          value: "2"
                 - descriptor:
                     name: Size (any 1 option)
                   id: CG3
@@ -1867,13 +1847,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '2'
+                          value: "2"
                 - descriptor:
                     name: Toppings (up to 2 options)
                   id: CG4
@@ -1885,13 +1865,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '2'
+                          value: "2"
                         - code: input
                           value: select
                         - code: seq
-                          value: '3'
+                          value: "3"
                 - descriptor:
                     name: Toppings (up to 2 options)
                   id: CG5
@@ -1903,13 +1883,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '2'
+                          value: "2"
                         - code: input
                           value: select
                         - code: seq
-                          value: '3'
+                          value: "3"
                 - descriptor:
                     name: Toppings (up to 2 options)
                   id: CG6
@@ -1921,21 +1901,21 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '2'
+                          value: "2"
                         - code: input
                           value: select
                         - code: seq
-                          value: '3'
+                          value: "3"
                 - descriptor:
                     images:
-                      - 'https://snp.com/ondc/m005.png'
-                    long_desc: 'American and Italian Veg,Non-Veg and Egg Pizza'
+                      - https://snp.com/ondc/m005.png
+                    long_desc: American and Italian Veg,Non-Veg and Egg Pizza
                     name: Pizza
-                    short_desc: 'Veg,Non-Veg and Egg pizza'
-                  id: '6'
-                  parent_category_id: ''
+                    short_desc: Veg,Non-Veg and Egg pizza
+                  id: "6"
+                  parent_category_id: ""
                   tags:
                     - code: type
                       list:
@@ -1944,17 +1924,17 @@ transaction_history:
                     - code: timing
                       list:
                         - code: day_from
-                          value: '1'
+                          value: "1"
                         - code: day_to
-                          value: '5'
+                          value: "5"
                         - code: time_from
-                          value: '1800'
+                          value: "1800"
                         - code: time_to
-                          value: '2200'
+                          value: "2200"
                     - code: display
                       list:
                         - code: rank
-                          value: '2'
+                          value: "2"
                 - descriptor:
                     name: Variant (1 option)
                   id: CG11
@@ -1966,13 +1946,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '1'
+                          value: "1"
                 - descriptor:
                     name: Choice of bread (1 option)
                   id: CG12
@@ -1984,13 +1964,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '2'
+                          value: "2"
                 - descriptor:
                     name: Choice of preparation
                   id: CG13
@@ -2002,13 +1982,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '1'
+                          value: "1"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '3'
+                          value: "3"
                 - descriptor:
                     name: Choose Add Ons (up to 1 option)
                   id: CG14
@@ -2020,13 +2000,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '4'
+                          value: "4"
                 - descriptor:
                     name: Choose Add Ons (up to 1 option)
                   id: CG15
@@ -2038,13 +2018,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '4'
+                          value: "4"
                 - descriptor:
                     name: Choose Veggies (up to 1 option)
                   id: CG16
@@ -2056,13 +2036,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '5'
+                          value: "5"
                 - descriptor:
                     name: Choose Sauces (up to 1 option)
                   id: CG17
@@ -2074,13 +2054,13 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '6'
+                          value: "6"
                 - descriptor:
                     name: Choose Offers (up to 1 option)
                   id: CG18
@@ -2092,78 +2072,78 @@ transaction_history:
                     - code: config
                       list:
                         - code: min
-                          value: '0'
+                          value: "0"
                         - code: max
-                          value: '1'
+                          value: "1"
                         - code: input
                           value: select
                         - code: seq
-                          value: '7'
+                          value: "7"
               descriptor:
                 images:
-                  - 'https://snp.com/images/store1.png'
+                  - https://snp.com/images/store1.png
                 long_desc: Store 1
                 name: Store 1
                 short_desc: Store 1
-                symbol: 'https://snp.com/images/store1.png'
+                symbol: https://snp.com/images/store1.png
               fulfillments:
                 - contact:
                     email: abc@xyz.com
-                    phone: '9886098860'
+                    phone: "9886098860"
                   id: F1
                   type: Delivery
                 - contact:
                     email: abc@xyz.com
-                    phone: '9886098860'
+                    phone: "9886098860"
                   id: F2
                   type: Self-Pickup
                 - contact:
                     email: abc@xyz.com
-                    phone: '9886098860'
+                    phone: "9886098860"
                   id: F3
                   type: Buyer-Delivery
               id: P2
               items:
-                - '@ondc/org/available_on_cod': false
-                  '@ondc/org/cancellable': false
-                  '@ondc/org/contact_details_consumer_care': 'Ramesh,ramesh@abc.com,18004254444'
-                  '@ondc/org/return_window': PT1H
-                  '@ondc/org/returnable': false
-                  '@ondc/org/seller_pickup_return': false
-                  '@ondc/org/time_to_ship': PT45M
+                - "@ondc/org/available_on_cod": false
+                  "@ondc/org/cancellable": false
+                  "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+                  "@ondc/org/return_window": PT1H
+                  "@ondc/org/returnable": false
+                  "@ondc/org/seller_pickup_return": false
+                  "@ondc/org/time_to_ship": PT45M
                   category_id: F&B
                   category_ids:
-                    - '5:1'
+                    - 5:1
                   descriptor:
                     images:
-                      - 'https://snp.com/images/i1.png'
+                      - https://snp.com/images/i1.png
                     long_desc: Farm House Pizza
                     name: Farm House Pizza
                     short_desc: Farm House Pizza
-                    symbol: 'https://snp.com/images/i1.png'
+                    symbol: https://snp.com/images/i1.png
                   fulfillment_id: F1
                   id: I1
                   location_id: L1
                   price:
                     currency: INR
-                    maximum_value: '269.00'
+                    maximum_value: "269.00"
                     tags:
                       - code: range
                         list:
                           - code: lower
-                            value: '269.00'
+                            value: "269.00"
                           - code: upper
-                            value: '894.00'
-                    value: '269.00'
+                            value: "894.00"
+                    value: "269.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                     unitized:
                       measure:
                         unit: unit
-                        value: '1'
+                        value: "1"
                   recommended: true
                   related: false
                   tags:
@@ -2178,37 +2158,37 @@ transaction_history:
                     - code: timing
                       list:
                         - code: day_from
-                          value: '1'
+                          value: "1"
                         - code: day_to
-                          value: '5'
+                          value: "5"
                         - code: time_from
-                          value: '1800'
+                          value: "1800"
                         - code: time_to
-                          value: '2200'
+                          value: "2200"
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                   time:
                     label: enable
-                    timestamp: '2025-01-08T07:30:00.000Z'
+                    timestamp: 2025-01-08T07:30:00.000Z
                 - category_id: F&B
                   descriptor:
                     name: New Hand Tossed
                   id: C1
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                     unitized:
                       measure:
                         unit: unit
-                        value: '1'
+                        value: "1"
                   related: true
                   tags:
                     - code: type
@@ -2220,7 +2200,7 @@ transaction_history:
                         - code: id
                           value: CG1
                         - code: default
-                          value: 'yes'
+                          value: yes
                     - code: child
                       list:
                         - code: id
@@ -2228,20 +2208,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: 100% Wheat Thin Crust
                   id: C2
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2253,7 +2233,7 @@ transaction_history:
                         - code: id
                           value: CG1
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2261,20 +2241,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Regular
                   id: C3
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2286,7 +2266,7 @@ transaction_history:
                         - code: id
                           value: CG2
                         - code: default
-                          value: 'yes'
+                          value: yes
                     - code: child
                       list:
                         - code: id
@@ -2294,20 +2274,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Large
                   id: C4
                   price:
                     currency: INR
-                    maximum_value: '450.00'
-                    value: '450.00'
+                    maximum_value: "450.00"
+                    value: "450.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2319,7 +2299,7 @@ transaction_history:
                         - code: id
                           value: CG2
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2327,20 +2307,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Medium
                   id: C5
                   price:
                     currency: INR
-                    maximum_value: '210.00'
-                    value: '210.00'
+                    maximum_value: "210.00"
+                    value: "210.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2352,7 +2332,7 @@ transaction_history:
                         - code: id
                           value: CG2
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2360,20 +2340,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Regular
                   id: C6
                   price:
                     currency: INR
-                    maximum_value: '45.00'
-                    value: '45.00'
+                    maximum_value: "45.00"
+                    value: "45.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2385,7 +2365,7 @@ transaction_history:
                         - code: id
                           value: CG3
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2393,20 +2373,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Medium
                   id: C7
                   price:
                     currency: INR
-                    maximum_value: '275.00'
-                    value: '275.00'
+                    maximum_value: "275.00"
+                    value: "275.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2418,7 +2398,7 @@ transaction_history:
                         - code: id
                           value: CG3
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2426,20 +2406,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Grilled Mushrooms
                   id: C8
                   price:
                     currency: INR
-                    maximum_value: '35.00'
-                    value: '35.00'
+                    maximum_value: "35.00"
+                    value: "35.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2451,24 +2431,24 @@ transaction_history:
                         - code: id
                           value: CG4
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Fresh Tomato
                   id: C9
                   price:
                     currency: INR
-                    maximum_value: '35.00'
-                    value: '35.00'
+                    maximum_value: "35.00"
+                    value: "35.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2480,24 +2460,24 @@ transaction_history:
                         - code: id
                           value: CG4
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Pepper Barbeque Chicken
                   id: C10
                   price:
                     currency: INR
-                    maximum_value: '50.00'
-                    value: '50.00'
+                    maximum_value: "50.00"
+                    value: "50.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2509,24 +2489,24 @@ transaction_history:
                         - code: id
                           value: CG4
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: non_veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Grilled Mushrooms
                   id: C11
                   price:
                     currency: INR
-                    maximum_value: '80.00'
-                    value: '80.00'
+                    maximum_value: "80.00"
+                    value: "80.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2538,24 +2518,24 @@ transaction_history:
                         - code: id
                           value: CG5
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Fresh Tomato
                   id: C12
                   price:
                     currency: INR
-                    maximum_value: '80.00'
-                    value: '80.00'
+                    maximum_value: "80.00"
+                    value: "80.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2567,24 +2547,24 @@ transaction_history:
                         - code: id
                           value: CG5
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Pepper Barbeque Chicken
                   id: C13
                   price:
                     currency: INR
-                    maximum_value: '95.00'
-                    value: '95.00'
+                    maximum_value: "95.00"
+                    value: "95.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2596,24 +2576,24 @@ transaction_history:
                         - code: id
                           value: CG5
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: non_veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Grilled Mushrooms
                   id: C14
                   price:
                     currency: INR
-                    maximum_value: '80.00'
-                    value: '80.00'
+                    maximum_value: "80.00"
+                    value: "80.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2625,24 +2605,24 @@ transaction_history:
                         - code: id
                           value: CG6
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Fresh Tomato
                   id: C15
                   price:
                     currency: INR
-                    maximum_value: '80.00'
-                    value: '80.00'
+                    maximum_value: "80.00"
+                    value: "80.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2654,24 +2634,24 @@ transaction_history:
                         - code: id
                           value: CG6
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Pepper Barbeque Chicken
                   id: C16
                   price:
                     currency: INR
-                    maximum_value: '95.00'
-                    value: '95.00'
+                    maximum_value: "95.00"
+                    value: "95.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2683,51 +2663,51 @@ transaction_history:
                         - code: id
                           value: CG6
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: non_veg
-                          value: 'yes'
-                - '@ondc/org/available_on_cod': false
-                  '@ondc/org/cancellable': false
-                  '@ondc/org/contact_details_consumer_care': 'Ramesh,ramesh@abc.com,18004254444'
-                  '@ondc/org/return_window': PT1H
-                  '@ondc/org/returnable': false
-                  '@ondc/org/seller_pickup_return': false
-                  '@ondc/org/time_to_ship': PT45M
+                          value: yes
+                - "@ondc/org/available_on_cod": false
+                  "@ondc/org/cancellable": false
+                  "@ondc/org/contact_details_consumer_care": Ramesh,ramesh@abc.com,18004254444
+                  "@ondc/org/return_window": PT1H
+                  "@ondc/org/returnable": false
+                  "@ondc/org/seller_pickup_return": false
+                  "@ondc/org/time_to_ship": PT45M
                   category_id: F&B
                   category_ids:
-                    - '6:1'
+                    - 6:1
                   descriptor:
                     images:
-                      - 'https://snp.com/images/i1.png'
+                      - https://snp.com/images/i1.png
                     long_desc: Mexican Patty Sandwich
                     name: Mexican Patty Sandwich
                     short_desc: Mexican Patty Sandwich
-                    symbol: 'https://snp.com/images/i1.png'
+                    symbol: https://snp.com/images/i1.png
                   fulfillment_id: F1
                   id: I2
                   location_id: L1
                   price:
                     currency: INR
-                    maximum_value: '229.00'
+                    maximum_value: "229.00"
                     tags:
                       - code: range
                         list:
                           - code: lower
-                            value: '229.00'
+                            value: "229.00"
                           - code: upper
-                            value: '718.00'
-                    value: '229.00'
+                            value: "718.00"
+                    value: "229.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                     unitized:
                       measure:
                         unit: unit
-                        value: '1'
+                        value: "1"
                   recommended: true
                   related: false
                   tags:
@@ -2742,27 +2722,27 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                   time:
                     label: enable
-                    timestamp: '2025-01-08T07:30:00.000Z'
+                    timestamp: 2025-01-08T07:30:00.000Z
                 - category_id: F&B
                   descriptor:
-                    name: 'Mexican Bean Patty 15cm [6 inches]'
+                    name: Mexican Bean Patty 15cm [6 inches]
                   id: C17
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                     unitized:
                       measure:
                         unit: unit
-                        value: '1'
+                        value: "1"
                   related: true
                   tags:
                     - code: type
@@ -2774,7 +2754,7 @@ transaction_history:
                         - code: id
                           value: CG11
                         - code: default
-                          value: 'yes'
+                          value: yes
                     - code: child
                       list:
                         - code: id
@@ -2792,20 +2772,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Make Cheese Pull Mexican Patty 30cm
                   id: C18
                   price:
                     currency: INR
-                    maximum_value: '270.00'
-                    value: '270.00'
+                    maximum_value: "270.00"
+                    value: "270.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2817,7 +2797,7 @@ transaction_history:
                         - code: id
                           value: CG11
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: child
                       list:
                         - code: id
@@ -2831,20 +2811,20 @@ transaction_history:
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Multigrain Honey Oats
                   id: C19
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2856,24 +2836,24 @@ transaction_history:
                         - code: id
                           value: CG12
                         - code: default
-                          value: 'yes'
+                          value: yes
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Parmesan Oregano
                   id: C20
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2885,24 +2865,24 @@ transaction_history:
                         - code: id
                           value: CG12
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Plain bread
                   id: C21
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2914,24 +2894,24 @@ transaction_history:
                         - code: id
                           value: CG13
                         - code: default
-                          value: 'yes'
+                          value: yes
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Toasted bread
                   id: C22
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2943,24 +2923,24 @@ transaction_history:
                         - code: id
                           value: CG13
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Extra Cheese Slice
                   id: C23
                   price:
                     currency: INR
-                    maximum_value: '30.00'
-                    value: '30.00'
+                    maximum_value: "30.00"
+                    value: "30.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -2972,24 +2952,24 @@ transaction_history:
                         - code: id
                           value: CG14
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Extra Mexican Bean Patty Footlong
                   id: C24
                   price:
                     currency: INR
-                    maximum_value: '120.00'
-                    value: '120.00'
+                    maximum_value: "120.00"
+                    value: "120.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -3001,24 +2981,24 @@ transaction_history:
                         - code: id
                           value: CG15
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Lettuce
                   id: C25
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -3030,24 +3010,24 @@ transaction_history:
                         - code: id
                           value: CG16
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Eggless Mayo
                   id: C26
                   price:
                     currency: INR
-                    maximum_value: '0.00'
-                    value: '0.00'
+                    maximum_value: "0.00"
+                    value: "0.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -3059,24 +3039,24 @@ transaction_history:
                         - code: id
                           value: CG17
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
                 - category_id: F&B
                   descriptor:
                     name: Dark Chunk Choc Cookies
                   id: C27
                   price:
                     currency: INR
-                    maximum_value: '99.00'
-                    value: '99.00'
+                    maximum_value: "99.00"
+                    value: "99.00"
                   quantity:
                     available:
-                      count: '99'
+                      count: "99"
                     maximum:
-                      count: '99'
+                      count: "99"
                   related: true
                   tags:
                     - code: type
@@ -3088,36 +3068,36 @@ transaction_history:
                         - code: id
                           value: CG18
                         - code: default
-                          value: 'no'
+                          value: no
                     - code: veg_nonveg
                       list:
                         - code: veg
-                          value: 'yes'
+                          value: yes
               locations:
                 - address:
-                    area_code: '144203'
+                    area_code: "144203"
                     city: my store city
                     locality: my store locality
                     state: my store state
                     street: my store street
                   circle:
-                    gps: '77.2045,28.5697'
+                    gps: 77.2045,28.5697
                     radius:
                       unit: km
-                      value: '3'
-                  gps: '77.2045,28.5697'
+                      value: "3"
+                  gps: 77.2045,28.5697
                   id: L1
                   time:
-                    days: '1,2,3,4,5,6,7'
+                    days: 1,2,3,4,5,6,7
                     label: enable
                     range:
-                      end: '2200'
-                      start: '1000'
+                      end: "2200"
+                      start: "1000"
                     schedule:
                       holidays:
-                        - '2026-04-02'
-                        - '2026-04-07'
-                    timestamp: '2025-01-08T07:30:30.000Z'
+                        - 2026-04-02
+                        - 2026-04-07
+                    timestamp: 2025-01-08T07:30:30.000Z
               tags:
                 - code: timing
                   list:
@@ -3126,13 +3106,13 @@ transaction_history:
                     - code: location
                       value: L1
                     - code: day_from
-                      value: '1'
+                      value: "1"
                     - code: day_to
-                      value: '7'
+                      value: "7"
                     - code: time_from
-                      value: '1000'
+                      value: "1000"
                     - code: time_to
-                      value: '2200'
+                      value: "2200"
                 - code: serviceability
                   list:
                     - code: location
@@ -3140,29 +3120,24 @@ transaction_history:
                     - code: category
                       value: F&B
                     - code: type
-                      value: '13'
+                      value: "13"
                     - code: unit
                       value: geojson
                     - code: val
-                      value: >-
-                        {"type": "FeatureCollection", "features": [{"type":
-                        "Feature", "properties": {}, "geometry": {"coordinates":
-                        [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469,
-                        28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}
+                      value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469, 28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}'
                     - code: day_from
-                      value: '1'
+                      value: "1"
                     - code: day_to
-                      value: '7'
+                      value: "7"
                     - code: time_from
-                      value: '1000'
+                      value: "1000"
                     - code: time_to
-                      value: '2200'
+                      value: "2200"
               time:
                 label: enable
-                timestamp: '2025-01-08T07:00:30.000Z'
+                timestamp: 2025-01-08T07:00:30.000Z
               ttl: P1D
     action: on_search
     saved_info: {}
-validationLib: ''
-helperLib: >-
-  LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
+validationLib: ""
+helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9Cg==
