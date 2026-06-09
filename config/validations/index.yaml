@@ -37,6 +37,7 @@ enums:
     - &TRIP TRIP
     - &ONLINE ONLINE
     - &ROUTE ROUTE
+    - &STOPS STOPS
   credsType: &credsType
     - &PAN PAN
     - &AADHAAR AADHAAR
@@ -99,6 +100,7 @@ tags:
   paginationTags: &pagination
     - &PAGINATION_ID PAGINATION_ID
     - &MAX_PAGE_NUMBER MAX_PAGE_NUMBER
+    - &CURRENT_PAGE_NUMBER CURRENT_PAGE_NUMBER
   fulfillmentTags: &fulfillmentTags
     - &ROUTE_INFO ROUTE_INFO 
     - &INFO INFO
@@ -475,7 +477,8 @@ _TESTS_:
       vehicleCategory: 
         - *BUS
       #if not work, then use all in
-      _CONTINUE_: (usecasepath1 are present && usecaespath2 all in vehicleCategory)
+      # _CONTINUE_: (usecasepath1 are present && usecaespath2 all in vehicleCategory)
+      _CONTINUE_: (usecasepath1 are present)
       action: 
         - on_search
       _RETURN_:
