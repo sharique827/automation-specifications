@@ -1330,3 +1330,27 @@ paths:
                     update_target:
                       type: string
       responses: *responses
+
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Signature of message body using Buyer App or Seller App subscriber's
+        signing public key.
+    GatewaySubscriberAuth:
+      type: apiKey
+      in: header
+      name: Proxy-Authorization
+      description: >-
+        Signature of message body plus the BuyerApp/SellerApp Authorization
+        header using the gateway's signing public key.
+    GatewaySubscriberAuthNew:
+      type: apiKey
+      in: header
+      name: X-Gateway-Authorization
+      description: >-
+        Signature of message body plus the BuyerApp/SellerApp Authorization
+        header using the gateway's signing public key.
