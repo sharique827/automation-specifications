@@ -6,7 +6,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Buyer Delivery Flow)
+    description: A complete end-to-end grocery purchase sequence encompassing product selection, order initialization, confirmation, and shipment tracking through to final delivery updates.
     config:
       $ref: ./GROCERY/Buyer_Delivery_Flow.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Buyer Instructions)
+    description: A grocery transaction flow covering the complete lifecycle from order selection and initialization to delivery, including the exchange of buyer-specific instructions and multiple status updates.
     config:
       $ref: ./GROCERY/Buyer_Instructions_And_Delivery_Update_Flow.yaml
   - type: playground
@@ -27,7 +27,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cancellation)
+    description: End-to-end grocery order cancellation process where a buyer initiates a cancellation request and the seller confirms the cancellation to finalize the transaction.
     config:
       $ref: ./GROCERY/Cancellation_Flow.yaml
   - type: playground
@@ -38,7 +38,7 @@ flows:
       - OPTIONAL
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cash On Delivery)
+    description: A grocery order lifecycle where the customer selects items and completes the checkout process using Cash on Delivery, followed by order tracking and multiple status updates until final delivery.
     config:
       $ref: ./GROCERY/Cash_On_Delivery_Flow.yaml
   - type: playground
@@ -49,7 +49,7 @@ flows:
       - OPTIONAL
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Commercial model)
+    description: A grocery transaction flow that implements the commercial model for Buyer Network Participants and Seller Network Participants to facilitate a full order lifecycle from item selection to order confirmation.
     config:
       $ref: ./GROCERY/Commercial_Model_For_BNP_SNP_Flow.yaml
   - type: playground
@@ -60,7 +60,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery)
+    description: An end-to-end grocery delivery transaction flow covering item selection, order initialization, confirmation, and repeated status polling through to final delivery tracking.
     config:
       $ref: ./GROCERY/Delivery_Flow.yaml
   - type: playground
@@ -69,7 +69,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Delivery with IGM 1.0.0)
+    description: A complete grocery delivery transaction lifecycle covering order placement and confirmation, integrated with an Item Group Management (IGM) process for handling order issues and resolution.
     config:
       $ref: ./GROCERY/Delivery_Flow_With_IGM_v-1_0_0_.yaml
   - type: playground
@@ -80,7 +80,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: A grocery delivery transaction flow incorporating Inter-Gateway Messaging (IGM) for mandatory reporting, encompassing search, order placement, and multiple status and issue lifecycle updates.
     config:
       $ref: ./GROCERY/Delivery_Flow_With_IGM_v-2_0_0_.yaml
   - type: playground
@@ -89,7 +89,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Delivery with IGM 3)
+    description: Standard grocery delivery transaction flow featuring order initiation, confirmation, real-time tracking, and multi-stage issue resolution via the IGM framework.
     config:
       $ref: ./GROCERY/Delivery_Flow_With_IGM_No_Action_v-2_0_0_.yaml
   - type: playground
@@ -100,7 +100,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 2)
+    description: A grocery delivery transaction flow that involves order placement and fulfillment, featuring a sequence of IGM rejections and subsequent updates to the order status.
     config:
       $ref: ./GROCERY/Delivery_Flow_With_IGM_Rejection_v-2_0_0_.yaml
   - type: playground
@@ -111,7 +111,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow)
+    description: A grocery retail discovery process where a buyer searches for products and the seller returns a full catalog of available items.
     config:
       $ref: ./GROCERY/Discovery_Flow_full_catalog.yaml
   - type: playground
@@ -122,7 +122,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog)
+    description: A grocery discovery scenario where a buyer performs a search and receives incremental catalog updates through successive search responses to refine product availability.
     config:
       $ref: ./GROCERY/Discovery_Flow_incremental_catalog.yaml
   - type: playground
@@ -130,7 +130,7 @@ flows:
     usecase: GROCERY
     tags:
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog Refresh Pull)
+    description: A grocery retail scenario exercising the incremental catalog refresh pull mechanism through repeated search requests and responses to ensure the BPP's product availability and pricing are synchronized.
     config:
       $ref: ./GROCERY/Discovery_Flow_incremental_catalog_refresh_pull.yaml
   - type: playground
@@ -140,7 +140,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Delivery)
+    description: A comprehensive grocery order lifecycle covering selection and confirmation, followed by repeated status monitoring and a final forced cancellation to update the order state.
     config:
       $ref: ./GROCERY/Forced_Cancellation_Flow.yaml
   - type: playground
@@ -149,7 +149,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Multi Option Fulfillment)
+    description: A complete grocery order lifecycle incorporating multi-option fulfillment selection, order initiation, confirmation, and a comprehensive tracking sequence through multiple status updates.
     config:
       $ref: ./GROCERY/Multi_Option_Fulfillment_Flow.yaml
   - type: playground
@@ -158,7 +158,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Out Of Stock)
+    description: A transaction flow managing grocery order fulfillment where an item becomes unavailable post-selection, requiring status updates and tracking to handle the out-of-stock scenario through to completion.
     config:
       $ref: ./GROCERY/Out_Of_Stock_Flow.yaml
   - type: playground
@@ -168,7 +168,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Out Of Stock)
+    description: Handles the scenario where a grocery item is identified as out of stock after selection, triggering an error notification and a redirection for the consumer to modify their order.
     config:
       $ref: ./GROCERY/Out_Of_Stock_Flow_Error-code_.yaml
   - type: playground
@@ -179,7 +179,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (RTO and Part Cancellation)
+    description: A multi-step grocery order lifecycle encompassing selection, initialization, and confirmation, extending through status updates to handle return-to-origin (RTO) and partial cancellation scenarios.
     config:
       $ref: ./GROCERY/RTO_And_Part_Cancellation_Flow.yaml
   - type: playground
@@ -190,7 +190,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Return)
+    description: A comprehensive grocery return request workflow covering the end-to-end lifecycle from initial item selection and request initiation to final status synchronization and multi-stage order updates.
     config:
       $ref: ./GROCERY/Return_Flow.yaml
   - type: playground
@@ -200,7 +200,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Self Pickup)
+    description: A mandatory grocery transaction flow where a customer selects items and completes the order for self-pickup at a retail store location.
     config:
       $ref: ./GROCERY/Self_Pickup_Flow.yaml
   - type: playground
@@ -210,7 +210,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Slotted Delivery)
+    description: A grocery delivery transaction flow where the customer selects a specific delivery time slot and tracks the order status through to final fulfillment.
     config:
       $ref: ./GROCERY/Slotted_Delivery_Flow.yaml
   - type: playground
@@ -221,7 +221,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Replacement)
+    description: A grocery replacement flow where a customer selects a replacement item for an unavailable product, initializes and confirms the request, and monitors the order status updates through to finalization.
     config:
       $ref: ./GROCERY/Replacement_Flow.yaml
   - type: playground
@@ -232,6 +232,6 @@ flows:
       - OPTIONAL
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Catalog Rejection)
+    description: A grocery catalog validation scenario where a search request is processed and subsequently rejected due to catalog discrepancies or compliance failures.
     config:
       $ref: ./GROCERY/Catalog_Rejection_Flow.yaml
