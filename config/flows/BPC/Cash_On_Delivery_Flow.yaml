@@ -69,6 +69,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        city: $.context.city
+        selected_items: $.message.order.items[*]
+        selected_fulfillments: $.message.order.fulfillments[*]
+        provider: $.message.order.provider
       inputs:
         oldInputs:
           - name: fashion_select
@@ -222,6 +227,10 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        quote: $.message.order.quote
+        on_select_fulfillments: $.message.order.fulfillments[*]
+        on_select_items: $.message.order.items[*]
+        tat: $.message.order.fulfillments[0]["@ondc/org/TAT"]
       inputs: {}
     examples:
       - name: Example for action "on_select"
@@ -400,6 +409,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        items: $.message.order.items[*]
+        provider: $.message.order.provider
+        billing: $.message.order.billing
+        fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
       - name: Example for action "init"
@@ -624,6 +638,10 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        fulfillments: $.message.order.fulfillments[*]
+        tags: $.message.order.tags[*]
+        bpp_terms: $.message.order.tags[?(@.code == 'bpp_terms')]
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_init"
@@ -936,6 +954,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        message_id: $.context.message_id
+        order_id: $.message.order.id
+        order_state: $.message.order.state
+        order_created_at: $.message.order.created_at
+        bap_terms: $.message.order.tags[?(@.code == 'bap_terms')]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
       inputs: {}
     examples:
       - name: Example for action "confirm"
@@ -1288,6 +1313,11 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_confirm_updated_at_timestamp: $.message.order.updated_at
+        payment: $.message.order.payment
+        fulfillments: $.message.order.fulfillments[*]
+        bpp_id: $.context.bpp_id
       inputs: {}
     examples:
       - name: Example for action "on_confirm"
@@ -1665,6 +1695,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_status_fulfillments: $.message.order.fulfillments[*]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
+        last_updated_at: $.message.order.updated_at
+        order_id: $.message.order.id
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -2046,6 +2083,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_status_fulfillments: $.message.order.fulfillments[*]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
+        last_updated_at: $.message.order.updated_at
+        order_id: $.message.order.id
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -2427,6 +2471,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_status_fulfillments: $.message.order.fulfillments[*]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
+        last_updated_at: $.message.order.updated_at
+        order_id: $.message.order.id
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -2808,6 +2859,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_status_fulfillments: $.message.order.fulfillments[*]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
+        last_updated_at: $.message.order.updated_at
+        order_id: $.message.order.id
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_status"
@@ -3189,6 +3247,13 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        order_state: $.message.order.state
+        on_status_fulfillments: $.message.order.fulfillments[*]
+        fulfillments: $.message.order.fulfillments[*]
+        payment: $.message.order.payment
+        last_updated_at: $.message.order.updated_at
+        order_id: $.message.order.id
+        quote: $.message.order.quote
       inputs: {}
     examples:
       - name: Example for action "on_status"
