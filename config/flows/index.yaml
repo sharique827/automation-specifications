@@ -55,3 +55,14 @@ flows:
     description: Discovery Flow for Inventory Less (Buy now journey and find best price)
     config:
       $ref: ./RETINVL/RETINVL_DISCOVERY_FLOW.yaml
+  - type: playground
+    id: SELF_PICKUP
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: Self-pickup order flow ending when the order is picked up and completed
+    config:
+      $ref: ./RETINVL/SELF_PICKUP.yaml
