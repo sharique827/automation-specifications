@@ -36,9 +36,24 @@ paths:
                       type: string
                     domain:
                       type: string
+                    location:
+                      type: object
+                      properties:
+                        country:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                        city:
+                          type: object
+                          properties:
+                            code:
+                              type: string
                     message_id:
                       type: string
                     timestamp:
+                      type: string
+                    version:
                       type: string
                     transaction_id:
                       type: string
@@ -47,6 +62,29 @@ paths:
                 message:
                   type: object
                   properties:
+                    descriptor:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        short_desc:
+                          type: string
+                        tags:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                              list:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
+                                    value:
+                                      type: string
                     cancellation_reason_id:
                       type: string
                     order_id:
@@ -321,6 +359,16 @@ paths:
                                     properties:
                                       name:
                                         type: string
+                                  time:
+                                    type: object
+                                    properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                          end:
+                                            type: string
                               id:
                                 type: string
                               tracking:
@@ -389,17 +437,29 @@ paths:
                                     type: string
                                   settlement_counterparty:
                                     type: string
+                                  settlement_amount:
+                                    type: string
                                   settlement_ifsc_code:
+                                    type: string
+                                  settlement_reference:
                                     type: string
                                   settlement_phase:
                                     type: string
+                                  settlement_status:
+                                    type: string
                                   settlement_type:
+                                    type: string
+                                  settlement_timestamp:
                                     type: string
                             "@ondc/org/settlement_window":
                               type: string
                             "@ondc/org/withholding_amount":
                               type: string
                             collected_by:
+                              type: string
+                            uri:
+                              type: string
+                            tl_method:
                               type: string
                             params:
                               type: object
@@ -414,6 +474,22 @@ paths:
                               type: string
                             type:
                               type: string
+                            tags:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  list:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
+                                        value:
+                                          type: string
                         provider: &provider
                           type: object
                           properties:
@@ -449,6 +525,22 @@ paths:
                                             type: string
                                           value:
                                             type: string
+                                      tags: &item_tags
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            code:
+                                              type: string
+                                            list:
+                                              type: array
+                                              items:
+                                                type: object
+                                                properties:
+                                                  code:
+                                                    type: string
+                                                  value:
+                                                    type: string
                                   price: *price
                                   title:
                                     type: string
@@ -522,6 +614,7 @@ paths:
                                   code:
                                     type: string
                               tags: *tags
+                        tags: *tags
                         provider: *provider
       responses: *responses
   /on_cancel:
@@ -546,7 +639,9 @@ paths:
                           type: object
                           properties:
                             cancelled_by:
-                              type: string
+                              type: array
+                              items:
+                                type: string
                             reason: *items_2
                         created_at:
                           type: string
@@ -591,6 +686,16 @@ paths:
                                       id:
                                         type: string
                                   person: *person
+                                  time:
+                                    type: object
+                                    properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                          end:
+                                            type: string
                               id:
                                 type: string
                               start:
@@ -602,6 +707,13 @@ paths:
                                   time:
                                     type: object
                                     properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                          end:
+                                            type: string
                                       timestamp:
                                         type: string
                               state: &state
@@ -648,6 +760,7 @@ paths:
                                               count:
                                                 type: string
                                           maximum: *available
+                                      tags: *item_tags
                                   price: *price
                                   title:
                                     type: string
@@ -656,6 +769,7 @@ paths:
                               type: string
                         state:
                           type: string
+                        tags: *tags
                         updated_at:
                           type: string
       responses: *responses
@@ -679,6 +793,20 @@ paths:
                         billing: *billing
                         created_at:
                           type: string
+                        cancellation:
+                          type: object
+                          properties:
+                            cancelled_by:
+                              type: array
+                              items:
+                                type: string
+                            reason:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                state:
+                                  type: string
                         fulfillments:
                           type: array
                           items:
@@ -716,6 +844,27 @@ paths:
                                         type: string
                                       id:
                                         type: string
+                                  instructions:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
+                                      name:
+                                        type: string
+                                      short_desc:
+                                        type: string
+                                      long_desc:
+                                        type: string
+                                  time:
+                                    type: object
+                                    properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                          end:
+                                            type: string
                               state: *state
                               tracking:
                                 type: boolean
@@ -759,11 +908,13 @@ paths:
                               end: *end_2
                               id:
                                 type: string
+                              tags: *tags
                               tracking:
                                 type: boolean
                               type:
                                 type: string
                         items: *items
+                        offers: *offers
                         payment:
                           type: object
                           properties:
@@ -772,6 +923,7 @@ paths:
                             "@ondc/org/buyer_app_finder_fee_type":
                               type: string
                             "@ondc/org/settlement_details": *ondc_org_settlement_details
+                            tags: *tags
                         provider: *provider
                         quote: *quote
                         tags: *tags
@@ -1113,16 +1265,48 @@ paths:
                                 type: string
                               "@ondc/org/provider_name":
                                 type: string
+                              agent:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  phone:
+                                    type: string
+                              vehicle:
+                                type: object
+                                properties:
+                                  registration:
+                                    type: string
                               end: &end_3
                                 type: object
                                 properties:
                                   contact: *contact
                                   location: *location
                                   person: *person
+                                  instructions:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
+                                      name:
+                                        type: string
+                                      short_desc:
+                                        type: string
+                                      long_desc:
+                                        type: string
+                                      additional_desc:
+                                        type: object
+                                        properties:
+                                          url:
+                                            type: string
+                                          content_type:
+                                            type: string
                                   time: &time_2
                                     type: object
                                     properties:
                                       range: *range
+                                      timestamp:
+                                        type: string
                               id:
                                 type: string
                               start:
@@ -1130,6 +1314,17 @@ paths:
                                 properties:
                                   contact: *contact
                                   location: *location_3
+                                  instructions:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
+                                      name:
+                                        type: string
+                                      short_desc:
+                                        type: string
+                                      long_desc:
+                                        type: string
                                   time: *time_2
                               state: *state
                               tags: *tags
@@ -1145,6 +1340,15 @@ paths:
                         quote: *quote_2
                         state:
                           type: string
+                        documents:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                              label:
+                                type: string
                         updated_at:
                           type: string
       responses: *responses
@@ -1169,8 +1373,21 @@ paths:
                           type: string
                         status:
                           type: string
+                        location:
+                          type: object
+                          properties:
+                            gps:
+                              type: string
+                            time:
+                              type: object
+                              properties:
+                                timestamp:
+                                  type: string
+                            updated_at:
+                              type: string
                         url:
                           type: string
+                        tags: *tags
       responses: *responses
   /on_update:
     post:
@@ -1216,6 +1433,17 @@ paths:
                                 properties:
                                   contact: *contact
                                   location: *location_3
+                                  instructions:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
+                                      name:
+                                        type: string
+                                      short_desc:
+                                        type: string
+                                      long_desc:
+                                        type: string
                                   time:
                                     type: object
                                     properties:
@@ -1356,6 +1584,624 @@ paths:
                     order_id:
                       type: string
       responses: *responses
+  /status:
+    post:
+      operationId: status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context
+                message:
+                  type: object
+                  properties:
+                    order_id:
+                      type: string
+      responses: *responses
+  /issue:
+    post:
+      operationId: issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        category:
+                          type: string
+                        sub_category:
+                          type: string
+                        complainant_info:
+                          type: object
+                          properties:
+                            person:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                            contact:
+                              type: object
+                              properties:
+                                phone:
+                                  type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info:
+                                type: object
+                                properties:
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  contact:
+                                    type: object
+                                    properties:
+                                      phone:
+                                        type: string
+                                      email:
+                                        type: string
+                        source_id:
+                          type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        order_details:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            provider_id:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  quantity:
+                                    type: string
+                            fulfillments:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                        description:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                            images:
+                              type: array
+                              items:
+                                type: string
+                        expected_response_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        expected_resolution_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+                        last_action_id:
+                          type: string
+                        actions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+      responses: *responses
+  /on_issue:
+    post:
+      operationId: on_issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info:
+                                type: object
+                                properties:
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  contact:
+                                    type: object
+                                    properties:
+                                      phone:
+                                        type: string
+                                      email:
+                                        type: string
+                        source_id:
+                          type: string
+                        category:
+                          type: string
+                        sub_category:
+                          type: string
+                        complainant_info:
+                          type: object
+                          properties:
+                            person:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                            contact:
+                              type: object
+                              properties:
+                                phone:
+                                  type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        description:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                            images:
+                              type: array
+                              items:
+                                type: string
+                        expected_response_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        expected_resolution_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+                            respondent_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  respondent_action:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  updated_at:
+                                    type: string
+                                  updated_by:
+                                    type: object
+                                    properties:
+                                      person:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                                      org:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                        last_action_id:
+                          type: string
+                        actions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+                        resolution:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            action_triggered:
+                              type: string
+                        resolution_provider:
+                          type: object
+                          properties:
+                            respondent_info:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                organization:
+                                  type: object
+                                  properties:
+                                    org:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                    person:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+      responses: *responses
+  /on_issue_status:
+    post:
+      operationId: on_issue_status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info:
+                                type: object
+                                properties:
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  contact:
+                                    type: object
+                                    properties:
+                                      phone:
+                                        type: string
+                                      email:
+                                        type: string
+                        source_id:
+                          type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        description:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                            images:
+                              type: array
+                              items:
+                                type: string
+                        expected_response_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        expected_resolution_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+                            respondent_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  respondent_action:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  updated_at:
+                                    type: string
+                                  updated_by:
+                                    type: object
+                                    properties:
+                                      person:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                                      org:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                        last_action_id:
+                          type: string
+                        actions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+                        resolution:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            action_triggered:
+                              type: string
+                        resolution_provider:
+                          type: object
+                          properties:
+                            respondent_info:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                organization:
+                                  type: object
+                                  properties:
+                                    org:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                    person:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+      responses: *responses
+  /catalog_rejection:
+    post:
+      operationId: catalog_rejection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context
+                errors:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      code:
+                        type: string
+                      path:
+                        type: string
+                      message:
+                        type: string
+      responses: *responses
   /update:
     post:
       operationId: update
@@ -1378,6 +2224,7 @@ paths:
                           items:
                             type: object
                             properties:
+                              end: *end_3
                               id:
                                 type: string
                               tags: *tags

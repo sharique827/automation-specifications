@@ -2128,22 +2128,6 @@ _TESTS_:
           _RETURN_: attr all in var_enum
         - _NAME_: ORDER_PROVIDER
           _RETURN_: *a2
-        - _NAME_: ORDER_CANCELLATION
-          _RETURN_:
-            - _NAME_: CANCELLATION_CANCELLED_BY
-              _CONTINUE_: "!(attr are present)"
-              attr: $.message.order.cancellation.cancelled_by
-              _RETURN_: attr are present
-            - _NAME_: CANCELLATION_REASON
-              _RETURN_:
-                - _NAME_: CANCELLATION_REASON_ID
-                  _CONTINUE_: "!(attr are present)"
-                  attr: $.message.order.cancellation.reason.id
-                  _RETURN_: attr are present
-                - _NAME_: CANCELLATION_REASON_STATE
-                  _CONTINUE_: "!(attr are present)"
-                  attr: $.message.order.cancellation.reason.state
-                  _RETURN_: attr are present
         - _NAME_: ORDER_ITEMS
           _RETURN_: *a3
         - _NAME_: ORDER_BILLING
@@ -3340,9 +3324,6 @@ _TESTS_:
           _RETURN_: attr all in var_enum
         - _NAME_: ORDER_CANCELLATION
           _RETURN_:
-            - _NAME_: CANCELLED_BY
-              attr: $.message.order.cancellation.cancelled_by
-              _RETURN_: attr are present
             - _NAME_: CANCELLATION_REASON_ID
               attr: $.message.order.cancellation.reason.id
               _RETURN_: attr are present
