@@ -2,6 +2,10 @@ meta:
   domain: 'ONDC:RET10'
   version: 1.2.5
   flowId: Discovery_Flow_incremental_catalog_refresh_pull
+  description: >-
+    A grocery retail scenario exercising the incremental catalog refresh pull
+    mechanism through repeated search requests and responses to ensure the BPP's
+    product availability and pricing are synchronized.
 transaction_data:
   transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
   latest_timestamp: '1970-01-01T00:00:00.000Z'
@@ -15,7 +19,9 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: BAP sends the search request
+    description: >-
+      The BAP initiates a search request to the BPP to pull an incremental
+      catalog refresh for the grocery domain.
     mock:
       generate: >-
         LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBpbnB1dHMgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0czsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlCiAgY29uc29sZS5sb2coImZlYXR1cmVzIixKU09OLnN0cmluZ2lmeShpbnB1dHMuZmVhdHVyZV9kaXNjb3ZlcnkpKQogIGxldCBjb2Rlc0FycmF5ID0gaW5wdXRzLmZlYXR1cmVfZGlzY292ZXJ5IHx8IFtdOwogIGNvbnN0IHRhZ3MgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzOwoKCXRhZ3MucHVzaCh7CgkJY29kZTogImJhcF9mZWF0dXJlcyIsCgkJbGlzdDogWwoJCQl7CgkJCQljb2RlOiAiMDAxIiwKCQkJCXZhbHVlOiAieWVzIiwKCQkJfSwKCQkJLi4uY29kZXNBcnJheS5tYXAoKGNvZGUpID0+IHsKCQkJCXJldHVybiB7CgkJCQkJY29kZTogY29kZSwKCQkJCQl2YWx1ZTogInllcyIsCgkJCQl9OwoJCQl9KSwKCQldLAoJfSk7CgoJdGFnc1swXS5saXN0WzJdLnZhbHVlID0gbmV3IERhdGUoCgkJbmV3IERhdGUoKS5nZXRUaW1lKCkgKyAxMDAwICogNjAgKiA2MCAqIDI0ICogMTAKCSkudG9JU09TdHJpbmcoKTsKICAKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
@@ -216,7 +222,9 @@ steps:
     owner: BPP
     responseFor: search_1
     unsolicited: false
-    description: BPP returns the full catalog refresh
+    description: >-
+      The BAP sends a search request to the BPP to pull an incremental catalog
+      refresh for a specific city.
     mock:
       generate: >-
         LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UgPSBSRVQxMEdST0NFUlkxMjVDYXRhbG9nOwogIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuY2l0eT1zZXNzaW9uRGF0YS5jaXR5WzBdCgogIGNvbnN0IHNlYXJjaF9iYXBfdGVybXMgPSBzZXNzaW9uRGF0YS5zZWFyY2hfYmFwX3Rlcm1zWzBdOwogIGNvbnN0IGNvZGVzVG9GaW5kID0gWyIwMDEiLCAiMDA4IiwiMDBBIl07CiAgY29uc3QgYmFwQ29kZXMgPSBuZXcgU2V0KCk7CgogIGZvciAoY29uc3QgaXRlbSBvZiBzZWFyY2hfYmFwX3Rlcm1zLmxpc3QpIHsKICAgIGlmIChjb2Rlc1RvRmluZC5pbmNsdWRlcyhpdGVtLmNvZGUpKSB7CiAgICAgIGJhcENvZGVzLmFkZChpdGVtLmNvZGUpOwogICAgfQogIH0KCiAgY29uc3QgdW5pcXVlQmFwQ29kZXMgPSBBcnJheS5mcm9tKGJhcENvZGVzKTsKCiAgICBmb3IgKGNvbnN0IGNvZGUgb2YgdW5pcXVlQmFwQ29kZXMpIHsKICAgIGlmIChjb2RlID09PSAiMDAxIikgewogICAgICBjb25zdCBpdGVtcyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZ1siYnBwL3Byb3ZpZGVycyJdWzBdLml0ZW1zOwogICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXVswXS5yYXRpbmcgPSAiNCIKICAgICAgaXRlbXMuZm9yRWFjaCgoaXRlbSkgPT4gewogICAgICAgIGNvbnN0IGV4aXN0aW5nVGltaW5nVGFnID0gaXRlbS50YWdzLmZpbmQoCiAgICAgICAgICAodGFnKSA9PiB0YWcuY29kZSA9PT0gInRpbWluZyIKICAgICAgICApOwogICAgICAgIGlmICghZXhpc3RpbmdUaW1pbmdUYWcpIHsKICAgICAgICAgIGl0ZW0udGFncy5wdXNoKHsKICAgICAgICAgICAgY29kZTogInRpbWluZyIsCiAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiZGF5X2Zyb20iLAogICAgICAgICAgICAgICAgdmFsdWU6ICIxIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJkYXlfdG8iLAogICAgICAgICAgICAgICAgdmFsdWU6ICI3IiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJ0aW1lX2Zyb20iLAogICAgICAgICAgICAgICAgdmFsdWU6ICIwMDAwIiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJ0aW1lX3RvIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMjM1OSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0pOwogICAgICAgIH0KICAgICAgICBpdGVtLnJhdGluZyA9ICI0IgogICAgICB9KTsKICAgIH0KICAgIGlmIChjb2RlID09PSAiMDA4IikgewogICAgICB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nWyJicHAvcHJvdmlkZXJzIl1bMF0udGFncy5wdXNoKHsKICAgICAgICAgIGNvZGU6ICJvcmRlcl92YWx1ZSIsCiAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAibWluX3ZhbHVlIiwKICAgICAgICAgICAgICB2YWx1ZTogIjMwMC4wMCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICBdLAogICAgICAgIH0pOwogICAgICB9CiAgICB9CiAgICBpZiAoY29kZSA9PT0gIjAwQSIpIHsKICAgICAgY29uc3QgcHJvdmlkZXJUYWdzID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nWyJicHAvcHJvdmlkZXJzIl1bMF0udGFnczsKICAgICAgY29uc3QgZXhpc3RpbmdQcm92aWRlck5wRmVlcyA9IHByb3ZpZGVyVGFncy5maW5kKAogICAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAibnBfZmVlcyIKICAgICAgKTsKICAgICAgaWYgKCFleGlzdGluZ1Byb3ZpZGVyTnBGZWVzKSB7CiAgICAgICAgcHJvdmlkZXJUYWdzLnB1c2goewogICAgICAgICAgY29kZTogIm5wX2ZlZXMiLAogICAgICAgICAgbGlzdDogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgY29kZTogImNoYW5uZWxfbWFyZ2luX3R5cGUiLAogICAgICAgICAgICAgIHZhbHVlOiAicGVyY2VudCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBjb2RlOiAiY2hhbm5lbF9tYXJnaW5fdmFsdWUiLAogICAgICAgICAgICAgIHZhbHVlOiAiMC41MCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICBdLAogICAgICAgIH0pOwogICAgICB9CiAgICAgIGNvbnN0IGNhdGVnb3JpZXMgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXVswXS5jYXRlZ29yaWVzOwogICAgICBjYXRlZ29yaWVzLmZvckVhY2goKGNhdGVnb3J5KSA9PiB7CiAgICAgICAgY29uc3QgZXhpc3RpbmdDYXRlZ29yeU5wRmVlcyA9IGNhdGVnb3J5LnRhZ3MuZmluZCgKICAgICAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAibnBfZmVlcyIKICAgICAgICApOwogICAgICAgIGlmICghZXhpc3RpbmdDYXRlZ29yeU5wRmVlcykgewogICAgICAgICAgY2F0ZWdvcnkudGFncy5wdXNoKHsKICAgICAgICAgICAgY29kZTogIm5wX2ZlZXMiLAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImNoYW5uZWxfbWFyZ2luX3R5cGUiLAogICAgICAgICAgICAgICAgdmFsdWU6ICJwZXJjZW50IiwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvZGU6ICJjaGFubmVsX21hcmdpbl92YWx1ZSIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIjAuNTAiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICB9KTsKICAgICAgICB9CiAgICAgIH0pOwogICAgICBjb25zdCBpdGVtcyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZ1siYnBwL3Byb3ZpZGVycyJdWzBdLml0ZW1zOwogICAgICBpdGVtcy5mb3JFYWNoKChpdGVtKSA9PiB7CiAgICAgICAgY29uc3QgZXhpc3RpbmdJdGVtTnBGZWVzID0gaXRlbS50YWdzLmZpbmQoCiAgICAgICAgICAodGFnKSA9PiB0YWcuY29kZSA9PT0gIm5wX2ZlZXMiCiAgICAgICAgKTsKICAgICAgICBpZiAoIWV4aXN0aW5nSXRlbU5wRmVlcykgewogICAgICAgICAgaXRlbS50YWdzLnB1c2goewogICAgICAgICAgICBjb2RlOiAibnBfZmVlcyIsCiAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAiY2hhbm5lbF9tYXJnaW5fdHlwZSIsCiAgICAgICAgICAgICAgICB2YWx1ZTogInBlcmNlbnQiLAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImNoYW5uZWxfbWFyZ2luX3ZhbHVlIiwKICAgICAgICAgICAgICAgIHZhbHVlOiAiMC41MCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICAgIH0pOwogICAgICAgIH0KICAgICAgfSk7CiAgICB9CiAgfQoKCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nWyJicHAvcHJvdmlkZXJzIl1bMF0ubG9jYXRpb25zWzBdLmFkZHJlc3MuYXJlYV9jb2RlID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5hcmVhX2NvZGUKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0Lm1lc3NhZ2VfaWQgPSBzZXNzaW9uRGF0YS5sYXRlc3RNZXNzYWdlX2lkWzBdCiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
@@ -709,10 +717,12 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: >-
+      The BAP initiates a search request to the BPP to pull incremental catalog
+      updates for a specific time range within the grocery domain.
     mock:
       generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBzZWFyY2hfaW5jX3B1bGwuCiAqCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEKICogQHJldHVybnMge09iamVjdH0KICovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewoKIGNvbnN0IGN1cnJlbnRUaW1lID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwogICAvLyBEZWZhdWx0OiBsYXN0IDIgaG91cnMgd2luZG93CmNvbnN0IHN0YXJ0VGltZSA9IG5ldyBEYXRlKAogIERhdGUubm93KCkgLSAoMiAqIDYwICogNjAgKiAxMDAwKQopLnRvSVNPU3RyaW5nKCk7CiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXAgPSBjdXJyZW50VGltZTsKCiAgY29uc3QgY2F0YWxvZ0luY1RhZyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbmQoCiAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAiY2F0YWxvZ19pbmMiCiAgICApOwoKICBpZiAoY2F0YWxvZ0luY1RhZykgewogICAgY29uc3Qgc3RhcnRUaW1lT2JqID0gY2F0YWxvZ0luY1RhZy5saXN0LmZpbmQoCiAgICAgIChpdGVtKSA9PiBpdGVtLmNvZGUgPT09ICJzdGFydF90aW1lIgogICAgKTsKCiAgICBjb25zdCBlbmRUaW1lT2JqID0gY2F0YWxvZ0luY1RhZy5saXN0LmZpbmQoCiAgICAgIChpdGVtKSA9PiBpdGVtLmNvZGUgPT09ICJlbmRfdGltZSIKICAgICk7CgogICAgaWYgKHN0YXJ0VGltZU9iaikgewogICAgICBzdGFydFRpbWVPYmoudmFsdWUgPSBzdGFydFRpbWU7CiAgICB9CgogICAgaWYgKGVuZFRpbWVPYmopIHsKICAgICAgLy8gZW5kX3RpbWUgbXVzdCBtYXRjaCBjb250ZXh0LnRpbWVzdGFtcAogICAgICBlbmRUaW1lT2JqLnZhbHVlID0gY3VycmVudFRpbWU7CiAgICB9CiAgfQoKICBjb25zdCBiYXBUZXJtc1RhZyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbmQoCiAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAiYmFwX3Rlcm1zIgogICAgKTsKCiAgaWYgKGJhcFRlcm1zVGFnKSB7CiAgICBjb25zdCBlZmZlY3RpdmVEYXRlID0gYmFwVGVybXNUYWcubGlzdC5maW5kKAogICAgICAoaXRlbSkgPT4gaXRlbS5jb2RlID09PSAiZWZmZWN0aXZlX2RhdGUiCiAgICApOwoKICAgIGlmIChlZmZlY3RpdmVEYXRlKSB7CiAgICAgIGVmZmVjdGl2ZURhdGUudmFsdWUgPSBjdXJyZW50VGltZTsKICAgIH0KICB9CgoKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBzZWFyY2hfaW5jX3B1bGwuCiAqCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEKICogQHJldHVybnMge09iamVjdH0KICovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuY2l0eSA9ICIqIjsKIGNvbnN0IGN1cnJlbnRUaW1lID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwogICAvLyBEZWZhdWx0OiBsYXN0IDIgaG91cnMgd2luZG93CmNvbnN0IHN0YXJ0VGltZSA9IG5ldyBEYXRlKAogIERhdGUubm93KCkgLSAoMiAqIDYwICogNjAgKiAxMDAwKQopLnRvSVNPU3RyaW5nKCk7CiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXAgPSBjdXJyZW50VGltZTsKCiAgY29uc3QgY2F0YWxvZ0luY1RhZyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbmQoCiAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAiY2F0YWxvZ19pbmMiCiAgICApOwoKICBpZiAoY2F0YWxvZ0luY1RhZykgewogICAgY29uc3Qgc3RhcnRUaW1lT2JqID0gY2F0YWxvZ0luY1RhZy5saXN0LmZpbmQoCiAgICAgIChpdGVtKSA9PiBpdGVtLmNvZGUgPT09ICJzdGFydF90aW1lIgogICAgKTsKCiAgICBjb25zdCBlbmRUaW1lT2JqID0gY2F0YWxvZ0luY1RhZy5saXN0LmZpbmQoCiAgICAgIChpdGVtKSA9PiBpdGVtLmNvZGUgPT09ICJlbmRfdGltZSIKICAgICk7CgogICAgaWYgKHN0YXJ0VGltZU9iaikgewogICAgICBzdGFydFRpbWVPYmoudmFsdWUgPSBzdGFydFRpbWU7CiAgICB9CgogICAgaWYgKGVuZFRpbWVPYmopIHsKICAgICAgLy8gZW5kX3RpbWUgbXVzdCBtYXRjaCBjb250ZXh0LnRpbWVzdGFtcAogICAgICBlbmRUaW1lT2JqLnZhbHVlID0gY3VycmVudFRpbWU7CiAgICB9CiAgfQoKICBjb25zdCBiYXBUZXJtc1RhZyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbmQoCiAgICAgICh0YWcpID0+IHRhZy5jb2RlID09PSAiYmFwX3Rlcm1zIgogICAgKTsKCiAgaWYgKGJhcFRlcm1zVGFnKSB7CiAgICBjb25zdCBlZmZlY3RpdmVEYXRlID0gYmFwVGVybXNUYWcubGlzdC5maW5kKAogICAgICAoaXRlbSkgPT4gaXRlbS5jb2RlID09PSAiZWZmZWN0aXZlX2RhdGUiCiAgICApOwoKICAgIGlmIChlZmZlY3RpdmVEYXRlKSB7CiAgICAgIGVmZmVjdGl2ZURhdGUudmFsdWUgPSBjdXJyZW50VGltZTsKICAgIH0KICB9CgoKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: >-
         LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGlmICghdGFyZ2V0UGF5bG9hZD8uY29udGV4dCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiY29udGV4dCBpcyBtaXNzaW5nIgogICAgfTsKICB9CgogIGlmICghdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8uaW50ZW50Py50YWdzKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJtZXNzYWdlLmludGVudC50YWdzIGlzIG1pc3NpbmciCiAgICB9OwogIH0KCiAgY29uc3QgY2F0YWxvZ0luY1RhZyA9IHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQudGFncy5maW5kKAogICAgKHRhZykgPT4gdGFnLmNvZGUgPT09ICJjYXRhbG9nX2luYyIKICApOwoKICBpZiAoIWNhdGFsb2dJbmNUYWcpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogImNhdGFsb2dfaW5jIHRhZyBpcyBtaXNzaW5nIgogICAgfTsKICB9CgogIGNvbnN0IGJhcFRlcm1zVGFnID0gdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbmQoCiAgICAodGFnKSA9PiB0YWcuY29kZSA9PT0gImJhcF90ZXJtcyIKICApOwoKICBpZiAoIWJhcFRlcm1zVGFnKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJiYXBfdGVybXMgdGFnIGlzIG1pc3NpbmciCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: >-
@@ -771,10 +781,12 @@ steps:
     owner: BPP
     responseFor: search_inc_pull
     unsolicited: false
-    description: please add relevant description
+    description: >-
+      The BAP triggers an on_search request to the BPP to pull an incremental
+      catalog refresh for the specified city.
     mock:
       generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGNvbnN0IHN0YXJ0VGltZSA9IHNlc3Npb25EYXRhLmNhdGFsb2dfaW5jX3N0YXJ0X3RpbWU/LlswXTsKICBjb25zdCBlbmRUaW1lID0gc2Vzc2lvbkRhdGEuY2F0YWxvZ19pbmNfZW5kX3RpbWU/LlswXTsKCiAgaWYgKCFzdGFydFRpbWUgfHwgIWVuZFRpbWUpIHsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKICB9CiAgIGNvbnN0IGl0ZW1UaW1lc3RhbXAgPSBnZXRSYW5kb21UaW1lc3RhbXBCZXR3ZWVuKAogICAgc3RhcnRUaW1lLAogICAgZW5kVGltZQogICk7CgogIGNvbnN0IHByb3ZpZGVycyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXSB8fCBbXTsKCiAgcHJvdmlkZXJzLmZvckVhY2goKHByb3ZpZGVyKSA9PiB7CiAgICBwcm92aWRlci5pdGVtcyA9IChwcm92aWRlci5pdGVtcyB8fCBbXSkubWFwKChpdGVtKSA9PiAoewogICAgICAuLi5pdGVtLAogICAgICB0aW1lOiB7CiAgICAgICAgbGFiZWw6ICJlbmFibGUiLAogICAgICAgIHRpbWVzdGFtcDogaXRlbVRpbWVzdGFtcAogICAgICB9CiAgICB9KSk7CiAgfSk7CgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gIioiOwogIGNvbnN0IHN0YXJ0VGltZSA9IHNlc3Npb25EYXRhLmNhdGFsb2dfaW5jX3N0YXJ0X3RpbWU/LlswXTsKICBjb25zdCBlbmRUaW1lID0gc2Vzc2lvbkRhdGEuY2F0YWxvZ19pbmNfZW5kX3RpbWU/LlswXTsKCiAgaWYgKCFzdGFydFRpbWUgfHwgIWVuZFRpbWUpIHsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKICB9CiAgIGNvbnN0IGl0ZW1UaW1lc3RhbXAgPSBnZXRSYW5kb21UaW1lc3RhbXBCZXR3ZWVuKAogICAgc3RhcnRUaW1lLAogICAgZW5kVGltZQogICk7CgogIGNvbnN0IHByb3ZpZGVycyA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXSB8fCBbXTsKCiAgcHJvdmlkZXJzLmZvckVhY2goKHByb3ZpZGVyKSA9PiB7CiAgICBwcm92aWRlci5pdGVtcyA9IChwcm92aWRlci5pdGVtcyB8fCBbXSkubWFwKChpdGVtKSA9PiAoewogICAgICAuLi5pdGVtLAogICAgICB0aW1lOiB7CiAgICAgICAgbGFiZWw6ICJlbmFibGUiLAogICAgICAgIHRpbWVzdGFtcDogaXRlbVRpbWVzdGFtcAogICAgICB9CiAgICB9KSk7CiAgfSk7CgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: >-
         LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICBpZiAoIXRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/LmNhdGFsb2c/LlsiYnBwL3Byb3ZpZGVycyJdKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICdtZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXSBpcyBtaXNzaW5nJwogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
       requirements: >-
@@ -952,14 +964,14 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: search
-        timestamp: '2026-06-04T17:19:17.024Z'
+        timestamp: '2026-06-10T09:15:17.788Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 362cc108-c914-4f1b-a8ac-de4a1e2361e1
+        message_id: 54646c32-714b-41dc-b1af-3a5adeb6a61a
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
         country: IND
-        city: 'std:011'
+        city: 'std:080'
         core_version: 1.2.5
       message:
         intent:
@@ -975,12 +987,12 @@ transaction_history:
                   value: >-
                     https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
-                  value: '2026-06-14T17:19:17.035Z'
+                  value: '2026-06-20T09:15:17.811Z'
             - code: bap_features
               list:
                 - code: '001'
                   value: 'yes'
-                - code: '004'
+                - code: '001'
                   value: 'yes'
     action: search
     saved_info: {}
@@ -989,16 +1001,16 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: on_search
-        timestamp: '2026-06-04T17:19:18.492Z'
+        timestamp: '2026-06-10T09:15:19.600Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 362cc108-c914-4f1b-a8ac-de4a1e2361e1
+        message_id: 54646c32-714b-41dc-b1af-3a5adeb6a61a
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
         bpp_id: sample-bpp-id
         bpp_uri: 'https://bpp.example.com'
         country: IND
-        city: 'std:011'
+        city: 'std:080'
         core_version: 1.2.5
       message:
         catalog:
@@ -1373,9 +1385,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: search
-        timestamp: '2026-06-04T17:19:18.518Z'
+        timestamp: '2026-06-10T09:15:19.618Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 5444260c-8775-4b47-95ff-931384fa1c90
+        message_id: 7fe49547-830e-45ee-b289-e4f8035eca1a
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1391,9 +1403,9 @@ transaction_history:
             - code: catalog_inc
               list:
                 - code: start_time
-                  value: '2026-06-04T15:19:18.518Z'
+                  value: '2026-06-10T07:15:19.618Z'
                 - code: end_time
-                  value: '2026-06-04T17:19:18.518Z'
+                  value: '2026-06-10T09:15:19.618Z'
             - code: bap_terms
               list:
                 - code: static_terms
@@ -1403,7 +1415,7 @@ transaction_history:
                   value: >-
                     https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
-                  value: '2026-06-04T17:19:18.518Z'
+                  value: '2026-06-10T09:15:19.618Z'
     action: search
     saved_info: {}
   - action_id: on_search_inc_pull
@@ -1411,9 +1423,9 @@ transaction_history:
       context:
         domain: 'ONDC:RET10'
         action: on_search
-        timestamp: '2026-06-04T17:19:18.528Z'
+        timestamp: '2026-06-10T09:15:19.624Z'
         transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-        message_id: 5444260c-8775-4b47-95ff-931384fa1c90
+        message_id: 7fe49547-830e-45ee-b289-e4f8035eca1a
         bap_id: sample-bap-id
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -1513,7 +1525,7 @@ transaction_history:
                     month_year_of_manufacture_packing_import: 01/2023
                   time:
                     label: enable
-                    timestamp: '2026-06-04T15:22:05.697Z'
+                    timestamp: '2026-06-10T08:59:04.810Z'
                   tags:
                     - code: origin
                       list:
