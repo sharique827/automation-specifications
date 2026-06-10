@@ -7,7 +7,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cancellation)
+    description: End-to-end buyer cancellation journey in Fashion, covering item selection, order initialization, order confirmation, and subsequent cancellation with network acknowledgements. It validates the retail cancellation lifecycle between Buyer App and Seller App after order confirmation.
     config:
       $ref: ./FASHION/Buyer_Cancellation_Flow.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Buyer Instructions)
+    description: End-to-end fashion order flow where the buyer places an order with delivery instructions and the order is subsequently updated by the seller or logistics provider, with status tracking across fulfillment milestones through to completion. It validates buyer instruction capture, post-confirmation delivery updates, and reportable order state transitions in the retail transaction lifecycle.
     config:
       $ref: ./FASHION/Buyer_Instructions_And_Delivery_Update_Flow.yaml
   - type: playground
@@ -28,7 +28,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Cancel Return Request)
+    description: End-to-end fashion retail return-cancellation journey where a buyer initiates a return request after order confirmation and then cancels that return before completion, exercising status progression, update handling, and final cancellation acknowledgement between buyer and seller systems.
     config:
       $ref: ./FASHION/Cancel_Return_Request_Flow.yaml
   - type: playground
@@ -39,7 +39,7 @@ flows:
       - OPTIONAL
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cash On Delivery)
+    description: End-to-end fashion retail order flow where the buyer places an order with Cash on Delivery as the payment method, covering item selection, order initialization and confirmation. The flow validates seller acknowledgements and subsequent order status updates through fulfillment until completion in a reportable ONDC transaction journey.
     config:
       $ref: ./FASHION/Cash_On_Delivery_Flow.yaml
   - type: playground
@@ -50,7 +50,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery)
+    description: End-to-end fashion delivery order journey covering item selection, order initialization and confirmation, shipment tracking, and repeated status updates through to final fulfillment. This flow exercises the mandatory retail post-purchase lifecycle for a deliverable fashion order, including dispatch, in-transit visibility, and completion reporting.
     config:
       $ref: ./FASHION/Delivery_Flow.yaml
   - type: playground
@@ -61,7 +61,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: End-to-end fashion delivery transaction flow covering item selection, order initialization and confirmation, repeated fulfillment status tracking through delivery, and post-order grievance handling via IGM with issue creation and resolution status updates.
     config:
       $ref: ./FASHION/Delivery_Flow_With_IGM_v-1_0_0_.yaml
   - type: playground
@@ -72,7 +72,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: End-to-end fashion retail delivery journey covering product discovery, order initiation, confirmation, fulfillment status tracking through delivery, and post-order issue and grievance management across multiple complaint and resolution updates.
     config:
       $ref: ./FASHION/Delivery_Flow_With_IGM_v-2_0_0_.yaml
   - type: playground
@@ -81,7 +81,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Delivery with IGM 3)
+    description: End-to-end fashion delivery order flow where a buyer places and tracks a shipment through multiple fulfillment status updates, then raises a post-order grievance in the IGM process and follows it through repeated issue exchanges when no resolution action is taken.
     config:
       $ref: ./FASHION/Delivery_Flow_With_IGM_No_Action_v-2_0_0_.yaml
   - type: playground
@@ -92,7 +92,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 2)
+    description: End-to-end fashion delivery journey where an order is selected, initialized, confirmed, and tracked through multiple status updates, followed by post-fulfillment issue management with the IGM flow culminating in rejection handling and final update. This scenario validates mandatory, reportable buyer-seller grievance processing for a delivered order under Pramaan workbench conditions.
     config:
       $ref: ./FASHION/Delivery_Flow_With_IGM_Rejection_v-2_0_0_.yaml
   - type: playground
@@ -103,7 +103,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow)
+    description: Buyer app initiates a fashion discovery search and the seller app returns the full matching catalog in on_search, exercising end-to-end product discovery for apparel, accessories, and related fashion items on ONDC.
     config:
       $ref: ./FASHION/Discovery_Flow_full_catalog.yaml
   - type: playground
@@ -114,15 +114,15 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog)
+    description: Buyer app performs fashion catalog discovery with incremental refresh, where the provider platform returns the search response in multiple parts and the buyer app issues a follow-up search to retrieve the next catalog increment. This flow validates end-to-end discovery continuity, pagination-style catalog expansion, and reportable exchange handling between BAP and BPP.
     config:
       $ref: ./FASHION/Discovery_Flow_incremental_catalog.yaml
   - type: playground
-    id:  Discovery_Flow_incremental_catalog_refresh_pull
+    id: Discovery_Flow_incremental_catalog_refresh_pull
     usecase: FASHION
     tags:
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog Refresh pull)
+    description: Exercises an incremental catalog refresh in the Fashion domain where the buyer app re-issues discovery to pull updated item availability, pricing, or assortment from the seller app after an initial search. It validates that catalog changes are surfaced end-to-end through successive search and on_search exchanges within the WORKBENCH flow.
     config:
       $ref: ./FASHION/Discovery_Flow_incremental_catalog_refresh_pull.yaml
   - type: playground
@@ -132,7 +132,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Cancellation)
+    description: End-to-end fashion retail order journey covering purchase confirmation, fulfillment status progression, and forced cancellation of the order after confirmation, including seller cancellation handling and final order update/reporting.
     config:
       $ref: ./FASHION/Force_Cancellation_Flow.yaml
   - type: playground
@@ -142,7 +142,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Out Of Stock)
+    description: End-to-end fashion retail transaction where the buyer attempts to place an order, but one or more selected items are found to be out of stock during fulfillment confirmation, resulting in the order not being completed and the status updates reporting the stock-out outcome.
     config:
       $ref: ./FASHION/Out_Of_Stock_Flow.yaml
   - type: playground
@@ -152,7 +152,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Out Of Stock)
+    description: Validates the fashion retail out-of-stock scenario where a buyer selects an item and the provider responds in on_select with an out-of-stock error, confirming correct handling and reporting of inventory unavailability.
     config:
       $ref: ./FASHION/Out_Of_Stock_Flow_Error-code_.yaml
   - type: playground
@@ -162,7 +162,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Replacement)
+    description: End-to-end fashion post-order replacement journey where a buyer requests replacement of a confirmed item, the seller validates and confirms the replacement, and both parties track the replacement order through successive updates and status milestones until closure.
     config:
       $ref: ./FASHION/Replacement_Flow.yaml
   - type: playground
@@ -173,7 +173,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Return)
+    description: End-to-end fashion return journey covering return request initiation after order confirmation, seller acknowledgement, repeated status progression through pickup and processing, and final return closure/update.
     config:
       $ref: ./FASHION/Return_Flow.yaml
   - type: playground
@@ -182,7 +182,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Cancellation)
+    description: Exercises the end-to-end fashion order lifecycle from item selection and order confirmation through a seller-initiated cancellation after confirmation, including order updates, cancellation acknowledgement, and final status progression.
     config:
       $ref: ./FASHION/Seller_Cancellation_Flow.yaml
   - type: playground
@@ -192,6 +192,6 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Delivery)
+    description: End-to-end fashion retail order journey for a delivery fulfillment where the buyer selects items, receives quote and order details, and confirms purchase under a seller-credit checkout scenario.
     config:
       $ref: ./FASHION/Seller_Cred_Flow.yaml
