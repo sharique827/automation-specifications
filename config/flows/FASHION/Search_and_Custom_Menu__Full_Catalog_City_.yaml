@@ -2,7 +2,7 @@ meta:
   domain: ONDC:RET12
   version: 1.2.0
   flowId: Search_and_Custom_Menu_(Full_Catalog_City)
-  description: Buyer Search & Quotation
+  description: Buyer platform initiates a full-catalog city-level search for fashion items, and the seller platform responds with a complete menu of available apparel and accessories, enabling end-to-end catalog discovery across the ONDC network for fashion use cases.
   flowName: Search and Custom Menu (Full Catalog City)
   use_case_id: FASHION
 transaction_data:
@@ -18,7 +18,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: BAP sends the search request
+    description: The BAP initiates the discovery flow by broadcasting a search request across the ONDC network for Fashion (ONDC:RET12) catalog items within a specified city, establishing the transaction context including transaction ID, message ID, and BAP identity details to enable sellers to respond with matching catalog offerings.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBpbnB1dHMgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0czsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlCiAgY29uc3QgdGFncyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3M7CgoJdGFnc1swXS5saXN0WzJdLnZhbHVlID0gbmV3IERhdGUoCgkJbmV3IERhdGUoKS5nZXRUaW1lKCkgKyAxMDAwICogNjAgKiA2MCAqIDI0ICogMTAKCSkudG9JU09TdHJpbmcoKTsKICAKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -45,8 +45,7 @@ steps:
               - code: bap_terms
                 list:
                   - code: static_terms
-                    value: "
-                      https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
+                    value: " https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
                   - code: static_terms_new
                     value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                   - code: effective_date
@@ -75,8 +74,7 @@ steps:
           additionalProperties: false
     examples:
       - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow
-          "Search_and_Custom_Menu_(Full_Catalog_City)"
+        description: Auto-generated example for action "search" in flow "Search_and_Custom_Menu_(Full_Catalog_City)"
         payload:
           context:
             action: search
@@ -99,8 +97,7 @@ steps:
                 - code: bap_terms
                   list:
                     - code: static_terms
-                      value: "
-                        https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
+                      value: " https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
                     - code: static_terms_new
                       value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                     - code: effective_date
@@ -111,7 +108,7 @@ steps:
     owner: BPP
     responseFor: search_1
     unsolicited: false
-    description: BPP returns the full catalog refresh
+    description: The BPP responds to the BAP's initial search request by delivering the full catalog payload for the FASHION domain, including available fulfillment types, provider details, and item listings scoped to the requested city, along with all required context identifiers (transaction ID, message ID, BAP/BPP endpoints) that allow the BAP to correlate the response to its original search intent.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UgPSBSRVQxMkZBU0hJT04xMjVDYXRhbG9nOwogIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuY2l0eT1zZXNzaW9uRGF0YS5jaXR5WzBdCgogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZ1siYnBwL3Byb3ZpZGVycyJdWzBdLmxvY2F0aW9uc1swXS5hZGRyZXNzLmFyZWFfY29kZSA9IHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uYXJlYV9jb2RlCiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5tZXNzYWdlX2lkID0gc2Vzc2lvbkRhdGEubGF0ZXN0TWVzc2FnZV9pZFswXQogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -208,10 +205,8 @@ steps:
                     descriptor:
                       name: Butterfly Beautiful 12 Gold Necklace
                       symbol: https://sellerNP.com/images/i1.png
-                      short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                        finishing
-                      long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                        finishing
+                      short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
+                      long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                       images:
                         - https://sellerNP.com/images/i1.png
                       code: 4:7113
@@ -240,8 +235,7 @@ steps:
                     "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                     "@ondc/org/statutory_reqs_packaged_commodities":
                       manufacturer_or_packer_name: Seller Business
-                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                        Karnataka, India - 560011
+                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                       common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
                       month_year_of_manufacture_packing_import: NA
                     tags:
@@ -303,8 +297,7 @@ steps:
                     "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                     "@ondc/org/statutory_reqs_packaged_commodities":
                       manufacturer_or_packer_name: Seller Business
-                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                        Karnataka, India - 560011
+                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                       common_or_generic_name_of_commodity: Butterfly Necklace 2nd
                       month_year_of_manufacture_packing_import: NA
                     tags:
@@ -333,20 +326,8 @@ steps:
                       name: Sleeping Rabbit Printed Oversized T-shirt for Men - black/S
                       code: 4:61091000
                       symbol: https://sellerNP.com/images/i1.png
-                      short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                        T-shirt. I have been made using cotton poly so you can
-                        feel at ease with my soft & stretchable nature. My bold
-                        prints on the back are sure to enhance your style and
-                        match your cool vibe. Breathability & moisture
-                        absorbency are two of my b
-                      long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                        T-shirt. I have been made using cotton poly so you can
-                        feel at ease with my soft & stretchable nature. My bold
-                        prints on the back are sure to enhance your style and
-                        match your cool vibe. Breathability & moisture
-                        absorbency are two of my best features, hence, you can
-                        rely on me to keep you feeling comfy & dry at all times.
-                        So when are we meeting
+                      short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my b
+                      long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my best features, hence, you can rely on me to keep you feeling comfy & dry at all times. So when are we meeting
                       images:
                         - https://sellerNP.com/images/i1.png
                     price:
@@ -472,8 +453,7 @@ steps:
           default: {}
     examples:
       - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow
-          "Search_and_Custom_Menu_(Full_Catalog_City)"
+        description: Auto-generated example for action "on_search" in flow "Search_and_Custom_Menu_(Full_Catalog_City)"
         payload:
           context:
             action: on_search
@@ -564,8 +544,7 @@ steps:
                       "@ondc/org/seller_pickup_return": true
                       "@ondc/org/statutory_reqs_packaged_commodities":
                         common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
-                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                          Karnataka, India - 560011
+                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                         manufacturer_or_packer_name: Seller Business
                         month_year_of_manufacture_packing_import: NA
                       "@ondc/org/time_to_ship": P2D
@@ -574,11 +553,9 @@ steps:
                         code: 4:7113
                         images:
                           - https://sellerNP.com/images/i1.png
-                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         name: Butterfly Beautiful 12 Gold Necklace
-                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         symbol: https://sellerNP.com/images/i1.png
                       fulfillment_id: F1
                       id: I1
@@ -629,8 +606,7 @@ steps:
                       "@ondc/org/seller_pickup_return": true
                       "@ondc/org/statutory_reqs_packaged_commodities":
                         common_or_generic_name_of_commodity: Butterfly Necklace 2nd
-                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                          Karnataka, India - 560011
+                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                         manufacturer_or_packer_name: Seller Business
                         month_year_of_manufacture_packing_import: NA
                       "@ondc/org/time_to_ship": P2D
@@ -701,21 +677,9 @@ steps:
                         code: 4:61091000
                         images:
                           - https://sellerNP.com/images/i1.png
-                        long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                          T-shirt. I have been made using cotton poly so you can
-                          feel at ease with my soft & stretchable nature. My
-                          bold prints on the back are sure to enhance your style
-                          and match your cool vibe. Breathability & moisture
-                          absorbency are two of my best features, hence, you can
-                          rely on me to keep you feeling comfy & dry at all
-                          times. So when are we meeting
+                        long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my best features, hence, you can rely on me to keep you feeling comfy & dry at all times. So when are we meeting
                         name: Sleeping Rabbit Printed Oversized T-shirt for Men - black/S
-                        short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                          T-shirt. I have been made using cotton poly so you can
-                          feel at ease with my soft & stretchable nature. My
-                          bold prints on the back are sure to enhance your style
-                          and match your cool vibe. Breathability & moisture
-                          absorbency are two of my b
+                        short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my b
                         symbol: https://sellerNP.com/images/i1.png
                       fulfillment_id: F1
                       id: I3
@@ -850,8 +814,7 @@ transaction_history:
             - code: bap_terms
               list:
                 - code: static_terms
-                  value: "
-                    https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
+                  value: " https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/0.9/tc.pdf"
                 - code: static_terms_new
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: effective_date
@@ -951,10 +914,8 @@ transaction_history:
                   descriptor:
                     name: Butterfly Beautiful 12 Gold Necklace
                     symbol: https://sellerNP.com/images/i1.png
-                    short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                      finishing
-                    long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                      finishing
+                    short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
+                    long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                     images:
                       - https://sellerNP.com/images/i1.png
                     code: 4:7113
@@ -983,8 +944,7 @@ transaction_history:
                   "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                   "@ondc/org/statutory_reqs_packaged_commodities":
                     manufacturer_or_packer_name: Seller Business
-                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                      Karnataka, India - 560011
+                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                     common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
                     month_year_of_manufacture_packing_import: NA
                   tags:
@@ -1046,8 +1006,7 @@ transaction_history:
                   "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                   "@ondc/org/statutory_reqs_packaged_commodities":
                     manufacturer_or_packer_name: Seller Business
-                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                      Karnataka, India - 560011
+                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                     common_or_generic_name_of_commodity: Butterfly Necklace 2nd
                     month_year_of_manufacture_packing_import: NA
                   tags:
@@ -1076,20 +1035,8 @@ transaction_history:
                     name: Sleeping Rabbit Printed Oversized T-shirt for Men - black/S
                     code: 4:61091000
                     symbol: https://sellerNP.com/images/i1.png
-                    short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                      T-shirt. I have been made using cotton poly so you can
-                      feel at ease with my soft & stretchable nature. My bold
-                      prints on the back are sure to enhance your style and
-                      match your cool vibe. Breathability & moisture absorbency
-                      are two of my b
-                    long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized
-                      T-shirt. I have been made using cotton poly so you can
-                      feel at ease with my soft & stretchable nature. My bold
-                      prints on the back are sure to enhance your style and
-                      match your cool vibe. Breathability & moisture absorbency
-                      are two of my best features, hence, you can rely on me to
-                      keep you feeling comfy & dry at all times. So when are we
-                      meeting
+                    short_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my b
+                    long_desc: Hey! How you doin? I'm your latest favorite Printed Oversized T-shirt. I have been made using cotton poly so you can feel at ease with my soft & stretchable nature. My bold prints on the back are sure to enhance your style and match your cool vibe. Breathability & moisture absorbency are two of my best features, hence, you can rely on me to keep you feeling comfy & dry at all times. So when are we meeting
                     images:
                       - https://sellerNP.com/images/i1.png
                   price:

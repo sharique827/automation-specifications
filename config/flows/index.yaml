@@ -7,7 +7,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Return Flow for FASHION
+    description: Buyer-initiated return flow for a Fashion order where the buyer requests return of either the full order or select items (partial), covering the complete lifecycle from item selection and return initiation through order confirmation, multiple status updates tracking return pickup and processing, and final resolution via update and acknowledgement exchanges between buyer and seller.
     config:
       $ref: ./FASHION/Buyer_Initiated_Return__Full_Order_and_Partial_Order_.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for FASHION
+    description: A buyer initiates cancellation of a confirmed fashion order — covering item selection, checkout, and order confirmation — followed by a formal cancellation request and acknowledgment from the seller side, exercising the complete buyer-driven order cancellation lifecycle on the ONDC network.
     config:
       $ref: ./FASHION/Buyer_Side_Order_Cancellation.yaml
   - type: playground
@@ -29,7 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: RTO and Part Cancellation Flow for FASHION
+    description: This flow covers the end-to-end merchant-initiated Return to Origin (RTO) and partial order cancellation scenario in fashion commerce, where a buyer places and confirms a multi-item order, the seller fulfills or partially processes it, and subsequently initiates cancellation of select line items along with an RTO for shipped items, with the buyer receiving incremental order status updates reflecting each stage of cancellation, return logistics, and final settlement.
     config:
       $ref: ./FASHION/Merchant_Side_RTO_and_Part_Order_Cancellation_Flow.yaml
   - type: playground
@@ -40,7 +40,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for FASHION
+    description: Covers the end-to-end prepaid fashion order journey from item selection and buyer/seller initialization through payment confirmation, order acceptance, and real-time shipment tracking, culminating in final delivery status updates.
     config:
       $ref: ./FASHION/Order_to_confirm_to_fulfillment__Prepaid_.yaml
   - type: playground
@@ -51,7 +51,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Out of Stock Flow for FASHION
+    description: A buyer attempts to select a fashion catalogue item for purchase, and the seller platform responds with an out-of-stock error code indicating that the chosen item or variant is no longer available in inventory. This flow validates that the seller NP correctly communicates stock unavailability during item selection, enabling the buyer NP to handle the error and inform the shopper accordingly.
     config:
       $ref: ./FASHION/Out_of_Stock_Error_code_.yaml
   - type: playground
@@ -62,7 +62,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Full Catalog) for FASHION
+    description: Buyer platform initiates a full-catalog city-level search for fashion items, and the seller platform responds with a complete menu of available apparel and accessories, enabling end-to-end catalog discovery across the ONDC network for fashion use cases.
     config:
       $ref: ./FASHION/Search_and_Custom_Menu__Full_Catalog_City_.yaml
   - type: playground
@@ -73,7 +73,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Incremental Catalog) for FASHION
+    description: Buyer platform initiates a fashion catalog discovery by broadcasting a search request, after which the seller platform responds with an incremental catalog push — delivering an initial catalog snapshot followed by subsequent delta updates — enabling the buyer to progressively build a complete, up-to-date view of available fashion items.
     config:
       $ref: ./FASHION/Search_and_Custom_Menu__Incremental_Push_.yaml
   - type: playground
@@ -81,6 +81,6 @@ flows:
     usecase: FASHION
     tags:
       - WORKBENCH
-    description: Discovery Flow Incremental Catalog Refresh Pull
+    description: A buyer application initiates a fashion catalog discovery request, receives an initial set of listings from the seller platform, and then performs a subsequent incremental search to pull only the updated or newly added catalog entries since the last synchronization, receiving the refreshed delta from the provider.
     config:
       $ref: ./FASHION/Discovery_Flow_incremental_catalog_refresh_pull.yaml

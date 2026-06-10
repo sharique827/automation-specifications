@@ -2,7 +2,7 @@ meta:
   domain: ONDC:RET12
   version: 1.2.0
   flowId: Search_and_Custom_Menu_(Incremental_Push)
-  description: Buyer Search & Quotation
+  description: Buyer platform initiates a fashion catalog discovery by broadcasting a search request, after which the seller platform responds with an incremental catalog push — delivering an initial catalog snapshot followed by subsequent delta updates — enabling the buyer to progressively build a complete, up-to-date view of available fashion items.
   flowName: Search and Custom Menu (Incremental Push)
   use_case_id: FASHION
 transaction_data:
@@ -18,7 +18,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: Bap starts search for incremental changes
+    description: The BAP initiates an incremental catalog discovery request by sending a `search` call to the BPP, signaling its intent to receive a partial (incremental) push of the Fashion domain catalog rather than a full refresh, along with the necessary transaction context to begin a new discovery session.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoc2Vzc2lvbkRhdGEuaW5jX21vZGUpIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3NbMF0ubGlzdFswXS52YWx1ZSA9ICJzdG9wIjsKICB9CiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gIioiOwogIAogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -58,8 +58,7 @@ steps:
       inputs: {}
     examples:
       - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow
-          "Search_and_Custom_Menu_(Incremental_Push)"
+        description: Auto-generated example for action "search" in flow "Search_and_Custom_Menu_(Incremental_Push)"
         payload:
           context:
             action: search
@@ -89,7 +88,7 @@ steps:
     owner: BPP
     responseFor: null
     unsolicited: true
-    description: BPP returns the incremental changes
+    description: The BPP pushes an unsolicited incremental catalog update to the BAP via an on_search callback, delivering the latest snapshot of available fashion catalog items — including fulfillment options, provider details, and item-level attributes — along with refreshed context identifiers (transaction ID, message ID, timestamps, and BAP/BPP routing endpoints) that the BAP uses to correlate and process the catalog delta within the ongoing discovery session.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSAiKiI7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nWyJicHAvcHJvdmlkZXJzIl1bMF0uaXRlbXNbMF0udGltZS50aW1lc3RhbXAgPQogIG5ldyBEYXRlKERhdGUubm93KCkgLSAxMzUwKS50b0lTT1N0cmluZygpOwoKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -122,10 +121,8 @@ steps:
                     descriptor:
                       name: Butterfly Beautiful 12 Gold Necklace
                       symbol: https://sellerNP.com/images/i1.png
-                      short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                        finishing
-                      long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                        finishing
+                      short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
+                      long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                       images:
                         - https://sellerNP.com/images/i1.png
                       code: 4:7113
@@ -154,8 +151,7 @@ steps:
                     "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                     "@ondc/org/statutory_reqs_packaged_commodities":
                       manufacturer_or_packer_name: Seller Business
-                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                        Karnataka, India - 560011
+                      manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                       common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
                       month_year_of_manufacture_packing_import: NA
                     tags:
@@ -190,8 +186,7 @@ steps:
       inputs: {}
     examples:
       - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow
-          "Search_and_Custom_Menu_(Incremental_Push)"
+        description: Auto-generated example for action "on_search" in flow "Search_and_Custom_Menu_(Incremental_Push)"
         payload:
           context:
             action: on_search
@@ -220,8 +215,7 @@ steps:
                       "@ondc/org/seller_pickup_return": true
                       "@ondc/org/statutory_reqs_packaged_commodities":
                         common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
-                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                          Karnataka, India - 560011
+                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                         manufacturer_or_packer_name: Seller Business
                         month_year_of_manufacture_packing_import: NA
                       "@ondc/org/time_to_ship": P2D
@@ -230,11 +224,9 @@ steps:
                         code: 4:7113
                         images:
                           - https://sellerNP.com/images/i1.png
-                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         name: Butterfly Beautiful 12 Gold Necklace
-                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         symbol: https://sellerNP.com/images/i1.png
                       fulfillment_id: F1
                       id: I1
@@ -283,7 +275,7 @@ steps:
     owner: BPP
     responseFor: null
     unsolicited: true
-    description: please add relevant description
+    description: The BPP pushes an unsolicited incremental catalog update to the BAP via the on_search callback, delivering a partial snapshot of available fashion items — including fulfillment types, provider details, and item-level attributes — that the BAP can use to refresh its local catalog without having triggered a preceding search request.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2dbImJwcC9wcm92aWRlcnMiXSA9IFsKCQl7CgkJCWlkOiAiUDEiLAoJCQlsb2NhdGlvbnM6IFsKCQkJCXsKCQkJCQlpZDogIkwxIiwKCQkJCQl0aW1lOiB7CgkJCQkJCWxhYmVsOiAiY2xvc2UiLAoJCQkJCQl0aW1lc3RhbXA6IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKSwKCQkJCQkJcmFuZ2U6IHsKCQkJCQkJCXN0YXJ0OiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCksCgkJCQkJCX0sCgkJCQkJfSwKCQkJCX0sCgkJCV0sCgkJfSwKCV07CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -321,8 +313,7 @@ steps:
       inputs: {}
     examples:
       - name: Example for action "on_search"
-        description: Auto-generated example for action "on_search" in flow
-          "Search_and_Custom_Menu_(Incremental_Push)"
+        description: Auto-generated example for action "on_search" in flow "Search_and_Custom_Menu_(Incremental_Push)"
         payload:
           context:
             action: on_search
@@ -351,8 +342,7 @@ steps:
                       "@ondc/org/seller_pickup_return": true
                       "@ondc/org/statutory_reqs_packaged_commodities":
                         common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
-                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                          Karnataka, India - 560011
+                        manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                         manufacturer_or_packer_name: Seller Business
                         month_year_of_manufacture_packing_import: NA
                       "@ondc/org/time_to_ship": P2D
@@ -361,11 +351,9 @@ steps:
                         code: 4:7113
                         images:
                           - https://sellerNP.com/images/i1.png
-                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         name: Butterfly Beautiful 12 Gold Necklace
-                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                          finishing
+                        short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                         symbol: https://sellerNP.com/images/i1.png
                       fulfillment_id: F1
                       id: I1
@@ -414,7 +402,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: Bap stops search for incremental changes
+    description: The BAP initiates catalog discovery by broadcasting a `search` request to the BPP, supplying context identifiers (transaction ID, message ID, BAP and BPP endpoints) and signaling incremental catalog mode so the BPP knows to return only delta updates to the Fashion (`ONDC:RET12`) product catalog rather than a full catalog dump.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBpZiAoc2Vzc2lvbkRhdGEuaW5jX21vZGUpIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3NbMF0ubGlzdFswXS52YWx1ZSA9ICJzdG9wIjsKICB9CiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gIioiOwogIAogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -453,8 +441,7 @@ steps:
       inputs: {}
     examples:
       - name: Example for action "search"
-        description: Auto-generated example for action "search" in flow
-          "Search_and_Custom_Menu_(Incremental_Push)"
+        description: Auto-generated example for action "search" in flow "Search_and_Custom_Menu_(Incremental_Push)"
         payload:
           context:
             action: search
@@ -535,10 +522,8 @@ transaction_history:
                   descriptor:
                     name: Butterfly Beautiful 12 Gold Necklace
                     symbol: https://sellerNP.com/images/i1.png
-                    short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                      finishing
-                    long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold
-                      finishing
+                    short_desc: 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
+                    long_desc: This is 18KT Butterfly Beautiful 12 Gold Necklace Pendant with gold finishing
                     images:
                       - https://sellerNP.com/images/i1.png
                     code: 4:7113
@@ -567,8 +552,7 @@ transaction_history:
                   "@ondc/org/contact_details_consumer_care": Seller Business,test@gmail.com,9876543210
                   "@ondc/org/statutory_reqs_packaged_commodities":
                     manufacturer_or_packer_name: Seller Business
-                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru,
-                      Karnataka, India - 560011
+                    manufacturer_or_packer_address: Seller Building Address, Jayanagar, Bengaluru, Karnataka, India - 560011
                     common_or_generic_name_of_commodity: Butterfly Beautiful 12 Gold Necklace
                     month_year_of_manufacture_packing_import: NA
                   tags:
