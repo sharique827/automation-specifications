@@ -7,7 +7,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cancellation)
+    description: A buyer-initiated cancellation flow for confirmed retail orders with seller acknowledgment and order settlement completion.
     config:
       $ref: ./BPC/Buyer_Cancellation_Flow.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - OPTIONAL
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Cash On Delivery)
+    description: An end-to-end retail transaction flow where a buyer selects and confirms an order with the seller, who acknowledges and processes it for cash-on-delivery fulfillment with progressive status tracking from order confirmation through delivery completion.
     config:
       $ref: ./BPC/Cash_On_Delivery_Flow.yaml
   - type: playground
@@ -27,7 +27,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Cross Category Cart Flow)
+    description: A buyer selects and combines products across multiple retail categories into a single cart, confirms the order, and tracks fulfillment through sequential status updates.
     config:
       $ref: ./BPC/Cross_Category_Cart_Flow.yaml
   - type: playground
@@ -38,7 +38,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery)
+    description: A complete retail delivery transaction where buyers select items, confirm orders, and track shipments with real-time status updates throughout fulfillment.
     config:
       $ref: ./BPC/Delivery_Flow.yaml
   - type: playground
@@ -49,7 +49,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: A complete retail delivery transaction with integrated grievance management, enabling buyers to track orders from purchase through delivery and formally resolve any delivery-related disputes.
     config:
       $ref: ./BPC/Delivery_Flow_With_IGM_v-1_0_0_.yaml
   - type: playground
@@ -60,7 +60,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: Retail delivery transaction flow exercising complete order lifecycle including selection, confirmation, delivery tracking, and integrated issue and grievance management.
     config:
       $ref: ./BPC/Delivery_Flow_With_IGM_v-2_0_0_.yaml
   - type: playground
@@ -69,7 +69,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Delivery with IGM 3)
+    description: A retail delivery transaction flow that demonstrates the complete customer journey from order selection and confirmation through delivery, including issue reporting and grievance management where problems are logged but remain unresolved.
     config:
       $ref: ./BPC/Delivery_Flow_With_IGM_No_Action_v-2_0_0_.yaml
   - type: playground
@@ -80,7 +80,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 2)
+    description: Delivery transaction with customer issue reporting and rejection handling through ONDC's Issue Grievance Management system.
     config:
       $ref: ./BPC/Delivery_Flow_With_IGM_Rejection_v-2_0_0_.yaml
   - type: playground
@@ -91,7 +91,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow)
+    description: Enables customers to search and discover products across a retailer's complete catalog, with the seller returning relevant items matching the search query.
     config:
       $ref: ./BPC/Discovery_Flow_full_catalog.yaml
   - type: playground
@@ -102,7 +102,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog)
+    description: A retail buyer discovers products through sequential search queries that receive incremental catalog responses from sellers, enabling progressive product discovery and efficient browsing of large inventories.
     config:
       $ref: ./BPC/Discovery_Flow_incremental_catalog.yaml
   - type: playground
@@ -110,7 +110,7 @@ flows:
     usecase: BPC
     tags:
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog Refresh Pull)
+    description: Buyers discover products through sequential searches while the platform pulls incremental catalog updates from sellers, ensuring fresh product availability and details with each interaction.
     config:
       $ref: ./BPC/Discovery_Flow_incremental_catalog_refresh_pull.yaml
   - type: playground
@@ -120,7 +120,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Cancellation)
+    description: A retail order cancellation flow where a buyer selects and confirms a purchase, monitors its status, and cancels the order before fulfillment begins, with seller acknowledgment and closure.
     config:
       $ref: ./BPC/Force_Cancellation_Flow.yaml
   - type: playground
@@ -130,7 +130,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Offers)
+    description: Retail transaction enabling customers to discover and select offered items from a catalogue, confirm purchase orders, and monitor fulfillment status through delivery with cancellation capability.
     config:
       $ref: ./BPC/Offers_Flow.yaml
   - type: playground
@@ -139,7 +139,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Out Of Stock)
+    description: End-to-end retail transaction where a buyer selects and confirms an order for out-of-stock items, with continuous status tracking through the fulfillment process.
     config:
       $ref: ./BPC/Out_Of_Stock_Flow.yaml
   - type: playground
@@ -149,14 +149,14 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Out Of Stock)
+    description: Validates the out-of-stock error flow when a buyer selects an unavailable item, ensuring correct error code response from the seller during the selection phase.
     config:
       $ref: ./BPC/Out_Of_Stock_Flow_Error-code_.yaml
   - type: playground
     id: Return_Flow
     usecase: BPC
     tags: []
-    description: Retail 1.2.5 (Return)
+    description: Complete retail return transaction flow enabling buyers to select and return purchased items with real-time status tracking from initiation through refund completion.
     config:
       $ref: ./BPC/Return_Flow.yaml
   - type: playground
@@ -165,7 +165,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Cancellation)
+    description: End-to-end retail flow in which a seller initiates and processes an order cancellation post-confirmation, maintaining buyer communication through multiple status updates.
     config:
       $ref: ./BPC/Seller_Cancellation_Flow.yaml
   - type: playground
@@ -175,7 +175,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Delivery)
+    description: A retail transaction flow exercising the complete buyer-seller order lifecycle from product selection through confirmation and delivery fulfillment.
     config:
       $ref: ./BPC/Seller_Cred_Flow.yaml
   - type: playground
@@ -186,7 +186,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Replacement_Flow)
+    description: Product replacement transaction flow for retail customers, enabling selection and ordering of replacement items with complete fulfillment status tracking and confirmation.
     config:
       $ref: ./BPC/Replacement_Flow.yaml
   - type: playground
@@ -194,6 +194,6 @@ flows:
     usecase: BPC
     tags:
       - WORKBENCH
-    description: Retail 1.2.5 ( Catalog_Rejection_Flow)
+    description: A buyer searches for products and the seller responds with catalog results; the flow validates rejection handling when catalog items are unavailable or fail fulfillment eligibility checks. This exercises the catalog rejection path in the ONDC search and fulfillment lifecycle.
     config:
       $ref: ./BPC/Catalog_Rejection_Flow.yaml
