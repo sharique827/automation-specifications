@@ -6,7 +6,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: A buyer-side purchase finance journey where the participant discovers financing options, is redirected once to an Account Aggregator for consent and data sharing, and then completes lender selection, onboarding, loan initiation, confirmation, and subsequent status updates end to end.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_With_AA.yaml
   - type: playground
@@ -17,7 +17,7 @@ flows:
       - WITHOUT_AA
       - SINGLE_REDIRECTION
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance journey without Account Aggregator, where the buyer searches and compares financing offers, completes the lender’s single redirection application flow, and proceeds through selection, dynamic form capture, init, confirm, and post-confirmation updates. It exercises a reportable purchase finance transaction from discovery to fulfillment and status tracking.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_Without_AA.yaml
   - type: playground
@@ -27,10 +27,9 @@ flows:
       - WORKBENCH
       - SINGLE_REDIRECTION
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: An end-to-end purchase finance flow where a buyer discovers, selects, and applies for financing through a single redirection journey without Account Aggregator access, including form capture, order confirmation, status tracking, and post-confirmation updates. It also exercises cancellation handling and the corresponding cancellation and status update callbacks across the transaction lifecycle.
     config:
-      $ref: ./PURCHASE
-        FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Cancellation.yaml
+      $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Cancellation.yaml
   - type: playground
     id: Purchase_Finance_Single_Redirection_Without_AA_Loan_Foreclosure
     usecase: PURCHASE FINANCE
@@ -38,10 +37,9 @@ flows:
       - WORKBENCH
       - SINGLE_REDIRECTION
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end Purchase Finance journey without Account Aggregator, where a buyer discovers a finance offer through single redirection, completes lender-side forms and underwriting, and proceeds through loan initiation, confirmation, and status updates including foreclosure-related processing.
     config:
-      $ref: ./PURCHASE
-        FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Loan_Foreclosure.yaml
+      $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Loan_Foreclosure.yaml
   - type: playground
     id: Purchase_Finance_Single_Redirection_Without_AA_Missed_EMI_Payment
     usecase: PURCHASE FINANCE
@@ -49,10 +47,9 @@ flows:
       - WORKBENCH
       - SINGLE_REDIRECTION
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end Purchase Finance journey for a missed EMI payment, where the buyer discovers, selects, and repays the overdue installment through a single redirection flow without Account Aggregator consent. It covers offer discovery, form-based intake, loan selection, order initiation and confirmation, and subsequent status and update handling through settlement.
     config:
-      $ref: ./PURCHASE
-        FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Missed_EMI_Payment.yaml
+      $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Missed_EMI_Payment.yaml
   - type: playground
     id: Purchase_Finance_Single_Redirection_Without_AA_Pre_Part_Payment
     usecase: PURCHASE FINANCE
@@ -60,10 +57,9 @@ flows:
       - WORKBENCH
       - SINGLE_REDIRECTION
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance flow where a buyer is redirected once to the lender’s journey without Account Aggregator consent, browses and selects a financing offer, completes the required forms, and proceeds through loan initiation and confirmation. It also covers post-confirmation servicing updates, including dynamic status handling and a pre-part-payment scenario within the purchase finance lifecycle.
     config:
-      $ref: ./PURCHASE
-        FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Pre_Part_Payment.yaml
+      $ref: ./PURCHASE FINANCE/Purchase_Finance_Single_Redirection_Without_AA_Pre_Part_Payment.yaml
   - type: playground
     id: Purchase_Finance_With_AA
     usecase: PURCHASE FINANCE
@@ -71,7 +67,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: End-to-end purchase finance journey where a buyer discovers financing options, completes Account Aggregator consent and financial data sharing, selects a lender, and initiates the financing against a purchase. The flow exercises offer discovery, form capture, loan initiation, confirmation, and subsequent status updates through fulfillment.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA.yaml
   - type: playground
@@ -81,7 +77,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: Purchase finance journey with Account Aggregator consent, discovery, selection, initiation, confirmation, and status updates, exercising the full end-to-end financing workflow for a purchase. Includes cancellation handling after the financing contract has progressed through the transaction lifecycle.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA_Cancellation.yaml
   - type: playground
@@ -91,7 +87,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: End-to-end purchase finance journey using Account Aggregator consented financial data to assess eligibility, originate the loan, and complete disbursal, followed by foreclosure of an existing loan as part of the financed purchase workflow.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA_Loan_Foreclosure.yaml
   - type: playground
@@ -101,7 +97,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: A purchase finance journey using Account Aggregator consent and data access to evaluate a borrower for financing, create the loan, and manage the post-disbursal lifecycle. This flow specifically exercises the handling of a missed EMI payment through status updates, repayment-related updates, and subsequent financing workflow actions end to end.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA_Missed_EMI_Payment.yaml
   - type: playground
@@ -111,7 +107,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: An end-to-end purchase finance journey where a buyer uses Account Aggregator consent and data sharing to discover, compare, and select among multiple financing offers before completing the loan-assisted purchase. The flow exercises the full transaction lifecycle from search and offer discovery through document capture, loan initiation, confirmation, and post-confirmation updates.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA_Multiple_Offer.yaml
   - type: playground
@@ -121,7 +117,7 @@ flows:
       - WORKBENCH
       - WITH_AA
       - REPORTABLE
-    description: Purchase Finance with Account Aggregator
+    description: End-to-end purchase finance journey where a buyer discovers a financing offer, completes Account Aggregator consent and eligibility checks, initiates and confirms the loan for a purchase, and then performs pre-part payment updates against the financed amount.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_With_AA_Pre_Part_Payment.yaml
   - type: playground
@@ -131,7 +127,7 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: A purchase finance journey without Account Aggregator, where the buyer discovers financing offers, selects a lender, completes form-based eligibility and KYC capture, initiates the loan, and confirms the financed purchase through to post-order updates.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA.yaml
   - type: playground
@@ -141,7 +137,7 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance journey without Account Aggregator consent, covering lender discovery, borrower selection, eligibility and document capture, financing initiation, confirmation, servicing updates, and cancellation handling.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA_Cancellation.yaml
   - type: playground
@@ -151,7 +147,7 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance flow for foreclosing an outstanding loan without Account Aggregator access, covering lender discovery, loan selection, initiation, confirmation, status tracking, and final closure updates.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA_Loan_Foreclosure.yaml
   - type: playground
@@ -161,7 +157,7 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance flow without Account Aggregator coverage, where a customer discovers and selects a financing option, completes loan initiation and confirmation, and the lender/merchant handle a missed EMI payment through status and update callbacks.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA_Missed_EMI_Payment.yaml
   - type: playground
@@ -171,7 +167,7 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: End-to-end purchase finance flow without Account Aggregator, where a buyer searches for financing offers against a purchase, reviews multiple lender options, completes required forms, and proceeds through selection, initiation, confirmation, and post-confirmation updates. It exercises offer discovery and fulfillment for a reportable purchase-finance transaction with multiple offers and lender-specific onboarding.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA_Multiple_Offer.yaml
   - type: playground
@@ -181,6 +177,6 @@ flows:
       - WORKBENCH
       - WITHOUT_AA
       - REPORTABLE
-    description: Purchase Finance without Account Aggregator
+    description: A purchase finance journey where the buyer seeks financing for a purchase without using Account Aggregator, with eligibility discovery, lender selection, loan initiation, order confirmation, and post-confirmation updates leading up to and including a pre-part-payment request.
     config:
       $ref: ./PURCHASE FINANCE/Purchase_Finance_Without_AA_Pre_Part_Payment.yaml
