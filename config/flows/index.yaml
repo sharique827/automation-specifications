@@ -167,6 +167,46 @@ flows:
     config:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED__W_O_Search_and_Select_.yaml
   - type: playground
+    id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: User searches for and selects a metro service, then initiates and confirms the booking. After the booking is accepted, the user cancels the reservation through the delayed cancellation flow.
+    config:
+      $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION.yaml
+  - type: playground
+    id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION (W/O Search1 and Select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: A passenger searches for a metro route, confirms a ticket booking, and then successfully cancels the confirmed reservation.
+    config:
+      $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION__W_O_Search_and_Select_.yaml
+  - type: playground
+    id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: Buyer initiates cancellation of a confirmed metro booking after selection and confirmation, but the platform rejects the cancellation request due to business rules or operational constraints.
+    config:
+      $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION.yaml
+  - type: playground
+    id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION (W/O Search1 and Select)
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: User requests cancellation of a confirmed metro booking, but the cancellation request is delayed and ultimately rejected due to timing or business constraints.
+    config:
+      $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION__W_O_Search_and_Select_.yaml
+  - type: playground
     id: END_STOP_UPDATE_FLOW
     usecase: Metro
     tags:
