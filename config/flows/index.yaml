@@ -6,7 +6,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Driver not found on on_confirm
+    description: A rider attempts to confirm a ride booking after selecting an option, but the request fails because no driver is available to accept it.
     config:
       $ref: ./Ride-hailing/Driver_not_found_on_onconfirm.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Driver not found post on_confirm
+    description: A customer completes a full ride booking flow, but no driver is found post-confirmation, resulting in automatic cancellation of the ride.
     config:
       $ref: ./Ride-hailing/Driver_not_found_post_onconfirm.yaml
   - type: playground
@@ -26,7 +26,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Assign driver on on-confirm
+    description: Customer discovers and confirms a ride booking; the system assigns a driver upon confirmation and provides real-time tracking with continuous status updates throughout the journey.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm.yaml
   - type: playground
@@ -35,7 +35,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: On-Demand - Assign driver on on-confirm with IGM
+    description: A ride-hailing transaction flow where drivers are assigned upon booking confirmation, providing real-time tracking and integrated issue management for customer complaints.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_with_IGM_1_0_0_.yaml
   - type: playground
@@ -45,7 +45,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Assign driver post on-confirm
+    description: A customer confirms their ride request, after which the service provider assigns an available driver and initiates real-time tracking with continuous status updates until the ride is completed.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_post_onconfirm.yaml
   - type: playground
@@ -55,7 +55,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Assign driver post on-confirm(Self-Pickup)
+    description: Assigns an available driver to a confirmed self-pickup ride request and enables real-time tracking of the driver's location through pickup completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_post_onconfirmSelfPickup.yaml
   - type: playground
@@ -64,7 +64,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: On-Demand - Female driver flow
+    description: Complete ride-hailing transaction flow where customers search for and book an on-demand ride with a female driver, then track the vehicle and driver in real-time until trip completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Female_driver_flow.yaml
   - type: playground
@@ -74,7 +74,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Ride cancellation by driver
+    description: End-to-end ride-hailing transaction where a customer discovers, selects, and completes a ride booking that is subsequently cancelled by the assigned driver. This flow exercises the full transaction lifecycle from search through driver cancellation.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_cancellation_by_driver.yaml
   - type: playground
@@ -84,7 +84,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Ride cancellation by rider
+    description: A rider discovers and books an on-demand ride through search, selection, and confirmation, then cancels the confirmed booking.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_cancellation_by_rider.yaml
   - type: playground
@@ -94,7 +94,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: On-Demand - Journey updation flow
+    description: Enables a customer to discover available rides through search and selection, initiate a booking, and receive real-time journey tracking with continuous status updates until ride completion in a ride-hailing service.
     config:
       $ref: ./Ride-hailing/OnDemand_journey_updation_flow.yaml
   - type: playground
@@ -103,6 +103,6 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Technical cancellation flow
+    description: Validates a complete ride-hailing booking transaction from passenger search through confirmation and system-initiated cancellation when driver availability or operational constraints prevent service fulfillment.
     config:
       $ref: ./Ride-hailing/Technical_cancellation_flow.yaml
