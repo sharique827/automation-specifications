@@ -5152,6 +5152,7 @@ _TESTS_:
               attr: $.message.order.fulfillments[*]['@ondc/org/TAT']
               reg:
                 - ^P(?=\\d|T)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+S)?)?$
+              _CONTINUE_: "!(attr are present)"
               _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_TRACKING
               attr: $.message.order.fulfillments[*].tracking
@@ -5245,21 +5246,23 @@ _TESTS_:
               ref:  $.message.order.payments[?(@.type!='PART-PAYMENT')].id
               _RETURN_: attr1 all in ref
             - _NAME_: PAYMENT_PARAMS_AMOUNT
-              attr: $.message.order.payments[*].params.amount
+              attr: $.message.order.payments[?(@.type!='PART-PAYMENT')].params.amount
               reg:
-                - ^(\\d+\\.\\d{1,2})$
+                - ^(\d+(\.\d{1,2})?)$
               _CONTINUE_: "!(attr are present)"
               _RETURN_: attr follow regex reg
+
             - _NAME_: PAYMENT_PARAMS_CURRENCY
-              attr: $.message.order.payments[*].params.currency
+              attr: $.message.order.payments[?(@.type!='PART-PAYMENT')].params.currency
               reg:
                 - ^[A-Z]{3}$
               _CONTINUE_: "!(attr are present)"
               _RETURN_: attr follow regex reg
+
             - _NAME_: PAYMENT_TRANSACTION_ID_IF_PAID
-              attr: $.message.order.payments[?(@.status=='PAID')].params.transaction_id
+              attr: $.message.order.payments[?(@.type!='PART-PAYMENT' && @.status=='PAID')].params.transaction_id
               reg:
-                - ^[0-9a-zA-Z/-_]{1,50}$
+                - ^[0-9a-zA-Z/_-]{1,50}$
               _RETURN_: attr are present && attr follow regex reg
             - _NAME_: ADV_DEPOSIT_MUST_BE_ON_ORDER
               attr: $.message.order.payments[?(@.tags[*].descriptor.code=='ADV-DEPOSIT')].type
