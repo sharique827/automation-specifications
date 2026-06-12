@@ -30,18 +30,6 @@ _TESTS_:
             - _NAME_: CONTEXT_REQUIRED_BAP_URI
               attr: $.context.bap_uri
               _RETURN_: attr are present
-            - _NAME_: CONTEXT_REQUIRED_BPP_ID
-              search:
-                - search
-              attr: $.context.bpp_id
-              _CONTINUE_: (action equal to search)
-              _RETURN_: attr are present
-            - _NAME_: CONTEXT_REQUIRED_BPP_URI
-              search:
-                - search
-              _CONTINUE_: (action equal to search)
-              attr: $.context.bpp_uri
-              _RETURN_: attr are present
             - _NAME_: CONTEXT_REQUIRED_TRANSACTION_ID
               attr: $.context.transaction_id
               _RETURN_: attr are present
@@ -86,14 +74,6 @@ _TESTS_:
               reg:
                 - ^https?\:\/\/
               _RETURN_: attr follow regex reg
-            - _NAME_: CONTEXT_REG_BPP_URI
-              attr: $.context.bpp_uri
-              reg:
-                - ^https?\:\/\/
-              _RETURN_: attr follow regex reg
-              search:
-                - search
-              _CONTINUE_: (action equal to search)
             - _NAME_: CONTEXT_REG_TTL
               attr: $.context.ttl
               reg:
@@ -119,77 +99,18 @@ _TESTS_:
             - _NAME_: PAYMENT_REQUIRED_AMOUNT
               attr: $.message.intent.payment['@ondc/org/buyer_app_finder_fee_amount']
               _RETURN_: attr are present
-        - _NAME_: SEARCH_CATEGORY
+        - _NAME_: PAYMENT_ENUM
           _RETURN_:
-            - _NAME_: CATEGORY_REQUIRED_ID
-              attr: $.message.intent.category.id
-              valid:
-                - Fruits and Vegetables
-                - Masala & Seasoning
-                - Oil & Ghee
-                - Eggs, Meat & Fish
-                - Bakery, Cakes & Dairy
-                - Pet Care
-                - Detergents and Dishwash
-                - Dairy and Cheese
-                - Snacks, Dry Fruits, Nuts
-                - Pasta, Soup and Noodles
-                - Cereals and Breakfast
-                - Sauces, Spreads and Dips
-                - Chocolates and Biscuits
-                - Cooking and Baking Needs
-                - Tinned and Processed Food
-                - Atta, Flours and Sooji
-                - Rice and Rice Products
-                - Dals and Pulses
-                - Salt, Sugar and Jaggery
-                - Energy and Soft Drinks
-                - Water
-                - Tea and Coffee
-                - Fruit Juices and Fruit Drinks
-                - Snacks and Namkeen
-                - Ready to Cook and Eat
-                - Pickles and Chutney
-                - Indian Sweets
-                - Frozen Vegetables
-                - Frozen Snacks
-                - Gift Voucher
-              _CONTINUE_: "!(attr are present)"
-              _RETURN_: attr all in valid
-            - _NAME_: PAYMENT_ENUM
-              _RETURN_:
-                - _NAME_: PAYMENT_ENUM_TYPE
-                  attr: $.message.intent.payment['@ondc/org/buyer_app_finder_fee_type']
-                  var_fee_type:
-                    - percent
-                    - amount
-                  _RETURN_: attr all in var_fee_type
-                - _NAME_: PAYMENT_REGEX_AMOUNT
-                  attr: $.message.intent.payment['@ondc/org/buyer_app_finder_fee_amount']
-                  reg:
-                    - ^(\\d*.?\\d{1,2})$
-                  _RETURN_: attr follow regex reg
-        - _NAME_: FULFILMENT_ENUM
-          _RETURN_:
-            - _NAME_: FULFILMENT_ENUM_TYPE
-              attr: $.message.intent.fulfillment.type
-              var_types:
-                - Delivery
-                - Self-Pickup
-                - Buyer-Delivery
-              _CONTINUE_: "!(attr are present)"
-              _RETURN_: attr all in var_types
-            - _NAME_: FULFILMENT_REQUIRED_END_LOCATION_GPS
-              attr: $.message.intent.fulfillment.end.location.gps
+            - _NAME_: PAYMENT_ENUM_TYPE
+              attr: $.message.intent.payment['@ondc/org/buyer_app_finder_fee_type']
+              var_fee_type:
+                - percent
+                - amount
+              _RETURN_: attr all in var_fee_type
+            - _NAME_: PAYMENT_REGEX_AMOUNT
+              attr: $.message.intent.payment['@ondc/org/buyer_app_finder_fee_amount']
               reg:
-                - ^\\d{2}\\.\\d{4,}\\s*,\\s*\\d{2}\\.\\d{4,}$
-              _CONTINUE_: "!(attr are present)"
-              _RETURN_: attr follow regex reg
-            - _NAME_: FULFILMENT_REQUIRED_END_LOCATION_AREA_CODE
-              attr: $.message.intent.fulfillment.end.location.address.area_code
-              reg:
-                - ^\d{6}$
-              _CONTINUE_: "!(attr are present)"
+                - ^(\\d*.?\\d{1,2})$
               _RETURN_: attr follow regex reg
     - _NAME_: SEARCH_TAGS
       _RETURN_:
@@ -2207,22 +2128,6 @@ _TESTS_:
           _RETURN_: attr all in var_enum
         - _NAME_: ORDER_PROVIDER
           _RETURN_: *a2
-        - _NAME_: ORDER_CANCELLATION
-          _RETURN_:
-            - _NAME_: CANCELLATION_CANCELLED_BY
-              _CONTINUE_: "!(attr are present)"
-              attr: $.message.order.cancellation.cancelled_by
-              _RETURN_: attr are present
-            - _NAME_: CANCELLATION_REASON
-              _RETURN_:
-                - _NAME_: CANCELLATION_REASON_ID
-                  _CONTINUE_: "!(attr are present)"
-                  attr: $.message.order.cancellation.reason.id
-                  _RETURN_: attr are present
-                - _NAME_: CANCELLATION_REASON_STATE
-                  _CONTINUE_: "!(attr are present)"
-                  attr: $.message.order.cancellation.reason.state
-                  _RETURN_: attr are present
         - _NAME_: ORDER_ITEMS
           _RETURN_: *a3
         - _NAME_: ORDER_BILLING
@@ -3419,9 +3324,6 @@ _TESTS_:
           _RETURN_: attr all in var_enum
         - _NAME_: ORDER_CANCELLATION
           _RETURN_:
-            - _NAME_: CANCELLED_BY
-              attr: $.message.order.cancellation.cancelled_by
-              _RETURN_: attr are present
             - _NAME_: CANCELLATION_REASON_ID
               attr: $.message.order.cancellation.reason.id
               _RETURN_: attr are present

@@ -15,7 +15,7 @@ paths:
             schema:
               type: object
               properties:
-                context: &context
+                context:
                   type: object
                   properties:
                     action:
@@ -51,16 +51,67 @@ paths:
                       type: string
                     order_id:
                       type: string
+                    descriptor:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        short_desc:
+                          type: string
+                        tags: &tags
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                              list: &list
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
+                                    value:
+                                      type: string
       responses: &responses
         "200":
           description: Synchronous ACK/NACK response
           content:
             application/json:
-              schema: &a1
+              schema: &a3
                 type: object
                 properties:
-                  context: *context
-                  message:
+                  context:
+                    type: object
+                    properties:
+                      action:
+                        type: string
+                      bap_id:
+                        type: string
+                      bap_uri:
+                        type: string
+                      bpp_id:
+                        type: string
+                      bpp_uri:
+                        type: string
+                      city:
+                        type: string
+                      core_version:
+                        type: string
+                      country:
+                        type: string
+                      domain:
+                        type: string
+                      message_id:
+                        type: string
+                      timestamp:
+                        type: string
+                      transaction_id:
+                        type: string
+                      ttl:
+                        type: string
+                  message: &a1
                     type: object
                     properties:
                       ack:
@@ -220,7 +271,7 @@ paths:
                         type: object
                     required:
                       - ack
-                  error:
+                  error: &a2
                     description: Describes an error object that is returned by a BAP, BPP or BG as a
                       response or callback to an action by another network
                       participant. This object is sent when any request received
@@ -242,6 +293,66 @@ paths:
                         type: string
                         description: Human readable message describing the error. Used mainly for
                           logging. Not recommended to be shown to the user.
+  /catalog_rejection:
+    post:
+      operationId: catalog_rejection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: &context_3
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    action:
+                      type: string
+                    country:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    transaction_id:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    ttl:
+                      type: string
+                errors:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      code:
+                        type: string
+                      path:
+                        type: string
+                      message:
+                        type: string
+      responses: &responses_2
+        "200":
+          description: Synchronous ACK/NACK response
+          content:
+            application/json:
+              schema: &a4
+                type: object
+                properties:
+                  message: *a1
+                  error: *a2
+                required:
+                  - message
   /confirm:
     post:
       operationId: confirm
@@ -252,7 +363,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -300,7 +439,7 @@ paths:
                                 type: string
                               "@ondc/org/category":
                                 type: string
-                              end: &end
+                              end:
                                 type: object
                                 properties:
                                   contact: &contact
@@ -343,6 +482,8 @@ paths:
                                 properties:
                                   count:
                                     type: integer
+                              location_id:
+                                type: string
                         payment: &payment
                           type: object
                           properties:
@@ -379,7 +520,7 @@ paths:
                               type: string
                             collected_by:
                               type: string
-                            params:
+                            params: &params
                               type: object
                               properties:
                                 amount:
@@ -392,12 +533,24 @@ paths:
                               type: string
                             type:
                               type: string
+                            tags:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  list: &list_2
+                                    type: array
+                                    items: &items_3
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
                         provider: &provider
                           type: object
                           properties:
                             id:
                               type: string
-                            locations:
+                            locations: &locations
                               type: array
                               items: &items_2
                                 type: object
@@ -427,6 +580,7 @@ paths:
                                             type: string
                                           value:
                                             type: string
+                                      tags: *tags
                                   price: *price
                                   title:
                                     type: string
@@ -435,22 +589,7 @@ paths:
                               type: string
                         state:
                           type: string
-                        tags: &tags
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                              list:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    code:
-                                      type: string
-                                    value:
-                                      type: string
+                        tags: *tags
                         updated_at:
                           type: string
       responses: *responses
@@ -464,7 +603,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -477,7 +644,7 @@ paths:
                           items:
                             type: object
                             properties:
-                              end: &end_2
+                              end: &end
                                 type: object
                                 properties:
                                   contact: *contact
@@ -489,8 +656,173 @@ paths:
                         items: *items
                         offers:
                           type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              tags:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    list: *list
                         provider: *provider
+                        tags: *tags
       responses: *responses
+  /issue:
+    post:
+      operationId: issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: &context_2
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    transaction_id:
+                      type: string
+                    message_id:
+                      type: string
+                    action:
+                      type: string
+                    timestamp:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bap_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    ttl:
+                      type: string
+                    country:
+                      type: string
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs: &refs
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors: &actors
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info:
+                                type: object
+                                properties:
+                                  person: *person
+                                  contact: *contact
+                        source_id:
+                          type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        last_action_id:
+                          type: string
+                        actions: &actions
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+                        category:
+                          type: string
+                        sub_category:
+                          type: string
+                        complainant_info:
+                          type: object
+                          properties:
+                            person: *person
+                            contact: &contact_2
+                              type: object
+                              properties:
+                                phone:
+                                  type: string
+                        order_details:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  quantity:
+                                    type: string
+                            fulfillments: *locations
+                            provider_id:
+                              type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+      responses: *responses_2
   /on_cancel:
     post:
       operationId: on_cancel
@@ -501,7 +833,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -558,6 +918,16 @@ paths:
                                       id:
                                         type: string
                                   person: *person
+                                  time: &time
+                                    type: object
+                                    properties:
+                                      range: &range
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                          end:
+                                            type: string
                               id:
                                 type: string
                               start:
@@ -566,19 +936,16 @@ paths:
                                   contact: *contact
                                   location: *location_2
                                   person: *person
-                                  time:
+                                  time: &time_3
                                     type: object
                                     properties:
                                       timestamp:
                                         type: string
+                                      range: *range
                               state: &state
                                 type: object
                                 properties:
-                                  descriptor:
-                                    type: object
-                                    properties:
-                                      code:
-                                        type: string
+                                  descriptor: *items_3
                               tags: *tags
                               tracking:
                                 type: boolean
@@ -586,10 +953,43 @@ paths:
                                 type: string
                         id:
                           type: string
-                        items: *items
-                        payment: *payment
+                        items: &items_4
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              fulfillment_id:
+                                type: string
+                              id:
+                                type: string
+                              quantity: *quantity
+                        payment:
+                          type: object
+                          properties:
+                            "@ondc/org/buyer_app_finder_fee_amount":
+                              type: string
+                            "@ondc/org/buyer_app_finder_fee_type":
+                              type: string
+                            "@ondc/org/settlement_basis":
+                              type: string
+                            "@ondc/org/settlement_details": *ondc_org_settlement_details
+                            "@ondc/org/settlement_window":
+                              type: string
+                            "@ondc/org/withholding_amount":
+                              type: string
+                            collected_by:
+                              type: string
+                            params: *params
+                            status:
+                              type: string
+                            type:
+                              type: string
+                            uri:
+                              type: string
+                            tl_method:
+                              type: string
                         provider: *provider
-                        quote: &quote_2
+                        quote:
                           type: object
                           properties:
                             breakup:
@@ -606,7 +1006,7 @@ paths:
                                     type: object
                                     properties:
                                       price: *price
-                                      quantity:
+                                      quantity: &quantity_2
                                         type: object
                                         properties:
                                           available: &available
@@ -615,6 +1015,18 @@ paths:
                                               count:
                                                 type: string
                                           maximum: *available
+                                      tags: &tags_2
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            list: &list_3
+                                              type: array
+                                              items:
+                                                type: object
+                                                properties:
+                                                  value:
+                                                    type: string
                                   price: *price
                                   title:
                                     type: string
@@ -625,6 +1037,7 @@ paths:
                           type: string
                         updated_at:
                           type: string
+                        tags: *tags
       responses: *responses
   /on_confirm:
     post:
@@ -636,7 +1049,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -655,7 +1096,13 @@ paths:
                                 type: string
                               "@ondc/org/provider_name":
                                 type: string
-                              end: *end
+                              end:
+                                type: object
+                                properties:
+                                  contact: *contact
+                                  location: *location
+                                  person: *person
+                                  time: *time
                               id:
                                 type: string
                               start:
@@ -682,6 +1129,18 @@ paths:
                                       gps:
                                         type: string
                                       id:
+                                        type: string
+                                  time: *time
+                                  instructions: &instructions
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
+                                      name:
+                                        type: string
+                                      short_desc:
+                                        type: string
+                                      long_desc:
                                         type: string
                               state: *state
                               tracking:
@@ -710,7 +1169,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -723,14 +1210,27 @@ paths:
                           items:
                             type: object
                             properties:
-                              end: *end_2
+                              end: *end
                               id:
                                 type: string
                               tracking:
                                 type: boolean
                               type:
                                 type: string
-                        items: *items
+                              tags: *tags
+                        items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              fulfillment_id:
+                                type: string
+                              id:
+                                type: string
+                              quantity: *quantity
+                              location_id:
+                                type: string
+                              tags: *tags
                         payment:
                           type: object
                           properties:
@@ -739,10 +1239,98 @@ paths:
                             "@ondc/org/buyer_app_finder_fee_type":
                               type: string
                             "@ondc/org/settlement_details": *ondc_org_settlement_details
+                            tags: *tags
                         provider: *provider
                         quote: *quote
                         tags: *tags
+                        offers:
+                          type: array
+                          items: *state
       responses: *responses
+  /on_issue:
+    post:
+      operationId: on_issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context_2
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs: *refs
+                        actors: *actors
+                        actions: *actions
+                        issue_actions: &issue_actions
+                          type: object
+                          properties:
+                            respondent_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  respondent_action:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  updated_at:
+                                    type: string
+                                  updated_by: &updated_by
+                                    type: object
+                                    properties:
+                                      person: *person
+                                      org: *person
+      responses: *responses_2
+  /on_issue_status:
+    post:
+      operationId: on_issue_status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context_2
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        issue_actions: *issue_actions
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        resolution_provider:
+                          type: object
+                          properties:
+                            respondent_info:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                organization: *updated_by
+      responses: *responses_2
   /on_search:
     post:
       operationId: on_search
@@ -753,7 +1341,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -790,7 +1406,7 @@ paths:
                           items:
                             type: object
                             properties:
-                              time: &time
+                              time: &time_2
                                 type: object
                                 properties:
                                   label:
@@ -830,15 +1446,11 @@ paths:
                                         schedule:
                                           type: object
                                           properties:
-                                            holidays:
-                                              type: array
-                                        range: &range
-                                          type: object
-                                          properties:
-                                            start:
-                                              type: string
-                                            end:
-                                              type: string
+                                            holidays: *images
+                                            times: *images
+                                        range: *range
+                                        frequency:
+                                          type: string
                                     gps:
                                       type: string
                                     address: *address_2
@@ -932,7 +1544,7 @@ paths:
                                           type: string
                                         month_year_of_manufacture_packing_import:
                                           type: string
-                                    time: *time
+                                    time: *time_2
                                     tags: *tags
                                     id:
                                       type: string
@@ -940,6 +1552,19 @@ paths:
                                       type: string
                                     rating:
                                       type: string
+                                    "@ondc/org/statutory_reqs_prepackaged_food":
+                                      type: object
+                                      properties:
+                                        additives_info:
+                                          type: string
+                                        brand_owner_FSSAI_license_no:
+                                          type: string
+                                        importer_FSSAI_license_no:
+                                          type: string
+                                        nutritional_info:
+                                          type: string
+                                        other_FSSAI_license_no:
+                                          type: string
                               tags: *tags
                               categories:
                                 type: array
@@ -954,6 +1579,13 @@ paths:
                                 type: string
                               rating:
                                 type: string
+                              offers:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    descriptor: *items_3
+                                    tags: *tags
       responses: *responses
   /on_select:
     post:
@@ -965,7 +1597,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -990,6 +1650,14 @@ paths:
                                 type: boolean
                               type:
                                 type: string
+                              tags:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
+                                    list: *list_2
                         items:
                           type: array
                           items:
@@ -999,8 +1667,40 @@ paths:
                                 type: string
                               id:
                                 type: string
+                              fulfillment_ids: *images
                         provider: *provider
-                        quote: *quote_2
+                        quote: &quote_2
+                          type: object
+                          properties:
+                            breakup:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  "@ondc/org/item_id":
+                                    type: string
+                                  "@ondc/org/item_quantity": *quantity
+                                  "@ondc/org/title_type":
+                                    type: string
+                                  item:
+                                    type: object
+                                    properties:
+                                      price: *price
+                                      quantity: *quantity_2
+                                      tags:
+                                        type: array
+                                        items:
+                                          type: object
+                                          properties:
+                                            code:
+                                              type: string
+                                            list: *list_3
+                                  price: *price
+                                  title:
+                                    type: string
+                            price: *price
+                            ttl:
+                              type: string
                 error:
                   type: object
                   properties:
@@ -1021,7 +1721,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -1040,16 +1768,14 @@ paths:
                                 type: string
                               "@ondc/org/provider_name":
                                 type: string
-                              end: &end_3
+                              end:
                                 type: object
                                 properties:
                                   contact: *contact
                                   location: *location
                                   person: *person
-                                  time: &time_2
-                                    type: object
-                                    properties:
-                                      range: *range
+                                  time: *time_3
+                                  instructions: *instructions
                               id:
                                 type: string
                               start:
@@ -1057,23 +1783,87 @@ paths:
                                 properties:
                                   contact: *contact
                                   location: *location_3
-                                  time: *time_2
+                                  time: *time_3
+                                  instructions: *instructions
                               state: *state
                               tags: *tags
                               tracking:
                                 type: boolean
                               type:
                                 type: string
+                              agent: *contact_2
+                              vehicle:
+                                type: object
+                                properties:
+                                  registration:
+                                    type: string
                         id:
                           type: string
                         items: *items
-                        payment: *payment
+                        payment:
+                          type: object
+                          properties:
+                            "@ondc/org/buyer_app_finder_fee_amount":
+                              type: string
+                            "@ondc/org/buyer_app_finder_fee_type":
+                              type: string
+                            "@ondc/org/settlement_basis":
+                              type: string
+                            "@ondc/org/settlement_details":
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  bank_name:
+                                    type: string
+                                  beneficiary_name:
+                                    type: string
+                                  branch_name:
+                                    type: string
+                                  settlement_bank_account_no:
+                                    type: string
+                                  settlement_counterparty:
+                                    type: string
+                                  settlement_ifsc_code:
+                                    type: string
+                                  settlement_phase:
+                                    type: string
+                                  settlement_type:
+                                    type: string
+                                  settlement_reference:
+                                    type: string
+                                  settlement_status:
+                                    type: string
+                            "@ondc/org/settlement_window":
+                              type: string
+                            "@ondc/org/withholding_amount":
+                              type: string
+                            collected_by:
+                              type: string
+                            params: *params
+                            status:
+                              type: string
+                            type:
+                              type: string
+                            uri:
+                              type: string
+                            tl_method:
+                              type: string
                         provider: *provider
                         quote: *quote_2
                         state:
                           type: string
                         updated_at:
                           type: string
+                        documents:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                              label:
+                                type: string
       responses: *responses
   /on_track:
     post:
@@ -1085,7 +1875,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -1098,6 +1916,19 @@ paths:
                           type: string
                         url:
                           type: string
+                        location:
+                          type: object
+                          properties:
+                            gps:
+                              type: string
+                            time:
+                              type: object
+                              properties:
+                                timestamp:
+                                  type: string
+                            updated_at:
+                              type: string
+                        tags: *tags
       responses: *responses
   /on_update:
     post:
@@ -1109,7 +1940,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -1135,7 +1994,21 @@ paths:
                                     type: string
                                   phone:
                                     type: string
-                              end: *end_3
+                              end:
+                                type: object
+                                properties:
+                                  contact: *contact
+                                  location: *location
+                                  person: *person
+                                  time: *time
+                                  instructions: &instructions_2
+                                    type: object
+                                    properties:
+                                      additional_desc:
+                                        type: object
+                                        properties:
+                                          content_type:
+                                            type: string
                               id:
                                 type: string
                               start:
@@ -1143,12 +2016,7 @@ paths:
                                 properties:
                                   contact: *contact
                                   location: *location_3
-                                  time:
-                                    type: object
-                                    properties:
-                                      range: *range
-                                      timestamp:
-                                        type: string
+                                  time: *time_3
                               state: *state
                               tags: *tags
                               tracking:
@@ -1157,10 +2025,77 @@ paths:
                                 type: string
                         id:
                           type: string
-                        items: *items
-                        payment: *payment
+                        items: *items_4
+                        payment:
+                          type: object
+                          properties:
+                            "@ondc/org/buyer_app_finder_fee_amount":
+                              type: string
+                            "@ondc/org/buyer_app_finder_fee_type":
+                              type: string
+                            "@ondc/org/settlement_basis":
+                              type: string
+                            "@ondc/org/settlement_details":
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  bank_name:
+                                    type: string
+                                  beneficiary_name:
+                                    type: string
+                                  branch_name:
+                                    type: string
+                                  settlement_bank_account_no:
+                                    type: string
+                                  settlement_counterparty:
+                                    type: string
+                                  settlement_ifsc_code:
+                                    type: string
+                                  settlement_phase:
+                                    type: string
+                                  settlement_type:
+                                    type: string
+                                  settlement_amount:
+                                    type: string
+                                  settlement_timestamp:
+                                    type: string
+                            "@ondc/org/settlement_window":
+                              type: string
+                            "@ondc/org/withholding_amount":
+                              type: string
+                            collected_by:
+                              type: string
+                            params: *params
+                            status:
+                              type: string
+                            type:
+                              type: string
                         provider: *provider
-                        quote: *quote_2
+                        quote:
+                          type: object
+                          properties:
+                            breakup:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  "@ondc/org/item_id":
+                                    type: string
+                                  "@ondc/org/item_quantity": *quantity
+                                  "@ondc/org/title_type":
+                                    type: string
+                                  item:
+                                    type: object
+                                    properties:
+                                      price: *price
+                                      quantity: *quantity_2
+                                  price: *price
+                                  title:
+                                    type: string
+                            price: *price
+                            ttl:
+                              type: string
                         state:
                           type: string
                         updated_at:
@@ -1176,31 +2111,7 @@ paths:
             schema:
               type: object
               properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
+                context: *context_3
                 message:
                   type: object
                   properties:
@@ -1226,7 +2137,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -1261,8 +2200,33 @@ paths:
                               location:
                                 type: string
                               quantity: *quantity
+                              location_id:
+                                type: string
                         provider: *provider
+                        offers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              tags: *tags_2
       responses: *responses
+  /status:
+    post:
+      operationId: status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context_3
+                message: &message
+                  type: object
+                  properties:
+                    order_id:
+                      type: string
+      responses: *responses_2
   /track:
     post:
       operationId: track
@@ -1273,12 +2237,36 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
-                message:
+                context:
                   type: object
                   properties:
-                    order_id:
+                    action:
                       type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
+                message: *message
       responses: *responses
   /update:
     post:
@@ -1290,7 +2278,35 @@ paths:
             schema:
               type: object
               properties:
-                context: *context
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
                 message:
                   type: object
                   properties:
@@ -1307,6 +2323,10 @@ paths:
                               tags: *tags
                               type:
                                 type: string
+                              end:
+                                type: object
+                                properties:
+                                  instructions: *instructions_2
                         id:
                           type: string
                         payment:
