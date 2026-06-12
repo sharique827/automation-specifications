@@ -33,12 +33,16 @@ paths:
                     location: &location_2
                       type: object
                       properties:
-                        city: &city
+                        city:
                           type: object
                           properties:
                             code:
                               type: string
-                        country: *city
+                        country:
+                          type: object
+                          properties:
+                            code:
+                              type: string
                     message_id:
                       type: string
                     timestamp:
@@ -54,7 +58,7 @@ paths:
                   properties:
                     cancellation_reason_id:
                       type: string
-                    descriptor: &descriptor
+                    descriptor:
                       type: object
                       properties:
                         code:
@@ -272,7 +276,7 @@ paths:
                     order:
                       type: object
                       properties:
-                        billing: &billing
+                        billing:
                           type: object
                           properties:
                             name:
@@ -290,7 +294,11 @@ paths:
                                     properties:
                                       phone:
                                         type: string
-                                  person: *billing
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
                               id:
                                 type: string
                               stops: &stops
@@ -323,13 +331,24 @@ paths:
                                     type: string
                               type:
                                 type: string
-                              state: &state
+                              state:
                                 type: object
                                 properties:
-                                  descriptor: *city
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                               tags: &tags
                                 type: array
-                                items: *state
+                                items:
+                                  type: object
+                                  properties:
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
                         items:
                           type: array
                           items:
@@ -337,7 +356,11 @@ paths:
                             properties:
                               id:
                                 type: string
-                              descriptor: *city
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
                               tags: *tags
                         payments: &payments
                           type: array
@@ -364,7 +387,11 @@ paths:
                                 items:
                                   type: object
                                   properties:
-                                    descriptor: *city
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
                                     display:
                                       type: boolean
                                     list:
@@ -372,7 +399,11 @@ paths:
                                       items:
                                         type: object
                                         properties:
-                                          descriptor: *city
+                                          descriptor:
+                                            type: object
+                                            properties:
+                                              code:
+                                                type: string
                                           value:
                                             type: string
                               type:
@@ -401,7 +432,11 @@ paths:
                     order:
                       type: object
                       properties:
-                        billing: *billing
+                        billing:
+                          type: object
+                          properties:
+                            name:
+                              type: string
                         fulfillments:
                           type: array
                           items:
@@ -412,7 +447,14 @@ paths:
                                 type: string
                               stops: *stops
                               vehicle: *vehicle
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         items: &items_3
                           type: array
                           items:
@@ -420,7 +462,11 @@ paths:
                             properties:
                               id:
                                 type: string
-                              descriptor: *city
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
                         payments:
                           type: array
                           items:
@@ -540,7 +586,11 @@ paths:
                                   updated_by: &updated_by
                                     type: object
                                     properties:
-                                      org: *billing
+                                      org:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
                                       contact: &contact
                                         type: object
                                         properties:
@@ -548,7 +598,11 @@ paths:
                                             type: string
                                           email:
                                             type: string
-                                      person: *billing
+                                      person:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
                         created_at:
                           type: string
                         updated_at:
@@ -576,7 +630,11 @@ paths:
                               info:
                                 type: object
                                 properties:
-                                  person: *billing
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
                                   contact: *contact
                         source_id:
                           type: string
@@ -633,7 +691,14 @@ paths:
                           properties:
                             cancelled_by:
                               type: string
-                            reason: *state
+                            reason:
+                              type: object
+                              properties:
+                                descriptor:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
                         cancellation_terms: &cancellation_terms
                           type: array
                           items:
@@ -651,7 +716,14 @@ paths:
                                         type: string
                                       value:
                                         type: string
-                              fulfillment_state: *state
+                              fulfillment_state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                               reason_required:
                                 type: boolean
                         created_at:
@@ -664,7 +736,14 @@ paths:
                               customer: *customer
                               id:
                                 type: string
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                               stops:
                                 type: array
                                 items:
@@ -697,7 +776,13 @@ paths:
                                 items:
                                   type: object
                                   properties:
-                                    descriptor: *descriptor
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
+                                        name:
+                                          type: string
                                     display:
                                       type: boolean
                                     list:
@@ -705,7 +790,13 @@ paths:
                                       items:
                                         type: object
                                         properties:
-                                          descriptor: *descriptor
+                                          descriptor:
+                                            type: object
+                                            properties:
+                                              code:
+                                                type: string
+                                              name:
+                                                type: string
                                           value:
                                             type: string
                               type:
@@ -733,7 +824,13 @@ paths:
                           items:
                             type: object
                             properties:
-                              descriptor: *descriptor
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
                               fulfillment_ids: *images
                               id:
                                 type: string
@@ -755,7 +852,13 @@ paths:
                                 items:
                                   type: object
                                   properties:
-                                    descriptor: *descriptor
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
+                                        name:
+                                          type: string
                                     display:
                                       type: boolean
                                     list:
@@ -763,7 +866,11 @@ paths:
                                       items:
                                         type: object
                                         properties:
-                                          descriptor: *city
+                                          descriptor:
+                                            type: object
+                                            properties:
+                                              code:
+                                                type: string
                                           value:
                                             type:
                                               - integer
@@ -838,7 +945,14 @@ paths:
                               tags: *tags_3
                               customer: *customer
                               agent: *customer
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         id:
                           type: string
                         items: *items
@@ -893,7 +1007,14 @@ paths:
                               type:
                                 type: string
                               vehicle: *vehicle
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         items: *items
                         payments: *payments
                         provider: *provider
@@ -992,7 +1113,11 @@ paths:
                                       items:
                                         type: object
                                         properties:
-                                          person: *billing
+                                          person:
+                                            type: object
+                                            properties:
+                                              name:
+                                                type: string
                                           contact: *contact
                                           gro_type:
                                             type: string
@@ -1025,7 +1150,11 @@ paths:
                     catalog:
                       type: object
                       properties:
-                        descriptor: *billing
+                        descriptor:
+                          type: object
+                          properties:
+                            name:
+                              type: string
                         providers:
                           type: array
                           items:
@@ -1050,7 +1179,14 @@ paths:
                                           properties:
                                             gender:
                                               type: string
-                                    state: *state
+                                    state:
+                                      type: object
+                                      properties:
+                                        descriptor:
+                                          type: object
+                                          properties:
+                                            code:
+                                              type: string
                               id:
                                 type: string
                               items:
@@ -1058,7 +1194,13 @@ paths:
                                 items:
                                   type: object
                                   properties:
-                                    descriptor: *descriptor
+                                    descriptor:
+                                      type: object
+                                      properties:
+                                        code:
+                                          type: string
+                                        name:
+                                          type: string
                                     fulfillment_ids: *images
                                     id:
                                       type: string
@@ -1118,13 +1260,26 @@ paths:
                               type:
                                 type: string
                               vehicle: *vehicle
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         items:
                           type: array
                           items:
                             type: object
                             properties:
-                              descriptor: *descriptor
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
                               fulfillment_ids: *images
                               id:
                                 type: string
@@ -1237,9 +1392,23 @@ paths:
                             vehicle: *vehicle
                             type:
                               type: string
-                            state: *state
+                            state:
+                              type: object
+                              properties:
+                                descriptor:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
                         payment: *items_2
-                        category: *state
+                        category:
+                          type: object
+                          properties:
+                            descriptor:
+                              type: object
+                              properties:
+                                code:
+                                  type: string
                         tags: *tags
                         item:
                           type: object
@@ -1279,7 +1448,14 @@ paths:
                                   type: object
                                   properties:
                                     authorization: *authorization_2
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         items: *items_3
                         provider: *provider
                         payments: *payments_2
@@ -1335,7 +1511,14 @@ paths:
                               type:
                                 type: string
                               stops: *stops_3
-                              state: *state
+                              state:
+                                type: object
+                                properties:
+                                  descriptor:
+                                    type: object
+                                    properties:
+                                      code:
+                                        type: string
                         payments: *payments_2
                         quote:
                           type: object
