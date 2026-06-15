@@ -56,6 +56,39 @@ flows:
     config:
       $ref: ./RETINVL/RETINVL_DISCOVERY_FLOW.yaml
   - type: playground
+    id: IMEI_NUMBER_VERIFICATION_FLOW
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: IMEI verification flow for accepted device orders
+    config:
+      $ref: ./RETINVL/IMEI_NUMBER_VERIFICATION_FLOW.yaml
+  - type: playground
+    id: OTP_FLOW_DELIVERY_AUTH
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: Delivery authentication flow using DCC or dynamic OTP
+    config:
+      $ref: ./RETINVL/OTP_FLOW_DELIVERY_AUTH.yaml
+  - type: playground
+    id: COMMERCIAL_MODEL_FOR_BNP_SNP_FLOW
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: Commercial model flow with SNP channel margin selection
+    config:
+      $ref: ./RETINVL/COMMERCIAL_MODEL_FOR_BNP_SNP_FLOW.yaml
+  - type: playground
     id: SELF_PICKUP
     usecase: RETINVL
     tags:
