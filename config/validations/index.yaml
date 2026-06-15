@@ -55,7 +55,7 @@ _TESTS_:
     - _NAME_: REQUIRED_CONTEXT_TTL_11
       attr: $.context.ttl
       reg: &TTL_REGEX
-      - '^P(?=\d|T\d)(\d+Y)?(\d+M)?(\d+D)?(T(\d+H)?(\d+M)?(\d+S)?)?'
+      - '^P(?=\\d|T\\d)(\\d+Y)?(\\d+M)?(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+S)?)?$'
       _CONTINUE_: '!(attr are present)'
       _RETURN_: attr follow regex reg
       useCasePath: "$.message.intent.fulfillment.vehicle.category"
