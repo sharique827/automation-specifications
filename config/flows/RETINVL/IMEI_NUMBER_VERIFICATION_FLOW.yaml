@@ -2363,23 +2363,97 @@ steps:
           domain: ONDC:RETINVL
           action: on_update
           core_version: 1.2.5
-          bap_id: bnp.com
-          bap_uri: https://bnp.com/ondc
-          bpp_id: snp.com
-          bpp_uri: https://snp.com/ondc
-          transaction_id: T2
-          message_id: M13
+          bap_id: dev-workbench.ondc.tech
+          bap_uri: https://dev-workbench.ondc.tech/api-service/ONDC:RETINVL/1.2.5/buyer
+          bpp_id: dev-workbench.ondc.tech
+          bpp_uri: https://dev-workbench.ondc.tech/api-service/ONDC:RETINVL/1.2.5/seller
           city: std:080
           country: IND
-          timestamp: 2025-01-08T10:05:00.000Z
+          message_id: 8809e98e-f1d9-44ca-a7d9-e187afca623f
+          timestamp: 2026-06-15T10:22:03.788Z
+          transaction_id: e4e72f42-d3f1-457b-b4ab-5b218b8ed8b9
           ttl: PT30S
         message:
           order:
             id: O1
-            state: Accepted
+            billing:
+              address:
+                area_code: "560002"
+                building: My Building
+                city: Bengaluru
+                country: IND
+                locality: My Street
+                name: My Address
+                state: Karnataka
+              created_at: 2026-06-15T10:21:54.353Z
+              email: buyer@test.com
+              name: ONDC buyer
+              phone: "9886098860"
+              updated_at: 2026-06-15T10:21:54.353Z
+            created_at: 2026-06-15T10:21:54.353Z
+            fulfillments:
+              - "@ondc/org/TAT": PT4H
+                "@ondc/org/provider_name": LSP Express
+                end:
+                  contact:
+                    email: buyer@test.com
+                    phone: "9886098860"
+                  location:
+                    address:
+                      area_code: "560002"
+                      building: My Building
+                      city: Bengaluru
+                      country: IND
+                      locality: My Street
+                      name: My Address
+                      state: Karnataka
+                    gps: 12.4535,77.9283
+                  person:
+                    name: Customer
+                  time:
+                    range:
+                      end: 2026-06-15T10:31:56.657Z
+                      start: 2026-06-15T10:41:56.657Z
+                id: F1
+                start:
+                  contact:
+                    email: nobody@nomail.com
+                    phone: "9886098860"
+                  location:
+                    address:
+                      area_code: "560076"
+                      city: Bengaluru
+                      locality: Jayanagar
+                      state: KA
+                    descriptor:
+                      name: ABC Store
+                    gps: 12.9675,77.7496
+                    id: L1
+                  time:
+                    range:
+                      end: 2026-06-15T10:41:56.657Z
+                      start: 2026-06-15T10:31:56.657Z
+                state:
+                  descriptor:
+                    code: Agent-assigned
+                tags:
+                  - code: routing
+                    list:
+                      - code: type
+                        value: P2P
+                  - code: tracking
+                    list:
+                      - code: gps_enabled
+                        value: no
+                      - code: url_enabled
+                        value: yes
+                      - code: url
+                        value: https://sellerNP.com/ondc/tracking_url
+                tracking: true
+                type: Delivery
             items:
-              - id: I1
-                fulfillment_id: F1
+              - fulfillment_id: F1
+                id: I1
                 quantity:
                   count: 1
                 tags:
@@ -2389,6 +2463,93 @@ steps:
                         value: IMEI
                       - code: value
                         value: "123456789012345"
+              - fulfillment_id: F1
+                id: I2
+                quantity:
+                  count: 1
+            payments:
+              - id: "3"
+                tags:
+                  - descriptor:
+                      code: LINKED-PAYMENTS
+                    list:
+                      - descriptor:
+                          code: pymnt-part-1
+                        value: "1"
+                      - descriptor:
+                          code: pymnt-part-2
+                        value: "2"
+                type: PART-PAYMENT
+              - collected_by: BAP
+                id: pymnt-part-1
+                params:
+                  amount: "1000"
+                  currency: INR
+                  transaction_id: UTR-1781518914354
+                status: PAID
+                tags:
+                  - descriptor:
+                      code: ADV-DEPOSIT
+                type: ON-ORDER
+              - collected_by: BPP
+                id: pymnt-part-2
+                params:
+                  amount: "32578.75"
+                  currency: INR
+                status: NOT-PAID
+                tags:
+                  - descriptor:
+                      code: FINAL-PAYMENT
+                type: ON-FULFILLMENT
+            provider:
+              id: P1
+              locations:
+                - id: L1
+            quote:
+              breakup:
+                - "@ondc/org/item_id": I1
+                  "@ondc/org/item_quantity":
+                    count: 1
+                  "@ondc/org/title_type": item
+                  item:
+                    price:
+                      currency: INR
+                      value: "10841"
+                  price:
+                    currency: INR
+                    value: "10841.00"
+                  title: Apple Mobile Phone Standard
+                - "@ondc/org/item_id": I2
+                  "@ondc/org/item_quantity":
+                    count: 1
+                  "@ondc/org/title_type": item
+                  item:
+                    price:
+                      currency: INR
+                      value: "22241"
+                  price:
+                    currency: INR
+                    value: "22241.00"
+                  title: Apple Mobile Phone Pro
+                - "@ondc/org/item_id": F1
+                  "@ondc/org/title_type": delivery
+                  price:
+                    currency: INR
+                    value: "493.75"
+                  title: Delivery charges
+                - "@ondc/org/item_id": F1
+                  "@ondc/org/title_type": misc
+                  price:
+                    currency: INR
+                    value: "3.00"
+                  title: Convenience Fee
+              price:
+                currency: INR
+                value: "33578.75"
+              ttl: P1D
+            state: In-progress
+            type: ILBN
+            updated_at: 2026-06-15T10:22:02.742Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2461,23 +2622,97 @@ steps:
           domain: ONDC:RETINVL
           action: on_update
           core_version: 1.2.5
-          bap_id: bnp.com
-          bap_uri: https://bnp.com/ondc
-          bpp_id: snp.com
-          bpp_uri: https://snp.com/ondc
-          transaction_id: T2
-          message_id: M15
+          bap_id: dev-workbench.ondc.tech
+          bap_uri: https://dev-workbench.ondc.tech/api-service/ONDC:RETINVL/1.2.5/buyer
+          bpp_id: dev-workbench.ondc.tech
+          bpp_uri: https://dev-workbench.ondc.tech/api-service/ONDC:RETINVL/1.2.5/seller
           city: std:080
           country: IND
-          timestamp: 2025-01-08T10:07:00.000Z
+          message_id: 8809e98e-f1d9-44ca-a7d9-e187afca623f
+          timestamp: 2026-06-15T10:22:03.788Z
+          transaction_id: e4e72f42-d3f1-457b-b4ab-5b218b8ed8b9
           ttl: PT30S
         message:
           order:
             id: O1
-            state: Accepted
+            billing:
+              address:
+                area_code: "560002"
+                building: My Building
+                city: Bengaluru
+                country: IND
+                locality: My Street
+                name: My Address
+                state: Karnataka
+              created_at: 2026-06-15T10:21:54.353Z
+              email: buyer@test.com
+              name: ONDC buyer
+              phone: "9886098860"
+              updated_at: 2026-06-15T10:21:54.353Z
+            created_at: 2026-06-15T10:21:54.353Z
+            fulfillments:
+              - "@ondc/org/TAT": PT4H
+                "@ondc/org/provider_name": LSP Express
+                end:
+                  contact:
+                    email: buyer@test.com
+                    phone: "9886098860"
+                  location:
+                    address:
+                      area_code: "560002"
+                      building: My Building
+                      city: Bengaluru
+                      country: IND
+                      locality: My Street
+                      name: My Address
+                      state: Karnataka
+                    gps: 12.4535,77.9283
+                  person:
+                    name: Customer
+                  time:
+                    range:
+                      end: 2026-06-15T10:31:56.657Z
+                      start: 2026-06-15T10:41:56.657Z
+                id: F1
+                start:
+                  contact:
+                    email: nobody@nomail.com
+                    phone: "9886098860"
+                  location:
+                    address:
+                      area_code: "560076"
+                      city: Bengaluru
+                      locality: Jayanagar
+                      state: KA
+                    descriptor:
+                      name: ABC Store
+                    gps: 12.9675,77.7496
+                    id: L1
+                  time:
+                    range:
+                      end: 2026-06-15T10:41:56.657Z
+                      start: 2026-06-15T10:31:56.657Z
+                state:
+                  descriptor:
+                    code: Agent-assigned
+                tags:
+                  - code: routing
+                    list:
+                      - code: type
+                        value: P2P
+                  - code: tracking
+                    list:
+                      - code: gps_enabled
+                        value: no
+                      - code: url_enabled
+                        value: yes
+                      - code: url
+                        value: https://sellerNP.com/ondc/tracking_url
+                tracking: true
+                type: Delivery
             items:
-              - id: I1
-                fulfillment_id: F1
+              - fulfillment_id: F1
+                id: I1
                 quantity:
                   count: 1
                 tags:
@@ -2487,6 +2722,93 @@ steps:
                         value: IMEI
                       - code: value
                         value: "123456789000001"
+              - fulfillment_id: F1
+                id: I2
+                quantity:
+                  count: 1
+            payments:
+              - id: "3"
+                tags:
+                  - descriptor:
+                      code: LINKED-PAYMENTS
+                    list:
+                      - descriptor:
+                          code: pymnt-part-1
+                        value: "1"
+                      - descriptor:
+                          code: pymnt-part-2
+                        value: "2"
+                type: PART-PAYMENT
+              - collected_by: BAP
+                id: pymnt-part-1
+                params:
+                  amount: "1000"
+                  currency: INR
+                  transaction_id: UTR-1781518914354
+                status: PAID
+                tags:
+                  - descriptor:
+                      code: ADV-DEPOSIT
+                type: ON-ORDER
+              - collected_by: BPP
+                id: pymnt-part-2
+                params:
+                  amount: "32578.75"
+                  currency: INR
+                status: NOT-PAID
+                tags:
+                  - descriptor:
+                      code: FINAL-PAYMENT
+                type: ON-FULFILLMENT
+            provider:
+              id: P1
+              locations:
+                - id: L1
+            quote:
+              breakup:
+                - "@ondc/org/item_id": I1
+                  "@ondc/org/item_quantity":
+                    count: 1
+                  "@ondc/org/title_type": item
+                  item:
+                    price:
+                      currency: INR
+                      value: "10841"
+                  price:
+                    currency: INR
+                    value: "10841.00"
+                  title: Apple Mobile Phone Standard
+                - "@ondc/org/item_id": I2
+                  "@ondc/org/item_quantity":
+                    count: 1
+                  "@ondc/org/title_type": item
+                  item:
+                    price:
+                      currency: INR
+                      value: "22241"
+                  price:
+                    currency: INR
+                    value: "22241.00"
+                  title: Apple Mobile Phone Pro
+                - "@ondc/org/item_id": F1
+                  "@ondc/org/title_type": delivery
+                  price:
+                    currency: INR
+                    value: "493.75"
+                  title: Delivery charges
+                - "@ondc/org/item_id": F1
+                  "@ondc/org/title_type": misc
+                  price:
+                    currency: INR
+                    value: "3.00"
+                  title: Convenience Fee
+              price:
+                currency: INR
+                value: "33578.75"
+              ttl: P1D
+            state: In-progress
+            type: ILBN
+            updated_at: 2026-06-15T10:22:02.742Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
