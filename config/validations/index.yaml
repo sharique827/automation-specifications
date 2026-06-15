@@ -5048,9 +5048,35 @@ _TESTS_:
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
   catalog_rejection:
-    - _NAME_: CATALOG_REJECTION
-      _DESCRIPTION_: Validate catalog rejection
+    - _NAME_: CATALOG_REJECTION_CONTEXT
+      _DESCRIPTION_: Validate catalog rejection context
       action:
         - catalog_rejection
       _RETURN_: *a1
+    - _NAME_: CATALOG_REJECTION_MESSAGE
+      _DESCRIPTION_: Validate catalog rejection message errors
+      _RETURN_:
+        - _NAME_: CATALOG_REJECTION_ERRORS_REQUIRED
+          _RETURN_:
+            - _NAME_: CATALOG_REJECTION_ERRORS_TYPE
+              attr: $.message.errors[*].type
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_CODE
+              attr: $.message.errors[*].code
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_MESSAGE
+              attr: $.message.errors[*].message
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_PATH
+              attr: $.message.errors[*].path
+              _RETURN_: attr are present
+        - _NAME_: CATALOG_REJECTION_ERRORS_ENUM
+          _RETURN_:
+            - _NAME_: CATALOG_REJECTION_ERRORS_TYPE_ENUM
+              attr: $.message.errors[*].type
+              var_error_types:
+                - ITEM-ERROR
+                - PROVIDER-ERROR
+                - CATALOG-ERROR
+              _RETURN_: attr all in var_error_types
 _SESSION_DATA_: {}
