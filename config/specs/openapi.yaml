@@ -4031,27 +4031,26 @@ components:
       additionalProperties: false
     CatalogRejection:
       type: array
-      properties:
-        items:
-          type: object
-          properties:
-            code:
-              type: string
-              example: "91001"
-        message:
-          type: string
-          example: "Item price > MRP"
-        path:
-          type: string
-          example: "sessionData.on_search_items[?(@.id=='I1')].price.value"
-        type:
-          type: string
-          example: "ITEM-ERROR"
-      required:
-        - code
-        - message
-        - path
-        - type
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "ITEM-ERROR"
+          code:
+            type: string
+            example: "91001"
+          message:
+            type: string
+            example: "Item price > MRP"
+          path:
+            type: string
+            example: "sessionData.on_search_items[?(@.id=='I1')].price.value"
+        required:
+          - code
+          - message
+          - path
+          - type
       example:
         - code: "91001"
           message: "Item price > MRP"
