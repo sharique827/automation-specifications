@@ -5047,4 +5047,10 @@ _TESTS_:
                   attr: $.message.order.payment['@ondc/org/settlement_details'][*].settlement_timestamp
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
+  catalog_rejection:
+    - _NAME_: CATALOG_REJECTION
+      _DESCRIPTION_: Validate catalog rejection
+      action:
+        - catalog_rejection
+      _RETURN_: *a1
 _SESSION_DATA_: {}
