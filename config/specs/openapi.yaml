@@ -30,8 +30,8 @@ paths:
                 message:
                   type: object
                   properties:
-                    errors:
-                      $ref: "#/components/schemas/CatalogRejection"
+                    intent:
+                      $ref: "#/components/schemas/Intent"
               required:
                 - context
                 - message
@@ -4060,4 +4060,3 @@ components:
           message: "Item price > MRP"
           path: "sessionData.on_search_items[?(@.id=='I2')].price.value"
           type: "ITEM-ERROR"
-
