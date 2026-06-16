@@ -6,7 +6,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: CD Balance Error Accidental Insurance
+    description: Validates the accidental insurance purchase flow when a customer balance error is encountered at transaction initiation.
     config:
       $ref: ./accidental-insurance/CD_Balance_Error_Accidental_Insurance.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Insurer Providers and Master Policies
+    description: A buyer discovers available transit insurance providers and their master policies through a catalog search, enabling selection of coverage options suited to their transportation needs.
     config:
       $ref: ./accidental-insurance/Discovery_of_Insurer_Providers_and_Master_Policies.yaml
   - type: playground
@@ -26,7 +26,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Products from Master Policies (Accidental Insurance)
+    description: Buyers discover available accidental insurance products from master policies through search, with results displaying matching coverage options for selection.
     config:
       $ref: ./accidental-insurance/Discovery_of_Products_from_Master_Policies__Accidental_Insurance_.yaml
   - type: playground
@@ -36,7 +36,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Purchase Journey Accidental Insurance
+    description: End-to-end purchase journey for accidental insurance, enabling customers to discover, select, and confirm coverage transactions through the network.
     config:
       $ref: ./accidental-insurance/Purchase_Journey_Accidental_Insurance.yaml
   - type: playground
@@ -46,7 +46,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: CD Balance Error Hospicash Insurance
+    description: Validates the end-to-end hospicash insurance transaction flow when a customer balance or payment capability error is encountered during purchase attempt. Tests how the system and customer experience the complete journey from search through transaction initiation under this error condition.
     config:
       $ref: ./hospicash-insurance/CD_Balance_Error_Hospicash_Insurance.yaml
   - type: playground
@@ -56,7 +56,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Insurer Providers and Master Policies
+    description: A buyer discovers available transit insurance providers and their master policies through a catalog search, enabling selection of coverage options suited to their transportation needs.
     config:
       $ref: ./hospicash-insurance/Discovery_of_Insurer_Providers_and_Master_Policies.yaml
   - type: playground
@@ -66,7 +66,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Products from Master Policies (Hospicash Insurance)
+    description: A customer searches for and discovers hospicash insurance products available under master group policies, with the provider responding with applicable cash coverage options for hospitalization benefits.
     config:
       $ref: ./hospicash-insurance/Discovery_of_Products_from_Master_Policies__Hospicash_Insurance_.yaml
   - type: playground
@@ -77,7 +77,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Purchase Journey Hospicash Insurance
+    description: Complete customer journey for discovering and purchasing hospicash insurance coverage, from product search through order confirmation.
     config:
       $ref: ./hospicash-insurance/Purchase_Journey_Hospicash_Insurance.yaml
   - type: playground
@@ -87,7 +87,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: CD Balance Error Transit Insurance
+    description: A customer searches for and selects a transit insurance product, then initiates purchase while the system handles payment balance errors during transaction processing.
     config:
       $ref: ./transit-insurance/CD_Balance_Error_Transit_Insurance.yaml
   - type: playground
@@ -97,7 +97,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Insurer Providers and Master Policies
+    description: A buyer discovers available transit insurance providers and their master policies through a catalog search, enabling selection of coverage options suited to their transportation needs.
     config:
       $ref: ./transit-insurance/Discovery_of_Insurer_Providers_and_Master_Policies.yaml
   - type: playground
@@ -107,7 +107,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery of Products from Master Policies (Transit Insurance)
+    description: A buyer searches for and discovers transit insurance products available through master policies, with the provider returning matching coverage options.
     config:
       $ref: ./transit-insurance/Discovery_of_Products_from_Master_Policies__Transit_Insurance_.yaml
   - type: playground
@@ -118,6 +118,6 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Purchase Journey Transit Insurance
+    description: Customer journey for purchasing transit insurance through the ONDC network, enabling end-to-end product discovery, selection, and order confirmation. The flow validates the complete marketplace interaction for acquiring travel and transit insurance coverage.
     config:
       $ref: ./transit-insurance/Purchase_Journey_Transit_Insurance.yaml
