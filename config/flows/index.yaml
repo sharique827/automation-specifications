@@ -191,7 +191,7 @@ flows:
   # PARTIAL_CANCELLATION_FLOW   
 
   - type: playground
-    id: Partial_Cancellation_Flow
+    id: PARTIAL_CANCELLATION_FLOW
     meta:
       order: 10
     usecase: Metro
@@ -201,4 +201,17 @@ flows:
       - REPORTABLE
     description: Purchase journey of metro Partial Cancellation Flow
     config:
-      $ref: ./Metro/PARTIAL_CANCELLATION_FLOW.yaml    
+      $ref: ./Metro/PARTIAL_CANCELLATION_FLOW.yaml  
+
+  - type: playground
+    id: PARTIAL_CANCELLATION_FLOW (W/O search_1 & select)
+    meta:
+      order: 11
+    usecase: Metro
+    tags:
+      - WORKBENCH
+      - OPTIONAL
+      - REPORTABLE
+    description: Purchase journey of metro Partial Cancellation Flow (W/O search_1 & select)
+    config:
+      $ref: ./Metro/PARTIAL_CANCELLATION_FLOW_WITHOUT_SEARCH_ND_SELECT.yaml      
