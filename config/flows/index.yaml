@@ -7,7 +7,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Return Flow for APPLIANCES
+    description: Enables buyers to initiate returns for appliance orders, supporting both complete order returns and partial item returns, with full status tracking throughout the return process.
     config:
       $ref: ./APPLIANCES/Buyer_Initiated_Return__Full_Order_and_Partial_Order_.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for APPLIANCES
+    description: Validates a buyer's ability to cancel an appliance order after selection and confirmation, ensuring the complete cancellation workflow is properly executed on the ONDC network.
     config:
       $ref: ./APPLIANCES/Buyer_Side_Order_Cancellation.yaml
   - type: playground
@@ -29,7 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: RTO and Part Cancellation Flow for APPLIANCES
+    description: Merchant-side appliance order flow enabling return-to-origin requests and partial order cancellations, tracked from initial selection through order confirmation to final status resolution.
     config:
       $ref: ./APPLIANCES/Merchant_Side_RTO_and_Part_Order_Cancellation_Flow.yaml
   - type: playground
@@ -40,7 +40,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for APPLIANCES
+    description: Complete prepaid appliance order-to-delivery flow encompassing product selection, payment confirmation, order fulfillment, and real-time shipment tracking.
     config:
       $ref: ./APPLIANCES/Order_to_confirm_to_fulfillment__Prepaid_.yaml
   - type: playground
@@ -51,7 +51,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Out of Stock Flow for APPLIANCES
+    description: When a buyer selects an appliance product that is out of stock, the seller responds with an out-of-stock error, demonstrating how the platform handles inventory unavailability during the product selection phase.
     config:
       $ref: ./APPLIANCES/Out_of_Stock_Error_code_.yaml
   - type: playground
@@ -62,7 +62,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Full Catalog) for APPLIANCES
+    description: Buyer searches for appliances and discovers the seller's complete product catalog; seller responds with full inventory details, enabling location-based discovery and purchase consideration for appliance retail.
     config:
       $ref: ./APPLIANCES/Search_and_Custom_Menu__Full_Catalog_City_.yaml
   - type: playground
@@ -73,7 +73,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Incremental Catalog) for APPLIANCES
+    description: A buyer searches for appliances while the seller delivers incremental catalog updates through a custom product menu across multiple interactions. This validates progressive search discovery and dynamic catalog delivery in the appliances domain.
     config:
       $ref: ./APPLIANCES/Search_and_Custom_Menu__Incremental_Push_.yaml
   - type: playground
@@ -81,6 +81,6 @@ flows:
     usecase: APPLIANCES
     tags:
       - WORKBENCH
-    description: Discovery Flow Incremental Catalog Refresh Pull for APPLIANCES
+    description: A buyer discovers appliances through successive searches while the seller incrementally refreshes and pulls updated product catalog information, simulating real-time inventory synchronization across multiple discovery interactions.
     config:
       $ref: ./APPLIANCES/Discovery_Flow_incremental_catalog_refresh_pull.yaml
