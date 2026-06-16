@@ -5,7 +5,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Airlines - Seller App Pagination Flow
+    description: A buyer searches for available airline flights, and the seller app returns matching results in paginated batches across multiple responses.
     config:
       $ref: ./Airline/Airlines_-_Seller_App_Pagination_Flow.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Airlines - Cancellation by Buyer
+    description: A buyer discovers and selects an airline flight through search, confirms the booking, and then cancels the reservation to process a refund. This flow validates the complete airline transaction lifecycle from flight discovery through cancellation.
     config:
       $ref: ./Airline/Cancellation_by_Buyer.yaml
   - type: playground
@@ -27,7 +27,7 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Airlines - Cancellation by Seller
+    description: Validates the complete airline booking lifecycle from flight discovery and selection through confirmation, followed by a seller-initiated cancellation of the confirmed reservation.
     config:
       $ref: ./Airline/Cancellation_by_Seller.yaml
   - type: playground
@@ -38,7 +38,7 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Airlines - Purchase Journey(Code Based Flow)
+    description: Complete flight purchase journey covering airline search, flight selection, booking initialization, order confirmation, and transaction status tracking.
     config:
       $ref: ./Airline/Purchase_Journey_Code_Based_Flow_.yaml
   - type: playground
@@ -49,7 +49,7 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Airlines - Purchase Journey(Multiple Tickets)
+    description: End-to-end airline ticket purchase workflow where customers search for flights, select multiple tickets across different passengers or route segments, and complete the transaction through order initialization and confirmation.
     config:
       $ref: ./Airline/Purchase_Journey_Multiple_Tickets_.yaml
   - type: playground
@@ -60,7 +60,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Intercity(Bus) - Cancel Flow
+    description: Complete intercity bus booking flow where a buyer searches, selects, and confirms a service before exercising the cancellation rights on the confirmed booking.
     config:
       $ref: ./Intercity/Intercity_Bus__Cancel_Flow_Buyer_.yaml
   - type: playground
@@ -69,7 +69,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Intercity(Bus) - Error Response (Soft Locking Time)
+    description: Validates system error response and recovery when soft lock time expires during intercity bus seat selection and booking initialization. Ensures proper handling of temporal constraint violations in multi-step reservation flows.
     config:
       $ref: ./Intercity/Intercity_Bus__Error_Response_Soft_Locking_Time_.yaml
   - type: playground
@@ -78,7 +78,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Intercity(Bus) - Partial Cancellation Flow
+    description: A customer discovers and books intercity bus services, confirms the transaction, and then partially cancels a subset of their reserved segments.
     config:
       $ref: ./Intercity/Intercity_Bus__Partial_Cancellation_Flow.yaml
   - type: playground
@@ -87,7 +87,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Intercity(Bus) - Rating(Error Flow)
+    description: A complete intercity bus booking flow where a customer searches for services, selects a bus, confirms the booking, checks its status, and encounters an error while attempting to rate the completed journey.
     config:
       $ref: ./Intercity/Intercity_Bus__Rating_Error_Flow_.yaml
   - type: playground
@@ -96,7 +96,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Intercity(Bus) - Rating(Success)
+    description: Customer searches for available intercity bus options, selects and confirms their booking, completes the journey, and successfully rates their travel experience.
     config:
       $ref: ./Intercity/Intercity_Bus__Rating_Success_.yaml
   - type: playground
@@ -107,7 +107,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Intercity(Bus) - Seller Cancellation
+    description: End-to-end seller cancellation of a confirmed intercity bus booking after customer search, selection, and order confirmation.
     config:
       $ref: ./Intercity/Intercity_Bus__Seller_Cancellation.yaml
   - type: playground
@@ -118,7 +118,7 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Intercity(Bus) - Station Code Based Flow
+    description: End-to-end intercity bus booking where buyers search for available services between stations using station codes, select preferred buses and seats, and complete their reservation while verifying booking status.
     config:
       $ref: ./Intercity/Intercity_Bus__Station_Code_Based_Flow.yaml
   - type: playground
@@ -129,11 +129,9 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Intercity(Bus) - Station Code Based Flow(Multiple Tickets)
+    description: Intercity bus booking flow enabling customers to discover and select routes by station code for multi-ticket reservations. Includes order confirmation and status tracking throughout the booking lifecycle.
     config:
       $ref: ./Intercity/Intercity_Bus__Station_Code_Based_Flow_Multiple_Tickets.yaml
-
-  # --------------------BUS_With IGM (1.0.0)--------------------
   - type: playground
     id: Purchase Journey(Code Based Flow)_WITH_IGM(v-1.0.0)
     usecase: Airline
@@ -142,11 +140,9 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Airlines - Purchase Journey(Code Based Flow) With IGM 1.0.0
+    description: End-to-end airline ticket purchase journey encompassing flight search, multi-leg selection, booking confirmation, and integrated grievance management for post-purchase issue resolution.
     config:
       $ref: ./Airline/Purchase_Journey_Code_Based_Flow_With_IGM_1.0.0_.yaml
-
-# --------------------BUS_With IGM (1.0.0)--------------------
   - type: playground
     id: Intercity(Bus)_Station_Code_Based_Flow_WITH_IGM(v-1.0.0)
     usecase: Intercity
@@ -155,6 +151,6 @@ flows:
       - MANDATORY
       - PRAAMAN
       - REPORTABLE
-    description: Intercity(Bus) - Station Code Based Flow With IGM (1.0.0)
+    description: Complete intercity bus booking flow where passengers search for routes using station codes, select and confirm bookings, track ticket status, and resolve issues through integrated grievance management for cancellations and refunds.
     config:
       $ref: ./Intercity/Intercity_Bus__Station_Code_Based_Flow_With_Igm_1.0.0_.yaml
