@@ -28,6 +28,7 @@ supportedActions:
     - cancel
     - on_status
     - on_cancel
+    - update
   status:
     - on_status
   on_status:
@@ -41,6 +42,10 @@ supportedActions:
   on_cancel:
     - cancel
     - status
+  update:
+    - on_update
+  on_update:
+    - update   
   issue:
     - on_issue
     - issue
@@ -55,7 +60,7 @@ supportedActions:
     - on_issue_status
   on_issue_status:
     - on_issue
-    - issue  
+    - issue 
 apiProperties:
   search:
     async_predecessor: null
@@ -109,6 +114,12 @@ apiProperties:
     async_predecessor: null
     transaction_partner:
       - confirm
+  update:
+    async_predecessor: null
+    transaction_partner: []
+  on_update:
+    async_predecessor: null
+    transaction_partner: []      
   issue:
     async_predecessor: null
     transaction_partner: []
