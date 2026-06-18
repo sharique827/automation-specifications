@@ -888,12 +888,12 @@ steps:
   - api: on_init
     action_id: on_init_METRO_200
     owner: BPP
-    responseFor: init_METRO_200
+    responseFor: init_with_user_input_METRO_200
     unsolicited: false
     description: please add relevant description
     mock:
       generate: >-
-        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZVswXTsKICBpZiAoc2Vzc2lvbkRhdGEuaXRlbXMubGVuZ3RoID4gMCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zOwogICAgY29uc3QgaXRlbXMgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zOwogICAgY29uc29sZS5sb2coYHNlbGVjdGVkIEl0ZW0gRGF0YSAke0pTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zKX1gKQogICAgaWYgKGl0ZW1zWzBdLnF1YW50aXR5Lm1heGltdW0pIHsKICAgICAgZGVsZXRlIGl0ZW1zWzBdLnF1YW50aXR5Lm1heGltdW07CiAgICAgIGRlbGV0ZSBpdGVtc1swXS5xdWFudGl0eS5tYWluaW11bTsKICAgICAgaXRlbXMuZm9yRWFjaCgoaXRlbSkgPT4gewogICAgICAgIGNvbnN0IHNlbGVjdGVkSXRlbSA9IHNlc3Npb25EYXRhPy5zZWxlY3RlZF9pdGVtcz8uZmluZCgKICAgICAgICAgIChzZXNzaW9uX2l0ZW1fZGF0YSkgPT4gaXRlbS5pZCA9PSBzZXNzaW9uX2l0ZW1fZGF0YS5pZAogICAgICAgICk7CiAgICAgICAgaXRlbS5xdWFudGl0eSA9IHsKICAgICAgICAgIHNlbGVjdGVkOiB7CiAgICAgICAgICAgIGNvdW50OiBzZWxlY3RlZEl0ZW0/LnF1YW50aXR5Py5zZWxlY3RlZD8uY291bnQgfHwgMSwKICAgICAgICAgIH0sCiAgICAgICAgfTsKICAgICAgICAvLyAgIHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uSXRlbV9RdWFudGl0eSB8fCAzOyAvLyBEZWZhdWx0IHRvIDEgaWYgbm90IHByb3ZpZGVkCiAgICAgIH0pOwogICAgfQoKICAgIGNvbnNvbGUubG9nKCJpdGVtcyIsIGl0ZW1zKTsKICAgIGlmIChzZXNzaW9uRGF0YS5xdW90ZSA9PSBudWxsKSB7CiAgICAgIGNvbnN0IHF1b3RlID0gY3JlYXRlUXVvdGVGcm9tSXRlbXMoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyk7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUgPSBxdW90ZTsKICAgICAgY29uc29sZS5sb2coYHByaW50aW5nIGxvZ3MgZm9yIHF1b3RlIGluc2lkZSBvbkluaXQgJHtKU09OLnN0cmluZ2lmeShxdW90ZSl9YCkKICAgIH0KICB9CiAgY29uc3QgcGF5bWVudHMgPSB0cmFuc2Zvcm1QYXltZW50cyhzZXNzaW9uRGF0YS5wYXltZW50cyk7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50cyA9IHBheW1lbnRzOwoKICBpZiAoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmxlbmd0aCA+IDApIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzOwogIH0KICBjb25zb2xlLmxvZygnc2Vzc2lvbkRhdGEnLCBzZXNzaW9uRGF0YSkKICBpZiAoc2Vzc2lvbkRhdGEucXVvdGUgIT0gbnVsbCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHNlc3Npb25EYXRhLnF1b3RlWzBdOwogIH0KICBpZiAoc2Vzc2lvbkRhdGEuYmlsbGluZy5sZW5ndGgpIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuYmlsbGluZyA9IHNlc3Npb25EYXRhLmJpbGxpbmdbMF07CiAgfQogIGRlZmF1bHRQYXlsb2FkID0gdXBkYXRlU2V0dGxlbWVudEFtb3VudChkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwogIGRlZmF1bHRQYXlsb2FkID0gdXBkYXRlUHJvdmlkZXJUaW1lKGRlZmF1bHRQYXlsb2FkKTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0K
+        LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZVswXTsKICBpZiAoc2Vzc2lvbkRhdGEuaXRlbXMubGVuZ3RoID4gMCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zOwogICAgY29uc3QgaXRlbXMgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zOwogICAgY29uc29sZS5sb2coYHNlbGVjdGVkIEl0ZW0gRGF0YSAke0pTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zKX1gKQogICAgaWYgKGl0ZW1zWzBdLnF1YW50aXR5Lm1heGltdW0pIHsKICAgICAgZGVsZXRlIGl0ZW1zWzBdLnF1YW50aXR5Lm1heGltdW07CiAgICAgIGRlbGV0ZSBpdGVtc1swXS5xdWFudGl0eS5tYWluaW11bTsKICAgICAgaXRlbXMuZm9yRWFjaCgoaXRlbSkgPT4gewogICAgICAgIGNvbnN0IHNlbGVjdGVkSXRlbSA9IHNlc3Npb25EYXRhPy5zZWxlY3RlZF9pdGVtcz8uZmluZCgKICAgICAgICAgIChzZXNzaW9uX2l0ZW1fZGF0YSkgPT4gaXRlbS5pZCA9PSBzZXNzaW9uX2l0ZW1fZGF0YS5pZAogICAgICAgICk7CiAgICAgICAgaXRlbS5xdWFudGl0eSA9IHsKICAgICAgICAgIHNlbGVjdGVkOiB7CiAgICAgICAgICAgIGNvdW50OiBzZWxlY3RlZEl0ZW0/LnF1YW50aXR5Py5zZWxlY3RlZD8uY291bnQgfHwgMSwKICAgICAgICAgIH0sCiAgICAgICAgfTsKICAgICAgICAvLyAgIHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uSXRlbV9RdWFudGl0eSB8fCAzOyAvLyBEZWZhdWx0IHRvIDEgaWYgbm90IHByb3ZpZGVkCiAgICAgIH0pOwogICAgfQoKICAgIGNvbnNvbGUubG9nKCJpdGVtcyIsIGl0ZW1zKTsKICAgIGlmIChzZXNzaW9uRGF0YS5xdW90ZSA9PSBudWxsKSB7CiAgICAgIGNvbnN0IHF1b3RlID0gY3JlYXRlUXVvdGVGcm9tSXRlbXMoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyk7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUgPSBxdW90ZTsKICAgICAgY29uc29sZS5sb2coYHByaW50aW5nIGxvZ3MgZm9yIHF1b3RlIGluc2lkZSBvbkluaXQgJHtKU09OLnN0cmluZ2lmeShxdW90ZSl9YCkKICAgIH0KICB9CiAgY29uc3QgcGF5bWVudHMgPSB0cmFuc2Zvcm1QYXltZW50cyhzZXNzaW9uRGF0YS5wYXltZW50cyk7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50cyA9IHBheW1lbnRzOwoKICBpZiAoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmxlbmd0aCA+IDApIHsKICBjb25zdCBjb3VudCA9IHNlc3Npb25EYXRhPy5zZWxlY3RlZF9pdGVtc1swXT8ucXVhbnRpdHk/LnNlbGVjdGVkPy5jb3VudCA/PyAxOyAvLyB5b3VyIGRlc2lyZWQgY291bnQKCiAgY29uc3QgYmFzZUZ1bGZpbGxtZW50ID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzWzBdOwoKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IEFycmF5LmZyb20oCiAgICB7IGxlbmd0aDogY291bnQgfSwKICAgIChfLCBpbmRleCkgPT4gKHsKICAgICAgLi4uSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShiYXNlRnVsZmlsbG1lbnQpKSwKICAgICAgaWQ6IGBGJHtpbmRleCArIDF9YCwKICAgIH0pLAogICk7Cn0KICBjb25zb2xlLmxvZygnc2Vzc2lvbkRhdGEnLCBzZXNzaW9uRGF0YSkKICBpZiAoc2Vzc2lvbkRhdGEucXVvdGUgIT0gbnVsbCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHNlc3Npb25EYXRhLnF1b3RlOwogIH0KICBkZWZhdWx0UGF5bG9hZCA9IHVwZGF0ZVNldHRsZW1lbnRBbW91bnQoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKTsKICBkZWZhdWx0UGF5bG9hZCA9IHVwZGF0ZVByb3ZpZGVyVGltZShkZWZhdWx0UGF5bG9hZCk7CiAgY29uc3QgZnVsZmlsbG1lbnRfaWRzID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMubWFwKChmKT0+ewogICAgcmV0dXJuIGYuaWQKICB9KQogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zLm1hcCgoaXRlbSk9PnsKICAgIHJldHVybnsKICAgICAgLi4uaXRlbSwKICAgICAgZnVsZmlsbG1lbnRfaWRzCiAgICB9CiAgfSkKICBpZiAoc2Vzc2lvbkRhdGEuYmlsbGluZy5sZW5ndGgpIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuYmlsbGluZyA9IHNlc3Npb25EYXRhLmJpbGxpbmdbMF07CiAgfQogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQo=
       validate: >-
         LyoqCiAqIFZhbGlkYXRlcyBPTkRDIFRSVjExIG9uX2luaXQgcGF5bG9hZAogKgogKiBAcGFyYW0ge09iamVjdH0gdGFyZ2V0UGF5bG9hZAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEKICoKICogQHJldHVybnMge09iamVjdH0KICovCmZ1bmN0aW9uIHZhbGlkYXRlKHRhcmdldFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgdHJ5IHsKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAvLyBDb250ZXh0IFZhbGlkYXRpb24KICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICBjb25zdCBjb250ZXh0ID0gdGFyZ2V0UGF5bG9hZD8uY29udGV4dDsKCiAgICBpZiAoIWNvbnRleHQpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiY29udGV4dCBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKGNvbnRleHQuZG9tYWluICE9PSAiT05EQzpUUlYxMSIpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiY29udGV4dC5kb21haW4gbXVzdCBiZSBPTkRDOlRSVjExIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoY29udGV4dC5hY3Rpb24gIT09ICJvbl9pbml0IikgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJjb250ZXh0LmFjdGlvbiBtdXN0IGJlIG9uX2luaXQiLAogICAgICB9OwogICAgfQoKICAgIGlmICghY29udGV4dC50cmFuc2FjdGlvbl9pZCkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJjb250ZXh0LnRyYW5zYWN0aW9uX2lkIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoIWNvbnRleHQubWVzc2FnZV9pZCkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJjb250ZXh0Lm1lc3NhZ2VfaWQgaXMgcmVxdWlyZWQiLAogICAgICB9OwogICAgfQoKICAgIGlmICghY29udGV4dC5iYXBfaWQpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiY29udGV4dC5iYXBfaWQgaXMgcmVxdWlyZWQiLAogICAgICB9OwogICAgfQoKICAgIGlmICghY29udGV4dC5iYXBfdXJpKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogImNvbnRleHQuYmFwX3VyaSBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFjb250ZXh0LmJwcF9pZCkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJjb250ZXh0LmJwcF9pZCBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFjb250ZXh0LmJwcF91cmkpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAiY29udGV4dC5icHBfdXJpIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoIWNvbnRleHQudHRsKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogImNvbnRleHQudHRsIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoY29udGV4dC52ZXJzaW9uICE9PSAiMi4wLjAiKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogImNvbnRleHQudmVyc2lvbiBtdXN0IGJlIDIuMC4wIiwKICAgICAgfTsKICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgLy8gT3JkZXIgVmFsaWRhdGlvbgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAgIGNvbnN0IG9yZGVyID0gdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8ub3JkZXI7CgogICAgaWYgKCFvcmRlcikgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJtZXNzYWdlLm9yZGVyIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgLy8gUHJvdmlkZXIgVmFsaWRhdGlvbgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAgIGNvbnN0IHByb3ZpZGVyID0gb3JkZXIucHJvdmlkZXI7CgogICAgaWYgKCFwcm92aWRlcikgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJvcmRlci5wcm92aWRlciBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFwcm92aWRlci5pZCkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJvcmRlci5wcm92aWRlci5pZCBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFwcm92aWRlci5kZXNjcmlwdG9yPy5uYW1lKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIm9yZGVyLnByb3ZpZGVyLmRlc2NyaXB0b3IubmFtZSBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAgIC8vIEl0ZW1zIFZhbGlkYXRpb24KICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICBpZiAoIUFycmF5LmlzQXJyYXkob3JkZXIuaXRlbXMpIHx8IG9yZGVyLml0ZW1zLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJvcmRlci5pdGVtcyBtdXN0IGJlIGEgbm9uLWVtcHR5IGFycmF5IiwKICAgICAgfTsKICAgIH0KCiAgICBmb3IgKGxldCBpdGVtSW5kZXggPSAwOyBpdGVtSW5kZXggPCBvcmRlci5pdGVtcy5sZW5ndGg7IGl0ZW1JbmRleCsrKSB7CiAgICAgIGNvbnN0IGl0ZW0gPSBvcmRlci5pdGVtc1tpdGVtSW5kZXhdOwoKICAgICAgaWYgKCFpdGVtLmlkKSB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICAgIGNvZGU6IDQwMCwKICAgICAgICAgIGRlc2NyaXB0aW9uOiBgb3JkZXIuaXRlbXNbJHtpdGVtSW5kZXh9XS5pZCBpcyByZXF1aXJlZGAsCiAgICAgICAgfTsKICAgICAgfQoKICAgICAgaWYgKCFpdGVtLmRlc2NyaXB0b3I/Lm5hbWUpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5pdGVtc1ske2l0ZW1JbmRleH1dLmRlc2NyaXB0b3IubmFtZSBpcyByZXF1aXJlZGAsCiAgICAgICAgfTsKICAgICAgfQoKICAgICAgaWYgKCFpdGVtLnByaWNlPy5jdXJyZW5jeSkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLml0ZW1zWyR7aXRlbUluZGV4fV0ucHJpY2UuY3VycmVuY3kgaXMgcmVxdWlyZWRgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICghaXRlbS5wcmljZT8udmFsdWUpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5pdGVtc1ske2l0ZW1JbmRleH1dLnByaWNlLnZhbHVlIGlzIHJlcXVpcmVkYCwKICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoaXNOYU4oTnVtYmVyKGl0ZW0ucHJpY2UudmFsdWUpKSkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLml0ZW1zWyR7aXRlbUluZGV4fV0ucHJpY2UudmFsdWUgbXVzdCBiZSBudW1lcmljYCwKICAgICAgICB9OwogICAgICB9CgogICAgICBjb25zdCBjb3VudCA9IGl0ZW0/LnF1YW50aXR5Py5zZWxlY3RlZD8uY291bnQ7CgogICAgICBpZiAoY291bnQgPT09IHVuZGVmaW5lZCB8fCBjb3VudCA9PT0gbnVsbCkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLml0ZW1zWyR7aXRlbUluZGV4fV0ucXVhbnRpdHkuc2VsZWN0ZWQuY291bnQgaXMgcmVxdWlyZWRgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICh0eXBlb2YgY291bnQgIT09ICJudW1iZXIiIHx8IGNvdW50IDw9IDApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5pdGVtc1ske2l0ZW1JbmRleH1dLnF1YW50aXR5LnNlbGVjdGVkLmNvdW50IG11c3QgYmUgZ3JlYXRlciB0aGFuIDBgLAogICAgICAgIH07CiAgICAgIH0KICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgLy8gRnVsZmlsbG1lbnRzIFZhbGlkYXRpb24KICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICBpZiAoCiAgICAgICFBcnJheS5pc0FycmF5KG9yZGVyLmZ1bGZpbGxtZW50cykgfHwKICAgICAgb3JkZXIuZnVsZmlsbG1lbnRzLmxlbmd0aCA9PT0gMAogICAgKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIm9yZGVyLmZ1bGZpbGxtZW50cyBtdXN0IGJlIGEgbm9uLWVtcHR5IGFycmF5IiwKICAgICAgfTsKICAgIH0KCiAgICBmb3IgKAogICAgICBsZXQgZnVsZmlsbG1lbnRJbmRleCA9IDA7CiAgICAgIGZ1bGZpbGxtZW50SW5kZXggPCBvcmRlci5mdWxmaWxsbWVudHMubGVuZ3RoOwogICAgICBmdWxmaWxsbWVudEluZGV4KysKICAgICkgewogICAgICBjb25zdCBmdWxmaWxsbWVudCA9IG9yZGVyLmZ1bGZpbGxtZW50c1tmdWxmaWxsbWVudEluZGV4XTsKCiAgICAgIGlmICghZnVsZmlsbG1lbnQuaWQpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5mdWxmaWxsbWVudHNbJHtmdWxmaWxsbWVudEluZGV4fV0uaWQgaXMgcmVxdWlyZWRgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICghZnVsZmlsbG1lbnQudHlwZSkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLmZ1bGZpbGxtZW50c1ske2Z1bGZpbGxtZW50SW5kZXh9XS50eXBlIGlzIHJlcXVpcmVkYCwKICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoCiAgICAgICAgIUFycmF5LmlzQXJyYXkoZnVsZmlsbG1lbnQuc3RvcHMpIHx8CiAgICAgICAgZnVsZmlsbG1lbnQuc3RvcHMubGVuZ3RoIDwgMgogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5mdWxmaWxsbWVudHNbJHtmdWxmaWxsbWVudEluZGV4fV0uc3RvcHMgbXVzdCBjb250YWluIGF0IGxlYXN0IDIgc3RvcHNgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGxldCBoYXNTdGFydCA9IGZhbHNlOwogICAgICBsZXQgaGFzRW5kID0gZmFsc2U7CgogICAgICBmb3IgKAogICAgICAgIGxldCBzdG9wSW5kZXggPSAwOwogICAgICAgIHN0b3BJbmRleCA8IGZ1bGZpbGxtZW50LnN0b3BzLmxlbmd0aDsKICAgICAgICBzdG9wSW5kZXgrKwogICAgICApIHsKICAgICAgICBjb25zdCBzdG9wID0gZnVsZmlsbG1lbnQuc3RvcHNbc3RvcEluZGV4XTsKCiAgICAgICAgaWYgKCFzdG9wLmlkKSB7CiAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICAgIGNvZGU6IDQwMCwKICAgICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5mdWxmaWxsbWVudHNbJHtmdWxmaWxsbWVudEluZGV4fV0uc3RvcHNbJHtzdG9wSW5kZXh9XS5pZCBpcyByZXF1aXJlZGAsCiAgICAgICAgICB9OwogICAgICAgIH0KCiAgICAgICAgaWYgKCFzdG9wLnR5cGUpIHsKICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLmZ1bGZpbGxtZW50c1ske2Z1bGZpbGxtZW50SW5kZXh9XS5zdG9wc1ske3N0b3BJbmRleH1dLnR5cGUgaXMgcmVxdWlyZWRgLAogICAgICAgICAgfTsKICAgICAgICB9CgogICAgICAgIGlmICghc3RvcC5sb2NhdGlvbj8uZGVzY3JpcHRvcj8uY29kZSkgewogICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICAgIGRlc2NyaXB0aW9uOiBgb3JkZXIuZnVsZmlsbG1lbnRzWyR7ZnVsZmlsbG1lbnRJbmRleH1dLnN0b3BzWyR7c3RvcEluZGV4fV0ubG9jYXRpb24uZGVzY3JpcHRvci5jb2RlIGlzIHJlcXVpcmVkYCwKICAgICAgICAgIH07CiAgICAgICAgfQoKICAgICAgICBpZiAoc3RvcC50eXBlID09PSAiU1RBUlQiKSB7CiAgICAgICAgICBoYXNTdGFydCA9IHRydWU7CiAgICAgICAgfQoKICAgICAgICBpZiAoc3RvcC50eXBlID09PSAiRU5EIikgewogICAgICAgICAgaGFzRW5kID0gdHJ1ZTsKICAgICAgICB9CiAgICAgIH0KCiAgICAgIGlmICghaGFzU3RhcnQpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5mdWxmaWxsbWVudHNbJHtmdWxmaWxsbWVudEluZGV4fV0gbXVzdCBjb250YWluIFNUQVJUIHN0b3BgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICghaGFzRW5kKSB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICAgIGNvZGU6IDQwMCwKICAgICAgICAgIGRlc2NyaXB0aW9uOiBgb3JkZXIuZnVsZmlsbG1lbnRzWyR7ZnVsZmlsbG1lbnRJbmRleH1dIG11c3QgY29udGFpbiBFTkQgc3RvcGAsCiAgICAgICAgfTsKICAgICAgfQogICAgfQoKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAvLyBCaWxsaW5nIFZhbGlkYXRpb24KICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICBjb25zdCBiaWxsaW5nID0gb3JkZXIuYmlsbGluZzsKCiAgICBpZiAoIWJpbGxpbmcpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIuYmlsbGluZyBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFiaWxsaW5nLm5hbWUpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIuYmlsbGluZy5uYW1lIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoIWJpbGxpbmcuZW1haWwpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIuYmlsbGluZy5lbWFpbCBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFiaWxsaW5nLnBob25lKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIm9yZGVyLmJpbGxpbmcucGhvbmUgaXMgcmVxdWlyZWQiLAogICAgICB9OwogICAgfQoKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAvLyBRdW90ZSBWYWxpZGF0aW9uCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgY29uc3QgcXVvdGUgPSBvcmRlci5xdW90ZTsKCiAgICBpZiAoIXF1b3RlKSB7CiAgICAgIHJldHVybiB7CiAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgIGNvZGU6IDQwMCwKICAgICAgICBkZXNjcmlwdGlvbjogIm9yZGVyLnF1b3RlIGlzIHJlcXVpcmVkIiwKICAgICAgfTsKICAgIH0KCiAgICBpZiAoIXF1b3RlLnByaWNlPy52YWx1ZSkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJvcmRlci5xdW90ZS5wcmljZS52YWx1ZSBpcyByZXF1aXJlZCIsCiAgICAgIH07CiAgICB9CgogICAgaWYgKCFxdW90ZS5wcmljZT8uY3VycmVuY3kpIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIucXVvdGUucHJpY2UuY3VycmVuY3kgaXMgcmVxdWlyZWQiLAogICAgICB9OwogICAgfQoKICAgIGlmIChpc05hTihOdW1iZXIocXVvdGUucHJpY2UudmFsdWUpKSkgewogICAgICByZXR1cm4gewogICAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgZGVzY3JpcHRpb246ICJvcmRlci5xdW90ZS5wcmljZS52YWx1ZSBtdXN0IGJlIG51bWVyaWMiLAogICAgICB9OwogICAgfQoKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAvLyBQYXltZW50cyBWYWxpZGF0aW9uCiAgICAvLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgaWYgKCFBcnJheS5pc0FycmF5KG9yZGVyLnBheW1lbnRzKSB8fCBvcmRlci5wYXltZW50cy5sZW5ndGggPT09IDApIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIucGF5bWVudHMgbXVzdCBiZSBhIG5vbi1lbXB0eSBhcnJheSIsCiAgICAgIH07CiAgICB9CgogICAgZm9yICgKICAgICAgbGV0IHBheW1lbnRJbmRleCA9IDA7CiAgICAgIHBheW1lbnRJbmRleCA8IG9yZGVyLnBheW1lbnRzLmxlbmd0aDsKICAgICAgcGF5bWVudEluZGV4KysKICAgICkgewogICAgICBjb25zdCBwYXltZW50ID0gb3JkZXIucGF5bWVudHNbcGF5bWVudEluZGV4XTsKCiAgICAgIGlmICghcGF5bWVudC5pZCkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLnBheW1lbnRzWyR7cGF5bWVudEluZGV4fV0uaWQgaXMgcmVxdWlyZWRgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGlmICghcGF5bWVudC5jb2xsZWN0ZWRfYnkpIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5wYXltZW50c1ske3BheW1lbnRJbmRleH1dLmNvbGxlY3RlZF9ieSBpcyByZXF1aXJlZGAsCiAgICAgICAgfTsKICAgICAgfQoKICAgICAgaWYgKCFwYXltZW50LnN0YXR1cykgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLnBheW1lbnRzWyR7cGF5bWVudEluZGV4fV0uc3RhdHVzIGlzIHJlcXVpcmVkYCwKICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoIXBheW1lbnQudHlwZSkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLnBheW1lbnRzWyR7cGF5bWVudEluZGV4fV0udHlwZSBpcyByZXF1aXJlZGAsCiAgICAgICAgfTsKICAgICAgfQoKICAgICAgY29uc3Qgc2V0dGxlbWVudFRlcm1zVGFnID0gcGF5bWVudC50YWdzPy5maW5kKAogICAgICAgICh0YWcpID0+IHRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIlNFVFRMRU1FTlRfVEVSTVMiCiAgICAgICk7CgogICAgICBpZiAoIXNldHRsZW1lbnRUZXJtc1RhZykgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLnBheW1lbnRzWyR7cGF5bWVudEluZGV4fV0gU0VUVExFTUVOVF9URVJNUyB0YWcgaXMgcmVxdWlyZWRgLAogICAgICAgIH07CiAgICAgIH0KCiAgICAgIGNvbnN0IHNldHRsZW1lbnRBbW91bnQgPSBzZXR0bGVtZW50VGVybXNUYWc/Lmxpc3Q/LmZpbmQoCiAgICAgICAgKGl0ZW0pID0+CiAgICAgICAgICBpdGVtPy5kZXNjcmlwdG9yPy5jb2RlID09PSAiU0VUVExFTUVOVF9BTU9VTlQiCiAgICAgICk/LnZhbHVlOwoKICAgICAgaWYgKAogICAgICAgIHNldHRsZW1lbnRBbW91bnQgPT09IHVuZGVmaW5lZCB8fAogICAgICAgIHNldHRsZW1lbnRBbW91bnQgPT09IG51bGwgfHwKICAgICAgICBzZXR0bGVtZW50QW1vdW50ID09PSAiIgogICAgICApIHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICAgICAgY29kZTogNDAwLAogICAgICAgICAgZGVzY3JpcHRpb246IGBvcmRlci5wYXltZW50c1ske3BheW1lbnRJbmRleH1dIFNFVFRMRU1FTlRfQU1PVU5UIGlzIHJlcXVpcmVkYCwKICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoaXNOYU4oTnVtYmVyKHNldHRsZW1lbnRBbW91bnQpKSkgewogICAgICAgIHJldHVybiB7CiAgICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgICBjb2RlOiA0MDAsCiAgICAgICAgICBkZXNjcmlwdGlvbjogYG9yZGVyLnBheW1lbnRzWyR7cGF5bWVudEluZGV4fV0gU0VUVExFTUVOVF9BTU9VTlQgbXVzdCBiZSBhIHZhbGlkIG51bWJlcmAsCiAgICAgICAgfTsKICAgICAgfQogICAgfQoKICAgIC8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAgICAvLyBDYW5jZWxsYXRpb24gVGVybXMgVmFsaWRhdGlvbgogICAgLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KICAgIGlmICgKICAgICAgIUFycmF5LmlzQXJyYXkob3JkZXIuY2FuY2VsbGF0aW9uX3Rlcm1zKSB8fAogICAgICBvcmRlci5jYW5jZWxsYXRpb25fdGVybXMubGVuZ3RoID09PSAwCiAgICApIHsKICAgICAgcmV0dXJuIHsKICAgICAgICB2YWxpZDogZmFsc2UsCiAgICAgICAgY29kZTogNDAwLAogICAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIuY2FuY2VsbGF0aW9uX3Rlcm1zIG11c3QgYmUgYSBub24tZW1wdHkgYXJyYXkiLAogICAgICB9OwogICAgfQoKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiB0cnVlLAogICAgICBjb2RlOiAyMDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIsCiAgICB9OwogIH0gY2F0Y2ggKGVycm9yKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDUwMCwKICAgICAgZGVzY3JpcHRpb246ICJJbnRlcm5hbCB2YWxpZGF0aW9uIGVycm9yIgogICAgfTsKICB9Cn0=
       requirements: >-
@@ -1442,6 +1442,7 @@ steps:
         price: $.message.order.quote.price.value
         items: '$.message.order.items[*]'
         quote: $.message.order.quote
+        fulfillments: '$.message.order.fulfillments[*]'
       inputs: {}
     examples:
       - name: example for on_init
@@ -1449,9 +1450,9 @@ steps:
           context:
             domain: 'ONDC:TRV11'
             action: on_init
-            timestamp: '2026-05-28T20:40:40.214Z'
-            transaction_id: bb095242-5af3-4882-8cde-bd2a896c02ba
-            message_id: c0f93920-f84a-4897-8a7b-06cfd4bf7a39
+            timestamp: '2026-05-28T08:09:00.197Z'
+            transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
+            message_id: 1b7a4ebc-e225-4b82-9a26-b129b2b7169f
             bap_id: bap.example.com
             bap_uri: 'https://bap.example.com'
             ttl: PT30S
@@ -1477,11 +1478,9 @@ steps:
                     value: '60'
                   quantity:
                     selected:
-                      count: 3
+                      count: 2
                   fulfillment_ids:
-                    - Fnvod2b6
-                    - Fsm6fghk
-                    - Fswsfdwi
+                    - F1
                   time:
                     label: Validity
                     duration: P2D
@@ -1493,78 +1492,10 @@ steps:
                     - url: 'https://delhimetrorail.com/logos/logo.ico'
                 time:
                   range:
-                    start: '2026-05-28T20:40:40.217Z'
-                    end: '2026-05-30T20:40:40.217Z'
+                    start: '2026-05-28T08:09:00.203Z'
+                    end: '2026-05-30T08:09:00.203Z'
               fulfillments:
-                - id: Fnvod2b6
-                  stops:
-                    - type: START
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: '28.744676, 77.138332'
-                      id: '1'
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: '28.738416, 77.139132'
-                      id: '2'
-                      parent_stop_id: '1'
-                    - type: END
-                      instructions:
-                        name: Stop 3
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_3
-                          name: MOCK_STATION_3
-                        gps: '28.738876, 77.119932'
-                      id: '3'
-                      parent_stop_id: '2'
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fsm6fghk
-                  stops:
-                    - type: START
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: '28.744676, 77.138332'
-                      id: '1'
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: '28.738416, 77.139132'
-                      id: '2'
-                      parent_stop_id: '1'
-                    - type: END
-                      instructions:
-                        name: Stop 3
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_3
-                          name: MOCK_STATION_3
-                        gps: '28.738876, 77.119932'
-                      id: '3'
-                      parent_stop_id: '2'
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                - id: Fswsfdwi
+                - id: F1
                   stops:
                     - type: START
                       instructions:
@@ -1604,7 +1535,7 @@ steps:
                 phone: +91-9897867564
               quote:
                 price:
-                  value: '180.00'
+                  value: '120.00'
                   currency: INR
                 breakup:
                   - title: BASE_FARE
@@ -1615,12 +1546,12 @@ steps:
                         value: '60'
                       quantity:
                         selected:
-                          count: 3
+                          count: 2
                     price:
                       currency: INR
-                      value: '180.00'
+                      value: '120.00'
               payments:
-                - id: 07xd6tq2fqfn
+                - id: 8yo05fxzovr
                   collected_by: BAP
                   status: NOT-PAID
                   type: PRE-ORDER
@@ -1634,7 +1565,7 @@ steps:
                       list:
                         - descriptor:
                             code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: '3'
+                          value: '1'
                         - descriptor:
                             code: BUYER_FINDER_FEES_TYPE
                           value: percent
@@ -1644,7 +1575,7 @@ steps:
                       list:
                         - descriptor:
                             code: SETTLEMENT_AMOUNT
-                          value: '174.60'
+                          value: '116.40'
                         - descriptor:
                             code: SETTLEMENT_WINDOW
                           value: P30D
@@ -1788,9 +1719,9 @@ steps:
           context:
             domain: 'ONDC:TRV11'
             action: confirm
-            timestamp: '2026-05-28T20:40:40.229Z'
-            transaction_id: bb095242-5af3-4882-8cde-bd2a896c02ba
-            message_id: a4286c00-af81-468f-bcd1-4da352a3e970
+            timestamp: '2026-05-28T08:09:00.222Z'
+            transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
+            message_id: 501def1f-af00-40eb-a0b0-201b6a49cc17
             bap_id: bap.example.com
             bap_uri: 'https://bap.example.com'
             ttl: PT30S
@@ -1808,7 +1739,7 @@ steps:
                 - id: I1
                   quantity:
                     selected:
-                      count: 3
+                      count: 2
               provider:
                 id: P1
               billing:
@@ -1816,14 +1747,14 @@ steps:
                 email: john.doe@example.com
                 phone: +91-9897867564
               payments:
-                - id: 07xd6tq2fqfn
+                - id: 8yo05fxzovr
                   collected_by: BAP
                   status: PAID
                   type: PRE-ORDER
                   params:
-                    transaction_id: 911920f3-0c28-4f16-b195-93e82ea441e1
+                    transaction_id: 7619c11b-8dee-48d6-9382-960c3195b546
                     currency: INR
-                    amount: '180.00'
+                    amount: '120.00'
                   tags:
                     - descriptor:
                         code: BUYER_FINDER_FEES
@@ -1831,7 +1762,7 @@ steps:
                       list:
                         - descriptor:
                             code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: '3'
+                          value: '1'
                         - descriptor:
                             code: BUYER_FINDER_FEES_TYPE
                           value: percent
@@ -1841,7 +1772,7 @@ steps:
                       list:
                         - descriptor:
                             code: SETTLEMENT_AMOUNT
-                          value: '174.60'
+                          value: '116.40'
                         - descriptor:
                             code: SETTLEMENT_WINDOW
                           value: P30D
@@ -2468,9 +2399,9 @@ steps:
           context:
             domain: 'ONDC:TRV11'
             action: on_confirm
-            timestamp: '2026-05-28T20:40:40.244Z'
-            transaction_id: bb095242-5af3-4882-8cde-bd2a896c02ba
-            message_id: a4286c00-af81-468f-bcd1-4da352a3e970
+            timestamp: '2026-05-28T08:09:00.235Z'
+            transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
+            message_id: 501def1f-af00-40eb-a0b0-201b6a49cc17
             bap_id: bap.example.com
             bap_uri: 'https://bap.example.com'
             ttl: PT30S
@@ -2484,7 +2415,7 @@ steps:
                 code: 'std:011'
           message:
             order:
-              id: daednf3hda
+              id: z5qbthujlzq
               status: ACTIVE
               items:
                 - id: I1
@@ -2498,11 +2429,9 @@ steps:
                     value: '60'
                   quantity:
                     selected:
-                      count: 3
+                      count: 2
                   fulfillment_ids:
-                    - Fnvod2b6
-                    - Fsm6fghk
-                    - Fswsfdwi
+                    - F1
                   time:
                     label: Validity
                     duration: P2D
@@ -2514,10 +2443,10 @@ steps:
                     - url: 'https://delhimetrorail.com/logos/logo.ico'
                 time:
                   range:
-                    start: '2026-05-28T20:40:40.247Z'
-                    end: '2026-05-30T20:40:40.247Z'
+                    start: '2026-05-28T08:09:00.237Z'
+                    end: '2026-05-30T08:09:00.237Z'
               fulfillments:
-                - id: Fnvod2b6
+                - id: F1
                   stops:
                     - type: START
                       instructions:
@@ -2530,8 +2459,8 @@ steps:
                       id: '1'
                       authorization:
                         type: QR
-                        token: 8F2qwM6YpVo4dENIkAsZJljeQm6Y0TeoxoqfjM60CiSZ
-                        valid_to: '2026-05-31T18:29:59.999Z'
+                        token: wKmKdIBaMlzdBkPwxMO2qhkHGrupAXngI3z2jhi37cJR
+                        valid_to: '2026-05-30T18:29:59.999Z'
                         status: UNCLAIMED
                     - type: INTERMEDIATE_STOP
                       instructions:
@@ -2563,108 +2492,14 @@ steps:
                       list:
                         - descriptor:
                             code: NUMBER
-                          value: x7o6184h
-                - id: Fsm6fghk
-                  stops:
-                    - type: START
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: '28.744676, 77.138332'
-                      id: '1'
-                      authorization:
-                        type: QR
-                        token: Qf4PJtB//66YIhH0YeLbPQDD9BGjX1piM7ik/lAxoVaJ
-                        valid_to: '2026-05-31T18:29:59.999Z'
-                        status: UNCLAIMED
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: '28.738416, 77.139132'
-                      id: '2'
-                      parent_stop_id: '1'
-                    - type: END
-                      instructions:
-                        name: Stop 3
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_3
-                          name: MOCK_STATION_3
-                        gps: '28.738876, 77.119932'
-                      id: '3'
-                      parent_stop_id: '2'
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: wp1g5315
-                - id: Fswsfdwi
-                  stops:
-                    - type: START
-                      instructions:
-                        name: Stop 1
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_1
-                          name: MOCK_STATION_1
-                        gps: '28.744676, 77.138332'
-                      id: '1'
-                      authorization:
-                        type: QR
-                        token: HELvRYfyFHl/dH1ei40RYEiI89Q4O69ZeNzxRRE9e4iS
-                        valid_to: '2026-05-31T18:29:59.999Z'
-                        status: UNCLAIMED
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 2
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_2
-                          name: MOCK_STATION_2
-                        gps: '28.738416, 77.139132'
-                      id: '2'
-                      parent_stop_id: '1'
-                    - type: END
-                      instructions:
-                        name: Stop 3
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_3
-                          name: MOCK_STATION_3
-                        gps: '28.738876, 77.119932'
-                      id: '3'
-                      parent_stop_id: '2'
-                  type: TRIP
-                  vehicle:
-                    category: METRO
-                  tags:
-                    - descriptor:
-                        code: TICKET_INFO
-                      display: false
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: hnmkgt4p
+                          value: s2ergtbu
               billing:
                 name: John Doe
                 email: john.doe@example.com
                 phone: +91-9897867564
               quote:
                 price:
-                  value: '180.00'
+                  value: '120.00'
                   currency: INR
                 breakup:
                   - title: BASE_FARE
@@ -2675,19 +2510,19 @@ steps:
                         value: '60'
                       quantity:
                         selected:
-                          count: 3
+                          count: 2
                     price:
                       currency: INR
-                      value: '180.00'
+                      value: '120.00'
               payments:
-                - id: 07xd6tq2fqfn
+                - id: 8yo05fxzovr
                   collected_by: BAP
                   status: PAID
                   type: PRE-ORDER
                   params:
-                    transaction_id: 911920f3-0c28-4f16-b195-93e82ea441e1
+                    transaction_id: 7619c11b-8dee-48d6-9382-960c3195b546
                     currency: INR
-                    amount: '180.00'
+                    amount: '120.00'
                     bank_code: XXXXXXXX
                     bank_account_number: xxxxxxxxxxxxxx
                   tags:
@@ -2697,7 +2532,7 @@ steps:
                       list:
                         - descriptor:
                             code: BUYER_FINDER_FEES_PERCENTAGE
-                          value: '3'
+                          value: '1'
                         - descriptor:
                             code: BUYER_FINDER_FEES_TYPE
                           value: percent
@@ -2707,7 +2542,7 @@ steps:
                       list:
                         - descriptor:
                             code: SETTLEMENT_AMOUNT
-                          value: '174.60'
+                          value: '116.40'
                         - descriptor:
                             code: SETTLEMENT_WINDOW
                           value: P30D
@@ -2741,8 +2576,8 @@ steps:
                     - descriptor:
                         code: GTFS
                       value: 'https://metro-transit/gtfs-realtime'
-              created_at: '2026-05-28T20:40:40.247Z'
-              updated_at: '2026-05-28T20:40:40.247Z'
+              created_at: '2026-05-28T08:09:00.237Z'
+              updated_at: '2026-05-28T08:09:00.237Z'
         type: request
         description: please add relevant description
   - api: update
@@ -4104,9 +3939,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: search
-        timestamp: '2026-06-17T09:08:55.230Z'
+        timestamp: '2026-06-16T15:33:30.988Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: fc9e3196-4ed4-4143-b6fc-7afcc2e53e87
+        message_id: 1a3238b2-e383-49c1-9039-60a4ab81459a
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4127,7 +3962,7 @@ transaction_history:
               - type: END
                 location:
                   descriptor:
-                    code: MOCK_STATION_5
+                    code: MOCK_STATION_2
             vehicle:
               category: METRO
           payment:
@@ -4160,9 +3995,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: on_search
-        timestamp: '2026-06-17T09:08:55.280Z'
+        timestamp: '2026-06-16T15:33:31.016Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: fc9e3196-4ed4-4143-b6fc-7afcc2e53e87
+        message_id: 1a3238b2-e383-49c1-9039-60a4ab81459a
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4227,7 +4062,7 @@ transaction_history:
                           name: MOCK_STATION_1
                         gps: '28.744676, 77.138332'
                       id: '1'
-                    - type: INTERMEDIATE_STOP
+                    - type: END
                       instructions:
                         name: Stop 2
                       location:
@@ -4237,36 +4072,6 @@ transaction_history:
                         gps: '28.738416, 77.139132'
                       id: '2'
                       parent_stop_id: '1'
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 3
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_3
-                          name: MOCK_STATION_3
-                        gps: '28.738876, 77.119932'
-                      id: '3'
-                      parent_stop_id: '2'
-                    - type: INTERMEDIATE_STOP
-                      instructions:
-                        name: Stop 4
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_4
-                          name: MOCK_STATION_4
-                        gps: '28.738411, 77.131132'
-                      id: '4'
-                      parent_stop_id: '3'
-                    - type: END
-                      instructions:
-                        name: Stop 5
-                      location:
-                        descriptor:
-                          code: MOCK_STATION_5
-                          name: MOCK_STATION_5
-                        gps: '28.738176, 77.139932'
-                      id: '5'
-                      parent_stop_id: '4'
                   type: TRIP
                   vehicle:
                     category: METRO
@@ -4317,9 +4122,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: init
-        timestamp: '2026-06-17T09:09:01.560Z'
+        timestamp: '2026-06-16T15:33:38.122Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 3731f5d7-6c52-42d0-9c0b-968a80f89acd
+        message_id: 844e1d67-19f7-4013-ae46-bfafb2f2bfb9
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4391,9 +4196,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: on_init
-        timestamp: '2026-06-17T09:09:01.594Z'
+        timestamp: '2026-06-16T15:33:38.142Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 3731f5d7-6c52-42d0-9c0b-968a80f89acd
+        message_id: 561e8b00-ac79-42e7-9a15-cc2094a74b1f
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4434,8 +4239,8 @@ transaction_history:
                 - url: 'https://delhimetrorail.com/logos/logo.ico'
             time:
               range:
-                start: '2026-06-17T09:09:01.600Z'
-                end: '2026-06-19T09:09:01.600Z'
+                start: '2026-06-16T15:33:38.147Z'
+                end: '2026-06-18T15:33:38.147Z'
           fulfillments:
             - id: F1
               stops:
@@ -4448,7 +4253,7 @@ transaction_history:
                       name: MOCK_STATION_1
                     gps: '28.744676, 77.138332'
                   id: '1'
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -4458,36 +4263,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -4502,7 +4277,7 @@ transaction_history:
                       name: MOCK_STATION_1
                     gps: '28.744676, 77.138332'
                   id: '1'
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -4512,36 +4287,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -4567,7 +4312,7 @@ transaction_history:
                   currency: INR
                   value: '120.00'
           payments:
-            - id: c80wbmhco4p
+            - id: s8yq6gb1ir9
               collected_by: BAP
               status: NOT-PAID
               type: PRE-ORDER
@@ -4632,9 +4377,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: confirm
-        timestamp: '2026-06-17T09:09:01.624Z'
+        timestamp: '2026-06-16T15:33:38.171Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 909ecf0f-6654-41eb-8bd9-b7da70384e8a
+        message_id: 15863b77-76c0-4713-a1ab-4cb95ceada3d
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4660,12 +4405,12 @@ transaction_history:
             email: john.doe@example.com
             phone: +91-9897867564
           payments:
-            - id: c80wbmhco4p
+            - id: s8yq6gb1ir9
               collected_by: BAP
               status: PAID
               type: PRE-ORDER
               params:
-                transaction_id: 5c235ccb-98e9-4b3c-a7db-ada3016a4ca4
+                transaction_id: 4614a4ff-cb64-489f-a56a-62104d6167c8
                 currency: INR
                 amount: '120.00'
               tags:
@@ -4714,9 +4459,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: on_confirm
-        timestamp: '2026-06-17T09:09:01.643Z'
+        timestamp: '2026-06-16T15:33:38.193Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 909ecf0f-6654-41eb-8bd9-b7da70384e8a
+        message_id: 15863b77-76c0-4713-a1ab-4cb95ceada3d
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -4730,7 +4475,7 @@ transaction_history:
             code: 'std:044'
       message:
         order:
-          id: bfrgb3wv25
+          id: ih8kn012kuo
           status: ACTIVE
           items:
             - id: I1
@@ -4759,8 +4504,8 @@ transaction_history:
                 - url: 'https://delhimetrorail.com/logos/logo.ico'
             time:
               range:
-                start: '2026-06-17T09:09:01.646Z'
-                end: '2026-06-19T09:09:01.646Z'
+                start: '2026-06-16T15:33:38.196Z'
+                end: '2026-06-18T15:33:38.196Z'
           fulfillments:
             - id: F1
               stops:
@@ -4775,10 +4520,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: 4QVGeQHcqJfYZjbBAkJdux1Ekb5LMTdG/kZWFYqgSkKC
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: aanZST7NpyVlfp7NpCUIgTkZ8/AcNCx1mA4kpqhtiDCk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -4788,36 +4533,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -4828,7 +4543,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: ap82sup3
+                      value: m77llia7
             - id: F2
               stops:
                 - type: START
@@ -4842,10 +4557,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: SDkN4OLcYrVwYprcKJvwavBLd3jzRkVtmnKnQCE/Elh3
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: D0YsODLX+P2Q7A/yxZRBMhrjh6o4EgpUq7q9yAmiardk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -4855,36 +4570,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -4895,7 +4580,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: 15g5wde8
+                      value: gf8xwz8v
           billing:
             name: John Doe
             email: john.doe@example.com
@@ -4918,12 +4603,12 @@ transaction_history:
                   currency: INR
                   value: '120.00'
           payments:
-            - id: c80wbmhco4p
+            - id: s8yq6gb1ir9
               collected_by: BAP
               status: PAID
               type: PRE-ORDER
               params:
-                transaction_id: 5c235ccb-98e9-4b3c-a7db-ada3016a4ca4
+                transaction_id: 4614a4ff-cb64-489f-a56a-62104d6167c8
                 currency: INR
                 amount: '120.00'
                 bank_code: XXXXXXXX
@@ -4979,8 +4664,8 @@ transaction_history:
                 - descriptor:
                     code: GTFS
                   value: 'https://metro-transit/gtfs-realtime'
-          created_at: '2026-06-17T09:09:01.646Z'
-          updated_at: '2026-06-17T09:09:01.646Z'
+          created_at: '2026-06-16T15:33:38.196Z'
+          updated_at: '2026-06-16T15:33:38.196Z'
     action: on_confirm
     saved_info: {}
   - action_id: update_METRO_201
@@ -4988,9 +4673,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: update
-        timestamp: '2026-06-17T09:09:01.663Z'
+        timestamp: '2026-06-16T15:33:38.209Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: ee6f6f26-5f73-4b45-b899-5e8b0ba17b31
+        message_id: 0ddf3c1c-964c-4d82-9e3c-cbd512888c7d
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -5005,7 +4690,7 @@ transaction_history:
       message:
         update_target: order.fulfillments
         order:
-          id: bfrgb3wv25
+          id: ih8kn012kuo
           fulfillments:
             - id: F1
               type: TRIP
@@ -5021,9 +4706,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: on_update
-        timestamp: '2026-06-17T09:09:01.691Z'
+        timestamp: '2026-06-16T15:33:38.234Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: ee6f6f26-5f73-4b45-b899-5e8b0ba17b31
+        message_id: 0ddf3c1c-964c-4d82-9e3c-cbd512888c7d
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -5037,7 +4722,7 @@ transaction_history:
             code: 'std:044'
       message:
         order:
-          id: bfrgb3wv25
+          id: ih8kn012kuo
           status: SOFT_CANCEL
           items:
             - id: I1
@@ -5065,8 +4750,8 @@ transaction_history:
                 - url: 'https://delhimetrorail.com/logos/logo.ico'
             time:
               range:
-                start: '2026-06-17T09:09:01.646Z'
-                end: '2026-06-19T09:09:01.646Z'
+                start: '2026-06-16T15:33:38.196Z'
+                end: '2026-06-18T15:33:38.196Z'
           fulfillments:
             - id: F1
               stops:
@@ -5081,10 +4766,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: 4QVGeQHcqJfYZjbBAkJdux1Ekb5LMTdG/kZWFYqgSkKC
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: aanZST7NpyVlfp7NpCUIgTkZ8/AcNCx1mA4kpqhtiDCk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -5094,36 +4779,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -5134,7 +4789,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: ap82sup3
+                      value: m77llia7
             - id: F2
               stops:
                 - type: START
@@ -5148,10 +4803,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: SDkN4OLcYrVwYprcKJvwavBLd3jzRkVtmnKnQCE/Elh3
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: D0YsODLX+P2Q7A/yxZRBMhrjh6o4EgpUq7q9yAmiardk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -5161,36 +4816,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -5201,7 +4826,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: 15g5wde8
+                      value: gf8xwz8v
           billing:
             name: John Doe
             email: john.doe@example.com
@@ -5242,12 +4867,12 @@ transaction_history:
                   fulfillment_ids:
                     - F1
           payments:
-            - id: c80wbmhco4p
+            - id: s8yq6gb1ir9
               collected_by: BAP
               status: PAID
               type: PRE-ORDER
               params:
-                transaction_id: 5c235ccb-98e9-4b3c-a7db-ada3016a4ca4
+                transaction_id: 4614a4ff-cb64-489f-a56a-62104d6167c8
                 currency: INR
                 amount: '120.00'
                 bank_code: XXXXXXXX
@@ -5269,7 +4894,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: SETTLEMENT_AMOUNT
-                      value: '58.2'
+                      value: '116.40'
                     - descriptor:
                         code: SETTLEMENT_WINDOW
                       value: P30D
@@ -5303,8 +4928,8 @@ transaction_history:
                 - descriptor:
                     code: GTFS
                   value: 'https://metro-transit/gtfs-realtime'
-          created_at: '2026-06-17T09:09:01.646Z'
-          updated_at: '2026-06-17T09:09:01.694Z'
+          created_at: '2026-06-16T15:33:38.196Z'
+          updated_at: '2026-06-16T15:33:38.236Z'
     action: on_update
     saved_info: {}
   - action_id: update_METRO_202
@@ -5312,9 +4937,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: update
-        timestamp: '2026-06-17T09:09:01.710Z'
+        timestamp: '2026-06-16T15:33:38.249Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 89f69e6c-ca54-4fa6-8c1a-1afe97ced8b5
+        message_id: da0d3e6c-1a92-4d9b-86d2-b13e354f74e6
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -5329,7 +4954,7 @@ transaction_history:
       message:
         update_target: order.fulfillments
         order:
-          id: bfrgb3wv25
+          id: ih8kn012kuo
           fulfillments:
             - id: F1
               type: TRIP
@@ -5345,9 +4970,9 @@ transaction_history:
       context:
         domain: 'ONDC:TRV11'
         action: on_update
-        timestamp: '2026-06-17T09:09:01.730Z'
+        timestamp: '2026-06-16T15:33:38.266Z'
         transaction_id: e09c3d3d-c84d-47a6-b9f8-0b5b50791254
-        message_id: 89f69e6c-ca54-4fa6-8c1a-1afe97ced8b5
+        message_id: da0d3e6c-1a92-4d9b-86d2-b13e354f74e6
         bap_id: bap.example.com
         bap_uri: 'https://bap.example.com'
         ttl: PT30S
@@ -5361,7 +4986,7 @@ transaction_history:
             code: 'std:044'
       message:
         order:
-          id: bfrgb3wv25
+          id: ih8kn012kuo
           status: ACTIVE
           items:
             - id: I1
@@ -5389,8 +5014,8 @@ transaction_history:
                 - url: 'https://delhimetrorail.com/logos/logo.ico'
             time:
               range:
-                start: '2026-06-17T09:09:01.646Z'
-                end: '2026-06-19T09:09:01.646Z'
+                start: '2026-06-16T15:33:38.196Z'
+                end: '2026-06-18T15:33:38.196Z'
           fulfillments:
             - id: F1
               stops:
@@ -5405,10 +5030,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: 4QVGeQHcqJfYZjbBAkJdux1Ekb5LMTdG/kZWFYqgSkKC
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: aanZST7NpyVlfp7NpCUIgTkZ8/AcNCx1mA4kpqhtiDCk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -5418,36 +5043,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -5458,7 +5053,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: ap82sup3
+                      value: m77llia7
               state:
                 descriptor:
                   code: CANCELLED
@@ -5475,10 +5070,10 @@ transaction_history:
                   id: '1'
                   authorization:
                     type: QR
-                    token: SDkN4OLcYrVwYprcKJvwavBLd3jzRkVtmnKnQCE/Elh3
-                    valid_to: '2026-06-19T18:29:59.999Z'
+                    token: D0YsODLX+P2Q7A/yxZRBMhrjh6o4EgpUq7q9yAmiardk
+                    valid_to: '2026-06-18T18:29:59.999Z'
                     status: UNCLAIMED
-                - type: INTERMEDIATE_STOP
+                - type: END
                   instructions:
                     name: Stop 2
                   location:
@@ -5488,36 +5083,6 @@ transaction_history:
                     gps: '28.738416, 77.139132'
                   id: '2'
                   parent_stop_id: '1'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 3
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_3
-                      name: MOCK_STATION_3
-                    gps: '28.738876, 77.119932'
-                  id: '3'
-                  parent_stop_id: '2'
-                - type: INTERMEDIATE_STOP
-                  instructions:
-                    name: Stop 4
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_4
-                      name: MOCK_STATION_4
-                    gps: '28.738411, 77.131132'
-                  id: '4'
-                  parent_stop_id: '3'
-                - type: END
-                  instructions:
-                    name: Stop 5
-                  location:
-                    descriptor:
-                      code: MOCK_STATION_5
-                      name: MOCK_STATION_5
-                    gps: '28.738176, 77.139932'
-                  id: '5'
-                  parent_stop_id: '4'
               type: TRIP
               vehicle:
                 category: METRO
@@ -5528,7 +5093,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: NUMBER
-                      value: 15g5wde8
+                      value: gf8xwz8v
           billing:
             name: John Doe
             email: john.doe@example.com
@@ -5569,12 +5134,12 @@ transaction_history:
                   fulfillment_ids:
                     - F1
           payments:
-            - id: c80wbmhco4p
+            - id: s8yq6gb1ir9
               collected_by: BAP
               status: PAID
               type: PRE-ORDER
               params:
-                transaction_id: 5c235ccb-98e9-4b3c-a7db-ada3016a4ca4
+                transaction_id: 4614a4ff-cb64-489f-a56a-62104d6167c8
                 currency: INR
                 amount: '120.00'
                 bank_code: XXXXXXXX
@@ -5596,7 +5161,7 @@ transaction_history:
                   list:
                     - descriptor:
                         code: SETTLEMENT_AMOUNT
-                      value: '58.2'
+                      value: '116.40'
                     - descriptor:
                         code: SETTLEMENT_WINDOW
                       value: P30D
@@ -5630,8 +5195,8 @@ transaction_history:
                 - descriptor:
                     code: GTFS
                   value: 'https://metro-transit/gtfs-realtime'
-          created_at: '2026-06-17T09:09:01.646Z'
-          updated_at: '2026-06-17T09:09:01.733Z'
+          created_at: '2026-06-16T15:33:38.196Z'
+          updated_at: '2026-06-16T15:33:38.268Z'
     action: on_update
     saved_info: {}
 validationLib: ''
