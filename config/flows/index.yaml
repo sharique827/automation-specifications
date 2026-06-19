@@ -6,7 +6,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Cancellation)
+    description: An end-to-end order cancellation scenario where a buyer selects home and kitchen products, confirms the purchase, and subsequently cancels the order.
     config:
       $ref: ./HOME&KITCHEN/Buyer_Cancellation_Flow.yaml
   - type: playground
@@ -16,7 +16,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Catalog Rejection)
+    description: Validates the rejection of home and kitchen items from seller catalogs in response to buyer searches, ensuring proper handling of product unavailability in the transaction flow.
     config:
       $ref: ./HOME&KITCHEN/Catalog_Rejection_Flow.yaml
   - type: playground
@@ -26,7 +26,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Customization input)
+    description: End-to-end transaction flow for ordering text-customizable home and kitchen products, from product selection and personalization input through order confirmation and fulfillment status tracking.
     config:
       $ref: ./HOME&KITCHEN/Customization_Input_Text_Flow.yaml
   - type: playground
@@ -36,7 +36,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Delivery)
+    description: Home and kitchen product delivery flow spanning customer selection and order confirmation through tracked fulfillment with multi-stage delivery status updates.
     config:
       $ref: ./HOME&KITCHEN/Delivery_Flow.yaml
   - type: playground
@@ -47,7 +47,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: End-to-end home and kitchen retail delivery transaction with integrated grievance management, covering product selection, order confirmation, delivery tracking, and issue resolution.
     config:
       $ref: ./HOME&KITCHEN/Delivery_Flow_With_IGM_v-1_0_0_.yaml
   - type: playground
@@ -58,7 +58,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 1)
+    description: End-to-end retail delivery transaction for home and kitchen products with integrated issue and grievance management, covering order selection and placement through fulfillment tracking and issue resolution.
     config:
       $ref: ./HOME&KITCHEN/Delivery_Flow_With_IGM_v-2_0_0_.yaml
   - type: playground
@@ -67,7 +67,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Delivery  with IGM 3)
+    description: End-to-end home and kitchen order delivery with order confirmation, real-time status updates throughout fulfillment, and issue governance scenarios demonstrating problem escalation in situations where remedial actions are not taken.
     config:
       $ref: ./HOME&KITCHEN/Delivery_Flow_With_IGM_No_Action_v-2_0_0_.yaml
   - type: playground
@@ -78,7 +78,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Delivery with IGM 2)
+    description: Delivery of home and kitchen products with customer issue escalation and grievance rejection through ONDC's Issue Grievance Management system.
     config:
       $ref: ./HOME&KITCHEN/Delivery_Flow_With_IGM_Rejection_v-2_0_0_.yaml
   - type: playground
@@ -89,7 +89,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow)
+    description: A buyer discovers HOME&KITCHEN products by searching the catalog, with the seller providing matching inventory results.
     config:
       $ref: ./HOME&KITCHEN/Discovery_Flow_full_catalog.yaml
   - type: playground
@@ -99,7 +99,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog)
+    description: A buyer discovers HOME & KITCHEN products through progressive search queries, with the seller providing incremental catalog updates to reflect real-time inventory availability.
     config:
       $ref: ./HOME&KITCHEN/Discovery_Flow_incremental_catalog.yaml
   - type: playground
@@ -107,7 +107,7 @@ flows:
     usecase: HOME&KITCHEN
     tags:
       - WORKBENCH
-    description: Retail 1.2.5 (Discovery Flow Incremental Catalog Refresh Pull)
+    description: A home and kitchen seller incrementally refreshes its product catalog by pulling updates from upstream sources, with sequential buyer searches validating that updated product information is accurately discoverable on the network.
     config:
       $ref: ./HOME&KITCHEN/Discovery_Flow_incremental_catalog_refresh_pull.yaml
   - type: playground
@@ -117,7 +117,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Cancellation)
+    description: Demonstrates buyer-initiated force cancellation of a home and kitchen product order during fulfillment, covering the complete transaction flow from product selection through cancellation completion and final status update.
     config:
       $ref: ./HOME&KITCHEN/Force_Cancellation_Flow.yaml
   - type: playground
@@ -126,7 +126,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Out Of Stock)
+    description: A customer selects and confirms a HOME&KITCHEN order, but the seller cannot fulfill due to out-of-stock items, requiring order cancellation and sequential status notifications. The flow validates the seller's inventory constraint handling and status communication with the buyer throughout the transaction lifecycle.
     config:
       $ref: ./HOME&KITCHEN/Out_Of_Stock_Flow.yaml
   - type: playground
@@ -136,7 +136,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (Out Of Stock)
+    description: Buyer selects a HOME&KITCHEN product that is out of stock, triggering an unavailability error response from the seller.
     config:
       $ref: ./HOME&KITCHEN/Out_Of_Stock_Flow_Error-code_.yaml
   - type: playground
@@ -146,21 +146,21 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Retail 1.2.5 (purchase finance)
+    description: Retail purchase of home and kitchen products with financing options, from buyer item selection through seller confirmation and fulfillment tracking.
     config:
       $ref: ./HOME&KITCHEN/Purchase_Finance_Flow.yaml
   - type: playground
     id: Return_Flow
     usecase: HOME&KITCHEN
     tags: []
-    description: Retail 1.2.5 (Return)
+    description: A return and refund flow for home and kitchen products where customers select and confirm items for return, and sellers track and update the return status through multiple checkpoints until process completion.
     config:
       $ref: ./HOME&KITCHEN/Return_Flow.yaml
   - type: playground
     id: Replacement_Flow
     usecase: HOME&KITCHEN
     tags: []
-    description: Retail 1.2.5 (Replacement)
+    description: End-to-end replacement order transaction for HOME&KITCHEN products, encompassing buyer selection and confirmation of replacement items with progressive status monitoring through fulfillment. The flow ensures order lifecycle visibility across multiple checkpoint validations and fulfillment updates.
     config:
       $ref: ./HOME&KITCHEN/Replacement_Flow.yaml
   - type: playground
@@ -169,7 +169,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (SNP collecting paymen)
+    description: Customers select home and kitchen products and confirm purchases while the service provider collects payment and tracks order status through completion.
     config:
       $ref: ./HOME&KITCHEN/SNP_Collecting_Payment_Flow.yaml
   - type: playground
@@ -178,7 +178,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
-    description: Retail 1.2.5 (Cancellation)
+    description: A HOME&KITCHEN retail order flow demonstrating seller-initiated cancellation, from customer selection and order confirmation through seller cancellation and final status resolution.
     config:
       $ref: ./HOME&KITCHEN/Seller_Cancellation_Flow.yaml
   - type: playground
@@ -189,6 +189,6 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Retail 1.2.5 (Replacement)
+    description: End-to-end replacement order transaction for HOME&KITCHEN products, encompassing buyer selection and confirmation of replacement items with progressive status monitoring through fulfillment. The flow ensures order lifecycle visibility across multiple checkpoint validations and fulfillment updates.
     config:
       $ref: ./HOME&KITCHEN/Replacement_Flow.yaml
