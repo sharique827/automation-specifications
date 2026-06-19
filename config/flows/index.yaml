@@ -7,7 +7,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Return Flow for HOME&KITCHEN
+    description: Buyer-initiated return flow for HOME&KITCHEN orders supporting both full and partial returns, with item selection, confirmation, and status management.
     config:
       $ref: ./HOME&KITCHEN/Buyer_Initiated_Return__Full_Order_and_Partial_Order_.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for HOME&KITCHEN
+    description: Demonstrates the complete buyer-initiated order cancellation workflow for HOME&KITCHEN products, validating the end-to-end transaction flow from product selection and order confirmation through to cancellation request processing.
     config:
       $ref: ./HOME&KITCHEN/Buyer_Side_Order_Cancellation.yaml
   - type: playground
@@ -29,7 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: RTO and Part Cancellation Flow for HOME&KITCHEN
+    description: Enables merchants to process returns to origin and partial order cancellations for HOME&KITCHEN items, providing end-to-end visibility into reverse logistics and order modification workflows.
     config:
       $ref: ./HOME&KITCHEN/Merchant_Side_RTO_and_Part_Order_Cancellation_Flow.yaml
   - type: playground
@@ -40,7 +40,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for HOME&KITCHEN
+    description: Complete prepaid ordering and fulfillment journey for home and kitchen merchandise, from product selection and order confirmation through fulfillment status tracking and final delivery.
     config:
       $ref: ./HOME&KITCHEN/Order_to_confirm_to_fulfillment__Prepaid_.yaml
   - type: playground
@@ -51,7 +51,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Out of Stock Flow for HOME&KITCHEN
+    description: When a buyer selects a HOME&KITCHEN item, the seller confirms the selection with an out-of-stock error, validating the inventory availability check and error communication mechanism at the order confirmation stage.
     config:
       $ref: ./HOME&KITCHEN/Out_of_Stock_Error_code_.yaml
   - type: playground
@@ -62,7 +62,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Full Catalog) for HOME&KITCHEN
+    description: Buyer searches for HOME&KITCHEN products in their city and receives the seller's full catalog filtered by location availability, validating end-to-end product discovery and inventory visibility.
     config:
       $ref: ./HOME&KITCHEN/Search_and_Custom_Menu__Full_Catalog_City_.yaml
   - type: playground
@@ -73,7 +73,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow (Incremental Catalog) for HOME&KITCHEN
+    description: Buyer searches for and discovers home and kitchen products through incremental seller-provided catalog results and custom menu options in a multi-stage search flow.
     config:
       $ref: ./HOME&KITCHEN/Search_and_Custom_Menu__Incremental_Push_.yaml
   - type: playground
@@ -81,6 +81,6 @@ flows:
     usecase: HOME&KITCHEN
     tags:
       - WORKBENCH
-    description: Discovery Flow Incremental Catalog Refresh Pull for HOME&KITCHEN
+    description: A buyer incrementally discovers and refreshes a home and kitchen catalog through successive search queries to sync the latest product offerings and availability.
     config:
       $ref: ./HOME&KITCHEN/Discovery_Flow_incremental_catalog_refresh_pull.yaml
