@@ -2,7 +2,7 @@ meta:
   domain: ONDC:RETeB2B
   version: 1.2.5
   flowId: Discovery_flow_broadcast_search
-  description: Buyer Search & Quotation
+  description: An eB2B marketplace discovery flow where buyers search for business products and suppliers broadcast matching catalog offerings in response to multiple search queries.
   flowName: Discovery flow broadcast search
   use_case_id: eB2B
 transaction_data:
@@ -18,8 +18,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: Category-level broadcast search for regional distributor discovery
-      and publishing of buyer static terms
+    description: The Buyer App initiates a search across the ONDC network to discover available suppliers and their offerings, establishing the transaction context with unique identifiers and timing information, and optionally targeting a specific Seller App for directed discovery.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwoKYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgdHJ5IHsKICAgIAoKICAgIGNvbnN0IGlucHV0cyA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIHx8IHt9OwogICAgaWYgKGlucHV0cy5jaXR5KSB7CiAgICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuY2l0eSA9IGlucHV0cy5jaXR5OwogICAgICBjb25zb2xlLmxvZygiQ2l0eSBzZXQgdG86IiwgaW5wdXRzLmNpdHkpOwogICAgfQoKICAgIAogICAgY29uc3QgdGFncyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/LmludGVudD8udGFncyB8fCBbXTsKICAgIGNvbnN0IGJhcFRlcm1zVGFnID0gdGFncy5maW5kKHQgPT4gdC5jb2RlID09PSAiYmFwX3Rlcm1zIik7CgogICAgaWYgKGJhcFRlcm1zVGFnKSB7CiAgICAgIGNvbnN0IGVmZmVjdGl2ZURhdGUgPSBiYXBUZXJtc1RhZy5saXN0LmZpbmQobCA9PiBsLmNvZGUgPT09ICJlZmZlY3RpdmVfZGF0ZSIpOwogICAgICBpZiAoZWZmZWN0aXZlRGF0ZSkgewogICAgICAgIGVmZmVjdGl2ZURhdGUudmFsdWUgPSBuZXcgRGF0ZSgKICAgICAgICAgIERhdGUubm93KCkgKyAxMCAqIDI0ICogNjAgKiA2MCAqIDEwMDAKICAgICAgICApLnRvSVNPU3RyaW5nKCk7CiAgICAgICAgCiAgICAgIH0KICAgIH0KCiAgICAKICAgIGNvbnN0IGJhcEZlYXR1cmVzID0gaW5wdXRzLmJhcF9mZWF0dXJlczsKICAgIGlmIChiYXBGZWF0dXJlcykgewogICAgICAKCiAgICAgIGNvbnN0IGVuYWJsZWRDb2RlcyA9IE9iamVjdC5rZXlzKGJhcEZlYXR1cmVzKQogICAgICAgIC5maWx0ZXIoY29kZSA9PiBiYXBGZWF0dXJlc1tjb2RlXSA9PT0gdHJ1ZSkKICAgICAgICAubWFwKGNvZGUgPT4gKHsgY29kZSwgdmFsdWU6ICJ5ZXMiIH0pKTsKCiAgICAgIGlmIChlbmFibGVkQ29kZXMubGVuZ3RoKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQudGFncyA9CiAgICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLmZpbHRlcigKICAgICAgICAgICAgdCA9PiB0LmNvZGUgIT09ICJiYXBfZmVhdHVyZXMiCiAgICAgICAgICApOwoKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzLnB1c2goewogICAgICAgICAgY29kZTogImJhcF9mZWF0dXJlcyIsCiAgICAgICAgICBsaXN0OiBlbmFibGVkQ29kZXMKICAgICAgICB9KTsKCiAgICAgICAgc2Vzc2lvbkRhdGEuc2F2ZWRfZGF0YSA9IHNlc3Npb25EYXRhLnNhdmVkX2RhdGEgfHwge307CiAgICAgICAgc2Vzc2lvbkRhdGEuc2F2ZWRfZGF0YS5iYXBfZmVhdHVyZXMgPSBlbmFibGVkQ29kZXM7CiAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CgogIH0gY2F0Y2ggKGUpIHsKICAgIHJldHVybiB7CiAgICAgIGNvbnRleHQ6IGRlZmF1bHRQYXlsb2FkPy5jb250ZXh0IHx8IHt9LAogICAgICBlcnJvcjogZT8ubWVzc2FnZSB8fCAidW5rbm93biBlcnJvciAiCiAgICB9OwogIH0KfQoKCgoK
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -136,16 +135,13 @@ steps:
                     - code: "0091"
                       value: yes
         type: request
-        description: Category-level broadcast search for regional distributor discovery
-          and publishing of buyer static terms
+        description: Category-level broadcast search for regional distributor discovery and publishing of buyer static terms
   - api: on_search
     action_id: on_search
     owner: BPP
     responseFor: search-0
     unsolicited: false
-    description: Catalog response from the seller platform containing providers,
-      items, and details matching the buyer’s search criteria for product
-      discovery.
+    description: The BPP responds to the BAP's search request by providing a catalog of available products and fulfillment options. This discovery response enables the buyer application to evaluate seller offerings and terms in the EB2B marketplace.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICoKICogQHBhcmFtIHtPYmplY3R9IGRlZmF1bHRQYXlsb2FkIC0gVGhlIGJhc2UgcGF5bG9hZCBvYmplY3Qgd2l0aCBjb250ZXh0IGFscmVhZHkgcG9wdWxhdGVkLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMgLSBVc2VyLXByb3ZpZGVkIGlucHV0IHZhbHVlcyBmb3IgdGhpcyBzdGVwLgogKiBAcGFyYW0geyp9IHNlc3Npb25EYXRhLltrZXldIC0gQW55IHNhdmVkIGRhdGEgZnJvbSBwcmV2aW91cyBzdGVwcyAoZGVmaW5lZCBpbiBzYXZlRGF0YSBjb25maWcpLgogKgogKiBAcmV0dXJucyB7T2JqZWN0fSBUaGUgZ2VuZXJhdGVkIHBheWxvYWQgb2JqZWN0IHRvIGJlIHNlbnQgaW4gdGhlIEFQSSByZXF1ZXN0LgogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgY2l0eSA9IHNlc3Npb25EYXRhPy5jaXR5Py5bMF07CgogIGlmIChjaXR5KSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSBjaXR5OwogICAgY29uc29sZS5sb2coIkNpdHkgc2V0IHRvOiIsIGNpdHkpOwogIH0KCiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5tZXNzYWdlX2lkID0gc2Vzc2lvbkRhdGEubGF0ZXN0TWVzc2FnZV9pZFswXTsKICBhcHBseUR5bmFtaWNUaW1lc3RhbXBzKGRlZmF1bHRQYXlsb2FkKTsKCiAgZnVuY3Rpb24gZ2V0VG9kYXlTdGFydFVUQygpIHsKICAgIGNvbnN0IGQgPSBuZXcgRGF0ZSgpOwogICAgcmV0dXJuIG5ldyBEYXRlKERhdGUuVVRDKGQuZ2V0VVRDRnVsbFllYXIoKSwgZC5nZXRVVENNb250aCgpLCBkLmdldFVUQ0RhdGUoKSwgMCwgMCwgMCwgMCkpLnRvSVNPU3RyaW5nKCk7CiAgfQoKICBmdW5jdGlvbiBnZXRUb2RheVBsdXM1RW5kVVRDKCkgewogICAgY29uc3QgZCA9IG5ldyBEYXRlKCk7CiAgICByZXR1cm4gbmV3IERhdGUoRGF0ZS5VVEMoZC5nZXRVVENGdWxsWWVhcigpLCBkLmdldFVUQ01vbnRoKCksIGQuZ2V0VVRDRGF0ZSgpICsgNSwgMjMsIDU5LCA1OSwgOTk5KSkudG9JU09TdHJpbmcoKTsKICB9CgogIGNvbnN0IG9mZmVyU3RhcnQgPSBnZXRUb2RheVN0YXJ0VVRDKCk7CiAgY29uc3Qgb2ZmZXJFbmQgPSBnZXRUb2RheVBsdXM1RW5kVVRDKCk7CgogIGZ1bmN0aW9uIHVwZGF0ZU9mZmVyUmFuZ2VzKG5vZGUpIHsKICAgIGlmICghbm9kZSB8fCB0eXBlb2Ygbm9kZSAhPT0gIm9iamVjdCIpIHJldHVybjsKCiAgICBpZiAoQXJyYXkuaXNBcnJheShub2RlKSkgewogICAgICBub2RlLmZvckVhY2godXBkYXRlT2ZmZXJSYW5nZXMpOwogICAgICByZXR1cm47CiAgICB9CgogICAgZm9yIChjb25zdCBrZXkgb2YgT2JqZWN0LmtleXMobm9kZSkpIHsKICAgICAgaWYgKGtleSA9PT0gIm9mZmVycyIgJiYgQXJyYXkuaXNBcnJheShub2RlW2tleV0pKSB7CiAgICAgICAgbm9kZVtrZXldLmZvckVhY2goKG9mZmVyKSA9PiB7CiAgICAgICAgICBpZiAob2ZmZXI/LnRpbWU/LnJhbmdlKSB7CiAgICAgICAgICAgIG9mZmVyLnRpbWUucmFuZ2Uuc3RhcnQgPSBvZmZlclN0YXJ0OwogICAgICAgICAgICBvZmZlci50aW1lLnJhbmdlLmVuZCA9IG9mZmVyRW5kOwogICAgICAgICAgfQogICAgICAgIH0pOwogICAgICB9IGVsc2UgewogICAgICAgIHVwZGF0ZU9mZmVyUmFuZ2VzKG5vZGVba2V5XSk7CiAgICAgIH0KICAgIH0KICB9CgogIGZ1bmN0aW9uIGdldE5leHQ2RGF0ZXNVVEMoKSB7CiAgICBjb25zdCBkYXRlcyA9IFtdOwogICAgY29uc3QgYmFzZSA9IG5ldyBEYXRlKCk7CgogICAgZm9yIChsZXQgaSA9IDA7IGkgPD0gNTsgaSsrKSB7CiAgICAgIGNvbnN0IGQgPSBuZXcgRGF0ZShiYXNlKTsKICAgICAgZC5zZXRVVENEYXRlKGQuZ2V0VVRDRGF0ZSgpICsgaSk7CiAgICAgIGRhdGVzLnB1c2goZC50b0lTT1N0cmluZygpLnNsaWNlKDAsIDEwKSk7CiAgICB9CgogICAgcmV0dXJuIGRhdGVzOwogIH0KCiAgZnVuY3Rpb24gdXBkYXRlSG9saWRheXMobm9kZSkgewogICAgaWYgKCFub2RlIHx8IHR5cGVvZiBub2RlICE9PSAib2JqZWN0IikgcmV0dXJuOwoKICAgIGlmIChBcnJheS5pc0FycmF5KG5vZGUpKSB7CiAgICAgIG5vZGUuZm9yRWFjaCh1cGRhdGVIb2xpZGF5cyk7CiAgICAgIHJldHVybjsKICAgIH0KCiAgICBmb3IgKGNvbnN0IGtleSBvZiBPYmplY3Qua2V5cyhub2RlKSkgewogICAgICBpZiAoa2V5ID09PSAiaG9saWRheXMiICYmIEFycmF5LmlzQXJyYXkobm9kZVtrZXldKSkgewogICAgICAgIG5vZGVba2V5XSA9IFsuLi5ob2xpZGF5c107CiAgICAgIH0gZWxzZSB7CiAgICAgICAgdXBkYXRlSG9saWRheXMobm9kZVtrZXldKTsKICAgICAgfQogICAgfQogIH0KCiAgY29uc3QgaG9saWRheXMgPSBnZXROZXh0NkRhdGVzVVRDKCk7CgogIHVwZGF0ZU9mZmVyUmFuZ2VzKGRlZmF1bHRQYXlsb2FkKTsKICB1cGRhdGVIb2xpZGF5cyhkZWZhdWx0UGF5bG9hZCk7CgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -799,8 +795,7 @@ steps:
                       month_year_of_manufacture_packing_import: 01/2025
                     "@ondc/org/statutory_reqs_prepackaged_food":
                       nutritional_info: Energy(KCal)-(per 100ml) 42; Sugars(g)-(per 100ml) 10.6
-                      additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid,
-                        Caffeine
+                      additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid, Caffeine
                       brand_owner_FSSAI_license_no: "10012011000011"
                       other_FSSAI_license_no: "10012011000011"
                       importer_FSSAI_license_no: ""
@@ -863,8 +858,7 @@ steps:
                       month_year_of_manufacture_packing_import: 01/2025
                     "@ondc/org/statutory_reqs_prepackaged_food":
                       nutritional_info: Energy(KCal)-(per 100ml) 42; Sugars(g)-(per 100ml) 10.6
-                      additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid,
-                        Caffeine
+                      additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid, Caffeine
                       brand_owner_FSSAI_license_no: "10012011000011"
                       other_FSSAI_license_no: "10012011000011"
                       importer_FSSAI_license_no: ""
@@ -1103,12 +1097,7 @@ steps:
                       - code: unit
                         value: geojson
                       - code: val
-                        value: '{"type": "FeatureCollection", "features": [{"type": "Feature",
-                          "properties": {}, "geometry": {"coordinates":
-                          [[[[77.4366, 14.6230], [75.5973, 13.2507], [76.8359,
-                          11.9329], [78.7709, 11.3290]]], [[[75.6948, 15.9928],
-                          [74.8319, 14.8515], [77.4006, 15.1229], [75.6948,
-                          15.9928]]]], "type": "MultiPolygon"}}]}'
+                        value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[[77.4366, 14.6230], [75.5973, 13.2507], [76.8359, 11.9329], [78.7709, 11.3290]]], [[[75.6948, 15.9928], [74.8319, 14.8515], [77.4006, 15.1229], [75.6948, 15.9928]]]], "type": "MultiPolygon"}}]}'
                       - code: day_from
                         value: "1"
                       - code: day_to
@@ -1128,10 +1117,7 @@ steps:
                       - code: unit
                         value: geojson
                       - code: val
-                        value: '{"type": "FeatureCollection", "features": [{"type": "Feature",
-                          "properties": {}, "geometry": {"coordinates":
-                          [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469,
-                          28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}'
+                        value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469, 28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}'
                       - code: day_from
                         value: "1"
                       - code: day_to
@@ -1845,8 +1831,7 @@ steps:
                         month_year_of_manufacture_packing_import: 01/2025
                       "@ondc/org/statutory_reqs_prepackaged_food":
                         nutritional_info: Energy(KCal)-(per 100ml) 42; Sugars(g)-(per 100ml) 10.6
-                        additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid,
-                          Caffeine
+                        additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid, Caffeine
                         brand_owner_FSSAI_license_no: "10012011000011"
                         other_FSSAI_license_no: "10012011000011"
                         importer_FSSAI_license_no: ""
@@ -1909,8 +1894,7 @@ steps:
                         month_year_of_manufacture_packing_import: 01/2025
                       "@ondc/org/statutory_reqs_prepackaged_food":
                         nutritional_info: Energy(KCal)-(per 100ml) 42; Sugars(g)-(per 100ml) 10.6
-                        additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid,
-                          Caffeine
+                        additives_info: Carbonated Water, Sugar, Caramel Colour, Phosphoric Acid, Caffeine
                         brand_owner_FSSAI_license_no: "10012011000011"
                         other_FSSAI_license_no: "10012011000011"
                         importer_FSSAI_license_no: ""
@@ -2149,12 +2133,7 @@ steps:
                         - code: unit
                           value: geojson
                         - code: val
-                          value: '{"type": "FeatureCollection", "features": [{"type": "Feature",
-                            "properties": {}, "geometry": {"coordinates":
-                            [[[[77.4366, 14.6230], [75.5973, 13.2507], [76.8359,
-                            11.9329], [78.7709, 11.3290]]], [[[75.6948,
-                            15.9928], [74.8319, 14.8515], [77.4006, 15.1229],
-                            [75.6948, 15.9928]]]], "type": "MultiPolygon"}}]}'
+                          value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[[77.4366, 14.6230], [75.5973, 13.2507], [76.8359, 11.9329], [78.7709, 11.3290]]], [[[75.6948, 15.9928], [74.8319, 14.8515], [77.4006, 15.1229], [75.6948, 15.9928]]]], "type": "MultiPolygon"}}]}'
                         - code: day_from
                           value: "1"
                         - code: day_to
@@ -2174,11 +2153,7 @@ steps:
                         - code: unit
                           value: geojson
                         - code: val
-                          value: '{"type": "FeatureCollection", "features": [{"type": "Feature",
-                            "properties": {}, "geometry": {"coordinates":
-                            [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469,
-                            28.5453], [77.1755, 28.6759]]], "type":
-                            "Polygon"}}]}'
+                          value: '{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {}, "geometry": {"coordinates": [[[77.1755, 28.6759], [77.1287, 28.6009], [77.4469, 28.5453], [77.1755, 28.6759]]], "type": "Polygon"}}]}'
                         - code: day_from
                           value: "1"
                         - code: day_to
@@ -2220,16 +2195,13 @@ steps:
                         - code: type
                           value: existing
         type: request
-        description: Catalog response from the seller platform containing providers,
-          items, and details matching the buyer’s search criteria for product
-          discovery.
+        description: Catalog response from the seller platform containing providers, items, and details matching the buyer’s search criteria for product discovery.
   - api: search
     action_id: search-1
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: Search request to discover providers on the ONDC network based on
-      provider ID and fulfillment type.
+    description: The BAP sends a search request expressing buyer intent to discover products and services, with the option to direct it to specific seller apps or broadcast it across the eB2B network.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyAvc2VhcmNoIHBheWxvYWQgZm9yIE9OREMgUkVUZUIyQiBiYXNlZCBvbiB1c2VyIGlucHV0cy4KICogU3VwcG9ydHM6CiAqICAtIE5ldyBSZXRhaWxlcgogKiAgLSBFeGlzdGluZyBSZXRhaWxlciB3aXRoIEN1c3RvbWVyIElECiAqICAtIEV4aXN0aW5nIFJldGFpbGVyIHdpdGhvdXQgQ3VzdG9tZXIgSUQKICovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHRyeSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmJwcF9pZCA9IHNlc3Npb25EYXRhLmJwcElkWzBdCiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmJwcF91cmkgPSBzZXNzaW9uRGF0YS5icHBVcmlbMF0KICAgIGNvbnN0IGlucHV0ID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzIHx8IHt9OwoKICAgIGNvbnN0IGZ1bGZpbGxtZW50ID0gZGVmYXVsdFBheWxvYWQ/Lm1lc3NhZ2U/LmludGVudD8uZnVsZmlsbG1lbnQ7CiAgICBpZiAoIWZ1bGZpbGxtZW50KSByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CgogICAgY29uc3QgY2l0eSA9IHNlc3Npb25EYXRhPy5jaXR5Py5bMF07CgogICAgaWYgKGNpdHkpIHsKICAgICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gY2l0eTsKICAgICAgY29uc29sZS5sb2coIkNpdHkgc2V0IHRvOiIsIGNpdHkpOwogICAgfQoKICAgIGlmICghaW5wdXQ/LnR5cGUpIHsKICAgICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwogICAgfQoKICAgIGxldCBjdXN0b21lciA9IHt9OwoKICAgIGlmIChpbnB1dC50eXBlID09PSAiZXhpc3RpbmciICYmIGlucHV0LmN1c3RvbWVyX2lkKSB7CiAgICAgIGN1c3RvbWVyLmlkID0gaW5wdXQuY3VzdG9tZXJfaWQ7CiAgICB9IGVsc2UgewoKICAgICAgaWYgKGlucHV0LnRheF9udW1iZXIgfHwgaW5wdXQucHJvdmlkZXJfdGF4X251bWJlcikgewogICAgICAgIGN1c3RvbWVyLnBlcnNvbiA9IHsgY3JlZHM6IFtdIH07CgogICAgICAgIGlmIChpbnB1dC50YXhfbnVtYmVyKSB7CiAgICAgICAgICBjdXN0b21lci5wZXJzb24uY3JlZHMucHVzaCh7CiAgICAgICAgICAgIGlkOiBpbnB1dC50YXhfbnVtYmVyLAogICAgICAgICAgICB0eXBlOiAidGF4X251bWJlciIKICAgICAgICAgIH0pOwogICAgICAgIH0KCiAgICAgICAgaWYgKGlucHV0LnByb3ZpZGVyX3RheF9udW1iZXIpIHsKICAgICAgICAgIGN1c3RvbWVyLnBlcnNvbi5jcmVkcy5wdXNoKHsKICAgICAgICAgICAgaWQ6IGlucHV0LnByb3ZpZGVyX3RheF9udW1iZXIsCiAgICAgICAgICAgIHR5cGU6ICJwcm92aWRlcl90YXhfbnVtYmVyIgogICAgICAgICAgfSk7CiAgICAgICAgfQogICAgICB9CgogICAgICBpZiAoaW5wdXQudHlwZSA9PT0gIm5ldyIgJiYgaW5wdXQuc2hvcF9uYW1lKSB7CiAgICAgICAgY3VzdG9tZXIub3JnYW5pemF0aW9uID0gewogICAgICAgICAgZGVzY3JpcHRvcjogeyBuYW1lOiBpbnB1dC5zaG9wX25hbWUgfSwKICAgICAgICAgIGFkZHJlc3M6IGlucHV0LmFkZHJlc3MsCiAgICAgICAgICBjaXR5OiB7IGNvZGU6IGlucHV0LmNpdHlfY29kZSB9LAogICAgICAgICAgc3RhdGU6IHsgY29kZTogaW5wdXQuc3RhdGVfY29kZSB8fCAiS0EiIH0KICAgICAgICB9OwogICAgICB9CgogICAgICBpZiAoaW5wdXQucGhvbmVfbnVtYmVyIHx8IGlucHV0LmVtYWlsKSB7CiAgICAgICAgY3VzdG9tZXIuY29udGFjdCA9IHt9OwogICAgICAgIGlmIChpbnB1dC5waG9uZV9udW1iZXIpIGN1c3RvbWVyLmNvbnRhY3QucGhvbmUgPSBpbnB1dC5waG9uZV9udW1iZXI7CiAgICAgICAgaWYgKGlucHV0LmVtYWlsKSBjdXN0b21lci5jb250YWN0LmVtYWlsID0gaW5wdXQuZW1haWw7CiAgICAgIH0KICAgIH0KCiAgICBpZiAoT2JqZWN0LmtleXMoY3VzdG9tZXIpLmxlbmd0aCA+IDApIHsKICAgICAgZnVsZmlsbG1lbnQuY3VzdG9tZXIgPSBjdXN0b21lcjsKICAgIH0gZWxzZSB7CiAgICAgIGNvbnNvbGUubG9nKCJDdXN0b21lciBvYmplY3QgZW1wdHkg4oCUIG5vdGhpbmcgYXBwZW5kZWQiKTsKICAgIH0KICBjb25zb2xlLmxvZygiY29udGV4dDogIiwgSlNPTi5zdHJpbmdpZnkoZGVmYXVsdFBheWxvYWQ/LmNvbnRleHQpKTsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0ID0gewogIC4uLmRlZmF1bHRQYXlsb2FkLmNvbnRleHQsCiAgYnBwX2lkOiAic2FtcGxlLWJwcC1pZCIsCiAgYnBwX3VyaTogImh0dHBzOi8vYnBwLmV4YW1wbGUuY29tIiwKfTsKCiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7CgogIH0gY2F0Y2ggKGVycikgewogICAgY29uc29sZS5lcnJvcigiRVJST1I6IiwgZXJyKTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKICB9Cn0KCgo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGlmICghdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8uaW50ZW50Py5mdWxmaWxsbWVudD8uY3VzdG9tZXIpewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiUHJvdmlkZSBjdXN0b21lciBkZXRhaWxzIiB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
@@ -2371,16 +2343,13 @@ steps:
                 customer:
                   id: CUST-2024-0015421
         type: request
-        description: Search request to discover providers on the ONDC network based on
-          provider ID and fulfillment type.
+        description: Search request to discover providers on the ONDC network based on provider ID and fulfillment type.
   - api: on_search
     action_id: on_search-1
     owner: BPP
     responseFor: search-1
     unsolicited: false
-    description: Catalog response from the seller platform containing provider
-      offers, scheme progress details, and credit information matching the
-      buyer’s search request.
+    description: BPP responds with catalog information containing matching products and available fulfillment options in response to the BAP's search request.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwovKioKKiBHZW5lcmF0ZXMgdGhlIG1vY2sgcGF5bG9hZCBmb3IgYW4gQVBJIGNhbGwgaW4gdGhlIHRyYW5zYWN0aW9uIGZsb3cuCiovCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHRyeSB7CiAgICBjb25zdCBjaXR5ID0gc2Vzc2lvbkRhdGE/LmNpdHk/LlswXTsKCiAgICBpZiAoY2l0eSkgewogICAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmNpdHkgPSBjaXR5OwogICAgICBjb25zb2xlLmxvZygiQ2l0eSBzZXQgdG86IiwgY2l0eSk7CiAgICB9CgogICAgY29uc3Qgc2F2ZWRDdXN0b21lciA9IHNlc3Npb25EYXRhLmN1c3RvbWVyRGF0YTsKICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubWVzc2FnZV9pZCA9IHNlc3Npb25EYXRhLmxhdGVzdE1lc3NhZ2VfaWRbMF07CgogICAgY29uc3QgcHJvdmlkZXJzID0gZGVmYXVsdFBheWxvYWQ/Lm1lc3NhZ2U/LmNhdGFsb2c/LlsiYnBwL3Byb3ZpZGVycyJdOwogICAgaWYgKCFwcm92aWRlcnMgfHwgcHJvdmlkZXJzLmxlbmd0aCA9PT0gMCkgewogICAgICBhcHBseUR5bmFtaWNUaW1lc3RhbXBzKGRlZmF1bHRQYXlsb2FkKTsKICAgICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwogICAgfQoKICAgIGNvbnN0IHByb3ZpZGVyID0gcHJvdmlkZXJzWzBdOwoKICAgIGlmICghcHJvdmlkZXIudGFncykgewogICAgICBwcm92aWRlci50YWdzID0gW107CiAgICB9CgogICAgcHJvdmlkZXIudGFncyA9IHByb3ZpZGVyLnRhZ3MuZmlsdGVyKCh0YWcpID0+IHRhZy5jb2RlICE9PSAiY3VzdG9tZXIiKTsKCiAgICBsZXQgY3VzdG9tZXJJZDsKICAgIGlmIChzYXZlZEN1c3RvbWVyPy5pZCkgewogICAgICBjdXN0b21lcklkID0gc2F2ZWRDdXN0b21lci5pZDsKICAgIH0gZWxzZSB7CiAgICAgIGNvbnN0IHR4biA9IGRlZmF1bHRQYXlsb2FkPy5jb250ZXh0Py50cmFuc2FjdGlvbl9pZCB8fCBEYXRlLm5vdygpLnRvU3RyaW5nKCk7CiAgICAgIGN1c3RvbWVySWQgPSBgQ1VTVC0ke3R4bi5zdWJzdHJpbmcoMCwgOCl9YDsKICAgIH0KCiAgICBwcm92aWRlci50YWdzLnB1c2goewogICAgICBjb2RlOiAiY3VzdG9tZXIiLAogICAgICBsaXN0OiBbCiAgICAgICAgewogICAgICAgICAgY29kZTogImlkIiwKICAgICAgICAgIHZhbHVlOiBjdXN0b21lcklkLAogICAgICAgIH0sCiAgICAgIF0sCiAgICB9KTsKCiAgICBmdW5jdGlvbiBnZXRUb2RheVN0YXJ0VVRDKCkgewogICAgICBjb25zdCBkID0gbmV3IERhdGUoKTsKICAgICAgcmV0dXJuIG5ldyBEYXRlKAogICAgICAgIERhdGUuVVRDKGQuZ2V0VVRDRnVsbFllYXIoKSwgZC5nZXRVVENNb250aCgpLCBkLmdldFVUQ0RhdGUoKSwgMCwgMCwgMCwgMCkKICAgICAgKS50b0lTT1N0cmluZygpOwogICAgfQoKICAgIGZ1bmN0aW9uIGdldFRvZGF5UGx1czVFbmRVVEMoKSB7CiAgICAgIGNvbnN0IGQgPSBuZXcgRGF0ZSgpOwogICAgICByZXR1cm4gbmV3IERhdGUoCiAgICAgICAgRGF0ZS5VVEMoZC5nZXRVVENGdWxsWWVhcigpLCBkLmdldFVUQ01vbnRoKCksIGQuZ2V0VVRDRGF0ZSgpICsgNSwgMjMsIDU5LCA1OSwgOTk5KQogICAgICApLnRvSVNPU3RyaW5nKCk7CiAgICB9CgogICAgZnVuY3Rpb24gZ2V0TmV4dDZEYXRlc1VUQygpIHsKICAgICAgY29uc3QgZGF0ZXMgPSBbXTsKICAgICAgY29uc3QgYmFzZSA9IG5ldyBEYXRlKCk7CgogICAgICBmb3IgKGxldCBpID0gMDsgaSA8PSA1OyBpKyspIHsKICAgICAgICBjb25zdCBkID0gbmV3IERhdGUoYmFzZSk7CiAgICAgICAgZC5zZXRVVENEYXRlKGQuZ2V0VVRDRGF0ZSgpICsgaSk7CiAgICAgICAgZGF0ZXMucHVzaChkLnRvSVNPU3RyaW5nKCkuc2xpY2UoMCwgMTApKTsKICAgICAgfQoKICAgICAgcmV0dXJuIGRhdGVzOwogICAgfQoKICAgIGZ1bmN0aW9uIHVwZGF0ZU9mZmVyc0FuZEhvbGlkYXlzKG5vZGUpIHsKICAgICAgaWYgKCFub2RlIHx8IHR5cGVvZiBub2RlICE9PSAib2JqZWN0IikgcmV0dXJuOwoKICAgICAgaWYgKEFycmF5LmlzQXJyYXkobm9kZSkpIHsKICAgICAgICBub2RlLmZvckVhY2godXBkYXRlT2ZmZXJzQW5kSG9saWRheXMpOwogICAgICAgIHJldHVybjsKICAgICAgfQoKICAgICAgZm9yIChjb25zdCBrZXkgb2YgT2JqZWN0LmtleXMobm9kZSkpIHsKICAgICAgICBpZiAoa2V5ID09PSAib2ZmZXJzIiAmJiBBcnJheS5pc0FycmF5KG5vZGVba2V5XSkpIHsKICAgICAgICAgIGNvbnN0IG9mZmVyU3RhcnQgPSBnZXRUb2RheVN0YXJ0VVRDKCk7CiAgICAgICAgICBjb25zdCBvZmZlckVuZCA9IGdldFRvZGF5UGx1czVFbmRVVEMoKTsKCiAgICAgICAgICBub2RlW2tleV0uZm9yRWFjaCgob2ZmZXIpID0+IHsKICAgICAgICAgICAgaWYgKG9mZmVyPy50aW1lPy5yYW5nZSkgewogICAgICAgICAgICAgIG9mZmVyLnRpbWUucmFuZ2Uuc3RhcnQgPSBvZmZlclN0YXJ0OwogICAgICAgICAgICAgIG9mZmVyLnRpbWUucmFuZ2UuZW5kID0gb2ZmZXJFbmQ7CiAgICAgICAgICAgIH0KICAgICAgICAgIH0pOwogICAgICAgIH0gZWxzZSBpZiAoa2V5ID09PSAiaG9saWRheXMiICYmIEFycmF5LmlzQXJyYXkobm9kZVtrZXldKSkgewogICAgICAgICAgbm9kZVtrZXldID0gZ2V0TmV4dDZEYXRlc1VUQygpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICB1cGRhdGVPZmZlcnNBbmRIb2xpZGF5cyhub2RlW2tleV0pOwogICAgICAgIH0KICAgICAgfQogICAgfQoKICAgIHVwZGF0ZU9mZmVyc0FuZEhvbGlkYXlzKGRlZmF1bHRQYXlsb2FkKTsKICAgIGFwcGx5RHluYW1pY1RpbWVzdGFtcHMoZGVmYXVsdFBheWxvYWQpOwoKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKICB9IGNhdGNoIChlKSB7CiAgICBjb25zb2xlLmVycm9yKCJFcnJvciA6IiwgZSk7CiAgICByZXR1cm4gewogICAgICBjb250ZXh0OiBkZWZhdWx0UGF5bG9hZD8uY29udGV4dCB8fCB7fSwKICAgICAgZXJyb3I6IGU/Lm1lc3NhZ2UgfHwgInVua25vd24gZXJyb3IiLAogICAgfTsKICB9Cn0KCgoKCgoKCg==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -2591,9 +2560,7 @@ steps:
                         - code: id
                           value: CUST-9e8654ed
         type: request
-        description: Catalog response from the seller platform containing provider
-          offers, scheme progress details, and credit information matching the
-          buyer’s search request.
+        description: Catalog response from the seller platform containing provider offers, scheme progress details, and credit information matching the buyer’s search request.
 transaction_history: []
 validationLib: ""
 helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCi8vIEdlbmVyYXRlcyBhIFVVSUQgdjQKZnVuY3Rpb24gdXVpZHY0KCkgewoJcmV0dXJuICd4eHh4eHh4eC14eHh4LTR4eHgteXh4eC14eHh4eHh4eHh4eHgnLnJlcGxhY2UoL1t4eV0vZywgZnVuY3Rpb24gKGMpIHsKCSAgY29uc3QgciA9IE1hdGgucmFuZG9tKCkgKiAxNiB8IDA7CgkgIGNvbnN0IHYgPSBjID09PSAneCcgPyByIDogKHIgJiAweDMgfCAweDgpOwoJICByZXR1cm4gdi50b1N0cmluZygxNik7Cgl9KTsKfQoKLy8gR2VuZXJhdGUgYSA2IGRpZ2l0IHN0cmluZyBJRApmdW5jdGlvbiBnZW5lcmF0ZTZEaWdpdElkKCkgewoJcmV0dXJuIE1hdGguZmxvb3IoMTAwMDAwICsgTWF0aC5yYW5kb20oKSAqIDkwMDAwMCkudG9TdHJpbmcoKTsKfQoKLy8gUmV0dXJucyB0aGUgY3VycmVudCBJU08gdGltZXN0YW1wCmZ1bmN0aW9uIGN1cnJlbnRUaW1lc3RhbXAoKSB7CglyZXR1cm4gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwp9CgovLyBDb252ZXJ0cyBJU08gODYwMSBkdXJhdGlvbiBzdHJpbmcgdG8gdG90YWwgc2Vjb25kcwpjb25zdCBpc29EdXJUb1NlYyA9IChkdXJhdGlvbikgPT4gewogIGNvbnN0IGR1clJFID0gL1AoKGQrKVkpPygoZCspTSk/KChkKylXKT8oKGQrKUQpP1Q/KChkKylIKT8oKGQrKU0pPygoZCspUyk/LzsKICBjb25zdCBzID0gZHVyUkUuZXhlYyhkdXJhdGlvbik7CiAgaWYgKCFzKSByZXR1cm4gMDsKICAKICByZXR1cm4gKE51bWJlcihzPy5bMl0pIHx8IDApICogMzE1MzYwMDAgKwoJKE51bWJlcihzPy5bNF0pIHx8IDApICogMjYyODI4OCArCgkoTnVtYmVyKHM/Lls2XSkgfHwgMCkgKiA2MDQ4MDAgKwoJKE51bWJlcihzPy5bOF0pIHx8IDApICogODY0MDAgKwoJKE51bWJlcihzPy5bMTBdKSB8fCAwKSAqIDM2MDAgKwoJKE51bWJlcihzPy5bMTJdKSB8fCAwKSAqIDYwICsKCShOdW1iZXIocz8uWzE0XSkgfHwgMCk7Cn07CgoKZnVuY3Rpb24gYXBwbHlEeW5hbWljVGltZXN0YW1wcyhwYXlsb2FkKSB7CiAgY29uc3Qgbm93ID0gbmV3IERhdGUoKTsKICBjb25zdCBub3dJU08gPSBub3cudG9JU09TdHJpbmcoKTsKCiAgLy8gZGVmYXVsdCB2YWxpZGl0eSA9ICs5MCBkYXlzCiAgY29uc3QgZnV0dXJlID0gbmV3IERhdGUobm93KTsKICBmdXR1cmUuc2V0RGF0ZShub3cuZ2V0RGF0ZSgpICsgOTApOwogIGNvbnN0IGZ1dHVyZUlTTyA9IGZ1dHVyZS50b0lTT1N0cmluZygpOwoKICBmdW5jdGlvbiB1cGRhdGUob2JqKSB7CiAgICBpZiAoIW9iaiB8fCB0eXBlb2Ygb2JqICE9PSAib2JqZWN0IikgcmV0dXJuOwoKICAgIGZvciAoY29uc3Qga2V5IGluIG9iaikgewoKICAgICAgaWYgKGtleSA9PT0gInRpbWVzdGFtcCIgfHwga2V5ID09PSAiY3JlYXRlZF9hdCIgfHwga2V5ID09PSAidXBkYXRlZF9hdCIpIHsKICAgICAgICBvYmpba2V5XSA9IG5vd0lTTzsKICAgICAgfQoKICAgICAgLy8gRml4IE9OREMgdGFnIHRpbWVzdGFtcHMgbGlrZSB2YWxpZF90aWxsCiAgICAgIGlmIChrZXkgPT09ICJjb2RlIiAmJiBvYmpba2V5XSA9PT0gInZhbGlkX3RpbGwiICYmIG9iai52YWx1ZSkgewogICAgICAgIG9iai52YWx1ZSA9IGZ1dHVyZUlTTzsKICAgICAgfQoKICAgICAgaWYgKHR5cGVvZiBvYmpba2V5XSA9PT0gIm9iamVjdCIpIHsKICAgICAgICB1cGRhdGUob2JqW2tleV0pOwogICAgICB9CiAgICB9CiAgfQoKICB1cGRhdGUocGF5bG9hZCk7CgogIHJldHVybiBwYXlsb2FkOwp9
