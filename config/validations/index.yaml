@@ -91,6 +91,10 @@ _TESTS_:
         enumList:
         - MOTOR_INSURANCE
         - HEALTH_INSURANCE
+        - MICRO_HOSPICASH_INSURANCE
+        - MICRO_TRANSIT_INSURANCE
+        - MICRO_INSURANCE
+        - MICRO_ACCIDENTAL_INSURANCE
         _RETURN_: attr all in enumList
     - _NAME_: SEARCH_PAYMENT
       action:
@@ -207,6 +211,8 @@ _TESTS_:
     - _NAME_: VALID_ENUM_CATEGORY_CODE
       attr: $.message.intent.category.descriptor.code
       enumList:
+      - MOTOR_INSURANCE
+      - HEALTH_INSURANCE
       - MICRO_HOSPICASH_INSURANCE
       - MICRO_TRANSIT_INSURANCE
       - MICRO_INSURANCE
