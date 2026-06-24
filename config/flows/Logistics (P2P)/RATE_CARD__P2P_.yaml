@@ -3,7 +3,7 @@ meta:
   version: 1.2.5
   flowId: RATE_CARD (P2P)
   config_version: 0.0.0001
-  description: Order Flow (Baseline)
+  description: Shippers search for and discover point-to-point logistics rate options from transport providers to obtain pricing for direct shipments.
   use_case_id: Logistics (P2P)
   flowName: RATE CARD (P2P)
 transaction_data:
@@ -19,7 +19,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates a search to discover available point-to-point logistics services by specifying origin and destination locations, fulfillment parameters, and payment terms. This search establishes the transaction context and enables BPPs to respond with matching rate cards and service offerings.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICoKICogQHBhcmFtIHtPYmplY3R9IGRlZmF1bHRQYXlsb2FkIC0gVGhlIGJhc2UgcGF5bG9hZCBvYmplY3Qgd2l0aCBjb250ZXh0IGFscmVhZHkgcG9wdWxhdGVkLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMgLSBVc2VyLXByb3ZpZGVkIGlucHV0IHZhbHVlcyBmb3IgdGhpcyBzdGVwLgogKiBAcGFyYW0geyp9IHNlc3Npb25EYXRhLltrZXldIC0gQW55IHNhdmVkIGRhdGEgZnJvbSBwcmV2aW91cyBzdGVwcyAoZGVmaW5lZCBpbiBzYXZlRGF0YSBjb25maWcpLgogKgogKiBAcmV0dXJucyB7T2JqZWN0fSBUaGUgZ2VuZXJhdGVkIHBheWxvYWQgb2JqZWN0IHRvIGJlIHNlbnQgaW4gdGhlIEFQSSByZXF1ZXN0LgogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBzZXNzaW9uRGF0YSA9IG5vcm1hbGl6ZVNlc3Npb25EYXRhKHNlc3Npb25EYXRhKTsKICAgIGNvbnN0IGV4aXN0aW5nUGF5bG9hZCA9IGRlZmF1bHRQYXlsb2FkOwogICAgY29uc3QgaW5wdXRzID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzIHx8CiAgICAgICAgc2Vzc2lvbkRhdGE/LnVzZXJJbnB1dHMgfHwKICAgICAgICBzZXNzaW9uRGF0YT8uaW5wdXRzIHx8CiAgICAgICAgc2Vzc2lvbkRhdGE/Lm9sZElucHV0cyB8fAogICAgICAgIHt9OwogICAgY29uc29sZS5sb2coImluc2lkZSBzZWFyY2ggZ2VuZXJhdG9yIik7CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5pbnRlbnQucHJvdmlkZXIudGltZS5zY2hlZHVsZS5ob2xpZGF5cyA9IFsKICAgICAgICBnZXRGdXR1cmVEYXRlKDEwKSwKICAgICAgICBnZXRGdXR1cmVEYXRlKDE1KSwKICAgIF07CiAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5pbnRlbnQudGFncyA9IFtdOwogICAgY29uc3QgY29kZXNBcnJheSA9IEFycmF5LmZyb20obmV3IFNldChbCiAgICAgICAgLi4ubm9ybWFsaXplRmVhdHVyZUNvZGVzKGlucHV0cz8uZmVhdHVyZV9kaXNjb3ZlcnkpLAogICAgICAgIC4uLm5vcm1hbGl6ZUZlYXR1cmVDb2RlcyhpbnB1dHM/LmRlZmF1bHRfZmVhdHVyZSksCiAgICBdKSk7CiAgICBpZiAoY29kZXNBcnJheS5sZW5ndGggPiAwKSB7CiAgICAgICAgY29uc29sZS5sb2coY29kZXNBcnJheSk7CiAgICAgICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3MucHVzaCh7CiAgICAgICAgICAgIGNvZGU6ICJsYm5wX2ZlYXR1cmVzIiwKICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgeyBjb2RlOiAiMDA1IiwgdmFsdWU6ICJ5ZXMiIH0sCiAgICAgICAgICAgICAgICB7IGNvZGU6ICIwMDYiLCB2YWx1ZTogInllcyIgfSwKICAgICAgICAgICAgICAgIHsgY29kZTogIjAwNyIsIHZhbHVlOiAieWVzIiB9LAogICAgICAgICAgICBdLAogICAgICAgIH0pOwogICAgICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzID0KICAgICAgICAgICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3MubWFwKCh0YWcpID0+IHsKICAgICAgICAgICAgICAgIGlmICh0YWcuY29kZSA9PT0gImxibnBfZmVhdHVyZXMiKSB7CiAgICAgICAgICAgICAgICAgICAgY29uc3QgbmV3VGFncyA9IGNvZGVzQXJyYXkubWFwKChjb2RlKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiBjb2RlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJ5ZXMiLAogICAgICAgICAgICAgICAgICAgICAgICB9OwogICAgICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICAgICAgICAgIHRhZy5saXN0ID0gbmV3VGFnczsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIHJldHVybiB0YWc7CiAgICAgICAgICAgIH0pOwogICAgfQogICAgLy8gIGVsc2UgewogICAgLy8gICBkZWxldGUgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnRhZ3M7CiAgICAvLyB9CiAgICBpZiAoaW5wdXRzPy5jYXRlZ29yeSkgewogICAgICAgIGNvbnNvbGUubG9nKCJpbnNpZGUgcHJlcCB0aW1lIik7CiAgICAgICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnByb3ZpZGVyLnRpbWUuZHVyYXRpb24gPQogICAgICAgICAgICBUYXRNYXBwaW5nW2lucHV0cz8uY2F0ZWdvcnldLm9yZGVyUHJlcFRpbWU7CiAgICB9CiAgICBpZiAoaW5wdXRzPy5mdWxmaWxsUmVxdWVzdCkgewogICAgICAgIGNvbnN0IHRhZyA9IHsKICAgICAgICAgICAgY29kZTogImZ1bGZpbGxfcmVxdWVzdCIsCiAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgIC4uLihpbnB1dHMuZnVsZmlsbFJlcXVlc3QgPT09ICJSaWRlciIKICAgICAgICAgICAgICAgICAgICA/IFsKICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29kZTogInJpZGVyX2NvdW50IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiMiIsCiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvZGU6ICJyYXRlX2Jhc2lzIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAicmlkZXIiLAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIF0KICAgICAgICAgICAgICAgICAgICA6IFsKICAgICAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29kZTogIm9yZGVyX2NvdW50IiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiMTAiLAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAicmF0ZV9iYXNpcyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIm9yZGVyIiwKICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBdKSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAibW90b3JhYmxlX2Rpc3RhbmNlIiwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIjMuMCIsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJwaWNrdXBfc2xvdF9zdGFydCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6IGdldEZ1dHVyZURhdGVJbk1pbnV0ZXMoMTApLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiAicGlja3VwX3Nsb3RfZW5kIiwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogZ2V0RnV0dXJlRGF0ZUluTWludXRlcygxMiksCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJkZWxpdmVyeV9zbG90X3N0YXJ0IiwKICAgICAgICAgICAgICAgICAgICB2YWx1ZTogZ2V0RnV0dXJlRGF0ZUluTWludXRlcygyMCksCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGNvZGU6ICJkZWxpdmVyeV9zbG90X2VuZCIsCiAgICAgICAgICAgICAgICAgICAgdmFsdWU6IGdldEZ1dHVyZURhdGVJbk1pbnV0ZXMoMzApLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgXSwKICAgICAgICB9OwogICAgICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC50YWdzLnB1c2godGFnKTsKICAgIH0KICAgIGlmIChjb2Rlc0FycmF5LmluY2x1ZGVzKCIwMDkiKSkgewogICAgICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5zdGFydC5pbnN0cnVjdGlvbnMgPSB7CiAgICAgICAgICAgIGNvZGU6ICI1IiwKICAgICAgICB9OwogICAgICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5lbmQuaW5zdHJ1Y3Rpb25zID0gewogICAgICAgICAgICBjb2RlOiAiNSIsCiAgICAgICAgfTsKICAgIH0KICAgIGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC50YWdzID0KICAgICAgICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQudGFncy5tYXAoKHRhZykgPT4gewogICAgICAgICAgICBpZiAodGFnLmNvZGUgPT09ICJsaW5rZWRfb3JkZXIiKSB7CiAgICAgICAgICAgICAgICBjb25zdCBuZXdMaXN0ID0gdGFnLmxpc3QubWFwKChpdGVtKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgaWYgKGl0ZW0uY29kZSA9PT0gImNhdGVnb3J5IikgewogICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29kZTogaXRlbS5jb2RlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IGlucHV0cz8ucmV0YWlsQ2F0ZWdvcnkgfHwgIkdyb2NlcnkiLAogICAgICAgICAgICAgICAgICAgICAgICB9OwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICByZXR1cm4gaXRlbTsKICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiB0YWcuY29kZSwKICAgICAgICAgICAgICAgICAgICBsaXN0OiBuZXdMaXN0LAogICAgICAgICAgICAgICAgfTsKICAgICAgICAgICAgfQogICAgICAgICAgICByZXR1cm4gdGFnOwogICAgICAgIH0pOwogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UuaW50ZW50WyJAb25kYy9vcmcvcGF5bG9hZF9kZXRhaWxzIl0uY2F0ZWdvcnkgPQogICAgICAgIGlucHV0cz8ucmV0YWlsQ2F0ZWdvcnkgfHwgIkdyb2NlcnkiOwogICAgY29uc29sZS5sb2coImV4aXN0aW5nIHBheWxvYWQgaW4gc2VhcmNoIiwgSlNPTi5zdHJpbmdpZnkoZXhpc3RpbmdQYXlsb2FkKSk7CiAgICByZXR1cm4gZXhpc3RpbmdQYXlsb2FkOwp9Cg==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -141,8 +141,7 @@ steps:
         end_area_code: $.message.intent.fulfillment.end.location.address.area_code
         fulfillment: $.message.intent.fulfillment
         payment_type: $.message.intent.payment.type
-        is_cod: $.message.intent.fulfillment.tags[?(@.code ==
-          "linked_order")].list[?(@.code == "cod_order")].value
+        is_cod: $.message.intent.fulfillment.tags[?(@.code == "linked_order")].list[?(@.code == "cod_order")].value
         rate_basis: $.message.intent.fulfillment.tags[?(@.code=="fulfill_request")].list[?(@.code=="rate_basis")].value
         retail_category: $.message.intent.fulfillment.tags[?(@.code=="linked_order")].list[?(@.code=="category")].value
         collection_amount: $.message.intent.fulfillment.tags[?(@.code=="linked_order")].list[?(@.code=="collection_amount")].value
@@ -212,18 +211,18 @@ steps:
               title: Enter start area code
               payloadField: $.message.intent.fulfillment.start.location.address.area_code
               type: string
-              default: '560001'
+              default: "560001"
             end_code:
               title: Enter end area code
               payloadField: $.message.intent.fulfillment.end.location.address.area_code
               type: string
-              default: '560001'
+              default: "560001"
             feature_discovery:
               title: Features supported
               type: object
               payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
               properties:
-                '003':
+                "003":
                   type: boolean
                   title: Rate Card for P2P (003)
                 00B:
@@ -238,10 +237,10 @@ steps:
                 00F:
                   type: boolean
                   title: ePOD (00F)
-                '017':
+                "017":
                   type: boolean
                   title: Surge fee (017)
-                '019':
+                "019":
                   type: boolean
                   title: eWay bill (019)
                 01A:
@@ -259,10 +258,10 @@ steps:
                 01F:
                   type: boolean
                   title: Codified static terms (01F)
-                '020':
+                "020":
                   type: boolean
                   title: Exchange customer support contact details (020)
-                '021':
+                "021":
                   type: boolean
                   title: Differential weight charges (021)
           required:
@@ -384,7 +383,7 @@ steps:
     owner: BPP
     responseFor: search_rate_card_P2P_LOGISTICS
     unsolicited: false
-    description: please add relevant description
+    description: The BPP responds to the BAP's rate card search with a catalog of available providers, service locations, fulfillment types, pricing structures, and service features for point-to-point logistics. This enables the BAP to discover and evaluate applicable rates and delivery options for the requested shipment.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgUDJQIHJhdGUtY2FyZCBjYXRhbG9nIGZyb20gY29tcGFjdCByYXRlIGRlZmluaXRpb25zLgogKgogKiBAcGFyYW0ge09iamVjdH0gZGVmYXVsdFBheWxvYWQgLSBQYXlsb2FkIGVudmVsb3BlIHdpdGggY29udGV4dCBwb3B1bGF0ZWQuCiAqIEBwYXJhbSB7T2JqZWN0fSBzZXNzaW9uRGF0YSAtIERhdGEgY29sbGVjdGVkIGZyb20gcHJldmlvdXMgdHJhbnNhY3Rpb24gc3RlcHMuCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgb25fc2VhcmNoIHBheWxvYWQuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAgIHNlc3Npb25EYXRhID0gbm9ybWFsaXplU2Vzc2lvbkRhdGEoc2Vzc2lvbkRhdGEpOwogICAgY29uc3QgYWN0aW9uSWQgPSAib25fc2VhcmNoX3JhdGVfY2FyZF9QMlBfTE9HSVNUSUNTIjsKICAgIGNvbnN0IGV4aXN0aW5nUGF5bG9hZCA9IGRlZmF1bHRQYXlsb2FkOwogICAgY29uc3QgaW5wdXRzID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzIHx8CiAgICAgICAgc2Vzc2lvbkRhdGE/LnVzZXJJbnB1dHMgfHwKICAgICAgICBzZXNzaW9uRGF0YT8uaW5wdXRzIHx8CiAgICAgICAgc2Vzc2lvbkRhdGE/Lm9sZElucHV0cyB8fAogICAgICAgIHt9OwogICAgY29uc3QgY2F0ZWdvcnlJZCA9IHNlc3Npb25EYXRhPy5jYXRlZ29yeV9pZCB8fCAiU3RhbmRhcmQgRGVsaXZlcnkiOwogICAgY29uc3QgdGF0ID0gVGF0TWFwcGluZ1tjYXRlZ29yeUlkXSB8fCBUYXRNYXBwaW5nWyJTdGFuZGFyZCBEZWxpdmVyeSJdOwoKICAgIGlmICghdGF0KSB7CiAgICAgICAgdGhyb3cgbmV3IEVycm9yKGAke2FjdGlvbklkfTogVEFUIGlzIG5vdCBjb25maWd1cmVkIGZvciAke2NhdGVnb3J5SWR9YCk7CiAgICB9CgogICAgY29uc3QgdGF0VGltZXN0YW1wID0gZ2V0RGF0ZUZyb21Ub2RheSh0YXQuZGF5KTsKICAgIGNvbnN0IGl0ZW1UaW1lID0gewogICAgICAgIGRheXM6ICIxLDIsMyw0LDUsNiw3IiwKICAgICAgICBkdXJhdGlvbjogdGF0LmNvZGUsCiAgICAgICAgbGFiZWw6ICJUQVQiLAogICAgICAgIHJhbmdlOiB7CiAgICAgICAgICAgIGVuZDogIjE2MDAiLAogICAgICAgICAgICBzdGFydDogIjA2MDAiLAogICAgICAgIH0sCiAgICAgICAgdGltZXN0YW1wOiB0YXRUaW1lc3RhbXAsCiAgICB9OwogICAgY29uc3QgZGlzdGFuY2VCYW5kcyA9IFsKICAgICAgICB7IGlkOiAiMSIsIGxvd2VyOiAiMCIsIHVwcGVyOiAiMiIgfSwKICAgICAgICB7IGlkOiAiMiIsIGxvd2VyOiAiMi4xIiwgdXBwZXI6ICI0IiB9LAogICAgICAgIHsgaWQ6ICIzIiwgbG93ZXI6ICI0LjEiLCB1cHBlcjogIjUiIH0sCiAgICAgICAgeyBpZDogIjQiLCBsb3dlcjogIjUuMSIsIHVwcGVyOiAiNiIgfSwKICAgICAgICB7IGlkOiAiNSIsIGxvd2VyOiAiNi4xIiwgdXBwZXI6ICI3IiB9LAogICAgXTsKICAgIGNvbnN0IHJhdGVJdGVtcyA9IFsKICAgICAgICB7CiAgICAgICAgICAgIGlkOiAiSTEiLAogICAgICAgICAgICBmdWxmaWxsbWVudElkOiAiMSIsCiAgICAgICAgICAgIHBhcmVudEl0ZW1JZDogIiIsCiAgICAgICAgICAgIG5hbWU6ICJGYXN0IGRlbGl2ZXJ5ICgwXHUyMDEzMiBrbSwgNjowMFx1MjAxMzE2OjAwKSIsCiAgICAgICAgICAgIHNob3J0RGVzYzogIkZhc3QgZGVsaXZlcnkgc2VydmljZSIsCiAgICAgICAgICAgIGxvbmdEZXNjOiAiRGVsaXZlcnkgd2l0aGluIDIga20iLAogICAgICAgICAgICBwcmljZTogIjI1LjAwIiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICAgaWQ6ICJJMiIsCiAgICAgICAgICAgIGZ1bGZpbGxtZW50SWQ6ICIxIiwKICAgICAgICAgICAgcGFyZW50SXRlbUlkOiAiSTEiLAogICAgICAgICAgICBuYW1lOiAiRmFzdCBkZWxpdmVyeSAoMFx1MjAxMzIga20sIDE2OjAxXHUyMDEzMjA6MDApIiwKICAgICAgICAgICAgc2hvcnREZXNjOiAiRmFzdCBkZWxpdmVyeSBzZXJ2aWNlIiwKICAgICAgICAgICAgbG9uZ0Rlc2M6ICJEZWxpdmVyeSB3aXRoaW4gMiBrbSIsCiAgICAgICAgICAgIHByaWNlOiAiNDAuMDAiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICBpZDogIkkzIiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRJZDogIjEiLAogICAgICAgICAgICBwYXJlbnRJdGVtSWQ6ICIiLAogICAgICAgICAgICBuYW1lOiAiRmFzdCBkZWxpdmVyeSAoMFx1MjAxMzIga20sIDIwOjAxXHUyMDEzMDA6MDApIiwKICAgICAgICAgICAgc2hvcnREZXNjOiAiRmFzdCBkZWxpdmVyeSBzZXJ2aWNlIiwKICAgICAgICAgICAgbG9uZ0Rlc2M6ICJEZWxpdmVyeSB3aXRoaW4gMiBrbSIsCiAgICAgICAgICAgIHByaWNlOiAiMjUuMDAiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICBpZDogIkk0IiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRJZDogIjIiLAogICAgICAgICAgICBwYXJlbnRJdGVtSWQ6ICIiLAogICAgICAgICAgICBuYW1lOiAiRGVsaXZlcnkgKDIuMVx1MjAxMzQga20sIDY6MDBcdTIwMTMxNjowMCkiLAogICAgICAgICAgICBzaG9ydERlc2M6ICJEZWxpdmVyeSBzZXJ2aWNlIiwKICAgICAgICAgICAgbG9uZ0Rlc2M6ICJEZWxpdmVyeSB3aXRoaW4gMi4xXHUyMDEzNCBrbSIsCiAgICAgICAgICAgIHByaWNlOiAiMzAuMDAiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICBpZDogIkk1IiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRJZDogIjIiLAogICAgICAgICAgICBwYXJlbnRJdGVtSWQ6ICIiLAogICAgICAgICAgICBuYW1lOiAiRGVsaXZlcnkgKDIuMVx1MjAxMzQga20sIDIwOjAxXHUyMDEzMDA6MDApIiwKICAgICAgICAgICAgc2hvcnREZXNjOiAiRGVsaXZlcnkgc2VydmljZSIsCiAgICAgICAgICAgIGxvbmdEZXNjOiAiRGVsaXZlcnkgd2l0aGluIDIuMVx1MjAxMzQga20iLAogICAgICAgICAgICBwcmljZTogIjQ1LjAwIiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICAgaWQ6ICJJNiIsCiAgICAgICAgICAgIGZ1bGZpbGxtZW50SWQ6ICIyIiwKICAgICAgICAgICAgcGFyZW50SXRlbUlkOiAiIiwKICAgICAgICAgICAgbmFtZTogIkRlbGl2ZXJ5ICgyLjFcdTIwMTM0IGttLCAyMDowMVx1MjAxMzAwOjAwKSBbT3B0aW9uIDJdIiwKICAgICAgICAgICAgc2hvcnREZXNjOiAiRGVsaXZlcnkgc2VydmljZSIsCiAgICAgICAgICAgIGxvbmdEZXNjOiAiRGVsaXZlcnkgd2l0aGluIDIuMVx1MjAxMzQga20iLAogICAgICAgICAgICBwcmljZTogIjMwLjAwIiwKICAgICAgICB9LAogICAgXTsKICAgIGNvbnN0IGZlYXR1cmVDb2RlcyA9IEFycmF5LmZyb20obmV3IFNldChbCiAgICAgICAgLi4ubm9ybWFsaXplRmVhdHVyZUNvZGVzKGlucHV0cz8uZmVhdHVyZV9kaXNjb3ZlcnkpLAogICAgICAgIC4uLm5vcm1hbGl6ZUZlYXR1cmVDb2RlcyhpbnB1dHM/LmRlZmF1bHRfZmVhdHVyZSksCiAgICBdKSk7CgogICAgZXhpc3RpbmdQYXlsb2FkLm1lc3NhZ2UgPSB7CiAgICAgICAgY2F0YWxvZzogewogICAgICAgICAgICAiYnBwL2Rlc2NyaXB0b3IiOiB7CiAgICAgICAgICAgICAgICBuYW1lOiAiTFNQIEFnZ3JlZ2F0b3IgSW5jIiwKICAgICAgICAgICAgICAgIHRhZ3M6IFsKICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgIGNvZGU6ICJicHBfdGVybXMiLAogICAgICAgICAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IGNvZGU6ICJzdGF0aWNfdGVybXMiLCB2YWx1ZTogIiIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAic3RhdGljX3Rlcm1zX25ldyIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJodHRwczovL2dpdGh1Yi5jb20vT05EQy1PZmZpY2lhbC9OUC1TdGF0aWMtVGVybXMvbHNwTlBfTFNQLzEuMC90Yy5wZGYiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAiZWZmZWN0aXZlX2RhdGUiLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiBleGlzdGluZ1BheWxvYWQuY29udGV4dC50aW1lc3RhbXAsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICB9LAogICAgICAgICAgICAiYnBwL3Byb3ZpZGVycyI6IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBpZDogc2Vzc2lvbkRhdGE/LnByb3ZpZGVyX2lkIHx8ICJQMSIsCiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgICAgICAgICAgICBuYW1lOiAiTFNQIENvdXJpZXIgSW5jIiwKICAgICAgICAgICAgICAgICAgICAgICAgc2hvcnRfZGVzYzogIkxTUCBDb3VyaWVyIEluYyIsCiAgICAgICAgICAgICAgICAgICAgICAgIGxvbmdfZGVzYzogIkxTUCBDb3VyaWVyIEluYyIsCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbCiAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlkOiBjYXRlZ29yeUlkLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGR1cmF0aW9uOiB0YXQuY29kZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsYWJlbDogIlRBVCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGltZXN0YW1wOiB0YXRUaW1lc3RhbXAsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICAgICAgZnVsZmlsbG1lbnRzOiBkaXN0YW5jZUJhbmRzLm1hcCgoYmFuZCkgPT4gKHsKICAgICAgICAgICAgICAgICAgICAgICAgaWQ6IGJhbmQuaWQsCiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICJEZWxpdmVyeSIsCiAgICAgICAgICAgICAgICAgICAgICAgIHRhZ3M6IFsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAibW90b3JhYmxlX2Rpc3RhbmNlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgY29kZTogInVuaXQiLCB2YWx1ZTogImtpbG9tZXRlciIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyBjb2RlOiAibG93ZXIiLCB2YWx1ZTogYmFuZC5sb3dlciB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IGNvZGU6ICJ1cHBlciIsIHZhbHVlOiBiYW5kLnVwcGVyIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICAgICAgfSkpLAogICAgICAgICAgICAgICAgICAgIGl0ZW1zOiByYXRlSXRlbXMubWFwKChpdGVtKSA9PiAoewogICAgICAgICAgICAgICAgICAgICAgICBpZDogaXRlbS5pZCwKICAgICAgICAgICAgICAgICAgICAgICAgcGFyZW50X2l0ZW1faWQ6IGl0ZW0ucGFyZW50SXRlbUlkLAogICAgICAgICAgICAgICAgICAgICAgICBjYXRlZ29yeV9pZDogY2F0ZWdvcnlJZCwKICAgICAgICAgICAgICAgICAgICAgICAgZnVsZmlsbG1lbnRfaWQ6IGl0ZW0uZnVsZmlsbG1lbnRJZCwKICAgICAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgICAgICAgICAgICAgICAgbmFtZTogaXRlbS5uYW1lLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hvcnRfZGVzYzogaXRlbS5zaG9ydERlc2MsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsb25nX2Rlc2M6IGl0ZW0ubG9uZ0Rlc2MsCiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHByaWNlOiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdXJyZW5jeTogIklOUiIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogaXRlbS5wcmljZSwKICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgICAgICAgICAgICAgLi4uaXRlbVRpbWUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICByYW5nZTogeyAuLi5pdGVtVGltZS5yYW5nZSB9LAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIH0pKSwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgIC4uLihmZWF0dXJlQ29kZXMubGVuZ3RoID4gMCAmJiB7CiAgICAgICAgICAgICAgICB0YWdzOiBbCiAgICAgICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgICAgICBjb2RlOiAibHNwX2ZlYXR1cmVzIiwKICAgICAgICAgICAgICAgICAgICAgICAgbGlzdDogZmVhdHVyZUNvZGVzLm1hcCgoY29kZSkgPT4gKHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvZGUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogInllcyIsCiAgICAgICAgICAgICAgICAgICAgICAgIH0pKSwKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgfSksCiAgICAgICAgfSwKICAgIH07CgogICAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKfQo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -418,8 +417,7 @@ steps:
         rto_id: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="RTO")].id
         on_seach_categories: $.message.catalog["bpp/providers"][*].categories
         on_search_items: $.message.catalog["bpp/providers"][*].items[*]
-        on_search_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Delivery"
-          || @.type=="FTL" || @.type=="PTL" || @.type=="FIFO")]
+        on_search_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Delivery" || @.type=="FTL" || @.type=="PTL" || @.type=="FIFO")]
         on_search_batch_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Batch")]
         on_search_return_fulfillment: $.message.catalog["bpp/providers"][*].fulfillments[?(@.type=="Return")]
         feature_surge_fee: $.message.catalog.tags[?(@.code=="lsp_features")].list[?(@.code=="017")].value
@@ -437,22 +435,22 @@ steps:
               type: object
               payloadField: $.message.intent.tags[?(@.code=='lbnp_features')].list
               properties:
-                '003':
+                "003":
                   type: boolean
                   title: Rate Card for P2P (003)
-                '005':
+                "005":
                   type: boolean
                   title: Quick Commerce Logistics (005)
-                '006':
+                "006":
                   type: boolean
                   title: Milk Run Logistics (006)
-                '007':
+                "007":
                   type: boolean
                   title: Single pickup multi drop (SPMD) (007)
-                '008':
+                "008":
                   type: boolean
                   title: COD order (008)
-                '009':
+                "009":
                   type: boolean
                   title: Static OTP verification (pickup & delivery) (009)
                 00A:
@@ -473,34 +471,34 @@ steps:
                 00F:
                   type: boolean
                   title: ePOD (00F)
-                '010':
+                "010":
                   type: boolean
                   title: Call Masking (010)
-                '011':
+                "011":
                   type: boolean
                   title: Update delivery address (011)
-                '012':
+                "012":
                   type: boolean
                   title: Update pickup & delivery authorization (012)
-                '013':
+                "013":
                   type: boolean
                   title: Seller & buyer instructions (013)
-                '014':
+                "014":
                   type: boolean
                   title: Seller Creds (014)
-                '015':
+                "015":
                   type: boolean
                   title: Dynamic OTP verification (pickup & delivery) (015)
-                '016':
+                "016":
                   type: boolean
                   title: Dynamic OTP verification (RTO) (016)
-                '017':
+                "017":
                   type: boolean
                   title: Surge fee (017)
-                '018':
+                "018":
                   type: boolean
                   title: Partial RTO (018)
-                '019':
+                "019":
                   type: boolean
                   title: eWay bill (019)
                 01A:
@@ -521,13 +519,13 @@ steps:
                 01F:
                   type: boolean
                   title: Codified static terms (01F)
-                '020':
+                "020":
                   type: boolean
                   title: Exchange customer support contact details (020)
-                '021':
+                "021":
                   type: boolean
                   title: Differential weight charges (021)
-                '022':
+                "022":
                   type: boolean
                   title: RTO (with return) (022)
           additionalProperties: false

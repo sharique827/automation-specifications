@@ -6,7 +6,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point cancellation flow
+    description: Enables buyers to discover, book, and cancel peer-to-peer logistics services through a complete transaction lifecycle from search to cancellation confirmation.
     config:
       $ref: ./Logistics (P2P)/BUYER_SIDE_ORDER_CANCELLATION.yaml
   - type: playground
@@ -16,10 +16,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). Here the LSP provides cancellation
-      terms which would be applicable in case of a cancellation.
+    description: A peer-to-peer logistics transaction where a buyer searches for, confirms, and tracks a shipment order with a logistics service provider who establishes cancellation terms upfront. The flow captures the complete lifecycle from order discovery through confirmation, execution, and delivery with defined cancellation conditions.
     config:
       $ref: ./Logistics (P2P)/CANCELLATION_TERMS_FLOW.yaml
   - type: playground
@@ -30,9 +27,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: This flow defines the logistics process for Cash on Delivery (COD)
-      retail orders, ensuring proper tracking and settlement between Logistics
-      Buyer Network Participants (LBNPs) and Logistics Service Providers (LSPs).
+    description: This flow manages end-to-end cash-on-delivery logistics operations, enabling shippers to discover and book services, track shipments through real-time status updates, and facilitate payment settlement upon delivery between network participants.
     config:
       $ref: ./Logistics (P2P)/CASH_ON_DELIVERY_FLOW.yaml
   - type: playground
@@ -42,7 +37,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: End-to-end point-to-point parcel delivery flow with real-time tracking and privacy-protected communication via call masking between shippers and logistics providers.
     config:
       $ref: ./Logistics (P2P)/Call-Masking.yaml
   - type: playground
@@ -52,7 +47,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: End-to-end peer-to-peer delivery workflow from service discovery through shipment confirmation, real-time in-transit tracking with status updates, and electronic proof of delivery.
     config:
       $ref: ./Logistics (P2P)/E-POD.yaml
   - type: playground
@@ -62,7 +57,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: Complete point-to-point logistics flow enabling shippers to discover providers, confirm shipments with e-way bill documentation, and track delivery progress through real-time status updates.
     config:
       $ref: ./Logistics (P2P)/E-WAY_BILL.yaml
   - type: playground
@@ -72,7 +67,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Feature discovery for point-to-point logistics operations
+    description: A shipper searches for logistics services to move goods between origin and destination points. Service providers respond with available transportation options and delivery capabilities for point-to-point movement.
     config:
       $ref: ./Logistics (P2P)/FEATURE_DISCOVERY.yaml
   - type: playground
@@ -82,11 +77,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: The Immediate Delivery Flow outlines the process for confirming and
-      updating logistics orders with the Logistics Service Provider (LSP) and
-      the Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B
-      and Grocery orders. Ship to delivery (S2D) TAT for the same is less than
-      60 minutes.
+    description: A peer-to-peer immediate delivery logistics transaction flow enabling buyers to discover, confirm, and track time-sensitive orders with real-time status updates throughout fulfillment, supported by a sub-60-minute service level agreement.
     config:
       $ref: ./Logistics (P2P)/FIFO_FLOW.yaml
   - type: playground
@@ -96,11 +87,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: The Immediate Delivery Flow outlines the process for confirming and
-      updating logistics orders with the Logistics Service Provider (LSP) and
-      the Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B
-      and Grocery orders. Ship to delivery (S2D) TAT for the same is less than
-      60 minutes.
+    description: This flow standardizes the immediate delivery logistics transaction for food and grocery orders through the ONDC network, enabling buyers to discover services and place orders while logistics providers confirm, track, and complete same-day delivery within 60 minutes. It encompasses the full peer-to-peer coordination lifecycle from initial search through delivery completion.
     config:
       $ref: ./Logistics (P2P)/IMMEDIATE_DELIVERY_FLOW.yaml
   - type: playground
@@ -110,7 +97,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: End-to-end point-to-point delivery transaction enabling customers to discover logistics services, place and confirm shipments, and track delivery status through real-time updates. This baseline flow exercises the complete order lifecycle from service search through shipment confirmation and continuous status monitoring.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE.yaml
   - type: playground
@@ -120,8 +107,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-      with public special capabilities
+    description: Point-to-point logistics transaction enabling shippers to discover available delivery services, book and confirm shipments, and track deliveries with real-time status monitoring throughout the order lifecycle. The flow includes baseline mandatory operational capabilities and publicly accessible special handling features for enhanced service options.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_PUBLIC_SPECIAL_CAPABILITIES.yaml
   - type: playground
@@ -131,7 +117,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: Baseline point-to-point logistics transaction covering the complete order fulfillment journey from buyer discovery through seller confirmation, order status updates, and shipment tracking with seller authentication.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_SELLER_CREDS.yaml
   - type: playground
@@ -141,7 +127,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: A complete point-to-point delivery transaction flow that establishes baseline SLA metrics across the customer journey from service discovery through order placement, confirmation, fulfillment tracking, and real-time status monitoring.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_SLA_METRICS.yaml
   - type: playground
@@ -151,7 +137,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: Complete point-to-point logistics transaction flow covering service discovery, order fulfillment, shipment tracking, and integrated grievance management.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_WITH_IGM_v-1_0_0_.yaml
   - type: playground
@@ -161,7 +147,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: End-to-end peer-to-peer logistics transaction flow covering order confirmation, fulfillment tracking, and integrated issue grievance management across the complete delivery lifecycle.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_WITH_IGM_v-2_0_0_.yaml
   - type: playground
@@ -171,7 +157,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: A complete point-to-point delivery operation validating end-to-end logistics from initial service search through order confirmation, real-time shipment tracking, and issue escalation. This baseline flow exercises the core delivery lifecycle including service discovery, order placement, tracking visibility, and issue notification without remedial action.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_WITH_IGM_NO_ACTION_v-2_0_0_.yaml
   - type: playground
@@ -181,7 +167,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: Baseline point-to-point logistics delivery order executing a complete fulfillment lifecycle, with integrated issue grievance management and rejection handling scenarios.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_BASE_LINE_WITH_IGM_REJECTION_v-2_0_0_.yaml
   - type: playground
@@ -191,8 +177,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-      with codifed static terms
+    description: A point-to-point logistics transaction that enables a shipper to discover available delivery services, agree to codified service terms, and complete an order with real-time tracking through delivery completion.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_CODIFIED_STATIC_TERMS.yaml
   - type: playground
@@ -202,8 +187,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-      with customer support details
+    description: An end-to-end point-to-point delivery order flow that enables service discovery, order confirmation, real-time tracking, and seamless integration of customer support details throughout the logistics transaction.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_EXCHANGE_CUSTOMER_SUPPORT_DETAILS.yaml
   - type: playground
@@ -213,8 +197,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
-      with rcm self-declartion
+    description: Complete lifecycle for point-to-point deliveries, enabling customers to search and book services, track shipments in real-time, and ensure reverse charge mechanism compliance throughout the transaction.
     config:
       $ref: ./Logistics (P2P)/ORDER_FLOW_RCM.yaml
   - type: playground
@@ -224,10 +207,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This flow outlines the Payment Wallet process for Logistics Service
-      Providers (LSPs), enabling them to establish a prepaid wallet system for
-      logistics buyers.Payments for services are deducted directly from this
-      wallet, ensuring a seamless and efficient transaction process.
+    description: This prepaid payment wallet flow enables logistics buyers to prepay for services with logistics providers and track service execution in real-time from order initiation through completion.
     config:
       $ref: ./Logistics (P2P)/PREPAID_PAYMENT_FLOW.yaml
   - type: playground
@@ -237,8 +217,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This flow covers logistics for Quick Commerce, Milk Run, and SPMD
-      models, enabling coordination between LBNPs and LSPs.
+    description: This flow orchestrates end-to-end quick commerce logistics by enabling shippers to discover and confirm on-demand delivery services, then tracks shipments through multiple status checkpoints as the parcel moves through the fulfillment network.
     config:
       $ref: ./Logistics (P2P)/QUICK_COMMERCE_FLOW.yaml
   - type: playground
@@ -248,7 +227,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Rate Card for point-to-point logistics operations
+    description: Shippers search for and discover point-to-point logistics rate options from transport providers to obtain pricing for direct shipments.
     config:
       $ref: ./Logistics (P2P)/RATE_CARD__P2P_.yaml
   - type: playground
@@ -258,10 +237,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Flow for Return to Origin (RTO) when buyer is unavailable or
-      delivery fails. A separate RTO fulfillment is created and linked to the
-      forward shipment. RTO quote is added before RTO completes. RTO ends with
-      Delivered or Disposed, completing the order.
+    description: Manages Return to Origin (RTO) for failed or unavailable deliveries by creating a linked reverse logistics fulfillment, generating return freight quotes, and completing the transaction through return to sender or disposal.
     config:
       $ref: ./Logistics (P2P)/RTO_FLOW.yaml
   - type: playground
@@ -271,7 +247,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: A point-to-point delivery transaction where a buyer discovers and books logistics services, with the seller providing real-time coordination, tracking, and status updates throughout the fulfillment lifecycle.
     config:
       $ref: ./Logistics (P2P)/SELLER_BUYER_INSTRUCTIONS.yaml
   - type: playground
@@ -281,7 +257,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point cancellation flow
+    description: Seller-initiated cancellation of a confirmed order in point-to-point logistics, encompassing the full transaction lifecycle from search and confirmation through cancellation with status updates.
     config:
       $ref: ./Logistics (P2P)/SELLER_SIDE_ORDER_CANCELLATION.yaml
   - type: playground
@@ -291,10 +267,7 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). Here the LBNP provides static OTP
-      for pickup and delivery verification.
+    description: A peer-to-peer logistics flow enabling buyers to request, confirm, and track shipments with static OTP authentication for secure pickup and delivery verification. The flow supports order initialization, real-time status monitoring, and tracking throughout the complete shipment lifecycle.
     config:
       $ref: ./Logistics (P2P)/STATIC_OTP_PICKUP_DELIVERY.yaml
   - type: playground
@@ -305,11 +278,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: Flow for Return to Origin (RTO) when buyer is unavailable or
-      delivery fails. A separate RTO fulfillment is created and linked to the
-      forward shipment. RTO quote is added before RTO completes. RTO ends with
-      Delivered or Disposed, completing the order. Here LBNP provides static OTP
-      for RTO delivery verification.
+    description: A return-to-origin (RTO) logistics flow that handles failed or refused deliveries by enabling secure return shipment verification through static OTP authentication. The RTO is managed as a linked fulfillment to the original order, with outcomes including return delivery confirmation or disposal.
     config:
       $ref: ./Logistics (P2P)/STATIC_OTP_RTO_DELIVERY.yaml
   - type: playground
@@ -320,11 +289,7 @@ flows:
       - MANDATORY
       - REPORTABLE
       - WORKBENCH
-    description: This Flow outlines the process for confirming and updating
-      logistics orders with the Logistics Service Provider (LSP) and the
-      Logistics Buyer Network Partner (LBNP). This flow is mainly for F&B and
-      Grocery orders. Here the LSP adds an additional surge charge due to any
-      operational reason.
+    description: This flow represents a peer-to-peer logistics transaction where a buyer confirms a delivery order and the Logistics Service Provider applies a surge charge adjustment during fulfillment due to operational constraints, with both parties synchronized through status updates and tracking. The flow ensures the charge modification is communicated to and acknowledged by both the service provider and the buyer's network partner before final execution.
     config:
       $ref: ./Logistics (P2P)/SURGE_FEE_FLOW.yaml
   - type: playground
@@ -334,6 +299,6 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Standard point-to-point delivery flow including baseline features
+    description: Validates a point-to-point logistics ordering flow where shippers can search for carriers, confirm orders, and update delivery addresses prior to fulfillment. The scenario exercises end-to-end shipment visibility through continuous tracking and progressive status notifications.
     config:
       $ref: ./Logistics (P2P)/UPDATE_DELIVERY_ADDRESS.yaml
