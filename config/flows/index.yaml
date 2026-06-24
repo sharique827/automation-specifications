@@ -205,3 +205,13 @@ flows:
     description: A buyer browses an F&B catalog, selects items, and schedules delivery within a preferred time slot before confirming the order; the platform then tracks the complete fulfillment lifecycle through successive status transitions covering order acceptance, preparation, dispatch, out-for-delivery, and final doorstep delivery within the committed slot.
     config:
       $ref: ./F&B/SLOTTED_DELIVERY.yaml
+  - type: playground
+    id: INCREMENTAL_CATALOG_PULL
+    usecase: F&B
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: A buyer browses an F&B catalog, selects items, and schedules delivery within a preferred time slot before confirming the order; the platform then tracks the complete fulfillment lifecycle through successive status transitions covering order acceptance, preparation, dispatch, out-for-delivery, and final doorstep delivery within the committed slot.
+    config:
+      $ref: ./F&B/INCREMENTAL_CATALOG_PULL.yaml
