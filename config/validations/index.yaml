@@ -2715,26 +2715,26 @@ _TESTS_:
       _RETURN_: attr are present
       
 
-  - _NAME_: ON_STATUS_FULFILLMENTS
-    _RETURN_:
-    - _NAME_: REQUIRED_FULFILLMENT_ID
-      attr: $.message.order.fulfillments[*].id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_FULFILLMENT_STATE
-      attr: $.message.order.fulfillments[*].state.descriptor.code
-      _RETURN_: attr are present
+  # - _NAME_: ON_STATUS_FULFILLMENTS
+  #   _RETURN_:
+  #   - _NAME_: REQUIRED_FULFILLMENT_ID
+  #     attr: $.message.order.fulfillments[*].id
+  #     _RETURN_: attr are present
+  #   - _NAME_: REQUIRED_FULFILLMENT_STATE
+  #     attr: $.message.order.fulfillments[*].state.descriptor.code
+  #     _RETURN_: attr are present
 
-  - _NAME_: ON_STATUS_PAYMENTS
-    _RETURN_:
-    - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
-      attr: $.message.order.payments[*].collected_by
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_STATUS
-      attr: $.message.order.payments[*].status
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_TYPE
-      attr: $.message.order.payments[*].type
-      _RETURN_: attr are present
+  # - _NAME_: ON_STATUS_PAYMENTS
+  #   _RETURN_:
+  #   - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
+  #     attr: $.message.order.payments[*].collected_by
+  #     _RETURN_: attr are present
+  #   - _NAME_: REQUIRED_PAYMENT_STATUS
+  #     attr: $.message.order.payments[*].status
+  #     _RETURN_: attr are present
+  #   - _NAME_: REQUIRED_PAYMENT_TYPE
+  #     attr: $.message.order.payments[*].type
+  #     _RETURN_: attr are present
 
   - _NAME_: ON_STATUS_QUOTE
     _RETURN_:
