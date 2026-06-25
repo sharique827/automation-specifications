@@ -6,10 +6,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow for EB2B
+    description: An eB2B marketplace discovery flow where buyers search for business products and suppliers broadcast matching catalog offerings in response to multiple search queries.
     config:
       $ref: ./eB2B/Discovery_flow_broadcast_search.yaml
-
   - type: playground
     id: Order_to_confirm_to_fulfillment_(Prepaid)
     usecase: eB2B
@@ -17,10 +16,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for EB2B
+    description: Prepaid B2B order workflow spanning product selection, order confirmation, and fulfillment with continuous status tracking. Validates the complete transaction lifecycle from buyer intent through delivery confirmation.
     config:
       $ref: ./eB2B/Order_to_confirm_to_fulfillment__Prepaid_.yaml
-
   - type: playground
     id: Order_to_confirm_to_fulfillment_(cod)
     usecase: eB2B
@@ -28,10 +26,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for EB2B
+    description: End-to-end B2B order fulfillment workflow covering product selection, order confirmation, and shipment tracking through delivery for cash-on-delivery transactions.
     config:
       $ref: ./eB2B/Order_to_confirm_to_fulfillment__cod_.yaml
-
   - type: playground
     id: Order_to_confirm_to_fulfillment_with_offers(Prepaid)
     usecase: eB2B
@@ -39,10 +36,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow with Offers for EB2B
+    description: B2B prepaid order transaction from discovery and selection through confirmation, fulfillment, and delivery tracking with promotional offers.
     config:
       $ref: ./eB2B/Order_to_confirm_to_fulfillment_with_offers__Prepaid_.yaml
-
   - type: playground
     id: Order_to_confirm_to_fulfillment_with_offers(cod)
     usecase: eB2B
@@ -50,10 +46,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow with Offers for EB2B
+    description: A complete eB2B procurement journey from product discovery through order confirmation and tracked delivery, with offer-based pricing and cash-on-delivery settlement.
     config:
       $ref: ./eB2B/Order_to_confirm_to_fulfillment_with_offers__cod_.yaml
-
   - type: playground
     id: Buyer_Side_Order_Cancellation
     usecase: eB2B
@@ -61,10 +56,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for EB2B
+    description: Demonstrates the end-to-end B2B order cancellation workflow where a buyer selects items, initializes and confirms a purchase order, then initiates cancellation with seller acknowledgment.
     config:
       $ref: ./eB2B/Buyer_Side_Order_Cancellation.yaml
-
   - type: playground
     id: Buyer_Initiated_Return_(Full_Order_and_Partial_Order)
     usecase: eB2B
@@ -72,10 +66,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Return Flow for EB2B
+    description: Enables B2B buyers to initiate and complete returns for full or partial orders, progressing through confirmation and status updates until resolution. Supports both complete order returns and granular item-level returns within a single order.
     config:
       $ref: ./eB2B/Buyer_Initiated_Return__Full_Order_and_Partial_Order_.yaml
-
   - type: playground
     id: Merchant_Side_RTO_and_Part_Order_Cancellation_Flow
     usecase: eB2B
@@ -83,10 +76,9 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Return and Cancellation Flow for EB2B
+    description: Facilitates merchant-side processing of partial order cancellations and return-to-origin operations, maintaining end-to-end transaction tracking from order selection through fulfillment completion.
     config:
       $ref: ./eB2B/Merchant_Side_RTO_and_Part_Order_Cancellation_Flow.yaml
-
   - type: playground
     id: Out_of_Stock(Error_code)
     usecase: eB2B
@@ -94,6 +86,6 @@ flows:
       - WORKBENCH
       - MANDATORY
       - REPORTABLE
-    description: Out of Stock Error Flow for EB2B
+    description: An eB2B order transaction demonstrating out-of-stock error handling, where a buyer's selected items are rejected at confirmation with mandatory tracking and status reporting across the supply network.
     config:
       $ref: ./eB2B/Out_of_Stock_Error_code_.yaml
