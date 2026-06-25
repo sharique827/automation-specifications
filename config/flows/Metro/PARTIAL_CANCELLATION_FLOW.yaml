@@ -3438,6 +3438,7 @@ steps:
         created_at: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY3JlYXRlZF9hdDsgfQ==
         tags: $.message.order.tags
+        onConfirmOrder: $.message.order
       inputs: {}
     examples:
       - name: example for on_confirm
@@ -3872,11 +3873,11 @@ steps:
     description: please add relevant description
     mock:
       generate: >-
-        YXN5bmMgZnVuY3Rpb24gdXBkYXRlRW5kU3RvcEdlbmVyYXRvcihkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAgIGlmIChzZXNzaW9uRGF0YS51cGRhdGVfMV9vcmRlcikgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIgPSBzZXNzaW9uRGF0YT8udXBkYXRlXzFfb3JkZXI7CiAgICB9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnN0YXR1cyA9ICJDT05GSVJNX1VQREFURSI7CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0KCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB1cGRhdGVFbmRTdG9wR2VuZXJhdG9yKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSk7Cn0=
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgLy8gY29uc3QgY2FuY2VsRnVsZmlsbG1lbnRJZCA9CiAgLy8gc2Vzc2lvbkRhdGE/Lm9uQ29uZmlybU9yZGVyPy5bMF0/LmZ1bGZpbGxtZW50cz8uZmluZCgKICAvLyAgIGl0ZW0gPT4gaXRlbS50eXBlID09PSAiVElDS0VUIgogIC8vICkKICAvLyBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IFsKICAvLyAgICAgICB7CiAgLy8gICAgICAgICAiaWQiOiBjYW5jZWxGdWxmaWxsbWVudElkPy5pZCA/PyAiRjQiLAogIC8vICAgICAgICAgInR5cGUiOiBjYW5jZWxGdWxmaWxsbWVudElkPy50eXBlID8/ICJUSUNLRVQiCiAgLy8gICAgICAgfQogIC8vICAgICBdCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pZCA9IHNlc3Npb25EYXRhPy5vcmRlcl9pZAogIGlmKHNlc3Npb25EYXRhPy51c2VyX2lucHV0cz8uZnVsZmlsbG1lbnRzKXsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cz0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5mdWxmaWxsbWVudHMKICB9CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkCn0=
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAvLyBTaGFwZSBjaGVja3MgZGVyaXZlZCBmcm9tIGRlZmF1bHRQYXlsb2FkIHdyaXRlcyBpbiB0aGUgZ2VuZXJhdG9yLgogIGNvbnN0IGV4cGVjdGVkUGF0aHMgPSBbWyJtZXNzYWdlIiwib3JkZXIiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInN0YXR1cyJdXTsKICBmb3IgKGNvbnN0IHNlZ3Mgb2YgZXhwZWN0ZWRQYXRocykgewogICAgbGV0IGN1ciA9IHRhcmdldFBheWxvYWQ7CiAgICBmb3IgKGNvbnN0IHMgb2Ygc2VncykgewogICAgICBpZiAoY3VyID09IG51bGwpIGJyZWFrOwogICAgICBjdXIgPSBjdXJbc107CiAgICB9CiAgICBpZiAoY3VyID09PSB1bmRlZmluZWQgfHwgY3VyID09PSBudWxsKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIkV4cGVjdGVkIGZpZWxkIFwiIiArIHNlZ3Muam9pbigiLiIpICsgIlwiIG1pc3NpbmcgaW4gcGF5bG9hZCIgfTsKICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICAvLyBvcHRpb25hbCBzZXNzaW9uIGtleXMgKGd1YXJkZWQgaW4gZ2VuZXJhdG9yKTogdXBkYXRlXzFfb3JkZXIKICBjb25zdCByZXF1aXJlZFNlc3Npb24gPSBbXTsKICBjb25zdCByZXF1aXJlZElucHV0cyAgPSBbXTsKICBmb3IgKGNvbnN0IGsgb2YgcmVxdWlyZWRTZXNzaW9uKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGEgPT0gbnVsbCB8fCBzZXNzaW9uRGF0YVtrXSA9PT0gdW5kZWZpbmVkIHx8IHNlc3Npb25EYXRhW2tdID09PSBudWxsKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogIk1JU1NJTkdfU0VTU0lPTl9EQVRBIiwKICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICJSZXF1aXJlZCBzZXNzaW9uIGtleSBcIiIgKyBrICsgIlwiIGlzIG1pc3NpbmciIH07CiAgICB9CiAgfQogIGZvciAoY29uc3QgayBvZiByZXF1aXJlZElucHV0cykgewogICAgaWYgKCFzZXNzaW9uRGF0YSB8fCAhc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMgfHwgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHNba10gPT09IHVuZGVmaW5lZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6ICJNSVNTSU5HX1VTRVJfSU5QVVQiLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIlJlcXVpcmVkIHVzZXIgaW5wdXQgXCIiICsgayArICJcIiBpcyBtaXNzaW5nIiB9OwogICAgfQogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
+        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
       defaultPayload:
         context:
           domain: 'ONDC:TRV11'
@@ -3899,16 +3900,14 @@ steps:
           update_target: order.fulfillments
           order:
             id: 077b248f
-            status: CONFIRM_UPDATE
             fulfillments:
-              - id: F1
-                stops:
-                  - type: END
-                    location:
-                      descriptor:
-                        name: IFFCO Chowk
-                        code: IFFCO_CHOWK
-                      gps: '28.707358, 77.180910'
+              - id: F4
+                type: TICKET
+            cancellation:
+              reason:
+                id: '001'
+                descriptor:
+                  code: SOFT_CANCEL
       saveData:
         transaction_id: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLmNvbnRleHQudHJhbnNhY3Rpb25faWQ7IH0=
@@ -3930,11 +3929,38 @@ steps:
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQ7IH0=
         message_id: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLmNvbnRleHQubWVzc2FnZV9pZDsgfQ==
-        update_1_order: >-
-          EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXI7IH0=
         update_3_payment: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMF07IH0=
-      inputs: {}
+        update_soft_cancel_order: >-
+          EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXI7IH0=
+        update_soft_cancel_message: $.message
+      inputs:
+        id: trv11_201_partial_select
+        jsonSchema:
+          $schema: 'http://json-schema.org/draft-07/schema#'
+          type: object
+          properties:
+            fulfillments:
+              type: array
+              minItems: 1
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    default: Fwmbsj4w
+                  type:
+                    type: string
+                    enum:
+                      - TICKET
+                    default: TICKET
+                required:
+                  - id
+                  - type
+          required:
+            - fulfillments
+          additionalProperties: true
+          default: {}
     examples:
       - name: example for update
         payload:
@@ -3979,11 +4005,11 @@ steps:
     description: please add relevant description
     mock:
       generate: >-
-        YXN5bmMgZnVuY3Rpb24gb25VcGRhdGVTdG9wRW5kR2VuZXJhdG9yKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgaWYgKHNlc3Npb25EYXRhLnVwZGF0ZWRfcGF5bWVudHMubGVuZ3RoID4gMCkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHMgPSBbCiAgICAgICAgICAgIC4uLnNlc3Npb25EYXRhLnVwZGF0ZWRfcGF5bWVudHMsCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIGNvbGxlY3RlZF9ieTogIkJBUCIsCiAgICAgICAgICAgICAgICBpZDogIlBBMiIsCiAgICAgICAgICAgICAgICBzdGF0dXM6ICJOT1QtUEFJRCIsCiAgICAgICAgICAgICAgICB0eXBlOiAiUE9TVC1GVUxGSUxMTUVOVCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgXTsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YS5pdGVtcy5sZW5ndGggPiAwKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zOwogICAgfQogICAgaWYgKHNlc3Npb25EYXRhLnBheW1lbnRzLmxlbmd0aCA+IDApIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzID0gc2Vzc2lvbkRhdGEucGF5bWVudHM7CiAgICAgICAgY29uc3QgdXBkYXRlZFByaWNlID0gTnVtYmVyKHNlc3Npb25EYXRhLm5ld1F1b3RlKQogICAgICAgIGNvbnN0IG5ld1BheW1lbnQgPSB7CiAgICAgICAgICAgIC4uLmRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMV0sCiAgICAgICAgICAgIGlkOiB1dWlkdjQoKSwKICAgICAgICAgICAgc3RhdHVzOiAiTk9ULVBBSUQiLAogICAgICAgICAgICBjb2xsZWN0ZWRfYnk6IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMF0uY29sbGVjdGVkX2J5LAogICAgICAgICAgICB0eXBlOiAiUE9TVC1GVUxGSUxMTUVOVCIsCiAgICAgICAgICAgIC8vIHBhcmFtczogewogICAgICAgICAgICAvLyAgIGFtb3VudDogdXBkYXRlZFByaWNlLnRvU3RyaW5nKCksCiAgICAgICAgICAgIC8vICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgIH07CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1sxXSA9IG5ld1BheW1lbnQ7CiAgICB9CiAgICBpZiAoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmxlbmd0aCA+IDApIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50czsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YS5vcmRlcl9pZCkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZDsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YS5xdW90ZSAhPSBudWxsKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHNlc3Npb25EYXRhLnF1b3RlOwogICAgfQogICAgaWYgKHNlc3Npb25EYXRhLnByb3ZpZGVyKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlciA9IHNlc3Npb25EYXRhLnByb3ZpZGVyOwogICAgfQogICAgY29uc3Qgbm93ID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5jcmVhdGVkX2F0ID0gc2Vzc2lvbkRhdGEuY3JlYXRlZF9hdDsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudXBkYXRlZF9hdCA9IG5vdzsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudGFncyA9IHNlc3Npb25EYXRhLm9uX3VwZGF0ZV90YWdzLmZsYXQoKTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQoKYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgcmV0dXJuIG9uVXBkYXRlU3RvcEVuZEdlbmVyYXRvcihkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwp9
+        ZnVuY3Rpb24gdXBkYXRlUGF5bWVudEFuZFNldHRsZW1lbnQoCiAgcGF5bG9hZCwKICBzZXNzaW9uRGF0YQopIHsKICBjb25zdCBvcmRlciA9CiAgICBwYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCiAgaWYgKCFvcmRlcikgcmV0dXJuIHBheWxvYWQ7CgogIGNvbnN0IHF1b3RlUHJpY2UgPSBOdW1iZXIoCiAgICBvcmRlcj8ucXVvdGU/LnByaWNlPy52YWx1ZSB8fCAwCiAgKTsKCiAgLy8gVXBkYXRlIHBheW1lbnQgYW1vdW50CiAgLy8gb3JkZXIucGF5bWVudHM/LmZvckVhY2goCiAgLy8gICAocGF5bWVudCkgPT4gewogIC8vICAgICBpZiAocGF5bWVudD8ucGFyYW1zKSB7CiAgLy8gICAgICAgcGF5bWVudC5wYXJhbXMuYW1vdW50ID0KICAvLyAgICAgICAgIHF1b3RlUHJpY2UudG9TdHJpbmcoKTsKICAvLyAgICAgfQogIC8vICAgfQogIC8vICk7CgogIGNvbnN0IGZlZVBlcmNlbnRhZ2UgPSBOdW1iZXIoCiAgICBzZXNzaW9uRGF0YT8uYnV5ZXJfYXBwX2ZlZVswXSB8fCAwCiAgKTsKCiAgY29uc3QgZmVlQW1vdW50ID0KICAgIChxdW90ZVByaWNlICoKICAgICAgZmVlUGVyY2VudGFnZSkgLwogICAgMTAwOwoKICBvcmRlci50YWdzPy5mb3JFYWNoKCh0YWcpID0+IHsKICAgIGNvbnN0IHNldHRsZW1lbnRBbW91bnRFbnRyeSA9CiAgICAgIHRhZz8ubGlzdD8uZmluZCgKICAgICAgICAoZW50cnkpID0+CiAgICAgICAgICBlbnRyeT8uZGVzY3JpcHRvcj8uY29kZSA9PT0KICAgICAgICAgICJTRVRUTEVNRU5UX0FNT1VOVCIKICAgICAgKTsKCiAgICBpZiAoIXNldHRsZW1lbnRBbW91bnRFbnRyeSkKICAgICAgcmV0dXJuOwoKICAgIGNvbnN0IGZpbmFsQW1vdW50ID0KICAgICAgc2Vzc2lvbkRhdGEKICAgICAgICA/LmNvbGxlY3RlZF9ieSA9PT0KICAgICAgIkJBUCIKICAgICAgICA/IHF1b3RlUHJpY2UgLSBmZWVBbW91bnQKICAgICAgICA6IGZlZUFtb3VudDsKCiAgICBzZXR0bGVtZW50QW1vdW50RW50cnkudmFsdWUgPQogICAgICBmaW5hbEFtb3VudC50b1N0cmluZygpOwogIH0pOwoKICByZXR1cm4gcGF5bG9hZDsKfQoKYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3Qgbm93ID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwoKICBjb25zdCBvcmRlciA9IEpTT04ucGFyc2UoCiAgICBKU09OLnN0cmluZ2lmeShzZXNzaW9uRGF0YT8ub25Db25maXJtT3JkZXI/LlswXSkKICApOwoKICBvcmRlci5zdGF0dXMgPSAiU09GVF9DQU5DRUwiOwoKICBjb25zdCBjYW5jZWxGdWxmaWxsbWVudElkID0gc2Vzc2lvbkRhdGE/LnVwZGF0ZV9zb2Z0X2NhbmNlbF9vcmRlcj8uZnVsZmlsbG1lbnRzWzBdPy5pZAoKICBjb25zdCBpdGVtID0gb3JkZXIuaXRlbXM/LlswXTsKCiAgY29uc3QgaXRlbVByaWNlID0gTnVtYmVyKGl0ZW0/LnByaWNlPy52YWx1ZSB8fCAwKTsKICBjb25zdCBvcmlnaW5hbFF0eSA9IE51bWJlcihpdGVtPy5xdWFudGl0eT8uc2VsZWN0ZWQ/LmNvdW50IHx8IDApOwogIGNvbnN0IHJlbWFpbmluZ1F0eSA9IE1hdGgubWF4KDAsIG9yaWdpbmFsUXR5IC0gMSk7CgogIC8vIFVwZGF0ZSBpdGVtCiAgb3JkZXIuaXRlbXMgPSBvcmRlci5pdGVtcy5tYXAoKGl0ZW0pID0+ICh7CiAgICAuLi5pdGVtLAogICAgZnVsZmlsbG1lbnRfaWRzOiBpdGVtLmZ1bGZpbGxtZW50X2lkcz8uZmlsdGVyKAogICAgICAoaWQpID0+IGlkICE9PSBjYW5jZWxGdWxmaWxsbWVudElkCiAgICApLAogICAgcXVhbnRpdHk6IHsKICAgICAgc2VsZWN0ZWQ6IHsKICAgICAgICBjb3VudDogcmVtYWluaW5nUXR5LAogICAgICB9LAogICAgfSwKICB9KSk7CgogIGNvbnN0IGJhc2VGYXJlID0gaXRlbVByaWNlICogb3JpZ2luYWxRdHk7CiAgY29uc3QgY2FuY2VsbGF0aW9uQ2hhcmdlcyA9IDA7CiAgY29uc3QgcmVmdW5kQW1vdW50ID0gaXRlbVByaWNlOyAvLyBjYW5jZWxsaW5nIDEgdGlja2V0CiAgY29uc3QgdG90YWxQcmljZSA9CiAgICBiYXNlRmFyZSAtIGNhbmNlbGxhdGlvbkNoYXJnZXMgLSByZWZ1bmRBbW91bnQ7CgogIG9yZGVyLnF1b3RlID0gewogICAgYnJlYWt1cDogWwogICAgICB7CiAgICAgICAgaXRlbTogewogICAgICAgICAgaWQ6IGl0ZW0uaWQsCiAgICAgICAgICBwcmljZTogaXRlbS5wcmljZSwKICAgICAgICAgIHF1YW50aXR5OiB7CiAgICAgICAgICAgIHNlbGVjdGVkOiB7CiAgICAgICAgICAgICAgY291bnQ6IG9yaWdpbmFsUXR5LAogICAgICAgICAgICB9LAogICAgICAgICAgfSwKICAgICAgICB9LAogICAgICAgIHByaWNlOiB7CiAgICAgICAgICBjdXJyZW5jeTogaXRlbS5wcmljZS5jdXJyZW5jeSwKICAgICAgICAgIHZhbHVlOiBTdHJpbmcoYmFzZUZhcmUpLAogICAgICAgIH0sCiAgICAgICAgdGl0bGU6ICJCQVNFX0ZBUkUiLAogICAgICB9LAogICAgICB7CiAgICAgICAgcHJpY2U6IHsKICAgICAgICAgIGN1cnJlbmN5OiBpdGVtLnByaWNlLmN1cnJlbmN5LAogICAgICAgICAgdmFsdWU6IFN0cmluZyhjYW5jZWxsYXRpb25DaGFyZ2VzKSwKICAgICAgICB9LAogICAgICAgIHRpdGxlOiAiQ0FOQ0VMTEFUSU9OX0NIQVJHRVMiLAogICAgICB9LAogICAgICB7CiAgICAgICAgaXRlbTogewogICAgICAgICAgaWQ6IGl0ZW0uaWQsCiAgICAgICAgICBmdWxmaWxsbWVudF9pZHM6IFtjYW5jZWxGdWxmaWxsbWVudElkXSwKICAgICAgICAgIHByaWNlOiBpdGVtLnByaWNlLAogICAgICAgICAgcXVhbnRpdHk6IHsKICAgICAgICAgICAgc2VsZWN0ZWQ6IHsKICAgICAgICAgICAgICBjb3VudDogMSwKICAgICAgICAgICAgfSwKICAgICAgICAgIH0sCiAgICAgICAgfSwKICAgICAgICBwcmljZTogewogICAgICAgICAgY3VycmVuY3k6IGl0ZW0ucHJpY2UuY3VycmVuY3ksCiAgICAgICAgICB2YWx1ZTogU3RyaW5nKC1yZWZ1bmRBbW91bnQpLAogICAgICAgIH0sCiAgICAgICAgdGl0bGU6ICJSRUZVTkQiLAogICAgICB9LAogICAgXSwKICAgIHByaWNlOiB7CiAgICAgIGN1cnJlbmN5OiBpdGVtLnByaWNlLmN1cnJlbmN5LAogICAgICB2YWx1ZTogU3RyaW5nKHRvdGFsUHJpY2UpLAogICAgfSwKICB9OwoKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyID0gb3JkZXI7CiAgZXhpc3RpbmdQYXlsb2FkID0KICBkZWZhdWx0UGF5bG9hZCA9CiAgdXBkYXRlUGF5bWVudEFuZFNldHRsZW1lbnQoCiAgICBkZWZhdWx0UGF5bG9hZCwKICAgIHNlc3Npb25EYXRhCiAgKTsKICBvcmRlci51cGRhdGVkX2F0ID0gbm93OwogIG9yZGVyLmNyZWF0ZWRfYXQgPSBzZXNzaW9uRGF0YT8uY3JlYXRlZF9hdDsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAvLyBTaGFwZSBjaGVja3MgZGVyaXZlZCBmcm9tIGRlZmF1bHRQYXlsb2FkIHdyaXRlcyBpbiB0aGUgZ2VuZXJhdG9yLgogIGNvbnN0IGV4cGVjdGVkUGF0aHMgPSBbWyJtZXNzYWdlIiwib3JkZXIiLCJjcmVhdGVkX2F0Il0sWyJtZXNzYWdlIiwib3JkZXIiLCJmdWxmaWxsbWVudHMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsImlkIl0sWyJtZXNzYWdlIiwib3JkZXIiLCJpdGVtcyJdLFsibWVzc2FnZSIsIm9yZGVyIiwicGF5bWVudHMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInByb3ZpZGVyIl0sWyJtZXNzYWdlIiwib3JkZXIiLCJxdW90ZSJdLFsibWVzc2FnZSIsIm9yZGVyIiwidGFncyJdLFsibWVzc2FnZSIsIm9yZGVyIiwidXBkYXRlZF9hdCJdXTsKICBmb3IgKGNvbnN0IHNlZ3Mgb2YgZXhwZWN0ZWRQYXRocykgewogICAgbGV0IGN1ciA9IHRhcmdldFBheWxvYWQ7CiAgICBmb3IgKGNvbnN0IHMgb2Ygc2VncykgewogICAgICBpZiAoY3VyID09IG51bGwpIGJyZWFrOwogICAgICBjdXIgPSBjdXJbc107CiAgICB9CiAgICBpZiAoY3VyID09PSB1bmRlZmluZWQgfHwgY3VyID09PSBudWxsKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIkV4cGVjdGVkIGZpZWxkIFwiIiArIHNlZ3Muam9pbigiLiIpICsgIlwiIG1pc3NpbmcgaW4gcGF5bG9hZCIgfTsKICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICAvLyBvcHRpb25hbCBzZXNzaW9uIGtleXMgKGd1YXJkZWQgaW4gZ2VuZXJhdG9yKTogZnVsZmlsbG1lbnRzLCBpdGVtcywgb3JkZXJfaWQsIHBheW1lbnRzLCBwcm92aWRlciwgcXVvdGUsIHVwZGF0ZWRfcGF5bWVudHMKICBjb25zdCByZXF1aXJlZFNlc3Npb24gPSBbImNyZWF0ZWRfYXQiLCJuZXdRdW90ZSIsIm9uX3VwZGF0ZV90YWdzIl07CiAgY29uc3QgcmVxdWlyZWRJbnB1dHMgID0gW107CiAgZm9yIChjb25zdCBrIG9mIHJlcXVpcmVkU2Vzc2lvbikgewogICAgaWYgKHNlc3Npb25EYXRhID09IG51bGwgfHwgc2Vzc2lvbkRhdGFba10gPT09IHVuZGVmaW5lZCB8fCBzZXNzaW9uRGF0YVtrXSA9PT0gbnVsbCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6ICJNSVNTSU5HX1NFU1NJT05fREFUQSIsCiAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAiUmVxdWlyZWQgc2Vzc2lvbiBrZXkgXCIiICsgayArICJcIiBpcyBtaXNzaW5nIiB9OwogICAgfQogIH0KICBmb3IgKGNvbnN0IGsgb2YgcmVxdWlyZWRJbnB1dHMpIHsKICAgIGlmICghc2Vzc2lvbkRhdGEgfHwgIXNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIHx8IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzW2tdID09PSB1bmRlZmluZWQpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiAiTUlTU0lOR19VU0VSX0lOUFVUIiwKICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICJSZXF1aXJlZCB1c2VyIGlucHV0IFwiIiArIGsgKyAiXCIgaXMgbWlzc2luZyIgfTsKICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6ICIyMDAiLCBkZXNjcmlwdGlvbjogIkFsbCBjaGVja3MgcGFzc2VkIiB9Owp9
+        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
       defaultPayload:
         context:
           domain: 'ONDC:TRV11'
@@ -4416,6 +4442,7 @@ steps:
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMV0uY29sbGVjdGVkX2J5OyB9
         newPayment_type: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMV0udHlwZTsgfQ==
+        onUpdateSoftCancel: $.message.order
       inputs: {}
     examples:
       - name: example for on_update
@@ -4854,11 +4881,11 @@ steps:
     description: please add relevant description
     mock:
       generate: >-
-        YXN5bmMgZnVuY3Rpb24gdXBkYXRlRW5kU3RvcEdlbmVyYXRvcihkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAgIGlmIChzZXNzaW9uRGF0YS5vcmRlcl9pZCkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZDsKICAgICAgICBjb25zdCB1cGRhdGVkUHJpY2UgPSBOdW1iZXIoc2Vzc2lvbkRhdGEubmV3UXVvdGUpIAogICAgICAgIC8vLSBOdW1iZXIoc2Vzc2lvbkRhdGEub2xkUXVvdGUpOwogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMF0ucGFyYW1zLmFtb3VudCA9IHNlc3Npb25EYXRhPy5uZXdRdW90ZSA/PyAiMCI7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1swXS5pZCA9IHNlc3Npb25EYXRhPy5uZXdQYXltZW50SWQ7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1swXS5zdGF0dXMgPSAiUEFJRCI7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1swXS5jb2xsZWN0ZWRfYnkgPSBzZXNzaW9uRGF0YT8ubmV3UGF5bWVudF9jb2xsZWN0ZWRfYnk7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50c1swXS50eXBlID0gc2Vzc2lvbkRhdGE/Lm5ld1BheW1lbnRfdHlwZTsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzWzBdLnBhcmFtcy50cmFuc2FjdGlvbl9pZCA9IHV1aWR2NCgpOwogICAgfQogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9Cgphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4gdXBkYXRlRW5kU3RvcEdlbmVyYXRvcihkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwp9
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZSA9IHNlc3Npb25EYXRhPy51cGRhdGVfc29mdF9jYW5jZWxfbWVzc2FnZVswXQogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY2FuY2VsbGF0aW9uLnJlYXNvbi5kZXNjcmlwdG9yLmNvZGUgPSAiQ09ORklSTV9DQU5DRUwiCiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkCn0=
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAvLyBTaGFwZSBjaGVja3MgZGVyaXZlZCBmcm9tIGRlZmF1bHRQYXlsb2FkIHdyaXRlcyBpbiB0aGUgZ2VuZXJhdG9yLgogIGNvbnN0IGV4cGVjdGVkUGF0aHMgPSBbWyJtZXNzYWdlIiwib3JkZXIiLCJpZCJdLFsibWVzc2FnZSIsIm9yZGVyIiwicGF5bWVudHMiLDAsImNvbGxlY3RlZF9ieSJdLFsibWVzc2FnZSIsIm9yZGVyIiwicGF5bWVudHMiLDAsImlkIl0sWyJtZXNzYWdlIiwib3JkZXIiLCJwYXltZW50cyIsMCwicGFyYW1zIiwiYW1vdW50Il0sWyJtZXNzYWdlIiwib3JkZXIiLCJwYXltZW50cyIsMCwicGFyYW1zIiwidHJhbnNhY3Rpb25faWQiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInBheW1lbnRzIiwwLCJzdGF0dXMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInBheW1lbnRzIiwwLCJ0eXBlIl1dOwogIGZvciAoY29uc3Qgc2VncyBvZiBleHBlY3RlZFBhdGhzKSB7CiAgICBsZXQgY3VyID0gdGFyZ2V0UGF5bG9hZDsKICAgIGZvciAoY29uc3QgcyBvZiBzZWdzKSB7CiAgICAgIGlmIChjdXIgPT0gbnVsbCkgYnJlYWs7CiAgICAgIGN1ciA9IGN1cltzXTsKICAgIH0KICAgIGlmIChjdXIgPT09IHVuZGVmaW5lZCB8fCBjdXIgPT09IG51bGwpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsCiAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAiRXhwZWN0ZWQgZmllbGQgXCIiICsgc2Vncy5qb2luKCIuIikgKyAiXCIgbWlzc2luZyBpbiBwYXlsb2FkIiB9OwogICAgfQogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICAvLyBvcHRpb25hbCBzZXNzaW9uIGtleXMgKGd1YXJkZWQgaW4gZ2VuZXJhdG9yKTogbmV3UGF5bWVudElkLCBuZXdQYXltZW50X2NvbGxlY3RlZF9ieSwgbmV3UGF5bWVudF90eXBlLCBvcmRlcl9pZAogIGNvbnN0IHJlcXVpcmVkU2Vzc2lvbiA9IFsibmV3UXVvdGUiXTsKICBjb25zdCByZXF1aXJlZElucHV0cyAgPSBbXTsKICBmb3IgKGNvbnN0IGsgb2YgcmVxdWlyZWRTZXNzaW9uKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGEgPT0gbnVsbCB8fCBzZXNzaW9uRGF0YVtrXSA9PT0gdW5kZWZpbmVkIHx8IHNlc3Npb25EYXRhW2tdID09PSBudWxsKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogIk1JU1NJTkdfU0VTU0lPTl9EQVRBIiwKICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICJSZXF1aXJlZCBzZXNzaW9uIGtleSBcIiIgKyBrICsgIlwiIGlzIG1pc3NpbmciIH07CiAgICB9CiAgfQogIGZvciAoY29uc3QgayBvZiByZXF1aXJlZElucHV0cykgewogICAgaWYgKCFzZXNzaW9uRGF0YSB8fCAhc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMgfHwgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHNba10gPT09IHVuZGVmaW5lZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6ICJNSVNTSU5HX1VTRVJfSU5QVVQiLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIlJlcXVpcmVkIHVzZXIgaW5wdXQgXCIiICsgayArICJcIiBpcyBtaXNzaW5nIiB9OwogICAgfQogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
+        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
       defaultPayload:
         context:
           domain: 'ONDC:TRV11'
@@ -4877,19 +4904,7 @@ steps:
               code: IND
             city:
               code: '*'
-        message:
-          update_target: payments
-          order:
-            id: 077b248f
-            payments:
-              - id: PA2
-                collected_by: BAP
-                status: PAID
-                type: POST-FULFILLMENT
-                params:
-                  transaction_id: a442bd1f-0373-4562-845e-e5a9262a76fd
-                  amount: '140'
-                  currency: INR
+        message: {}
       saveData:
         transaction_id: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLmNvbnRleHQudHJhbnNhY3Rpb25faWQ7IH0=
@@ -4915,6 +4930,7 @@ steps:
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXI7IH0=
         update_3_payment: >-
           EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMF07IH0=
+        updateConfirmCancel: $.message.order
       inputs: {}
     examples:
       - name: example for update
@@ -4959,11 +4975,11 @@ steps:
     description: please add relevant description
     mock:
       generate: >-
-        YXN5bmMgZnVuY3Rpb24gb25VcGRhdGVTdG9wRW5kR2VuZXJhdG9yKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgaWYgKHNlc3Npb25EYXRhLnVwZGF0ZWRfcGF5bWVudHMubGVuZ3RoID4gMCkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHMgPSBzZXNzaW9uRGF0YS51cGRhdGVkX3BheW1lbnRzOwogICAgfQogICAgaWYgKHNlc3Npb25EYXRhLml0ZW1zLmxlbmd0aCA+IDApIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gc2Vzc2lvbkRhdGEuaXRlbXM7CiAgICB9CiAgICBpZiAoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmxlbmd0aCA+IDApIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50czsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YS5vcmRlcl9pZCkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZDsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YS5xdW90ZSAhPSBudWxsKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IHNlc3Npb25EYXRhLnF1b3RlOwogICAgfQogICAgaWYgKHNlc3Npb25EYXRhLnByb3ZpZGVyKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlciA9IHNlc3Npb25EYXRhLnByb3ZpZGVyOwogICAgfQogICAgaWYgKHNlc3Npb25EYXRhLnBheW1lbnRzKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50cyA9IHNlc3Npb25EYXRhLnBheW1lbnRzOwogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucGF5bWVudHNbMV0gPSBzZXNzaW9uRGF0YT8udXBkYXRlXzNfcGF5bWVudDsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzWzFdLnN0YXR1cyA9ICJQQUlEIjsKICAgIH0KICAgIGNvbnN0IG5vdyA9IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuY3JlYXRlZF9hdCA9IHNlc3Npb25EYXRhLmNyZWF0ZWRfYXQ7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnVwZGF0ZWRfYXQgPSBub3c7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnRhZ3MgPSBzZXNzaW9uRGF0YS5vbl91cGRhdGVfdGFncy5mbGF0KCk7CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0KCmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiBvblVwZGF0ZVN0b3BFbmRHZW5lcmF0b3IoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKTsKfQ==
+        YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3Qgbm93ID0gbmV3IERhdGUoKS50b0lTT1N0cmluZygpCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlciA9IHNlc3Npb25EYXRhPy5vblVwZGF0ZVNvZnRDYW5jZWxbMF0KICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnN0YXR1cyA9ICJBQ1RJVkUiCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5jcmVhdGVkX2F0ID0gc2Vzc2lvbkRhdGE/LmNyZWF0ZWRfYXQ7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gbm93OwogIHJldHVybiBkZWZhdWx0UGF5bG9hZAp9
       validate: >-
-        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAvLyBTaGFwZSBjaGVja3MgZGVyaXZlZCBmcm9tIGRlZmF1bHRQYXlsb2FkIHdyaXRlcyBpbiB0aGUgZ2VuZXJhdG9yLgogIGNvbnN0IGV4cGVjdGVkUGF0aHMgPSBbWyJtZXNzYWdlIiwib3JkZXIiLCJjcmVhdGVkX2F0Il0sWyJtZXNzYWdlIiwib3JkZXIiLCJmdWxmaWxsbWVudHMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsImlkIl0sWyJtZXNzYWdlIiwib3JkZXIiLCJpdGVtcyJdLFsibWVzc2FnZSIsIm9yZGVyIiwicGF5bWVudHMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInBheW1lbnRzIiwwLCJzdGF0dXMiXSxbIm1lc3NhZ2UiLCJvcmRlciIsInByb3ZpZGVyIl0sWyJtZXNzYWdlIiwib3JkZXIiLCJxdW90ZSJdLFsibWVzc2FnZSIsIm9yZGVyIiwidGFncyJdLFsibWVzc2FnZSIsIm9yZGVyIiwidXBkYXRlZF9hdCJdXTsKICBmb3IgKGNvbnN0IHNlZ3Mgb2YgZXhwZWN0ZWRQYXRocykgewogICAgbGV0IGN1ciA9IHRhcmdldFBheWxvYWQ7CiAgICBmb3IgKGNvbnN0IHMgb2Ygc2VncykgewogICAgICBpZiAoY3VyID09IG51bGwpIGJyZWFrOwogICAgICBjdXIgPSBjdXJbc107CiAgICB9CiAgICBpZiAoY3VyID09PSB1bmRlZmluZWQgfHwgY3VyID09PSBudWxsKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIkV4cGVjdGVkIGZpZWxkIFwiIiArIHNlZ3Muam9pbigiLiIpICsgIlwiIG1pc3NpbmcgaW4gcGF5bG9hZCIgfTsKICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+        ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: >-
-        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICAvLyBvcHRpb25hbCBzZXNzaW9uIGtleXMgKGd1YXJkZWQgaW4gZ2VuZXJhdG9yKTogZnVsZmlsbG1lbnRzLCBpdGVtcywgb3JkZXJfaWQsIHBheW1lbnRzLCBwcm92aWRlciwgcXVvdGUsIHVwZGF0ZV8zX3BheW1lbnQsIHVwZGF0ZWRfcGF5bWVudHMKICBjb25zdCByZXF1aXJlZFNlc3Npb24gPSBbImNyZWF0ZWRfYXQiLCJvbl91cGRhdGVfdGFncyJdOwogIGNvbnN0IHJlcXVpcmVkSW5wdXRzICA9IFtdOwogIGZvciAoY29uc3QgayBvZiByZXF1aXJlZFNlc3Npb24pIHsKICAgIGlmIChzZXNzaW9uRGF0YSA9PSBudWxsIHx8IHNlc3Npb25EYXRhW2tdID09PSB1bmRlZmluZWQgfHwgc2Vzc2lvbkRhdGFba10gPT09IG51bGwpIHsKICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiAiTUlTU0lOR19TRVNTSU9OX0RBVEEiLAogICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogIlJlcXVpcmVkIHNlc3Npb24ga2V5IFwiIiArIGsgKyAiXCIgaXMgbWlzc2luZyIgfTsKICAgIH0KICB9CiAgZm9yIChjb25zdCBrIG9mIHJlcXVpcmVkSW5wdXRzKSB7CiAgICBpZiAoIXNlc3Npb25EYXRhIHx8ICFzZXNzaW9uRGF0YS51c2VyX2lucHV0cyB8fCBzZXNzaW9uRGF0YS51c2VyX2lucHV0c1trXSA9PT0gdW5kZWZpbmVkKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogIk1JU1NJTkdfVVNFUl9JTlBVVCIsCiAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAiUmVxdWlyZWQgdXNlciBpbnB1dCBcIiIgKyBrICsgIlwiIGlzIG1pc3NpbmciIH07CiAgICB9CiAgfQogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgY2hlY2tzIHBhc3NlZCIgfTsKfQ==
+        ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIGNoZWNrcyBwYXNzZWQiIH07Cn0=
       defaultPayload:
         context:
           domain: 'ONDC:TRV11'
@@ -5827,8 +5843,2752 @@ steps:
               created_at: '2026-06-16T23:28:20.516Z'
               updated_at: '2026-06-16T23:28:22.048Z'
         type: request
-        description: please add relevant description      
-transaction_history: []
+        description: please add relevant description
+transaction_history:
+  - action_id: search2_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: search
+        timestamp: '2026-06-25T08:17:45.162Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 93e76002-13e7-4310-82ac-519b51fe6aaf
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: 'std:011'
+        bpp_id: dev-automation.ondc.org
+        bpp_uri: 'https://bpp.example.com'
+      message:
+        intent:
+          fulfillment:
+            stops:
+              - type: START
+                location:
+                  descriptor:
+                    code: SHAHEED_STHAL
+              - type: END
+                location:
+                  descriptor:
+                    code: AZADPUR
+            vehicle:
+              category: METRO
+          payment:
+            collected_by: BPP
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+    action: search
+    saved_info: {}
+  - action_id: on_search2_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_search
+        timestamp: '2026-06-25T08:17:45.207Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 93e76002-13e7-4310-82ac-519b51fe6aaf
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        catalog:
+          descriptor:
+            name: Transit Solutions
+            images:
+              - url: 'https://transitsolutions.in/logos/logo.ico'
+          providers:
+            - id: P1
+              categories:
+                - descriptor:
+                    name: Ticket
+                    code: TICKET
+                  id: C1
+                - descriptor:
+                    name: Pass
+                    code: PASS
+                  id: C2
+              time:
+                range:
+                  start: '2026-06-25T05:30:00.000Z'
+                  end: '2026-06-25T23:30:00.000Z'
+              descriptor:
+                name: Delhi Metro Rail Limited
+                images:
+                  - url: 'https://delhimetrorail.com/logos/logo.ico'
+              items:
+                - id: I1
+                  category_ids:
+                    - C1
+                  descriptor:
+                    name: Single Journey Ticket
+                    code: SJT
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    maximum:
+                      count: 6
+                    minimum:
+                      count: 1
+                  fulfillment_ids:
+                    - F1
+                  time:
+                    label: Validity
+                    duration: P2D
+                    timestamp: '2026-06-27T13:47:45.217Z'
+                - id: I2
+                  category_ids:
+                    - C1
+                  descriptor:
+                    name: Round Journey Ticket
+                    code: RJT
+                  price:
+                    currency: INR
+                    value: '440'
+                  quantity:
+                    maximum:
+                      count: 6
+                    minimum:
+                      count: 1
+                  fulfillment_ids:
+                    - F1
+                  time:
+                    label: Validity
+                    duration: P2D
+                    timestamp: '2026-06-27T13:47:45.217Z'
+              fulfillments:
+                - id: F1
+                  type: TRIP
+                  stops:
+                    - type: START
+                      location:
+                        descriptor:
+                          name: mock_station_1
+                          code: MOCK_STATION_1
+                        gps: '28.686576, 77.441632'
+                      id: '1'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 1
+                      location:
+                        descriptor:
+                          name: mock_station_2
+                          code: MOCK_STATION_2
+                        gps: '28.686176, 77.442632'
+                      id: '2'
+                      parent_stop_id: '1'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 2
+                      location:
+                        descriptor:
+                          name: mock_station_3
+                          code: MOCK_STATION_3
+                        gps: '28.181276, 77.442332'
+                      id: '3'
+                      parent_stop_id: '2'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 3
+                      location:
+                        descriptor:
+                          name: mock_station_4
+                          code: MOCK_STATION_4
+                        gps: '28.981276, 77.772332'
+                      id: '4'
+                      parent_stop_id: '3'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 4
+                      location:
+                        descriptor:
+                          name: mock_station_5
+                          code: MOCK_STATION_5
+                        gps: '28.620976, 77.046732'
+                      id: '5'
+                      parent_stop_id: '4'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 5
+                      location:
+                        descriptor:
+                          name: mock_station_6
+                          code: MOCK_STATION_6
+                        gps: '28.120976, 77.946732'
+                      id: '6'
+                      parent_stop_id: '5'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 6
+                      location:
+                        descriptor:
+                          name: mock_station_7
+                          code: MOCK_STATION_7
+                        gps: '28.677076, 77.346632'
+                      id: '7'
+                      parent_stop_id: '6'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 7
+                      location:
+                        descriptor:
+                          name: mock_station_8
+                          code: MOCK_STATION_8
+                        gps: '28.617076, 77.146632'
+                      id: '8'
+                      parent_stop_id: '7'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 8
+                      location:
+                        descriptor:
+                          name: mock_station_9
+                          code: MOCK_STATION_9
+                        gps: '28.917076, 77.146632'
+                      id: '9'
+                      parent_stop_id: '8'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 9
+                      location:
+                        descriptor:
+                          name: mock_station_10
+                          code: MOCK_STATION_10
+                        gps: '28.897076, 77.146632'
+                      id: '10'
+                      parent_stop_id: '9'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 10
+                      location:
+                        descriptor:
+                          name: mock_station_11
+                          code: MOCK_STATION_11
+                        gps: '28.117076, 77.116632'
+                      id: '11'
+                      parent_stop_id: '10'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 11
+                      location:
+                        descriptor:
+                          name: mock_station_12
+                          code: MOCK_STATION_12
+                        gps: '28.127076, 77.416632'
+                      id: '12'
+                      parent_stop_id: '11'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 12
+                      location:
+                        descriptor:
+                          name: mock_station_13
+                          code: MOCK_STATION_13
+                        gps: '28.217076, 77.216632'
+                      id: '13'
+                      parent_stop_id: '12'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 13
+                      location:
+                        descriptor:
+                          name: mock_station_14
+                          code: MOCK_STATION_14
+                        gps: '28.327076, 77.416632'
+                      id: '14'
+                      parent_stop_id: '13'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 14
+                      location:
+                        descriptor:
+                          name: mock_station_15
+                          code: MOCK_STATION_15
+                        gps: '28.427076, 77.446632'
+                      id: '15'
+                      parent_stop_id: '14'
+                    - type: TRANSIT_STOP
+                      instructions:
+                        name: Stop 15
+                        short_desc: Please Change here for Yellow Line
+                      location:
+                        descriptor:
+                          name: mock_station_16
+                          code: MOCK_STATION_16
+                        gps: '28.738426, 77.139922'
+                      id: '16'
+                      parent_stop_id: '15'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 16
+                      location:
+                        descriptor:
+                          name: mock_station_17
+                          code: MOCK_STATION_17
+                        gps: '28.627076, 77.646632'
+                      id: '17'
+                      parent_stop_id: '16'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 17
+                      location:
+                        descriptor:
+                          name: mock_station_18
+                          code: MOCK_STATION_18
+                        gps: '28.727076, 77.746632'
+                      id: '18'
+                      parent_stop_id: '17'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 18
+                      location:
+                        descriptor:
+                          name: mock_station_19
+                          code: MOCK_STATION_19
+                        gps: '28.827076, 77.846632'
+                      id: '19'
+                      parent_stop_id: '18'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 19
+                      location:
+                        descriptor:
+                          name: mock_station_20
+                          code: MOCK_STATION_20
+                        gps: '28.927076, 77.946632'
+                      id: '20'
+                      parent_stop_id: '19'
+                    - type: INTERMEDIATE_STOP
+                      instructions:
+                        name: Stop 20
+                      location:
+                        descriptor:
+                          name: mock_station_21
+                          code: MOCK_STATION_21
+                        gps: '28.217076, 77.496632'
+                      id: '21'
+                      parent_stop_id: '20'
+                    - type: END
+                      location:
+                        descriptor:
+                          name: mock_station_22
+                          code: MOCK_STATION_22
+                        gps: '28.707358, 77.180910'
+                      id: '22'
+                      parent_stop_id: '21'
+                  vehicle:
+                    category: METRO
+                  tags:
+                    - descriptor:
+                        code: ROUTE_INFO
+                      list:
+                        - descriptor:
+                            code: ROUTE_ID
+                          value: '242'
+                        - descriptor:
+                            code: ROUTE_NAME
+                          value: Yellow Line
+              payments:
+                - collected_by: BPP
+              tags:
+                - descriptor:
+                    code: ADDITIONAL_APIS
+                  display: false
+                  list:
+                    - descriptor:
+                        code: GTFS_RT
+                      value: 'https://metro-transit/gtfs-realtime'
+                    - descriptor:
+                        code: GTFS_ST
+                      value: 'https://metro-transit/gtfs-static'
+                    - descriptor:
+                        code: WALLET_BALANCE_CHECK
+                        name: >-
+                          The CARD_NUMBER represents the Metro card number and
+                          is used to check the wallet balance via the API.
+                      value: 'https://metro-transit/wallet/balance/{CARD_NUMBER}'
+          tags:
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'TRUE'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bpp.com/booking/terms'
+    action: on_search
+    saved_info: {}
+  - action_id: select_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: select
+        timestamp: '2026-06-25T08:17:47.224Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: f4c2a48e-ab0a-456c-a010-aa1fa7101c29
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          items:
+            - id: I1
+              quantity:
+                selected:
+                  count: 1
+          provider:
+            id: Provider1
+    action: select
+    saved_info: {}
+  - action_id: on_select_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_select
+        timestamp: '2026-06-25T08:17:47.250Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: f4c2a48e-ab0a-456c-a010-aa1fa7101c29
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          items:
+            - id: I1
+              category_ids:
+                - C1
+              descriptor:
+                name: Single Journey Ticket
+                code: SJT
+              price:
+                currency: INR
+                value: '220'
+              quantity:
+                selected:
+                  count: 1
+              fulfillment_ids:
+                - F1
+                - Fxrg6cdz
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-27T13:47:45.217Z'
+          provider:
+            id: P1
+            descriptor:
+              name: Delhi Metro Rail Limited
+              images:
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            time:
+              range:
+                start: '2026-01-25T00:30:00.000Z'
+                end: '2026-01-25T18:30:00.000Z'
+          fulfillments:
+            - id: F1
+              type: TRIP
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: mock_station_1
+                      code: MOCK_STATION_1
+                    gps: '28.686576, 77.441632'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 1
+                  location:
+                    descriptor:
+                      name: mock_station_2
+                      code: MOCK_STATION_2
+                    gps: '28.686176, 77.442632'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 2
+                  location:
+                    descriptor:
+                      name: mock_station_3
+                      code: MOCK_STATION_3
+                    gps: '28.181276, 77.442332'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 3
+                  location:
+                    descriptor:
+                      name: mock_station_4
+                      code: MOCK_STATION_4
+                    gps: '28.981276, 77.772332'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 4
+                  location:
+                    descriptor:
+                      name: mock_station_5
+                      code: MOCK_STATION_5
+                    gps: '28.620976, 77.046732'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 5
+                  location:
+                    descriptor:
+                      name: mock_station_6
+                      code: MOCK_STATION_6
+                    gps: '28.120976, 77.946732'
+                  id: '6'
+                  parent_stop_id: '5'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 6
+                  location:
+                    descriptor:
+                      name: mock_station_7
+                      code: MOCK_STATION_7
+                    gps: '28.677076, 77.346632'
+                  id: '7'
+                  parent_stop_id: '6'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 7
+                  location:
+                    descriptor:
+                      name: mock_station_8
+                      code: MOCK_STATION_8
+                    gps: '28.617076, 77.146632'
+                  id: '8'
+                  parent_stop_id: '7'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 8
+                  location:
+                    descriptor:
+                      name: mock_station_9
+                      code: MOCK_STATION_9
+                    gps: '28.917076, 77.146632'
+                  id: '9'
+                  parent_stop_id: '8'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 9
+                  location:
+                    descriptor:
+                      name: mock_station_10
+                      code: MOCK_STATION_10
+                    gps: '28.897076, 77.146632'
+                  id: '10'
+                  parent_stop_id: '9'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 10
+                  location:
+                    descriptor:
+                      name: mock_station_11
+                      code: MOCK_STATION_11
+                    gps: '28.117076, 77.116632'
+                  id: '11'
+                  parent_stop_id: '10'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 11
+                  location:
+                    descriptor:
+                      name: mock_station_12
+                      code: MOCK_STATION_12
+                    gps: '28.127076, 77.416632'
+                  id: '12'
+                  parent_stop_id: '11'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 12
+                  location:
+                    descriptor:
+                      name: mock_station_13
+                      code: MOCK_STATION_13
+                    gps: '28.217076, 77.216632'
+                  id: '13'
+                  parent_stop_id: '12'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 13
+                  location:
+                    descriptor:
+                      name: mock_station_14
+                      code: MOCK_STATION_14
+                    gps: '28.327076, 77.416632'
+                  id: '14'
+                  parent_stop_id: '13'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 14
+                  location:
+                    descriptor:
+                      name: mock_station_15
+                      code: MOCK_STATION_15
+                    gps: '28.427076, 77.446632'
+                  id: '15'
+                  parent_stop_id: '14'
+                - type: TRANSIT_STOP
+                  instructions:
+                    name: Stop 15
+                    short_desc: Please Change here for Yellow Line
+                  location:
+                    descriptor:
+                      name: mock_station_16
+                      code: MOCK_STATION_16
+                    gps: '28.738426, 77.139922'
+                  id: '16'
+                  parent_stop_id: '15'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 16
+                  location:
+                    descriptor:
+                      name: mock_station_17
+                      code: MOCK_STATION_17
+                    gps: '28.627076, 77.646632'
+                  id: '17'
+                  parent_stop_id: '16'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 17
+                  location:
+                    descriptor:
+                      name: mock_station_18
+                      code: MOCK_STATION_18
+                    gps: '28.727076, 77.746632'
+                  id: '18'
+                  parent_stop_id: '17'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 18
+                  location:
+                    descriptor:
+                      name: mock_station_19
+                      code: MOCK_STATION_19
+                    gps: '28.827076, 77.846632'
+                  id: '19'
+                  parent_stop_id: '18'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 19
+                  location:
+                    descriptor:
+                      name: mock_station_20
+                      code: MOCK_STATION_20
+                    gps: '28.927076, 77.946632'
+                  id: '20'
+                  parent_stop_id: '19'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 20
+                  location:
+                    descriptor:
+                      name: mock_station_21
+                      code: MOCK_STATION_21
+                    gps: '28.217076, 77.496632'
+                  id: '21'
+                  parent_stop_id: '20'
+                - type: END
+                  location:
+                    descriptor:
+                      name: mock_station_22
+                      code: MOCK_STATION_22
+                    gps: '28.707358, 77.180910'
+                  id: '22'
+                  parent_stop_id: '21'
+              vehicle:
+                category: METRO
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_NAME
+                      value: Yellow Line
+            - id: Fxrg6cdz
+              type: TICKET
+              tags:
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+          quote:
+            price:
+              value: '220.00'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '220.00'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          cancellation_terms:
+            - external_ref:
+                mimetype: text/html
+                url: 'https://transitsolutions.com/mf/tnc.html'
+    action: on_select
+    saved_info: {}
+  - action_id: init_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: init
+        timestamp: '2026-06-25T08:17:47.380Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 498e0019-d1a6-4534-b5b1-8acf8cc0ffb5
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          items:
+            - id: I1
+              quantity:
+                selected:
+                  count: 1
+          provider:
+            id: P1
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          payments:
+            - collected_by: BPP
+              status: NOT-PAID
+              type: PRE-ORDER
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+    action: init
+    saved_info: {}
+  - action_id: on_init_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_init
+        timestamp: '2026-06-25T08:17:47.427Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 498e0019-d1a6-4534-b5b1-8acf8cc0ffb5
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          items:
+            - id: I1
+              category_ids:
+                - C1
+              descriptor:
+                name: Single Journey Ticket
+                code: SJT
+              price:
+                currency: INR
+                value: '220'
+              quantity:
+                selected:
+                  count: 1
+              fulfillment_ids:
+                - F1
+                - Fxrg6cdz
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-27T13:47:45.217Z'
+          provider:
+            id: P1
+            descriptor:
+              name: Delhi Metro Rail Limited
+              images:
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            time:
+              range:
+                start: '2026-01-25T00:30:00.000Z'
+                end: '2026-01-25T18:30:00.000Z'
+          fulfillments:
+            - id: F1
+              type: TRIP
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: mock_station_1
+                      code: MOCK_STATION_1
+                    gps: '28.686576, 77.441632'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 1
+                  location:
+                    descriptor:
+                      name: mock_station_2
+                      code: MOCK_STATION_2
+                    gps: '28.686176, 77.442632'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 2
+                  location:
+                    descriptor:
+                      name: mock_station_3
+                      code: MOCK_STATION_3
+                    gps: '28.181276, 77.442332'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 3
+                  location:
+                    descriptor:
+                      name: mock_station_4
+                      code: MOCK_STATION_4
+                    gps: '28.981276, 77.772332'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 4
+                  location:
+                    descriptor:
+                      name: mock_station_5
+                      code: MOCK_STATION_5
+                    gps: '28.620976, 77.046732'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 5
+                  location:
+                    descriptor:
+                      name: mock_station_6
+                      code: MOCK_STATION_6
+                    gps: '28.120976, 77.946732'
+                  id: '6'
+                  parent_stop_id: '5'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 6
+                  location:
+                    descriptor:
+                      name: mock_station_7
+                      code: MOCK_STATION_7
+                    gps: '28.677076, 77.346632'
+                  id: '7'
+                  parent_stop_id: '6'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 7
+                  location:
+                    descriptor:
+                      name: mock_station_8
+                      code: MOCK_STATION_8
+                    gps: '28.617076, 77.146632'
+                  id: '8'
+                  parent_stop_id: '7'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 8
+                  location:
+                    descriptor:
+                      name: mock_station_9
+                      code: MOCK_STATION_9
+                    gps: '28.917076, 77.146632'
+                  id: '9'
+                  parent_stop_id: '8'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 9
+                  location:
+                    descriptor:
+                      name: mock_station_10
+                      code: MOCK_STATION_10
+                    gps: '28.897076, 77.146632'
+                  id: '10'
+                  parent_stop_id: '9'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 10
+                  location:
+                    descriptor:
+                      name: mock_station_11
+                      code: MOCK_STATION_11
+                    gps: '28.117076, 77.116632'
+                  id: '11'
+                  parent_stop_id: '10'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 11
+                  location:
+                    descriptor:
+                      name: mock_station_12
+                      code: MOCK_STATION_12
+                    gps: '28.127076, 77.416632'
+                  id: '12'
+                  parent_stop_id: '11'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 12
+                  location:
+                    descriptor:
+                      name: mock_station_13
+                      code: MOCK_STATION_13
+                    gps: '28.217076, 77.216632'
+                  id: '13'
+                  parent_stop_id: '12'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 13
+                  location:
+                    descriptor:
+                      name: mock_station_14
+                      code: MOCK_STATION_14
+                    gps: '28.327076, 77.416632'
+                  id: '14'
+                  parent_stop_id: '13'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 14
+                  location:
+                    descriptor:
+                      name: mock_station_15
+                      code: MOCK_STATION_15
+                    gps: '28.427076, 77.446632'
+                  id: '15'
+                  parent_stop_id: '14'
+                - type: TRANSIT_STOP
+                  instructions:
+                    name: Stop 15
+                    short_desc: Please Change here for Yellow Line
+                  location:
+                    descriptor:
+                      name: mock_station_16
+                      code: MOCK_STATION_16
+                    gps: '28.738426, 77.139922'
+                  id: '16'
+                  parent_stop_id: '15'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 16
+                  location:
+                    descriptor:
+                      name: mock_station_17
+                      code: MOCK_STATION_17
+                    gps: '28.627076, 77.646632'
+                  id: '17'
+                  parent_stop_id: '16'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 17
+                  location:
+                    descriptor:
+                      name: mock_station_18
+                      code: MOCK_STATION_18
+                    gps: '28.727076, 77.746632'
+                  id: '18'
+                  parent_stop_id: '17'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 18
+                  location:
+                    descriptor:
+                      name: mock_station_19
+                      code: MOCK_STATION_19
+                    gps: '28.827076, 77.846632'
+                  id: '19'
+                  parent_stop_id: '18'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 19
+                  location:
+                    descriptor:
+                      name: mock_station_20
+                      code: MOCK_STATION_20
+                    gps: '28.927076, 77.946632'
+                  id: '20'
+                  parent_stop_id: '19'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 20
+                  location:
+                    descriptor:
+                      name: mock_station_21
+                      code: MOCK_STATION_21
+                    gps: '28.217076, 77.496632'
+                  id: '21'
+                  parent_stop_id: '20'
+                - type: END
+                  location:
+                    descriptor:
+                      name: mock_station_22
+                      code: MOCK_STATION_22
+                    gps: '28.707358, 77.180910'
+                  id: '22'
+                  parent_stop_id: '21'
+              vehicle:
+                category: METRO
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_NAME
+                      value: Yellow Line
+            - id: Fxrg6cdz
+              type: TICKET
+              tags:
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          quote:
+            price:
+              value: '220.00'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '220.00'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          payments:
+            - id: gq6yjyxad5n
+              collected_by: BPP
+              status: NOT-PAID
+              type: PRE-ORDER
+          cancellation_terms:
+            - external_ref:
+                mimetype: text/html
+                url: 'https://transitsolutions.com/mf/tnc.html'
+          tags:
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+    action: on_init
+    saved_info: {}
+  - action_id: confirm_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: confirm
+        timestamp: '2026-06-25T08:17:47.451Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 1c2d1e2d-bb7c-49c2-9ded-97086d9cb735
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          items:
+            - id: I1
+              quantity:
+                selected:
+                  count: 1
+          provider:
+            id: P1
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          payments:
+            - id: gq6yjyxad5n
+              collected_by: BPP
+              status: PAID
+              type: PRE-ORDER
+              params:
+                transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+                currency: INR
+                amount: '220.00'
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+    action: confirm
+    saved_info: {}
+  - action_id: on_confirm_METRO_210
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_confirm
+        timestamp: '2026-06-25T08:17:47.478Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: 1c2d1e2d-bb7c-49c2-9ded-97086d9cb735
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          id: 5ahl8xldd4
+          status: ACTIVE
+          items:
+            - id: I1
+              category_ids:
+                - C1
+              descriptor:
+                name: Single Journey Ticket
+                code: SJT
+              price:
+                currency: INR
+                value: '220'
+              quantity:
+                selected:
+                  count: 1
+              fulfillment_ids:
+                - F1
+                - Fxrg6cdz
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-27T13:47:45.217Z'
+          provider:
+            id: P1
+            descriptor:
+              name: Delhi Metro Rail Limited
+              images:
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            time:
+              range:
+                start: '2026-01-25T00:30:00.000Z'
+                end: '2026-01-25T18:30:00.000Z'
+          fulfillments:
+            - id: F1
+              type: TRIP
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: mock_station_1
+                      code: MOCK_STATION_1
+                    gps: '28.686576, 77.441632'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 1
+                  location:
+                    descriptor:
+                      name: mock_station_2
+                      code: MOCK_STATION_2
+                    gps: '28.686176, 77.442632'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 2
+                  location:
+                    descriptor:
+                      name: mock_station_3
+                      code: MOCK_STATION_3
+                    gps: '28.181276, 77.442332'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 3
+                  location:
+                    descriptor:
+                      name: mock_station_4
+                      code: MOCK_STATION_4
+                    gps: '28.981276, 77.772332'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 4
+                  location:
+                    descriptor:
+                      name: mock_station_5
+                      code: MOCK_STATION_5
+                    gps: '28.620976, 77.046732'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 5
+                  location:
+                    descriptor:
+                      name: mock_station_6
+                      code: MOCK_STATION_6
+                    gps: '28.120976, 77.946732'
+                  id: '6'
+                  parent_stop_id: '5'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 6
+                  location:
+                    descriptor:
+                      name: mock_station_7
+                      code: MOCK_STATION_7
+                    gps: '28.677076, 77.346632'
+                  id: '7'
+                  parent_stop_id: '6'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 7
+                  location:
+                    descriptor:
+                      name: mock_station_8
+                      code: MOCK_STATION_8
+                    gps: '28.617076, 77.146632'
+                  id: '8'
+                  parent_stop_id: '7'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 8
+                  location:
+                    descriptor:
+                      name: mock_station_9
+                      code: MOCK_STATION_9
+                    gps: '28.917076, 77.146632'
+                  id: '9'
+                  parent_stop_id: '8'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 9
+                  location:
+                    descriptor:
+                      name: mock_station_10
+                      code: MOCK_STATION_10
+                    gps: '28.897076, 77.146632'
+                  id: '10'
+                  parent_stop_id: '9'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 10
+                  location:
+                    descriptor:
+                      name: mock_station_11
+                      code: MOCK_STATION_11
+                    gps: '28.117076, 77.116632'
+                  id: '11'
+                  parent_stop_id: '10'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 11
+                  location:
+                    descriptor:
+                      name: mock_station_12
+                      code: MOCK_STATION_12
+                    gps: '28.127076, 77.416632'
+                  id: '12'
+                  parent_stop_id: '11'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 12
+                  location:
+                    descriptor:
+                      name: mock_station_13
+                      code: MOCK_STATION_13
+                    gps: '28.217076, 77.216632'
+                  id: '13'
+                  parent_stop_id: '12'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 13
+                  location:
+                    descriptor:
+                      name: mock_station_14
+                      code: MOCK_STATION_14
+                    gps: '28.327076, 77.416632'
+                  id: '14'
+                  parent_stop_id: '13'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 14
+                  location:
+                    descriptor:
+                      name: mock_station_15
+                      code: MOCK_STATION_15
+                    gps: '28.427076, 77.446632'
+                  id: '15'
+                  parent_stop_id: '14'
+                - type: TRANSIT_STOP
+                  instructions:
+                    name: Stop 15
+                    short_desc: Please Change here for Yellow Line
+                  location:
+                    descriptor:
+                      name: mock_station_16
+                      code: MOCK_STATION_16
+                    gps: '28.738426, 77.139922'
+                  id: '16'
+                  parent_stop_id: '15'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 16
+                  location:
+                    descriptor:
+                      name: mock_station_17
+                      code: MOCK_STATION_17
+                    gps: '28.627076, 77.646632'
+                  id: '17'
+                  parent_stop_id: '16'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 17
+                  location:
+                    descriptor:
+                      name: mock_station_18
+                      code: MOCK_STATION_18
+                    gps: '28.727076, 77.746632'
+                  id: '18'
+                  parent_stop_id: '17'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 18
+                  location:
+                    descriptor:
+                      name: mock_station_19
+                      code: MOCK_STATION_19
+                    gps: '28.827076, 77.846632'
+                  id: '19'
+                  parent_stop_id: '18'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 19
+                  location:
+                    descriptor:
+                      name: mock_station_20
+                      code: MOCK_STATION_20
+                    gps: '28.927076, 77.946632'
+                  id: '20'
+                  parent_stop_id: '19'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 20
+                  location:
+                    descriptor:
+                      name: mock_station_21
+                      code: MOCK_STATION_21
+                    gps: '28.217076, 77.496632'
+                  id: '21'
+                  parent_stop_id: '20'
+                - type: END
+                  location:
+                    descriptor:
+                      name: mock_station_22
+                      code: MOCK_STATION_22
+                    gps: '28.707358, 77.180910'
+                  id: '22'
+                  parent_stop_id: '21'
+              vehicle:
+                category: METRO
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_NAME
+                      value: Yellow Line
+            - id: Fxrg6cdz
+              type: TICKET
+              tags:
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+                - descriptor:
+                    code: TICKET_INFO
+                  list:
+                    - descriptor:
+                        code: NUMBER
+                      value: tx6ch228
+              stops:
+                - type: START
+                  authorization:
+                    type: QR
+                    token: DiwxGtJfMW5lirfah1BTirc3MS4Z8jfIoDfzB6G/oKI=
+                    valid_to: '2026-06-25T23:00:00.000Z'
+                    status: UNCLAIMED
+              state:
+                descriptor:
+                  code: ACTIVE
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          quote:
+            price:
+              value: '220.00'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '220.00'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          payments:
+            - id: gq6yjyxad5n
+              collected_by: BPP
+              status: PAID
+              type: PRE-ORDER
+              params:
+                transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+                currency: INR
+                amount: '220.00'
+          cancellation_terms:
+            - external_ref:
+                mimetype: text/html
+                url: 'https://transitsolutions.com/mf/tnc.html'
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+          created_at: '2026-06-25T08:17:47.480Z'
+          updated_at: '2026-06-25T08:17:47.480Z'
+    action: on_confirm
+    saved_info: {}
+  - action_id: update_soft_cancel
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: update
+        timestamp: '2026-06-25T08:17:47.510Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: ef1ca34a-f55b-4236-8c0a-0e26d868bdc4
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        update_target: order.fulfillments
+        order:
+          id: 5ahl8xldd4
+          fulfillments:
+            - id: Fxrg6cdz
+              type: TICKET
+          cancellation:
+            reason:
+              id: '001'
+              descriptor:
+                code: SOFT_CANCEL
+    action: update
+    saved_info: {}
+  - action_id: on_update_soft_cancel
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_update
+        timestamp: '2026-06-25T08:17:47.544Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: ef1ca34a-f55b-4236-8c0a-0e26d868bdc4
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          id: 5ahl8xldd4
+          status: ACTIVE
+          items:
+            - id: I1
+              category_ids:
+                - C1
+              descriptor:
+                name: Single Journey Ticket
+                code: SJT
+              price:
+                currency: INR
+                value: '220'
+              quantity:
+                selected:
+                  count: 1
+              fulfillment_ids:
+                - F1
+                - Fxrg6cdz
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-27T13:47:45.217Z'
+          provider:
+            id: P1
+            descriptor:
+              name: Delhi Metro Rail Limited
+              images:
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            time:
+              range:
+                start: '2026-01-25T00:30:00.000Z'
+                end: '2026-01-25T18:30:00.000Z'
+          fulfillments:
+            - id: F1
+              type: TRIP
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: mock_station_1
+                      code: MOCK_STATION_1
+                    gps: '28.686576, 77.441632'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 1
+                  location:
+                    descriptor:
+                      name: mock_station_2
+                      code: MOCK_STATION_2
+                    gps: '28.686176, 77.442632'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 2
+                  location:
+                    descriptor:
+                      name: mock_station_3
+                      code: MOCK_STATION_3
+                    gps: '28.181276, 77.442332'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 3
+                  location:
+                    descriptor:
+                      name: mock_station_4
+                      code: MOCK_STATION_4
+                    gps: '28.981276, 77.772332'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 4
+                  location:
+                    descriptor:
+                      name: mock_station_5
+                      code: MOCK_STATION_5
+                    gps: '28.620976, 77.046732'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 5
+                  location:
+                    descriptor:
+                      name: mock_station_6
+                      code: MOCK_STATION_6
+                    gps: '28.120976, 77.946732'
+                  id: '6'
+                  parent_stop_id: '5'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 6
+                  location:
+                    descriptor:
+                      name: mock_station_7
+                      code: MOCK_STATION_7
+                    gps: '28.677076, 77.346632'
+                  id: '7'
+                  parent_stop_id: '6'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 7
+                  location:
+                    descriptor:
+                      name: mock_station_8
+                      code: MOCK_STATION_8
+                    gps: '28.617076, 77.146632'
+                  id: '8'
+                  parent_stop_id: '7'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 8
+                  location:
+                    descriptor:
+                      name: mock_station_9
+                      code: MOCK_STATION_9
+                    gps: '28.917076, 77.146632'
+                  id: '9'
+                  parent_stop_id: '8'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 9
+                  location:
+                    descriptor:
+                      name: mock_station_10
+                      code: MOCK_STATION_10
+                    gps: '28.897076, 77.146632'
+                  id: '10'
+                  parent_stop_id: '9'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 10
+                  location:
+                    descriptor:
+                      name: mock_station_11
+                      code: MOCK_STATION_11
+                    gps: '28.117076, 77.116632'
+                  id: '11'
+                  parent_stop_id: '10'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 11
+                  location:
+                    descriptor:
+                      name: mock_station_12
+                      code: MOCK_STATION_12
+                    gps: '28.127076, 77.416632'
+                  id: '12'
+                  parent_stop_id: '11'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 12
+                  location:
+                    descriptor:
+                      name: mock_station_13
+                      code: MOCK_STATION_13
+                    gps: '28.217076, 77.216632'
+                  id: '13'
+                  parent_stop_id: '12'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 13
+                  location:
+                    descriptor:
+                      name: mock_station_14
+                      code: MOCK_STATION_14
+                    gps: '28.327076, 77.416632'
+                  id: '14'
+                  parent_stop_id: '13'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 14
+                  location:
+                    descriptor:
+                      name: mock_station_15
+                      code: MOCK_STATION_15
+                    gps: '28.427076, 77.446632'
+                  id: '15'
+                  parent_stop_id: '14'
+                - type: TRANSIT_STOP
+                  instructions:
+                    name: Stop 15
+                    short_desc: Please Change here for Yellow Line
+                  location:
+                    descriptor:
+                      name: mock_station_16
+                      code: MOCK_STATION_16
+                    gps: '28.738426, 77.139922'
+                  id: '16'
+                  parent_stop_id: '15'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 16
+                  location:
+                    descriptor:
+                      name: mock_station_17
+                      code: MOCK_STATION_17
+                    gps: '28.627076, 77.646632'
+                  id: '17'
+                  parent_stop_id: '16'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 17
+                  location:
+                    descriptor:
+                      name: mock_station_18
+                      code: MOCK_STATION_18
+                    gps: '28.727076, 77.746632'
+                  id: '18'
+                  parent_stop_id: '17'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 18
+                  location:
+                    descriptor:
+                      name: mock_station_19
+                      code: MOCK_STATION_19
+                    gps: '28.827076, 77.846632'
+                  id: '19'
+                  parent_stop_id: '18'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 19
+                  location:
+                    descriptor:
+                      name: mock_station_20
+                      code: MOCK_STATION_20
+                    gps: '28.927076, 77.946632'
+                  id: '20'
+                  parent_stop_id: '19'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 20
+                  location:
+                    descriptor:
+                      name: mock_station_21
+                      code: MOCK_STATION_21
+                    gps: '28.217076, 77.496632'
+                  id: '21'
+                  parent_stop_id: '20'
+                - type: END
+                  location:
+                    descriptor:
+                      name: mock_station_22
+                      code: MOCK_STATION_22
+                    gps: '28.707358, 77.180910'
+                  id: '22'
+                  parent_stop_id: '21'
+              vehicle:
+                category: METRO
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_NAME
+                      value: Yellow Line
+            - id: Fxrg6cdz
+              type: TICKET
+              tags:
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+                - descriptor:
+                    code: TICKET_INFO
+                  list:
+                    - descriptor:
+                        code: NUMBER
+                      value: tx6ch228
+              stops:
+                - type: START
+                  authorization:
+                    type: QR
+                    token: DiwxGtJfMW5lirfah1BTirc3MS4Z8jfIoDfzB6G/oKI=
+                    valid_to: '2026-06-25T23:00:00.000Z'
+                    status: UNCLAIMED
+              state:
+                descriptor:
+                  code: ACTIVE
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          quote:
+            price:
+              value: '220.00'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '220.00'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          payments:
+            - id: gq6yjyxad5n
+              collected_by: BPP
+              status: PAID
+              type: PRE-ORDER
+              params:
+                transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+                currency: INR
+                amount: '220.00'
+          cancellation_terms:
+            - external_ref:
+                mimetype: text/html
+                url: 'https://transitsolutions.com/mf/tnc.html'
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+          created_at: '2026-06-25T08:17:47.480Z'
+          updated_at: '2026-06-25T08:17:47.546Z'
+    action: on_update
+    saved_info: {}
+  - action_id: update_confirm_cancel
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: update
+        timestamp: '2026-06-25T08:17:47.577Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: acc6239e-5d91-4765-9d33-60d1495f6e98
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        update_target: order.fulfillments
+        order:
+          id: 5ahl8xldd4
+          fulfillments:
+            - id: Fxrg6cdz
+              type: TICKET
+          cancellation:
+            reason:
+              id: '001'
+              descriptor:
+                code: CONFIRM_CANCEL
+    action: update
+    saved_info: {}
+  - action_id: on_update_confirm_cancel
+    payload:
+      context:
+        domain: 'ONDC:TRV11'
+        action: on_update
+        timestamp: '2026-06-25T08:17:47.627Z'
+        transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+        message_id: acc6239e-5d91-4765-9d33-60d1495f6e98
+        bap_id: bap.example.com
+        bap_uri: 'https://bap.example.com'
+        ttl: PT30S
+        bpp_id: bpp.example.com
+        bpp_uri: 'https://bpp.example.com'
+        version: 2.1.0
+        location:
+          country:
+            code: IND
+          city:
+            code: '*'
+      message:
+        order:
+          id: 5ahl8xldd4
+          status: ACTIVE
+          items:
+            - id: I1
+              category_ids:
+                - C1
+              descriptor:
+                name: Single Journey Ticket
+                code: SJT
+              price:
+                currency: INR
+                value: '220'
+              quantity:
+                selected:
+                  count: 1
+              fulfillment_ids:
+                - F1
+                - Fxrg6cdz
+              time:
+                label: Validity
+                duration: P2D
+                timestamp: '2026-06-27T13:47:45.217Z'
+          provider:
+            id: P1
+            descriptor:
+              name: Delhi Metro Rail Limited
+              images:
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            time:
+              range:
+                start: '2026-01-25T00:30:00.000Z'
+                end: '2026-01-25T18:30:00.000Z'
+          fulfillments:
+            - id: F1
+              type: TRIP
+              stops:
+                - type: START
+                  location:
+                    descriptor:
+                      name: mock_station_1
+                      code: MOCK_STATION_1
+                    gps: '28.686576, 77.441632'
+                  id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 1
+                  location:
+                    descriptor:
+                      name: mock_station_2
+                      code: MOCK_STATION_2
+                    gps: '28.686176, 77.442632'
+                  id: '2'
+                  parent_stop_id: '1'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 2
+                  location:
+                    descriptor:
+                      name: mock_station_3
+                      code: MOCK_STATION_3
+                    gps: '28.181276, 77.442332'
+                  id: '3'
+                  parent_stop_id: '2'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 3
+                  location:
+                    descriptor:
+                      name: mock_station_4
+                      code: MOCK_STATION_4
+                    gps: '28.981276, 77.772332'
+                  id: '4'
+                  parent_stop_id: '3'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 4
+                  location:
+                    descriptor:
+                      name: mock_station_5
+                      code: MOCK_STATION_5
+                    gps: '28.620976, 77.046732'
+                  id: '5'
+                  parent_stop_id: '4'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 5
+                  location:
+                    descriptor:
+                      name: mock_station_6
+                      code: MOCK_STATION_6
+                    gps: '28.120976, 77.946732'
+                  id: '6'
+                  parent_stop_id: '5'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 6
+                  location:
+                    descriptor:
+                      name: mock_station_7
+                      code: MOCK_STATION_7
+                    gps: '28.677076, 77.346632'
+                  id: '7'
+                  parent_stop_id: '6'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 7
+                  location:
+                    descriptor:
+                      name: mock_station_8
+                      code: MOCK_STATION_8
+                    gps: '28.617076, 77.146632'
+                  id: '8'
+                  parent_stop_id: '7'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 8
+                  location:
+                    descriptor:
+                      name: mock_station_9
+                      code: MOCK_STATION_9
+                    gps: '28.917076, 77.146632'
+                  id: '9'
+                  parent_stop_id: '8'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 9
+                  location:
+                    descriptor:
+                      name: mock_station_10
+                      code: MOCK_STATION_10
+                    gps: '28.897076, 77.146632'
+                  id: '10'
+                  parent_stop_id: '9'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 10
+                  location:
+                    descriptor:
+                      name: mock_station_11
+                      code: MOCK_STATION_11
+                    gps: '28.117076, 77.116632'
+                  id: '11'
+                  parent_stop_id: '10'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 11
+                  location:
+                    descriptor:
+                      name: mock_station_12
+                      code: MOCK_STATION_12
+                    gps: '28.127076, 77.416632'
+                  id: '12'
+                  parent_stop_id: '11'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 12
+                  location:
+                    descriptor:
+                      name: mock_station_13
+                      code: MOCK_STATION_13
+                    gps: '28.217076, 77.216632'
+                  id: '13'
+                  parent_stop_id: '12'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 13
+                  location:
+                    descriptor:
+                      name: mock_station_14
+                      code: MOCK_STATION_14
+                    gps: '28.327076, 77.416632'
+                  id: '14'
+                  parent_stop_id: '13'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 14
+                  location:
+                    descriptor:
+                      name: mock_station_15
+                      code: MOCK_STATION_15
+                    gps: '28.427076, 77.446632'
+                  id: '15'
+                  parent_stop_id: '14'
+                - type: TRANSIT_STOP
+                  instructions:
+                    name: Stop 15
+                    short_desc: Please Change here for Yellow Line
+                  location:
+                    descriptor:
+                      name: mock_station_16
+                      code: MOCK_STATION_16
+                    gps: '28.738426, 77.139922'
+                  id: '16'
+                  parent_stop_id: '15'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 16
+                  location:
+                    descriptor:
+                      name: mock_station_17
+                      code: MOCK_STATION_17
+                    gps: '28.627076, 77.646632'
+                  id: '17'
+                  parent_stop_id: '16'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 17
+                  location:
+                    descriptor:
+                      name: mock_station_18
+                      code: MOCK_STATION_18
+                    gps: '28.727076, 77.746632'
+                  id: '18'
+                  parent_stop_id: '17'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 18
+                  location:
+                    descriptor:
+                      name: mock_station_19
+                      code: MOCK_STATION_19
+                    gps: '28.827076, 77.846632'
+                  id: '19'
+                  parent_stop_id: '18'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 19
+                  location:
+                    descriptor:
+                      name: mock_station_20
+                      code: MOCK_STATION_20
+                    gps: '28.927076, 77.946632'
+                  id: '20'
+                  parent_stop_id: '19'
+                - type: INTERMEDIATE_STOP
+                  instructions:
+                    name: Stop 20
+                  location:
+                    descriptor:
+                      name: mock_station_21
+                      code: MOCK_STATION_21
+                    gps: '28.217076, 77.496632'
+                  id: '21'
+                  parent_stop_id: '20'
+                - type: END
+                  location:
+                    descriptor:
+                      name: mock_station_22
+                      code: MOCK_STATION_22
+                    gps: '28.707358, 77.180910'
+                  id: '22'
+                  parent_stop_id: '21'
+              vehicle:
+                category: METRO
+              tags:
+                - descriptor:
+                    code: ROUTE_INFO
+                  list:
+                    - descriptor:
+                        code: ROUTE_ID
+                      value: '242'
+                    - descriptor:
+                        code: ROUTE_NAME
+                      value: Yellow Line
+            - id: Fxrg6cdz
+              type: TICKET
+              tags:
+                - descriptor:
+                    code: INFO
+                  list:
+                    - descriptor:
+                        code: PARENT_ID
+                      value: F1
+                - descriptor:
+                    code: TICKET_INFO
+                  list:
+                    - descriptor:
+                        code: NUMBER
+                      value: tx6ch228
+              stops:
+                - type: START
+                  authorization:
+                    type: QR
+                    token: DiwxGtJfMW5lirfah1BTirc3MS4Z8jfIoDfzB6G/oKI=
+                    valid_to: '2026-06-25T23:00:00.000Z'
+                    status: UNCLAIMED
+              state:
+                descriptor:
+                  code: ACTIVE
+          billing:
+            name: John Doe
+            email: john.doe@example.com
+            phone: +91-9897867564
+          quote:
+            price:
+              value: '220.00'
+              currency: INR
+            breakup:
+              - title: BASE_FARE
+                item:
+                  id: I1
+                  price:
+                    currency: INR
+                    value: '220'
+                  quantity:
+                    selected:
+                      count: 1
+                price:
+                  currency: INR
+                  value: '220.00'
+              - title: TAX
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: TAX
+                      list:
+                        - descriptor:
+                            code: CGST
+                          value: '0'
+                        - descriptor:
+                            code: SGST
+                          value: '0'
+              - title: OTHER_CHARGES
+                price:
+                  currency: INR
+                  value: '0'
+                item:
+                  tags:
+                    - descriptor:
+                        code: OTHER_CHARGES
+                      list:
+                        - descriptor:
+                            code: SURCHARGE
+                          value: '0'
+          payments:
+            - id: gq6yjyxad5n
+              collected_by: BPP
+              status: PAID
+              type: PRE-ORDER
+              params:
+                transaction_id: c7272eaa-2efa-40cf-912e-aa91bcd0d8fd
+                currency: INR
+                amount: '220.00'
+          cancellation_terms:
+            - external_ref:
+                mimetype: text/html
+                url: 'https://transitsolutions.com/mf/tnc.html'
+          tags:
+            - descriptor:
+                code: BAP_TERMS
+                name: BAP Terms of Engagemen
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: DELAY_INTEREST
+                  value: '2.5'
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: Delivery
+            - descriptor:
+                code: BPP_TERMS
+                name: BPP Terms of Engagement
+              display: false
+              list:
+                - descriptor:
+                    code: BUYER_FINDER_FEES_PERCENTAGE
+                  value: '1'
+                - descriptor:
+                    code: SETTLEMENT_AMOUNT
+                  value: '2.2'
+                - descriptor:
+                    code: SETTLEMENT_TYPE
+                  value: NEFT
+                - descriptor:
+                    code: STATIC_TERMS
+                  value: 'https://api.example-bap.com/booking/terms'
+                - descriptor:
+                    code: MANDATORY_ARBITRATION
+                  value: 'true'
+                - descriptor:
+                    code: COURT_JURISDICTION
+                  value: New Delhi
+                - descriptor:
+                    code: SETTLEMENT_WINDOW
+                  value: P30D
+                - descriptor:
+                    code: SETTLEMENT_BANK_CODE
+                  value: XXXXXXXX
+                - descriptor:
+                    code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                  value: xxxxxxxxxxxxxx
+                - descriptor:
+                    code: SETTLEMENT_BASIS
+                  value: INVOICE_RECEIPT
+          created_at: '2026-06-25T08:17:47.480Z'
+          updated_at: '2026-06-25T08:17:47.629Z'
+    action: on_update
+    saved_info: {}
 validationLib: ''
 helperLib: >-
   LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0ZSgpIGZ1bmN0aW9ucy4KCVNvdXJjZTogc3JjL2xpYi9oZWxwZXJzL2RlZmF1bHQtaGVscGVycy5qcyDigJQgZWRpdCB0aGVyZSwgdGhlbiBydW4KCWBucG0gcnVuIGhlbHBlcnM6Z2VuYCB0byByZWZyZXNoLgoqLwoKCi8qCiAqIERlZmF1bHQgaGVscGVycyBhdmFpbGFibGUgdG8gZXZlcnkgYGdlbmVyYXRlKClgIGluIGEgbW9jayBzdGVwLgogKgogKiBBdXRob3JpbmcgcnVsZXM6CiAqICAgMS4gUHJlZmVyIGBmdW5jdGlvbmAgZGVjbGFyYXRpb25zIOKAlCB0aGV5IGhvaXN0LCBzbyBjcm9zcy1oZWxwZXIgY2FsbHMKICogICAgICB3b3JrIHJlZ2FyZGxlc3Mgb2Ygb3JkZXIuCiAqICAgMi4gTm8gYHJlcXVpcmVgIC8gYGltcG9ydGAgaW5zaWRlIGZ1bmN0aW9uIGJvZGllcy4gVGhlIFZNIHNhbmRib3ggaGFzIG5vCiAqICAgICAgbW9kdWxlIHN5c3RlbS4gT25seSBzYW5kYm94LXdoaXRlbGlzdGVkIGdsb2JhbHMgKE1hdGgsIERhdGUsIEpTT04sIOKApikKICogICAgICBhbmQgc2libGluZyBoZWxwZXJzIGFyZSBpbiBzY29wZS4KICogICAzLiBJZiB0aGUgaGVscGVyIG5lZWRzIHJlcXVlc3Qtc2NvcGUgZGF0YSwgdGFrZSBgc2Vzc2lvbkRhdGFgIGFzIGFuCiAqICAgICAgZXhwbGljaXQgcGFyYW1ldGVyLiBGcmVlLXZhcmlhYmxlIHJlZmVyZW5jZXMgdG8gYHNlc3Npb25EYXRhYCBkbyBOT1QKICogICAgICByZXNvbHZlIGF0IHJ1bnRpbWUg4oCUIGhlbHBlcnMgcnVuIGF0IHNjcmlwdCBzY29wZSwgYHNlc3Npb25EYXRhYCBpcwogKiAgICAgIG9ubHkgYSBwYXJhbWV0ZXIgb2YgYGdlbmVyYXRlKClgLgogKiAgIDQuIERvY3VtZW50IGV2ZXJ5IGhlbHBlciB3aXRoIGEgbGVhZGluZyBKU0RvYyBibG9jayAoYEBwYXJhbWAsIGBAcmV0dXJuc2ApLgogKgogKiBUaGUgZnVsbCBmaWxlIChtaW51cyB0aGUgdHJhaWxpbmcgYG1vZHVsZS5leHBvcnRzID0gey4uLn1gIGJsb2NrKSBpcwogKiBlbWJlZGRlZCB2ZXJiYXRpbSBpbnRvIHRoZSBzYW5kYm94IGJ1bmRsZSBieQogKiBgc2NyaXB0cy9nZW5lcmF0ZS1oZWxwZXJzLXNvdXJjZS5qc2AsIHNvIEpTRG9jIHJlYWNoZXMgZW5kIHVzZXJzIHVuY2hhbmdlZC4KICogUmUtcnVuIGBucG0gcnVuIGhlbHBlcnM6Z2VuYCBhZnRlciBlZGl0aW5nLgogKi8KCi8qKgogKiBSZXNvbHZlIHRoZSBCUFAgb3IgQkFQIHN1YnNjcmliZXIgVVJMIGZyb20gc2Vzc2lvbiBkYXRhLgogKgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgIHNlc3Npb24gZGF0YSAocmVhZHMgYGJwcFVyaWAgb3IgYGJhcFVyaWApCiAqIEBwYXJhbSB7ImJwcCJ8ImJhcCJ8c3RyaW5nfSB0eXBlICBzdWJzY3JpYmVyIGtpbmQ7IGFueXRoaW5nIG90aGVyIHRoYW4gImJwcCIgcmV0dXJucyBiYXBVcmkKICogQHJldHVybnMge3N0cmluZ30gdGhlIHN1YnNjcmliZXIgVVJMCiAqLwpmdW5jdGlvbiBnZXRTdWJzY3JpYmVyVXJsKHNlc3Npb25EYXRhLCB0eXBlKSB7CglpZiAodHlwZSA9PT0gImJwcCIpIHsKCQlyZXR1cm4gc2Vzc2lvbkRhdGEuYnBwVXJpOwoJfSBlbHNlIHsKCQlyZXR1cm4gc2Vzc2lvbkRhdGEuYmFwVXJpOwoJfQp9CgovKioKICogR2VuZXJhdGUgYSBVVUlEIHY0IChSRkMgNDEyMiwgcmFuZG9tLWJhc2VkKS4KICoKICogQHJldHVybnMge3N0cmluZ30gYSBuZXcgVVVJRCB2NCwgZS5nLiAiNTUwZTg0MDAtZTI5Yi00MWQ0LWE3MTYtNDQ2NjU1NDQwMDAwIgogKi8KZnVuY3Rpb24gdXVpZHY0KCkgewoJcmV0dXJuICJ4eHh4eHh4eC14eHh4LTR4eHgteXh4eC14eHh4eHh4eHh4eHgiLnJlcGxhY2UoL1t4eV0vZywgZnVuY3Rpb24gKGMpIHsKCQljb25zdCByID0gKE1hdGgucmFuZG9tKCkgKiAxNikgfCAwOwoJCWNvbnN0IHYgPSBjID09PSAieCIgPyByIDogKHIgJiAweDMpIHwgMHg4OwoJCXJldHVybiB2LnRvU3RyaW5nKDE2KTsKCX0pOwp9CgovKioKICogR2VuZXJhdGUgYSA2LWRpZ2l0IG51bWVyaWMgc3RyaW5nIElEIGluIFsxMDAwMDAsIDk5OTk5OV0uCiAqCiAqIEByZXR1cm5zIHtzdHJpbmd9IGEgemVyby1wYWRkZWQgNi1kaWdpdCBudW1lcmljIHN0cmluZwogKi8KZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8qKgogKiBHZXQgdGhlIGN1cnJlbnQgSVNPLTg2MDEgVVRDIHRpbWVzdGFtcC4KICoKICogQHJldHVybnMge3N0cmluZ30gZS5nLiAiMjAyNi0wNC0yM1QxMjozNDo1Ni43ODlaIgogKi8KZnVuY3Rpb24gY3VycmVudFRpbWVzdGFtcCgpIHsKCXJldHVybiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7Cn0KCi8qKgogKiBDb252ZXJ0IGFuIElTTyA4NjAxIGR1cmF0aW9uIHN0cmluZyAoZS5nLiAiUFQxSDMwTSIsICJQMkRUM0giKSB0byB0b3RhbCBzZWNvbmRzLgogKgogKiBBcHByb3hpbWF0aW9ucyB1c2VkOiAxIHdlZWsgPSA3IGRheXMsIDEgbW9udGgg4omIIDMwLjQyIGRheXMgKDI2MjgyODggc2VjKSwKICogMSB5ZWFyID0gMzY1IGRheXMuIE5vdCBjYWxlbmRhci1leGFjdC4KICoKICogQHBhcmFtIHtzdHJpbmd9IGR1cmF0aW9uICBJU08gODYwMSBkdXJhdGlvbiBzdHJpbmcKICogQHJldHVybnMge251bWJlcn0gdG90YWwgc2Vjb25kczsgMCB3aGVuIHRoZSBpbnB1dCBpcyB1bnBhcnNlYWJsZQogKi8KZnVuY3Rpb24gaXNvRHVyVG9TZWMoZHVyYXRpb24pIHsKCWNvbnN0IGR1clJFID0KCQkvUCgoXGQrKVkpPygoXGQrKU0pPygoXGQrKVcpPygoXGQrKUQpP1Q/KChcZCspSCk/KChcZCspTSk/KChcZCspUyk/LzsKCWNvbnN0IHMgPSBkdXJSRS5leGVjKGR1cmF0aW9uKTsKCWlmICghcykgcmV0dXJuIDA7CgoJcmV0dXJuICgKCQkoTnVtYmVyKHM/LlsyXSkgfHwgMCkgKiAzMTUzNjAwMCArCgkJKE51bWJlcihzPy5bNF0pIHx8IDApICogMjYyODI4OCArCgkJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCQkoTnVtYmVyKHM/Lls4XSkgfHwgMCkgKiA4NjQwMCArCgkJKE51bWJlcihzPy5bMTBdKSB8fCAwKSAqIDM2MDAgKwoJCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkJKE51bWJlcihzPy5bMTRdKSB8fCAwKQoJKTsKfQoKLyoqCiAqIE11dGF0ZSBgcGF5bG9hZC5jb250ZXh0YCBpbiBwbGFjZSB0byBzZXQgdGhlIGNpdHkgY29kZSBmcm9tIGBpbnB1dHMuY2l0eV9jb2RlYC4KICoKICogVmVyc2lvbi1hd2FyZTogT05EQyB2MS54IHVzZXMgZmxhdCBgY29udGV4dC5jaXR5YCwgdjIueCB1c2VzIG5lc3RlZAogKiBgY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGVgLiBGYWxscyBiYWNrIHRvICIqIiB3aGVuIGBjaXR5X2NvZGVgIGlzIG1pc3NpbmcuCiAqIE5vLW9wIHdoZW4gYGlucHV0c2AgaXMgZmFsc3kuCiAqCiAqIEBwYXJhbSB7T2JqZWN0fSBwYXlsb2FkICBwYXlsb2FkIHdpdGggYSBgY29udGV4dGAgdG8gbXV0YXRlCiAqIEBwYXJhbSB7T2JqZWN0fG51bGx8dW5kZWZpbmVkfSBpbnB1dHMgIG9iamVjdCB3aXRoIG9wdGlvbmFsIGBjaXR5X2NvZGVgCiAqIEByZXR1cm5zIHtzdHJpbmd8dW5kZWZpbmVkfSAiKiIgd2hlbiBpbnB1dHMgaXMgZmFsc3k7IG90aGVyd2lzZSB1bmRlZmluZWQKICovCmZ1bmN0aW9uIHNldENpdHlGcm9tSW5wdXRzKHBheWxvYWQsIGlucHV0cykgewoJaWYgKCFpbnB1dHMpIHJldHVybiAiKiI7Cgljb25zdCB2ZXJzaW9uID0KCQlwYXlsb2FkLmNvbnRleHQudmVyc2lvbiB8fCBwYXlsb2FkLmNvbnRleHQuY29yZV92ZXJzaW9uIHx8ICIyLjAuMCI7CglpZiAodmVyc2lvbi5zdGFydHNXaXRoKCIxIikpIHsKCQlwYXlsb2FkLmNvbnRleHQuY2l0eSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfSBlbHNlIHsKCQlwYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gaW5wdXRzLmNpdHlfY29kZSA/PyAiKiI7Cgl9Cn0KCi8qKgogKiBCdWlsZCBhIGZvcm0gc3VibWlzc2lvbiBVUkwgZnJvbSBzZXNzaW9uIGRhdGEuCiAqCiAqIEBwYXJhbSB7c3RyaW5nfSBkb21haW4gICAgICAgT05EQyBkb21haW4gKGUuZy4gIk9OREM6UkVUMTAiKQogKiBAcGFyYW0ge3N0cmluZ30gZm9ybUlkICAgICAgIGZvcm0gaWRlbnRpZmllcgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgIHJlYWRzIGBtb2NrQmFzZVVybGAsIGB0cmFuc2FjdGlvbklkWzBdYCwgYHNlc3Npb25JZGAKICogQHJldHVybnMge3N0cmluZ30gYCR7YmFzZVVSTH0vZm9ybXMvJHtkb21haW59LyR7Zm9ybUlkfS8/dHJhbnNhY3Rpb25faWQ9Li4uJnNlc3Npb25faWQ9Li4uYAogKi8KZnVuY3Rpb24gY3JlYXRlRm9ybVVSTChkb21haW4sIGZvcm1JZCwgc2Vzc2lvbkRhdGEpIHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovKioKICogR2VuZXJhdGUgYSBjb25zZW50IGhhbmRsZXIgZnJvbSB0aGUgRmludnUgQUEgU2VydmljZS4KICoKICogUmVhZHMgdGhlIHNlcnZpY2UgYmFzZSBVUkwgZnJvbSBgc2Vzc2lvbkRhdGEuZmludnVVcmxgIOKAlCB0aGUgaW5zdGFsbGluZwogKiBzZXJ2aWNlIE1VU1QgaW5jbHVkZSB0aGF0IG9yaWdpbiBpbgogKiAgIE1vY2tSdW5uZXIuaW5pdFNoYXJlZFJ1bm5lcih7IGFsbG93ZWRGZXRjaEJhc2VVcmxzOiBbLi4uXSB9KQogKiBvdGhlcndpc2UgdGhlIHNhbmRib3hlZCBmZXRjaCB3aWxsIGJlIGJsb2NrZWQuCiAqCiAqIFRpbWVzIG91dCBhZnRlciAxMHMgdmlhIEFib3J0Q29udHJvbGxlci4KICoKICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhICBzZXNzaW9uIGRhdGE7IGBzZXNzaW9uRGF0YS5maW52dVVybGAgaXMgcmVxdWlyZWQKICogQHBhcmFtIHtPYmplY3R9IHBhcmFtcwogKiBAcGFyYW0ge3N0cmluZ30gcGFyYW1zLmN1c3RJZCAgICAgICAgICAgICAgICBjdXN0b21lciBJRCAocmVxdWlyZWQpCiAqIEBwYXJhbSB7c3RyaW5nfSBbcGFyYW1zLnRlbXBsYXRlTmFtZV0gICAgICAgIGRlZmF1bHRzIHRvICJGSU5WVURFTU9fVEVTVElORyIKICogQHBhcmFtIHtzdHJpbmd9IFtwYXJhbXMuY29uc2VudERlc2NyaXB0aW9uXSAgZGVmYXVsdHMgdG8gIkdvbGQgTG9hbiBBY2NvdW50IEFnZ3JlZ2F0b3IgQ29uc2VudCIKICogQHBhcmFtIHtzdHJpbmd9IFtwYXJhbXMucmVkaXJlY3RVcmxdICAgICAgICAgZGVmYXVsdHMgdG8gImh0dHBzOi8vZ29vZ2xlLmNvLmluIgogKiBAcmV0dXJucyB7UHJvbWlzZTxzdHJpbmc+fSB0aGUgYGNvbnNlbnRIYW5kbGVyYCByZXR1cm5lZCBieSB0aGUgQUEgc2VydmljZQogKiBAdGhyb3dzIHtFcnJvcn0gd2hlbiBgY3VzdElkYCBvciBgc2Vzc2lvbkRhdGEuZmludnVVcmxgIGlzIG1pc3NpbmcsIG9uIG5vbi1PSwogKiAgIHJlc3BvbnNlLCBvbiBtaXNzaW5nIGBjb25zZW50SGFuZGxlcmAgaW4gdGhlIGJvZHksIG9yIG9uIDEwcyB0aW1lb3V0CiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZUNvbnNlbnRIYW5kbGVyKAoJc2Vzc2lvbkRhdGEsCgl7CgkJY3VzdElkLAoJCXRlbXBsYXRlTmFtZSA9ICJGSU5WVURFTU9fVEVTVElORyIsCgkJY29uc2VudERlc2NyaXB0aW9uID0gIkdvbGQgTG9hbiBBY2NvdW50IEFnZ3JlZ2F0b3IgQ29uc2VudCIsCgkJcmVkaXJlY3RVcmwgPSAiaHR0cHM6Ly9nb29nbGUuY28uaW4iLAoJfSwKKSB7CglpZiAoIWN1c3RJZCkgewoJCXRocm93IG5ldyBFcnJvcigiY3VzdElkIGlzIHJlcXVpcmVkIik7Cgl9Cgljb25zdCBiYXNlVXJsID0gc2Vzc2lvbkRhdGEgJiYgc2Vzc2lvbkRhdGEuZmludnVVcmw7CglpZiAoIWJhc2VVcmwpIHsKCQl0aHJvdyBuZXcgRXJyb3IoInNlc3Npb25EYXRhLmZpbnZ1VXJsIGlzIHJlcXVpcmVkIik7Cgl9CgoJY29uc3QgdXJsID0gYCR7YmFzZVVybH0vZmludnUtYWEvY29uc2VudC9nZW5lcmF0ZWA7CgoJY29uc3QgcGF5bG9hZCA9IHsKCQljdXN0SWQsCgkJdGVtcGxhdGVOYW1lLAoJCWNvbnNlbnREZXNjcmlwdGlvbiwKCQlyZWRpcmVjdFVybCwKCX07CgoJY29uc29sZS5sb2coIkNhbGxpbmcgRmludnUgQUEgU2VydmljZToiLCB1cmwpOwoJY29uc29sZS5sb2coIkNvbnNlbnQgcmVxdWVzdCBwYXlsb2FkOiIsIHBheWxvYWQpOwoKCWNvbnN0IGNvbnRyb2xsZXIgPSBuZXcgQWJvcnRDb250cm9sbGVyKCk7Cgljb25zdCB0aW1lb3V0ID0gc2V0VGltZW91dCgoKSA9PiBjb250cm9sbGVyLmFib3J0KCksIDEwMDAwKTsKCgl0cnkgewoJCWNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKHVybCwgewoJCQltZXRob2Q6ICJQT1NUIiwKCQkJaGVhZGVyczogewoJCQkJIkNvbnRlbnQtVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uIiwKCQkJfSwKCQkJYm9keTogSlNPTi5zdHJpbmdpZnkocGF5bG9hZCksCgkJCXNpZ25hbDogY29udHJvbGxlci5zaWduYWwsCgkJfSk7CgoJCWlmICghcmVzLm9rKSB7CgkJCWNvbnN0IHRleHQgPSBhd2FpdCByZXMudGV4dCgpOwoJCQl0aHJvdyBuZXcgRXJyb3IoYFJlcXVlc3QgZmFpbGVkOiAke3Jlcy5zdGF0dXN9ICR7dGV4dH1gKTsKCQl9CgoJCWNvbnN0IGRhdGEgPSBhd2FpdCByZXMuanNvbigpOwoKCQlpZiAoIWRhdGEgfHwgIWRhdGEuY29uc2VudEhhbmRsZXIpIHsKCQkJdGhyb3cgbmV3IEVycm9yKCJJbnZhbGlkIHJlc3BvbnNlOiBjb25zZW50SGFuZGxlciBtaXNzaW5nIik7CgkJfQoKCQlyZXR1cm4gZGF0YS5jb25zZW50SGFuZGxlcjsKCX0gY2F0Y2ggKGVycikgewoJCWlmIChlcnIgJiYgZXJyLm5hbWUgPT09ICJBYm9ydEVycm9yIikgewoJCQl0aHJvdyBuZXcgRXJyb3IoIlJlcXVlc3QgdGltZWQgb3V0IGFmdGVyIDEwIHNlY29uZHMiKTsKCQl9CgkJdGhyb3cgZXJyOwoJfSBmaW5hbGx5IHsKCQljbGVhclRpbWVvdXQodGltZW91dCk7Cgl9Cn0KCgoKCmZ1bmN0aW9uIGV4YW1wbGVGdWxsZmlsbG1lbnQoKSB7CglyZXR1cm4gWwogICAgewogICAgICBpZDogIkYxIiwKICAgICAgdHlwZTogIlRSSVAiLAogICAgICBzdG9wczogWwogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJTVEFSVCIsCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8xIiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzEiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC42ODY1NzYsIDc3LjQ0MTYzMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICIxIiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMSIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fMiIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8yIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjg2MTc2LCA3Ny40NDI2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMiIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjEiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGluc3RydWN0aW9uczogewogICAgICAgICAgICBuYW1lOiAiU3RvcCAyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8zIiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzMiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC4xODEyNzYsIDc3LjQ0MjMzMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICIzIiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMiIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDMiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzQiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fNCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4Ljk4MTI3NiwgNzcuNzcyMzMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjQiLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICIzIiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgNCIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fNSIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl81IiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjIwOTc2LCA3Ny4wNDY3MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiNSIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjQiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGluc3RydWN0aW9uczogewogICAgICAgICAgICBuYW1lOiAiU3RvcCA1IiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl82IiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzYiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC4xMjA5NzYsIDc3Ljk0NjczMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICI2IiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiNSIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDYiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzciLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fNyIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjY3NzA3NiwgNzcuMzQ2NjMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjciLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICI2IiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgNyIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fOCIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl84IiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjE3MDc2LCA3Ny4xNDY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiOCIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjciLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGluc3RydWN0aW9uczogewogICAgICAgICAgICBuYW1lOiAiU3RvcCA4IiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl85IiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzkiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC45MTcwNzYsIDc3LjE0NjYzMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICI5IiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiOCIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDkiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzEwIiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzEwIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguODk3MDc2LCA3Ny4xNDY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMTAiLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICI5IiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMTAiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzExIiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzExIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguMTE3MDc2LCA3Ny4xMTY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMTEiLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICIxMCIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDExIiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8xMiIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8xMiIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjEyNzA3NiwgNzcuNDE2NjMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjEyIiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMTEiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGluc3RydWN0aW9uczogewogICAgICAgICAgICBuYW1lOiAiU3RvcCAxMiIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fMTMiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fMTMiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC4yMTcwNzYsIDc3LjIxNjYzMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICIxMyIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjEyIiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMTMiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzE0IiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzE0IiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguMzI3MDc2LCA3Ny40MTY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMTQiLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICIxMyIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDE0IiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8xNSIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8xNSIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjQyNzA3NiwgNzcuNDQ2NjMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjE1IiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMTQiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIlRSQU5TSVRfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMTUiLAogICAgICAgICAgICBzaG9ydF9kZXNjOiAiUGxlYXNlIENoYW5nZSBoZXJlIGZvciBZZWxsb3cgTGluZSIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fMTYiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fMTYiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC43Mzg0MjYsIDc3LjEzOTkyMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICIxNiIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjE1IiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMTYiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzE3IiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzE3IiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguNjI3MDc2LCA3Ny42NDY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMTciLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICIxNiIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDE3IiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8xOCIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8xOCIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjcyNzA3NiwgNzcuNzQ2NjMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjE4IiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMTciLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIklOVEVSTUVESUFURV9TVE9QIiwKICAgICAgICAgIGluc3RydWN0aW9uczogewogICAgICAgICAgICBuYW1lOiAiU3RvcCAxOCIsCiAgICAgICAgICB9LAogICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgIG5hbWU6ICJtb2NrX3N0YXRpb25fMTkiLAogICAgICAgICAgICAgIGNvZGU6ICJNT0NLX1NUQVRJT05fMTkiLAogICAgICAgICAgICB9LAogICAgICAgICAgICBncHM6ICIyOC44MjcwNzYsIDc3Ljg0NjYzMiIsCiAgICAgICAgICB9LAogICAgICAgICAgaWQ6ICIxOSIsCiAgICAgICAgICBwYXJlbnRfc3RvcF9pZDogIjE4IiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgIHR5cGU6ICJJTlRFUk1FRElBVEVfU1RPUCIsCiAgICAgICAgICBpbnN0cnVjdGlvbnM6IHsKICAgICAgICAgICAgbmFtZTogIlN0b3AgMTkiLAogICAgICAgICAgfSwKICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICBuYW1lOiAibW9ja19zdGF0aW9uXzIwIiwKICAgICAgICAgICAgICBjb2RlOiAiTU9DS19TVEFUSU9OXzIwIiwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgZ3BzOiAiMjguOTI3MDc2LCA3Ny45NDY2MzIiLAogICAgICAgICAgfSwKICAgICAgICAgIGlkOiAiMjAiLAogICAgICAgICAgcGFyZW50X3N0b3BfaWQ6ICIxOSIsCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICB0eXBlOiAiSU5URVJNRURJQVRFX1NUT1AiLAogICAgICAgICAgaW5zdHJ1Y3Rpb25zOiB7CiAgICAgICAgICAgIG5hbWU6ICJTdG9wIDIwIiwKICAgICAgICAgIH0sCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8yMSIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8yMSIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjIxNzA3NiwgNzcuNDk2NjMyIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjIxIiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMjAiLAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgdHlwZTogIkVORCIsCiAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgbmFtZTogIm1vY2tfc3RhdGlvbl8yMiIsCiAgICAgICAgICAgICAgY29kZTogIk1PQ0tfU1RBVElPTl8yMiIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIGdwczogIjI4LjcwNzM1OCwgNzcuMTgwOTEwIiwKICAgICAgICAgIH0sCiAgICAgICAgICBpZDogIjIyIiwKICAgICAgICAgIHBhcmVudF9zdG9wX2lkOiAiMjEiLAogICAgICAgIH0sCiAgICAgIF0sCiAgICAgIHZlaGljbGU6IHsKICAgICAgICBjYXRlZ29yeTogIk1FVFJPIiwKICAgICAgfSwKICAgICAgdGFnczogWwogICAgICAgIHsKICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgY29kZTogIlJPVVRFX0lORk8iLAogICAgICAgICAgfSwKICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgIGNvZGU6ICJST1VURV9JRCIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB2YWx1ZTogIjI0MiIsCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICBjb2RlOiAiUk9VVEVfTkFNRSIsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB2YWx1ZTogIlllbGxvdyBMaW5lIiwKICAgICAgICAgICAgfSwKICAgICAgICAgIF0sCiAgICAgICAgfSwKICAgICAgXSwKICAgIH0sCiAgXQp9CgpmdW5jdGlvbiBjcmVhdGVGdWxsZmlsbG1lbnQoKSB7CiAgY29uc3QgZmFrZSA9IGV4YW1wbGVGdWxsZmlsbG1lbnQoKTsKICBsZXQgaW5kZXggPSAxOwogIGZvciAoY29uc3QgZnVsbCBvZiBmYWtlKSB7CiAgICBmdWxsLnN0b3BzLmZvckVhY2goKHN0b3ApID0+IHsKICAgICAgc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPSBgTU9DS19TVEFUSU9OXyR7aW5kZXh9YDsKICAgICAgc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLm5hbWUgPSBgTU9DS19TVEFUSU9OXyR7aW5kZXh9YDsKICAgICAgaW5kZXgrKzsKICAgIH0pOwogIH0KICByZXR1cm4geyBmdWxmaWxsbWVudHM6IGZha2UgfTsKfQo=
