@@ -899,3 +899,276 @@ paths:
                     update_target:
                       type: string
       responses: *responses
+  /issue:
+    post:
+      operationId: issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    transaction_id:
+                      type: string
+                    message_id:
+                      type: string
+                    action:
+                      type: string
+                    timestamp:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bap_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    ttl:
+                      type: string
+                    location:
+                      type: object
+                      properties:
+                        country: *country
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs: &refs
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors: &actors
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info: &info
+                                type: object
+                                properties:
+                                  person: &person
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  contact: &contact
+                                    type: object
+                                    properties:
+                                      phone:
+                                        type: string
+                                      email:
+                                        type: string
+                        source_id:
+                          type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        last_action_id:
+                          type: string
+                        actions: &actions
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+                        category:
+                          type: string
+                        sub_category:
+                          type: string
+                        complainant_info: &complainant_info
+                          type: object
+                          properties:
+                            person: *person
+                            contact:
+                              type: object
+                              properties:
+                                phone:
+                                  type: string
+                        order_details:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  quantity:
+                                    type: string
+                            fulfillments:
+                              type: array
+                              items: *provider
+                            provider_id:
+                              type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+      responses: *responses 
+  /on_issue:
+    post:
+      operationId: on_issue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: &context_3
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    transaction_id:
+                      type: string
+                    message_id:
+                      type: string
+                    action:
+                      type: string
+                    timestamp:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bap_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    ttl:
+                      type: string
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        refs: *refs
+                        actors: *actors
+                        actions: *actions
+                        issue_actions: &issue_actions
+                          type: object
+                          properties:
+                            respondent_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  respondent_action:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  updated_at:
+                                    type: string
+                                  updated_by: &updated_by
+                                    type: object
+                                    properties:
+                                      person: *person
+                                      org: *person
+      responses: *responses
+  /on_issue_status:
+    post:
+      operationId: on_issue_status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context: *context_3
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        issue_actions: *issue_actions
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        resolution_provider:
+                          type: object
+                          properties:
+                            respondent_info:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                organization: *updated_by
+      responses: *responses       
