@@ -573,7 +573,7 @@ attribute_set:
             info: Physical descriptor of the catalog that the BPP returns in on_search, validated by the BAP and anchored in the session for reuse across steps.
             owner: BPP
             type: object
-        providers:
+        providers: &on_search_message_catalog_providers
           id:
             _description:
               required: true
@@ -581,43 +581,43 @@ attribute_set:
               info: Describes the unique Id of the provider.
               owner: BPP
               type: string
-            descriptor: &provider_descriptor_details
-          name: 
-            _description:
-              required: false
-              type: string
-              owner: BPP
-              usage: Uber
-              info: Describes the provider name.  
-          short_desc: 
-            _description:
-              required: false
-              type: string
-              owner: BPP
-              usage: Uber Rides
-              info: Describes the provdier short_desc.
-          long_desc: 
-            _description:
-              required: false
-              type: string
-              owner: BPP
-              usage: Uber Rides, India
-              info: Describes the provdier long_desc.    
-          images:  
-            url: 
+          descriptor: &provider_descriptor_details
+            name: 
               _description:
                 required: false
                 type: string
                 owner: BPP
-                usage: https://example-bpp.com/prod/seller/asset
-                info: Describes the provdier image url.  
-            size_type: 
+                usage: Uber
+                info: Describes the provider name.  
+            short_desc: 
               _description:
                 required: false
                 type: string
                 owner: BPP
-                usage: sm
-                info: Describes the provdier image size type.  
+                usage: Uber Rides
+                info: Describes the provdier short_desc.
+            long_desc: 
+              _description:
+                required: false
+                type: string
+                owner: BPP
+                usage: Uber Rides, India
+                info: Describes the provdier long_desc.    
+            images:  
+              url: 
+                _description:
+                  required: false
+                  type: string
+                  owner: BPP
+                  usage: https://example-bpp.com/prod/seller/asset
+                  info: Describes the provdier image url.  
+              size_type: 
+                _description:
+                  required: false
+                  type: string
+                  owner: BPP
+                  usage: sm
+                  info: Describes the provdier image size type.  
           locations:
             id:
               _description:
@@ -1735,20 +1735,7 @@ attribute_set:
               info: The BAP sets the optional add-on services the customer selected for this rental or trip item; these selections are anchored in session and reused across subsequent order steps.
               owner: BAP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Describes the unique Id of the provider.
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BAP
-            type: object
+        provider: *&on_search_message_catalog_providers
         _description:
           required: true
           usage: ""
@@ -2269,20 +2256,7 @@ attribute_set:
               info: Add-ons selected by the customer during select; the BPP returns this array in on_select only if any were chosen, omits it if none were, and the list is anchored in session for consumption by later steps.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Describes the unique Id of the provider.
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
@@ -3019,20 +2993,7 @@ attribute_set:
               info: Supplementary items or services the BAP selects during order confirmation, each identified and quantified to communicate optional add-ons to the BPP.
               owner: BAP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Id of the provider
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BAP
-            type: object
+        provider: *&on_search_message_catalog_providers
         billing:
           name:
             _description:
@@ -3923,20 +3884,7 @@ attribute_set:
               info: Supplementary items or services the BAP selects during order confirmation, each identified and quantified to communicate optional add-ons to the BPP.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Describes the unqiue Id of the provider
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
@@ -4943,20 +4891,7 @@ attribute_set:
               info: The BPP returns the price container for each selected item in on_select; these values are validated by the BAP and reused throughout the transaction lifecycle.
               owner: BAP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Describes the uique Id of the provider.
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BAP
-            type: object
+        provider: *&on_search_message_catalog_providers
         billing:
           name:
             _description:
@@ -5854,20 +5789,7 @@ attribute_set:
               info: Supplementary items or services the BAP selects during order confirmation, each identified and quantified to communicate optional add-ons to the BPP.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Unique reference ID to the payment of an order
-              owner: BPP
-              type: string
-          _description:
-            required: false
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
@@ -7445,20 +7367,7 @@ attribute_set:
               info: Cancellation policy the BPP establishes in on_select, anchored in session and reused through subsequent order steps.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: "Describes the unique ID of the provider. "
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
@@ -8906,20 +8815,7 @@ attribute_set:
               info: Cancellation policy the BPP establishes in on_select, anchored in session and reused through subsequent order steps.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Id of the provider
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
@@ -10564,20 +10460,7 @@ attribute_set:
               info: Supplementary items or services the BAP selects during order confirmation, each identified and quantified to communicate optional add-ons to the BPP.
               owner: BPP
               type: object
-        provider:
-          id:
-            _description:
-              required: true
-              usage: 450dec0f
-              info: Id of the provider
-              owner: BPP
-              type: string
-          _description:
-            required: true
-            usage: ""
-            info: Details of the provider whose catalog items have been selected. The BAP includes this in select with a required provider id field, and the value is persisted in the session for reuse across confirm and status steps.
-            owner: BPP
-            type: object
+        provider: *&on_search_message_catalog_providers
         fulfillments:
           id:
             _description:
