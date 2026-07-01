@@ -149,6 +149,43 @@ attribute_set:
                   info: Describes the GPS co-ordinates of this location.
                   owner: BAP
                   type: string
+              address: 
+                _description:
+                  required: true
+                  type: string
+                  owner: BAP
+                  usage: 2nd & 3rd Floor, 7/6, August Kranti Marg
+                  info: Describes the address of the location.
+              city: 
+                code: 
+                  _description:
+                    required: false
+                    type: string
+                    owner: BAP
+                    usage: std:080
+                    info: Describes the city code.
+              district: 
+                _description:
+                  required: false
+                  type: string
+                  owner: BAP
+                  usage: New Delhi
+                  info: Describes the district value.
+              country: 
+                code: 
+                  _description:
+                    required: false
+                    type: string
+                    owner: BAP
+                    usage: IND
+                    info: Describes the country code.
+              area_code: 
+                _description:
+                  required: false
+                  type: string
+                  owner: BAP
+                  usage: '110049'
+                  info: Describes the area code.    
               _description:
                 required: true
                 usage: ""
@@ -544,6 +581,43 @@ attribute_set:
               info: Describes the unique Id of the provider.
               owner: BPP
               type: string
+            descriptor: &provider_descriptor_details
+          name: 
+            _description:
+              required: false
+              type: string
+              owner: BPP
+              usage: Uber
+              info: Describes the provider name.  
+          short_desc: 
+            _description:
+              required: false
+              type: string
+              owner: BPP
+              usage: Uber Rides
+              info: Describes the provdier short_desc.
+          long_desc: 
+            _description:
+              required: false
+              type: string
+              owner: BPP
+              usage: Uber Rides, India
+              info: Describes the provdier long_desc.    
+          images:  
+            url: 
+              _description:
+                required: false
+                type: string
+                owner: BPP
+                usage: https://example-bpp.com/prod/seller/asset
+                info: Describes the provdier image url.  
+            size_type: 
+              _description:
+                required: false
+                type: string
+                owner: BPP
+                usage: sm
+                info: Describes the provdier image size type.  
           locations:
             id:
               _description:
@@ -5851,21 +5925,50 @@ attribute_set:
               info: Customer details embedded in each fulfillment leg; persisted in session and referenced across subsequent order steps.
               owner: BPP
               type: object
-          agent:
-            person:
-              name:
+          agent: &on_confirm_message_order_fulfillments_agent_person
+            person: 
+              name: 
                 _description:
                   required: false
+                  type: string
+                  owner: BPP
                   usage: John Doe
                   info: Describes the name of the agent
-                  owner: BPP
+              gender:
+                _description:
+                  required: false
                   type: string
+                  owner: BAP
+                  usage: FEMALE
+                  info: Describes the agent gender 
+              image:
+                url:
+                  _description:
+                    required: false
+                    type: string
+                    owner: BPP
+                    usage: https://example-bpp.com/prod/seller/images
+                    info: Describes the agent image
+                size_type:
+                  _description:
+                    required: false
+                    type: string
+                    owner: BPP
+                    usage: sm
+                    info: Describes the size type of image     
+              _description: &on_confirm_message_order_fulfillments_agent_person__description
+                required: false
+                type: object
+                owner: BPP
+                usage: --
+                info: Describes the agent details.
+            rating: 
               _description:
                 required: false
-                usage: ""
-                info: The person object identifies the individual assigned to execute this fulfillment leg; the BPP includes it in on_confirm, and the BAP persists it throughout the order lifecycle to maintain assignment continuity.
+                type: string
                 owner: BPP
-                type: object
+                usage: '5'
+                info: Describes the agent rating.
             contact:
               phone:
                 _description:
@@ -7511,41 +7614,7 @@ attribute_set:
               info: Customer details embedded in each fulfillment leg; persisted in session and referenced across subsequent order steps.
               owner: BPP
               type: object
-          agent:
-            person:
-              name:
-                _description:
-                  required: true
-                  usage: John Doe
-                  info: Name of the agent
-                  owner: BPP
-                  type: string
-              _description:
-                required: false
-                usage: ""
-                info: The person object identifies the individual assigned to execute this fulfillment leg; the BPP includes it in on_confirm, and the BAP persists it throughout the order lifecycle to maintain assignment continuity.
-                owner: BPP
-                type: object
-            contact:
-              phone:
-                _description:
-                  required: false
-                  usage: "9856798567"
-                  info: Phone number of the fulfillment agent assigned by BPP in on_confirm; enables the BAP to contact the service provider and persists through the order lifecycle in the session.
-                  owner: BPP
-                  type: string
-              _description:
-                required: false
-                usage: ""
-                info: The assigned agent's contact details that the BPP includes in the on_confirm response as part of the fulfillment, persisted for the BAP to retrieve in subsequent operations.
-                owner: BPP
-                type: object
-            _description:
-              required: false
-              usage: ""
-              info: The agent details identify the entity assigned to this fulfillment leg within the cancellation response, carrying forward the executor assignment from the confirmed order state.
-              owner: BPP
-              type: object
+          agent: *&on_confirm_message_order_fulfillments_agent_person
           vehicle:
             registration:
               _description:
@@ -8144,6 +8213,71 @@ attribute_set:
             info: BPP returns this timestamp in on_cancel to reflect the cancellation processing time. The updated order state is persisted in session and reused across subsequent steps.
             owner: BPP
             type: date-time
+        documents: &invoice_document
+          descriptor:
+            code:
+              _description:
+                required: false
+                usage: INVOICE
+                info: >-
+                  It refers to the unique descriptor identifier used for the
+                  document
+                owner: BPP
+                type: string
+            name:
+              _description:
+                required: false
+                usage: Invoice Document
+                info: It refers to the specific name of the document
+                owner: BPP
+                type: string
+            short_desc:
+              _description:
+                required: false
+                usage: Download your Invoice Document here
+                info: This refers to the concised description of the document
+                owner: BPP
+                type: string
+            long_desc:
+              _description:
+                required: false
+                usage: Download your Invoice Document here
+                info: This refers to the brief description of the document
+                owner: BPP
+                type: string
+            _description:
+              required: false
+              usage: '--'
+              info: >-
+                It refers to the unique descriptor identifier used for the
+                document
+              owner: BPP
+              type: object
+          mime_type:
+            _description:
+              required: false
+              usage: application/pdf
+              info: >-
+                It refers to the categorization of the document based on its file
+                format and content type.
+              owner: BPP
+              type: string
+          url:
+            _description:
+              required: false
+              usage: https://seller.com/loan/invoice/O1.pdf
+              info: This describes the url from where the document can be accessed
+              owner: BPP
+              type: string
+          _description:
+          required: false
+          usage: '--'
+          info: >-
+            It refers to the set of documents that are associated to a
+            particular order
+          owner: BPP
+          type: object     
+        
         tags:
           descriptor:
             name:
@@ -9000,41 +9134,8 @@ attribute_set:
               info: Customer details embedded in each fulfillment leg; persisted in session and referenced across subsequent order steps.
               owner: BPP
               type: object
-          agent:
-            person:
-              name:
-                _description:
-                  required: true
-                  usage: John Doe
-                  info: Name of the agent
-                  owner: BPP
-                  type: string
-              _description:
-                required: true
-                usage: ""
-                info: The person object identifies the individual assigned to execute this fulfillment leg; the BPP includes it in on_confirm, and the BAP persists it throughout the order lifecycle to maintain assignment continuity.
-                owner: BPP
-                type: object
-            contact:
-              phone:
-                _description:
-                  required: true
-                  usage: "9856798567"
-                  info: Phone number of the fulfillment agent assigned by BPP in on_confirm; enables the BAP to contact the service provider and persists through the order lifecycle in the session.
-                  owner: BPP
-                  type: string
-              _description:
-                required: true
-                usage: ""
-                info: The assigned agent's contact details that the BPP includes in the on_confirm response as part of the fulfillment, persisted for the BAP to retrieve in subsequent operations.
-                owner: BPP
-                type: object
-            _description:
-              required: true
-              usage: ""
-              info: The agent details identify the entity assigned to this fulfillment leg within the cancellation response, carrying forward the executor assignment from the confirmed order state.
-              owner: BPP
-              type: object
+          agent: *&on_confirm_message_order_fulfillments_agent_person
+            
           type:
             _description:
               required: true
@@ -9548,6 +9649,7 @@ attribute_set:
             info: Describes the unqiue order ID.
             owner: BPP
             type: string
+        documents: *invoice_document
         _description:
           required: true
           usage: ""
@@ -10690,41 +10792,7 @@ attribute_set:
               info: Customer details embedded in each fulfillment leg; persisted in session and referenced across subsequent order steps.
               owner: BPP
               type: object
-          agent:
-            person:
-              name:
-                _description:
-                  required: true
-                  usage: John Doe
-                  info: Name of the agent
-                  owner: BPP
-                  type: string
-              _description:
-                required: true
-                usage: ""
-                info: Container for the assigned agent's personal details; the BPP populates this upon first dispatch assignment in on_update and it persists through subsequent order status updates.
-                owner: BPP
-                type: object
-            contact:
-              phone:
-                _description:
-                  required: true
-                  usage: "9856798567"
-                  info: BPP returns the agent's phone number in on_update, populating it if missing; the value is anchored in session and reused by later steps.
-                  owner: BPP
-                  type: string
-              _description:
-                required: true
-                usage: ""
-                info: BPP populates agent.contact with the assigned driver's communication details in on_update when assigning fulfillment; the value persists in the stored fulfillment and is replayed in subsequent messages.
-                owner: BPP
-                type: object
-            _description:
-              required: true
-              usage: ""
-              info: The BPP assigns the agent to identify the fulfillment provider (driver, delivery partner) responsible for executing this order leg in the on_confirm response. The BAP uses this assignment to track fulfillment dispatch and monitor changes through subsequent status updates, updates, and cancellations.
-              owner: BPP
-              type: object
+          agent: *&on_confirm_message_order_fulfillments_agent_person
           type:
             _description:
               required: true
@@ -11258,6 +11326,7 @@ attribute_set:
             info: Describes The date-time of updated of this order
             owner: BPP
             type: string
+        documents: *invoice_document
         billing:
           name:
             _description:
