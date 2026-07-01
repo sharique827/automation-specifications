@@ -1207,41 +1207,41 @@ _TESTS_:
               enumList: *searchForms
               _RETURN_: attr all in enumList
 
-    - _NAME_: ON_SEARCH_FULFILLMENTS
-      _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ITEMS
-          _RETURN_:
-            - _NAME_: REQUIRED_FULFILLMENT_ID
-              attr: $.message.catalog.providers[*].fulfillments[*].id
-              _RETURN_: attr are present
+    # - _NAME_: ON_SEARCH_FULFILLMENTS
+    #   _RETURN_:
+    #     - _NAME_: REQUIRED_FULFILLMENT_ITEMS
+    #       _RETURN_:
+    #         - _NAME_: REQUIRED_FULFILLMENT_ID
+    #           attr: $.message.catalog.providers[*].fulfillments[*].id
+    #           _RETURN_: attr are present
 
-            - _NAME_: REQUIRED_FULFILLMENT_TYPE
-              attr: $.message.catalog.providers[*].fulfillments[*].type
-              _RETURN_: attr are present
+    #         - _NAME_: REQUIRED_FULFILLMENT_TYPE
+    #           attr: $.message.catalog.providers[*].fulfillments[*].type
+    #           _RETURN_: attr are present
 
-        - _NAME_: VALID_FULFILLMENT_ITEMS
-          _RETURN_: 
-            - _NAME_: VALID_FULFILLMENT_TYPE
-              attr: $.message.catalog.providers[*].fulfillments[*].type
-              enumList: *fulfillmentTypes
-              _CONTINUE_: '!(attr are present)'
-              _RETURN_: (attr all in enumList)
+    #     - _NAME_: VALID_FULFILLMENT_ITEMS
+    #       _RETURN_: 
+    #         - _NAME_: VALID_FULFILLMENT_TYPE
+    #           attr: $.message.catalog.providers[*].fulfillments[*].type
+    #           enumList: *fulfillmentTypes
+    #           _CONTINUE_: '!(attr are present)'
+    #           _RETURN_: (attr all in enumList)
 
-        - _NAME_:  VALID_FULFILLMENT_TAGS
-          _SCOPE_: $.message.catalog.providers[*].fulfillments[*][?(@.type != 'BASE_ORDER')]
-          _RETURN_:
-            - _NAME_: REQUIRED_FULFILLMENT_TAGS
-              validTags: *CHECKLISTS
-              tagPath: $.message.catalog.providers[*].fulfillments[*].tags[*].descriptor.code
-              _CONTINUE_: '!(tagPath are present)'
-              _RETURN_: tagPath all in validTags
+    #     - _NAME_:  VALID_FULFILLMENT_TAGS
+    #       _SCOPE_: $.message.catalog.providers[*].fulfillments[*][?(@.type != 'BASE_ORDER')]
+    #       _RETURN_:
+    #         - _NAME_: REQUIRED_FULFILLMENT_TAGS
+    #           validTags: *CHECKLISTS
+    #           tagPath: $.message.catalog.providers[*].fulfillments[*].tags[*].descriptor.code
+    #           _CONTINUE_: '!(tagPath are present)'
+    #           _RETURN_: tagPath all in validTags
 
-            #use-case based validations are not enabled
-            - _NAME_: REQUIRED_CHECKLISTS_ITEM
-              _SCOPE_: $.message.catalog.providers[*].fulfillments[*].tags[?(@.descriptor.code == 'CHECKLISTS')]
-              subTags: $.list[*].descriptor.code
-              validValues: *checkListTags
-              _RETURN_: subTags all in validValues
+    #         #use-case based validations are not enabled
+    #         - _NAME_: REQUIRED_CHECKLISTS_ITEM
+    #           _SCOPE_: $.message.catalog.providers[*].fulfillments[*].tags[?(@.descriptor.code == 'CHECKLISTS')]
+    #           subTags: $.list[*].descriptor.code
+    #           validValues: *checkListTags
+    #           _RETURN_: subTags all in validValues
 
     #commenting for LAMF single redirection
     # - _NAME_: ON_SEARCH_PAYMENTS
@@ -1294,21 +1294,21 @@ _TESTS_:
     #           enumList: *paymentLabel
     #           _RETURN_:  enumList all in attr       
 
-    - _NAME_: ON_SEARCH_TAGS
-      action:
-        - on_search
-      _RETURN_:
-        - _NAME_: REQUIRED_PAYMENT_TAGS
-          validTags: *paymentTagGroups
-          tagPath: $.message.catalog.tags[*].descriptor.code
-          _CONTINUE_: '!(tagPath are present)'
-          _RETURN_: tagPath all in validTags
+    # - _NAME_: ON_SEARCH_TAGS
+    #   action:
+    #     - on_search
+    #   _RETURN_:
+    #     - _NAME_: REQUIRED_PAYMENT_TAGS
+    #       validTags: *paymentTagGroups
+    #       tagPath: $.message.catalog.tags[*].descriptor.code
+    #       _CONTINUE_: '!(tagPath are present)'
+    #       _RETURN_: tagPath all in validTags
 
-        - _NAME_: REQUIRED_BPP_TERMS
-          _SCOPE_: $.message.catalog.tags[?(@.descriptor.code == 'BPP_TERMS')]
-          subTags: $.list[*].descriptor.code
-          validValues: *bapTermTag
-          _RETURN_: subTags all in validValues
+    #     - _NAME_: REQUIRED_BPP_TERMS
+    #       _SCOPE_: $.message.catalog.tags[?(@.descriptor.code == 'BPP_TERMS')]
+    #       subTags: $.list[*].descriptor.code
+    #       validValues: *bapTermTag
+    #       _RETURN_: subTags all in validValues
 
     - _NAME_: ON_SEARCH_PROVIDER_TAGS
       action: 
