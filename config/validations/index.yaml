@@ -1414,16 +1414,36 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].state.descriptor.code
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_AUTH
-              attr: $.message.order.fulfillments[*].stops[*].authorization.type
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.type
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_TOKEN
-              attr: $.message.order.fulfillments[*].stops[*].authorization.token
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.token
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_VALID_TO
-              attr: $.message.order.fulfillments[*].stops[*].authorization.token
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.valid_to
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_AUTH_STATUS
-              attr: $.message.order.fulfillments[*].stops[*].authorization.status
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.status
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
         - _NAME_: ENUM_FULFILLMENT
           _RETURN_:
@@ -1448,15 +1468,26 @@ _TESTS_:
                 - COMPLETED
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_FULFILMENT_AUTH
-              attr: $.message.order.fulfillments[*].stops[*].authorization.type
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.type
               enumList:
+                - OTP
                 - QR
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_FULFILMENT_AUTH_STATUS
-              attr: $.message.order.fulfillments[*].stops[*].authorization.status
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.status
               enumList:
                 - UNCLAIMED
                 - CLAIMED
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr all in enumList
     - _NAME_: ON_CONFIRM_PROVIDER
       action:
@@ -1617,16 +1648,36 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].state.descriptor.code
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_AUTH
-              attr: $.message.order.fulfillments[*].stops[*].authorization.type
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.type
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_TOKEN
-              attr: $.message.order.fulfillments[*].stops[*].authorization.token
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.token
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_VALID_TO
-              attr: $.message.order.fulfillments[*].stops[*].authorization.token
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.valid_to
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_FULFILMENT_AUTH_STATUS
-              attr: $.message.order.fulfillments[*].stops[*].authorization.status
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.status
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr are present
         - _NAME_: ENUM_FULFILLMENT
           _RETURN_:
@@ -1651,15 +1702,26 @@ _TESTS_:
                 - CONFIRMED
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_FULFILMENT_AUTH
-              attr: $.message.order.fulfillments[*].stops[*].authorization.type
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.type
               enumList:
+                - OTP
                 - QR
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr all in enumList
             - _NAME_: REQUIRED_FULFILMENT_AUTH_STATUS
-              attr: $.message.order.fulfillments[*].stops[*].authorization.status
+              _SCOPE_: $.message.order.fulfillments[*].stops[*]
+              attr: $.authorization.status
               enumList:
                 - CLAIMED
                 - UNCLAIMED
+              useCasePath: $.type
+              var_stop_type:
+                - START
+              _CONTINUE_: "!(useCasePath any in var_stop_type)"
               _RETURN_: attr all in enumList
     - _NAME_: ON_STATUS_PROVIDER
       action:
