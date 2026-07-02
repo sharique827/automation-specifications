@@ -6646,14 +6646,20 @@ _TESTS_:
       skipQuoteIfItemCodePath: "$.message.order.items[*].descriptor.code"
       skipQuoteIfItemCode:
         - AGENT_TICKETING
-      _CONTINUE_: "(skipQuoteIfItemCodePath any in skipQuoteIfItemCode)"
+      skipIfStatusPath: "$.message.order.status"
+      skipIfStatus:
+        - UPDATED
+      _CONTINUE_: "(skipQuoteIfItemCodePath any in skipQuoteIfItemCode) || (skipIfStatusPath any in skipIfStatus)"
     - _NAME_: REQUIRED_MESSAGE_AMOUNT_49
       attr: "$.message.order.payments[*].params.amount"
       _RETURN_: attr are present
       skipQuoteIfItemCodePath: "$.message.order.items[*].descriptor.code"
       skipQuoteIfItemCode:
         - AGENT_TICKETING
-      _CONTINUE_: "(skipQuoteIfItemCodePath any in skipQuoteIfItemCode)"
+      skipIfStatusPath: "$.message.order.status"
+      skipIfStatus:
+        - UPDATED
+      _CONTINUE_: "(skipQuoteIfItemCodePath any in skipQuoteIfItemCode) || (skipIfStatusPath any in skipIfStatus)"
     - _NAME_: VALID_ENUM_MESSAGE_STATUS_1
       enumList:
         - UNCLAIMED
