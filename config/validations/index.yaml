@@ -4125,7 +4125,7 @@ _TESTS_:
         - ONLINE
       _RETURN_: subTags all in validValues
     - _NAME_: VALID_VEHICLE_CATEGORY
-      _SCOPE_: "$.message.catalog.providers[*].fulfillments[?(@.vehicle.category)]"
+      _SCOPE_: "$.message.catalog.providers[*].fulfillments[?(@.type!='ONLINE' && @.vehicle.category)]"
       subTags: "$.vehicle.category"
       validValues:
         - BUS
@@ -5554,7 +5554,7 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_TYPE_31
-      attr: "$.message.order.fulfillments[*].stops[*].authorization.type"
+      attr: "$.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.type"
       _RETURN_: attr are present && attr all in enumList
       enumList:
         - QR
@@ -5564,14 +5564,14 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_TOKEN_32
-      attr: "$.message.order.fulfillments[*].stops[*].authorization.token"
+      attr: "$.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.token"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALID_TO_33
-      attr: "$.message.order.fulfillments[*].stops[*].authorization.valid_to"
+      attr: "$.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.valid_to"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
@@ -6547,7 +6547,7 @@ _TESTS_:
         - TICKET
         - AGENT_TICKETING
     - _NAME_: REQUIRED_MESSAGE_CATEGORY_36
-      attr: "$.message.order.fulfillments[*].vehicle.category"
+      attr: "$.message.order.fulfillments[?(@.type=='TRIP')].vehicle.category"
       _RETURN_: attr are present && attr all in enumList
       enumList:
         - BUS
