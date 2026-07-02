@@ -4634,7 +4634,7 @@ _TESTS_:
         - AGENT_TICKETING  
       _CONTINUE_: "!(useCasePath all in useCode) || (skipQuoteIfItemCodePath any in skipQuoteIfItemCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_76
-      attr: "$.message.order.quote.breakup[?(@.item)].item.quantity.selected.count"
+      attr: "$.message.order.quote.breakup[?(@.title=='BASE_FARE')].item.quantity.selected.count"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
