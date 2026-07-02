@@ -50,6 +50,15 @@ flows:
     config:
       $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Family_.yaml
   - type: playground
+    id: Health_Insurance_Application(Family)_With_IGM(v-1.0.0)
+    usecase: HEALTH INSURANCE
+    tags:
+      - WORKBENCH
+      - MANDATORY
+    description: A customer applies for family health insurance coverage by searching and selecting a suitable plan, providing household member details through guided forms, and completing the application for policy issuance.
+    config:
+      $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Family_With_IGM.yaml
+  - type: playground
     id: Health_Insurance_Application(Individual)
     usecase: HEALTH INSURANCE
     tags:
@@ -59,6 +68,15 @@ flows:
     description: An individual searches and selects a health insurance plan, completes an interactive application with personal details across multiple forms, and confirms enrollment.
     config:
       $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Individual_.yaml
+  - type: playground
+    id: Health_Insurance_Application(Individual)_With_IGM(v-1.0.0)
+    usecase: HEALTH INSURANCE
+    tags:
+      - WORKBENCH
+      - MANDATORY
+    description: An individual searches and selects a health insurance plan, completes an interactive application with personal details across multiple forms, and confirms enrollment.
+    config:
+      $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Individual_With_IGM.yaml
   - type: playground
     id: Health_Insurance_Application(PRE-ORDER-Family)
     usecase: HEALTH INSURANCE
@@ -149,6 +167,15 @@ flows:
     description: An end-to-end motor insurance application journey enabling customers to search available policies, select preferred coverage options, complete application forms with applicant details, and finalize policy acquisition through confirmation and settlement.
     config:
       $ref: ./MOTOR INSURANCE/Motor_Insurance_Application.yaml
+  - type: playground
+    id: Motor_Insurance_Application_With_IGM
+    usecase: MOTOR INSURANCE
+    tags:
+      - WORKBENCH
+      - MANDATORY
+    description: An end-to-end motor insurance application journey enabling customers to search available policies, select preferred coverage options, complete application forms with applicant details, and finalize policy acquisition through confirmation and settlement.
+    config:
+      $ref: ./MOTOR INSURANCE/Motor_Insurance_Application_With_IGM.yaml
   - type: playground
     id: Motor_Insurance_Application(PRE-ORDER)
     usecase: MOTOR INSURANCE
