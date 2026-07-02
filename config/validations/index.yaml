@@ -7309,21 +7309,21 @@ _TESTS_:
     #     - BUS
     #   _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_88
-      attr: "$.message.order.quote.breakup[*].item.price.currency"
+      attr: "$.message.order.quote.breakup[*].price.currency"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALUE_89
-      attr: "$.message.order.quote.breakup[*].item.price.value"
+      attr: "$.message.order.quote.breakup[*].price.value"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_90
-      attr: "$.message.order.quote.breakup[*].item.quantity.selected.count"
+      attr: "$.message.order.quote.breakup[?(@.title=='BASE_FARE')].item.quantity.selected.count"
       _RETURN_: attr are present
       useCasePath: "$.message.order.fulfillments[*].vehicle.category"
       useCode:
