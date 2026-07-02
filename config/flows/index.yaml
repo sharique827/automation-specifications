@@ -76,6 +76,7 @@ flows:
     usecase: LAMF LOAN
     tags:
       - WORKBENCH
+      - Mandatory
       - REPORTABLE
     description: LAMF Credit Line with MFC
     config:
@@ -136,6 +137,45 @@ flows:
   #   description: Drawdown - LAMF Credit Line with Offline Journey(Pre Part)
   #   config:
   #     $ref:  "./LAMF/lamf_credit_line_with_mfc_offline_journey_drawdown_pre_part.yaml"    
+
+
+  #Business Loan Flows
+  - type: playground
+    id: master_search
+    meta:
+      order: 0
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: Master Search
+    config:
+      $ref:  "./BUSINESS_LOAN/master_search.yaml"
+  - type: playground
+    id: business_term_loan_without_aa
+    meta:
+      order: 2
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: BUSINESS Term Loan Without AA
+    config:
+      $ref:  "./BUSINESS_LOAN/business_term_loan_without_aa.yaml"
+  - type: playground
+    id: business_term_loan_with_file_upload
+    meta:
+      order: 3
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: BUSINESS Term Loan With File Upload
+    config:
+      $ref:  "./BUSINESS_LOAN/business_term_loan_with_file_upload.yaml"
 
   
  
