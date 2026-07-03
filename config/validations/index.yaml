@@ -1033,9 +1033,10 @@ _TESTS_:
           attr: $.message.order.fulfillments[*].state.descriptor.code
           _RETURN_: attr are present
         - _NAME_: VALID_FULFILLMENT_STATE_ENUM
-          attr: $.message.order.fulfillments[*].state.descriptor.code
+          attr: $.message.order.fulfillments[*].state.descriptor.code        
           enumList: &a17
             - INITIATED
+            - ACTIVE
             - SANCTIONED
             - DISBURSED
             - PENDING
@@ -1045,12 +1046,10 @@ _TESTS_:
             - APPROVED
             - DISPATCHED
             - ACCEPTED
+            - SUCCESSFUL
+            - PAUSED
+            - CANCELLED                        
           _RETURN_: attr all in enumList
-        - _NAME_: REJECTED_FULFILLMENT_NACK
-          attr: $.message.order.fulfillments[*].state.descriptor.code
-          enumList:
-            - REJECTED
-          _RETURN_: "!(attr any in enumList)"
         - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER
           attr: $.message.order.fulfillments[*].customer.person.id
           _RETURN_: attr are present
