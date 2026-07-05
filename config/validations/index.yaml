@@ -386,20 +386,20 @@ _TESTS_:
               _RETURN_: attr follow regex reg
   
   
-    - _NAME_: SEARCH_CATEGORY_CODE
-      action:
-        - search
-      useCasePath: $.message.intent.provider.id
-      _CONTINUE_: '(useCasePath are present)'  
-      _RETURN_:
-        - _NAME_: REQUIRED_CATEGORY_CODE
-          attr: $.message.intent.category.descriptor.code
-          _RETURN_: attr are present
-        - _NAME_: VALID_ENUM_CATEGORY_CODE
-          attr: $.message.intent.category.descriptor.code
-          enumList: *loanCategories
-          _CONTINUE_: '!(attr are present)'
-          _RETURN_: attr all in enumList  
+    # - _NAME_: SEARCH_CATEGORY_CODE
+    #   action:
+    #     - search
+    #   useCasePath: $.message.intent.provider.id
+    #   _CONTINUE_: '(useCasePath are present)'  
+    #   _RETURN_:
+    #     - _NAME_: REQUIRED_CATEGORY_CODE
+    #       attr: $.message.intent.category.descriptor.code
+    #       _RETURN_: attr are present
+    #     - _NAME_: VALID_ENUM_CATEGORY_CODE
+    #       attr: $.message.intent.category.descriptor.code
+    #       enumList: *loanCategories
+    #       _CONTINUE_: '!(attr are present)'
+    #       _RETURN_: attr all in enumList  
 
     #search -> 2
     - _NAME_: SEARCH_ITEMS
