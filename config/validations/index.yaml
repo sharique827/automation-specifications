@@ -6552,6 +6552,10 @@ _TESTS_:
       enumList:
         - BUS
         - METRO
+      useCasePath: "$.message.order.fulfillments[*].type"
+      useCode:
+        - TRIP
+      _CONTINUE_: "!(useCasePath any in useCode)"  
     - _NAME_: REQUIRED_MESSAGE_VALUE_37
       attr: "$.message.order.quote.price.value"
       _RETURN_: attr are present
