@@ -1903,7 +1903,7 @@ paths:
             schema:
               type: object
               properties:
-                context:
+                context: &context_2
                   type: object
                   properties:
                     action:
@@ -1950,7 +1950,17 @@ paths:
                                 properties:
                                   name:
                                     type: string
-                              descriptor: *descriptor_3
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  name:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  long_desc:
+                                    type: string
                               id:
                                 type: string
                               updated_at:
