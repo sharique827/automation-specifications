@@ -740,238 +740,6 @@ paths:
                         provider: *provider
                         tags: *tags
       responses: *responses
-  /issue:
-    post:
-      operationId: issue
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      type: object
-                      properties:
-                        actions: &actions
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              action_by:
-                                type: string
-                              actor_details:
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                              descriptor: *descriptor_2
-                              id:
-                                type: string
-                              updated_at:
-                                type: string
-                        actors: &actors
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              info: &info
-                                type: object
-                                properties:
-                                  contact: &contact_3
-                                    type: object
-                                    properties:
-                                      email:
-                                        type: string
-                                      phone:
-                                        type: string
-                                  org:
-                                    type: object
-                                    properties:
-                                      name:
-                                        type: string
-                                  person:
-                                    type: object
-                                    properties:
-                                      name:
-                                        type: string
-                              type:
-                                type: string
-                        complainant_id:
-                          type: string
-                        created_at:
-                          type: string
-                        descriptor:
-                          type: object
-                          properties:
-                            additional_desc: *additional_desc
-                            code:
-                              type: string
-                            images: &images
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  size_type:
-                                    type: string
-                                  url:
-                                    type: string
-                            long_desc:
-                              type: string
-                            media:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  url:
-                                    type: string
-                            short_desc:
-                              type: string
-                        expected_resolution_time: *time
-                        expected_response_time: *time
-                        id:
-                          type: string
-                        last_action_id:
-                          type: string
-                        level:
-                          type: string
-                        refs: &refs
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              ref_id:
-                                type: string
-                              ref_type:
-                                type: string
-                              tags:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    descriptor: *items
-                                    list:
-                                      type: array
-                                      items:
-                                        type: object
-                                        properties:
-                                          descriptor: *items
-                                          value:
-                                            type: string
-                        source_id:
-                          type: string
-                        status:
-                          type: string
-                        updated_at:
-                          type: string
-                        category:
-                          type: string
-                        complainant_info:
-                          type: object
-                          properties:
-                            contact: *contact_3
-                            person:
-                              type: object
-                              properties:
-                                name:
-                                  type: string
-                        description:
-                          type: object
-                          properties:
-                            additional_desc: *additional_desc
-                            images: *fulfillment_ids
-                            long_desc:
-                              type: string
-                            short_desc:
-                              type: string
-                        issue_actions:
-                          type: object
-                          properties:
-                            complainant_actions:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  complainant_action:
-                                    type: string
-                                  short_desc:
-                                    type: string
-                                  updated_at:
-                                    type: string
-                                  updated_by: *info
-                        issue_type:
-                          type: string
-                        order_details:
-                          type: object
-                          properties:
-                            fulfillments:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  id:
-                                    type: string
-                                  state:
-                                    type: string
-                            id:
-                              type: string
-                            items:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  id:
-                                    type: string
-                                  quantity:
-                                    type: integer
-                            provider_id:
-                              type: string
-                            state:
-                              type: string
-                        source:
-                          type: object
-                          properties:
-                            network_participant_id:
-                              type: string
-                            type:
-                              type: string
-                        sub_category:
-                          type: string
-      responses: *responses
   /on_cancel:
     post:
       operationId: on_cancel
@@ -1368,173 +1136,6 @@ paths:
                             price: *price
                         tags: *tags
                         cancellation_terms: *cancellation_terms
-      responses: *responses
-  /on_issue:
-    post:
-      operationId: on_issue
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context: &context_2
-                  type: object
-                  properties:
-                    action:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                    country:
-                      type: string
-                    domain:
-                      type: string
-                    message_id:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      type: object
-                      properties:
-                        actions: *actions
-                        actors: *actors
-                        complainant_id:
-                          type: string
-                        created_at:
-                          type: string
-                        descriptor:
-                          type: object
-                          properties:
-                            additional_desc: *additional_desc
-                            code:
-                              type: string
-                            images: *images
-                            long_desc:
-                              type: string
-                            short_desc:
-                              type: string
-                        expected_resolution_time: *time
-                        expected_response_time: *time
-                        id:
-                          type: string
-                        last_action_id:
-                          type: string
-                        level:
-                          type: string
-                        refs: *refs
-                        respondent_ids: *fulfillment_ids
-                        source_id:
-                          type: string
-                        status:
-                          type: string
-                        updated_at:
-                          type: string
-                        issue_actions: &issue_actions
-                          type: object
-                          properties:
-                            respondent_actions:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  cascaded_level:
-                                    type: integer
-                                  respondent_action:
-                                    type: string
-                                  short_desc:
-                                    type: string
-                                  updated_at:
-                                    type: string
-                                  updated_by: *info
-                    update_target:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          action:
-                            type: string
-                          path:
-                            type: string
-      responses: *responses
-  /on_issue_status:
-    post:
-      operationId: on_issue_status
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context: *context_2
-                message:
-                  type: object
-                  properties:
-                    issue:
-                      type: object
-                      properties:
-                        created_at:
-                          type: string
-                        id:
-                          type: string
-                        issue_actions: *issue_actions
-                        resolution:
-                          type: object
-                          properties:
-                            action_triggered:
-                              type: string
-                            long_desc:
-                              type: string
-                            refund_amount:
-                              type: string
-                            short_desc:
-                              type: string
-                        resolution_provider:
-                          type: object
-                          properties:
-                            respondent_info:
-                              type: object
-                              properties:
-                                organization: *info
-                                resolution_support:
-                                  type: object
-                                  properties:
-                                    chat_link:
-                                      type: string
-                                    contact: *contact_3
-                                    gros:
-                                      type: array
-                                      items:
-                                        type: object
-                                        properties:
-                                          contact: *contact_3
-                                          gro_type:
-                                            type: string
-                                          person:
-                                            type: object
-                                            properties:
-                                              name:
-                                                type: string
-                                type:
-                                  type: string
-                        updated_at:
-                          type: string
       responses: *responses
   /on_search:
     post:
@@ -2292,3 +1893,179 @@ paths:
                     update_target:
                       type: string
       responses: *responses
+  /issue:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: |
+        ###  Operation Description
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /on_issue:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Send the issue resolution details object
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+                  required:
+                    - issue
+                error:
+                  $ref: "#/components/schemas/Error"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /issue_status:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Request for latest status of the complaint
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue_id:
+                      description: Network issue identifier is a unique number assigned to a complaint
+                        by the interfacing application
+                      type: string
+                  required:
+                    - issue_id
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /on_issue_status:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Send the issue resolution details object
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+                  required:
+                    - issue
+                error:
+                  $ref: "#/components/schemas/Error"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message    
