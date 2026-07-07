@@ -1905,35 +1905,258 @@ paths:
             schema:
               type: object
               properties:
-                context:
-                  $ref: "#/components/schemas/Context"
+                context: &context_issue
+                  type: object
+                  properties:
+                    domain:
+                      type: string
+                    action:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    message_id:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    ttl:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    country:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
                 message:
                   type: object
                   properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
+                    issue: &issue_schema
+                      type: object
+                      properties:
+                        actions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              descriptor:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                              updated_at:
+                                type: string
+                              action_by:
+                                type: string
+                        id:
+                          type: string
+                        status:
+                          type: string
+                        level:
+                          type: string
+                        created_at:
+                          type: string
+                        updated_at:
+                          type: string
+                        source_id:
+                          type: string
+                        descriptor:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                        last_action_id:
+                          type: string
+                        issue_actions:
+                          type: object
+                          properties:
+                            complainant_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  complainant_action:
+                                    type: string
+                            respondent_actions:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  respondent_action:
+                                    type: string
+                                  short_desc:
+                                    type: string
+                                  updated_at:
+                                    type: string
+                                  updated_by:
+                                    type: object
+                                    properties:
+                                      person:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                                      org:
+                                        type: object
+                                        properties:
+                                          name:
+                                            type: string
+                        category:
+                          type: string
+                        sub_category:
+                          type: string
+                        complainant_info:
+                          type: object
+                          properties:
+                            person:
+                              type: object
+                              properties:
+                                name:
+                                  type: string
+                            contact:
+                              type: object
+                              properties:
+                                phone:
+                                  type: string
+                                email:
+                                  type: string
+                        order_details:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            items:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                                  quantity:
+                                    type: string
+                            fulfillments:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    type: string
+                            provider_id:
+                              type: string
+                        description:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            additional_desc:
+                              type: object
+                              properties:
+                                url:
+                                  type: string
+                                content_type:
+                                  type: string
+                            images:
+                              type: string
+                        expected_response_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        expected_resolution_time:
+                          type: object
+                          properties:
+                            duration:
+                              type: string
+                        resolution:
+                          type: object
+                          properties:
+                            short_desc:
+                              type: string
+                            long_desc:
+                              type: string
+                            action_triggered:
+                              type: string
+                        resolution_provider:
+                          type: object
+                          properties:
+                            respondent_info:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                organization:
+                                  type: object
+                                  properties:
+                                    org:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                                    person:
+                                      type: object
+                                      properties:
+                                        name:
+                                          type: string
+                        refs:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              ref_id:
+                                type: string
+                              ref_type:
+                                type: string
+                        actors:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                              info:
+                                type: object
+                                properties:
+                                  person:
+                                    type: object
+                                    properties:
+                                      name:
+                                        type: string
+                                  contact:
+                                    type: object
+                                    properties:
+                                      phone:
+                                        type: string
+                                      email:
+                                        type: string
               required:
                 - context
                 - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
+      responses: *responses
   /on_issue:
     post:
       tags:
@@ -1946,39 +2169,18 @@ paths:
             schema:
               type: object
               properties:
-                context:
-                  $ref: "#/components/schemas/Context"
+                context: *context_issue
                 message:
                   type: object
                   properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
+                    issue: *issue_schema
                   required:
                     - issue
-                error:
-                  $ref: "#/components/schemas/Error"
+                error: *a3
               required:
                 - context
                 - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
+      responses: *responses
   /issue_status:
     post:
       tags:
@@ -1991,8 +2193,7 @@ paths:
             schema:
               type: object
               properties:
-                context:
-                  $ref: "#/components/schemas/Context"
+                context: *context_issue
                 message:
                   type: object
                   properties:
@@ -2005,25 +2206,7 @@ paths:
               required:
                 - context
                 - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message
+      responses: *responses
   /on_issue_status:
     post:
       tags:
@@ -2036,36 +2219,15 @@ paths:
             schema:
               type: object
               properties:
-                context:
-                  $ref: "#/components/schemas/Context"
+                context: *context_issue
                 message:
                   type: object
                   properties:
-                    issue:
-                      $ref: "#/components/schemas/Issue"
+                    issue: *issue_schema
                   required:
                     - issue
-                error:
-                  $ref: "#/components/schemas/Error"
+                error: *a3
               required:
                 - context
                 - message
-      responses:
-        "200":
-          description: Acknowledgement of message received
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        $ref: "#/components/schemas/Ack"
-                    required:
-                      - ack
-                  error:
-                    $ref: "#/components/schemas/Error"
-                required:
-                  - message    
+      responses: *responses
