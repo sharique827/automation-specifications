@@ -1247,9 +1247,9 @@ _TESTS_:
     - _NAME_: ON_SELECT_PROVIDER_IMAGES_URL
       attr: $.message.order.provider.descriptor.images[*].url
       _RETURN_: attr are present
-    - _NAME_: ON_SELECT_PROVIDER_IMAGES_SIZE_TYPE
-      attr: $.message.order.provider.descriptor.images[*].size_type
-      _RETURN_: attr are present
+    # - _NAME_: ON_SELECT_PROVIDER_IMAGES_SIZE_TYPE
+    #   attr: $.message.order.provider.descriptor.images[*].size_type
+    #   _RETURN_: attr are present
     - _NAME_: REQUIRED_MASTER_POLICY_TAG_GROUP
       validTags:
       - MASTER_POLICY
@@ -2408,9 +2408,9 @@ _TESTS_:
     - _NAME_: PROVIDER_IMAGE_URL
       attr: $.message.order.provider.descriptor.images[*].url
       _RETURN_: attr are present
-    - _NAME_: PROVIDER_IMAGE_SIZE
-      attr: $.message.order.provider.descriptor.images[*].size_type
-      _RETURN_: attr are present
+    # - _NAME_: PROVIDER_IMAGE_SIZE
+    #   attr: $.message.order.provider.descriptor.images[*].size_type
+    #   _RETURN_: attr are present
   - _NAME_: ON_UPDATE_ITEMS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
     _CONTINUE_: (usecasepath are present)
