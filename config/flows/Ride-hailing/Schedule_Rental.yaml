@@ -134,33 +134,11 @@ steps:
               type: string
               description: Enter pickup area code
               x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='START')].location.area_code
-            end_address:
-              type: string
-              description: Enter drop address
-              x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='END')].location.address
-            end_city_code:
-              type: string
-              description: Enter drop city code
-              x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='END')].location.city.code
-            end_district:
-              type: string
-              description: Enter drop district
-              x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='END')].location.district
-            end_country_code:
-              type: string
-              description: Enter drop country code
-              default: IND
-              x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='END')].location.country.code
-            end_area_code:
-              type: string
-              description: Enter drop area code
-              x-payloadField: $.message.intent.fulfillment.stops[?(@.type=='END')].location.area_code
           required:
             - city_code
             - start_gps
             - time
             - start_address
-            - end_address
           additionalProperties: false
         sampleData:
           city_code: 'std:080'
@@ -171,11 +149,6 @@ steps:
           start_district: Bangalore
           start_country_code: IND
           start_area_code: '560001'
-          end_address: MG Road, Bengaluru
-          end_city_code: std:080
-          end_district: Bangalore
-          end_country_code: IND
-          end_area_code: '560001'
     examples:
       - name: Example for action "search"
         description: Auto-generated example for action "search" in flow "Schedule_Rental"
