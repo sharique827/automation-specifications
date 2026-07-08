@@ -102,14 +102,6 @@ steps:
               type: string
               description: Enter city code
               x-payloadField: $.context.location.city.code
-            collected_by:
-              type: string
-              description: Select collected by
-              enum:
-                - BAP
-                - BPP
-              default: BAP
-              x-payloadField: $.message.intent.payment.collected_by
             start_gps:
               type: string
               description: Enter start gps coordinates
@@ -175,7 +167,6 @@ steps:
             - city_code
             - start_gps
             - end_gps
-            - collected_by
             - start_address
             - end_address
           additionalProperties: false
