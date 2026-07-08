@@ -2023,6 +2023,14 @@ components:
           description: The rating of this location
           allOf:
             - $ref: '#/components/schemas/Rating/properties/value'
+        time:
+          description: >-
+            Temporal attributes of this item. This property is used when the
+            item exists on the catalog only for a limited period of time.
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/Time'
     MediaFile:
       description: This object contains a url to a media file.
       type: object
