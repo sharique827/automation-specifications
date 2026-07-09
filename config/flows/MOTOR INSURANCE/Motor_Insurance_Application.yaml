@@ -6950,437 +6950,438 @@ steps:
           BAP.
   
   
-  - api: update
-    action_id: update_motor
-    owner: BAP
-    responseFor: null
-    unsolicited: false
-    description: The BAP updates the motor insurance policy order with payment
-      confirmation and transaction details.
-    mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgaW5wdXRzID0gc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHM7CiAgY29uc3QgdXBkYXRlQ29udGFjdCA9IGlucHV0cz8udXBkYXRlX2NvbnRhY3QgPz8gIjk5ODg5OTg4ODgiOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzWzBdLmN1c3RvbWVyLmNvbnRhY3QucGhvbmUgPSB1cGRhdGVDb250YWN0OwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZFswXTsKCgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGlmICghdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8ub3JkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIGlzIG1pc3NpbmcgbWVzc2FnZS5vcmRlci4iCiAgICB9OwogIH0KCiAgaWYgKCF0YXJnZXRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzPy5sZW5ndGgpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIG11c3QgY29udGFpbiBhdCBsZWFzdCBvbmUgZnVsZmlsbG1lbnQuIgogICAgfTsKICB9CgogIGlmICghdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1swXT8uY3VzdG9tZXI/LmNvbnRhY3QpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIGZ1bGZpbGxtZW50IGN1c3RvbWVyIGNvbnRhY3QgaXMgbWlzc2luZy4iCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgICAKCiAgaWYgKCFzZXNzaW9uRGF0YT8ub3JkZXJfaWQ/LlswXSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBvcmRlcl9pZCBpbiBzZXNzaW9uIGRhdGEuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
-      defaultPayload:
-        context:
-          domain: ONDC:FIS13
-          action: update
-          timestamp: 2026-04-10T07:45:45.148Z
-          transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
-          message_id: 7a4153d6-6c19-4a86-a672-12f61256c003
-          bap_id: bap.example.com
-          bap_uri: https://bap.example.com
-          ttl: PT30S
-          bpp_id: bpp.example.com
-          bpp_uri: https://bpp.example.com
-          version: 2.0.0
-          location:
-            country:
-              code: IND
-            city:
-              code: "*"
-        message:
-          update_target: order.fulfillments
-          order:
-            id: O1
-            fulfillments:
-              - customer:
-                  contact:
-                    phone: +91-9667788867
-      saveData:
-        transactionId: $.context.transaction_id
-        latestMessage_id: $.context.message_id
-        latestTimestamp: $.context.timestamp
-        bapId: $.context.bap_id
-        bapUri: $.context.bap_uri
-        bppId: $.context.bpp_id
-        bppUri: $.context.bpp_uri
-        city_code: $.context.location.city.code
-        order_id: $.message.order.id
-        update_target: $.message.update_target
-        update_label: $.message.order.payments[0].time.label
-        update_amount: $.message.order.payments[0].params.amount
-        update_currency: $.message.order.payments[0].params.currency
-        payment_id: $.message.order.payments[0].id
-        updated_phone: $.message.order.fulfillments[0].customer.contact.phone
-      inputs:
-        id: update_contact_input
-        jsonSchema:
-          $schema: http://json-schema.org/draft-07/schema#
-          type: object
-          properties:
-            update_contact:
-              type: string
-              title: Enter Number
-              default: ""
-          required:
-            - update_contact
-          additionalProperties: true
-          default: {}
-    examples:
-      - name: example for update
-        payload:
-          context:
-            domain: ONDC:FIS13
-            action: update
-            timestamp: 2026-07-07T12:37:53.061Z
-            transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
-            message_id: 5f7b8115-c720-44f4-8952-26c5d62bb5a9
-            bap_id: bap.example.com
-            bap_uri: https://bap.example.com
-            ttl: PT30S
-            bpp_id: bpp.example.com
-            bpp_uri: https://bpp.example.com
-            version: 2.0.0
-            location:
-              country:
-                code: IND
-              city:
-                code: "*"
-          message:
-            update_target: order.fulfillments
-            order:
-              id: b6ac7632-109f-42ec-90c0-fe42276e9a33
-              fulfillments:
-                - customer:
-                    contact:
-                      phone: "8877665566"
-        type: request
-        description: The BAP updates the motor insurance policy order with payment
-          confirmation and transaction details.
-  - api: on_update
-    action_id: on_update_motor
-    owner: BPP
-    responseFor: update_motor
-    unsolicited: true
-    description: The BPP sends an unsolicited update notification to inform the BAP
-      of changes to the motor insurance order, such as claim document
-      attachments, policy modifications, or payment processing. This
-      asynchronous callback enables the provider to proactively communicate
-      order or claim progression without awaiting explicit BAP requests.
-    mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKHNlc3Npb25EYXRhLm9yZGVyKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyID0gc2Vzc2lvbkRhdGEub3JkZXJbMF07CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1swXS5jdXN0b21lci5jb250YWN0LnBob25lID0gc2Vzc2lvbkRhdGEudXBkYXRlZF9waG9uZVswXTsKICAgIAogIH0KCiAgIC8vIFNldHVwZGF0ZWRfYXQgdG8gY3VycmVudCBkYXRlCiAgaWYgKGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/Lm9yZGVyKSB7CiAgICBjb25zdCBub3cgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0KSB7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudXBkYXRlZF9hdCA9IG5vdzsKICAgIH0KICB9CiAKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICBpZiAoIXRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBpcyBtaXNzaW5nIG1lc3NhZ2Uub3JkZXIuIgogICAgfTsKICB9CgogIGlmICghdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cz8ubGVuZ3RoKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBtdXN0IGNvbnRhaW4gYXQgbGVhc3Qgb25lIGZ1bGZpbGxtZW50LiIKICAgIH07CiAgfQoKICBpZiAoIXRhcmdldFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0/LmN1c3RvbWVyPy5jb250YWN0KSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBmdWxmaWxsbWVudCBjdXN0b21lciBjb250YWN0IGlzIG1pc3NpbmcuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
-      requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICghc2Vzc2lvbkRhdGE/Lm9yZGVyPy5bMF0pIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk1pc3Npbmcgb3JkZXIgaW4gc2Vzc2lvbiBkYXRhLiIKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhPy51cGRhdGVkX3Bob25lPy5bMF0pIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk1pc3NpbmcgdXBkYXRlZF9waG9uZSBpbiBzZXNzaW9uIGRhdGEuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
-      defaultPayload:
-        context:
-          domain: ONDC:FIS13
-          action: on_update
-          timestamp: 2026-04-10T07:45:45.148Z
-          transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
-          message_id: 92a8b4a8-e9ed-49c8-b25e-25c01228368b
-          bap_id: bap.example.com
-          bap_uri: https://bap.example.com
-          ttl: PT30S
-          bpp_id: bpp.example.com
-          bpp_uri: https://bpp.example.com
-          version: 2.0.0
-          location:
-            country:
-              code: IND
-            city:
-              code: "*"
-        message:
-          order: {}
-      saveData:
-        transactionId: $.context.transaction_id
-        latestMessage_id: $.context.message_id
-        latestTimestamp: $.context.timestamp
-        bapId: $.context.bap_id
-        bapUri: $.context.bap_uri
-        bppId: $.context.bpp_id
-        bppUri: $.context.bpp_uri
-        city_code: $.context.location.city.code
-        order: $.message.order
-        second_fulfillment_id: $.message.order.fulfillments[1].id
-        claim_doc_url_motor: $.message.order.documents[?(@.descriptor.code=='CLAIM_DOC')].url
-        payment_id: $.message.order.payments[0].id
-      inputs: {}
-    examples:
-      - name: example for on_update
-        payload:
-          context:
-            domain: ONDC:FIS13
-            action: on_update
-            timestamp: 2026-07-07T12:37:53.083Z
-            transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
-            message_id: 5f7b8115-c720-44f4-8952-26c5d62bb5a9
-            bap_id: bap.example.com
-            bap_uri: https://bap.example.com
-            ttl: PT30S
-            bpp_id: bpp.example.com
-            bpp_uri: https://bpp.example.com
-            version: 2.0.0
-            location:
-              country:
-                code: IND
-              city:
-                code: "*"
-          message:
-            order:
-              id: b6ac7632-109f-42ec-90c0-fe42276e9a33
-              status: ACTIVE
-              documents:
-                - descriptor:
-                    code: POLICY_DOC
-                    name: Motor Policy Document
-                    short_desc: Download your digitally signed policy document here
-                    long_desc: "Document is password protected. Password: DDMMMYYYYXXXX"
-                  mime_type: application/pdf
-                  url: https://abcinsurance.com/policies/O1.pdf
-                - descriptor:
-                    code: CLAIM_DOC
-                    name: Claim Insurance Policy
-                    short_desc: Buyer can claim their insurance using this link
-                    long_desc: Buyer can claim their insurance by visiting the below url
-                  mime_type: application/html
-                  url: undefined/forms/ONDC:FIS13/claim_form_motor/?transaction_id=d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
-              created_at: 2026-07-07T12:37:38.391Z
-              updated_at: 2026-07-07T12:37:53.084Z
-              fulfillments:
-                - customer:
-                    contact:
-                      email: joe.adam@abc.org
-                      phone: "8877665566"
-                    person:
-                      name: Joe Adam
-                  id: 9f89ec62-3ad6-42ca-b53e-8a4cf9133411
-                  type: POLICY
-                  state:
-                    descriptor:
-                      code: GRANTED
-              items:
-                - id: CHILD_ITEM_CI1
-                  parent_item_id: I1
-                  category_ids:
-                    - C1
-                    - C2
-                    - C3
-                  descriptor:
-                    name: 2-Wheeler 3rd Party Motor Insurance
-                    short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
-                    images:
-                      - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
-                        size_type: xs
-                  price:
-                    value: "12531"
-                    currency: INR
-                  tags:
-                    - descriptor:
-                        code: GENERAL_INFO
-                      list:
-                        - descriptor:
-                            code: PERSONAL_ACCIDENT_COVER
-                          value: "10000000"
-                        - descriptor:
-                            code: DEPRECIATION_COVER
-                          value: Yes
-                        - descriptor:
-                            code: ROAD_SIDE_ASSISTANCE
-                          value: "25000"
-                        - descriptor:
-                            code: CONSUMABLES_COVER
-                          value: No
-                        - descriptor:
-                            code: ELECTRICAL_ACCESSORIES_COVER
-                          value: "0.8"
-                        - descriptor:
-                            code: NON_ELECTRICAL_ACCESSORIES_COVER
-                          value: "2"
-                        - descriptor:
-                            code: ENGINE_COVER
-                          value: "5"
-                        - descriptor:
-                            code: EXTERNAL_CNG_OR_LPG_COVER
-                          value: Yes
-                        - descriptor:
-                            code: KEY_COVER
-                          value: No
-                        - descriptor:
-                            code: PERSONAL_BAGGAGE_COVER
-                          value: "50"
-                        - descriptor:
-                            code: TYRE_COVER
-                          value: "50"
-                        - descriptor:
-                            code: RETURN_TO_INVOICE
-                          value: "50"
-                        - descriptor:
-                            code: PER_DAY_CASH
-                          value: "50"
-                        - descriptor:
-                            code: MANUAL_REVIEW
-                            name: Manual Review
-                            short_desc: Describes manual review value
-                          value: "true"
-                        - descriptor:
-                            code: IDV_VALUE
-                            name: IDV value
-                            short_desc: Describes the IDV value
-                          value: "300000"
-                        - descriptor:
-                            code: PREMIUM
-                            name: Premium
-                          value: "12531"
-                        - descriptor:
-                            code: OWN_DAMAGE_PREMIUM
-                            name: Own Damage Premium
-                          value: "9000"
-                        - descriptor:
-                            code: THIRD_PARTY_PREMIUM
-                            name: Third Party Premium
-                          value: "3531"
-                        - descriptor:
-                            code: NCB_DISCOUNT_PERCENTAGE
-                            name: NCB Discount Percentage
-                          value: 10 %
-                        - descriptor:
-                            code: NCB_DISCOUNT_AMOUNT
-                            name: NCB Discount Amount
-                          value: "1000"
-                        - descriptor:
-                            code: OD_DISCOUNT_PERCENTAGE
-                            name: OD Discount Percentage
-                          value: 10 %
-                        - descriptor:
-                            code: OD_DISCOUNT_AMOUNT
-                            name: OD Discount Amount
-                          value: "1000"
-                    - descriptor:
-                        code: VAHAN_DETAILS
-                        name: Vahan Details
-                      list:
-                        - descriptor:
-                            code: MODEL
-                          value: X100
-                        - descriptor:
-                            code: MAKE
-                          value: BMX
-                        - descriptor:
-                            code: FUEL_TYPE
-                          value: Petrol
-                        - descriptor:
-                            code: VARIANT
-                          value: ZX
-                        - descriptor:
-                            code: REGISTERED_CITY
-                          value: Bangalore
-                        - descriptor:
-                            code: REGISTERED_DATE
-                          value: 2022-01-13
-                        - descriptor:
-                            code: CHASSIS_NUMBER
-                          value: nvuwi3n23io90
-                        - descriptor:
-                            code: ENGINE_NUMBER
-                          value: 98vd98e32
-                        - descriptor:
-                            code: PREVIOUS_POLICY_NUMBER
-                          value: f5f90d6e8f924
-                        - descriptor:
-                            code: PREVIOUS_INSURER
-                          value: XYZ
-                        - descriptor:
-                            code: PREVIOUS_POLICY_END_DATE
-                          value: 2022-01-02
-                  time:
-                    duration: P1Y
-                    label: TENURE
-                  add_ons:
-                    - id: A1
-                      price:
-                        currency: INR
-                        value: "900"
-                      quantity:
-                        selected:
-                          count: 1
-                      descriptor:
-                        name: Consumables Cover
-                        code: CONSUMABLES_COVER
-                      tags:
-                        - descriptor:
-                            name: Info
-                            code: INFO
-                          list:
-                            - descriptor:
-                                code: REQUIRED
-                              value: "TRUE"
-                            - descriptor:
-                                code: CUSTOMER_SELECTION
-                              value: YES
-                            - descriptor:
-                                code: SUM_INSURED
-                              value: "50000"
-                            - descriptor:
-                                code: NOMINEE_DETAILS
-                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
-                                  Last Name | Relationship | Contact Number'
-                                  represents a full name structure, where the
-                                  values are separated by a pipe (|) symbol
-                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
-                  fulfillment_ids:
-                    - 9f89ec62-3ad6-42ca-b53e-8a4cf9133411
-              payments:
-                - id: 870b62e0-762f-4e87-b7a4-fe87c208ff43
-                  collected_by: BPP
-                  params:
-                    amount: "12631"
-                    bank_account_number: "1800002341"
-                    bank_code: SBIN0001234
-                    currency: INR
-                    transaction_id: 13a86209-4879-4b3e-9175-e9dea1c02e15
-                  status: PAID
-                  type: PRE-FULFILLMENT
-              provider:
-                descriptor:
-                  long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
-                    Motor, Marine etc
-                  name: ABC Insurance Ltd.
-                  short_desc: "ABC Insurance Ltd. India "
-                  images:
-                    - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
-                id: pro909988888
-              quote:
-                id: 30c032a9-a96f-4a6f-998f-cabaf8d6dc1f
-                price:
-                  currency: INR
-                  value: "12631"
-                breakup:
-                  - price:
-                      value: "12531"
-                      currency: INR
-                    title: BASE_PRICE
-                  - price:
-                      value: "50"
-                      currency: INR
-                    title: CONVIENCE_FEE
-                  - price:
-                      value: "30"
-                      currency: INR
-                    title: TAX
-                  - price:
-                      value: "20"
-                      currency: INR
-                    title: PROCESSING_FEE
-                  - title: ADD_ONS
-                    item:
-                      id: A1
-                    price:
-                      value: "0"
-                      currency: INR
-                  - title: ADD_ONS
-                    item:
-                      id: A2
-                    price:
-                      value: "0"
-                      currency: INR
-                ttl: P15D
-        type: request
-        description: The BPP sends an unsolicited update notification to inform the BAP
-          of changes to the motor insurance order, such as claim document
-          attachments, policy modifications, or payment processing. This
-          asynchronous callback enables the provider to proactively communicate
-          order or claim progression without awaiting explicit BAP requests.
+  # - api: update
+  #   action_id: update_motor
+  #   owner: BAP
+  #   responseFor: null
+  #   unsolicited: false
+  #   description: The BAP updates the motor insurance policy order with payment
+  #     confirmation and transaction details.
+  #   mock:
+  #     generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgaW5wdXRzID0gc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHM7CiAgY29uc3QgdXBkYXRlQ29udGFjdCA9IGlucHV0cz8udXBkYXRlX2NvbnRhY3QgPz8gIjk5ODg5OTg4ODgiOwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzWzBdLmN1c3RvbWVyLmNvbnRhY3QucGhvbmUgPSB1cGRhdGVDb250YWN0OwogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWQgPSBzZXNzaW9uRGF0YS5vcmRlcl9pZFswXTsKCgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+  #     validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIGlmICghdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8ub3JkZXIpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIGlzIG1pc3NpbmcgbWVzc2FnZS5vcmRlci4iCiAgICB9OwogIH0KCiAgaWYgKCF0YXJnZXRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzPy5sZW5ndGgpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIG11c3QgY29udGFpbiBhdCBsZWFzdCBvbmUgZnVsZmlsbG1lbnQuIgogICAgfTsKICB9CgogIGlmICghdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1swXT8uY3VzdG9tZXI/LmNvbnRhY3QpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRhcmdldCBwYXlsb2FkIGZ1bGZpbGxtZW50IGN1c3RvbWVyIGNvbnRhY3QgaXMgbWlzc2luZy4iCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
+  #     requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgICAKCiAgaWYgKCFzZXNzaW9uRGF0YT8ub3JkZXJfaWQ/LlswXSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBvcmRlcl9pZCBpbiBzZXNzaW9uIGRhdGEuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+  #     defaultPayload:
+  #       context:
+  #         domain: ONDC:FIS13
+  #         action: update
+  #         timestamp: 2026-04-10T07:45:45.148Z
+  #         transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
+  #         message_id: 7a4153d6-6c19-4a86-a672-12f61256c003
+  #         bap_id: bap.example.com
+  #         bap_uri: https://bap.example.com
+  #         ttl: PT30S
+  #         bpp_id: bpp.example.com
+  #         bpp_uri: https://bpp.example.com
+  #         version: 2.0.0
+  #         location:
+  #           country:
+  #             code: IND
+  #           city:
+  #             code: "*"
+  #       message:
+  #         update_target: order.fulfillments
+  #         order:
+  #           id: O1
+  #           fulfillments:
+  #             - customer:
+  #                 contact:
+  #                   phone: +91-9667788867
+  #     saveData:
+  #       transactionId: $.context.transaction_id
+  #       latestMessage_id: $.context.message_id
+  #       latestTimestamp: $.context.timestamp
+  #       bapId: $.context.bap_id
+  #       bapUri: $.context.bap_uri
+  #       bppId: $.context.bpp_id
+  #       bppUri: $.context.bpp_uri
+  #       city_code: $.context.location.city.code
+  #       order_id: $.message.order.id
+  #       update_target: $.message.update_target
+  #       update_label: $.message.order.payments[0].time.label
+  #       update_amount: $.message.order.payments[0].params.amount
+  #       update_currency: $.message.order.payments[0].params.currency
+  #       payment_id: $.message.order.payments[0].id
+  #       updated_phone: $.message.order.fulfillments[0].customer.contact.phone
+  #     inputs:
+  #       id: update_contact_input
+  #       jsonSchema:
+  #         $schema: http://json-schema.org/draft-07/schema#
+  #         type: object
+  #         properties:
+  #           update_contact:
+  #             type: string
+  #             title: Enter Number
+  #             default: ""
+  #         required:
+  #           - update_contact
+  #         additionalProperties: true
+  #         default: {}
+  #   examples:
+  #     - name: example for update
+  #       payload:
+  #         context:
+  #           domain: ONDC:FIS13
+  #           action: update
+  #           timestamp: 2026-07-07T12:37:53.061Z
+  #           transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
+  #           message_id: 5f7b8115-c720-44f4-8952-26c5d62bb5a9
+  #           bap_id: bap.example.com
+  #           bap_uri: https://bap.example.com
+  #           ttl: PT30S
+  #           bpp_id: bpp.example.com
+  #           bpp_uri: https://bpp.example.com
+  #           version: 2.0.0
+  #           location:
+  #             country:
+  #               code: IND
+  #             city:
+  #               code: "*"
+  #         message:
+  #           update_target: order.fulfillments
+  #           order:
+  #             id: b6ac7632-109f-42ec-90c0-fe42276e9a33
+  #             fulfillments:
+  #               - customer:
+  #                   contact:
+  #                     phone: "8877665566"
+  #       type: request
+  #       description: The BAP updates the motor insurance policy order with payment
+  #         confirmation and transaction details.
+  # - api: on_update
+  #   action_id: on_update_motor
+  #   owner: BPP
+  #   responseFor: update_motor
+  #   unsolicited: true
+  #   description: The BPP sends an unsolicited update notification to inform the BAP
+  #     of changes to the motor insurance order, such as claim document
+  #     attachments, policy modifications, or payment processing. This
+  #     asynchronous callback enables the provider to proactively communicate
+  #     order or claim progression without awaiting explicit BAP requests.
+  #   mock:
+  #     generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKHNlc3Npb25EYXRhLm9yZGVyKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyID0gc2Vzc2lvbkRhdGEub3JkZXJbMF07CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1swXS5jdXN0b21lci5jb250YWN0LnBob25lID0gc2Vzc2lvbkRhdGEudXBkYXRlZF9waG9uZVswXTsKICAgIAogIH0KCiAgIC8vIFNldHVwZGF0ZWRfYXQgdG8gY3VycmVudCBkYXRlCiAgaWYgKGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/Lm9yZGVyKSB7CiAgICBjb25zdCBub3cgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0KSB7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIudXBkYXRlZF9hdCA9IG5vdzsKICAgIH0KICB9CiAKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
+  #     validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICBpZiAoIXRhcmdldFBheWxvYWQ/Lm1lc3NhZ2U/Lm9yZGVyKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBpcyBtaXNzaW5nIG1lc3NhZ2Uub3JkZXIuIgogICAgfTsKICB9CgogIGlmICghdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cz8ubGVuZ3RoKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBtdXN0IGNvbnRhaW4gYXQgbGVhc3Qgb25lIGZ1bGZpbGxtZW50LiIKICAgIH07CiAgfQoKICBpZiAoIXRhcmdldFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0/LmN1c3RvbWVyPy5jb250YWN0KSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJUYXJnZXQgcGF5bG9hZCBmdWxmaWxsbWVudCBjdXN0b21lciBjb250YWN0IGlzIG1pc3NpbmcuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
+  #     requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICghc2Vzc2lvbkRhdGE/Lm9yZGVyPy5bMF0pIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk1pc3Npbmcgb3JkZXIgaW4gc2Vzc2lvbiBkYXRhLiIKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhPy51cGRhdGVkX3Bob25lPy5bMF0pIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIk1pc3NpbmcgdXBkYXRlZF9waG9uZSBpbiBzZXNzaW9uIGRhdGEuIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+  #     defaultPayload:
+  #       context:
+  #         domain: ONDC:FIS13
+  #         action: on_update
+  #         timestamp: 2026-04-10T07:45:45.148Z
+  #         transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
+  #         message_id: 92a8b4a8-e9ed-49c8-b25e-25c01228368b
+  #         bap_id: bap.example.com
+  #         bap_uri: https://bap.example.com
+  #         ttl: PT30S
+  #         bpp_id: bpp.example.com
+  #         bpp_uri: https://bpp.example.com
+  #         version: 2.0.0
+  #         location:
+  #           country:
+  #             code: IND
+  #           city:
+  #             code: "*"
+  #       message:
+  #         order: {}
+  #     saveData:
+  #       transactionId: $.context.transaction_id
+  #       latestMessage_id: $.context.message_id
+  #       latestTimestamp: $.context.timestamp
+  #       bapId: $.context.bap_id
+  #       bapUri: $.context.bap_uri
+  #       bppId: $.context.bpp_id
+  #       bppUri: $.context.bpp_uri
+  #       city_code: $.context.location.city.code
+  #       order: $.message.order
+  #       second_fulfillment_id: $.message.order.fulfillments[1].id
+  #       claim_doc_url_motor: $.message.order.documents[?(@.descriptor.code=='CLAIM_DOC')].url
+  #       payment_id: $.message.order.payments[0].id
+  #     inputs: {}
+  #   examples:
+  #     - name: example for on_update
+  #       payload:
+  #         context:
+  #           domain: ONDC:FIS13
+  #           action: on_update
+  #           timestamp: 2026-07-07T12:37:53.083Z
+  #           transaction_id: d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3
+  #           message_id: 5f7b8115-c720-44f4-8952-26c5d62bb5a9
+  #           bap_id: bap.example.com
+  #           bap_uri: https://bap.example.com
+  #           ttl: PT30S
+  #           bpp_id: bpp.example.com
+  #           bpp_uri: https://bpp.example.com
+  #           version: 2.0.0
+  #           location:
+  #             country:
+  #               code: IND
+  #             city:
+  #               code: "*"
+  #         message:
+  #           order:
+  #             id: b6ac7632-109f-42ec-90c0-fe42276e9a33
+  #             status: ACTIVE
+  #             documents:
+  #               - descriptor:
+  #                   code: POLICY_DOC
+  #                   name: Motor Policy Document
+  #                   short_desc: Download your digitally signed policy document here
+  #                   long_desc: "Document is password protected. Password: DDMMMYYYYXXXX"
+  #                 mime_type: application/pdf
+  #                 url: https://abcinsurance.com/policies/O1.pdf
+  #               - descriptor:
+  #                   code: CLAIM_DOC
+  #                   name: Claim Insurance Policy
+  #                   short_desc: Buyer can claim their insurance using this link
+  #                   long_desc: Buyer can claim their insurance by visiting the below url
+  #                 mime_type: application/html
+  #                 url: undefined/forms/ONDC:FIS13/claim_form_motor/?transaction_id=d4cbadb6-a42d-42a1-b5c1-af9ad411fcc3&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+  #             created_at: 2026-07-07T12:37:38.391Z
+  #             updated_at: 2026-07-07T12:37:53.084Z
+  #             fulfillments:
+  #               - customer:
+  #                   contact:
+  #                     email: joe.adam@abc.org
+  #                     phone: "8877665566"
+  #                   person:
+  #                     name: Joe Adam
+  #                 id: 9f89ec62-3ad6-42ca-b53e-8a4cf9133411
+  #                 type: POLICY
+  #                 state:
+  #                   descriptor:
+  #                     code: GRANTED
+  #             items:
+  #               - id: CHILD_ITEM_CI1
+  #                 parent_item_id: I1
+  #                 category_ids:
+  #                   - C1
+  #                   - C2
+  #                   - C3
+  #                 descriptor:
+  #                   name: 2-Wheeler 3rd Party Motor Insurance
+  #                   short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
+  #                   images:
+  #                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+  #                       size_type: xs
+  #                 price:
+  #                   value: "12531"
+  #                   currency: INR
+  #                 tags:
+  #                   - descriptor:
+  #                       code: GENERAL_INFO
+  #                     list:
+  #                       - descriptor:
+  #                           code: PERSONAL_ACCIDENT_COVER
+  #                         value: "10000000"
+  #                       - descriptor:
+  #                           code: DEPRECIATION_COVER
+  #                         value: Yes
+  #                       - descriptor:
+  #                           code: ROAD_SIDE_ASSISTANCE
+  #                         value: "25000"
+  #                       - descriptor:
+  #                           code: CONSUMABLES_COVER
+  #                         value: No
+  #                       - descriptor:
+  #                           code: ELECTRICAL_ACCESSORIES_COVER
+  #                         value: "0.8"
+  #                       - descriptor:
+  #                           code: NON_ELECTRICAL_ACCESSORIES_COVER
+  #                         value: "2"
+  #                       - descriptor:
+  #                           code: ENGINE_COVER
+  #                         value: "5"
+  #                       - descriptor:
+  #                           code: EXTERNAL_CNG_OR_LPG_COVER
+  #                         value: Yes
+  #                       - descriptor:
+  #                           code: KEY_COVER
+  #                         value: No
+  #                       - descriptor:
+  #                           code: PERSONAL_BAGGAGE_COVER
+  #                         value: "50"
+  #                       - descriptor:
+  #                           code: TYRE_COVER
+  #                         value: "50"
+  #                       - descriptor:
+  #                           code: RETURN_TO_INVOICE
+  #                         value: "50"
+  #                       - descriptor:
+  #                           code: PER_DAY_CASH
+  #                         value: "50"
+  #                       - descriptor:
+  #                           code: MANUAL_REVIEW
+  #                           name: Manual Review
+  #                           short_desc: Describes manual review value
+  #                         value: "true"
+  #                       - descriptor:
+  #                           code: IDV_VALUE
+  #                           name: IDV value
+  #                           short_desc: Describes the IDV value
+  #                         value: "300000"
+  #                       - descriptor:
+  #                           code: PREMIUM
+  #                           name: Premium
+  #                         value: "12531"
+  #                       - descriptor:
+  #                           code: OWN_DAMAGE_PREMIUM
+  #                           name: Own Damage Premium
+  #                         value: "9000"
+  #                       - descriptor:
+  #                           code: THIRD_PARTY_PREMIUM
+  #                           name: Third Party Premium
+  #                         value: "3531"
+  #                       - descriptor:
+  #                           code: NCB_DISCOUNT_PERCENTAGE
+  #                           name: NCB Discount Percentage
+  #                         value: 10 %
+  #                       - descriptor:
+  #                           code: NCB_DISCOUNT_AMOUNT
+  #                           name: NCB Discount Amount
+  #                         value: "1000"
+  #                       - descriptor:
+  #                           code: OD_DISCOUNT_PERCENTAGE
+  #                           name: OD Discount Percentage
+  #                         value: 10 %
+  #                       - descriptor:
+  #                           code: OD_DISCOUNT_AMOUNT
+  #                           name: OD Discount Amount
+  #                         value: "1000"
+  #                   - descriptor:
+  #                       code: VAHAN_DETAILS
+  #                       name: Vahan Details
+  #                     list:
+  #                       - descriptor:
+  #                           code: MODEL
+  #                         value: X100
+  #                       - descriptor:
+  #                           code: MAKE
+  #                         value: BMX
+  #                       - descriptor:
+  #                           code: FUEL_TYPE
+  #                         value: Petrol
+  #                       - descriptor:
+  #                           code: VARIANT
+  #                         value: ZX
+  #                       - descriptor:
+  #                           code: REGISTERED_CITY
+  #                         value: Bangalore
+  #                       - descriptor:
+  #                           code: REGISTERED_DATE
+  #                         value: 2022-01-13
+  #                       - descriptor:
+  #                           code: CHASSIS_NUMBER
+  #                         value: nvuwi3n23io90
+  #                       - descriptor:
+  #                           code: ENGINE_NUMBER
+  #                         value: 98vd98e32
+  #                       - descriptor:
+  #                           code: PREVIOUS_POLICY_NUMBER
+  #                         value: f5f90d6e8f924
+  #                       - descriptor:
+  #                           code: PREVIOUS_INSURER
+  #                         value: XYZ
+  #                       - descriptor:
+  #                           code: PREVIOUS_POLICY_END_DATE
+  #                         value: 2022-01-02
+  #                 time:
+  #                   duration: P1Y
+  #                   label: TENURE
+  #                 add_ons:
+  #                   - id: A1
+  #                     price:
+  #                       currency: INR
+  #                       value: "900"
+  #                     quantity:
+  #                       selected:
+  #                         count: 1
+  #                     descriptor:
+  #                       name: Consumables Cover
+  #                       code: CONSUMABLES_COVER
+  #                     tags:
+  #                       - descriptor:
+  #                           name: Info
+  #                           code: INFO
+  #                         list:
+  #                           - descriptor:
+  #                               code: REQUIRED
+  #                             value: "TRUE"
+  #                           - descriptor:
+  #                               code: CUSTOMER_SELECTION
+  #                             value: YES
+  #                           - descriptor:
+  #                               code: SUM_INSURED
+  #                             value: "50000"
+  #                           - descriptor:
+  #                               code: NOMINEE_DETAILS
+  #                               short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+  #                                 Last Name | Relationship | Contact Number'
+  #                                 represents a full name structure, where the
+  #                                 values are separated by a pipe (|) symbol
+  #                             value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+  #                 fulfillment_ids:
+  #                   - 9f89ec62-3ad6-42ca-b53e-8a4cf9133411
+  #             payments:
+  #               - id: 870b62e0-762f-4e87-b7a4-fe87c208ff43
+  #                 collected_by: BPP
+  #                 params:
+  #                   amount: "12631"
+  #                   bank_account_number: "1800002341"
+  #                   bank_code: SBIN0001234
+  #                   currency: INR
+  #                   transaction_id: 13a86209-4879-4b3e-9175-e9dea1c02e15
+  #                 status: PAID
+  #                 type: PRE-FULFILLMENT
+  #             provider:
+  #               descriptor:
+  #                 long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
+  #                   Motor, Marine etc
+  #                 name: ABC Insurance Ltd.
+  #                 short_desc: "ABC Insurance Ltd. India "
+  #                 images:
+  #                   - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+  #               id: pro909988888
+  #             quote:
+  #               id: 30c032a9-a96f-4a6f-998f-cabaf8d6dc1f
+  #               price:
+  #                 currency: INR
+  #                 value: "12631"
+  #               breakup:
+  #                 - price:
+  #                     value: "12531"
+  #                     currency: INR
+  #                   title: BASE_PRICE
+  #                 - price:
+  #                     value: "50"
+  #                     currency: INR
+  #                   title: CONVIENCE_FEE
+  #                 - price:
+  #                     value: "30"
+  #                     currency: INR
+  #                   title: TAX
+  #                 - price:
+  #                     value: "20"
+  #                     currency: INR
+  #                   title: PROCESSING_FEE
+  #                 - title: ADD_ONS
+  #                   item:
+  #                     id: A1
+  #                   price:
+  #                     value: "0"
+  #                     currency: INR
+  #                 - title: ADD_ONS
+  #                   item:
+  #                     id: A2
+  #                   price:
+  #                     value: "0"
+  #                     currency: INR
+  #               ttl: P15D
+  #       type: request
+  #       description: The BPP sends an unsolicited update notification to inform the BAP
+  #         of changes to the motor insurance order, such as claim document
+  #         attachments, policy modifications, or payment processing. This
+  #         asynchronous callback enables the provider to proactively communicate
+  #         order or claim progression without awaiting explicit BAP requests.
+
 transaction_history: []
 validationLib: ""
 helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLCBmb3JtSWQsIHNlc3Npb25EYXRhKSA9PiB7Cgljb25zdCBiYXNlVVJMID0gc2Vzc2lvbkRhdGEubW9ja0Jhc2VVcmw7Cgljb25zdCB0cmFuc2FjdGlvbklkID0gc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25JZFswXTsKCWNvbnN0IHNlc3Npb25JZCA9IHNlc3Npb25EYXRhLnNlc3Npb25JZDsKCXJldHVybiBgJHtiYXNlVVJMfS9mb3Jtcy8ke2RvbWFpbn0vJHtmb3JtSWR9Lz90cmFuc2FjdGlvbl9pZD0ke3RyYW5zYWN0aW9uSWR9JnNlc3Npb25faWQ9JHtzZXNzaW9uSWR9YDsKfQovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkJY29uc3QgciA9IE1hdGgucmFuZG9tKCkgKiAxNiB8IDA7CgkJY29uc3QgdiA9IGMgPT09ICd4JyA/IHIgOiAociAmIDB4MyB8IDB4OCk7CgkJcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKCWNvbnN0IGR1clJFID0gL1AoKGQrKVkpPygoZCspTSk/KChkKylXKT8oKGQrKUQpP1Q/KChkKylIKT8oKGQrKU0pPygoZCspUyk/LzsKCWNvbnN0IHMgPSBkdXJSRS5leGVjKGR1cmF0aW9uKTsKCWlmICghcykgcmV0dXJuIDA7CgoJcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCQkoTnVtYmVyKHM/Lls0XSkgfHwgMCkgKiAyNjI4Mjg4ICsKCQkoTnVtYmVyKHM/Lls2XSkgfHwgMCkgKiA2MDQ4MDAgKwoJCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCQkoTnVtYmVyKHM/LlsxMF0pIHx8IDApICogMzYwMCArCgkJKE51bWJlcihzPy5bMTJdKSB8fCAwKSAqIDYwICsKCQkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9CgoKCgo=
