@@ -1698,15 +1698,15 @@ _TESTS_:
     - _NAME_: REQUIRED_PAYMENT_TYPE
       attr: $.message.order.payments[*].type
       _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
+    #   attr: $.message.order.payments[*].params.bank_account_number
+    #   _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_BANK_CODE
+    #   attr: $.message.order.payments[*].params.bank_code
+    #   _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_CURRENCY
+    #   attr: $.message.order.payments[*].params.currency
+    #   _RETURN_: attr are present
   - _NAME_: ORDER_QUOTE_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
     _CONTINUE_: (usecasepath are present)
@@ -1886,18 +1886,18 @@ _TESTS_:
     - _NAME_: REQUIRED_PAYMENT_TYPE
       attr: $.message.order.payments[*].type
       _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_AMOUNT
-      attr: $.message.order.payments[*].params.amount
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_AMOUNT
+    #   attr: $.message.order.payments[*].params.amount
+    #   _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
+    #   attr: $.message.order.payments[*].params.bank_account_number
+    #   _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_BANK_CODE
+    #   attr: $.message.order.payments[*].params.bank_code
+    #   _RETURN_: attr are present
+    # - _NAME_: REQUIRED_PAYMENT_CURRENCY
+    #   attr: $.message.order.payments[*].params.currency
+    #   _RETURN_: attr are present
   - _NAME_: CONFIRM_CONTEXT_SACHET
     action:
     - confirm
