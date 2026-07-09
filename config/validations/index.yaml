@@ -1840,7 +1840,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: ORDER_ITEM_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEM_ID
       attr: $.message.order.items[*].id
