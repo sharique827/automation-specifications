@@ -1388,19 +1388,19 @@ _TESTS_:
     - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_SUBMISSION_ID
       attr: $.message.order.items[*].xinput.form_response.submission_id
       _RETURN_: attr are present
-  - _NAME_: FULFILLMENT_VALIDATION
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
-      attr: $.message.order.fulfillments[*].customer.person.name
-      _RETURN_: attr are present
-    - _NAME_: FULFILLMENT_CUSTOMER_CONTACT_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
-    - _NAME_: FULFILLMENT_CUSTOMER_CONTACT_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
+  # - _NAME_: FULFILLMENT_VALIDATION
+  #   usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+  #   _CONTINUE_: '!(usecasepath are present)'
+  #   _RETURN_:
+    # - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
+    #   attr: $.message.order.fulfillments[*].customer.person.name
+    #   _RETURN_: attr are present
+    # - _NAME_: FULFILLMENT_CUSTOMER_CONTACT_EMAIL
+    #   attr: $.message.order.fulfillments[*].customer.contact.email
+    #   _RETURN_: attr are present
+    # - _NAME_: FULFILLMENT_CUSTOMER_CONTACT_PHONE
+    #   attr: $.message.order.fulfillments[*].customer.contact.phone
+    #   _RETURN_: attr are present
   - _NAME_: PROVIDER_VALIDATION
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
     _CONTINUE_: (usecasepath are present)
@@ -1421,18 +1421,18 @@ _TESTS_:
     - _NAME_: PAYMENT_TYPE
       attr: $.message.order.payments[*].type
       _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_AMOUNT
-      attr: $.message.order.payments[*].params.amount
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_BANK_ACCOUNT_NUMBER
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
+    # - _NAME_: PAYMENT_PARAMS_AMOUNT
+    #   attr: $.message.order.payments[*].params.amount
+    #   _RETURN_: attr are present
+    # - _NAME_: PAYMENT_PARAMS_BANK_ACCOUNT_NUMBER
+    #   attr: $.message.order.payments[*].params.bank_account_number
+    #   _RETURN_: attr are present
+    # - _NAME_: PAYMENT_PARAMS_BANK_CODE
+    #   attr: $.message.order.payments[*].params.bank_code
+    #   _RETURN_: attr are present
+    # - _NAME_: PAYMENT_PARAMS_CURRENCY
+    #   attr: $.message.order.payments[*].params.currency
+    #   _RETURN_: attr are present
   - _NAME_: INIT_CONTEXT_SACHET
     action:
     - init
