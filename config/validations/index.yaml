@@ -1820,7 +1820,7 @@ _TESTS_:
     - *id023
   - _NAME_: REQUIRED_CD_CODE
     usecasepath: $.message.order.items[*].id
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: ERROR_CODE_CD_BALANCE_CODE
       attr: $.error.code
