@@ -90,9 +90,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: search
-            timestamp: 2026-07-09T03:19:25.021Z
+            timestamp: 2026-07-09T08:15:25.278Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 9364e7a7-4c5f-4964-9249-5ca7308505d3
+            message_id: 07b44c03-e5af-4984-9400-16644718ee58
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -393,9 +393,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_search
-            timestamp: 2026-07-09T03:19:25.073Z
+            timestamp: 2026-07-09T08:15:25.416Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 9364e7a7-4c5f-4964-9249-5ca7308505d3
+            message_id: 07b44c03-e5af-4984-9400-16644718ee58
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -412,7 +412,7 @@ steps:
               descriptor:
                 name: ICICI Bank
               providers:
-                - id: gold_loan_provider_6debe7b4-ac73-47c5-8226-b768765549fc
+                - id: gold_loan_provider_1e29f08e-17c1-4473-8515-79e323de5950
                   descriptor:
                     images:
                       - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -421,28 +421,28 @@ steps:
                     short_desc: ICICI Bank Ltd
                     long_desc: ICICI Bank Ltd, India.
                   categories:
-                    - id: cat_loan_561756c8-e164-416b-92a3-d9bbb8f3ba43
+                    - id: cat_loan_4cdefc60-7d22-4b06-9146-6ee5ed396279
                       descriptor:
                         code: LOAN
                         name: Loan
-                    - id: cat_gold_loan_90a57548-d1de-44f6-9643-9d69f598130a
-                      parent_category_id: cat_loan_561756c8-e164-416b-92a3-d9bbb8f3ba43
+                    - id: cat_gold_loan_52261f85-020c-44eb-9d51-0ee35888deb6
+                      parent_category_id: cat_loan_4cdefc60-7d22-4b06-9146-6ee5ed396279
                       descriptor:
                         code: GOLD_LOAN
                         name: Gold Loan
-                    - id: cat_bureau_loan_7012136f-b46b-4848-bcec-650720d5917e
-                      parent_category_id: cat_gold_loan_90a57548-d1de-44f6-9643-9d69f598130a
+                    - id: cat_bureau_loan_3dfdcfe0-b616-4cd7-8d02-1c33e0d0cd98
+                      parent_category_id: cat_gold_loan_52261f85-020c-44eb-9d51-0ee35888deb6
                       descriptor:
                         code: BUREAU_LOAN
                         name: Bureau Loan
                   items:
-                    - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                    - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                       descriptor:
                         code: LOAN
                         name: Gold Loan without AA
                       category_ids:
-                        - cat_gold_loan_90a57548-d1de-44f6-9643-9d69f598130a
-                        - cat_bureau_loan_7012136f-b46b-4848-bcec-650720d5917e
+                        - cat_gold_loan_52261f85-020c-44eb-9d51-0ee35888deb6
+                        - cat_bureau_loan_3dfdcfe0-b616-4cd7-8d02-1c33e0d0cd98
                       fulfillment_ids:
                         - F1
                       tags:
@@ -494,7 +494,7 @@ steps:
                           headings:
                             - PERSONAL_INFORMATION
                         form:
-                          id: form_22696236-16d8-40d9-bb65-b23a366be5bd
+                          id: form_be4f73f4-492c-42b6-a2ff-5e927e66c4bf
                           mime_type: text/html
                           url: undefined/forms/ONDC:FIS12/gold_loan_information_form/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined
                           resubmit: false
@@ -645,22 +645,22 @@ steps:
     examples:
       - name: example for html_form
         payload:
-          userType: individual
+          userType: non-individual
           pan: BAJPC4350M
-          fullName: Jyoti Sharma
-          constitution: "7988"
+          fullName: "Jyoti "
+          constitution: ""
           gender: female
           employmentType: selfEmployed
           dob: 2026-07-14
           annualIncome: "78"
-          contactNumber: "06254870148"
+          contactNumber: "6284870148"
           email: jyoti.sharma@gmail.com
-          address: hlkjlkj
+          address: Chandigarh
           pincode: "160103"
           city: delhi
           state: Delhi
           jewellery: "56"
-          purity: 24K
+          purity: 14K
           endUse: marriage
           aa_id: ""
           formId: FO1
@@ -736,9 +736,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: select
-            timestamp: 2026-07-09T03:19:59.432Z
+            timestamp: 2026-07-09T08:16:25.366Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: cb65c05b-88c1-4c56-8688-acb34e133f2c
+            message_id: dfa93ddc-c9fd-43c3-b8b4-289c743923c2
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -753,15 +753,15 @@ steps:
           message:
             order:
               provider:
-                id: gold_loan_provider_6debe7b4-ac73-47c5-8226-b768765549fc
+                id: gold_loan_provider_1e29f08e-17c1-4473-8515-79e323de5950
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   xinput:
                     form:
-                      id: form_22696236-16d8-40d9-bb65-b23a366be5bd
+                      id: form_be4f73f4-492c-42b6-a2ff-5e927e66c4bf
                     form_response:
                       status: SUCCESS
-                      submission_id: c5e1bd74-8372-456d-bbb1-b094ee779c90
+                      submission_id: f5bee808-da14-40e5-a843-80a45cdfc4cd
         type: request
         description: The BAP selects a specific gold loan product and lender from the
           search results, submitting the applicant's form data to proceed with
@@ -1108,9 +1108,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_select
-            timestamp: 2026-07-09T03:19:59.501Z
+            timestamp: 2026-07-09T08:16:25.397Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: cb65c05b-88c1-4c56-8688-acb34e133f2c
+            message_id: dfa93ddc-c9fd-43c3-b8b4-289c743923c2
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1212,7 +1212,7 @@ steps:
                     address: 182 Juhu, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -1321,8 +1321,8 @@ steps:
                               document in the "feature-ui" section.
                           value: https://icicibank.com/loan/kfs-terms
                   category_ids:
-                    - cat_gold_loan_90a57548-d1de-44f6-9643-9d69f598130a
-                    - cat_bureau_loan_7012136f-b46b-4848-bcec-650720d5917e
+                    - cat_gold_loan_52261f85-020c-44eb-9d51-0ee35888deb6
+                    - cat_bureau_loan_3dfdcfe0-b616-4cd7-8d02-1c33e0d0cd98
               fulfillments:
                 - id: F1
                   type: SEMI_ONLINE
@@ -1376,7 +1376,7 @@ steps:
                         code: PENDING
                         short_desc: Short desc about LOAN_AGREEMENT checklist
               quote:
-                id: quote_9132f5e8-013e-4970-b33c-61ca242011fa
+                id: quote_2a96c75a-9fee-4258-a216-f1a666396b4a
                 price:
                   currency: INR
                   value: "442300"
@@ -1475,9 +1475,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: select
-            timestamp: 2026-07-09T03:19:59.610Z
+            timestamp: 2026-07-09T08:16:25.503Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 9530c241-ff85-4137-9b67-8b2c60d3b8a0
+            message_id: 36167331-bed6-4db5-bab1-2b0e529ce98f
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1494,7 +1494,7 @@ steps:
               provider:
                 id: PROVIDER_ID
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   location_ids:
                     - L2
         type: request
@@ -1834,7 +1834,6 @@ steps:
         bppUri: $.context.bpp_uri
         city_code: $.context.location.city.code
         order: $.message.order
-        Ekyc_details_form: $..form.url
         items: $.message.order.items[*]
         provider_id: $.message.order.provider.id
         item: $.message.order.items[0]
@@ -1845,6 +1844,7 @@ steps:
         principal_amount: $.message.order.quote.breakup[?(@.title=='PRINCIPAL')].price.value
         net_disbursed_amount: $.message.order.quote.breakup[?(@.title=='NET_DISBURSED_AMOUNT')].price.value
         loan_term: $.message.order.items[0].tags[?(@.descriptor.code=='LOAN_INFO')].list[?(@.descriptor.code=='TERM')].value
+        Ekyc_details_verification_status: $..form.url
       inputs: {}
     examples:
       - name: example for on_select
@@ -1852,9 +1852,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_select
-            timestamp: 2026-07-09T03:19:59.811Z
+            timestamp: 2026-07-09T08:16:25.636Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 9530c241-ff85-4137-9b67-8b2c60d3b8a0
+            message_id: 36167331-bed6-4db5-bab1-2b0e529ce98f
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1944,7 +1944,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -2061,14 +2061,14 @@ steps:
                       headings:
                         - JOURNEY_OFFLINE
                     form:
-                      id: ekyc_details_aa29ad79-519e-4b23-964f-0760efa10ba9
+                      id: ekyc_details_8668ff3d-ceb9-495b-91b5-97dc81caf3ff
                       mime_type: application/html
                       url: undefined/forms/ONDC:FIS12/Ekyc_details_verification_status/?transaction_id=37495a18-da5d-42d2-ad74-db69a22618fe&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
                       resubmit: false
                       multiple_sumbissions: false
                     required: true
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -2525,9 +2525,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-07-09T03:20:02.558Z
+            timestamp: 2026-07-09T08:16:31.324Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: a8474b71-225c-4f3c-83be-45ca4b335407
+            message_id: 32c5d913-4ffd-4f4a-9195-072366680bbf
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2617,7 +2617,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -2725,12 +2725,12 @@ steps:
                           value: https://icicibank.com/loan/kfs-terms
                   xinput:
                     form:
-                      id: ekyc_details_aa29ad79-519e-4b23-964f-0760efa10ba9
+                      id: ekyc_details_8668ff3d-ceb9-495b-91b5-97dc81caf3ff
                     form_response:
                       status: OFFLINE_PENDING
-                      submission_id: sub_id_9e89a80e-22df-4127-9627-e4276268c3da
+                      submission_id: sub_id_76ec3ce0-6d49-425f-882b-c5038bf839d2
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -2877,9 +2877,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: status
-            timestamp: 2026-07-09T03:20:02.612Z
+            timestamp: 2026-07-09T08:16:31.365Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 018d490c-6061-4697-829d-435efe4be41f
+            message_id: 269b9bf5-6d2d-4384-b9b2-202c8975d3d6
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3236,9 +3236,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-07-09T03:20:02.691Z
+            timestamp: 2026-07-09T08:16:31.641Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 018d490c-6061-4697-829d-435efe4be41f
+            message_id: 269b9bf5-6d2d-4384-b9b2-202c8975d3d6
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3328,7 +3328,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -3436,12 +3436,12 @@ steps:
                           value: https://icicibank.com/loan/kfs-terms
                   xinput:
                     form:
-                      id: ekyc_details_aa29ad79-519e-4b23-964f-0760efa10ba9
+                      id: ekyc_details_8668ff3d-ceb9-495b-91b5-97dc81caf3ff
                     form_response:
                       status: OFFLINE_PENDING
-                      submission_id: sub_id_9e89a80e-22df-4127-9627-e4276268c3da
+                      submission_id: sub_id_76ec3ce0-6d49-425f-882b-c5038bf839d2
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -3877,9 +3877,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-07-09T03:20:02.797Z
+            timestamp: 2026-07-09T08:16:32.060Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 121eb703-ad95-47f9-a3fb-e957e08f73db
+            message_id: ac7dda01-41a7-4269-a1cc-e4a1c66f466c
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3969,7 +3969,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -4077,12 +4077,12 @@ steps:
                           value: https://icicibank.com/loan/kfs-terms
                   xinput:
                     form:
-                      id: ekyc_details_aa29ad79-519e-4b23-964f-0760efa10ba9
+                      id: ekyc_details_8668ff3d-ceb9-495b-91b5-97dc81caf3ff
                     form_response:
                       status: COMPLETED
-                      submission_id: sub_id_9e89a80e-22df-4127-9627-e4276268c3da
+                      submission_id: sub_id_76ec3ce0-6d49-425f-882b-c5038bf839d2
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -4270,9 +4270,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: confirm
-            timestamp: 2026-07-09T03:20:03.117Z
+            timestamp: 2026-07-09T08:16:32.360Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 84054b21-cb12-4bc4-afdc-13076e4085c1
+            message_id: 35c941d3-4208-4bc9-b2ce-7e9d264d9d3e
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4289,10 +4289,10 @@ steps:
               provider:
                 id: PROVIDER_ID
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   xinput:
                     form:
-                      id: ekyc_details_aa29ad79-519e-4b23-964f-0760efa10ba9
+                      id: ekyc_details_8668ff3d-ceb9-495b-91b5-97dc81caf3ff
                     form_response:
                       status: SUCCESS
                       submission_id: F03_SUBMISSION_ID
@@ -4742,9 +4742,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_confirm
-            timestamp: 2026-07-09T03:20:03.415Z
+            timestamp: 2026-07-09T08:16:32.585Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 84054b21-cb12-4bc4-afdc-13076e4085c1
+            message_id: 35c941d3-4208-4bc9-b2ce-7e9d264d9d3e
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4758,7 +4758,7 @@ steps:
                 code: "*"
           message:
             order:
-              id: LOAN_ORDER_1783567203429_DEFAULT
+              id: LOAN_ORDER_1783584992606_DEFAULT
               status: ACTIVE
               provider:
                 id: PROVIDER_ID
@@ -4836,7 +4836,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -4944,7 +4944,7 @@ steps:
                           value: https://icicibank.com/loan/kfs-terms
                       display: true
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -5118,8 +5118,8 @@ steps:
                     - descriptor:
                         code: OFFLINE_CONTRACT
                       value: "true"
-              created_at: 2026-07-09T03:20:03.429Z
-              updated_at: 2026-07-09T03:20:03.429Z
+              created_at: 2026-07-09T08:16:32.606Z
+              updated_at: 2026-07-09T08:16:32.606Z
         type: request
         description: The BPP (lender) sends an on_confirm callback confirming that the
           gold loan application has been accepted and the loan order established
@@ -5537,9 +5537,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_status
-            timestamp: 2026-07-09T03:20:03.742Z
+            timestamp: 2026-07-09T08:16:32.865Z
             transaction_id: 37495a18-da5d-42d2-ad74-db69a22618fe
-            message_id: 8b9163de-2319-4bcb-beae-72140ebdd4ec
+            message_id: a43146d8-491e-4c25-b6d3-091324d856f9
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5553,7 +5553,7 @@ steps:
                 code: "*"
           message:
             order:
-              id: LOAN_ORDER_1783567203429_DEFAULT
+              id: LOAN_ORDER_1783584992606_DEFAULT
               status: COMPLETED
               provider:
                 id: PROVIDER_ID
@@ -5631,7 +5631,7 @@ steps:
                     address: 162 Dadar, Mumbai, Maharashtra
                     area_code: "400001"
               items:
-                - id: bureau_gold_loan_e5444c8c-8e6c-4544-b09d-8b03a6102ee8
+                - id: bureau_gold_loan_01d3cabf-6b8e-404f-843e-78bdf6495935
                   descriptor:
                     code: LOAN
                     name: Gold Loan
@@ -5739,7 +5739,7 @@ steps:
                           value: https://icicibank.com/loan/kfs-terms
                       display: true
               quote:
-                id: quote_6ba85b9e-15c1-4b35-9525-5382b6429298
+                id: quote_d5eb4fec-737e-4a1a-8cd5-30406ce3c6dc
                 price:
                   currency: INR
                   value: "442300"
@@ -5841,7 +5841,7 @@ steps:
                   collected_by: CONSUMER
                   time:
                     label: LOAN_DISBURSMENT
-                    timestamp: 2026-07-09T03:20:03.754Z
+                    timestamp: 2026-07-09T08:16:32.877Z
                   params:
                     bank_code: XXXXXXXX
                     bank_account_number: xxxxxxxxxxxxxx
@@ -5916,7 +5916,7 @@ steps:
                         code: OFFLINE_CONTRACT
                       value: "true"
               created_at: 2023-05-25T05:23:03.443Z
-              updated_at: 2026-07-09T03:20:03.754Z
+              updated_at: 2026-07-09T08:16:32.877Z
         type: request
         description: The BPP asynchronously notifies the BAP of loan application status
           updates following offline verification and manual underwriting. This
