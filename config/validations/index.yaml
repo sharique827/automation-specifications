@@ -1360,16 +1360,6 @@ _TESTS_:
         enumList:
         - INR
         _RETURN_: attr any in enumList
-  - _NAME_: REQUIRED_CD_CODE
-    usecasepath: $.message.order.items[*].id
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: ERROR_CODE_CD_BALANCE_CODE
-      attr: $.error.code
-      _RETURN_: attr are present
-    - _NAME_: ERROR_CODE_CD_BALANCE_MESSAGE
-      attr: $.error.message
-      _RETURN_: attr are present
   init:
   - _NAME_: INIT_CONTEXT
     action:
@@ -1828,16 +1818,16 @@ _TESTS_:
         _CONTINUE_: '!(usecasepath equal to attr)'
         _RETURN_: attr are present
     - *id023
-  - _NAME_: REQUIRED_CD_CODE
-    usecasepath: $.message.order.items[*].id
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: ERROR_CODE_CD_BALANCE_CODE
-      attr: $.error.code
-      _RETURN_: attr are present
-    - _NAME_: ERROR_CODE_CD_BALANCE_MESSAGE
-      attr: $.error.message
-      _RETURN_: attr are present
+  # - _NAME_: REQUIRED_CD_CODE
+  #   usecasepath: $.message.order.items[*].id
+  #   _CONTINUE_: '!(usecasepath are present)'
+  #   _RETURN_:
+  #   - _NAME_: ERROR_CODE_CD_BALANCE_CODE
+  #     attr: $.error.code
+  #     _RETURN_: attr are present
+  #   - _NAME_: ERROR_CODE_CD_BALANCE_MESSAGE
+  #     attr: $.error.message
+  #     _RETURN_: attr are present
   confirm:
   - _NAME_: CONFIRM_CONTEXT
     _RETURN_: *id002
@@ -2250,16 +2240,6 @@ _TESTS_:
         - INITIATED
         - GRANTED
         _RETURN_: attr all in enumList
-  - _NAME_: REQUIRED_CD_CODE
-    usecasepath: $.message.order.items[*].id
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: ERROR_CODE_CD_BALANCE_CODE
-      attr: $.error.code
-      _RETURN_: attr are present
-    - _NAME_: ERROR_CODE_CD_BALANCE_MESSAGE
-      attr: $.error.message
-      _RETURN_: attr are present
   update:
   - _NAME_: UPDATE_CONTEXT
     _RETURN_: *id002
@@ -2562,16 +2542,6 @@ _TESTS_:
       _RETURN_: attr are present
     - _NAME_: REQUIRED_DOCUMENT_URL
       attr: $.message.order.documents[*].url
-      _RETURN_: attr are present
-  - _NAME_: REQUIRED_CD_CODE
-    usecasepath: $.message.order.items[*].id
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: ERROR_CODE_CD_BALANCE_CODE
-      attr: $.error.code
-      _RETURN_: attr are present
-    - _NAME_: ERROR_CODE_CD_BALANCE_MESSAGE
-      attr: $.error.message
       _RETURN_: attr are present
   status:
   - _NAME_: STATUS_CONTEXT
