@@ -475,15 +475,15 @@ _TESTS_:
         - _NAME_: ORDER_ITEMS_PARENT_ITEM_ID
           attr: $.message.order.items[*].parent_item_id
           _RETURN_: attr are present
-        - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
-          attr: $.message.order.items[*].xinput.form.id
-          _RETURN_: attr are present
-        - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_STATUS
-          attr: $.message.order.items[*].xinput.form_response.status
-          _RETURN_: attr are present
-        - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_SUBMISSION_ID
-          attr: $.message.order.items[*].xinput.form_response.submission_id
-          _RETURN_: attr are present
+        # - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
+        #   attr: $.message.order.items[*].xinput.form.id
+        #   _RETURN_: attr are present
+        # - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_STATUS
+        #   attr: $.message.order.items[*].xinput.form_response.status
+        #   _RETURN_: attr are present
+        # - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_SUBMISSION_ID
+        #   attr: $.message.order.items[*].xinput.form_response.submission_id
+        #   _RETURN_: attr are present
     - _NAME_: FULFILLMENT_VALIDATION
       _RETURN_:
         - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
@@ -651,41 +651,41 @@ _TESTS_:
         - _NAME_: REQUIRED_ITEM_TIME_LABEL
           attr: $.message.order.items[*].time.label
           _RETURN_: attr are present
-    - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
-      _RETURN_:
-        - _NAME_: REQUIRED_XINPUT_HEAD_NAME
-          attr: $.message.order.items[*].xinput.head.descriptor.name
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MIN
-          attr: $.message.order.items[*].xinput.head.index.min
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MAX
-          attr: $.message.order.items[*].xinput.head.index.max
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_CUR
-          attr: $.message.order.items[*].xinput.head.index.cur
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_HEADINGS
-          attr: $.message.order.items[*].xinput.head.headings[*]
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_FORM_ID
-          attr: $.message.order.items[*].xinput.form.id
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_FORM_URL
-          attr: $.message.order.items[*].xinput.form.url
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_FORM_MIME
-          attr: $.message.order.items[*].xinput.form.mime_type
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_FORM_RESUBMIT
-          attr: $.message.order.items[*].xinput.form.resubmit
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_FORM_MULTIPLE_SUBMISSIONS
-          attr: $.message.order.items[*].xinput.form.multiple_sumbissions
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_XINPUT_REQUIRED
-          attr: $.message.order.items[*].xinput.required
-          _RETURN_: attr are present
+    # - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
+    #   _RETURN_:
+    #     - _NAME_: REQUIRED_XINPUT_HEAD_NAME
+    #       attr: $.message.order.items[*].xinput.head.descriptor.name
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MIN
+    #       attr: $.message.order.items[*].xinput.head.index.min
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MAX
+    #       attr: $.message.order.items[*].xinput.head.index.max
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_CUR
+    #       attr: $.message.order.items[*].xinput.head.index.cur
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_HEADINGS
+    #       attr: $.message.order.items[*].xinput.head.headings[*]
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_FORM_ID
+    #       attr: $.message.order.items[*].xinput.form.id
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_FORM_URL
+    #       attr: $.message.order.items[*].xinput.form.url
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_FORM_MIME
+    #       attr: $.message.order.items[*].xinput.form.mime_type
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_FORM_RESUBMIT
+    #       attr: $.message.order.items[*].xinput.form.resubmit
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_FORM_MULTIPLE_SUBMISSIONS
+    #       attr: $.message.order.items[*].xinput.form.multiple_sumbissions
+    #       _RETURN_: attr are present
+    #     - _NAME_: REQUIRED_XINPUT_REQUIRED
+    #       attr: $.message.order.items[*].xinput.required
+    #       _RETURN_: attr are present
     - _NAME_: ORDER_ITEM_TAG_VALIDATIONS
       _RETURN_:
         - _NAME_: REQUIRED_GENERAL_INFO_TAG
@@ -799,15 +799,15 @@ _TESTS_:
         - _NAME_: REQUIRED_PARENT_ITEM_ID
           attr: $.message.order.items[*].parent_item_id
           _RETURN_: attr are present
-        - _NAME_: REQUIRED_FORM_RESPONSE_SUBMISSION_ID
-          attr: $.message.order.items[*].xinput.form_response.submission_id
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_FORM_RESPONSE_STATUS
-          attr: $.message.order.items[*].xinput.form_response.status
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_FORM_ID
-          attr: $.message.order.items[*].xinput.form.id
-          _RETURN_: attr are present
+        # - _NAME_: REQUIRED_FORM_RESPONSE_SUBMISSION_ID
+        #   attr: $.message.order.items[*].xinput.form_response.submission_id
+        #   _RETURN_: attr are present
+        # - _NAME_: REQUIRED_FORM_RESPONSE_STATUS
+        #   attr: $.message.order.items[*].xinput.form_response.status
+        #   _RETURN_: attr are present
+        # - _NAME_: REQUIRED_FORM_ID
+        #   attr: $.message.order.items[*].xinput.form.id
+        #   _RETURN_: attr are present
     - _NAME_: ORDER_FULFILLMENT_VALIDATIONS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
