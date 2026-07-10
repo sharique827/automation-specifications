@@ -894,7 +894,7 @@ _TESTS_:
     _RETURN_: *id001
   - _NAME_: SELECT_ITEMS_SACHET
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: &id003
     - _NAME_: REQUIRED_ITEM_ID
@@ -907,7 +907,7 @@ _TESTS_:
     _NAME_: REQUIRED_PROVIDER_ID
     attr: $.message.order.provider.id
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: attr are present
   on_select:
@@ -1105,7 +1105,7 @@ _TESTS_:
     _RETURN_: *id001
   - _NAME_: ON_SELECT_ITEMS_SACHET
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEMS
@@ -1158,7 +1158,7 @@ _TESTS_:
   - &id014
     _NAME_: ON_SELECT_ITEM_TAGS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_TRANSIT_ITEMS_TAG_GENERAL_INFO_GROUP
@@ -1240,7 +1240,7 @@ _TESTS_:
         _RETURN_: validValues any in subTags
   - _NAME_: ON_SELECT_PROVIDER_SACHET
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: &id015
     - _NAME_: ON_SELECT_PROVIDER_ID
@@ -1269,7 +1269,7 @@ _TESTS_:
       _RETURN_: subTags all in validValues
   - _NAME_: ON_SELECT_FULFILLMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_FULFILLMENTS
@@ -1332,7 +1332,7 @@ _TESTS_:
         _RETURN_: validValues any in subTags
   - _NAME_: ON_SELECT_QUOTE_SACHET
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: &id019
     - _NAME_: REQUIRED_COMMON_QUOTE_ITEMS
@@ -1378,7 +1378,7 @@ _TESTS_:
     _RETURN_: *id002
   - _NAME_: ORDER_VALIDATION
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: ORDER_ITEMS_ID
@@ -1418,7 +1418,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: PAYMENT_VALIDATION
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
@@ -1453,13 +1453,13 @@ _TESTS_:
   - &id024
     _NAME_: SELECT_ITEMS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: *id003
   - *id004
   - _NAME_: INIT_FULFILLMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_FULFILLMENTS
@@ -1523,7 +1523,7 @@ _TESTS_:
         _RETURN_: subTags all in validValues
   - _NAME_: INIT_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_ITEMS
@@ -1751,7 +1751,7 @@ _TESTS_:
     _RETURN_: *id001
   - _NAME_: ON_INIT_ITEMS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEMS
@@ -1776,13 +1776,13 @@ _TESTS_:
   - &id028
     _NAME_: ON_SELECT_PROVIDER
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: *id015
   - &id025
     _NAME_: ON_INIT_FULFILLMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_FULFILLMENTS
@@ -1801,7 +1801,7 @@ _TESTS_:
   - &id029
     _NAME_: ON_INIT_CANCELLATION_TERMS
     usecasepath: $.message.order.cancellation_terms[*].external_ref.mimetype
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_EXTERNAL_REF_MIME_TYPE
@@ -1813,12 +1813,12 @@ _TESTS_:
   - &id030
     _NAME_: ON_SELECT_QUOTE
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_: *id019
   - _NAME_: ON_INIT_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_ITEMS
@@ -1848,7 +1848,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: ORDER_ITEM_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEM_ID
@@ -1920,7 +1920,7 @@ _TESTS_:
   - *id025
   - _NAME_: CONFIRM_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_ITEMS
@@ -2078,7 +2078,7 @@ _TESTS_:
   - &id033
     _NAME_: REQUIRED_ORDER_ITEMS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEMS
@@ -2118,7 +2118,7 @@ _TESTS_:
   - &id034
     _NAME_: ON_CONFIRM_ITEMS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEMS
@@ -2207,7 +2207,7 @@ _TESTS_:
   - &id035
     _NAME_: ON_CONFIRM_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_ITEMS
@@ -2229,7 +2229,7 @@ _TESTS_:
   - &id036
     _NAME_: ON_CONFIRM_FULFILLMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_FULFILLMENTS
@@ -2543,7 +2543,7 @@ _TESTS_:
   - *id036
   - _NAME_: REQUIRED_ORDER_DOCUMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    messagepath: $.message.order
+    messagepath: $.message.order.provider.id
     _CONTINUE_: '(messagepath are present) && !(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_DOCUMENT_CODE
