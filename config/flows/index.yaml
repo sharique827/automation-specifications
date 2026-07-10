@@ -81,6 +81,19 @@ flows:
     description: LAMF Credit Line with MFC
     config:
       $ref:  "./LAMF/lamf_credit_line_with_mfc_single_redirection.yaml"
+
+  - type: playground
+    id: lamf_credit_line_with_mfc_single_redirection_with_igm_1.0.0
+    meta:
+      order: 3
+    usecase: LAMF LOAN
+    tags:
+      - WORKBENCH
+      - Mandatory
+      # - REPORTABLE
+    description: LAMF Credit Line with MFC With IGM 1.0.0
+    config:
+      $ref:  "./LAMF/lamf_credit_line_with_mfc_single_redirection._with_igm_1.0.0.yaml"    
   # - type: playground
   #   id: lamf_credit_line_with_mfc
   #   meta:
@@ -189,5 +202,44 @@ flows:
     config:
       $ref:  "./BUSINESS_LOAN/business_term_loan_with_aa.yaml"
 
-  
+  # __________________  IGM_1.0.0__________________    
+
+  - type: playground
+    id: business_term_loan_with_aa_with_igm_1.0.0
+    meta:
+      order: 5
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      # - REPORTABLE
+    description: BUSINESS Term Loan With AA with IGM 1.0.0
+    config:
+      $ref:  "./BUSINESS_LOAN/business_term_loan_with_aa_with_igm_1.0.0.yaml"
+
+  - type: playground
+    id: business_term_loan_without_aa_with_igm_1.0.0
+    meta:
+      order: 6
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      # - REPORTABLE
+    description: BUSINESS Term Loan Without AA with IGM 1.0.0
+    config:
+      $ref:  "./BUSINESS_LOAN/business_term_loan_without_aa_with_igm_1.0.0.yaml"
+
+  - type: playground
+    id: business_term_loan_with_file_upload_with_igm_1.0.0
+    meta:
+      order: 7
+    usecase: BUSINESS LOAN
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      # - REPORTABLE
+    description: BUSINESS Term Loan With File Upload with IGM 1.0.0
+    config:
+      $ref:  "./BUSINESS_LOAN/business_term_loan_with_file_upload_with_igm_1.0.0.yaml"        
  
