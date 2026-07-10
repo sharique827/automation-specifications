@@ -181,9 +181,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: search
-            timestamp: 2026-07-10T19:15:48.900Z
+            timestamp: 2026-07-10T19:43:04.193Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 314ab8fd-d2ac-4ca9-bf1e-bcc8ae6031d8
+            message_id: 31fd6fdd-2153-42e6-8765-92abedbcda49
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -218,14 +218,22 @@ steps:
                   - location:
                       gps: 30.748844, 76.642899
                       address: City Heart
+                      city:
+                        code: std:011
+                      district: Bangalore
                       country:
                         code: IND
+                      area_code: "560001"
                     type: START
                   - location:
                       gps: 30.690880, 76.711488
                       address: 3b2 Mohali
+                      city:
+                        code: std:011
+                      district: Mohali
                       country:
                         code: IND
+                      area_code: "144103"
                     type: END
               payment:
                 collected_by: BAP
@@ -497,9 +505,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_search
-            timestamp: 2026-07-10T19:15:48.922Z
+            timestamp: 2026-07-10T19:43:04.214Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 314ab8fd-d2ac-4ca9-bf1e-bcc8ae6031d8
+            message_id: 31fd6fdd-2153-42e6-8765-92abedbcda49
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -529,8 +537,12 @@ steps:
                         - location:
                             gps: 30.748844, 76.642899
                             address: City Heart
+                            city:
+                              code: std:011
+                            district: Bangalore
                             country:
                               code: IND
+                            area_code: "560001"
                           type: START
                           instructions:
                             short_desc: short description of the location
@@ -538,8 +550,12 @@ steps:
                         - location:
                             gps: 30.690880, 76.711488
                             address: 3b2 Mohali
+                            city:
+                              code: std:011
+                            district: Mohali
                             country:
                               code: IND
+                            area_code: "144103"
                           type: END
                           instructions:
                             short_desc: short description of the location
@@ -553,8 +569,12 @@ steps:
                         - location:
                             gps: 30.748844, 76.642899
                             address: City Heart
+                            city:
+                              code: std:011
+                            district: Bangalore
                             country:
                               code: IND
+                            area_code: "560001"
                           type: START
                           instructions:
                             short_desc: short description of the location
@@ -562,8 +582,12 @@ steps:
                         - location:
                             gps: 30.690880, 76.711488
                             address: 3b2 Mohali
+                            city:
+                              code: std:011
+                            district: Mohali
                             country:
                               code: IND
+                            area_code: "144103"
                           type: END
                           instructions:
                             short_desc: short description of the location
@@ -691,13 +715,13 @@ steps:
                         url: https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
                         mimetype: application/pdf
                   locations:
-                    - gps: 30.749700,76.645802
+                    - gps: 30.753118,76.646395
                       id: L1
-                    - gps: 30.750017,76.643836
+                    - gps: 30.752316,76.645421
                       id: L2
-                    - gps: 30.750796,76.645726
+                    - gps: 30.752288,76.647603
                       id: L3
-                    - gps: 30.751235,76.644057
+                    - gps: 30.750300,76.643450
                       id: L4
                   payments:
                     - collected_by: BAP
@@ -746,7 +770,7 @@ steps:
     description: The BAP selects the ride order to be cancelled and communicates the
       selected order details and pricing to the BPP.
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9CiAgc2Vzc2lvbkRhdGE/LmNpdHlfY29kZVswXTsKICBpZiAoc2Vzc2lvbkRhdGEuaXRlbV9pZHMpewogICAgY29uc3QgaXRlbV9pZCA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLml0ZW1faWQKICAgIC8vIGNvbnN0IGl0ZW1faWQgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5pdGVtX2lkCiAgICBjb25zdCBpdGVtID0gc2Vzc2lvbkRhdGEuaXRlbXMuZmluZChpID0+IGkuaWQgPT09IGl0ZW1faWQpOwogICAgY29uc3QgZnVsZmlsbG1lbnRJZCA9IGl0ZW0/LmZ1bGZpbGxtZW50X2lkcz8uWzBdOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0uaWQgPSBmdWxmaWxsbWVudElkCiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zWzBdLmlkID0gaXRlbV9pZAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdCiAgICB9CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9CiAgc2Vzc2lvbkRhdGE/LmNpdHlfY29kZVswXTsKICBpZiAoc2Vzc2lvbkRhdGEuaXRlbV9pZHMpewogICAgY29uc3QgaXRlbV9pZCA9CiAgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuaXRlbXM/LlswXT8uaXRlbUlkID8/CiAgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuaXRlbV9pZDsKCiAgICBjb25zdCBpdGVtID0gc2Vzc2lvbkRhdGEuaXRlbXMuZmluZChpID0+IGkuaWQgPT09IGl0ZW1faWQpOwogICAgY29uc3QgZnVsZmlsbG1lbnRJZCA9IGl0ZW0/LmZ1bGZpbGxtZW50X2lkcz8uWzBdOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF0uaWQgPSBmdWxmaWxsbWVudElkCiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zWzBdLmlkID0gaXRlbV9pZAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdCiAgICB9CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
       validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBDVVJSRU5UX1NURVBfQVBJID0gInNlbGVjdCI7CiAgY29uc3QgQ1VSUkVOVF9TVEVQX0FDVElPTl9JRCA9ICJzZWxlY3QiOwogIGNvbnN0IENVUlJFTlRfU1RFUF9JTkRFWCA9IDI7CgogIGlmICghdGFyZ2V0UGF5bG9hZCB8fCAhdGFyZ2V0UGF5bG9hZC5jb250ZXh0KSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHBheWxvYWQgY29udGV4dCIgfTsKICB9CgogIGlmICh0YXJnZXRQYXlsb2FkLmNvbnRleHQuYWN0aW9uICE9PSBDVVJSRU5UX1NURVBfQVBJKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJDb250ZXh0IGFjdGlvbiBkb2VzIG5vdCBtYXRjaCBzdGVwIEFQSTogIiArIHRhcmdldFBheWxvYWQuY29udGV4dC5hY3Rpb24gfTsKICB9CgogIGNvbnN0IG1lc3NhZ2UgPSB0YXJnZXRQYXlsb2FkLm1lc3NhZ2U7CiAgaWYgKCFtZXNzYWdlKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIG1lc3NhZ2Ugb2JqZWN0IGluIHBheWxvYWQiIH07CiAgfQoKICBmdW5jdGlvbiBnZXRTZXNzaW9uUHJvdmlkZXJJZChzZXNzaW9uKSB7CiAgICBpZiAoIXNlc3Npb24gfHwgIXNlc3Npb24ucHJvdmlkZXIpIHJldHVybiBudWxsOwogICAgY29uc3QgcCA9IHNlc3Npb24ucHJvdmlkZXI7CiAgICBpZiAoQXJyYXkuaXNBcnJheShwKSkgewogICAgICBpZiAocC5sZW5ndGggPT09IDApIHJldHVybiBudWxsOwogICAgICBjb25zdCBmaXJzdCA9IHBbMF07CiAgICAgIHJldHVybiAoZmlyc3QgJiYgdHlwZW9mIGZpcnN0ID09PSAnb2JqZWN0JykgPyBmaXJzdC5pZCA6IGZpcnN0OwogICAgfQogICAgcmV0dXJuIChwICYmIHR5cGVvZiBwID09PSAnb2JqZWN0JykgPyBwLmlkIDogcDsKICB9CgogIGZ1bmN0aW9uIGdldFNlc3Npb25JdGVtcyhzZXNzaW9uKSB7CiAgICBpZiAoIXNlc3Npb24pIHJldHVybiBbXTsKICAgIGNvbnN0IGxpc3RzID0gWwogICAgICBzZXNzaW9uLm9uX3NlbGVjdF9pdGVtcywKICAgICAgc2Vzc2lvbi5pdGVtcywKICAgICAgc2Vzc2lvbi5zZWxlY3RlZF9pdGVtcywKICAgICAgc2Vzc2lvbi5vcmRlcl9pdGVtcwogICAgXTsKICAgIGZvciAoY29uc3QgbGlzdCBvZiBsaXN0cykgewogICAgICBpZiAobGlzdCkgewogICAgICAgIGNvbnN0IGFyciA9IEFycmF5LmlzQXJyYXkobGlzdCkgPyAoQXJyYXkuaXNBcnJheShsaXN0WzBdKSA/IGxpc3RbMF0gOiBsaXN0KSA6IFtsaXN0XTsKICAgICAgICBpZiAoYXJyLnNvbWUoaSA9PiBpICYmIGkuZnVsZmlsbG1lbnRfaWQpKSB7CiAgICAgICAgICByZXR1cm4gYXJyOwogICAgICAgIH0KICAgICAgfQogICAgfQogICAgZm9yIChjb25zdCBsaXN0IG9mIGxpc3RzKSB7CiAgICAgIGlmIChsaXN0KSB7CiAgICAgICAgY29uc3QgYXJyID0gQXJyYXkuaXNBcnJheShsaXN0KSA/IChBcnJheS5pc0FycmF5KGxpc3RbMF0pID8gbGlzdFswXSA6IGxpc3QpIDogW2xpc3RdOwogICAgICAgIGlmIChhcnIubGVuZ3RoID4gMCkgcmV0dXJuIGFycjsKICAgICAgfQogICAgfQogICAgcmV0dXJuIFtdOwogIH0KCiAgZnVuY3Rpb24gZ2V0U2Vzc2lvbkZ1bGZpbGxtZW50cyhzZXNzaW9uKSB7CiAgICBpZiAoIXNlc3Npb24pIHJldHVybiBbXTsKICAgIGNvbnN0IGxpc3RzID0gWwogICAgICBzZXNzaW9uLm9uX3NlbGVjdF9mdWxmaWxsbWVudHMsCiAgICAgIHNlc3Npb24uZnVsZmlsbG1lbnRzLAogICAgICBzZXNzaW9uLnNlbGVjdGVkX2Z1bGZpbGxtZW50cywKICAgICAgc2Vzc2lvbi5vbl9zdGF0dXNfZnVsZmlsbG1lbnRzCiAgICBdOwogICAgZm9yIChjb25zdCBsaXN0IG9mIGxpc3RzKSB7CiAgICAgIGlmIChsaXN0KSB7CiAgICAgICAgY29uc3QgYXJyID0gQXJyYXkuaXNBcnJheShsaXN0KSA/IChBcnJheS5pc0FycmF5KGxpc3RbMF0pID8gbGlzdFswXSA6IGxpc3QpIDogW2xpc3RdOwogICAgICAgIGlmIChhcnIuc29tZShmID0+IGYgJiYgZi5pZCkpIHsKICAgICAgICAgIHJldHVybiBhcnI7CiAgICAgICAgfQogICAgICB9CiAgICB9CiAgICBmb3IgKGNvbnN0IGxpc3Qgb2YgbGlzdHMpIHsKICAgICAgaWYgKGxpc3QpIHsKICAgICAgICBjb25zdCBhcnIgPSBBcnJheS5pc0FycmF5KGxpc3QpID8gKEFycmF5LmlzQXJyYXkobGlzdFswXSkgPyBsaXN0WzBdIDogbGlzdCkgOiBbbGlzdF07CiAgICAgICAgaWYgKGFyci5sZW5ndGggPiAwKSByZXR1cm4gYXJyOwogICAgICB9CiAgICB9CiAgICByZXR1cm4gW107CiAgfQoKICAvLyBEZXRlcm1pbmUgaWYgd2Ugc2hvdWxkIHNraXAgY3Jvc3Mtc3RlcCB2ZXJpZmljYXRpb24gZHVlIHRvIG1pc21hdGNoZWQgdHJhbnNhY3Rpb25zIGluIG1vY2sgZXhhbXBsZXMKICBsZXQgc2tpcENyb3NzU3RlcCA9IGZhbHNlOwogIGlmIChzZXNzaW9uRGF0YSkgewogICAgY29uc3QgcHJldlR4SWQgPSBBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhLnRyYW5zYWN0aW9uSWQpID8gc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25JZFswXSA6IHNlc3Npb25EYXRhLnRyYW5zYWN0aW9uSWQ7CiAgICBjb25zdCBhY3RpdmVUeElkID0gcHJldlR4SWQgfHwgc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25faWQ7CiAgICBpZiAoYWN0aXZlVHhJZCAmJiB0YXJnZXRQYXlsb2FkLmNvbnRleHQudHJhbnNhY3Rpb25faWQgIT09IGFjdGl2ZVR4SWQpIHsKICAgICAgc2tpcENyb3NzU3RlcCA9IHRydWU7CiAgICB9CiAgfSBlbHNlIHsKICAgIHNraXBDcm9zc1N0ZXAgPSB0cnVlOwogIH0KCiAgaWYgKCFtZXNzYWdlLm9yZGVyKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIG1lc3NhZ2Ugb3JkZXIgaW4gc2VsZWN0IiB9OwogIH0KICBjb25zdCBvcmRlciA9IG1lc3NhZ2Uub3JkZXI7CiAgaWYgKCFvcmRlci5wcm92aWRlciB8fCAhb3JkZXIucHJvdmlkZXIuaWQpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3NpbmcgcHJvdmlkZXIgSUQgaW4gc2VsZWN0IG9yZGVyIiB9OwogIH0KICBpZiAoIW9yZGVyLml0ZW1zIHx8ICFBcnJheS5pc0FycmF5KG9yZGVyLml0ZW1zKSB8fCBvcmRlci5pdGVtcy5sZW5ndGggPT09IDApIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3Npbmcgb3IgZW1wdHkgaXRlbXMgbGlzdCBpbiBzZWxlY3Qgb3JkZXIiIH07CiAgfQogIGZvciAoY29uc3QgaXRlbSBvZiBvcmRlci5pdGVtcykgewogICAgaWYgKCFpdGVtLmlkKSB7CiAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkl0ZW0gaXMgbWlzc2luZyBJRCBpbiBzZWxlY3QiIH07CiAgICB9CiAgfQogIGlmICghb3JkZXIuZnVsZmlsbG1lbnRzIHx8ICFBcnJheS5pc0FycmF5KG9yZGVyLmZ1bGZpbGxtZW50cykgfHwgb3JkZXIuZnVsZmlsbG1lbnRzLmxlbmd0aCA9PT0gMCkgewogICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiTWlzc2luZyBmdWxmaWxsbWVudHMgbGlzdCBpbiBzZWxlY3QiIH07CiAgfQoKICBpZiAoIXNraXBDcm9zc1N0ZXApIHsKICAgIGNvbnN0IHByZXZQcm92aWRlcklkID0gZ2V0U2Vzc2lvblByb3ZpZGVySWQoc2Vzc2lvbkRhdGEpOwogICAgaWYgKHByZXZQcm92aWRlcklkICYmIG9yZGVyLnByb3ZpZGVyLmlkICE9PSBwcmV2UHJvdmlkZXJJZCkgewogICAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJzZWxlY3QgcHJvdmlkZXIgSUQgIiArIG9yZGVyLnByb3ZpZGVyLmlkICsgIiBkb2VzIG5vdCBtYXRjaCBwcmV2aW91cyBwcm92aWRlciBJRCAiICsgcHJldlByb3ZpZGVySWQgfTsKICAgIH0KICAgIGNvbnN0IHNlbEl0ZW1zID0gZ2V0U2Vzc2lvbkl0ZW1zKHNlc3Npb25EYXRhKTsKICAgIGlmIChzZWxJdGVtcy5sZW5ndGggPiAwKSB7CiAgICAgIGZvciAoY29uc3QgaXRlbSBvZiBvcmRlci5pdGVtcykgewogICAgICAgIGNvbnN0IG1hdGNoID0gc2VsSXRlbXMuZmluZChzaSA9PiBzaS5pZCA9PT0gaXRlbS5pZCk7CiAgICAgICAgaWYgKCFtYXRjaCkgewogICAgICAgICAgcmV0dXJuIHsgdmFsaWQ6IGZhbHNlLCBjb2RlOiA0MDAsIGRlc2NyaXB0aW9uOiAiSXRlbSAiICsgaXRlbS5pZCArICIgaW4gc2VsZWN0IHdhcyBub3QgcHJldmlvdXNseSBzZWxlY3RlZCIgfTsKICAgICAgICB9CiAgICAgIH0KICAgIH0KICAgIGNvbnN0IHNlbEZ1bGZpbGxtZW50cyA9IGdldFNlc3Npb25GdWxmaWxsbWVudHMoc2Vzc2lvbkRhdGEpOwogICAgaWYgKHNlbEZ1bGZpbGxtZW50cy5sZW5ndGggPiAwKSB7CiAgICAgIGZvciAoY29uc3QgZmYgb2Ygb3JkZXIuZnVsZmlsbG1lbnRzKSB7CiAgICAgICAgaWYgKGZmLmlkKSB7CiAgICAgICAgICBjb25zdCBtYXRjaCA9IHNlbEZ1bGZpbGxtZW50cy5maW5kKHNmID0+IHNmLmlkID09PSBmZi5pZCk7CiAgICAgICAgICBpZiAoIW1hdGNoKSB7CiAgICAgICAgICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkZ1bGZpbGxtZW50IElEICIgKyBmZi5pZCArICIgaW4gc2VsZWN0IGRvZXMgbm90IG1hdGNoIHNlbGVjdGlvbiIgfTsKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0KICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
       requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBDVVJSRU5UX1NURVBfQVBJID0gInNlbGVjdCI7CiAgY29uc3QgQ1VSUkVOVF9TVEVQX0FDVElPTl9JRCA9ICJzZWxlY3QiOwogIGNvbnN0IENVUlJFTlRfU1RFUF9JTkRFWCA9IDI7CgogIGlmICghc2Vzc2lvbkRhdGEpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIk1pc3Npbmcgc2Vzc2lvbiBkYXRhIiB9OwogIH0KCiAgY29uc3QgdHhJZCA9IHNlc3Npb25EYXRhLnRyYW5zYWN0aW9uSWQgfHwgc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25faWQ7CiAgaWYgKCF0eElkKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHRyYW5zYWN0aW9uIElEIGluIHNlc3Npb24iIH07CiAgfQoKICBjb25zdCBpdGVtcyA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1zIHx8IHNlc3Npb25EYXRhLml0ZW1zIHx8IHNlc3Npb25EYXRhLm9uX3NlbGVjdF9pdGVtczsKICBpZiAoIWl0ZW1zIHx8IChBcnJheS5pc0FycmF5KGl0ZW1zKSAmJiBpdGVtcy5sZW5ndGggPT09IDApKSB7CiAgICByZXR1cm4geyB2YWxpZDogZmFsc2UsIGNvZGU6IDQwMCwgZGVzY3JpcHRpb246ICJNaXNzaW5nIHNlbGVjdGVkIGl0ZW1zIGluIHNlc3Npb24gYmVmb3JlIHNlbGVjdCIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
@@ -811,9 +835,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: select
-            timestamp: 2026-07-10T19:15:52.378Z
+            timestamp: 2026-07-10T19:43:07.261Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 0d6fb16a-5457-4f9b-8bc7-b099c545ed07
+            message_id: c45ccb68-ae2b-42bb-8e8c-8f237194782a
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1010,9 +1034,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_select
-            timestamp: 2026-07-10T19:15:52.395Z
+            timestamp: 2026-07-10T19:43:07.281Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 0d6fb16a-5457-4f9b-8bc7-b099c545ed07
+            message_id: c45ccb68-ae2b-42bb-8e8c-8f237194782a
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1032,8 +1056,12 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
@@ -1041,8 +1069,12 @@ steps:
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -1331,9 +1363,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: init
-            timestamp: 2026-07-10T19:15:53.152Z
+            timestamp: 2026-07-10T19:43:07.961Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 9f776e3b-a3c3-4a21-bd1e-7707dd979153
+            message_id: 16760f6b-9c12-4c30-af48-799c23f02cfe
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1355,8 +1387,12 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
@@ -1364,8 +1400,12 @@ steps:
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -1681,9 +1721,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_init
-            timestamp: 2026-07-10T19:15:53.189Z
+            timestamp: 2026-07-10T19:43:08.005Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 9f776e3b-a3c3-4a21-bd1e-7707dd979153
+            message_id: 16760f6b-9c12-4c30-af48-799c23f02cfe
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1732,8 +1772,12 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
@@ -1741,8 +1785,12 @@ steps:
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -1874,10 +1922,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -2098,9 +2146,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: confirm
-            timestamp: 2026-07-10T19:15:53.222Z
+            timestamp: 2026-07-10T19:43:08.045Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: bc2c20ff-1380-41f3-808a-951c2ce1848c
+            message_id: 52a18261-ed12-41d0-a13f-36a360e10397
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2122,8 +2170,12 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
@@ -2131,8 +2183,12 @@ steps:
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -2150,7 +2206,7 @@ steps:
                 - id: I1
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -2560,9 +2616,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_confirm
-            timestamp: 2026-07-10T19:15:53.251Z
+            timestamp: 2026-07-10T19:43:08.088Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: bc2c20ff-1380-41f3-808a-951c2ce1848c
+            message_id: 52a18261-ed12-41d0-a13f-36a360e10397
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2611,22 +2667,30 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
                         long_desc: long description of the location
                       authorization:
                         type: OTP
-                        token: "357972"
-                        valid_to: 2026-07-10T19:45:53.255Z
+                        token: "787448"
+                        valid_to: 2026-07-10T20:13:08.091Z
                         status: UNCLAIMED
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -2678,7 +2742,7 @@ steps:
                         url: https://example-bpp.com/seller/images/agent/profile-image.png
                         size_type: sm
                     rating: "4.8"
-              id: 6na7roswwf
+              id: 8pyxgyb17h9
               items:
                 - descriptor:
                     code: RIDE
@@ -2774,10 +2838,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -2804,8 +2868,8 @@ steps:
                   value: "146"
                 ttl: PT200S
               status: ACTIVE
-              created_at: 2026-07-10T19:15:53.251Z
-              updated_at: 2026-07-10T19:15:53.251Z
+              created_at: 2026-07-10T19:43:08.088Z
+              updated_at: 2026-07-10T19:43:08.088Z
               tags:
                 - descriptor:
                     name: BAP Terms of Engagement
@@ -3192,9 +3256,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_status
-            timestamp: 2026-07-10T19:15:53.283Z
+            timestamp: 2026-07-10T19:43:08.130Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: a5bb0816-8b8b-4de5-986f-13cf4b709384
+            message_id: 6b36a63d-bd64-4298-9c05-790d289969cb
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3316,22 +3380,30 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
                         long_desc: long description of the location
                       authorization:
                         type: OTP
-                        token: "357972"
-                        valid_to: 2026-07-10T19:45:53.255Z
+                        token: "787448"
+                        valid_to: 2026-07-10T20:13:08.091Z
                         status: UNCLAIMED
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -3383,7 +3455,7 @@ steps:
                         url: https://example-bpp.com/seller/images/agent/profile-image.png
                         size_type: sm
                     rating: "4.8"
-              id: 6na7roswwf
+              id: 8pyxgyb17h9
               items:
                 - descriptor:
                     code: RIDE
@@ -3479,10 +3551,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -3509,8 +3581,8 @@ steps:
                   value: "146"
                 ttl: PT200S
               status: ACTIVE
-              created_at: 2026-07-10T19:15:53.251Z
-              updated_at: 2026-07-10T19:15:53.283Z
+              created_at: 2026-07-10T19:43:08.088Z
+              updated_at: 2026-07-10T19:43:08.130Z
         type: request
         description: The BPP sends an unsolicited status notification to the BAP
           confirming the ride cancellation and conveying the final order state
@@ -3823,9 +3895,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_status
-            timestamp: 2026-07-10T19:15:53.314Z
+            timestamp: 2026-07-10T19:43:08.173Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: d3ad7710-1e11-4323-8b15-454655437a03
+            message_id: db0f0560-bbcb-483a-bb32-4425012dabff
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3947,22 +4019,30 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
                         long_desc: long description of the location
                       authorization:
                         type: OTP
-                        token: "357972"
-                        valid_to: 2026-07-10T19:45:53.255Z
+                        token: "787448"
+                        valid_to: 2026-07-10T20:13:08.091Z
                         status: UNCLAIMED
                     - location:
                         gps: 30.690880, 76.711488
                         address: 3b2 Mohali
+                        city:
+                          code: std:011
+                        district: Mohali
                         country:
                           code: IND
+                        area_code: "144103"
                       type: END
                       instructions:
                         short_desc: short description of the location
@@ -4014,7 +4094,7 @@ steps:
                         url: https://example-bpp.com/seller/images/agent/profile-image.png
                         size_type: sm
                     rating: "4.8"
-              id: 6na7roswwf
+              id: 8pyxgyb17h9
               items:
                 - descriptor:
                     code: RIDE
@@ -4110,10 +4190,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -4140,8 +4220,8 @@ steps:
                   value: "146"
                 ttl: PT200S
               status: ACTIVE
-              created_at: 2026-07-10T19:15:53.251Z
-              updated_at: 2026-07-10T19:15:53.314Z
+              created_at: 2026-07-10T19:43:08.088Z
+              updated_at: 2026-07-10T19:43:08.173Z
         type: request
         description: The BPP sends an unsolicited status update to the BAP containing
           the current order state and cancellation status following the rider's
@@ -4202,9 +4282,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: cancel
-            timestamp: 2026-07-10T19:15:53.348Z
+            timestamp: 2026-07-10T19:43:08.217Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 5ddb7c09-dc69-4e91-8f8b-5f702685fe6f
+            message_id: 15caf7b6-b40b-46ef-a276-eb671c20d813
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4221,7 +4301,7 @@ steps:
             descriptor:
               code: SOFT_CANCEL
               name: Ride Cancellation
-            order_id: 6na7roswwf
+            order_id: 8pyxgyb17h9
         type: request
         description: The rider's app (BAP) submits a cancellation request to the
           mobility service provider (BPP) to terminate an accepted ride order.
@@ -4547,9 +4627,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_cancel
-            timestamp: 2026-07-10T19:15:53.384Z
+            timestamp: 2026-07-10T19:43:08.266Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: 5ddb7c09-dc69-4e91-8f8b-5f702685fe6f
+            message_id: 15caf7b6-b40b-46ef-a276-eb671c20d813
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4598,15 +4678,19 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
                         long_desc: long description of the location
                       authorization:
                         type: OTP
-                        token: "357972"
+                        token: "787448"
                       time:
                         duration: PT2H
                   vehicle:
@@ -4656,7 +4740,7 @@ steps:
                         url: https://example-bpp.com/seller/images/agent/profile-image.png
                         size_type: sm
                     rating: "4.8"
-              id: 6na7roswwf
+              id: 8pyxgyb17h9
               items:
                 - descriptor:
                     code: RIDE
@@ -4752,10 +4836,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -4795,8 +4879,8 @@ steps:
                 reason:
                   descriptor:
                     code: "005"
-              created_at: 2026-07-10T19:15:53.251Z
-              updated_at: 2026-07-10T19:15:53.384Z
+              created_at: 2026-07-10T19:43:08.088Z
+              updated_at: 2026-07-10T19:43:08.266Z
               tags:
                 - descriptor:
                     code: BAP_TERMS
@@ -4931,9 +5015,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: cancel
-            timestamp: 2026-07-10T19:15:53.434Z
+            timestamp: 2026-07-10T19:43:08.326Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: ccec2c97-7db5-4306-b9fe-ad60b7699cb2
+            message_id: 27cd08a6-0aa8-4168-98e5-955a31a7f6d8
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4950,7 +5034,7 @@ steps:
             descriptor:
               code: CONFIRM_CANCEL
               name: Ride Cancellation
-            order_id: 6na7roswwf
+            order_id: 8pyxgyb17h9
         type: request
         description: The BAP initiates a cancellation request to the BPP for the
           confirmed ride booking. The BPP processes the cancellation and returns
@@ -5275,9 +5359,9 @@ steps:
           context:
             domain: ONDC:TRV10
             action: on_cancel
-            timestamp: 2026-07-10T19:15:53.469Z
+            timestamp: 2026-07-10T19:43:08.374Z
             transaction_id: 044862ca-2bf5-48c3-85b6-f12714900fd5
-            message_id: ccec2c97-7db5-4306-b9fe-ad60b7699cb2
+            message_id: 27cd08a6-0aa8-4168-98e5-955a31a7f6d8
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5326,15 +5410,19 @@ steps:
                     - location:
                         gps: 30.748844, 76.642899
                         address: City Heart
+                        city:
+                          code: std:011
+                        district: Bangalore
                         country:
                           code: IND
+                        area_code: "560001"
                       type: START
                       instructions:
                         short_desc: short description of the location
                         long_desc: long description of the location
                       authorization:
                         type: OTP
-                        token: "357972"
+                        token: "787448"
                       time:
                         duration: PT2H
                   vehicle:
@@ -5384,7 +5472,7 @@ steps:
                         url: https://example-bpp.com/seller/images/agent/profile-image.png
                         size_type: sm
                     rating: "4.8"
-              id: 6na7roswwf
+              id: 8pyxgyb17h9
               items:
                 - descriptor:
                     code: RIDE
@@ -5480,10 +5568,10 @@ steps:
                           code: RIDE_STARTED
                       reason_required: true
                   payment_ids:
-                    - ltznsc1kjo8
+                    - f1hgez4a09
               payments:
                 - collected_by: BAP
-                  id: ltznsc1kjo8
+                  id: f1hgez4a09
                   status: NOT-PAID
                   type: ON-FULFILLMENT
               provider:
@@ -5522,8 +5610,8 @@ steps:
                 reason:
                   descriptor:
                     code: "005"
-              created_at: 2026-07-10T19:15:53.251Z
-              updated_at: 2026-07-10T19:15:53.469Z
+              created_at: 2026-07-10T19:43:08.088Z
+              updated_at: 2026-07-10T19:43:08.374Z
               tags:
                 - descriptor:
                     code: BAP_TERMS
