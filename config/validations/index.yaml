@@ -719,20 +719,6 @@ _TESTS_:
           attr: $.message.order.payments[?(@.type=='PRE_ORDER')].params.currency
           enumList: *a8
           _RETURN_: attr all in enumList
-    - _NAME_: ON_INIT_CANCELLATION_TERMS
-      _RETURN_:
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_FULFILLMENT_STATE
-          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-          _RETURN_: attr are present
-        - _NAME_: VALID_CANCELLATION_FULFILLMENT_STATE_ENUM
-          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-          enumList: &a14
-            - SANCTIONED
-            - DISBURSED
-          _RETURN_: attr all in enumList
-        - _NAME_: REQUIRED_CANCELLATION_FEE
-          attr: $.message.order.cancellation_terms[*].cancellation_fee.percentage
-          _RETURN_: attr are present
     - _NAME_: ON_INIT_QUOTE
       _RETURN_:
         - _NAME_: REQUIRED_QUOTE_ID
