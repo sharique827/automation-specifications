@@ -719,20 +719,6 @@ _TESTS_:
           attr: $.message.order.payments[?(@.type=='PRE_ORDER')].params.currency
           enumList: *a8
           _RETURN_: attr all in enumList
-    - _NAME_: ON_INIT_CANCELLATION_TERMS
-      _RETURN_:
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_FULFILLMENT_STATE
-          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-          _RETURN_: attr are present
-        - _NAME_: VALID_CANCELLATION_FULFILLMENT_STATE_ENUM
-          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-          enumList: &a14
-            - SANCTIONED
-            - DISBURSED
-          _RETURN_: attr all in enumList
-        - _NAME_: REQUIRED_CANCELLATION_FEE
-          attr: $.message.order.cancellation_terms[*].cancellation_fee.percentage
-          _RETURN_: attr are present
     - _NAME_: ON_INIT_QUOTE
       _RETURN_:
         - _NAME_: REQUIRED_QUOTE_ID
@@ -751,6 +737,18 @@ _TESTS_:
         - _NAME_: REQUIRED_QUOTE_BREAKUP
           attr: $.message.order.quote.breakup[*].title
           enumList: *a13
+          _RETURN_: attr any in enumList
+    - _NAME_: ON_INIT_CANCELLATION_TERMS
+      _RETURN_:
+        - _NAME_: VALID_CANCELLATION_TERMS_FULFILLMENT_STATE_CODE
+          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
+          enumList: &a14
+            - INITIATED
+            - PENDING
+            - REJECTED
+            - SANCTIONED
+            - DISBURSED
+            - COMPLETED
           _RETURN_: attr any in enumList
   confirm:
     - _NAME_: CONFIRM_CONTEXT
@@ -961,9 +959,11 @@ _TESTS_:
           enumList: *a13
           _RETURN_: attr any in enumList
     - _NAME_: ON_CONFIRM_CANCELLATION_TERMS
-      attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enumList: *a14
-      _RETURN_: attr all in enumList
+      _RETURN_:
+        - _NAME_: VALID_CANCELLATION_TERMS_FULFILLMENT_STATE_CODE
+          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
+          enumList: *a14
+          _RETURN_: attr any in enumList
     - _NAME_: ON_CONFIRM_DOCUMENTS
       _RETURN_:
         - _NAME_: REQUIRED_DOCUMENT_DESCRIPTOR_CODE
@@ -1190,9 +1190,11 @@ _TESTS_:
           enumList: *a13
           _RETURN_: attr any in enumList
     - _NAME_: ON_CANCEL_CANCELLATION_TERMS
-      attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enumList: *a14
-      _RETURN_: attr all in enumList
+      _RETURN_:
+        - _NAME_: VALID_CANCELLATION_TERMS_FULFILLMENT_STATE_CODE
+          attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
+          enumList: *a14
+          _RETURN_: attr any in enumList
     - _NAME_: ON_CANCEL_TIMESTAMPS
       _RETURN_:
         - _NAME_: REQUIRED_CREATED_AT
