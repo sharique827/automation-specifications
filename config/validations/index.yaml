@@ -3119,7 +3119,7 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_TYPE_31
-      attr: $.message.order.fulfillments[*].stops[*].authorization.type
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.type
       _RETURN_: attr are present && attr all in enumList
       enumList:
         - QR
@@ -3128,14 +3128,14 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_TOKEN_32
-      attr: $.message.order.fulfillments[*].stops[*].authorization.token
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.token
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALID_TO_33
-      attr: $.message.order.fulfillments[*].stops[*].authorization.valid_to
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.valid_to
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
@@ -4193,15 +4193,15 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].stops[*].location.gps
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_TYPE_32
-      attr: $.message.order.fulfillments[*].stops[*].authorization.type
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.type
       _RETURN_: attr are present && attr all in enumList
       enumList:
         - QR
     - _NAME_: REQUIRED_MESSAGE_TOKEN_33
-      attr: $.message.order.fulfillments[*].stops[*].authorization.token
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.token
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_VALID_TO_34
-      attr: $.message.order.fulfillments[*].stops[*].authorization.valid_to
+      attr: $.message.order.fulfillments[*].stops[?(@.type=='START')].authorization.valid_to
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_ID_35
       attr: $.message.order.fulfillments[*].id
