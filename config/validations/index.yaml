@@ -1602,8 +1602,9 @@ _TESTS_:
     - _NAME_: REQUIRED_CONTEXT_LOCATION_CITY
       attr: $.context.location.city.code
       _RETURN_: attr are present
-  _SCOPE_: $.message
-  _RETURN_:
+  - _NAME_: ON_INIT_MESSAGE
+    _SCOPE_: $.message
+    _RETURN_:
     - _NAME_: ON_INIT_MESSAGE_ORDER
       usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
       _CONTINUE_: (usecasepath are present)
