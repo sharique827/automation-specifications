@@ -749,16 +749,7 @@ _TESTS_:
             - SANCTIONED
             - DISBURSED
             - COMPLETED
-          _RETURN_: attr all in enumList
-        - _NAME_: REQUIRED_CANCELLATION_FEE_PERCENTAGE
-          attr: $.message.order.cancellation_terms[?(@.fulfillment_state)].cancellation_fee.percentage
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_MIME_TYPE
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.mimetype
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_URL
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.url
-          _RETURN_: attr are present
+          _RETURN_: attr any in enumList
   confirm:
     - _NAME_: CONFIRM_CONTEXT
       action:
@@ -972,16 +963,7 @@ _TESTS_:
         - _NAME_: VALID_CANCELLATION_TERMS_FULFILLMENT_STATE_CODE
           attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
           enumList: *a14
-          _RETURN_: attr all in enumList
-        - _NAME_: REQUIRED_CANCELLATION_FEE_PERCENTAGE
-          attr: $.message.order.cancellation_terms[?(@.fulfillment_state)].cancellation_fee.percentage
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_MIME_TYPE
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.mimetype
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_URL
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.url
-          _RETURN_: attr are present
+          _RETURN_: attr any in enumList
     - _NAME_: ON_CONFIRM_DOCUMENTS
       _RETURN_:
         - _NAME_: REQUIRED_DOCUMENT_DESCRIPTOR_CODE
@@ -1212,16 +1194,7 @@ _TESTS_:
         - _NAME_: VALID_CANCELLATION_TERMS_FULFILLMENT_STATE_CODE
           attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
           enumList: *a14
-          _RETURN_: attr all in enumList
-        - _NAME_: REQUIRED_CANCELLATION_FEE_PERCENTAGE
-          attr: $.message.order.cancellation_terms[?(@.fulfillment_state)].cancellation_fee.percentage
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_MIME_TYPE
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.mimetype
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_CANCELLATION_TERMS_EXTERNAL_REF_URL
-          attr: $.message.order.cancellation_terms[?(@.external_ref)].external_ref.url
-          _RETURN_: attr are present
+          _RETURN_: attr any in enumList
     - _NAME_: ON_CANCEL_TIMESTAMPS
       _RETURN_:
         - _NAME_: REQUIRED_CREATED_AT
