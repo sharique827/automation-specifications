@@ -6705,59 +6705,7 @@ steps:
           ttl: PT30S
           version: 2.1.0
         message:
-          issue:
-            id: I1
-            category: ITEM
-            sub_category: ITM04
-            complainant_info:
-              person:
-                name: Sam Manuel
-              contact:
-                phone: "9879879870"
-                email: sam@yahoo.com
-            order_details:
-              id: 4597f703-e84f-431e-a96a-d147cfa142f9
-              state: Completed
-              items:
-                - id: 18275-ONDC-1-9
-                  quantity: 1
-              fulfillments:
-                - id: Fulfillment1
-                  state: Order-delivered
-              provider_id: P1
-            description:
-              short_desc: Issue with product quality
-              long_desc: product quality is not correct. facing issues while using the product
-              additional_desc:
-                url: https://buyerapp.com/additonal-details/desc.txt
-                content_type: text/plain
-              images:
-                - http://buyerapp.com/addtional-details/img1.png
-                - http://buyerapp.com/addtional-details/img2.png
-            source:
-              network_participant_id: buyerapp.com/ondc
-              type: CONSUMER
-            expected_response_time:
-              duration: PT2H
-            expected_resolution_time:
-              duration: P1D
-            status: OPEN
-            issue_type: ISSUE
-            issue_actions:
-              complainant_actions:
-                - complainant_action: OPEN
-                  short_desc: Complaint created
-                  updated_at: 2023-01-15T10:00:00.469Z
-                  updated_by:
-                    org:
-                      name: buyerapp.com::ONDC:RET10
-                    contact:
-                      phone: "9450394039"
-                      email: buyerapp@interface.com
-                    person:
-                      name: John Doe
-            created_at: 2023-01-15T10:00:00.469Z
-            updated_at: 2023-01-15T10:00:00.469Z
+          issue: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -6894,24 +6842,7 @@ steps:
           ttl: PT30S
           version: 2.1.0
         message:
-          issue:
-            id: I1
-            issue_actions:
-              respondent_actions:
-                - respondent_action: PROCESSING
-                  short_desc: Complaint is being processed
-                  updated_at: 2023-01-15T10:10:00.142Z
-                  updated_by:
-                    org:
-                      name: sellerapp.com/ondc::ONDC:RET10
-                    contact:
-                      phone: "9450394140"
-                      email: respondentapp@respond.com
-                    person:
-                      name: Jane Doe
-                  cascaded_level: 1
-            created_at: 2023-01-15T10:00:00.469Z
-            updated_at: 2023-01-15T10:10:00.142Z
+          issue: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -7000,64 +6931,7 @@ steps:
           ttl: PT30S
           version: 2.1.0
         message:
-          issue:
-            id: I1
-            issue_actions:
-              respondent_actions:
-                - respondent_action: PROCESSING
-                  short_desc: Complaint is being processed
-                  updated_at: 2023-01-15T10:10:00.142Z
-                  updated_by:
-                    org:
-                      name: sellerapp.com::ONDC:RET10
-                    contact:
-                      phone: "9450394140"
-                      email: respondentapp@respond.com
-                    person:
-                      name: Jane Doe
-                  cascaded_level: 1
-                - respondent_action: RESOLVED
-                  short_desc: Complaint resolved
-                  updated_at: 2023-01-15T10:31:00.523Z
-                  updated_by:
-                    org:
-                      name: sellerapp.com::ONDC:RET10
-                    contact:
-                      phone: "9450394140"
-                      email: respondentapp@respond.com
-                    person:
-                      name: Jane Doe
-                  cascaded_level: 1
-            created_at: 2023-01-15T10:00:00.469Z
-            updated_at: 2023-01-15T10:31:00.523Z
-            resolution_provider:
-              respondent_info:
-                type: TRANSACTION-COUNTERPARTY-NP
-                organization:
-                  org:
-                    name: sellerapp.com::ONDC:RET10
-                  contact:
-                    phone: "9059304940"
-                    email: email@resolutionproviderorg.com
-                  person:
-                    name: resolution provider org contact person name
-                resolution_support:
-                  chat_link: http://chat-link/respondent
-                  contact:
-                    phone: "9949595059"
-                    email: respondantemail@resolutionprovider.com
-                  gros:
-                    - person:
-                        name: Sam D
-                      contact:
-                        phone: "9605960796"
-                        email: email@gro.com
-                      gro_type: TRANSACTION-COUNTERPARTY-NP-GRO
-            resolution:
-              short_desc: Refund to be initiated
-              long_desc: For this complaint, refund is to be initiated
-              action_triggered: REFUND
-              refund_amount: "100"
+          issue: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -7188,12 +7062,7 @@ steps:
           ttl: PT30S
           version: 2.1.0
         message:
-          issue:
-            id: I1
-            status: CLOSED
-            created_at: 2023-01-15T10:00:00.469Z
-            updated_at: 2023-01-15T10:41:30.723Z
-            rating: THUMBS-UP
+          issue: {}
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
