@@ -948,7 +948,11 @@ _TESTS_:
           _RETURN_: attr any in enumList
     - _NAME_: ON_CONFIRM_CANCELLATION_TERMS
       attr: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enumList: *a14
+      enumList: &a14
+        - CANCELLED
+        - SANCTIONED
+        - DISBURSED
+        - DELIVERED
       _RETURN_: attr all in enumList
     - _NAME_: ON_CONFIRM_DOCUMENTS
       _RETURN_:
