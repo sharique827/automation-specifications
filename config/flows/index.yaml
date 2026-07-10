@@ -59,6 +59,7 @@ flows:
     description: A customer applies for family health insurance coverage by searching and selecting a suitable plan, providing household member details through guided forms, and completing the application for policy issuance.
     config:
       $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Family_.yaml
+  
   - type: playground
     id: Health_Insurance_Application(Family)_With_IGM(v-1.0.0)
     meta:
@@ -82,6 +83,7 @@ flows:
     description: An individual searches and selects a health insurance plan, completes an interactive application with personal details across multiple forms, and confirms enrollment.
     config:
       $ref: ./HEALTH INSURANCE/Health_Insurance_Application_Individual_.yaml
+  
   - type: playground
     id: Health_Insurance_Application(Individual)_With_IGM(v-1.0.0)
     meta:
@@ -227,7 +229,7 @@ flows:
   - type: playground
     id: CD_Balance_Error_Accidental_Insurance
     meta:
-      order: 0
+      order: 3
     usecase: ACCIDENTAL INSURANCE
     tags:
       - WORKBENCH
@@ -251,7 +253,7 @@ flows:
   - type: playground
     id: Discovery_of_Products_from_Master_Policies (Accidental Insurance)
     meta:
-      order: 0
+      order: 1
     usecase: ACCIDENTAL INSURANCE
     tags:
       - WORKBENCH
@@ -263,7 +265,7 @@ flows:
   - type: playground
     id: Purchase_Journey_Accidental_Insurance
     meta:
-      order: 0
+      order: 2
     usecase: ACCIDENTAL INSURANCE
     tags:
       - WORKBENCH
@@ -275,7 +277,7 @@ flows:
   - type: playground
     id: CD_Balance_Error_Hospicash_Insurance
     meta:
-      order: 0
+      order: 3
     usecase: HOSPICASH INSURANCE
     tags:
       - WORKBENCH
@@ -299,7 +301,7 @@ flows:
   - type: playground
     id: Discovery_of_Products_from_Master_Policies (Hospicash Insurance)
     meta:
-      order: 0
+      order: 1
     usecase: HOSPICASH INSURANCE
     tags:
       - WORKBENCH
@@ -311,7 +313,7 @@ flows:
   - type: playground
     id: Purchase_Journey_Hospicash_Insurance
     meta:
-      order: 0
+      order: 2
     usecase: HOSPICASH INSURANCE
     tags:
       - PRAMAAN
@@ -324,7 +326,7 @@ flows:
   - type: playground
     id: CD_Balance_Error_Transit_Insurance
     meta:
-      order: 0
+      order: 3
     usecase: TRANSIT INSURANCE
     tags:
       - WORKBENCH
@@ -348,7 +350,7 @@ flows:
   - type: playground
     id: Discovery_of_Products_from_Master_Policies (Transit Insurance)
     meta:
-      order: 0
+      order: 1
     usecase: TRANSIT INSURANCE
     tags:
       - WORKBENCH
@@ -360,7 +362,7 @@ flows:
   - type: playground
     id: Purchase_Journey_Transit_Insurance
     meta:
-      order: 0
+      order: 2
     usecase: TRANSIT INSURANCE
     tags:
       - PRAMAAN
