@@ -68,6 +68,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
+      - REPORTABLE
     description: A complete Food & Beverage delivery order lifecycle covering selection, initialization, and confirmation through multi-stage fulfillment status tracking, followed by three IGM grievance issue cycles raised by the buyer without any seller response or resolution action, concluding with a final order status update reflecting the unresolved complaint.
     config:
       $ref: ./F&B/DELIVERY_FLOW_WITH_IGM_No_Action_v-2_0_0_.yaml
@@ -120,6 +121,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
+      - REPORTABLE
     description: A food and beverage buyer selects an item that supports multiple fulfillment modes (such as dine-in, takeaway, or home delivery), completes the full order negotiation and confirmation lifecycle, and tracks the order through a series of seller-initiated status updates reflecting its progression from acceptance to fulfillment completion.
     config:
       $ref: ./F&B/MULTI_OPTION_FULFILLMENT_FLOW.yaml
@@ -150,6 +152,7 @@ flows:
     tags:
       - WORKBENCH
       - MANDATORY
+      - REPORTABLE
     description: A buyer placing an F&B order encounters an out-of-stock response during item selection, revises the cart to available items, and completes the order through initialisation and confirmation, with the seller progressively updating fulfillment status and the buyer actively tracking delivery until the order is fulfilled.
     config:
       $ref: ./F&B/OUT_OF_STOCK.yaml
@@ -205,3 +208,13 @@ flows:
     description: A buyer browses an F&B catalog, selects items, and schedules delivery within a preferred time slot before confirming the order; the platform then tracks the complete fulfillment lifecycle through successive status transitions covering order acceptance, preparation, dispatch, out-for-delivery, and final doorstep delivery within the committed slot.
     config:
       $ref: ./F&B/SLOTTED_DELIVERY.yaml
+  - type: playground
+    id: INCREMENTAL_CATALOG_PULL
+    usecase: F&B
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      - REPORTABLE
+    description: A buyer browses an F&B catalog, selects items, and schedules delivery within a preferred time slot before confirming the order; the platform then tracks the complete fulfillment lifecycle through successive status transitions covering order acceptance, preparation, dispatch, out-for-delivery, and final doorstep delivery within the committed slot.
+    config:
+      $ref: ./F&B/INCREMENTAL_CATALOG_PULL.yaml
