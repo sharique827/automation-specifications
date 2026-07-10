@@ -410,6 +410,18 @@ paths:
                             type: object
                             properties:
                               fulfillment_state: *items_2
+                              cancellation_fee:
+                                type: object
+                                properties:
+                                  percentage:
+                                    type: string
+                              external_ref:
+                                type: object
+                                properties:
+                                  mimetype:
+                                    type: string
+                                  url:
+                                    type: string
                         created_at:
                           type: string
                         updated_at:
@@ -612,6 +624,13 @@ paths:
                                 type: object
                                 properties:
                                   percentage:
+                                    type: string
+                              external_ref:
+                                type: object
+                                properties:
+                                  mimetype:
+                                    type: string
+                                  url:
                                     type: string
                         quote:
                           type: object
