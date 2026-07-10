@@ -14,6 +14,179 @@ transaction_data:
   bpp_id: bpp.example.com
   bpp_uri: https://bpp.example.com
 steps:
+  - api: search
+    action_id: search_incremental_pull
+    owner: BAP
+    responseFor: null
+    unsolicited: false
+    description: The BAP sends a search request for available unreserved entry pass
+      services, establishing the transaction context.
+    mock:
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZXhpc3RpbmdQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICBjb25zdCB1c2VySW5wdXQgPQogICAgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHM7CiAgaWYgKHVzZXJJbnB1dC5jaXR5X2NvZGUpIHsKICAgIGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHVzZXJJbnB1dC5jaXR5X2NvZGU7CiAgfQogICBleGlzdGluZ1BheWxvYWQubWVzc2FnZS5pbnRlbnQ9IHsuLi5leGlzdGluZ1BheWxvYWQubWVzc2FnZS5pbnRlbnQsCiAgICAgZnVsZmlsbG1lbnQ6IHsKICAgICAgICBzdG9wczogWwogICAgICAgICAgewogICAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICAgIGNpdHk6IHsKICAgICAgICAgICAgICAgIGNvZGU6IHVzZXJJbnB1dC5jaXR5X2NvZGUsCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgIHJhbmdlOiB7CiAgICAgICAgICAgICAgICBzdGFydDogdXNlcklucHV0LnN0YXJ0X3RpbWUsCiAgICAgICAgICAgICAgICBlbmQ6IHVzZXJJbnB1dC5lbmRfdGltZSwKICAgICAgICAgICAgICB9LAogICAgICAgICAgICB9LAogICAgICAgICAgICB0eXBlOiAiU1RBUlQiLAogICAgICAgICAgfSwKICAgICAgICBdLAogICAgICAgIHZlaGljbGU6IHsKICAgICAgICAgIGNhdGVnb3J5OiAiU0lURSIsCiAgICAgICAgfSwKICAgICAgfSwKICAgICBwYXltZW50OnsKICAgICAgIGNvbGxlY3RlZF9ieTogdXNlcklucHV0LmNvbGxlY3RlZF9ieQogICAgIH0gCiAgIH0KICAgCiAgcmV0dXJuIGV4aXN0aW5nUGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCWNvbnN0IGludGVudCA9CgkJdGFyZ2V0UGF5bG9hZD8ubWVzc2FnZT8uaW50ZW50OwoKCWlmICghaW50ZW50KSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJIk1pc3NpbmcgbWVzc2FnZS5pbnRlbnQiLAoJCX07Cgl9CgoJaWYgKAoJCWludGVudD8uY2F0ZWdvcnk/LmRlc2NyaXB0b3IKCQkJPy5jb2RlICE9PQoJCSJDVUxUVVJFX0hFUklUQUdFIgoJKSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJImNhdGVnb3J5LmRlc2NyaXB0b3IuY29kZSBtdXN0IGJlIENVTFRVUkVfSEVSSVRBR0UiLAoJCX07Cgl9CgoJY29uc3QgZnVsZmlsbG1lbnQgPQoJCWludGVudD8uZnVsZmlsbG1lbnQ7CgoJaWYgKCFmdWxmaWxsbWVudCkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJNaXNzaW5nIGZ1bGZpbGxtZW50IiwKCQl9OwoJfQoKCWlmICgKCQlmdWxmaWxsbWVudD8udmVoaWNsZQoJCQk/LmNhdGVnb3J5ICE9PSAiU0lURSIKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJ2ZWhpY2xlLmNhdGVnb3J5IG11c3QgYmUgU0lURSIsCgkJfTsKCX0KCgljb25zdCBzdG9wcyA9CgkJZnVsZmlsbG1lbnQ/LnN0b3BzIHx8IFtdOwoKCWlmICgKCQkhQXJyYXkuaXNBcnJheShzdG9wcykgfHwKCQlzdG9wcy5sZW5ndGggPT09IDAKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJNaXNzaW5nIGZ1bGZpbGxtZW50LnN0b3BzIiwKCQl9OwoJfQoKCWNvbnN0IHN0YXJ0U3RvcCA9IHN0b3BzLmZpbmQoCgkJKHN0b3ApID0+IHN0b3A/LnR5cGUgPT09ICJTVEFSVCIKCSk7CgoJaWYgKCFzdGFydFN0b3ApIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246CgkJCQkiU1RBUlQgc3RvcCBtaXNzaW5nIiwKCQl9OwoJfQoKCWlmICgKCQkhc3RhcnRTdG9wPy5sb2NhdGlvbj8uY2l0eQoJCQk/LmNvZGUKCSkgewoJCXJldHVybiB7CgkJCXZhbGlkOiBmYWxzZSwKCQkJY29kZTogNDAwLAoJCQlkZXNjcmlwdGlvbjoKCQkJCSJNaXNzaW5nIGNpdHkgY29kZSIsCgkJfTsKCX0KCgljb25zdCB0aW1lUmFuZ2UgPQoJCXN0YXJ0U3RvcD8udGltZT8ucmFuZ2U7CgoJaWYgKAoJCSF0aW1lUmFuZ2U/LnN0YXJ0IHx8CgkJIXRpbWVSYW5nZT8uZW5kCgkpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246CgkJCQkiTWlzc2luZyB0aW1lIHJhbmdlIiwKCQl9OwoJfQoKCQoKCWNvbnN0IHRhZ3MgPSBpbnRlbnQ/LnRhZ3MgfHwgW107CgoJY29uc3QgYmFwVGVybXNUYWcgPSB0YWdzLmZpbmQoCgkJKHRhZykgPT4KCQkJdGFnPy5kZXNjcmlwdG9yPy5jb2RlID09PQoJCQkiQkFQX1RFUk1TIgoJKTsKCglpZiAoIWJhcFRlcm1zVGFnKSB7CgkJcmV0dXJuIHsKCQkJdmFsaWQ6IGZhbHNlLAoJCQljb2RlOiA0MDAsCgkJCWRlc2NyaXB0aW9uOgoJCQkJIkJBUF9URVJNUyB0YWcgbWlzc2luZyIsCgkJfTsKCX0KCgljb25zdCBpbmNyZW1lbnRhbFB1bGxUYWcgPQoJCXRhZ3MuZmluZCgKCQkJKHRhZykgPT4KCQkJCXRhZz8uZGVzY3JpcHRvcj8uY29kZSA9PT0KCQkJCSJJTkNSRU1FTlRBTF9QVUxMIgoJCSk7CgoJaWYgKCFpbmNyZW1lbnRhbFB1bGxUYWcpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246CgkJCQkiSU5DUkVNRU5UQUxfUFVMTCB0YWcgbWlzc2luZyIsCgkJfTsKCX0KCgljb25zdCBmZWVQZXJjZW50YWdlID0KCQliYXBUZXJtc1RhZz8ubGlzdD8uZmluZCgKCQkJKGl0ZW0pID0+CgkJCQlpdGVtPy5kZXNjcmlwdG9yPy5jb2RlID09PQoJCQkJIkJVWUVSX0ZJTkRFUl9GRUVTX1BFUkNFTlRBR0UiCgkJKTsKCglpZiAoIWZlZVBlcmNlbnRhZ2UpIHsKCQlyZXR1cm4gewoJCQl2YWxpZDogZmFsc2UsCgkJCWNvZGU6IDQwMCwKCQkJZGVzY3JpcHRpb246CgkJCQkiQlVZRVJfRklOREVSX0ZFRVNfUEVSQ0VOVEFHRSBtaXNzaW5nIiwKCQl9OwoJfQoKCXJldHVybiB7CgkJdmFsaWQ6IHRydWUsCgkJY29kZTogMjAwLAoJCWRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIsCgl9Owp9
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICBpZiAoIXNlc3Npb25EYXRhLnVzZXJfaW5wdXRzPy5jaXR5X2NvZGUpIHsKICAgIHJldHVybiB7IHZhbGlkOiBmYWxzZSwgY29kZTogNDAwLCBkZXNjcmlwdGlvbjogIkNpdHkgY29kZSBpcyByZXF1aXJlZCBpbiB1c2VyX2lucHV0cyIgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
+      defaultPayload:
+        context:
+          action: search
+          bap_id: dev-automation.ondc.org
+          bap_uri: https://dev-automation.ondc.org/api-service/ONDC:TRV14/2.0.0/buyer
+          domain: ONDC:TRV14
+          location:
+            city:
+              code: std:0123
+            country:
+              code: IND
+          message_id: 59563e46-62ae-4b97-bf87-89ea88812066
+          timestamp: 2026-02-26T11:00:34.228Z
+          transaction_id: 832fe9b6-4abd-40f2-b09f-b32acb282628
+          ttl: PT30S
+          version: 2.0.0
+        message:
+          intent:
+            category:
+              descriptor:
+                code: CULTURE_HERITAGE
+            tags:
+              - descriptor:
+                  code: BAP_TERMS
+                  name: BAP Terms of Engagement
+                display: false
+                list:
+                  - descriptor:
+                      code: BUYER_FINDER_FEES_PERCENTAGE
+                    value: "1"
+                  - descriptor:
+                      code: BUYER_FINDER_FEES_TYPE
+                    value: percent
+                  - descriptor:
+                      code: STATIC_TERMS
+                    value: https://api.example-bap.com/booking/terms
+                  - descriptor:
+                      code: SETTLEMENT_BASIS
+                    value: https://api.example-bap.com/booking/terms
+                  - descriptor:
+                      code: SETTLEMENT_WINDOW
+                    value: P30D
+              - descriptor:
+                  code: INCREMENTAL_PULL
+                  name: Incremental Pull
+                display: false
+                list:
+                  - descriptor:
+                      code: REGISTER
+                      name: Register
+                    value: "true"
+      saveData:
+        message_id: $.context.message_id
+        transaction_id: $.context.transaction_id
+        collected_by: $.message.intent.payment.collected_by
+        tags: $.message.intent.tags[*]
+        start_time: $.message.intent.fulfillment.stops[?(@.type=='START')].time.range.start
+        end_time: $.message.intent.fulfillment.stops[?(@.type=='START')].time.range.end
+        city_code: $.context.location.city.code
+        vehicle_category: $.message.intent.fulfillment.vehicle.category
+        bap_id: $.context.bap_id
+        bap_uri: $.context.bap_uri
+      inputs:
+        id: ExampleInputId
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            city_code:
+              type: string
+              default: std:011
+            start_time:
+              type: string
+              format: date-time
+              default: 2026-06-28T05:00:16.000Z
+            end_time:
+              type: string
+              format: date-time
+              default: 2026-06-28T06:00:16.000Z
+            collected_by:
+              type: string
+              enum:
+                - BAP
+                - BPP
+              default: BAP
+          required:
+            - city_code
+            - start_time
+            - end_time
+            - collected_by
+          additionalProperties: true
+          default: {}
+    examples:
+      - name: example for search
+        payload:
+          context:
+            domain: ONDC:TRV14
+            action: search
+            timestamp: 2026-07-06T17:27:42.983Z
+            transaction_id: 88b299db-9d03-4d9d-aea8-c640aec487bb
+            message_id: b7f4e880-f949-464d-a2cb-e6d7f0596bf3
+            bap_id: bap.example.com
+            bap_uri: https://bap.example.com
+            ttl: PT30S
+            version: 2.0.0
+            location:
+              country:
+                code: IND
+              city:
+                code: std:011
+          message:
+            intent:
+              category:
+                descriptor:
+                  code: CULTURE_HERITAGE
+              tags:
+                - descriptor:
+                    code: BAP_TERMS
+                    name: BAP Terms of Engagement
+                  display: false
+                  list:
+                    - descriptor:
+                        code: BUYER_FINDER_FEES_PERCENTAGE
+                      value: "1"
+                    - descriptor:
+                        code: BUYER_FINDER_FEES_TYPE
+                      value: percent
+                    - descriptor:
+                        code: STATIC_TERMS
+                      value: https://api.example-bap.com/booking/terms
+                    - descriptor:
+                        code: SETTLEMENT_BASIS
+                      value: https://api.example-bap.com/booking/terms
+                    - descriptor:
+                        code: SETTLEMENT_WINDOW
+                      value: P30D
+                - descriptor:
+                    code: INCREMENTAL_PULL
+                    name: Incremental Pull
+                  display: false
+                  list:
+                    - descriptor:
+                        code: REGISTER
+                        name: Register
+                      value: "true"
+              fulfillment:
+                stops:
+                  - location:
+                      city:
+                        code: std:011
+                    time:
+                      range:
+                        start: 2026-06-28T05:00:16.000Z
+                        end: 2026-06-28T06:00:16.000Z
+                    type: START
+                vehicle:
+                  category: SITE
+              payment:
+                collected_by: BAP
+        type: request
+        description: The BAP sends a search request for available unreserved entry pass
+          services, establishing the transaction context.
   - api: on_search
     action_id: on_search_incremental_pull_1
     owner: BPP
