@@ -1467,6 +1467,14 @@ components:
       type: object
       additionalProperties: false
       properties:
+        type:
+          type: string
+          enum:
+            - CONTEXT-ERROR
+            - CORE-ERROR
+            - DOMAIN-ERROR
+            - POLICY-ERROR
+            - JSON-SCHEMA-ERROR
         code:
           type: string
           description: Standard error code. For full list of error codes, refer to
@@ -1479,6 +1487,10 @@ components:
           type: string
           description: Human readable message describing the error. Used mainly for
             logging. Not recommended to be shown to the user.
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/TagGroup"
     Fee:
       description: A fee applied on a particular entity
       type: object
