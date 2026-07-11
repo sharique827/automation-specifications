@@ -1370,8 +1370,6 @@ _TESTS_:
     - 2.0.0
     _RETURN_: *id002
   - _NAME_: ORDER_VALIDATION
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: ORDER_ITEMS_ID
       attr: $.message.order.items[*].id
@@ -1379,18 +1377,22 @@ _TESTS_:
     - _NAME_: ORDER_ITEMS_PARENT_ITEM_ID
       attr: $.message.order.items[*].parent_item_id
       _RETURN_: attr are present
-    - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
-      attr: $.message.order.items[*].xinput.form.id
-      _RETURN_: attr are present
-    - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_STATUS
-      attr: $.message.order.items[*].xinput.form_response.status
-      _RETURN_: attr are present
-    - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_SUBMISSION_ID
-      attr: $.message.order.items[*].xinput.form_response.submission_id
-      _RETURN_: attr are present
+    - _NAME_: ORDER_ITEMS_XINPUT_VALIDATION
+      xinputpath: $.message.order.items[*].xinput.form.id
+      _CONTINUE_: '!(xinputpath are present)'
+      _RETURN_:
+      - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
+        attr: $.message.order.items[*].xinput.form.id
+        _RETURN_: attr are present
+      - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_STATUS
+        attr: $.message.order.items[*].xinput.form_response.status
+        _RETURN_: attr are present
+      - _NAME_: ORDER_ITEMS_XINPUT_FORM_RESPONSE_SUBMISSION_ID
+        attr: $.message.order.items[*].xinput.form_response.submission_id
+        _RETURN_: attr are present
   - _NAME_: FULFILLMENT_VALIDATION
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
+    customerpath: $.message.order.fulfillments[*].customer.contact.phone
+    _CONTINUE_: '!(customerpath are present)'
     _RETURN_:
     - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
       attr: $.message.order.fulfillments[*].customer.person.name
@@ -1402,15 +1404,11 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].customer.contact.phone
       _RETURN_: attr are present
   - _NAME_: PROVIDER_VALIDATION
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
     _RETURN_:
     - _NAME_: PROVIDER_ID
       attr: $.message.order.provider.id
       _RETURN_: attr are present
   - _NAME_: PAYMENT_VALIDATION
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
@@ -1421,18 +1419,22 @@ _TESTS_:
     - _NAME_: PAYMENT_TYPE
       attr: $.message.order.payments[*].type
       _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_AMOUNT
-      attr: $.message.order.payments[*].params.amount
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_BANK_ACCOUNT_NUMBER
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: PAYMENT_PARAMS_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
+    - _NAME_: PAYMENT_PARAMS_VALIDATION
+      paramspath: $.message.order.payments[*].params.currency
+      _CONTINUE_: '!(paramspath are present)'
+      _RETURN_:
+      - _NAME_: PAYMENT_PARAMS_AMOUNT
+        attr: $.message.order.payments[*].params.amount
+        _RETURN_: attr are present
+      - _NAME_: PAYMENT_PARAMS_BANK_ACCOUNT_NUMBER
+        attr: $.message.order.payments[*].params.bank_account_number
+        _RETURN_: attr are present
+      - _NAME_: PAYMENT_PARAMS_BANK_CODE
+        attr: $.message.order.payments[*].params.bank_code
+        _RETURN_: attr are present
+      - _NAME_: PAYMENT_PARAMS_CURRENCY
+        attr: $.message.order.payments[*].params.currency
+        _RETURN_: attr are present
   - _NAME_: INIT_CONTEXT_SACHET
     action:
     - init
@@ -1632,8 +1634,8 @@ _TESTS_:
         attr: $.message.order.items[*].time.label
         _RETURN_: attr are present
     - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
-      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-      _CONTINUE_: (usecasepath are present)
+      xinputpath: $.message.order.items[*].xinput.form.id
+      _CONTINUE_: '!(xinputpath are present)'
       _RETURN_:
       - _NAME_: REQUIRED_XINPUT_HEAD_NAME
         attr: $.message.order.items[*].xinput.head.descriptor.name
@@ -1676,21 +1678,21 @@ _TESTS_:
         attr: $.message.order.items[*].tags[?(@.descriptor.code=='GENERAL_INFO')].descriptor.code
         _RETURN_: attr are present
     - _NAME_: ORDER_FULFILLMENT_VALIDATIONS
-      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-      _CONTINUE_: (usecasepath are present)
       _RETURN_:
       - _NAME_: REQUIRED_FULFILLMENT_ID
         attr: $.message.order.fulfillments[*].id
         _RETURN_: attr are present
-      - _NAME_: REQUIRED_CUSTOMER_EMAIL
-        attr: $.message.order.fulfillments[*].customer.contact.email
-        _RETURN_: attr are present
-      - _NAME_: REQUIRED_CUSTOMER_PHONE
-        attr: $.message.order.fulfillments[*].customer.contact.phone
-        _RETURN_: attr are present
+      - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_VALIDATION
+        customerpath: $.message.order.fulfillments[*].customer.contact.phone
+        _CONTINUE_: '!(customerpath are present)'
+        _RETURN_:
+        - _NAME_: REQUIRED_CUSTOMER_EMAIL
+          attr: $.message.order.fulfillments[*].customer.contact.email
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_CUSTOMER_PHONE
+          attr: $.message.order.fulfillments[*].customer.contact.phone
+          _RETURN_: attr are present
     - _NAME_: ORDER_PAYMENT_VALIDATIONS
-      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-      _CONTINUE_: (usecasepath are present)
       _RETURN_:
       - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
         attr: $.message.order.payments[*].collected_by
@@ -1701,14 +1703,18 @@ _TESTS_:
       - _NAME_: REQUIRED_PAYMENT_TYPE
         attr: $.message.order.payments[*].type
         _RETURN_: attr are present
-      - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
-        attr: $.message.order.payments[*].params.bank_account_number
-        _RETURN_: attr are present
-      - _NAME_: REQUIRED_PAYMENT_BANK_CODE
-        attr: $.message.order.payments[*].params.bank_code
-        _RETURN_: attr are present
-      - _NAME_: REQUIRED_PAYMENT_CURRENCY
-        attr: $.message.order.payments[*].params.currency
+      - _NAME_: REQUIRED_PAYMENT_PARAMS_VALIDATION
+        paramspath: $.message.order.payments[*].params.currency
+        _CONTINUE_: '!(paramspath are present)'
+        _RETURN_:
+        - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
+          attr: $.message.order.payments[*].params.bank_account_number
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_PAYMENT_BANK_CODE
+          attr: $.message.order.payments[*].params.bank_code
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_PAYMENT_CURRENCY
+          attr: $.message.order.payments[*].params.currency
         _RETURN_: attr are present
     - _NAME_: ORDER_QUOTE_VALIDATIONS
       usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
@@ -1835,8 +1841,6 @@ _TESTS_:
       attr: $.message.order.provider.id
       _RETURN_: attr are present
   - _NAME_: ORDER_ITEM_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEM_ID
       attr: $.message.order.items[*].id
@@ -1844,34 +1848,38 @@ _TESTS_:
     - _NAME_: REQUIRED_PARENT_ITEM_ID
       attr: $.message.order.items[*].parent_item_id
       _RETURN_: attr are present
-    - _NAME_: REQUIRED_FORM_RESPONSE_SUBMISSION_ID
-      attr: $.message.order.items[*].xinput.form_response.submission_id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_FORM_RESPONSE_STATUS
-      attr: $.message.order.items[*].xinput.form_response.status
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_FORM_ID
-      attr: $.message.order.items[*].xinput.form.id
-      _RETURN_: attr are present
+    - _NAME_: ORDER_ITEM_XINPUT_VALIDATION
+      xinputpath: $.message.order.items[*].xinput.form.id
+      _CONTINUE_: '!(xinputpath are present)'
+      _RETURN_:
+      - _NAME_: REQUIRED_FORM_RESPONSE_SUBMISSION_ID
+        attr: $.message.order.items[*].xinput.form_response.submission_id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_FORM_RESPONSE_STATUS
+        attr: $.message.order.items[*].xinput.form_response.status
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_FORM_ID
+        attr: $.message.order.items[*].xinput.form.id
+        _RETURN_: attr are present
   - _NAME_: ORDER_FULFILLMENT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
     _RETURN_:
     - _NAME_: REQUIRED_FULFILLMENT_ID
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
-    - _NAME_: REQUIRED_CUSTOMER_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_CUSTOMER_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_CUSTOMER_NAME
-      attr: $.message.order.fulfillments[*].customer.person.name
-      _RETURN_: attr are present
+    - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_VALIDATION
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
+      _CONTINUE_: '!(customerpath are present)'
+      _RETURN_:
+      - _NAME_: REQUIRED_CUSTOMER_EMAIL
+        attr: $.message.order.fulfillments[*].customer.contact.email
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_CUSTOMER_PHONE
+        attr: $.message.order.fulfillments[*].customer.contact.phone
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_CUSTOMER_NAME
+        attr: $.message.order.fulfillments[*].customer.person.name
+        _RETURN_: attr are present
   - _NAME_: ORDER_PAYMENT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
@@ -1882,18 +1890,22 @@ _TESTS_:
     - _NAME_: REQUIRED_PAYMENT_TYPE
       attr: $.message.order.payments[*].type
       _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_AMOUNT
-      attr: $.message.order.payments[*].params.amount
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
+    - _NAME_: REQUIRED_PAYMENT_PARAMS_VALIDATION
+      paramspath: $.message.order.payments[*].params.currency
+      _CONTINUE_: '!(paramspath are present)'
+      _RETURN_:
+      - _NAME_: REQUIRED_PAYMENT_AMOUNT
+        attr: $.message.order.payments[*].params.amount
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
+        attr: $.message.order.payments[*].params.bank_account_number
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_BANK_CODE
+        attr: $.message.order.payments[*].params.bank_code
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_CURRENCY
+        attr: $.message.order.payments[*].params.currency
+        _RETURN_: attr are present
   - _NAME_: CONFIRM_CONTEXT_SACHET
     action:
     - confirm
@@ -1944,18 +1956,20 @@ _TESTS_:
   - _NAME_: FULFILLMENT_VALIDATIONS
     action:
     - on_confirm
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
     _RETURN_:
     - _NAME_: FULFILLMENT_ID
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
-    - _NAME_: CUSTOMER_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
-    - _NAME_: CUSTOMER_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
+    - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
+      _CONTINUE_: '!(customerpath are present)'
+      _RETURN_:
+      - _NAME_: CUSTOMER_PHONE
+        attr: $.message.order.fulfillments[*].customer.contact.phone
+        _RETURN_: attr are present
+      - _NAME_: CUSTOMER_EMAIL
+        attr: $.message.order.fulfillments[*].customer.contact.email
+        _RETURN_: attr are present
   - _NAME_: ITEM_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
     _CONTINUE_: (usecasepath are present)
@@ -1997,12 +2011,12 @@ _TESTS_:
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_ACCOUNT
       usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-      _CONTINUE_: '!(usecasepath are present)'
+      _CONTINUE_: (usecasepath are present)
       attr: $.message.order.payments[*].params.bank_account_number
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_CODE
       usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-      _CONTINUE_: '!(usecasepath are present)'
+      _CONTINUE_: (usecasepath are present)
       attr: $.message.order.payments[*].params.bank_code
       _RETURN_: attr are present
     - _NAME_: PAYMENT_CURRENCY
@@ -2448,8 +2462,6 @@ _TESTS_:
       attr: $.message.order.items[*].tags[?(@.descriptor.code=='GENERAL_INFO')].descriptor.code
       _RETURN_: attr are present
   - _NAME_: ON_UPDATE_FULFILLMENTS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
     _RETURN_:
     - _NAME_: FULFILLMENT_ID
       attr: $.message.order.fulfillments[*].id
@@ -2457,15 +2469,19 @@ _TESTS_:
     - _NAME_: FULFILLMENT_STATE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present
-    - _NAME_: CUSTOMER_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
-    - _NAME_: CUSTOMER_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
+    - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
+      _CONTINUE_: '!(customerpath are present)'
+      _RETURN_:
+      - _NAME_: CUSTOMER_PHONE
+        attr: $.message.order.fulfillments[*].customer.contact.phone
+        _RETURN_: attr are present
+      - _NAME_: CUSTOMER_EMAIL
+        attr: $.message.order.fulfillments[*].customer.contact.email
+        _RETURN_: attr are present
   - _NAME_: ON_UPDATE_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
+    _CONTINUE_: (usecasepath are present)
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
@@ -2994,12 +3010,16 @@ _TESTS_:
     - _NAME_: FULFILLMENT_STATE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present
-    - _NAME_: CUSTOMER_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
-    - _NAME_: CUSTOMER_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
+    - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
+      _CONTINUE_: '!(customerpath are present)'
+      _RETURN_:
+      - _NAME_: CUSTOMER_PHONE
+        attr: $.message.order.fulfillments[*].customer.contact.phone
+        _RETURN_: attr are present
+      - _NAME_: CUSTOMER_EMAIL
+        attr: $.message.order.fulfillments[*].customer.contact.email
+        _RETURN_: attr are present
   - _NAME_: ON_CANCEL_PAYMENT_MANDATORY_FIELDS
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
@@ -3009,9 +3029,13 @@ _TESTS_:
       attr: $.message.order.payments[*].params.amount
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_ACCOUNT
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
       attr: $.message.order.payments[*].params.bank_account_number
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_CODE
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
       attr: $.message.order.payments[*].params.bank_code
       _RETURN_: attr are present
     - _NAME_: PAYMENT_CURRENCY
