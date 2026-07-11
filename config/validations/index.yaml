@@ -1795,7 +1795,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].vehicle.category
       _RETURN_: attr are present
       fulfillmentsPath: $.message.order.fulfillments[*].id
-      _CONTINUE_: fulfillmentsPath are present
+      _CONTINUE_: "!(fulfillmentsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_TYPE_26
       attr: $.message.order.fulfillments[*].type
       _RETURN_: attr are present && attr all in enumList
@@ -2302,7 +2302,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].vehicle.category
       _RETURN_: attr are present
       fulfillmentsPath: $.message.order.fulfillments[*].id
-      _CONTINUE_: fulfillmentsPath are present
+      _CONTINUE_: "!(fulfillmentsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_ID_14
       attr: $.message.order.items[*].id
       _RETURN_: attr are present
@@ -2996,7 +2996,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].vehicle.category
       _RETURN_: attr are present
       fulfillmentsPath: $.message.order.fulfillments[*].id
-      _CONTINUE_: fulfillmentsPath are present
+      _CONTINUE_: "!(fulfillmentsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_ID_14
       attr: $.message.order.id
       _RETURN_: attr are present
@@ -3812,7 +3812,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].vehicle.category
       _RETURN_: attr are present
       fulfillmentsPath: $.message.order.fulfillments[*].id
-      _CONTINUE_: fulfillmentsPath are present
+      _CONTINUE_: "!(fulfillmentsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_CODE_18
       attr: $.message.order.items[*].descriptor.code
       _RETURN_: attr are present && attr all in enumList
@@ -4142,7 +4142,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].vehicle.category
       _RETURN_: attr are present
       fulfillmentsPath: $.message.order.fulfillments[*].id
-      _CONTINUE_: fulfillmentsPath are present
+      _CONTINUE_: "!(fulfillmentsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_ID_15
       attr: $.message.order.items[*].id
       _RETURN_: attr are present
