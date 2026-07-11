@@ -1378,7 +1378,7 @@ _TESTS_:
       attr: $.message.order.items[*].parent_item_id
       _RETURN_: attr are present
     - _NAME_: ORDER_ITEMS_XINPUT_VALIDATION
-      xinputpath: $.message.order.items[*].xinput.form.id
+      xinputpath: $.message.order.items[*].xinput
       _CONTINUE_: '!(xinputpath are present)'
       _RETURN_:
       - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
@@ -1391,7 +1391,7 @@ _TESTS_:
         attr: $.message.order.items[*].xinput.form_response.submission_id
         _RETURN_: attr are present
   - _NAME_: FULFILLMENT_VALIDATION
-    customerpath: $.message.order.fulfillments[*].customer.contact.phone
+    customerpath: $.message.order.fulfillments[*].customer
     _CONTINUE_: '!(customerpath are present)'
     _RETURN_:
     - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
