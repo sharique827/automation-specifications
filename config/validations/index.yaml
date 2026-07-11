@@ -1836,7 +1836,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: ORDER_ITEM_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_ITEM_ID
       attr: $.message.order.items[*].id
@@ -1871,7 +1871,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: ORDER_PAYMENT_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
@@ -1992,7 +1992,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: PAYMENT_VALIDATIONS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
@@ -2463,7 +2463,7 @@ _TESTS_:
       _RETURN_: attr are present
   - _NAME_: ON_UPDATE_PAYMENTS
     usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
