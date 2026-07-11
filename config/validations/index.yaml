@@ -1590,145 +1590,148 @@ _TESTS_:
     - _NAME_: REQUIRED_CONTEXT_LOCATION_CITY
       attr: $.context.location.city.code
       _RETURN_: attr are present
-  - _NAME_: ON_INIT_MESSAGE_ORDER
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
+  - _NAME_: ON_INIT_MESSAGE
+    _SCOPE_: $.message
     _RETURN_:
-    - _NAME_: REQUIRED_ORDER_PROVIDER_ID
-      attr: $.message.order.provider.id
-      _RETURN_: attr are present
-  - _NAME_: ORDER_ITEM_CORE_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_ITEM_ID
-      attr: $.message.order.items[*].id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_PARENT_ITEM_ID
-      attr: $.message.order.items[*].parent_item_id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_CATEGORY_IDS
-      attr: $.message.order.items[*].category_ids[*]
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_DESCRIPTOR_NAME
-      attr: $.message.order.items[*].descriptor.name
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_DESCRIPTOR_SHORT_DESC
-      attr: $.message.order.items[*].descriptor.short_desc
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_PRICE_VALUE
-      attr: $.message.order.items[*].price.value
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_PRICE_CURRENCY
-      attr: $.message.order.items[*].price.currency
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_TIME_DURATION
-      attr: $.message.order.items[*].time.duration
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_ITEM_TIME_LABEL
-      attr: $.message.order.items[*].time.label
-      _RETURN_: attr are present
-  - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_XINPUT_HEAD_NAME
-      attr: $.message.order.items[*].xinput.head.descriptor.name
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MIN
-      attr: $.message.order.items[*].xinput.head.index.min
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MAX
-      attr: $.message.order.items[*].xinput.head.index.max
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_CUR
-      attr: $.message.order.items[*].xinput.head.index.cur
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_HEADINGS
-      attr: $.message.order.items[*].xinput.head.headings[*]
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_FORM_ID
-      attr: $.message.order.items[*].xinput.form.id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_FORM_URL
-      attr: $.message.order.items[*].xinput.form.url
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_FORM_MIME
-      attr: $.message.order.items[*].xinput.form.mime_type
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_FORM_RESUBMIT
-      attr: $.message.order.items[*].xinput.form.resubmit
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_FORM_MULTIPLE_SUBMISSIONS
-      attr: $.message.order.items[*].xinput.form.multiple_sumbissions
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_XINPUT_REQUIRED
-      attr: $.message.order.items[*].xinput.required
-      _RETURN_: attr are present
-  - _NAME_: ORDER_ITEM_TAG_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_GENERAL_INFO_TAG
-      attr: $.message.order.items[*].tags[?(@.descriptor.code=='GENERAL_INFO')].descriptor.code
-      _RETURN_: attr are present
-  - _NAME_: ORDER_FULFILLMENT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_FULFILLMENT_ID
-      attr: $.message.order.fulfillments[*].id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_CUSTOMER_EMAIL
-      attr: $.message.order.fulfillments[*].customer.contact.email
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_CUSTOMER_PHONE
-      attr: $.message.order.fulfillments[*].customer.contact.phone
-      _RETURN_: attr are present
-  - _NAME_: ORDER_PAYMENT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
-      attr: $.message.order.payments[*].collected_by
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_STATUS
-      attr: $.message.order.payments[*].status
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_TYPE
-      attr: $.message.order.payments[*].type
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
-      attr: $.message.order.payments[*].params.bank_account_number
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_BANK_CODE
-      attr: $.message.order.payments[*].params.bank_code
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_PAYMENT_CURRENCY
-      attr: $.message.order.payments[*].params.currency
-      _RETURN_: attr are present
-  - _NAME_: ORDER_QUOTE_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: (usecasepath are present)
-    _RETURN_:
-    - _NAME_: REQUIRED_QUOTE_ID
-      attr: $.message.order.quote.id
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_QUOTE_BREAKUP_VALUE
-      attr: $.message.order.quote.breakup[*].price.value
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_QUOTE_BREAKUP_CURRENCY
-      attr: $.message.order.quote.breakup[*].price.currency
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_QUOTE_BREAKUP_TITLE
-      attr: $.message.order.quote.breakup[*].title
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_QUOTE_PRICE_VALUE
-      attr: $.message.order.quote.price.value
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_QUOTE_PRICE_CURRENCY
-      attr: $.message.order.quote.price.currency
-      _RETURN_: attr are present
+    - _NAME_: ON_INIT_MESSAGE_ORDER
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_ORDER_PROVIDER_ID
+        attr: $.message.order.provider.id
+        _RETURN_: attr are present
+    - _NAME_: ORDER_ITEM_CORE_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_ITEM_ID
+        attr: $.message.order.items[*].id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_PARENT_ITEM_ID
+        attr: $.message.order.items[*].parent_item_id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_CATEGORY_IDS
+        attr: $.message.order.items[*].category_ids[*]
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_DESCRIPTOR_NAME
+        attr: $.message.order.items[*].descriptor.name
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_DESCRIPTOR_SHORT_DESC
+        attr: $.message.order.items[*].descriptor.short_desc
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_PRICE_VALUE
+        attr: $.message.order.items[*].price.value
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_PRICE_CURRENCY
+        attr: $.message.order.items[*].price.currency
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_TIME_DURATION
+        attr: $.message.order.items[*].time.duration
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_ITEM_TIME_LABEL
+        attr: $.message.order.items[*].time.label
+        _RETURN_: attr are present
+    - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_XINPUT_HEAD_NAME
+        attr: $.message.order.items[*].xinput.head.descriptor.name
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MIN
+        attr: $.message.order.items[*].xinput.head.index.min
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_MAX
+        attr: $.message.order.items[*].xinput.head.index.max
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_HEAD_INDEX_CUR
+        attr: $.message.order.items[*].xinput.head.index.cur
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_HEADINGS
+        attr: $.message.order.items[*].xinput.head.headings[*]
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_FORM_ID
+        attr: $.message.order.items[*].xinput.form.id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_FORM_URL
+        attr: $.message.order.items[*].xinput.form.url
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_FORM_MIME
+        attr: $.message.order.items[*].xinput.form.mime_type
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_FORM_RESUBMIT
+        attr: $.message.order.items[*].xinput.form.resubmit
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_FORM_MULTIPLE_SUBMISSIONS
+        attr: $.message.order.items[*].xinput.form.multiple_sumbissions
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_XINPUT_REQUIRED
+        attr: $.message.order.items[*].xinput.required
+        _RETURN_: attr are present
+    - _NAME_: ORDER_ITEM_TAG_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_GENERAL_INFO_TAG
+        attr: $.message.order.items[*].tags[?(@.descriptor.code=='GENERAL_INFO')].descriptor.code
+        _RETURN_: attr are present
+    - _NAME_: ORDER_FULFILLMENT_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_FULFILLMENT_ID
+        attr: $.message.order.fulfillments[*].id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_CUSTOMER_EMAIL
+        attr: $.message.order.fulfillments[*].customer.contact.email
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_CUSTOMER_PHONE
+        attr: $.message.order.fulfillments[*].customer.contact.phone
+        _RETURN_: attr are present
+    - _NAME_: ORDER_PAYMENT_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_PAYMENT_COLLECTED_BY
+        attr: $.message.order.payments[*].collected_by
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_STATUS
+        attr: $.message.order.payments[*].status
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_TYPE
+        attr: $.message.order.payments[*].type
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_BANK_ACCOUNT
+        attr: $.message.order.payments[*].params.bank_account_number
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_BANK_CODE
+        attr: $.message.order.payments[*].params.bank_code
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_PAYMENT_CURRENCY
+        attr: $.message.order.payments[*].params.currency
+        _RETURN_: attr are present
+    - _NAME_: ORDER_QUOTE_VALIDATIONS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: (usecasepath are present)
+      _RETURN_:
+      - _NAME_: REQUIRED_QUOTE_ID
+        attr: $.message.order.quote.id
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_QUOTE_BREAKUP_VALUE
+        attr: $.message.order.quote.breakup[*].price.value
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_QUOTE_BREAKUP_CURRENCY
+        attr: $.message.order.quote.breakup[*].price.currency
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_QUOTE_BREAKUP_TITLE
+        attr: $.message.order.quote.breakup[*].title
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_QUOTE_PRICE_VALUE
+        attr: $.message.order.quote.price.value
+        _RETURN_: attr are present
+      - _NAME_: REQUIRED_QUOTE_PRICE_CURRENCY
+        attr: $.message.order.quote.price.currency
+        _RETURN_: attr are present
   - _NAME_: ON_INIT_CONTEXT_SACHET
     action:
     - on_init
@@ -1737,87 +1740,90 @@ _TESTS_:
     version:
     - 2.0.0
     _RETURN_: *id001
-  - _NAME_: ON_INIT_ITEMS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
+  - _NAME_: ON_INIT_MESSAGE_SACHET
+    _SCOPE_: $.message
     _RETURN_:
-    - _NAME_: REQUIRED_ITEMS
+    - _NAME_: ON_INIT_ITEMS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
       _RETURN_:
-      - *id005
-      - *id006
-      - *id007
-      - *id008
-      - *id009
-      - *id010
-      - *id011
-      - *id012
-      - &id027
-        _NAME_: REQUIRED_FULFILLMENT_IDS
-        attr: $.message.order.items[*].fulfillment_ids[*]
-        _RETURN_: attr are present
-      - _NAME_: REQUIRED_PAYMENT_ID
-        attr: $.message.order.items[*].payment_ids[*]
-        _RETURN_: attr are present
-    - *id013
-    - *id014
-  - &id028
-    _NAME_: ON_SELECT_PROVIDER
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_: *id015
-  - &id025
-    _NAME_: ON_INIT_FULFILLMENTS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: REQUIRED_FULFILLMENTS
+      - _NAME_: REQUIRED_ITEMS
+        _RETURN_:
+        - *id005
+        - *id006
+        - *id007
+        - *id008
+        - *id009
+        - *id010
+        - *id011
+        - *id012
+        - &id027
+          _NAME_: REQUIRED_FULFILLMENT_IDS
+          attr: $.message.order.items[*].fulfillment_ids[*]
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_PAYMENT_ID
+          attr: $.message.order.items[*].payment_ids[*]
+          _RETURN_: attr are present
+      - *id013
+      - *id014
+    - &id028
+      _NAME_: ON_SELECT_PROVIDER
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
+      _RETURN_: *id015
+    - &id025
+      _NAME_: ON_INIT_FULFILLMENTS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
       _RETURN_:
-      - *id016
-      - *id017
-      - &id031
-        _NAME_: REQUIRED_CUSTOMER_NAME
-        attr: $.message.order.fulfillments[*].customer.person.name
-        _RETURN_: attr are present
-      - &id032
-        _NAME_: REQUIRED_CUSTOMER_PHONE
-        attr: $.message.order.fulfillments[*].customer.contact.phone
-        _RETURN_: attr are present
-    - *id018
-  - &id029
-    _NAME_: ON_INIT_CANCELLATION_TERMS
-    usecasepath: $.message.order.cancellation_terms[*].external_ref.mimetype
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: REQUIRED_EXTERNAL_REF_MIME_TYPE
-      attr: $.message.order.cancellation_terms[*].external_ref.mimetype
-      _RETURN_: attr are present
-    - _NAME_: REQUIRED_EXTERNAL_REF_URL
-      attr: $.message.order.cancellation_terms[*].external_ref.url
-      _RETURN_: attr are present
-  - &id030
-    _NAME_: ON_SELECT_QUOTE
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_: *id019
-  - _NAME_: ON_INIT_PAYMENTS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
-    _RETURN_:
-    - _NAME_: REQUIRED_PAYMENT_ITEMS
+      - _NAME_: REQUIRED_FULFILLMENTS
+        _RETURN_:
+        - *id016
+        - *id017
+        - &id031
+          _NAME_: REQUIRED_CUSTOMER_NAME
+          attr: $.message.order.fulfillments[*].customer.person.name
+          _RETURN_: attr are present
+        - &id032
+          _NAME_: REQUIRED_CUSTOMER_PHONE
+          attr: $.message.order.fulfillments[*].customer.contact.phone
+          _RETURN_: attr are present
+      - *id018
+    - &id029
+      _NAME_: ON_INIT_CANCELLATION_TERMS
+      usecasepath: $.message.order.cancellation_terms[*].external_ref.mimetype
+      _CONTINUE_: '!(usecasepath are present)'
       _RETURN_:
-      - *id020
-      - *id021
-      - *id022
-      - &id026
-        _NAME_: REQUIRED_PAYMENT_ID
-        attr: $.message.order.payments[*].id
+      - _NAME_: REQUIRED_EXTERNAL_REF_MIME_TYPE
+        attr: $.message.order.cancellation_terms[*].external_ref.mimetype
         _RETURN_: attr are present
-      - _NAME_: SAME_PAYMENT_ID_ITEMS
-        attr: $.message.order.payments[*].id
-        usecasepath: $.message.order.items[*].payment_ids[*]
-        _CONTINUE_: '!(usecasepath equal to attr)'
+      - _NAME_: REQUIRED_EXTERNAL_REF_URL
+        attr: $.message.order.cancellation_terms[*].external_ref.url
         _RETURN_: attr are present
-    - *id023
+    - &id030
+      _NAME_: ON_SELECT_QUOTE
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
+      _RETURN_: *id019
+    - _NAME_: ON_INIT_PAYMENTS
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
+      _RETURN_:
+      - _NAME_: REQUIRED_PAYMENT_ITEMS
+        _RETURN_:
+        - *id020
+        - *id021
+        - *id022
+        - &id026
+          _NAME_: REQUIRED_PAYMENT_ID
+          attr: $.message.order.payments[*].id
+          _RETURN_: attr are present
+        - _NAME_: SAME_PAYMENT_ID_ITEMS
+          attr: $.message.order.payments[*].id
+          usecasepath: $.message.order.items[*].payment_ids[*]
+          _CONTINUE_: '!(usecasepath equal to attr)'
+          _RETURN_: attr are present
+      - *id023
   confirm:
   - _NAME_: CONFIRM_CONTEXT
     _RETURN_: *id002
