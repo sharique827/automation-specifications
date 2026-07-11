@@ -4167,8 +4167,10 @@ _TESTS_:
       attr: $.message.order.items[*].quantity.selected.count
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_IDS_21
-      attr: $.message.order.items[*].fulfillment_ids
+      attr: $.message.order.items[*].fulfillment_ids[*]
       _RETURN_: attr are present
+      fulfillmentIdsPath: $.message.order.items[*].fulfillment_ids[*]
+      _CONTINUE_: "!(fulfillmentIdsPath are present)"
     - _NAME_: REQUIRED_MESSAGE_LABEL_22
       attr: $.message.order.items[*].time.label
       _RETURN_: attr are present
