@@ -4167,7 +4167,7 @@ _TESTS_:
       attr: $.message.order.items[*].quantity.selected.count
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_FULFILLMENT_IDS_21
-      attr: $.message.order.items[*].fulfillment_ids[*]
+      attr: $.message.order.items[*].fulfillment_ids
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_LABEL_22
       attr: $.message.order.items[*].time.label
@@ -4238,7 +4238,7 @@ _TESTS_:
         - OFFER
         - TOLL
     - _NAME_: REQUIRED_MESSAGE_ID_40
-      attr: $.message.order.quote.breakup[?(@.item)].item.id
+      attr: $.message.order.quote.breakup[?(@.title=='BASE_FARE')].item.id
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_41
       attr: $.message.order.quote.breakup[*].price.currency
@@ -4597,7 +4597,7 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_37
-      attr: $.message.order.quote.breakup[?(@.item)].item.id
+      attr: $.message.order.quote.breakup[?(@.title=='BASE_FARE')].item.id
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
