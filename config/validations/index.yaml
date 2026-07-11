@@ -1991,16 +1991,18 @@ _TESTS_:
       attr: $.message.order.items[*].tags[?(@.descriptor.code=='GENERAL_INFO')].descriptor.code
       _RETURN_: attr are present
   - _NAME_: PAYMENT_VALIDATIONS
-    usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
-    _CONTINUE_: '!(usecasepath are present)'
     _RETURN_:
     - _NAME_: PAYMENT_COLLECTED_BY
       attr: $.message.order.payments[*].collected_by
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_ACCOUNT
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
       attr: $.message.order.payments[*].params.bank_account_number
       _RETURN_: attr are present
     - _NAME_: PAYMENT_BANK_CODE
+      usecasepath: $.message.order.provider.tags[?(@.descriptor.code=='MASTER_POLICY')].descriptor.code
+      _CONTINUE_: '!(usecasepath are present)'
       attr: $.message.order.payments[*].params.bank_code
       _RETURN_: attr are present
     - _NAME_: PAYMENT_CURRENCY
