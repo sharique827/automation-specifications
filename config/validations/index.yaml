@@ -1391,7 +1391,7 @@ _TESTS_:
         attr: $.message.order.items[*].xinput.form_response.submission_id
         _RETURN_: attr are present
   - _NAME_: FULFILLMENT_VALIDATION
-    customerpath: $.message.order.fulfillments[*].customer
+    customerpath: $.message.order.fulfillments[*].customer.contact.phone
     _CONTINUE_: '!(customerpath are present)'
     _RETURN_:
     - _NAME_: FULFILLMENT_CUSTOMER_PERSON_NAME
@@ -1683,7 +1683,7 @@ _TESTS_:
         attr: $.message.order.fulfillments[*].id
         _RETURN_: attr are present
       - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_VALIDATION
-        customerpath: $.message.order.fulfillments[*].customer
+        customerpath: $.message.order.fulfillments[*].customer.contact.phone
         _CONTINUE_: '!(customerpath are present)'
         _RETURN_:
         - _NAME_: REQUIRED_CUSTOMER_EMAIL
@@ -1867,7 +1867,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
     - _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_VALIDATION
-      customerpath: $.message.order.fulfillments[*].customer
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
       _CONTINUE_: '!(customerpath are present)'
       _RETURN_:
       - _NAME_: REQUIRED_CUSTOMER_EMAIL
@@ -1961,7 +1961,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
     - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
-      customerpath: $.message.order.fulfillments[*].customer
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
       _CONTINUE_: '!(customerpath are present)'
       _RETURN_:
       - _NAME_: CUSTOMER_PHONE
@@ -2470,7 +2470,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present
     - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
-      customerpath: $.message.order.fulfillments[*].customer
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
       _CONTINUE_: '!(customerpath are present)'
       _RETURN_:
       - _NAME_: CUSTOMER_PHONE
@@ -3011,7 +3011,7 @@ _TESTS_:
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present
     - _NAME_: FULFILLMENT_CUSTOMER_VALIDATION
-      customerpath: $.message.order.fulfillments[*].customer
+      customerpath: $.message.order.fulfillments[*].customer.contact.phone
       _CONTINUE_: '!(customerpath are present)'
       _RETURN_:
       - _NAME_: CUSTOMER_PHONE
