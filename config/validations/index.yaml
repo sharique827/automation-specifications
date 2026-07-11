@@ -1378,7 +1378,7 @@ _TESTS_:
       attr: $.message.order.items[*].parent_item_id
       _RETURN_: attr are present
     - _NAME_: ORDER_ITEMS_XINPUT_VALIDATION
-      xinputpath: $.message.order.items[*].xinput
+      xinputpath: $.message.order.items[*].xinput.form.id
       _CONTINUE_: '!(xinputpath are present)'
       _RETURN_:
       - _NAME_: ORDER_ITEMS_XINPUT_FORM_ID
@@ -1634,7 +1634,7 @@ _TESTS_:
         attr: $.message.order.items[*].time.label
         _RETURN_: attr are present
     - _NAME_: ORDER_ITEM_XINPUT_VALIDATIONS
-      xinputpath: $.message.order.items[*].xinput
+      xinputpath: $.message.order.items[*].xinput.form.id
       _CONTINUE_: '!(xinputpath are present)'
       _RETURN_:
       - _NAME_: REQUIRED_XINPUT_HEAD_NAME
@@ -1849,7 +1849,7 @@ _TESTS_:
       attr: $.message.order.items[*].parent_item_id
       _RETURN_: attr are present
     - _NAME_: ORDER_ITEM_XINPUT_VALIDATION
-      xinputpath: $.message.order.items[*].xinput
+      xinputpath: $.message.order.items[*].xinput.form.id
       _CONTINUE_: '!(xinputpath are present)'
       _RETURN_:
       - _NAME_: REQUIRED_FORM_RESPONSE_SUBMISSION_ID
