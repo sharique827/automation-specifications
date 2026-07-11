@@ -321,6 +321,7 @@ _TESTS_:
         - TICKET
         - TRANSIT_STOP
         - PASS
+        - TRIP
       enumPath: $.message.order.fulfillments[*].type
       _CONTINUE_: "!(enumPath are present)"
       _RETURN_: enumPath all in enumList
@@ -537,6 +538,7 @@ _TESTS_:
         - TICKET
         - TRANSIT_STOP
         - PASS
+        - TRIP
       enumPath: $.message.order.fulfillments[*].type
       _CONTINUE_: "!(enumPath are present)"
       _RETURN_: enumPath all in enumList
@@ -1036,6 +1038,8 @@ _TESTS_:
         - INTERMEDIATE_STOP
         - TICKET
         - TRANSIT_STOP
+        - PASS
+        - TRIP
       enumPath: $.message.order.fulfillments[*].type
       _CONTINUE_: "!(enumPath are present)"
       _RETURN_: enumPath all in enumList
@@ -1435,7 +1439,7 @@ _TESTS_:
         - STOPS
       _RETURN_: subTags all in validValues
     - _NAME_: VALID_VEHICLE_CATEGORY
-      _SCOPE_: $.message.catalog.providers[*].fulfillments[?(@.vehicle.category)]
+      _SCOPE_: $.message.catalog.providers[*].fulfillments[?(@.vehicle)]
       subTags: $.vehicle.category
       validValues:
         - BUS
@@ -1616,19 +1620,13 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_27
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.name
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.name
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CODE_28
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.code
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.code
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_30
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
@@ -1898,28 +1896,28 @@ _TESTS_:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_73
-      attr: $.message.order.quote.breakup[*].item.id
+      attr: $.message.order.quote.breakup[?(@.item)].item.id
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_74
-      attr: $.message.order.quote.breakup[*].item.price.currency
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALUE_75
-      attr: $.message.order.quote.breakup[*].item.price.value
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.value
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_76
-      attr: $.message.order.quote.breakup[*].item.quantity.selected.count
+      attr: $.message.order.quote.breakup[?(@.item)].item.quantity.selected.count
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
@@ -2157,19 +2155,13 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_27
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.name
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.name
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CODE_28
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.code
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.code
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_30
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
@@ -2477,28 +2469,28 @@ _TESTS_:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_77
-      attr: $.message.order.quote.breakup[*].item.id
+      attr: $.message.order.quote.breakup[?(@.item)].item.id
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_78
-      attr: $.message.order.quote.breakup[*].item.quantity.selected.count
+      attr: $.message.order.quote.breakup[?(@.item)].item.quantity.selected.count
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALUE_79
-      attr: $.message.order.quote.breakup[*].item.price.value
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.value
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_80
-      attr: $.message.order.quote.breakup[*].item.price.currency
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
@@ -2799,19 +2791,13 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_28
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.name
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.name
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CODE_29
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.code
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.code
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_TYPE_31
       attr: $.message.order.fulfillments[*].stops[*].authorization.type
       _RETURN_: attr are present && attr all in enumList
@@ -3094,28 +3080,28 @@ _TESTS_:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_88
-      attr: $.message.order.quote.breakup[*].item.id
+      attr: $.message.order.quote.breakup[?(@.item)].item.id
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALUE_89
-      attr: $.message.order.quote.breakup[*].item.price.value
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.value
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_90
-      attr: $.message.order.quote.breakup[*].item.price.currency
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_91
-      attr: $.message.order.quote.breakup[*].item.quantity.selected.count
+      attr: $.message.order.quote.breakup[?(@.item)].item.quantity.selected.count
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
@@ -3761,16 +3747,19 @@ _TESTS_:
         - TICKET
         - PASS
     - _NAME_: REQUIRED_MESSAGE_NAME_28
-      attr: $.message.order.fulfillments[*].stops[*].instructions.name
+      _SCOPE_: $.message.order.fulfillments[*].stops[?(@.instructions)]
+      attr: $.instructions.name
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_CODE_30
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.code
+      _SCOPE_: $.message.order.fulfillments[*].stops[?(@.location)]
+      attr: $.location.descriptor.code
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_ID_35
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_CATEGORY_36
-      attr: $.message.order.fulfillments[*].vehicle.category
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle)]
+      attr: $.vehicle.category
       _RETURN_: attr are present && attr all in enumList
       enumList:
         - BUS
@@ -3791,7 +3780,7 @@ _TESTS_:
         - OFFER
         - TOLL
     - _NAME_: REQUIRED_MESSAGE_ID_40
-      attr: $.message.order.quote.breakup[*].item.id
+      attr: $.message.order.quote.breakup[?(@.item)].item.id
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_41
       attr: $.message.order.quote.breakup[*].price.currency
@@ -4097,26 +4086,17 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_29
-      attr: $.message.order.fulfillments[*].stops[*].instructions.name
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.instructions)]
+      attr: $.instructions.name
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_30
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.name
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.name
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CODE_31
-      attr: $.message.order.fulfillments[*].stops[*].location.descriptor.code
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.location)]
+      attr: $.location.descriptor.code
       _RETURN_: attr are present
-      useCasePath: $.message.order.fulfillments[*].vehicle.category
-      useCode:
-        - METRO
-      _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_33
       attr: $.message.order.fulfillments[*].id
       _RETURN_: attr are present
@@ -4466,28 +4446,28 @@ _TESTS_:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_ID_87
-      attr: $.message.order.quote.breakup[*].item.id
+      attr: $.message.order.quote.breakup[?(@.item)].item.id
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_CURRENCY_88
-      attr: $.message.order.quote.breakup[*].item.price.currency
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_VALUE_89
-      attr: $.message.order.quote.breakup[*].item.price.value
+      attr: $.message.order.quote.breakup[?(@.item)].item.price.value
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
         - BUS
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_COUNT_90
-      attr: $.message.order.quote.breakup[*].item.quantity.selected.count
+      attr: $.message.order.quote.breakup[?(@.item)].item.quantity.selected.count
       _RETURN_: attr are present
       useCasePath: $.message.order.fulfillments[*].vehicle.category
       useCode:
