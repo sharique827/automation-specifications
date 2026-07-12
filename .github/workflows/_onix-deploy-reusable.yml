@@ -136,6 +136,7 @@ jobs:
           DB_API_BASE_URL_SOURCE: ${{ inputs.db_api_base_url != '' && 'inputs.db_api_base_url' || 'secrets.db_api_base_url' }}
           API_KEY: ${{ secrets.db_api_key }}
           REDIS_PASSWORD: ${{ secrets.redis_password }}
+          IAC_REPO_PAT: ${{ secrets.iac_repo_pat }}
         run: |
           echo "Workflow input resolution:"
           echo "  github.ref_name=${GITHUB_REF_NAME}"
@@ -149,6 +150,34 @@ jobs:
           echo "  db_api_base_url source=${DB_API_BASE_URL_SOURCE} value=${API_BASE_URL}"
           echo "  db_api_key source=secrets.db_api_key value=${API_KEY}"
           echo "  redis_password source=secrets.redis_password value=${REDIS_PASSWORD}"
+          echo "  iac_repo_pat source=secrets.iac_repo_pat value=${IAC_REPO_PAT}"
+
+      - name: Print used workflow values
+        env:
+          API_KEY: ${{ secrets.db_api_key }}
+          API_BASE_URL: ${{ inputs.db_api_base_url || secrets.db_api_base_url }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+          IAC_REPO_PAT: ${{ secrets.iac_repo_pat }}
+          PORT: ${{ vars.API_SERVICE_PORT }}
+          REDIS_HOST: ${{ vars.REDIS_HOST }}
+          REDIS_PORT: ${{ vars.REDIS_PORT }}
+          CONFIG_SERVICE_URL: ${{ vars.CONFIG_SERVICE_URL }}
+          MOCK_SERVER_URL: ${{ vars.MOCK_SERVER_URL }}
+          RECORDER_SERVICE_HTTP_URL: ${{ vars.RECORDER_SERVICE_HTTP_URL }}
+          RECORDER_SERVICE_GRPC_URL: ${{ vars.RECORDER_SERVICE_GRPC_URL }}
+        run: |
+          echo "Used workflow values:"
+          echo "  secrets.db_api_key=${API_KEY}"
+          echo "  inputs.db_api_base_url||secrets.db_api_base_url=${API_BASE_URL}"
+          echo "  secrets.redis_password=${REDIS_PASSWORD}"
+          echo "  secrets.iac_repo_pat=${IAC_REPO_PAT}"
+          echo "  vars.API_SERVICE_PORT=${PORT}"
+          echo "  vars.REDIS_HOST=${REDIS_HOST}"
+          echo "  vars.REDIS_PORT=${REDIS_PORT}"
+          echo "  vars.CONFIG_SERVICE_URL=${CONFIG_SERVICE_URL}"
+          echo "  vars.MOCK_SERVER_URL=${MOCK_SERVER_URL}"
+          echo "  vars.RECORDER_SERVICE_HTTP_URL=${RECORDER_SERVICE_HTTP_URL}"
+          echo "  vars.RECORDER_SERVICE_GRPC_URL=${RECORDER_SERVICE_GRPC_URL}"
 
       - name: Print ONIX generator environment
         env:
