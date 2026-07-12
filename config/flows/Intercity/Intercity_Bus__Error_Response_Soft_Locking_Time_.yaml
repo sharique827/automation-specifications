@@ -19,11 +19,14 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP initiates an intercity bus search request, establishing the transaction context with location, timing, and service preferences. The system captures transaction identifiers and request metadata required to handle subsequent interactions and error scenarios.
+    description: The BAP initiates a search request to discover available intercity
+      bus services between specified station codes with desired travel dates and
+      preferences. This search establishes the transaction context and session
+      identifiers that enable BPP responses and subsequent booking interactions.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWxldGUgZGVmYXVsdFBheWxvYWQuY29udGV4dC5icHBfdXJpOwogICAgZGVsZXRlIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuYnBwX2lkOwogICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGUgPQogICAgICAgIHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzPy5jaXR5X2NvZGU7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5zdG9wcy5mb3JFYWNoKChzdG9wKSA9PiB7CiAgICAgICAgc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0cz8uc3RhcnRfY29kZTsKICAgIH0pOwogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9CmZ1bmN0aW9uIGdldEN1cnJlbnRUaW1lKCkgewogICAgcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQ==
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9CiAgICAgICAgc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHM/LmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmZ1bGZpbGxtZW50LnN0b3BzLmZvckVhY2goKHN0b3ApID0+IHsKICAgICAgICBzdG9wLmxvY2F0aW9uLmRlc2NyaXB0b3IuY29kZSA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzPy5zdGFydF9jb2RlOwogICAgfSk7CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0K
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIENoZWNrcyBwYXNzZWQgc3VjY2Vzc2Z1bGx5IiB9Owp9
       defaultPayload:
         context:
           location:
@@ -48,6 +51,7 @@ steps:
                   location:
                     descriptor:
                       code: std:080
+                    gps: 12.979759, 77.590427
               vehicle:
                 category: BUS
             payment:
@@ -69,9 +73,6 @@ steps:
                     - descriptor:
                         code: DELAY_INTEREST
                       value: "2.5"
-                    - descriptor:
-                        code: STATIC_TERMS
-                      value: https://api.example-bap.com/booking/terms
       saveData:
         transaction_id: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLmNvbnRleHQudHJhbnNhY3Rpb25faWQ7IH0=
         latest_message_id: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLmNvbnRleHQubWVzc2FnZV9pZDsgfQ==
@@ -95,10 +96,13 @@ steps:
           properties:
             city_code:
               type: string
-              default: std:080
+              default: std:011
             start_code:
               type: string
-              default: MOCK_STATION_1
+              default: std:080
+          required:
+            - city_code
+            - start_code
           additionalProperties: true
           default: {}
     examples:
@@ -107,9 +111,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: search
-            timestamp: 2026-05-20T23:36:06.621Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 40805f87-809e-4efb-b42c-6f2dd050e9f2
+            timestamp: 2026-07-12T13:55:58.104Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: 5c9dae86-3e18-4fc1-b544-fea0cc300db3
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -118,7 +122,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             intent:
               fulfillment:
@@ -126,7 +130,8 @@ steps:
                   - type: START
                     location:
                       descriptor:
-                        code: MOCK_STATION_1
+                        code: std:080
+                      gps: 12.979759, 77.590427
                 vehicle:
                   category: BUS
               payment:
@@ -148,21 +153,26 @@ steps:
                       - descriptor:
                           code: DELAY_INTEREST
                         value: "2.5"
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: https://api.example-bap.com/booking/terms
         type: request
-        description: please add relevant description
+        description: The BAP initiates a search request to discover available intercity
+          bus services between specified station codes with desired travel dates
+          and preferences. This search establishes the transaction context and
+          session identifiers that enable BPP responses and subsequent booking
+          interactions.
   - api: on_search
     action_id: on_search_BUS_201
     owner: BPP
     responseFor: search_BUS_201
     unsolicited: false
-    description: The BPP responds with a catalog of available intercity bus options, including providers, items, fulfillments, and payment methods, establishing soft-lock timing that governs the validity period for these quoted services.
+    description: The BPP returns a catalog of available intercity bus services in
+      response to the BAP's search request, including provider information,
+      fares, fulfillment options, and payment methods for the requested route.
+      This response establishes the transaction context and enables the BAP to
+      evaluate and select from available service offerings.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBjb25zdCBwYXlsb2FkID0geyAuLi5kZWZhdWx0UGF5bG9hZCB9OwogICAgaWYgKHNlc3Npb25EYXRhPy5jaXR5X2NvZGUpIHsKICAgICAgICBwYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgZm9yIChjb25zdCBwcm92aWRlciBvZiBwYXlsb2FkLm1lc3NhZ2U/LmNhdGFsb2c/LnByb3ZpZGVycyA/PyBbXSkgewogICAgICAgIGZvciAoY29uc3QgZnVsZmlsbG1lbnQgb2YgcHJvdmlkZXIuZnVsZmlsbG1lbnRzID8/IFtdKSB7CiAgICAgICAgICAgIGZvciAoY29uc3Qgc3RvcCBvZiBmdWxmaWxsbWVudC5zdG9wcyA/PyBbXSkgewogICAgICAgICAgICAgICAgaWYgKHN0b3AudHlwZSA9PT0gIlNUQVJUIiAmJiBzZXNzaW9uRGF0YT8uc3RhcnRfbG9jYXRpb24pIHsKICAgICAgICAgICAgICAgICAgICBzdG9wLmxvY2F0aW9uLmRlc2NyaXB0b3IuY29kZSA9IHNlc3Npb25EYXRhLnN0YXJ0X2xvY2F0aW9uOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgLy8gaWYgKHN0b3AudHlwZSA9PT0gIkVORCIgJiYgc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5lbmRfY29kZSkgewogICAgICAgICAgICAgICAgLy8gICBzdG9wLmxvY2F0aW9uLmRlc2NyaXB0b3IuY29kZSA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzPy5lbmRfY29kZTsKICAgICAgICAgICAgICAgIC8vIH0KICAgICAgICAgICAgICAgIGNvbnN0IFssIHBpbmNvZGVdID0gc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUuc3BsaXQoIi1waW5jb2RlOiIpOwogICAgICAgICAgICAgICAgaWYgKHN0b3AudHlwZSA9PT0gIlBJQ0tVUCIpIHsKICAgICAgICAgICAgICAgICAgICBzdG9wLmxvY2F0aW9uLmRlc2NyaXB0b3IuY29kZSA9IGAke3Nlc3Npb25EYXRhLnN0YXJ0X2xvY2F0aW9ufS1waW5jb2RlOiR7cGluY29kZX1gOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgaWYgKHN0b3AudHlwZSA9PT0gIkRST1AiKSB7CiAgICAgICAgICAgICAgICAgICAgc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPSBgJHtzZXNzaW9uRGF0YS5zdGFydF9sb2NhdGlvbn0tcGluY29kZToke3BpbmNvZGV9YDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KICAgIHJldHVybiBwYXlsb2FkOwp9
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBjb25zdCBwYXlsb2FkID0geyAuLi5kZWZhdWx0UGF5bG9hZCB9OwogICAgaWYgKHNlc3Npb25EYXRhPy5jaXR5X2NvZGUpIHsKICAgICAgICBwYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgcmV0dXJuIHBheWxvYWQ7Cn0=
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKAogICAgdGFyZ2V0UGF5bG9hZC5jb250ZXh0LnRyYW5zYWN0aW9uX2lkICE9PQogICAgc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25faWQKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkludmFsaWQgdHJhbnNhY3Rpb25faWQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogMjAwLAogICAgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IgogIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5iYXBfaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiYmFwX2lkIG5vdCBmb3VuZCIKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLmJhcF91cmkpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiYmFwX3VyaSBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5jaXR5X2NvZGUpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiY2l0eV9jb2RlIG5vdCBmb3VuZCIKICAgIH07CiAgfQoKICByZXR1cm4gewogICAgdmFsaWQ6IHRydWUsCiAgICBjb2RlOiAiMjAwIiwKICAgIGRlc2NyaXB0aW9uOiAiQWxsIENoZWNrcyBwYXNzZWQgc3VjY2Vzc2Z1bGx5IgogIH07Cn0=
       defaultPayload:
         context:
           location:
@@ -329,7 +339,7 @@ steps:
         catalog_descriptor: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZy5kZXNjcmlwdG9yOyB9
         fulfillments: $.message.catalog.providers[*].fulfillments[*]
         payments: $.message.catalog.providers[*].payments[*]
-        providers: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLmNhdGFsb2cucHJvdmlkZXJzWypdIilbMF07IH0=
+        providers: $.message.catalog.providers[*]
         items: $.message.catalog.providers[*].items[*]
         item_ids: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLmNhdGFsb2cucHJvdmlkZXJzWypdLml0ZW1zWypdLmlkIilbMF07IH0=
         cancellation_terms: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLmNhdGFsb2cucHJvdmlkZXJzWypdLml0ZW1zWypdLmNhbmNlbGxhdGlvbl90ZXJtcyIpWzBdOyB9
@@ -342,9 +352,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: on_search
-            timestamp: 2026-05-20T23:36:06.645Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 40805f87-809e-4efb-b42c-6f2dd050e9f2
+            timestamp: 2026-07-12T13:55:58.138Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: 5c9dae86-3e18-4fc1-b544-fea0cc300db3
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -355,7 +365,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             catalog:
               descriptor:
@@ -382,13 +392,13 @@ steps:
                           location:
                             descriptor:
                               name: Agara
-                              code: null-pincode:560034
+                              code: std:080-pincode:560034
                             gps: 12.924479, 77.648999
                         - type: PICKUP
                           location:
                             descriptor:
                               name: Bellandur
-                              code: null-pincode:560103
+                              code: std:080-pincode:560103
                             gps: 12.930839, 77.677941
                         - type: END
                           location:
@@ -400,13 +410,13 @@ steps:
                           location:
                             descriptor:
                               name: Ameerpet
-                              code: null-pincode:500016
+                              code: std:040-pincode:500016
                             gps: 17.441586, 78.441581
                         - type: DROP
                           location:
                             descriptor:
                               name: Central Bus Station
-                              code: null-pincode:500012
+                              code: std:040-pincode:500012
                             gps: 17.379024, 78.482443
                       vehicle:
                         category: BUS
@@ -427,13 +437,13 @@ steps:
                           location:
                             descriptor:
                               name: Agara
-                              code: null-pincode:560034
+                              code: std:080-pincode:560034
                             gps: 12.924479, 77.648999
                         - type: PICKUP
                           location:
                             descriptor:
                               name: Bellandur
-                              code: null-pincode:560103
+                              code: std:080-pincode:560103
                             gps: 12.930839, 77.677941
                         - type: END
                           location:
@@ -445,13 +455,13 @@ steps:
                           location:
                             descriptor:
                               name: Ameerpet
-                              code: null-pincode:500016
+                              code: std:040-pincode:500016
                             gps: 17.441586, 78.441581
                         - type: DROP
                           location:
                             descriptor:
                               name: Central Bus Station
-                              code: null-pincode:500012
+                              code: std:040-pincode:500012
                             gps: 17.379024, 78.482443
                       vehicle:
                         category: BUS
@@ -492,17 +502,23 @@ steps:
                                 code: STATIC_TERMS
                               value: https://api.transit-solutions.com/booking/terms
         type: request
-        description: please add relevant description
+        description: The BPP returns a catalog of available intercity bus services in
+          response to the BAP's search request, including provider information,
+          fares, fulfillment options, and payment methods for the requested
+          route. This response establishes the transaction context and enables
+          the BAP to evaluate and select from available service offerings.
   - api: search
     action_id: search_BUS_202
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP searches for available intercity bus services by specifying the origin and destination locations, vehicle type, and payment method for the journey.
+    description: The BAP broadcasts a search request to BPPs to discover available
+      intercity bus services for the specified origin and destination stations,
+      establishing the transaction context and location parameters.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWxldGUgZGVmYXVsdFBheWxvYWQuY29udGV4dC5icHBfdXJpOwogICAgZGVsZXRlIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuYnBwX2lkOwogICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGUgPSBzZXNzaW9uRGF0YS5jaXR5X2NvZGU7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudCA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50OwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQuc3RvcHMuZm9yRWFjaCgoc3RvcCkgPT4gewogICAgICAgIGxldCB0aW1lID0gewogICAgICAgICAgICBsYWJlbDogIkRBVEVfT0ZfSk9VUk5FWSIsCiAgICAgICAgICAgIHRpbWVzdGFtcDogZ2V0Q3VycmVudFRpbWUoKSwKICAgICAgICB9OwogICAgICAgIGlmIChzdG9wLnR5cGUgPT09ICJTVEFSVCIpIHsKICAgICAgICAgICAgc3RvcC50aW1lID0gdGltZTsKICAgICAgICB9CiAgICB9KTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmZ1bGZpbGxtZW50LnN0b3BzLnB1c2goewogICAgICAgIHR5cGU6ICJFTkQiLAogICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgIGNvZGU6IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmVuZF9jb2RlLAogICAgICAgICAgICB9LAogICAgICAgIH0sCiAgICB9KTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQpmdW5jdGlvbiBnZXRDdXJyZW50VGltZSgpIHsKICAgIHJldHVybiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmZ1bGZpbGxtZW50LnN0b3BzID0gWwogICAgICAgIHsKICAgICAgICAgICAgdHlwZTogIlNUQVJUIiwKICAgICAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgICAgICBjb2RlOiBzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5zdGFydF9jb2RlLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgdGltZTogewogICAgICAgICAgICAgICAgbGFiZWw6ICJEQVRFX09GX0pPVVJORVkiLAogICAgICAgICAgICAgICAgdGltZXN0YW1wOiBzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5qb3VybmV5X2RhdGUsCiAgICAgICAgICAgIH0sCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAgIHR5cGU6ICJQSUNLVVAiLAogICAgICAgICAgICBsb2NhdGlvbjogewogICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogewogICAgICAgICAgICAgICAgICAgIGNvZGU6IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLnBpY2t1cF9jb2RlLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICAgdHlwZTogIkVORCIsCiAgICAgICAgICAgIGxvY2F0aW9uOiB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICAgICAgY29kZTogc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuZW5kX2NvZGUsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICB9LAogICAgICAgIH0sCiAgICBdOwogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3Qgc3RhcnRDb2RlID0KICAgIHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQuc3RvcHMuZmluZCgKICAgICAgc3RvcCA9PiBzdG9wLnR5cGUgPT09ICJTVEFSVCIKICAgICk/LmxvY2F0aW9uPy5kZXNjcmlwdG9yPy5jb2RlOwoKICBjb25zdCBoYXNNYXRjaGluZ1JvdXRlID0KICAgIHNlc3Npb25EYXRhLnByb3ZpZGVycz8uc29tZShwcm92aWRlciA9PgogICAgICBwcm92aWRlci5mdWxmaWxsbWVudHM/LnNvbWUoZnVsZmlsbG1lbnQgPT4KICAgICAgICBmdWxmaWxsbWVudC5zdG9wcz8uc29tZSgKICAgICAgICAgIHN0b3AgPT4KICAgICAgICAgICAgc3RvcC50eXBlID09PSAiU1RBUlQiICYmCiAgICAgICAgICAgIHN0b3AubG9jYXRpb24/LmRlc2NyaXB0b3I/LmNvZGUgPT09IHN0YXJ0Q29kZQogICAgICAgICkKICAgICAgKQogICAgKTsKCiAgaWYgKCFoYXNNYXRjaGluZ1JvdXRlKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJTVEFSVCBjb2RlIG5vdCBmb3VuZCBpbiBwcmV2aW91cyBvbl9zZWFyY2ggcmVzcG9uc2UiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogMjAwLAogICAgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IgogIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5icHBfaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiYnBwX2lkIG5vdCBmb3VuZCIKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLmJwcF91cmkpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiYnBwX3VyaSBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -586,23 +602,34 @@ steps:
           $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
+            start_code:
+              type: string
+              default: std:080
+            pickup_code:
+              type: string
+              default: std:080-pincode:560103
             end_code:
               type: string
-              default: MOCK_STATION_3
+              default: std:040
             journey_date:
               type: string
               default: 2026-10-10T00:00:00.000Z
           additionalProperties: true
           default: {}
+          required:
+            - start_code
+            - pickup_code
+            - end_code
+            - journey_date
     examples:
       - name: example for search
         payload:
           context:
             domain: ONDC:TRV12
             action: search
-            timestamp: 2026-05-20T23:36:07.303Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 6b429916-6eda-41e7-8c61-8dc5a2607b95
+            timestamp: 2026-07-12T13:55:59.691Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: c26f69ff-a9df-451a-afcc-b6d3b5a33b27
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -611,7 +638,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             intent:
               fulfillment:
@@ -619,14 +646,18 @@ steps:
                   - type: START
                     location:
                       descriptor:
-                        code: MOCK_STATION_1
+                        code: std:080
                     time:
                       label: DATE_OF_JOURNEY
-                      timestamp: 2026-05-20T23:36:07.304Z
+                      timestamp: 2026-10-10T00:00:00.000Z
+                  - type: PICKUP
+                    location:
+                      descriptor:
+                        code: std:080-pincode:560103
                   - type: END
                     location:
                       descriptor:
-                        code: MOCK_STATION_3
+                        code: std:040
                 vehicle:
                   category: BUS
               payment:
@@ -652,17 +683,23 @@ steps:
                           code: STATIC_TERMS
                         value: https://api.example-bap.com/booking/terms
         type: request
-        description: please add relevant description
+        description: The BAP broadcasts a search request to BPPs to discover available
+          intercity bus services for the specified origin and destination
+          stations, establishing the transaction context and location
+          parameters.
   - api: on_search
     action_id: on_search_BUS_202
     owner: BPP
     responseFor: search_BUS_202
     unsolicited: false
-    description: The BPP sends an error response to the BAP indicating that the soft locking period for the intercity bus search results has expired. This signals that the reserved search results are no longer valid and the BAP must initiate a new search to proceed with the transaction.
+    description: The BPP responds to the BAP's intercity bus search request by
+      returning a catalog of available services, routes, and fulfillment
+      options. This enables the BAP to present the search results to the
+      customer for service selection.
     mock:
-      generate: Y29uc3QgdGFncyA9IFsKICAgIHsKICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJWRUhJQ0xFX0dSSUQiIH0sCiAgICAgICAgZGlzcGxheTogZmFsc2UsCiAgICAgICAgbGlzdDogWwogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlhfTUFYIiB9LCB2YWx1ZTogIjE0IiB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIllfTUFYIiB9LCB2YWx1ZTogIjMiIH0sCiAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiWl9NQVgiIH0sIHZhbHVlOiAiMSIgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJYX0xPQkJZX1NUQVJUIiB9LCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiWF9MT0JCWV9TSVpFIiB9LCB2YWx1ZTogIjEyIiB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIllfTE9CQllfU1RBUlQiIH0sIHZhbHVlOiAiMSIgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJZX0xPQkJZX1NJWkUiIH0sIHZhbHVlOiAiMSIgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRUFUX1NFTEVDVElPTiIgfSwgdmFsdWU6ICJtYW5kYXRvcnkiIH0sCiAgICAgICAgXSwKICAgIH0sCiAgICB7CiAgICAgICAgZGVzY3JpcHRvcjogeyBjb2RlOiAiVkVISUNMRV9BVkFJQkFMSVRZIiB9LAogICAgICAgIGRpc3BsYXk6IGZhbHNlLAogICAgICAgIGxpc3Q6IFt7IGRlc2NyaXB0b3I6IHsgY29kZTogIkFWQUxJQUJMRV9TRUFUUyIgfSwgdmFsdWU6ICIyMiIgfV0sCiAgICB9LAogICAgewogICAgICAgIGRlc2NyaXB0b3I6IHsgY29kZTogIlZFSElDTEVfQU1FTklUSUVTIiB9LAogICAgICAgIGxpc3Q6IFt7IHZhbHVlOiAiV0lGSSIgfSwgeyB2YWx1ZTogIkJMQU5LRVQiIH0sIHsgdmFsdWU6ICJDQ1RWIiB9XSwKICAgIH0sCl07CmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3QgcGF5bG9hZCA9IHsgLi4uZGVmYXVsdFBheWxvYWQgfTsKICAgIGlmIChzZXNzaW9uRGF0YT8uY2l0eV9jb2RlKSB7CiAgICAgICAgcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIH0KICAgIGZvciAoY29uc3QgcHJvdmlkZXIgb2YgcGF5bG9hZC5tZXNzYWdlPy5jYXRhbG9nPy5wcm92aWRlcnMgPz8gW10pIHsKICAgICAgICBwcm92aWRlci5mdWxmaWxsbWVudHMgPSBzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHM7CiAgICAgICAgbGV0IGNvdW50ID0gMTsKICAgICAgICBmb3IgKGNvbnN0IGZ1bGZpbGxtZW50IG9mIHByb3ZpZGVyLmZ1bGZpbGxtZW50cyA/PyBbXSkgewogICAgICAgICAgICBmdWxmaWxsbWVudC5yYXRlYWJsZSA9IHRydWU7CiAgICAgICAgICAgIGZ1bGZpbGxtZW50LnJhdGluZyA9ICI0LjUiOwogICAgICAgICAgICBmb3IgKGNvbnN0IHN0b3Agb2YgZnVsZmlsbG1lbnQuc3RvcHMgPz8gW10pIHsKICAgICAgICAgICAgICAgIHN0b3AuaWQgPSBgUyR7Y291bnR9YDsKICAgICAgICAgICAgICAgIGNvbnN0IHRpbWVPZmZzZXQgPSBuZXcgRGF0ZShEYXRlLm5vdygpICsgY291bnQgKiA2MCAqIDYwICogMTAwMCkudG9JU09TdHJpbmcoKTsKICAgICAgICAgICAgICAgIHN0b3AudGltZSA9IHsKICAgICAgICAgICAgICAgICAgICBsYWJlbDogIkRBVEVfVElNRSIsCiAgICAgICAgICAgICAgICAgICAgdGltZXN0YW1wOiB0aW1lT2Zmc2V0LAogICAgICAgICAgICAgICAgfTsKICAgICAgICAgICAgICAgIGNvdW50Kys7CiAgICAgICAgICAgICAgICBpZiAoc3RvcC50eXBlID09PSAiRU5EIiAmJiBzZXNzaW9uRGF0YT8uZW5kX2NvZGUpIHsKICAgICAgICAgICAgICAgICAgICBzdG9wLmxvY2F0aW9uLmRlc2NyaXB0b3IuY29kZSA9IHNlc3Npb25EYXRhPy5lbmRfY29kZTsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGNvbnN0IFssIHBpbmNvZGVdID0gc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUuc3BsaXQoIi1waW5jb2RlOiIpOwogICAgICAgICAgICAgICAgaWYgKHN0b3AudHlwZSA9PT0gIkRST1AiKSB7CiAgICAgICAgICAgICAgICAgICAgc3RvcC5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUgPSBgJHtzZXNzaW9uRGF0YS5lbmRfY29kZX0tcGluY29kZToke3BpbmNvZGV9YDsKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBmdWxmaWxsbWVudC50YWdzID0gdGFnczsKICAgICAgICB9CiAgICB9CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: CmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3QgcGF5bG9hZCA9IHsgLi4uZGVmYXVsdFBheWxvYWQgfTsKICAgIGlmIChzZXNzaW9uRGF0YT8uY2l0eV9jb2RlKSB7CiAgICAgICAgcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIH0KICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKAogICAgdGFyZ2V0UGF5bG9hZC5jb250ZXh0LnRyYW5zYWN0aW9uX2lkICE9PQogICAgc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25faWQKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkludmFsaWQgdHJhbnNhY3Rpb25faWQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogMjAwLAogICAgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IgogIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -996,9 +1033,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: on_search
-            timestamp: 2026-05-20T23:36:07.313Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 6b429916-6eda-41e7-8c61-8dc5a2607b95
+            timestamp: 2026-07-12T13:55:59.725Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: c26f69ff-a9df-451a-afcc-b6d3b5a33b27
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1009,7 +1046,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             catalog:
               descriptor:
@@ -1025,75 +1062,67 @@ steps:
                   fulfillments:
                     - id: F1
                       type: TRIP
+                      rateable: true
+                      rating: "4.5"
                       stops:
-                        - type: START
+                        - id: S1
+                          type: START
                           location:
                             descriptor:
                               name: Bangalore
                               code: std:080
-                            gps: 12.979759, 77.590427
-                          id: S1
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T00:36:07.315Z
-                        - type: PICKUP
+                        - id: S2
+                          type: PICKUP
                           location:
                             descriptor:
                               name: Agara
-                              code: null-pincode:560034
+                              code: std:080-pincode:560034
                             gps: 12.924479, 77.648999
-                          id: S2
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T01:36:07.315Z
-                        - type: PICKUP
+                            timestamp: 2023-09-06T06:30:00.000Z
+                        - id: S3
+                          type: PICKUP
                           location:
                             descriptor:
                               name: Bellandur
-                              code: null-pincode:560103
+                              code: std:080-pincode:560103
                             gps: 12.930839, 77.677941
-                          id: S3
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T02:36:07.315Z
-                        - type: END
+                            timestamp: 2023-09-06T06:45:00.000Z
+                        - id: S4
+                          type: END
                           location:
                             descriptor:
                               name: Hyderabad
                               code: std:040
-                            gps: 17.399832, 78.505532
-                          id: S4
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T03:36:07.315Z
-                        - type: DROP
+                        - id: S5
+                          type: DROP
                           location:
                             descriptor:
                               name: Ameerpet
-                              code: null-pincode:500016
+                              code: std:040-pincode:500016
                             gps: 17.441586, 78.441581
-                          id: S5
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T04:36:07.315Z
-                        - type: DROP
+                            timestamp: 2023-09-06T15:10:00.000Z
+                        - id: S6
+                          type: DROP
                           location:
                             descriptor:
                               name: Central Bus Station
-                              code: null-pincode:500012
+                              code: std:040-pincode:500012
                             gps: 17.379024, 78.482443
-                          id: S6
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T05:36:07.315Z
+                            timestamp: 2023-09-06T15:30:00.000Z
                       vehicle:
                         category: BUS
                         variant: AC
                         capacity: 47
                         wheels_count: "6"
                         energy_type: DIESEL
-                      rateable: true
-                      rating: "4.5"
                       tags:
                         - descriptor:
                             code: VEHICLE_GRID
@@ -1129,84 +1158,85 @@ steps:
                           list:
                             - descriptor:
                                 code: AVALIABLE_SEATS
-                              value: "22"
+                              value: "20"
                         - descriptor:
                             code: VEHICLE_AMENITIES
                           list:
+                            - value: WATER_BOTTLE
                             - value: WIFI
                             - value: BLANKET
                             - value: CCTV
                     - id: F2
                       type: TRIP
+                      rateable: true
+                      rating: "5"
                       stops:
-                        - type: START
+                        - id: S7
+                          type: START
                           location:
                             descriptor:
                               name: Bangalore
                               code: std:080
                             gps: 12.979759, 77.590427
-                          id: S7
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T06:36:07.315Z
-                        - type: PICKUP
+                            timestamp: 2023-09-06T20:00:00.000Z
+                        - id: S8
+                          type: PICKUP
                           location:
                             descriptor:
                               name: Agara
-                              code: null-pincode:560034
+                              code: std:080-pincode:560034
                             gps: 12.924479, 77.648999
-                          id: S8
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T07:36:07.315Z
-                        - type: PICKUP
+                            timestamp: 2023-09-06T20:30:00.000Z
+                        - id: S9
+                          type: PICKUP
                           location:
                             descriptor:
                               name: Bellandur
-                              code: null-pincode:560103
+                              code: std:080-pincode:560103
                             gps: 12.930839, 77.677941
-                          id: S9
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T08:36:07.315Z
-                        - type: END
+                            timestamp: 2023-09-06T20:50:00.000Z
+                        - id: S10
+                          type: END
                           location:
                             descriptor:
-                              name: CHENNAI
+                              name: Hyderabad
                               code: std:040
                             gps: 17.399832, 78.505532
-                          id: S10
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T09:36:07.315Z
-                        - type: DROP
+                            timestamp: 2023-09-07T06:00:00.000Z
+                        - id: S11
+                          type: DROP
                           location:
                             descriptor:
                               name: Ameerpet
-                              code: null-pincode:500016
+                              code: std:040-pincode:500016
                             gps: 17.441586, 78.441581
-                          id: S11
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T10:36:07.315Z
-                        - type: DROP
+                            timestamp: 2023-09-07T06:10:00.000Z
+                        - id: S12
+                          type: DROP
                           location:
                             descriptor:
                               name: Central Bus Station
-                              code: null-pincode:500012
+                              code: std:040-pincode:500012
                             gps: 17.379024, 78.482443
-                          id: S12
                           time:
                             label: DATE_TIME
-                            timestamp: 2026-05-21T11:36:07.315Z
+                            timestamp: 2023-09-07T06:30:00.000Z
                       vehicle:
                         category: BUS
                         variant: NON-AC
                         capacity: 47
                         wheels_count: "6"
                         energy_type: ELECTRIC
-                      rateable: true
-                      rating: "4.5"
                       tags:
                         - descriptor:
                             code: VEHICLE_GRID
@@ -1307,17 +1337,23 @@ steps:
                                 code: STATIC_TERMS
                               value: https://api.transit-solutions.com/booking/terms
         type: request
-        description: please add relevant description
+        description: The BPP responds to the BAP's intercity bus search request by
+          returning a catalog of available services, routes, and fulfillment
+          options. This enables the BAP to present the search results to the
+          customer for service selection.
   - api: search
     action_id: search_BUS_203
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP searches for available intercity bus services for the specified origin-destination pair, establishing the transaction context that determines soft locking time windows for the subsequent booking phase.
+    description: The BAP initiates a search to discover available intercity bus
+      services between specified origin and destination stations, providing
+      necessary transaction context and fulfillment preferences. The BPP returns
+      matching services that satisfy the search parameters.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWxldGUgZGVmYXVsdFBheWxvYWQuY29udGV4dC5icHBfdXJpOwogICAgZGVsZXRlIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQuYnBwX2lkOwogICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGUgPSBzZXNzaW9uRGF0YS5jaXR5X2NvZGU7CiAgICBpZiAoc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzICYmIHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cy5sZW5ndGggPiAwKSB7CiAgICAgICAgY29uc3QgZmlyc3RGdWxmaWxsbWVudCA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50c1swXTsKICAgICAgICBjb25zdCBwaWNrdXBTdG9wID0gZmlyc3RGdWxmaWxsbWVudC5zdG9wcz8uZmluZCgocykgPT4gcy50eXBlID09PSAiUElDS1VQIik7CiAgICAgICAgY29uc3QgZHJvcFN0b3AgPSBmaXJzdEZ1bGZpbGxtZW50LnN0b3BzPy5maW5kKChzKSA9PiBzLnR5cGUgPT09ICJEUk9QIik7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQgPSB7CiAgICAgICAgICAgIGlkOiBmaXJzdEZ1bGZpbGxtZW50LmlkLAogICAgICAgICAgICBzdG9wczogWwogICAgICAgICAgICAgICAgcGlja3VwU3RvcCA/IHsgaWQ6IHBpY2t1cFN0b3AuaWQsIHR5cGU6IHBpY2t1cFN0b3AudHlwZSB9IDogbnVsbCwKICAgICAgICAgICAgICAgIGRyb3BTdG9wID8geyBpZDogZHJvcFN0b3AuaWQsIHR5cGU6IGRyb3BTdG9wLnR5cGUgfSA6IG51bGwsCiAgICAgICAgICAgIF0uZmlsdGVyKEJvb2xlYW4pLAogICAgICAgIH07CiAgICB9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmludGVudC5wcm92aWRlciA9IHsgaWQ6IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdIH07CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQuaWQgPQogICAgICAgIHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLmZ1bGZpbGxtZW50X2lkOwoKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmZ1bGZpbGxtZW50LnN0b3BzID0gWwogICAgICAgIHsKICAgICAgICAgICAgaWQ6IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLnBpY2t1cF9zdG9wX2lkLAogICAgICAgICAgICB0eXBlOiAiUElDS1VQIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgICBpZDogc2Vzc2lvbkRhdGEudXNlcl9pbnB1dHMuZHJvcF9zdG9wX2lkLAogICAgICAgICAgICB0eXBlOiAiRFJPUCIKICAgICAgICB9CiAgICBdOwoKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgZnVsZmlsbG1lbnRJZCA9CiAgICB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuaW50ZW50LmZ1bGZpbGxtZW50LmlkOwoKICBjb25zdCBwaWNrdXBTdG9wSWQgPQogICAgdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5zdG9wcy5maW5kKAogICAgICBzdG9wID0+IHN0b3AudHlwZSA9PT0gIlBJQ0tVUCIKICAgICk/LmlkOwoKICBjb25zdCBkcm9wU3RvcElkID0KICAgIHRhcmdldFBheWxvYWQubWVzc2FnZS5pbnRlbnQuZnVsZmlsbG1lbnQuc3RvcHMuZmluZCgKICAgICAgc3RvcCA9PiBzdG9wLnR5cGUgPT09ICJEUk9QIgogICAgKT8uaWQ7CgogIGNvbnN0IGZ1bGZpbGxtZW50ID0KICAgIHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cz8uZmluZCgKICAgICAgZnVsZmlsbG1lbnQgPT4gZnVsZmlsbG1lbnQuaWQgPT09IGZ1bGZpbGxtZW50SWQKICAgICk7CgogIGlmICghZnVsZmlsbG1lbnQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkludmFsaWQgZnVsZmlsbG1lbnQgaWQiCiAgICB9OwogIH0KCiAgY29uc3QgcGlja3VwRXhpc3RzID0KICAgIGZ1bGZpbGxtZW50LnN0b3BzPy5zb21lKAogICAgICBzdG9wID0+CiAgICAgICAgc3RvcC50eXBlID09PSAiUElDS1VQIiAmJgogICAgICAgIHN0b3AuaWQgPT09IHBpY2t1cFN0b3BJZAogICAgKTsKCiAgaWYgKCFwaWNrdXBFeGlzdHMpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlBpY2t1cCBzdG9wIGRvZXMgbm90IGJlbG9uZyB0byBmdWxmaWxsbWVudCIKICAgIH07CiAgfQoKICBjb25zdCBkcm9wRXhpc3RzID0KICAgIGZ1bGZpbGxtZW50LnN0b3BzPy5zb21lKAogICAgICBzdG9wID0+CiAgICAgICAgc3RvcC50eXBlID09PSAiRFJPUCIgJiYKICAgICAgICBzdG9wLmlkID09PSBkcm9wU3RvcElkCiAgICApOwoKICBpZiAoIWRyb3BFeGlzdHMpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkRyb3Agc3RvcCBkb2VzIG5vdCBiZWxvbmcgdG8gZnVsZmlsbG1lbnQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogMjAwLAogICAgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IgogIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHM/Lmxlbmd0aCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJmdWxmaWxsbWVudHMgbm90IGZvdW5kIgogICAgfTsKICB9CgogIHJldHVybiB7CiAgICB2YWxpZDogdHJ1ZSwKICAgIGNvZGU6ICIyMDAiLAogICAgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiCiAgfTsKfQ==
       defaultPayload:
         context:
           location:
@@ -1382,16 +1418,38 @@ steps:
         payment: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2UuaW50ZW50LnBheW1lbnQ7IH0=
         start_location: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5zdG9wc1sqXS5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUiKVswXTsgfQ==
         end_code: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLmludGVudC5mdWxmaWxsbWVudC5zdG9wc1s/KEAudHlwZT09J0VORCcpXS5sb2NhdGlvbi5kZXNjcmlwdG9yLmNvZGUiKVswXTsgfQ==
-      inputs: {}
+        selected_fulfillment_id: $.message.intent.fulfillment.id
+        search3_fulfillments: $.message.intent.fulfillment
+      inputs:
+        id: trv12_ticket_discovery_search
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            fulfillment_id:
+              type: string
+              default: F1
+            pickup_stop_id:
+              type: string
+              default: S2
+            drop_stop_id:
+              type: string
+              default: S5
+          required:
+            - fulfillment_id
+            - pickup_stop_id
+            - drop_stop_id
+          additionalProperties: true
+          default: {}
     examples:
       - name: example for search
         payload:
           context:
             domain: ONDC:TRV12
             action: search
-            timestamp: 2026-05-20T23:36:07.328Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 2dcb0ae3-92c9-4468-9088-87856f3ababd
+            timestamp: 2026-07-12T13:56:01.282Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: 5cb5ea6e-2022-4855-9a8c-5ac89ac69bc6
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1400,7 +1458,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             intent:
               fulfillment:
@@ -1435,17 +1493,23 @@ steps:
                           code: STATIC_TERMS
                         value: https://api.example-bap.com/booking/terms
         type: request
-        description: please add relevant description
+        description: The BAP initiates a search to discover available intercity bus
+          services between specified origin and destination stations, providing
+          necessary transaction context and fulfillment preferences. The BPP
+          returns matching services that satisfy the search parameters.
   - api: on_search
     action_id: on_search_BUS_203
     owner: BPP
     responseFor: search_BUS_203
     unsolicited: false
-    description: The BPP returns an error response to the BAP's search request indicating that search results are temporarily unavailable due to soft lock constraints on fulfillment capacity, directing the BAP to retry after the soft lock duration expires.
+    description: The BPP responds with a catalog of available intercity bus
+      services, providers, fulfillment methods, and payment terms to the BAP's
+      search query for the specified route and location. The response confirms
+      the transaction context and geographic scope of the search results.
     mock:
-      generate: Y29uc3QgY2F0ZWdvcmllcyA9IFsKICAgIHsKICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgIG5hbWU6ICJTZWF0ZXIiLAogICAgICAgICAgICBjb2RlOiAiU0VBVEVSIiwKICAgICAgICB9LAogICAgICAgIGlkOiAiQzEiLAogICAgfSwKICAgIHsKICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgIG5hbWU6ICJTbGVlcGVyIiwKICAgICAgICAgICAgY29kZTogIlNMRUVQRVIiLAogICAgICAgIH0sCiAgICAgICAgaWQ6ICJDMiIsCiAgICB9LAogICAgewogICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgbmFtZTogIlNlbWkgU2xlZXBlciIsCiAgICAgICAgICAgIGNvZGU6ICJTRU1JX1NMRUVQRVIiLAogICAgICAgIH0sCiAgICAgICAgaWQ6ICJDMyIsCiAgICB9LApdOwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICAgIGlmIChzZXNzaW9uRGF0YT8uY2l0eV9jb2RlKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5sb2NhdGlvbi5jaXR5LmNvZGUgPSBzZXNzaW9uRGF0YS5jaXR5X2NvZGU7CiAgICB9CiAgICBpZiAoc2Vzc2lvbkRhdGE/LmNhdGFsb2dfZGVzY3JpcHRvcikgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZy5kZXNjcmlwdG9yID0KICAgICAgICAgICAgc2Vzc2lvbkRhdGE/LmNhdGFsb2dfZGVzY3JpcHRvcjsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YT8ucHJvdmlkZXJzKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLnByb3ZpZGVycyA9IHNlc3Npb25EYXRhLnByb3ZpZGVyczsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cucHJvdmlkZXJzLmZvckVhY2goKHByb3ZpZGVyKSA9PiB7CiAgICAgICAgICAgIHByb3ZpZGVyLmNhdGVnb3JpZXMgPSBjYXRlZ29yaWVzOwogICAgICAgICAgICBwcm92aWRlci5pdGVtcyA9IFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBpZDogIkkxIiwKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU6ICJTZWF0ZXIgVGlja2V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgY29kZTogIlNFQVQiLAogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgcHJpY2U6IHsKICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIjg5OSIsCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBxdWFudGl0eTogewogICAgICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGU6IHsgY291bnQ6IDEgfSwKICAgICAgICAgICAgICAgICAgICAgICAgbWF4aW11bTogeyBjb3VudDogMSB9LAogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgZnVsZmlsbG1lbnRfaWRzOiBbIkYxIl0sCiAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcnlfaWRzOiBbIkMxIl0sCiAgICAgICAgICAgICAgICAgICAgY2FuY2VsbGF0aW9uX3Rlcm1zOiBwcm92aWRlci5pdGVtcz8uWzBdPy5jYW5jZWxsYXRpb25fdGVybXMsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgICAgIGlkOiAiSTIiLAogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICAgICAgICAgICAgICAgICAgbmFtZTogIlNsZWVwZXIgVGlja2V0IiwKICAgICAgICAgICAgICAgICAgICAgICAgY29kZTogIlNFQVQiLAogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgcHJpY2U6IHsKICAgICAgICAgICAgICAgICAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogIjEyOTkiLAogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgcXVhbnRpdHk6IHsKICAgICAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlOiB7IGNvdW50OiAxIH0sCiAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBmdWxmaWxsbWVudF9pZHM6IFsiRjIiXSwKICAgICAgICAgICAgICAgICAgICBjYXRlZ29yeV9pZHM6IFsiQzIiXSwKICAgICAgICAgICAgICAgICAgICBjYW5jZWxsYXRpb25fdGVybXM6IHByb3ZpZGVyLml0ZW1zPy5bMF0/LmNhbmNlbGxhdGlvbl90ZXJtcywKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF07CiAgICAgICAgICAgIGlmIChzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpIHsKICAgICAgICAgICAgICAgIHByb3ZpZGVyLmZ1bGZpbGxtZW50cyA9IFtzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHNbMF1dLm1hcCgoZikgPT4gKHsKICAgICAgICAgICAgICAgICAgICBpZDogZi5pZCwKICAgICAgICAgICAgICAgICAgICB0eXBlOiBmLnR5cGUsCiAgICAgICAgICAgICAgICAgICAgc3RvcHM6IGYuc3RvcHMsCiAgICAgICAgICAgICAgICAgICAgdmVoaWNsZTogZi52ZWhpY2xlLAogICAgICAgICAgICAgICAgfSkpOwogICAgICAgICAgICB9CiAgICAgICAgfSk7CiAgICB9CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: CmFzeW5jIGZ1bmN0aW9uIGdlbmVyYXRlKGRlZmF1bHRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgaWYgKHNlc3Npb25EYXRhPy5jaXR5X2NvZGUpIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIH0KICAgIGlmIChzZXNzaW9uRGF0YT8uY2F0YWxvZ19kZXNjcmlwdG9yKSB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLmRlc2NyaXB0b3IgPQogICAgICAgICAgICBzZXNzaW9uRGF0YT8uY2F0YWxvZ19kZXNjcmlwdG9yOwogICAgfQogICAgY29uc3Qgc2VsZWN0ZWRGdWxmaWxsbWVudCA9CiAgICAgICAgc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnRzLmZpbmQoCiAgICAgICAgICAgIGZ1bGZpbGxtZW50ID0+CiAgICAgICAgICAgICAgICBmdWxmaWxsbWVudC5pZCA9PT0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRfaWRbMF0KICAgICAgICApOwoKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZy5wcm92aWRlcnNbMF0uZnVsZmlsbG1lbnRzID0gWwogICAgICAgIHNlbGVjdGVkRnVsZmlsbG1lbnQKICAgIF07CgogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLnByb3ZpZGVyc1swXS5pdGVtcyA9CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5jYXRhbG9nLnByb3ZpZGVyc1swXS5pdGVtcy5maWx0ZXIoCiAgICAgICAgICAgIGl0ZW0gPT4KICAgICAgICAgICAgICAgIGl0ZW0uZnVsZmlsbG1lbnRfaWRzPy5pbmNsdWRlcygKICAgICAgICAgICAgICAgICAgICBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXQogICAgICAgICAgICAgICAgKQogICAgICAgICk7CgogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKAogICAgdGFyZ2V0UGF5bG9hZC5jb250ZXh0LnRyYW5zYWN0aW9uX2lkICE9PQogICAgc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25faWQKICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkludmFsaWQgdHJhbnNhY3Rpb25faWQiCiAgICB9OwogIH0KCiAgY29uc3QgZnVsZmlsbG1lbnQgPQogICAgdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLmNhdGFsb2cucHJvdmlkZXJzWzBdCiAgICAgIC5mdWxmaWxsbWVudHM/LlswXTsKCiAgaWYgKCFmdWxmaWxsbWVudCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiRnVsZmlsbG1lbnQgbm90IGZvdW5kIgogICAgfTsKICB9CgogIGlmICgKICAgIGZ1bGZpbGxtZW50LmlkICE9PQogICAgc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRfaWRbMF0KICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlJldHVybmVkIGZ1bGZpbGxtZW50IGRvZXMgbm90IG1hdGNoIHJlcXVlc3RlZCBmdWxmaWxsbWVudCIKICAgIH07CiAgfQoKICBjb25zdCBpbnZhbGlkSXRlbSA9CiAgICB0YXJnZXRQYXlsb2FkLm1lc3NhZ2UuY2F0YWxvZy5wcm92aWRlcnNbMF0uaXRlbXMuZmluZCgKICAgICAgaXRlbSA9PgogICAgICAgICFpdGVtLmZ1bGZpbGxtZW50X2lkcz8uaW5jbHVkZXMoCiAgICAgICAgICBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXQogICAgICAgICkKICAgICk7CgogIGlmIChpbnZhbGlkSXRlbSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOgogICAgICAgIGBJdGVtICR7aW52YWxpZEl0ZW0uaWR9IGRvZXMgbm90IGJlbG9uZyB0byBzZWxlY3RlZCBmdWxmaWxsbWVudGAKICAgIH07CiAgfQoKICByZXR1cm4gewogICAgdmFsaWQ6IHRydWUsCiAgICBjb2RlOiAyMDAsCiAgICBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiCiAgfTsKfQ==
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJmdWxmaWxsbWVudF9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgY29uc3QgcHJvdmlkZXJFeGlzdHMgPQogICAgc2Vzc2lvbkRhdGEucHJvdmlkZXJzPy5zb21lKAogICAgICBwcm92aWRlciA9PiBwcm92aWRlci5pZCA9PT0gc2Vzc2lvbkRhdGEucHJvdmlkZXJfaWRbMF0KICAgICk7CgogIGlmICghcHJvdmlkZXJFeGlzdHMpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAicHJvdmlkZXJfaWQgbm90IGZvdW5kIGluIHByb3ZpZGVycyIKICAgIH07CiAgfQoKICBjb25zdCBmdWxmaWxsbWVudEV4aXN0cyA9CiAgICBzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHM/LnNvbWUoCiAgICAgIGZ1bGZpbGxtZW50ID0+CiAgICAgICAgZnVsZmlsbG1lbnQuaWQgPT09IHNlc3Npb25EYXRhLnNlbGVjdGVkX2Z1bGZpbGxtZW50X2lkWzBdCiAgICApOwoKICBpZiAoIWZ1bGZpbGxtZW50RXhpc3RzKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogImZ1bGZpbGxtZW50X2lkIG5vdCBmb3VuZCBpbiBmdWxmaWxsbWVudHMiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -1706,9 +1770,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: on_search
-            timestamp: 2026-05-20T23:36:07.342Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 2dcb0ae3-92c9-4468-9088-87856f3ababd
+            timestamp: 2026-07-12T13:56:01.317Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: 5cb5ea6e-2022-4855-9a8c-5ac89ac69bc6
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1719,7 +1783,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             catalog:
               descriptor:
@@ -1732,76 +1796,19 @@ steps:
                     name: ABC Operator 1 Bus Services
                     images:
                       - url: https://operator1.com/logos/logo.ico
-                  fulfillments:
-                    - id: F1
-                      type: TRIP
-                      stops:
-                        - type: START
-                          location:
-                            descriptor:
-                              name: Bangalore
-                              code: std:080
-                            gps: 12.979759, 77.590427
-                          id: S1
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T00:36:07.315Z
-                        - type: PICKUP
-                          location:
-                            descriptor:
-                              name: Agara
-                              code: null-pincode:560034
-                            gps: 12.924479, 77.648999
-                          id: S2
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T01:36:07.315Z
-                        - type: PICKUP
-                          location:
-                            descriptor:
-                              name: Bellandur
-                              code: null-pincode:560103
-                            gps: 12.930839, 77.677941
-                          id: S3
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T02:36:07.315Z
-                        - type: END
-                          location:
-                            descriptor:
-                              name: Hyderabad
-                              code: std:040
-                            gps: 17.399832, 78.505532
-                          id: S4
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T03:36:07.315Z
-                        - type: DROP
-                          location:
-                            descriptor:
-                              name: Ameerpet
-                              code: null-pincode:500016
-                            gps: 17.441586, 78.441581
-                          id: S5
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T04:36:07.315Z
-                        - type: DROP
-                          location:
-                            descriptor:
-                              name: Central Bus Station
-                              code: null-pincode:500012
-                            gps: 17.379024, 78.482443
-                          id: S6
-                          time:
-                            label: DATE_TIME
-                            timestamp: 2026-05-21T05:36:07.315Z
-                      vehicle:
-                        category: BUS
-                        variant: AC
-                        capacity: 47
-                        wheels_count: "6"
-                        energy_type: DIESEL
+                  categories:
+                    - descriptor:
+                        name: Seater
+                        code: SEATER
+                      id: C1
+                    - descriptor:
+                        name: Sleeper
+                        code: SLEEPER
+                      id: C2
+                    - descriptor:
+                        name: Semi Sleeper
+                        code: SEMI_SLEEPER
+                      id: C3
                   items:
                     - id: I1
                       descriptor:
@@ -1839,28 +1846,128 @@ steps:
                         code: SEAT
                       price:
                         currency: INR
-                        value: "1299"
+                        value: "1899"
                       quantity:
                         available:
                           count: 1
                       fulfillment_ids:
-                        - F2
+                        - F1
                       category_ids:
                         - C2
                       cancellation_terms:
-                        - external_ref:
-                            mimetype: text/html
-                            url: https://api.unreserved-entry-pass.com/beckn/tnc.html
-                          cancellation_eligible: true
                         - cancellation_fee:
                             percentage: "10"
-                          fulfillment_state:
-                            descriptor:
-                              code: CONFIRMED
                           cancel_by:
                             label: DURATION
                             duration: PT1H30M
                           cancellation_eligible: true
+                  fulfillments:
+                    - id: F1
+                      type: TRIP
+                      rateable: true
+                      rating: "4.5"
+                      stops:
+                        - id: S1
+                          type: START
+                          location:
+                            descriptor:
+                              name: Bangalore
+                              code: std:080
+                        - id: S2
+                          type: PICKUP
+                          location:
+                            descriptor:
+                              name: Agara
+                              code: std:080-pincode:560034
+                            gps: 12.924479, 77.648999
+                          time:
+                            label: DATE_TIME
+                            timestamp: 2023-09-06T06:30:00.000Z
+                        - id: S3
+                          type: PICKUP
+                          location:
+                            descriptor:
+                              name: Bellandur
+                              code: std:080-pincode:560103
+                            gps: 12.930839, 77.677941
+                          time:
+                            label: DATE_TIME
+                            timestamp: 2023-09-06T06:45:00.000Z
+                        - id: S4
+                          type: END
+                          location:
+                            descriptor:
+                              name: Hyderabad
+                              code: std:040
+                        - id: S5
+                          type: DROP
+                          location:
+                            descriptor:
+                              name: Ameerpet
+                              code: std:040-pincode:500016
+                            gps: 17.441586, 78.441581
+                          time:
+                            label: DATE_TIME
+                            timestamp: 2023-09-06T15:10:00.000Z
+                        - id: S6
+                          type: DROP
+                          location:
+                            descriptor:
+                              name: Central Bus Station
+                              code: std:040-pincode:500012
+                            gps: 17.379024, 78.482443
+                          time:
+                            label: DATE_TIME
+                            timestamp: 2023-09-06T15:30:00.000Z
+                      vehicle:
+                        category: BUS
+                        variant: AC
+                        capacity: 47
+                        wheels_count: "6"
+                        energy_type: DIESEL
+                      tags:
+                        - descriptor:
+                            code: VEHICLE_GRID
+                          display: false
+                          list:
+                            - descriptor:
+                                code: X_MAX
+                              value: "14"
+                            - descriptor:
+                                code: Y_MAX
+                              value: "3"
+                            - descriptor:
+                                code: Z_MAX
+                              value: "1"
+                            - descriptor:
+                                code: X_LOBBY_START
+                              value: "0"
+                            - descriptor:
+                                code: X_LOBBY_SIZE
+                              value: "12"
+                            - descriptor:
+                                code: Y_LOBBY_START
+                              value: "1"
+                            - descriptor:
+                                code: Y_LOBBY_SIZE
+                              value: "1"
+                            - descriptor:
+                                code: SEAT_SELECTION
+                              value: mandatory
+                        - descriptor:
+                            code: VEHICLE_AVAIBALITY
+                          display: false
+                          list:
+                            - descriptor:
+                                code: AVALIABLE_SEATS
+                              value: "20"
+                        - descriptor:
+                            code: VEHICLE_AMENITIES
+                          list:
+                            - value: WATER_BOTTLE
+                            - value: WIFI
+                            - value: BLANKET
+                            - value: CCTV
                   payments:
                     - collected_by: BPP
                       tags:
@@ -1893,31 +2000,24 @@ steps:
                             - descriptor:
                                 code: STATIC_TERMS
                               value: https://api.transit-solutions.com/booking/terms
-                  categories:
-                    - descriptor:
-                        name: Seater
-                        code: SEATER
-                      id: C1
-                    - descriptor:
-                        name: Sleeper
-                        code: SLEEPER
-                      id: C2
-                    - descriptor:
-                        name: Semi Sleeper
-                        code: SEMI_SLEEPER
-                      id: C3
         type: request
-        description: please add relevant description
+        description: The BPP responds with a catalog of available intercity bus
+          services, providers, fulfillment methods, and payment terms to the
+          BAP's search query for the specified route and location. The response
+          confirms the transaction context and geographic scope of the search
+          results.
   - api: select
     action_id: select_BUS_201
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP selects specific bus services and fulfillments from the BPP's available options to confirm which items and transaction parameters it intends to proceed with.
+    description: The BAP sends the select request to the BPP specifying the chosen
+      items and fulfillment options for the intercity bus journey. The BPP
+      responds with confirmed pricing and terms for the selected services.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gW3Nlc3Npb25EYXRhLmZ1bGZpbGxtZW50XS5tYXAoKGYpID0+ICh7CiAgICAgICAgaWQ6IGYuaWQsCiAgICAgICAgc3RvcHM6IGYuc3RvcHMsCiAgICB9KSk7CiAgICAvLyBzZWxlY3RlZF9pdGVtCiAgICAvLyBpZihzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LnNlbGVjdGVkX2l0ZW0pIHsKICAgIC8vICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMubWFwKChpdGVtOiBhbnkpID0+IHsKICAgIC8vICAgICBpdGVtLmlkID0gc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5zZWxlY3RlZF9pdGVtIHx8IGl0ZW0/LmlkOwogICAgLy8gICAgIHJldHVybiBpdGVtOwogICAgLy8gICB9KTsKICAgIC8vIH0KICAgIC8vIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBbCiAgICAvLyAgIHsKICAgIC8vICAgICBpZDogc2Vzc2lvbkRhdGEuaXRlbV9pZHNbMF0sCiAgICAvLyAgICAgcXVhbnRpdHk6IHsKICAgIC8vICAgICAgIHNlbGVjdGVkOiB7CiAgICAvLyAgICAgICAgIGNvdW50OiBOdW1iZXIoc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5zZWF0X2NvdW50KSB8fCAxLAogICAgLy8gICAgICAgfSwKICAgIC8vICAgICB9LAogICAgLy8gICB9LAogICAgLy8gXTsKICAgIGNvbnN0IHVzZXJJbnB1dHMgPSB0eXBlb2Ygc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5kYXRhID09PSAic3RyaW5nIgogICAgICAgID8gSlNPTi5wYXJzZShzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5kYXRhKQogICAgICAgIDogc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5kYXRhOwogICAgY29uc3QgaXRlbXMgPSB1c2VySW5wdXRzPy5pdGVtcz8ubWFwKChpKSA9PiAoewogICAgICAgIGlkOiBpLml0ZW1JZCA/PyAiSTEiLAogICAgICAgIHF1YW50aXR5OiB7CiAgICAgICAgICAgIHNlbGVjdGVkOiB7CiAgICAgICAgICAgICAgICBjb3VudDogaS5jb3VudCA/PyAxLAogICAgICAgICAgICB9LAogICAgICAgIH0sCiAgICB9KSkgPz8gW107CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gaXRlbXM7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0geyBpZDogc2Vzc2lvbkRhdGEucHJvdmlkZXJfaWRbMF0gfTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIAogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9CiAgICAgICAgc2Vzc2lvbkRhdGEucHJvdmlkZXJfaWRbMF07CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gWwogICAgICAgIHsKICAgICAgICAgICAgaWQ6IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLml0ZW1faWQsCiAgICAgICAgICAgIHF1YW50aXR5OiB7CiAgICAgICAgICAgICAgICBzZWxlY3RlZDogewogICAgICAgICAgICAgICAgICAgIGNvdW50OiBzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5xdWFudGl0eQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgXTsKCiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IHNlc3Npb25EYXRhLnNlYXJjaDNfZnVsZmlsbG1lbnRzOwogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgaXRlbUlkID0KICAgIHRhcmdldFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS5pZDsKCiAgY29uc3QgaXRlbUV4aXN0cyA9CiAgICBzZXNzaW9uRGF0YS5pdGVtcy5zb21lKAogICAgICBpdGVtID0+IGl0ZW0uaWQgPT09IGl0ZW1JZAogICAgKTsKCiAgaWYgKCFpdGVtRXhpc3RzKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJJbnZhbGlkIGl0ZW0gaWQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogMjAwLAogICAgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IgogIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS5pdGVtcz8ubGVuZ3RoKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogIml0ZW1zIG5vdCBmb3VuZCIKICAgIH07CiAgfQoKCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -1965,34 +2065,27 @@ steps:
         select_fulfillments: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1sqXSIpWzBdOyB9
         select_items: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLml0ZW1zWypdIilbMF07IH0=
         select_items_id: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLml0ZW1zWypdLmlkIilbMF07IH0=
-        selected_item_counts: $.message.order.items[*].quantity.selected.count
+        selected_item_counts: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLml0ZW1zWypdLnF1YW50aXR5LnNlbGVjdGVkLmNvdW50IilbMF07IH0=
         selected_quantity: $.message.order.items[*].quantity
         provider: $.message.order.provider[*]
+        selected_item_id: $.message.order.items[*].id
+        selected_item_quantity: $.message.order.items[*].quantity.selected.count
+        on_select1_items: $.message.order.items
       inputs:
-        id: trv12_intercity_select_bus_201
+        id: trv12_select
         jsonSchema:
           $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
-            data:
-              type: object
-              default: {}
-              properties:
-                items:
-                  type: array
-                  default: []
-                  items:
-                    type: object
-                    properties:
-                      itemId:
-                        type: string
-                        default: I1
-                      count:
-                        type: number
-                        default: 1
-                    additionalProperties: true
-                    default: {}
-              additionalProperties: true
+            item_id:
+              type: string
+              default: I1
+            quantity:
+              type: number
+              default: 2
+          required:
+            - item_id
+            - quantity
           additionalProperties: true
           default: {}
     examples:
@@ -2001,9 +2094,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: select
-            timestamp: 2026-05-20T23:36:09.847Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 7ae96e51-06c3-4aac-9b44-058426daa452
+            timestamp: 2026-07-12T13:56:02.639Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: aab2bfca-cf7d-46ea-af6a-7d269d894bdb
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2014,14 +2107,14 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             order:
               items:
                 - id: I1
                   quantity:
                     selected:
-                      count: 1
+                      count: 2
               fulfillments:
                 - id: F1
                   stops:
@@ -2032,17 +2125,21 @@ steps:
               provider:
                 id: P1
         type: request
-        description: please add relevant description
+        description: The BAP sends the select request to the BPP specifying the chosen
+          items and fulfillment options for the intercity bus journey. The BPP
+          responds with confirmed pricing and terms for the selected services.
   - api: on_select
     action_id: on_select_BUS_201
     owner: BPP
     responseFor: select_BUS_201
     unsolicited: false
-    description: The BPP responds to the BAP's selection of an intercity bus service by confirming the booking with itemized pricing, fulfillment logistics, and soft-locked seat availability for the transaction period.
+    description: The BPP acknowledges the BAP's selected intercity bus service and
+      returns the confirmed order details including the quoted fare, journey
+      fulfillment specifications, and seat inventory status.
     mock:
-      generate: ZnVuY3Rpb24gZ2VuZXJhdGVTZWF0R3JpZFRhZyh4LCB5LCB6LCBzZWF0TnVtYmVyLCBnZW5kZXIsIGl0ZW1JZCkgewogICAgcmV0dXJuIHsKICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRUFUX0dSSUQiIH0sCiAgICAgICAgbGlzdDogWwogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlgiIH0sIHZhbHVlOiB4IH0sCiAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiWSIgfSwgdmFsdWU6IHkgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJaIiB9LCB2YWx1ZTogeiB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlhfU0laRSIgfSwgdmFsdWU6ICIxIiB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIllfU0laRSIgfSwgdmFsdWU6ICIxIiB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIk5VTUJFUiIgfSwgdmFsdWU6IHNlYXROdW1iZXIgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJSRVNUUklDVEVEX0dFTkRFUiIgfSwgdmFsdWU6IGdlbmRlciB9LAogICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlNJTkdMRV9TRUFUIiB9LCB2YWx1ZTogIlRSVUUiIH0sCiAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiU0VBVF9QUklDRSIgfSwgdmFsdWU6ICI1MCIgfSwKICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJJVEVNX0lEIiB9LCB2YWx1ZTogaXRlbUlkIH0sCiAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiQVZBSUxBQkxFIiB9LCB2YWx1ZTogInRydWUiIH0sCiAgICAgICAgXSwKICAgIH07Cn0KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGNvbnN0IGNvdW50ID0gc2Vzc2lvbkRhdGE/LnNlbGVjdGVkX2l0ZW1fY291bnRzWzBdID8/IDA7CiAgICBjb25zb2xlLmxvZyhjb3VudCkKICAgIGNvbnN0IHNlc3Npb25JdGVtcyA9IHNlc3Npb25EYXRhLml0ZW1zIHx8IFtdOwogICAgY29uc29sZS5sb2coSlNPTi5zdHJpbmdpZnkoc2Vzc2lvbkl0ZW1zKSkKICAgIGNvbnN0IHNlbGVjdGVkSWQgPSBzZXNzaW9uRGF0YS5zZWxlY3RfaXRlbXM/LmlkOwogICAgY29uc3QgaWRFeGlzdHMgPSBzZXNzaW9uSXRlbXMuc29tZSgoaXRlbSkgPT4gaXRlbS5pZCA9PT0gc2VsZWN0ZWRJZCk7CiAgICBpZiAoaWRFeGlzdHMpIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gc2Vzc2lvbkl0ZW1zLmZpbHRlcigoaXRlbSkgPT4gaXRlbS5pZCA9PT0gc2VsZWN0ZWRJZCk7CiAgICB9CiAgICBlbHNlIHsKICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0KICAgICAgICAgICAgc2Vzc2lvbkl0ZW1zLmxlbmd0aCA+IDAgPyBbc2Vzc2lvbkl0ZW1zWzBdXSA6IFtdOwogICAgfQogICAgaWYoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcy5sZW5ndGggPT09IDApIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZXNzaW9uSXRlbXNbMF0KICAgIH0KICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMuZm9yRWFjaCgoaXRlbSkgPT4gewogICAgICAgIGl0ZW0ucXVhbnRpdHkgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9xdWFudGl0eVswXTsKICAgICAgICBjb25zdCBuZXdGdWxmaWxsbWVudHMgPSBBcnJheS5mcm9tKHsgbGVuZ3RoOiBjb3VudCB9LCAoXywgaSkgPT4gYEZUJHtpICsgMX1gKTsKICAgICAgICBpdGVtLmZ1bGZpbGxtZW50X2lkcyA9IFsKICAgICAgICAgICAgLi4uKGl0ZW0uZnVsZmlsbG1lbnRfaWRzIHx8IFtdKSwKICAgICAgICAgICAgLi4ubmV3RnVsZmlsbG1lbnRzLAogICAgICAgIF07CiAgICAgICAgZGVsZXRlIGl0ZW0uY2FuY2VsbGF0aW9uX3Rlcm1zOwogICAgfSk7CiAgICBjb25zdCBkZXRhaWxlZEZ1bGZpbGxtZW50ID0gc2Vzc2lvbkRhdGE/LmZ1bGZpbGxtZW50czsKICAgIGNvbnN0IHNpbXBsaWZpZWRTdG9wcyA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50Py5zdG9wcyA/PyBbXTsKICAgIGNvbnN0IGZpbHRlcmVkU3RvcHMgPSBzaW1wbGlmaWVkU3RvcHMuZmlsdGVyKChzdG9wKSA9PiBzaW1wbGlmaWVkU3RvcHMuc29tZSgoc3MpID0+IHNzLmlkID09PSBzdG9wLmlkKSk7CiAgICBjb25zdCBzZWF0Q291bnQgPSBOdW1iZXIoc2Vzc2lvbkRhdGE/LnNlbGVjdGVkX3F1YW50aXR5Py5zZWxlY3RlZD8uY291bnQpIHx8IDI7CiAgICBjb25zdCB0YWdzID0gQXJyYXkuZnJvbSh7IGxlbmd0aDogc2VhdENvdW50ICsgMyB9LCAoXywgaW5kZXgpID0+IHsKICAgICAgICBjb25zdCBzZWF0TnVtYmVyID0gYFMke2luZGV4ICsgMX1gOwogICAgICAgIGNvbnN0IGdlbmRlciA9ICJNQUxFIjsKICAgICAgICBjb25zdCB4ID0gU3RyaW5nKGluZGV4ICUgMik7CiAgICAgICAgY29uc3QgeSA9IFN0cmluZyhNYXRoLmZsb29yKGluZGV4IC8gMikpOwogICAgICAgIGNvbnN0IHogPSAiMCI7CiAgICAgICAgcmV0dXJuIGdlbmVyYXRlU2VhdEdyaWRUYWcoeCwgeSwgeiwgc2VhdE51bWJlciwgZ2VuZGVyLCBpZEV4aXN0cyA/IHNlbGVjdGVkSWQgOiAnSTEnKTsKICAgIH0pOwogICAgY29uc3QgdXBkYXRlZEZ1bGZpbGxtZW50cyA9IFsKICAgICAgICB7CiAgICAgICAgICAgIGlkOiBkZXRhaWxlZEZ1bGZpbGxtZW50LmlkLAogICAgICAgICAgICB0eXBlOiBkZXRhaWxlZEZ1bGZpbGxtZW50LnR5cGUsCiAgICAgICAgICAgIHZlaGljbGU6IGRldGFpbGVkRnVsZmlsbG1lbnQudmVoaWNsZSwKICAgICAgICAgICAgc3RvcHM6IGZpbHRlcmVkU3RvcHMsCiAgICAgICAgICAgIHRhZ3M6IHRhZ3MsCiAgICAgICAgfSwKICAgICAgICAuLi5BcnJheS5mcm9tKHsgbGVuZ3RoOiBjb3VudCB9LCAoXywgaSkgPT4gKHsKICAgICAgICAgICAgaWQ6IGBGVCR7aSArIDF9YCwKICAgICAgICAgICAgdHlwZTogIlRJQ0tFVCIsCiAgICAgICAgfSkpLAogICAgXTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gdXBkYXRlZEZ1bGZpbGxtZW50czsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIgPSB7CiAgICAgICAgaWQ6IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdLAogICAgICAgIGRlc2NyaXB0b3I6IHNlc3Npb25EYXRhLnByb3ZpZGVycy5kZXNjcmlwdG9yLAogICAgfTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGE/LmNpdHlfY29kZSkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgY29uc3QgeyBtZXNzYWdlIH0gPSBkZWZhdWx0UGF5bG9hZDsKICAgIGNvbnN0IHsgb3JkZXIgfSA9IG1lc3NhZ2U7CgogICAgY29uc3QgcXVhbnRpdHkgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX3F1YW50aXR5WzBdOwogICAgY29uc3Qgc2VsZWN0ZWRJdGVtSWQgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX2lkWzBdOwogICAgY29uc3QgdHJpcEZ1bGZpbGxtZW50SWQgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXTsKCiAgICBjb25zdCBpdGVtID0gb3JkZXIuaXRlbXNbMF07CgogICAgaXRlbS5pZCA9IHNlbGVjdGVkSXRlbUlkOwogICAgaXRlbS5xdWFudGl0eS5zZWxlY3RlZC5jb3VudCA9IHF1YW50aXR5OwogICAgaXRlbS5mdWxmaWxsbWVudF9pZHMgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZDsKCiAgICBjb25zdCB0aWNrZXRGdWxmaWxsbWVudHMgPSBbXTsKCiAgICBmb3IgKGxldCBpbmRleCA9IDE7IGluZGV4IDw9IHF1YW50aXR5OyBpbmRleCsrKSB7CiAgICAgICAgY29uc3QgdGlja2V0SWQgPSBgRlQke2luZGV4fWA7CgogICAgICAgIGl0ZW0uZnVsZmlsbG1lbnRfaWRzLnB1c2godGlja2V0SWQpOwoKICAgICAgICB0aWNrZXRGdWxmaWxsbWVudHMucHVzaCh7CiAgICAgICAgICAgIGlkOiB0aWNrZXRJZCwKICAgICAgICAgICAgdHlwZTogIlRJQ0tFVCIKICAgICAgICB9KTsKICAgIH0KCiAgICBjb25zdCB0cmlwRnVsZmlsbG1lbnQgPSBvcmRlci5mdWxmaWxsbWVudHMuZmluZCgKICAgICAgICAoeyB0eXBlIH0pID0+IHR5cGUgPT09ICJUUklQIgogICAgKTsKCiAgICBpZiAodHJpcEZ1bGZpbGxtZW50KSB7CiAgICAgICAgdHJpcEZ1bGZpbGxtZW50LmlkID0gdHJpcEZ1bGZpbGxtZW50SWQ7CiAgICAgICAgdHJpcEZ1bGZpbGxtZW50LnN0b3BzID0gc2Vzc2lvbkRhdGEuZnVsZmlsbG1lbnQuc3RvcHM7CiAgICB9CgogICAgb3JkZXIuZnVsZmlsbG1lbnRzID0gWwogICAgICAgIHRyaXBGdWxmaWxsbWVudCwKICAgICAgICAuLi50aWNrZXRGdWxmaWxsbWVudHMKICAgIF07CgogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCgogIGlmICghc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRfaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiZnVsZmlsbG1lbnRfaWQgbm90IGZvdW5kIgogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbV9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJpdGVtX2lkIG5vdCBmb3VuZCIKICAgIH07CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLnNlbGVjdGVkX3F1YW50aXR5KSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogInNlbGVjdGVkX3F1YW50aXR5IG5vdCBmb3VuZCIKICAgIH07CiAgfQoKCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -2284,6 +2381,11 @@ steps:
         provider: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXI7IH0=
         seats_available: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1sqXS50YWdzWypdLmxpc3RbPyhALmRlc2NyaXB0b3IuY29kZT09J05VTUJFUicpXS52YWx1ZSIpWzBdOyB9
         select_items: $.message.order.items[*]
+        select1_order: $.message.order
+        category_ids: $.message.order.items[*].category_ids
+        trip_fulfillment_id: $.message.order.fulfillments[?(@.type=="TRIP")].id
+        ticket_fulfillment_ids: $.message.order.fulfillments[?(@.type=="TICKET")].id
+        on_select1_items: $.message.order.items
       inputs: {}
     examples:
       - name: example for on_select
@@ -2291,9 +2393,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: on_select
-            timestamp: 2026-05-20T23:36:09.880Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 7ae96e51-06c3-4aac-9b44-058426daa452
+            timestamp: 2026-07-12T13:56:02.683Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: aab2bfca-cf7d-46ea-af6a-7d269d894bdb
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2304,7 +2406,7 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             order:
               items:
@@ -2314,23 +2416,36 @@ steps:
                     code: SEAT
                   price:
                     currency: INR
-                    value: "899"
+                    value: "800"
                   quantity:
                     selected:
-                      count: 1
+                      count: 2
                   fulfillment_ids:
                     - F1
                     - FT1
+                    - FT2
                   category_ids:
                     - C1
               provider:
                 id: P1
+                descriptor:
+                  name: ABC Operator 1 Bus Services
+                  images:
+                    - url: https://operator1.com/logos/logo.ico
               fulfillments:
-                - stops:
+                - id: F1
+                  type: TRIP
+                  stops:
                     - id: S2
                       type: PICKUP
                     - id: S5
                       type: DROP
+                  vehicle:
+                    category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: "6"
+                    energy_type: DIESEL
                   tags:
                     - descriptor:
                         code: SEAT_GRID
@@ -2352,10 +2467,10 @@ steps:
                           value: "1"
                         - descriptor:
                             code: NUMBER
-                          value: S1
+                          value: A1
                         - descriptor:
                             code: RESTRICTED_GENDER
-                          value: MALE
+                          value: FEMALE
                         - descriptor:
                             code: SINGLE_SEAT
                           value: "TRUE"
@@ -2379,124 +2494,88 @@ steps:
                           value: "0"
                         - descriptor:
                             code: Z
-                          value: "0"
+                          value: "1"
                         - descriptor:
                             code: X_SIZE
                           value: "1"
                         - descriptor:
                             code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S2
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S3
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S4
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
                           value: "2"
                         - descriptor:
+                            code: NUMBER
+                          value: F1
+                        - descriptor:
+                            code: RESTRICTED_GENDER
+                          value: MALE
+                        - descriptor:
+                            code: SINGLE_SEAT
+                          value: "TRUE"
+                        - descriptor:
+                            code: SEAT_PRICE
+                          value: "50"
+                        - descriptor:
+                            code: ITEM_ID
+                          value: I1
+                        - descriptor:
+                            code: AVAILABLE
+                          value: "true"
+                    - descriptor:
+                        code: SEAT_GRID
+                      list:
+                        - descriptor:
+                            code: X
+                          value: "1"
+                        - descriptor:
+                            code: Y
+                          value: "1"
+                        - descriptor:
                             code: Z
-                          value: "0"
+                          value: "1"
                         - descriptor:
                             code: X_SIZE
                           value: "1"
                         - descriptor:
                             code: Y_SIZE
-                          value: "1"
+                          value: "2"
                         - descriptor:
                             code: NUMBER
-                          value: S5
+                          value: F2
+                        - descriptor:
+                            code: RESTRICTED_GENDER
+                          value: MALE
+                        - descriptor:
+                            code: SINGLE_SEAT
+                          value: "TRUE"
+                        - descriptor:
+                            code: SEAT_PRICE
+                          value: "50"
+                        - descriptor:
+                            code: ITEM_ID
+                          value: I1
+                        - descriptor:
+                            code: AVAILABLE
+                          value: "true"
+                    - descriptor:
+                        code: SEAT_GRID
+                      list:
+                        - descriptor:
+                            code: X
+                          value: "0"
+                        - descriptor:
+                            code: Y
+                          value: ""
+                        - descriptor:
+                            code: Z
+                          value: "1"
+                        - descriptor:
+                            code: X_SIZE
+                          value: "1"
+                        - descriptor:
+                            code: Y_SIZE
+                          value: "2"
+                        - descriptor:
+                            code: NUMBER
+                          value: A3
                         - descriptor:
                             code: RESTRICTED_GENDER
                           value: MALE
@@ -2514,18 +2593,24 @@ steps:
                           value: "true"
                 - id: FT1
                   type: TICKET
+                - id: FT2
+                  type: TICKET
         type: request
-        description: please add relevant description
+        description: The BPP acknowledges the BAP's selected intercity bus service and
+          returns the confirmed order details including the quoted fare, journey
+          fulfillment specifications, and seat inventory status.
   - api: select
     action_id: select_BUS_202
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP selects specific items and fulfillments from the BPP's offerings, confirming which seats and journey parameters it intends to book for the intercity bus service.
+    description: The BAP selects specific items and fulfillment options from the
+      BPP's available intercity bus services, confirming seat quantities and
+      service preferences for the transaction.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gdHJhbnNmb3JtRnVsZmlsbG1lbnRzKHNlc3Npb25EYXRhLm9uX3NlbGVjdF9mdWxmaWxsbWVudHMsIHNlc3Npb25EYXRhPy5vbl9zZWxlY3RfZnVsZmlsbG1lbnRzX3RhZ3MsIHNlc3Npb25EYXRhKTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZXNzaW9uRGF0YS5zZWxlY3RfaXRlbXM7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0geyBpZDogc2Vzc2lvbkRhdGEucHJvdmlkZXJfaWRbMF0gfTsKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQoKZnVuY3Rpb24gdHJhbnNmb3JtRnVsZmlsbG1lbnRzKGZ1bGZpbGxtZW50cywgdGlja2V0VGFncywgc2Vzc2lvbkRhdGEpIHsKICAgIGNvbnN0IHNlYXRJdGVtcyA9IEFycmF5LmlzQXJyYXkoc2Vzc2lvbkRhdGE/LnVzZXJfaW5wdXRzPy5pdGVtcykKICAgICAgICA/IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzLml0ZW1zCiAgICAgICAgOiBbXTsKCiAgICBjb25zdCBhbnMgPSBmdWxmaWxsbWVudHMubWFwKChmLCBpbmRleCkgPT4gewoKICAgICAgICBpZiAoZi50eXBlID09PSAiVFJJUCIpIHsKICAgICAgICAgICAgcmV0dXJuIHNlc3Npb25EYXRhPy5zZWxlY3RfZnVsZmlsbG1lbnRzIHx8IGY7CiAgICAgICAgfQoKICAgICAgICBpZiAoZi50eXBlID09PSAiVElDS0VUIikgewoKICAgICAgICAgICAgY29uc3QgZmlsdGVyZWRUYWdzID0gdGlja2V0VGFncy5tYXAoKHRhZykgPT4gewoKICAgICAgICAgICAgICAgIGlmICh0YWc/LmRlc2NyaXB0b3I/LmNvZGUgPT09ICJTRUFUX0dSSUQiKSB7CgogICAgICAgICAgICAgICAgICAgIGNvbnN0IGZpbHRlcmVkTGlzdCA9IHRhZy5saXN0CiAgICAgICAgICAgICAgICAgICAgICAgIC5maWx0ZXIoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAoaXRlbSkgPT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdGVtLmRlc2NyaXB0b3IuY29kZSA9PT0gIk5VTUJFUiIgfHwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpdGVtLmRlc2NyaXB0b3IuY29kZSA9PT0gIklURU1fSUQiCiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICAgICAgLm1hcCgoaXRlbSkgPT4gewoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChpdGVtLmRlc2NyaXB0b3IuY29kZSA9PT0gIk5VTUJFUiIpIHsKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uc3Qgc2VhdERhdGEgPSBzZWF0SXRlbXNbaW5kZXggLSAxXTsKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLi4uaXRlbSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IHNlYXREYXRhPy5zZWF0TnVtYmVyIHx8IGl0ZW0udmFsdWUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfTsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gaXRlbTsKICAgICAgICAgICAgICAgICAgICAgICAgfSk7CgogICAgICAgICAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHRhZy5kZXNjcmlwdG9yLAogICAgICAgICAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAuLi5maWx0ZXJlZExpc3QsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogeyBjb2RlOiAiU0VMRUNURUQiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICJ0cnVlIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICAgICAgfTsKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICByZXR1cm4gdGFnOwogICAgICAgICAgICB9KTsKCiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICBpZDogZi5pZCwKICAgICAgICAgICAgICAgIHRhZ3M6IGZpbHRlcmVkVGFncywKICAgICAgICAgICAgfTsKICAgICAgICB9CgogICAgICAgIHJldHVybiBmOwogICAgfSk7CgogICAgcmV0dXJuIGFuczsKfQ==
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGE/LmNpdHlfY29kZSkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgY29uc3Qgc2VhdE51bWJlcnMgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0cy5zZWF0X251bWJlcnM7CgogICAgY29uc3QgdGlja2V0RnVsZmlsbG1lbnRzID0KICAgICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cy5maWx0ZXIoCiAgICAgICAgICAgICh7IGlkIH0pID0+IGlkLnN0YXJ0c1dpdGgoIkZUIikKICAgICAgICApOwoKICAgIHRpY2tldEZ1bGZpbGxtZW50cy5mb3JFYWNoKChmdWxmaWxsbWVudCwgaW5kZXgpID0+IHsKICAgICAgICBjb25zdCBzZWF0TnVtYmVyID0gc2VhdE51bWJlcnNbaW5kZXhdOwoKICAgICAgICBmdWxmaWxsbWVudC50YWdzWzBdLmxpc3QgPSBmdWxmaWxsbWVudC50YWdzWzBdLmxpc3QubWFwKHRhZyA9PiB7CiAgICAgICAgICAgIGNvbnN0IGNvZGUgPSB0YWcuZGVzY3JpcHRvci5jb2RlOwoKICAgICAgICAgICAgaWYgKGNvZGUgPT09ICJOVU1CRVIiKSB7CiAgICAgICAgICAgICAgICB0YWcudmFsdWUgPSBzZWF0TnVtYmVyOwogICAgICAgICAgICB9IGVsc2UgaWYgKGNvZGUgPT09ICJTRUxFQ1RFRCIpIHsKICAgICAgICAgICAgICAgIHRhZy52YWx1ZSA9ICJ0cnVlIjsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgcmV0dXJuIHRhZzsKICAgICAgICB9KTsKICAgIH0pOwoKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgdGlja2V0RnVsZmlsbG1lbnRzID0KICAgIHRhcmdldFBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMuZmlsdGVyKAogICAgICBmdWxmaWxsbWVudCA9PgogICAgICAgIGZ1bGZpbGxtZW50LmlkLnN0YXJ0c1dpdGgoIkZUIikKICAgICk7CgogIGlmICgKICAgIHRpY2tldEZ1bGZpbGxtZW50cy5sZW5ndGggIT09CiAgICBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX3F1YW50aXR5WzBdCiAgKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJTZWF0IGNvdW50IG1pc21hdGNoIgogICAgfTsKICB9CgogIHJldHVybiB7CiAgICB2YWxpZDogdHJ1ZSwKICAgIGNvZGU6IDIwMCwKICAgIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIKICB9Owp9
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS50aWNrZXRfZnVsZmlsbG1lbnRfaWRzPy5sZW5ndGgpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAidGlja2V0X2Z1bGZpbGxtZW50X2lkcyBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX3F1YW50aXR5WzBdKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogInNlbGVjdGVkX3F1YW50aXR5IG5vdCBmb3VuZCIKICAgIH07CiAgfQoKICByZXR1cm4gewogICAgdmFsaWQ6IHRydWUsCiAgICBjb2RlOiAiMjAwIiwKICAgIGRlc2NyaXB0aW9uOiAiQWxsIENoZWNrcyBwYXNzZWQgc3VjY2Vzc2Z1bGx5IgogIH07Cn0=
       defaultPayload:
         context:
           location:
@@ -2606,23 +2691,23 @@ steps:
         select_fulfillment_tags: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1sqXS50YWdzWypdIilbMF07IH0=
         price: $.message.order.items[*].price
         on_select_items: $.message.order.items[*]
+        selected_fulfillments: $.message.order.fulfillments
+        seats: $.message.order.fulfillments[*].id
       inputs:
-        id: trv12_intercity_select_bus_202
+        id: trv12_select_seats
         jsonSchema:
           $schema: http://json-schema.org/draft-07/schema#
           type: object
           properties:
-            items:
+            seat_numbers:
               type: array
-              default: []
               items:
-                type: object
-                properties:
-                  seatNumber:
-                    type: string
-                    default: S1
-                additionalProperties: true
-                default: {}
+                type: string
+              default:
+                - A1
+                - F1
+          required:
+            - seat_numbers
           additionalProperties: true
           default: {}
     examples:
@@ -2631,9 +2716,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: select
-            timestamp: 2026-05-20T23:36:11.638Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 8e6a6c80-c7c8-4134-83c1-c5e135bc24c0
+            timestamp: 2026-07-12T13:56:04.357Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: b80db414-a38f-4591-aac9-662c6623ea73
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2644,212 +2729,21 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             order:
               items:
                 - id: I1
-                  descriptor:
-                    name: Seater Ticket
-                    code: SEAT
-                  price:
-                    currency: INR
-                    value: "899"
                   quantity:
                     selected:
-                      count: 1
-                  fulfillment_ids:
-                    - F1
-                    - FT1
-                  category_ids:
-                    - C1
+                      count: 2
               fulfillments:
-                - stops:
+                - id: F1
+                  stops:
                     - id: S2
                       type: PICKUP
                     - id: S5
                       type: DROP
-                  tags:
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "0"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "0"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S2
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S3
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S4
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "2"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S5
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
                 - id: FT1
                   tags:
                     - descriptor:
@@ -2857,75 +2751,47 @@ steps:
                       list:
                         - descriptor:
                             code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
+                          value: A1
                         - descriptor:
                             code: SELECTED
                           value: "true"
+                        - descriptor:
+                            code: ITEM_ID
+                          value: I1
+                - id: FT2
+                  tags:
                     - descriptor:
                         code: SEAT_GRID
                       list:
                         - descriptor:
                             code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
+                          value: F1
                         - descriptor:
                             code: SELECTED
                           value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
                         - descriptor:
                             code: ITEM_ID
                           value: I1
-                        - descriptor:
-                            code: SELECTED
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: SELECTED
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: SELECTED
-                          value: "true"
               provider:
                 id: P1
         type: request
-        description: please add relevant description
+        description: The BAP selects specific items and fulfillment options from the
+          BPP's available intercity bus services, confirming seat quantities and
+          service preferences for the transaction.
   - api: on_select
     action_id: on_select_BUS_202
     owner: BPP
     responseFor: select_BUS_202
     unsolicited: false
-    description: The BPP confirms the buyer's selected intercity bus service with quote and fulfillment details, managing the soft-lock duration for the provisional reservation.
+    description: The BPP acknowledges the BAP's selected intercity bus service and
+      provides the confirmed order details including the quote, fulfillment
+      terms with seat availability, and provider information. This response
+      establishes the basis for payment and order confirmation by locking in the
+      selected service, pricing, and travel details.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZXNzaW9uRGF0YS5vbl9zZWxlY3RfaXRlbXM7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXI7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IHRyYW5zZm9ybUZ1bGZpbGxtZW50cyhzZXNzaW9uRGF0YS5vbl9zZWxlY3RfZnVsZmlsbG1lbnRzLCBzZXNzaW9uRGF0YT8ub25fc2VsZWN0X2Z1bGZpbGxtZW50c190YWdzLCBzZXNzaW9uRGF0YT8uc2VsZWN0XzJfZnVsZmlsbG1lbnRzKTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUgPSBjYWxjdWxhdGVRdW90ZShzZXNzaW9uRGF0YSwgZGVmYXVsdFBheWxvYWQpOwogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9CmZ1bmN0aW9uIGNhbGN1bGF0ZVF1b3RlKHNlc3Npb25EYXRhLCBkZWZhdWx0UGF5bG9hZCkgewogICAgY29uc3QgYmFzZUZhcmVQZXJTZWF0ID0gTnVtYmVyKHNlc3Npb25EYXRhLnByaWNlWzBdLnZhbHVlKTsKICAgIGNvbnN0IHNlYXRGYXJlID0gNTA7CiAgICBjb25zdCBjb252ZW5pZW5jZUZlZSA9IDE5OwogICAgY29uc3Qgc2VhdENvdW50ID0gTnVtYmVyKHNlc3Npb25EYXRhPy5zZWxlY3RlZF9pdGVtX2NvdW50c1swXSB8fCAwKTsKICAgIGNvbnN0IGJhc2VGYXJlID0gYmFzZUZhcmVQZXJTZWF0ICogc2VhdENvdW50OwogICAgY29uc3QgdGF4ID0gTWF0aC5yb3VuZChiYXNlRmFyZSAqIDAuMDYpOwogICAgY29uc3QgdG90YWxTZWF0RmFyZSA9IHNlYXRGYXJlICogc2VhdENvdW50OwogICAgY29uc3QgdG90YWwgPSBiYXNlRmFyZSArIHRheCArIGNvbnZlbmllbmNlRmVlICsgdG90YWxTZWF0RmFyZTsKICAgIGNvbnN0IHRpY2tldElkcyA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzPy5maWx0ZXIoKGYpID0+IGYudHlwZSA9PT0gIlRJQ0tFVCIpCiAgICAgICAgLm1hcCgoZiwgaW5kZXgpID0+IGYuaWQgfHwgYEZUJHtpbmRleCArIDF9YCkgPz8gW107CiAgICBjb25zdCBzZWF0RmFyZUJyZWFrdXBzID0gdGlja2V0SWRzLm1hcCgoZmlkKSA9PiAoewogICAgICAgIHRpdGxlOiAiU0VBVF9GQVJFIiwKICAgICAgICBwcmljZTogeyBjdXJyZW5jeTogIklOUiIsIHZhbHVlOiBzZWF0RmFyZS50b1N0cmluZygpIH0sCiAgICAgICAgaXRlbTogewogICAgICAgICAgICBpZDogc2Vzc2lvbkRhdGE/Lm9uX3NlbGVjdF9pdGVtc1swXT8uaWQgfHwgIkkxIiwKICAgICAgICAgICAgZnVsZmlsbG1lbnRfaWRzOiBbZmlkXSwKICAgICAgICB9LAogICAgfSkpOwogICAgcmV0dXJuIHsKICAgICAgICBwcmljZTogewogICAgICAgICAgICB2YWx1ZTogdG90YWwudG9TdHJpbmcoKSwKICAgICAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgIH0sCiAgICAgICAgYnJlYWt1cDogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICB0aXRsZTogIkJBU0VfRkFSRSIsCiAgICAgICAgICAgICAgICBwcmljZTogeyBjdXJyZW5jeTogIklOUiIsIHZhbHVlOiBiYXNlRmFyZS50b1N0cmluZygpIH0sCiAgICAgICAgICAgICAgICBpdGVtOiB7CiAgICAgICAgICAgICAgICAgICAgaWQ6ICJJMSIsCiAgICAgICAgICAgICAgICAgICAgcHJpY2U6IHsgY3VycmVuY3k6ICJJTlIiLCB2YWx1ZTogYmFzZUZhcmVQZXJTZWF0LnRvU3RyaW5nKCkgfSwKICAgICAgICAgICAgICAgICAgICBxdWFudGl0eTogeyBzZWxlY3RlZDogeyBjb3VudDogc2VhdENvdW50IH0gfSwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIHRpdGxlOiAiVEFYIiwKICAgICAgICAgICAgICAgIHByaWNlOiB7IGN1cnJlbmN5OiAiSU5SIiwgdmFsdWU6IHRheC50b1N0cmluZygpIH0sCiAgICAgICAgICAgICAgICBpdGVtOiB7CiAgICAgICAgICAgICAgICAgICAgdGFnczogWwogICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJUQVgiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJDR1NUIiB9LCB2YWx1ZTogIjIlIiB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiU0dTVCIgfSwgdmFsdWU6ICIyJSIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlNFUlZJQ0VfVEFYIiB9LCB2YWx1ZTogIjIlIiB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAgdGl0bGU6ICJDT05WRU5JRU5DRV9GRUUiLAogICAgICAgICAgICAgICAgcHJpY2U6IHsgY3VycmVuY3k6ICJJTlIiLCB2YWx1ZTogY29udmVuaWVuY2VGZWUudG9TdHJpbmcoKSB9LAogICAgICAgICAgICB9LAogICAgICAgICAgICAuLi5zZWF0RmFyZUJyZWFrdXBzLAogICAgICAgICAgICAuLi4oc2Vzc2lvbkRhdGEub25fc2VsZWN0X2Z1bGZpbGxtZW50cyB8fCBbXSkKICAgICAgICAgICAgICAgIC5maWx0ZXIoKGYpID0+IGYudHlwZSA9PT0gIlRJQ0tFVCIpCiAgICAgICAgICAgICAgICAubWFwKChmLCBpZHgpID0+ICh7CiAgICAgICAgICAgICAgICB0aXRsZTogIlNFQVRfRkFSRSIsCiAgICAgICAgICAgICAgICBwcmljZTogeyBjdXJyZW5jeTogIklOUiIsIHZhbHVlOiBzZWF0RmFyZS50b1N0cmluZygpIH0sCiAgICAgICAgICAgICAgICBpdGVtOiB7IGlkOiAiSTEiLCBmdWxmaWxsbWVudF9pZHM6IFtmLmlkID8/IGBGVCR7aWR4ICsgMX1gXSB9LAogICAgICAgICAgICB9KSksCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgIHRpdGxlOiAiU0VMTEVSX0ZFRVMiLAogICAgICAgICAgICAgICAgcHJpY2U6IHsgY3VycmVuY3k6ICJJTlIiLCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgICAgICBpdGVtOiB7CiAgICAgICAgICAgICAgICAgICAgdGFnczogWwogICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRUxMRVJfRkVFUyIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgbmFtZTogIlRvdFJlc2VydmF0aW9uRmFyZSIgfSwgdmFsdWU6ICIwIiB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBuYW1lOiAiVG90U1JURmVlIiB9LCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IG5hbWU6ICJUb3RUb2xsRmVlIiB9LCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IG5hbWU6ICJjb25jZXNzaW9uQW1vdW50IiB9LCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IG5hbWU6ICJyb3VuZE9mRmVlIiB9LCB2YWx1ZTogIjAiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICB9LAogICAgICAgIF0sCiAgICAgICAgdHRsOiAiUFQxME0iLAogICAgfTsKfQpmdW5jdGlvbiB0cmFuc2Zvcm1GdWxmaWxsbWVudHMoCiAgICBmdWxmaWxsbWVudHMgPSBbXSwKICAgIHRpY2tldFRhZ3MgPSB7fSwKICAgIHNlbGVjdF9mdWxmaWxsbWVudHMgPSBbXQopIHsKCiAgICBjb25zdCBzZWF0TnVtYmVycyA9IHNlbGVjdF9mdWxmaWxsbWVudHMKICAgICAgICAuZmlsdGVyKChzZikgPT4gc2Y/LmlkPy5zdGFydHNXaXRoKCJGVCIpKQogICAgICAgIC5mbGF0TWFwKChzZikgPT4gewoKICAgICAgICAgICAgY29uc3Qgc2VhdEdyaWRUYWcgPSBzZi50YWdzPy5maW5kKAogICAgICAgICAgICAgICAgKHQpID0+IHQuZGVzY3JpcHRvcj8uY29kZSA9PT0gIlNFQVRfR1JJRCIKICAgICAgICAgICAgKTsKCiAgICAgICAgICAgIGNvbnN0IG51bWJlckl0ZW0gPSBzZWF0R3JpZFRhZz8ubGlzdD8uZmluZCgKICAgICAgICAgICAgICAgIChpKSA9PiBpLmRlc2NyaXB0b3I/LmNvZGUgPT09ICJOVU1CRVIiCiAgICAgICAgICAgICk7CgogICAgICAgICAgICByZXR1cm4gbnVtYmVySXRlbT8udmFsdWUKICAgICAgICAgICAgICAgID8gW251bWJlckl0ZW0udmFsdWVdCiAgICAgICAgICAgICAgICA6IFtdOwogICAgICAgIH0pOwoKICAgIHJldHVybiBmdWxmaWxsbWVudHMubWFwKChmLCBpbmRleCkgPT4gewoKICAgICAgICBpZiAoZj8udHlwZSA9PT0gIlRSSVAiKSB7CgogICAgICAgICAgICBjb25zdCB7IHRhZ3MsIC4uLnJlc3QgfSA9IGY7CiAgICAgICAgICAgIHJldHVybiByZXN0OwogICAgICAgIH0KCiAgICAgICAgaWYgKGY/LnR5cGUgPT09ICJUSUNLRVQiKSB7CgogICAgICAgICAgICBjb25zdCB1cGRhdGVkVGFncyA9IEpTT04ucGFyc2UoCiAgICAgICAgICAgICAgICBKU09OLnN0cmluZ2lmeSh0aWNrZXRUYWdzIHx8IHt9KQogICAgICAgICAgICApOwoKICAgICAgICAgICAgdXBkYXRlZFRhZ3MubGlzdCA9ICh1cGRhdGVkVGFncy5saXN0IHx8IFtdKS5tYXAoKGl0ZW0pID0+IHsKCiAgICAgICAgICAgICAgICBpZiAoCiAgICAgICAgICAgICAgICAgICAgaXRlbT8uZGVzY3JpcHRvcj8uY29kZSA9PT0gIk5VTUJFUiIgJiYKICAgICAgICAgICAgICAgICAgICBzZWF0TnVtYmVyc1tpbmRleCAtIDFdCiAgICAgICAgICAgICAgICApIHsKICAgICAgICAgICAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICAgICAgICAgICAgICAuLi5pdGVtLAogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogc2VhdE51bWJlcnNbaW5kZXggLSAxXSwKICAgICAgICAgICAgICAgICAgICB9OwogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIHJldHVybiBpdGVtOwogICAgICAgICAgICB9KTsKCiAgICAgICAgICAgIHJldHVybiB7CiAgICAgICAgICAgICAgICAuLi5mLAogICAgICAgICAgICAgICAgdGFnczogdXBkYXRlZFRhZ3MsCiAgICAgICAgICAgIH07CiAgICAgICAgfQoKICAgICAgICByZXR1cm4gZjsKICAgIH0pOwp9
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: ZnVuY3Rpb24gY2FsY3VsYXRlUXVvdGUob3JkZXIsIHNlc3Npb25EYXRhKSB7CgogICAgY29uc3Qgc2VsZWN0ZWRUaWNrZXRGdWxmaWxsbWVudHMgPQogICAgICAgIChzZXNzaW9uRGF0YS5vbl9zZWxlY3RfZnVsZmlsbG1lbnRzIHx8IFtdKS5maWx0ZXIoCiAgICAgICAgICAgIGZ1bGZpbGxtZW50ID0+CiAgICAgICAgICAgICAgICBmdWxmaWxsbWVudD8uaWQgJiYKICAgICAgICAgICAgICAgIGZ1bGZpbGxtZW50LmlkLnN0YXJ0c1dpdGgoIkZUIikKICAgICAgICApOwoKICAgIGNvbnN0IHNlYXRDb3VudCA9CiAgICAgICAgc2VsZWN0ZWRUaWNrZXRGdWxmaWxsbWVudHMubGVuZ3RoOwoKICAgIGNvbnN0IGl0ZW1QcmljZSA9CiAgICAgICAgTnVtYmVyKAogICAgICAgICAgICBzZXNzaW9uRGF0YS5vbl9zZWxlY3RfaXRlbT8ucHJpY2U/LnZhbHVlIHx8IDAKICAgICAgICApOwoKICAgIGNvbnN0IHNlYXRQcmljZSA9IDUwOwogICAgY29uc3QgY29udmVuaWVuY2VGZWUgPSAxOTsKICAgIGNvbnN0IHRheFBlcmNlbnRhZ2UgPSA0OwoKICAgIGNvbnN0IGJhc2VGYXJlID0KICAgICAgICBpdGVtUHJpY2UgKiBzZWF0Q291bnQ7CgogICAgY29uc3QgdG90YWxTZWF0RmFyZSA9CiAgICAgICAgc2VhdFByaWNlICogc2VhdENvdW50OwoKICAgIGNvbnN0IHRheCA9CiAgICAgICAgTWF0aC5yb3VuZCgKICAgICAgICAgICAgKGJhc2VGYXJlICogdGF4UGVyY2VudGFnZSkgLyAxMDAKICAgICAgICApOwoKICAgIGNvbnN0IHRvdGFsID0KICAgICAgICBiYXNlRmFyZSArCiAgICAgICAgdG90YWxTZWF0RmFyZSArCiAgICAgICAgdGF4ICsKICAgICAgICBjb252ZW5pZW5jZUZlZTsKCiAgICAvKgogICAgICogVXBkYXRlIHF1b3RlIHRvdGFsCiAgICAgKi8KICAgIGlmIChvcmRlci5xdW90ZT8ucHJpY2UpIHsKICAgICAgICBvcmRlci5xdW90ZS5wcmljZS52YWx1ZSA9CiAgICAgICAgICAgIFN0cmluZyh0b3RhbCk7CiAgICB9CgogICAgLyoKICAgICAqIFJlYnVpbGQgYnJlYWt1cCBkeW5hbWljYWxseQogICAgICovCiAgICBjb25zdCBleGlzdGluZ0JyZWFrdXBzID0KICAgICAgICBvcmRlci5xdW90ZT8uYnJlYWt1cCB8fCBbXTsKCiAgICBjb25zdCBub25TZWF0RmFyZUJyZWFrdXBzID0KICAgICAgICBleGlzdGluZ0JyZWFrdXBzLmZpbHRlcigKICAgICAgICAgICAgYnJlYWt1cCA9PgogICAgICAgICAgICAgICAgYnJlYWt1cC50aXRsZSAhPT0gIlNFQVRfRkFSRSIKICAgICAgICApOwoKICAgIGNvbnN0IHNlYXRGYXJlQnJlYWt1cHMgPQogICAgICAgIEFycmF5LmZyb20oCiAgICAgICAgICAgIHsgbGVuZ3RoOiBzZWF0Q291bnQgfSwKICAgICAgICAgICAgKCkgPT4gKHsKICAgICAgICAgICAgICAgIHRpdGxlOiAiU0VBVF9GQVJFIiwKICAgICAgICAgICAgICAgIHByaWNlOiB7CiAgICAgICAgICAgICAgICAgICAgY3VycmVuY3k6ICJJTlIiLAogICAgICAgICAgICAgICAgICAgIHZhbHVlOiBTdHJpbmcoc2VhdFByaWNlKQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9KQogICAgICAgICk7CgogICAgb3JkZXIucXVvdGUuYnJlYWt1cCA9IFsKICAgICAgICAuLi5ub25TZWF0RmFyZUJyZWFrdXBzLAogICAgICAgIC4uLnNlYXRGYXJlQnJlYWt1cHMKICAgIF07CgogICAgLyoKICAgICAqIFVwZGF0ZSBCQVNFX0ZBUkUgLyBUQVggLyBDT05WRU5JRU5DRV9GRUUKICAgICAqLwogICAgb3JkZXIucXVvdGUuYnJlYWt1cC5mb3JFYWNoKAogICAgICAgIGJyZWFrdXAgPT4gewoKICAgICAgICAgICAgc3dpdGNoIChicmVha3VwLnRpdGxlKSB7CgogICAgICAgICAgICAgICAgY2FzZSAiQkFTRV9GQVJFIjoKCiAgICAgICAgICAgICAgICAgICAgYnJlYWt1cC5wcmljZS52YWx1ZSA9CiAgICAgICAgICAgICAgICAgICAgICAgIFN0cmluZyhiYXNlRmFyZSk7CgogICAgICAgICAgICAgICAgICAgIGlmICgKICAgICAgICAgICAgICAgICAgICAgICAgYnJlYWt1cC5pdGVtPy5wcmljZQogICAgICAgICAgICAgICAgICAgICkgewogICAgICAgICAgICAgICAgICAgICAgICBicmVha3VwLml0ZW0ucHJpY2UudmFsdWUgPQogICAgICAgICAgICAgICAgICAgICAgICAgICAgU3RyaW5nKGl0ZW1QcmljZSk7CiAgICAgICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgICAgICBpZiAoCiAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrdXAuaXRlbT8ucXVhbnRpdHk/LnNlbGVjdGVkCiAgICAgICAgICAgICAgICAgICAgKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrdXAuaXRlbS5xdWFudGl0eS5zZWxlY3RlZC5jb3VudCA9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZWF0Q291bnQ7CiAgICAgICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgICAgICBicmVhazsKCiAgICAgICAgICAgICAgICBjYXNlICJUQVgiOgoKICAgICAgICAgICAgICAgICAgICBicmVha3VwLnByaWNlLnZhbHVlID0KICAgICAgICAgICAgICAgICAgICAgICAgU3RyaW5nKHRheCk7CgogICAgICAgICAgICAgICAgICAgIGJyZWFrOwoKICAgICAgICAgICAgICAgIGNhc2UgIkNPTlZFTklFTkNFX0ZFRSI6CgogICAgICAgICAgICAgICAgICAgIGJyZWFrdXAucHJpY2UudmFsdWUgPQogICAgICAgICAgICAgICAgICAgICAgICBTdHJpbmcoY29udmVuaWVuY2VGZWUpOwoKICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgfQogICAgICAgIH0KICAgICk7CgogICAgLyoKICAgICAqIFVwZGF0ZSBwYXltZW50IGFtb3VudAogICAgICovCiAgICBjb25zdCBwYXltZW50ID0KICAgICAgICBvcmRlci5wYXltZW50cz8uWzBdOwoKICAgIGlmIChwYXltZW50Py5wYXJhbXMpIHsKCiAgICAgICAgcGF5bWVudC5wYXJhbXMuYW1vdW50ID0KICAgICAgICAgICAgU3RyaW5nKHRvdGFsKTsKCiAgICAgICAgcGF5bWVudC5wYXJhbXMuY3VycmVuY3kgPQogICAgICAgICAgICAiSU5SIjsKICAgIH0KCiAgICAvKgogICAgICogVXBkYXRlIHNldHRsZW1lbnQgYW1vdW50CiAgICAgKi8KICAgIGNvbnN0IHNldHRsZW1lbnRBbW91bnQgPQogICAgICAgIHBheW1lbnQ/LnRhZ3MKICAgICAgICAgICAgPy5maW5kKAogICAgICAgICAgICAgICAgKHsgZGVzY3JpcHRvciB9KSA9PgogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I/LmNvZGUgPT09CiAgICAgICAgICAgICAgICAgICAgIlNFVFRMRU1FTlRfVEVSTVMiCiAgICAgICAgICAgICkKICAgICAgICAgICAgPy5saXN0CiAgICAgICAgICAgID8uZmluZCgKICAgICAgICAgICAgICAgICh7IGRlc2NyaXB0b3IgfSkgPT4KICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yPy5jb2RlID09PQogICAgICAgICAgICAgICAgICAgICJTRVRUTEVNRU5UX0FNT1VOVCIKICAgICAgICAgICAgKTsKCiAgICBpZiAoc2V0dGxlbWVudEFtb3VudCkgewogICAgICAgIHNldHRsZW1lbnRBbW91bnQudmFsdWUgPQogICAgICAgICAgICBTdHJpbmcodG90YWwpOwogICAgfQoKICAgIGNvbnNvbGUubG9nKAogICAgICAgICJRdW90ZSBDYWxjdWxhdGlvbiIsCiAgICAgICAgewogICAgICAgICAgICBzZWF0Q291bnQsCiAgICAgICAgICAgIGl0ZW1QcmljZSwKICAgICAgICAgICAgYmFzZUZhcmUsCiAgICAgICAgICAgIHRvdGFsU2VhdEZhcmUsCiAgICAgICAgICAgIHRheCwKICAgICAgICAgICAgY29udmVuaWVuY2VGZWUsCiAgICAgICAgICAgIHRvdGFsCiAgICAgICAgfQogICAgKTsKfQoKYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGE/LmNpdHlfY29kZSkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgY29uc3QgeyBvcmRlciB9ID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZTsKICAgIG9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXI7CiAgICBvcmRlci5pdGVtcyA9IHNlc3Npb25EYXRhLm9uX3NlbGVjdDFfaXRlbXNbMF07CiAgICBjb25zdCBpdGVtID0gb3JkZXIuaXRlbXNbMF07CgogICAgY29uc3Qgc2VsZWN0ZWRJdGVtSWQgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX2lkWzBdOwogICAgY29uc3Qgc2VsZWN0ZWRRdWFudGl0eSA9IHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1fcXVhbnRpdHlbMF07CiAgICBjb25zdCBzZWxlY3RlZEZ1bGZpbGxtZW50SWQgPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXTsKCiAgICBpdGVtLmlkID0gc2VsZWN0ZWRJdGVtSWQ7CiAgICBpdGVtLnF1YW50aXR5LnNlbGVjdGVkLmNvdW50ID0gc2VsZWN0ZWRRdWFudGl0eTsKICAgIGl0ZW0uZnVsZmlsbG1lbnRfaWRzID0gWwogICAgICAgIHNlbGVjdGVkRnVsZmlsbG1lbnRJZCwKICAgICAgICAuLi5zZXNzaW9uRGF0YS50aWNrZXRfZnVsZmlsbG1lbnRfaWRzCiAgICBdOwoKICAgIG9yZGVyLnByb3ZpZGVyLmlkID0gc2Vzc2lvbkRhdGEucHJvdmlkZXJfaWRbMF07CgogICAgY29uc3QgdHJpcEZ1bGZpbGxtZW50ID0gb3JkZXIuZnVsZmlsbG1lbnRzLmZpbmQoCiAgICAgICAgKHsgdHlwZSB9KSA9PiB0eXBlID09PSAiVFJJUCIKICAgICk7CgogICAgaWYgKHRyaXBGdWxmaWxsbWVudCkgewogICAgICAgIHRyaXBGdWxmaWxsbWVudC5pZCA9IHNlbGVjdGVkRnVsZmlsbG1lbnRJZDsKICAgIH0KCiAgICBjb25zdCBzZWxlY3RlZFRpY2tldEZ1bGZpbGxtZW50cyA9IHNlc3Npb25EYXRhLmZ1bGZpbGxtZW50cy5maWx0ZXIoCiAgICAgICAgKHsgaWQgfSkgPT4gaWQuc3RhcnRzV2l0aCgiRlQiKQogICAgKTsKCiAgICBjb25zdCB0aWNrZXRGdWxmaWxsbWVudHMgPSBvcmRlci5mdWxmaWxsbWVudHMuZmlsdGVyKAogICAgICAgICh7IHR5cGUgfSkgPT4gdHlwZSA9PT0gIlRJQ0tFVCIKICAgICk7CgogICAgdGlja2V0RnVsZmlsbG1lbnRzLmZvckVhY2goKGZ1bGZpbGxtZW50LCBpbmRleCkgPT4gewogICAgICAgIGNvbnN0IHNlbGVjdGVkVGlja2V0ID0gc2VsZWN0ZWRUaWNrZXRGdWxmaWxsbWVudHNbaW5kZXhdOwoKICAgICAgICBpZiAoIXNlbGVjdGVkVGlja2V0KSB7CiAgICAgICAgICAgIHJldHVybjsKICAgICAgICB9CgogICAgICAgIGZ1bGZpbGxtZW50LmlkID0gc2VsZWN0ZWRUaWNrZXQuaWQ7CgogICAgICAgIGNvbnN0IHNlbGVjdGVkU2VhdE51bWJlciA9IHNlbGVjdGVkVGlja2V0LnRhZ3M/LlswXT8ubGlzdD8uZmluZCgKICAgICAgICAgICAgKHsgZGVzY3JpcHRvciB9KSA9PiBkZXNjcmlwdG9yPy5jb2RlID09PSAiTlVNQkVSIgogICAgICAgICk/LnZhbHVlOwoKICAgICAgICBmdWxmaWxsbWVudC50YWdzPy5bMF0/Lmxpc3Q/LmZvckVhY2godGFnID0+IHsKICAgICAgICAgICAgY29uc3QgY29kZSA9IHRhZy5kZXNjcmlwdG9yPy5jb2RlOwoKICAgICAgICAgICAgc3dpdGNoIChjb2RlKSB7CiAgICAgICAgICAgICAgICBjYXNlICJOVU1CRVIiOgogICAgICAgICAgICAgICAgY2FzZSAiU0VMRUNURURfU0VBVCI6CiAgICAgICAgICAgICAgICAgICAgdGFnLnZhbHVlID0gc2VsZWN0ZWRTZWF0TnVtYmVyOwogICAgICAgICAgICAgICAgICAgIGJyZWFrOwoKICAgICAgICAgICAgICAgIGNhc2UgIklURU1fSUQiOgogICAgICAgICAgICAgICAgICAgIHRhZy52YWx1ZSA9IHNlc3Npb25EYXRhLml0ZW1faWQ7CiAgICAgICAgICAgICAgICAgICAgYnJlYWs7CgogICAgICAgICAgICAgICAgY2FzZSAiU0VMRUNURUQiOgogICAgICAgICAgICAgICAgICAgIHRhZy52YWx1ZSA9ICJ0cnVlIjsKICAgICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgfQogICAgICAgIH0pOwogICAgfSk7CgogICAgY2FsY3VsYXRlUXVvdGUoCiAgICBvcmRlciwKICAgIHNlc3Npb25EYXRhCik7CgogICAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3Qgb3JkZXIgPQogICAgdGFyZ2V0UGF5bG9hZC5tZXNzYWdlLm9yZGVyOwoKICBjb25zdCB0aWNrZXRGdWxmaWxsbWVudHMgPQogICAgb3JkZXIuZnVsZmlsbG1lbnRzLmZpbHRlcigKICAgICAgZnVsZmlsbG1lbnQgPT4KICAgICAgICBmdWxmaWxsbWVudC50eXBlID09PSAiVElDS0VUIgogICAgKTsKCiAgaWYgKAogICAgdGlja2V0RnVsZmlsbG1lbnRzLmxlbmd0aCAhPT0KICAgIHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1fcXVhbnRpdHlbMF0KICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlRpY2tldCBmdWxmaWxsbWVudCBjb3VudCBtaXNtYXRjaCIKICAgIH07CiAgfQoKICBjb25zdCBzZWF0RmFyZUJyZWFrdXBzID0KICAgIG9yZGVyLnF1b3RlLmJyZWFrdXAuZmlsdGVyKAogICAgICBicmVha3VwID0+CiAgICAgICAgYnJlYWt1cC50aXRsZSA9PT0gIlNFQVRfRkFSRSIKICAgICk7CgogIGNvbnNvbGUubG9nKHNlYXRGYXJlQnJlYWt1cHMubGVuZ3RoKQoKICBpZiAoCiAgICBzZWF0RmFyZUJyZWFrdXBzLmxlbmd0aCAhPT0KICAgIHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1fcXVhbnRpdHlbMF0KICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlNlYXQgZmFyZSBicmVha3VwIGNvdW50IG1pc21hdGNoIgogICAgfTsKICB9CgogIHJldHVybiB7CiAgICB2YWxpZDogdHJ1ZSwKICAgIGNvZGU6IDIwMCwKICAgIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIKICB9Owp9
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX2lkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogIml0ZW1faWQgbm90IGZvdW5kIgogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbV9xdWFudGl0eSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJzZWxlY3RlZF9xdWFudGl0eSBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5wcm92aWRlcl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJwcm92aWRlcl9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJmdWxmaWxsbWVudF9pZCBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS50aWNrZXRfZnVsZmlsbG1lbnRfaWRzPy5sZW5ndGgpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAidGlja2V0X2Z1bGZpbGxtZW50X2lkcyBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -2946,29 +2812,6 @@ steps:
           ttl: PT30S
         message:
           order:
-            items:
-              - id: I1
-                descriptor:
-                  name: Seater Ticket
-                  code: SEAT
-                price:
-                  currency: INR
-                  value: "800"
-                quantity:
-                  selected:
-                    count: 2
-                fulfillment_ids:
-                  - F1
-                  - FT1
-                  - FT2
-                category_ids:
-                  - C1
-            provider:
-              id: P1
-              descriptor:
-                name: ABC Operator 1 Bus Services
-                images:
-                  - url: https://operator1.com/logos/logo.ico
             fulfillments:
               - id: F1
                 type: TRIP
@@ -3182,6 +3025,7 @@ steps:
         provider: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXI7IH0=
         seats_available: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50c1sqXS50YWdzWypdLmxpc3RbPyhALmRlc2NyaXB0b3IuY29kZT09J05VTUJFUicpXS52YWx1ZSIpWzBdOyB9
         select_items: $.message.order.items[*]
+        on_select_quote: $.message.order.quote
       inputs: {}
     examples:
       - name: example for on_select
@@ -3189,9 +3033,9 @@ steps:
           context:
             domain: ONDC:TRV12
             action: on_select
-            timestamp: 2026-05-20T23:36:11.663Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 8e6a6c80-c7c8-4134-83c1-c5e135bc24c0
+            timestamp: 2026-07-12T13:56:04.405Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: b80db414-a38f-4591-aac9-662c6623ea73
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3202,214 +3046,39 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             order:
-              items:
-                - id: I1
-                  descriptor:
-                    name: Seater Ticket
-                    code: SEAT
-                  price:
-                    currency: INR
-                    value: "899"
-                  quantity:
-                    selected:
-                      count: 1
-                  fulfillment_ids:
-                    - F1
-                    - FT1
-                  category_ids:
-                    - C1
-              provider:
-                id: P1
               fulfillments:
-                - stops:
+                - id: F1
+                  type: TRIP
+                  stops:
                     - id: S2
                       type: PICKUP
+                      location:
+                        descriptor:
+                          name: Agara
+                          code: std:080-pincode:560034
+                        gps: 12.924479, 77.648999
+                      time:
+                        label: DATE_TIME
+                        timestamp: 2023-09-06T06:30:00.000Z
                     - id: S5
                       type: DROP
-                  tags:
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "0"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "0"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S2
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S3
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S4
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "2"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S5
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
+                      location:
+                        descriptor:
+                          name: Ameerpet
+                          code: std:040-pincode:500016
+                        gps: 17.441586, 78.441581
+                      time:
+                        label: DATE_TIME
+                        timestamp: 2023-09-06T15:10:00.000Z
+                  vehicle:
+                    category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: "6"
+                    energy_type: DIESEL
                 - id: FT1
                   type: TICKET
                   tags:
@@ -3433,10 +3102,10 @@ steps:
                           value: "1"
                         - descriptor:
                             code: NUMBER
-                          value: S1
+                          value: A1
                         - descriptor:
                             code: RESTRICTED_GENDER
-                          value: MALE
+                          value: FEMALE
                         - descriptor:
                             code: SINGLE_SEAT
                           value: "TRUE"
@@ -3444,11 +3113,17 @@ steps:
                             code: SEAT_PRICE
                           value: "50"
                         - descriptor:
+                            code: SELECTED
+                          value: "true"
+                        - descriptor:
+                            code: SELECTED_SEAT
+                          value: A1
+                        - descriptor:
                             code: ITEM_ID
                           value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
+                - id: FT2
+                  type: TICKET
+                  tags:
                     - descriptor:
                         code: SEAT_GRID
                       list:
@@ -3460,124 +3135,16 @@ steps:
                           value: "0"
                         - descriptor:
                             code: Z
-                          value: "0"
+                          value: "1"
                         - descriptor:
                             code: X_SIZE
                           value: "1"
                         - descriptor:
                             code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S2
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S3
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "1"
-                        - descriptor:
-                            code: Y
-                          value: "1"
-                        - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: NUMBER
-                          value: S4
-                        - descriptor:
-                            code: RESTRICTED_GENDER
-                          value: MALE
-                        - descriptor:
-                            code: SINGLE_SEAT
-                          value: "TRUE"
-                        - descriptor:
-                            code: SEAT_PRICE
-                          value: "50"
-                        - descriptor:
-                            code: ITEM_ID
-                          value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: X
-                          value: "0"
-                        - descriptor:
-                            code: Y
                           value: "2"
                         - descriptor:
-                            code: Z
-                          value: "0"
-                        - descriptor:
-                            code: X_SIZE
-                          value: "1"
-                        - descriptor:
-                            code: Y_SIZE
-                          value: "1"
-                        - descriptor:
                             code: NUMBER
-                          value: S5
+                          value: F1
                         - descriptor:
                             code: RESTRICTED_GENDER
                           value: MALE
@@ -3588,32 +3155,35 @@ steps:
                             code: SEAT_PRICE
                           value: "50"
                         - descriptor:
+                            code: SELECTED
+                          value: "true"
+                        - descriptor:
+                            code: SELECTED_SEAT
+                          value: F1
+                        - descriptor:
                             code: ITEM_ID
                           value: I1
-                        - descriptor:
-                            code: AVAILABLE
-                          value: "true"
               quote:
                 price:
-                  value: "1022"
+                  value: "1783"
                   currency: INR
                 breakup:
                   - title: BASE_FARE
                     price:
                       currency: INR
-                      value: "899"
+                      value: "1600"
                     item:
                       id: I1
                       price:
                         currency: INR
-                        value: "899"
+                        value: "800"
                       quantity:
                         selected:
-                          count: 1
+                          count: 2
                   - title: TAX
                     price:
                       currency: INR
-                      value: "54"
+                      value: "64"
                     item:
                       tags:
                         - descriptor:
@@ -3632,22 +3202,6 @@ steps:
                     price:
                       currency: INR
                       value: "19"
-                  - title: SEAT_FARE
-                    price:
-                      currency: INR
-                      value: "50"
-                    item:
-                      id: I1
-                      fulfillment_ids:
-                        - FT1
-                  - title: SEAT_FARE
-                    price:
-                      currency: INR
-                      value: "50"
-                    item:
-                      id: I1
-                      fulfillment_ids:
-                        - FT1
                   - title: SELLER_FEES
                     price:
                       currency: INR
@@ -3672,19 +3226,57 @@ steps:
                             - descriptor:
                                 name: roundOfFee
                               value: "0"
+                  - title: SEAT_FARE
+                    price:
+                      currency: INR
+                      value: "50"
+                  - title: SEAT_FARE
+                    price:
+                      currency: INR
+                      value: "50"
                 ttl: PT10M
+              provider:
+                id: P1
+                descriptor:
+                  name: ABC Operator 1 Bus Services
+                  images:
+                    - url: https://operator1.com/logos/logo.ico
+              items:
+                - id: I1
+                  descriptor:
+                    name: Seater Ticket
+                    code: SEAT
+                  price:
+                    currency: INR
+                    value: "800"
+                  quantity:
+                    selected:
+                      count: 2
+                  fulfillment_ids:
+                    - F1
+                    - FT1
+                    - FT2
+                  category_ids:
+                    - C1
         type: request
-        description: please add relevant description
+        description: The BPP acknowledges the BAP's selected intercity bus service and
+          provides the confirmed order details including the quote, fulfillment
+          terms with seat availability, and provider information. This response
+          establishes the basis for payment and order confirmation by locking in
+          the selected service, pricing, and travel details.
   - api: init
     action_id: init_BUS_201
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP reinitializes the transaction with confirmed selections after the soft locking period expires, reestablishing the booking flow for the intercity bus service.
+    description: The BAP initiates the order with the BPP by confirming the selected
+      intercity bus service, seat allocations, customer details, and payment
+      information. This step establishes the binding order that the BPP will
+      subsequently validate and confirm.
     mock:
-      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IHNlc3Npb25EYXRhLmNpdHlfY29kZTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXMgPSBzZXNzaW9uRGF0YS5zZWxlY3RfaXRlbXM7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cyA9IHRyYW5zZm9ybUZ1bGZpbGxtZW50cyhzZXNzaW9uRGF0YS5zZWxlY3RfMl9mdWxmaWxsbWVudHMpOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlciA9IHsgaWQ6IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdIH07CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmJpbGxpbmcgPSB7CiAgICAgICAgbmFtZTogIkpvZSBBZGFtcyIsCiAgICAgICAgcGhvbmU6ICIrOTEtOTk4ODc3NjY1NSIsCiAgICAgICAgdGF4X2lkOiAiR1NUSU46MjJBQUFBQTAwMDBBMVo1IiwKICAgIH07CiAgICBjb25zdCBwcmljZSA9IHNlc3Npb25EYXRhLnF1b3RlLnByaWNlLnZhbHVlOwogICAgY29uc3QgZmVlUGVyY2VudGFnZSA9ICIxIjsKICAgIGNvbnN0IGZlZUFtb3VudCA9IChwcmljZSAqIGZlZVBlcmNlbnRhZ2UpIC8gMTAwOwogICAgY29uc3QgY29sbGVjdGVkQnkgPSAiQkFQIjsKICAgIGNvbnN0IGZpbmFsQW1vdW50ID0gY29sbGVjdGVkQnkgPT09ICJCQVAiID8gcHJpY2UgLSBmZWVBbW91bnQgOiBmZWVBbW91bnQ7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzID0gWwogICAgICAgIHsKICAgICAgICAgICAgaWQ6ICJQQTEiLAogICAgICAgICAgICBjb2xsZWN0ZWRfYnk6ICJCQVAiLAogICAgICAgICAgICBzdGF0dXM6ICJOT1QtUEFJRCIsCiAgICAgICAgICAgIHR5cGU6ICJQUkUtT1JERVIiLAogICAgICAgICAgICB0YWdzOiBbCiAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRvcjogeyBjb2RlOiAiQlVZRVJfRklOREVSX0ZFRVMiIH0sCiAgICAgICAgICAgICAgICAgICAgZGlzcGxheTogZmFsc2UsCiAgICAgICAgICAgICAgICAgICAgbGlzdDogWwogICAgICAgICAgICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJCVVlFUl9GSU5ERVJfRkVFU19QRVJDRU5UQUdFIiB9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6ICIxIiwKICAgICAgICAgICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICAgICBdLAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRVRUTEVNRU5UX1RFUk1TIiB9LAogICAgICAgICAgICAgICAgICAgIGRpc3BsYXk6IGZhbHNlLAogICAgICAgICAgICAgICAgICAgIGxpc3Q6IFsKICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRVRUTEVNRU5UX1dJTkRPVyIgfSwgdmFsdWU6ICJQVDYwTSIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJTRVRUTEVNRU5UX0JBU0lTIiB9LCB2YWx1ZTogIkRlbGl2ZXJ5IiB9LAogICAgICAgICAgICAgICAgICAgICAgICB7IGRlc2NyaXB0b3I6IHsgY29kZTogIlNFVFRMRU1FTlRfVFlQRSIgfSwgdmFsdWU6ICJ1cGkiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiTUFOREFUT1JZX0FSQklUUkFUSU9OIiB9LCB2YWx1ZTogInRydWUiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiQ09VUlRfSlVSSVNESUNUSU9OIiB9LCB2YWx1ZTogIk5ldyBEZWxoaSIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgeyBkZXNjcmlwdG9yOiB7IGNvZGU6ICJERUxBWV9JTlRFUkVTVCIgfSwgdmFsdWU6ICIyLjUiIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHsgY29kZTogIlNUQVRJQ19URVJNUyIgfSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAiaHR0cHM6Ly93d3cuYWJjLmNvbS9zZXR0bGVtZW50LXRlcm1zLyIsCiAgICAgICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAgICAgICAgIHsgZGVzY3JpcHRvcjogeyBjb2RlOiAiU0VUVExFTUVOVF9BTU9VTlQiIH0sIHZhbHVlOiBmaW5hbEFtb3VudC50b1N0cmluZygpIH0sCiAgICAgICAgICAgICAgICAgICAgXSwKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgIF0sCiAgICAgICAgfSwKICAgIF07CiAgICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0KZnVuY3Rpb24gdHJhbnNmb3JtRnVsZmlsbG1lbnRzKGZ1bGZpbGxtZW50cykgewogICAgY29uc3QgY3VzdG9tZXJzID0gWwogICAgICAgIHsKICAgICAgICAgICAgcGVyc29uOiB7IG5hbWU6ICJKb2UgQWRhbXMiLCBhZ2U6ICIzMCIsIGdlbmRlcjogIk1BTEUiIH0sCiAgICAgICAgICAgIGNvbnRhY3Q6IHsgcGhvbmU6ICIrOTEtOTk4ODc3NjY1NSIgfSwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICAgcGVyc29uOiB7IG5hbWU6ICJSQUNIRUwgQURBTVMiLCBhZ2U6ICIyNyIsIGdlbmRlcjogIkZFTUFMRSIgfSwKICAgICAgICAgICAgY29udGFjdDogeyBwaG9uZTogIis5MS05NzIzNzk3ODkwIiB9LAogICAgICAgIH0sCiAgICBdOwogICAgcmV0dXJuIGZ1bGZpbGxtZW50cy5tYXAoKGYsIGluZGV4KSA9PiB7CiAgICAgICAgaWYgKGYuaWQgPT09ICJGMSIpIHsKICAgICAgICAgICAgcmV0dXJuIGY7CiAgICAgICAgfQogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGlkOiBmLmlkLAogICAgICAgICAgICBjdXN0b21lcjogY3VzdG9tZXJzW2luZGV4IC0gMV0sCiAgICAgICAgICAgIHRhZ3M6IGYudGFncy5tYXAoKHRhZykgPT4gKHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0b3I6IHRhZy5kZXNjcmlwdG9yLAogICAgICAgICAgICAgICAgbGlzdDogdGFnLmxpc3QuZmlsdGVyKChpdGVtKSA9PiBpdGVtLmRlc2NyaXB0b3IuY29kZSA9PT0gIk5VTUJFUiIpLAogICAgICAgICAgICB9KSksCiAgICAgICAgfTsKICAgIH0pOwp9
-      validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBpZiAoc2Vzc2lvbkRhdGE/LmNpdHlfY29kZSkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgfQogICAgCiAgICBjb25zdCB7IG9yZGVyIH0gPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlOwogICAgY29uc3QgeyB1c2VyX2lucHV0cyB9ID0gc2Vzc2lvbkRhdGE7CgogICAgb3JkZXIucHJvdmlkZXIuaWQgPSBzZXNzaW9uRGF0YS5wcm92aWRlcl9pZFswXTsKCiAgICBjb25zdCBpdGVtID0gb3JkZXIuaXRlbXNbMF07CiAgICBpdGVtLmlkID0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbV9pZFswXTsKICAgIGl0ZW0ucXVhbnRpdHkuc2VsZWN0ZWQuY291bnQgPQogICAgICAgIHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1fcXVhbnRpdHlbMF07CgogICAgb3JkZXIuZnVsZmlsbG1lbnRzWzBdLmlkID0KICAgICAgICBzZXNzaW9uRGF0YS5zZWxlY3RlZF9mdWxmaWxsbWVudF9pZFswXTsKCiAgICBjb25zdCBwYXNzZW5nZXJzID0gdXNlcl9pbnB1dHMucGFzc2VuZ2VyczsKCiAgICBzZXNzaW9uRGF0YS50aWNrZXRfZnVsZmlsbG1lbnRfaWRzLmZvckVhY2goCiAgICAgICAgKHRpY2tldElkLCBpbmRleCkgPT4gewogICAgICAgICAgICBjb25zdCBwYXNzZW5nZXIgPSBwYXNzZW5nZXJzW2luZGV4XTsKICAgICAgICAgICAgY29uc3QgdGlja2V0RnVsZmlsbG1lbnQgPQogICAgICAgICAgICAgICAgb3JkZXIuZnVsZmlsbG1lbnRzW2luZGV4ICsgMV07CgogICAgICAgICAgICB0aWNrZXRGdWxmaWxsbWVudC5pZCA9IHRpY2tldElkOwoKICAgICAgICAgICAgdGlja2V0RnVsZmlsbG1lbnQuY3VzdG9tZXIgPSB7CiAgICAgICAgICAgICAgICBwZXJzb246IHsKICAgICAgICAgICAgICAgICAgICBuYW1lOiBwYXNzZW5nZXIubmFtZSwKICAgICAgICAgICAgICAgICAgICBhZ2U6IHBhc3Nlbmdlci5hZ2UsCiAgICAgICAgICAgICAgICAgICAgZ2VuZGVyOiBwYXNzZW5nZXIuZ2VuZGVyCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgY29udGFjdDogewogICAgICAgICAgICAgICAgICAgIHBob25lOiBwYXNzZW5nZXIucGhvbmUKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfTsKICAgICAgICB9CiAgICApOwoKICAgIG9yZGVyLmJpbGxpbmcgPSB7CiAgICAgICAgbmFtZTogdXNlcl9pbnB1dHMuYmlsbGluZ19uYW1lLAogICAgICAgIHBob25lOiB1c2VyX2lucHV0cy5iaWxsaW5nX3Bob25lLAogICAgICAgIHRheF9pZDogdXNlcl9pbnB1dHMudGF4X2lkCiAgICB9OwoKICAgIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      validate: ZnVuY3Rpb24gdmFsaWRhdGUodGFyZ2V0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgY29uc3QgcGFzc2VuZ2VycyA9CiAgICB0YXJnZXRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzLmZpbHRlcigKICAgICAgZnVsZmlsbG1lbnQgPT4KICAgICAgICBmdWxmaWxsbWVudC5pZC5zdGFydHNXaXRoKCJGVCIpCiAgICApOwoKICBpZiAoCiAgICBwYXNzZW5nZXJzLmxlbmd0aCAhPT0KICAgIHNlc3Npb25EYXRhLnNlbGVjdGVkX2l0ZW1fcXVhbnRpdHlbMF0KICApIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIlBhc3NlbmdlciBjb3VudCBtaXNtYXRjaCIKICAgIH07CiAgfQoKICByZXR1cm4gewogICAgdmFsaWQ6IHRydWUsCiAgICBjb2RlOiAyMDAsCiAgICBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiCiAgfTsKfQ==
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKCFzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtX3F1YW50aXR5KSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6ICI0MDAiLAogICAgICBkZXNjcmlwdGlvbjogIml0ZW1fcXVhbnRpdHkgbm90IGZvdW5kIgogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfZnVsZmlsbG1lbnRfaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogIjQwMCIsCiAgICAgIGRlc2NyaXB0aW9uOiAiYmlsbGluZyBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5wcm92aWRlcl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiAiNDAwIiwKICAgICAgZGVzY3JpcHRpb246ICJxdW90ZSBub3QgZm91bmQiCiAgICB9OwogIH0KCiAgcmV0dXJuIHsKICAgIHZhbGlkOiB0cnVlLAogICAgY29kZTogIjIwMCIsCiAgICBkZXNjcmlwdGlvbjogIkFsbCBDaGVja3MgcGFzc2VkIHN1Y2Nlc3NmdWxseSIKICB9Owp9
       defaultPayload:
         context:
           location:
@@ -3814,16 +3406,66 @@ steps:
         payment_id: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzWypdLmlkIilbMF07IH0=
         collected_by: EVAL#ZnVuY3Rpb24gZ2V0U2F2ZShwYXlsb2FkKSB7IHJldHVybiBqc29ucGF0aC5xdWVyeShwYXlsb2FkLCAiJC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzWypdLmNvbGxlY3RlZF9ieSIpWzBdOyB9
         on_select_items: $.message.order.items[*]
-      inputs: {}
+      inputs:
+        id: trv12_init
+        jsonSchema:
+          $schema: http://json-schema.org/draft-07/schema#
+          type: object
+          properties:
+            passengers:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  age:
+                    type: string
+                  gender:
+                    type: string
+                    enum:
+                      - MALE
+                      - FEMALE
+                      - OTHER
+                  phone:
+                    type: string
+                required:
+                  - name
+                  - age
+                  - gender
+                  - phone
+              default:
+                - name: Joe Adams
+                  age: "30"
+                  gender: MALE
+                  phone: +91-9988776655
+                - name: Rachel Adams
+                  age: "27"
+                  gender: FEMALE
+                  phone: +91-9723797890
+            billing_name:
+              type: string
+              default: Joe Adams
+            billing_phone:
+              type: string
+              default: +91-9988776655
+            tax_id:
+              type: string
+              default: GSTIN:22AAAAA0000A1Z5
+          required:
+            - passengers
+            - billing_name
+            - billing_phone
+          additionalProperties: true
     examples:
       - name: example for init
         payload:
           context:
             domain: ONDC:TRV12
             action: init
-            timestamp: 2026-05-20T23:36:11.689Z
-            transaction_id: 9d88630e-a9e2-415b-9800-1d7c2225b6d4
-            message_id: 980d6e06-b798-4527-b00e-a8d384f702ea
+            timestamp: 2026-07-12T13:56:07.653Z
+            transaction_id: c6996271-85ac-4459-84cc-957ce48317d1
+            message_id: f49ff216-b76f-4c36-abcf-67e457dcee88
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3834,57 +3476,21 @@ steps:
               country:
                 code: IND
               city:
-                code: std:080
+                code: std:011
           message:
             order:
               items:
                 - id: I1
-                  descriptor:
-                    name: Seater Ticket
-                    code: SEAT
-                  price:
-                    currency: INR
-                    value: "899"
                   quantity:
                     selected:
-                      count: 1
-                  fulfillment_ids:
-                    - F1
-                    - FT1
-                  category_ids:
-                    - C1
+                      count: 2
               fulfillments:
-                - tags:
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S2
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S3
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S4
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S5
+                - id: F1
+                  stops:
+                    - id: S2
+                      type: PICKUP
+                    - id: S5
+                      type: DROP
                 - id: FT1
                   customer:
                     person:
@@ -3899,31 +3505,22 @@ steps:
                       list:
                         - descriptor:
                             code: NUMBER
-                          value: S1
+                          value: A1
+                - id: FT2
+                  customer:
+                    person:
+                      name: Rachel Adams
+                      age: "27"
+                      gender: FEMALE
+                    contact:
+                      phone: +91-9723797890
+                  tags:
                     - descriptor:
                         code: SEAT_GRID
                       list:
                         - descriptor:
                             code: NUMBER
-                          value: S1
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
-                    - descriptor:
-                        code: SEAT_GRID
-                      list:
-                        - descriptor:
-                            code: NUMBER
-                          value: S1
+                          value: F1
               provider:
                 id: P1
               billing:
@@ -3970,9 +3567,12 @@ steps:
                           value: https://www.abc.com/settlement-terms/
                         - descriptor:
                             code: SETTLEMENT_AMOUNT
-                          value: "1011.78"
+                          value: "1766"
         type: request
-        description: please add relevant description
+        description: The BAP initiates the order with the BPP by confirming the selected
+          intercity bus service, seat allocations, customer details, and payment
+          information. This step establishes the binding order that the BPP will
+          subsequently validate and confirm.
   - api: on_init
     action_id: on_init_BUS_221
     owner: BPP
@@ -3982,7 +3582,7 @@ steps:
     mock:
       generate: YXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZSkgewogICAgICAgIGRlZmF1bHRQYXlsb2FkLmVycm9yID0gZGVmYXVsdFBheWxvYWQubWVzc2FnZS5lcnJvcjsKICAgIH0KICAgIGRlZmF1bHRQYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlOwogICAgY29uc3QgeyBlcnJvciwgY29udGV4dCB9ID0gZGVmYXVsdFBheWxvYWQ7CiAgICByZXR1cm4geyBlcnJvciwgY29udGV4dCB9Owp9
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
-      requirements: ZnVuY3Rpb24gbWVldFJlcXVpcmVtZW50cyhzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAiMjAwIiwgZGVzY3JpcHRpb246ICJBbGwgQ2hlY2tzIHBhc3NlZCBzdWNjZXNzZnVsbHkiIH07Cn0=
+      requirements: ZnVuY3Rpb24gbWVldHNSZXF1aXJlbWVudHMoc2Vzc2lvbkRhdGEpIHsKICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogIjIwMCIsIGRlc2NyaXB0aW9uOiAiQWxsIENoZWNrcyBwYXNzZWQgc3VjY2Vzc2Z1bGx5IiB9Owp9
       defaultPayload:
         context:
           location:
