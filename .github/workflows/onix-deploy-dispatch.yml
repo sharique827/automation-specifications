@@ -46,6 +46,7 @@ jobs:
       source_ref: ${{ inputs.source_ref || github.sha }}
       image_tag_prefix: prod
       manual_trigger: true
+      target_environment: staging-eks
       db_api_base_url: ${{ vars.STAGING_EKS_DB_SERVICE_BASE_URL }}
       deploy_values_file: k8/aws/helm/domain-layer/values-staging.yaml
     secrets:

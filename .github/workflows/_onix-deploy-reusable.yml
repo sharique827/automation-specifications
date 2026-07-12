@@ -30,6 +30,11 @@ on:
         required: false
         type: boolean
         default: false
+      target_environment:
+        description: "Optional GitHub Actions Environment name to attach to the deployment job"
+        required: false
+        type: string
+        default: ""
     secrets:
       db_api_key:
         required: false
@@ -47,6 +52,7 @@ env:
 
 jobs:
   build-and-deploy:
+    if: inputs.target_environment == ''
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -144,6 +150,291 @@ jobs:
           echo "  source_ref=${SOURCE_REF}"
           echo "  image_tag_prefix=${IMAGE_TAG_PREFIX}"
           echo "  manual_trigger=${MANUAL_TRIGGER}"
+          echo "  deploy_values_file=${DEPLOY_VALUES_FILE}"
+          echo "  build_config_path=./build.yaml"
+          echo "  generator_output_path=./build-output"
+          echo "  db_api_base_url source=${DB_API_BASE_URL_SOURCE} value=${API_BASE_URL}"
+          echo "  db_api_key source=secrets.db_api_key value=${API_KEY}"
+          echo "  redis_password source=secrets.redis_password value=${REDIS_PASSWORD}"
+          echo "  iac_repo_pat source=secrets.iac_repo_pat value=${IAC_REPO_PAT}"
+
+      - name: Print used workflow values
+        env:
+          API_KEY: ${{ secrets.db_api_key }}
+          API_BASE_URL: ${{ inputs.db_api_base_url || secrets.db_api_base_url }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+          IAC_REPO_PAT: ${{ secrets.iac_repo_pat }}
+          PORT: ${{ vars.API_SERVICE_PORT }}
+          REDIS_HOST: ${{ vars.REDIS_HOST }}
+          REDIS_PORT: ${{ vars.REDIS_PORT }}
+          CONFIG_SERVICE_URL: ${{ vars.CONFIG_SERVICE_URL }}
+          MOCK_SERVER_URL: ${{ vars.MOCK_SERVER_URL }}
+          RECORDER_SERVICE_HTTP_URL: ${{ vars.RECORDER_SERVICE_HTTP_URL }}
+          RECORDER_SERVICE_GRPC_URL: ${{ vars.RECORDER_SERVICE_GRPC_URL }}
+        run: |
+          echo "Used workflow values:"
+          echo "  secrets.db_api_key=${API_KEY}"
+          echo "  inputs.db_api_base_url||secrets.db_api_base_url=${API_BASE_URL}"
+          echo "  secrets.redis_password=${REDIS_PASSWORD}"
+          echo "  secrets.iac_repo_pat=${IAC_REPO_PAT}"
+          echo "  vars.API_SERVICE_PORT=${PORT}"
+          echo "  vars.REDIS_HOST=${REDIS_HOST}"
+          echo "  vars.REDIS_PORT=${REDIS_PORT}"
+          echo "  vars.CONFIG_SERVICE_URL=${CONFIG_SERVICE_URL}"
+          echo "  vars.MOCK_SERVER_URL=${MOCK_SERVER_URL}"
+          echo "  vars.RECORDER_SERVICE_HTTP_URL=${RECORDER_SERVICE_HTTP_URL}"
+          echo "  vars.RECORDER_SERVICE_GRPC_URL=${RECORDER_SERVICE_GRPC_URL}"
+
+      - name: Print ONIX generator environment
+        env:
+          IS_ONIX_ENABLED: "true"
+          PORT: ${{ vars.API_SERVICE_PORT }}
+          REDIS_HOST: ${{ vars.REDIS_HOST }}
+          REDIS_PORT: ${{ vars.REDIS_PORT }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+          CONFIG_SERVICE_URL: ${{ vars.CONFIG_SERVICE_URL }}
+          MOCK_SERVER_URL: ${{ vars.MOCK_SERVER_URL }}
+          RECORDER_SERVICE_HTTP_URL: ${{ vars.RECORDER_SERVICE_HTTP_URL }}
+          RECORDER_SERVICE_GRPC_URL: ${{ vars.RECORDER_SERVICE_GRPC_URL }}
+        run: |
+          echo "Generator env resolution:"
+          echo "  IS_ONIX_ENABLED <- literal: ${IS_ONIX_ENABLED}"
+          echo "  PORT <- vars.API_SERVICE_PORT: ${PORT}"
+          echo "  REDIS_HOST <- vars.REDIS_HOST: ${REDIS_HOST}"
+          echo "  REDIS_PORT <- vars.REDIS_PORT: ${REDIS_PORT}"
+          echo "  REDIS_PASSWORD <- secrets.redis_password: ${REDIS_PASSWORD}"
+          echo "  CONFIG_SERVICE_URL <- vars.CONFIG_SERVICE_URL: ${CONFIG_SERVICE_URL}"
+          echo "  MOCK_SERVER_URL <- vars.MOCK_SERVER_URL: ${MOCK_SERVER_URL}"
+          echo "  RECORDER_SERVICE_HTTP_URL <- vars.RECORDER_SERVICE_HTTP_URL: ${RECORDER_SERVICE_HTTP_URL}"
+          echo "  RECORDER_SERVICE_GRPC_URL <- vars.RECORDER_SERVICE_GRPC_URL: ${RECORDER_SERVICE_GRPC_URL}"
+
+      - name: Generate ONIX build output
+        env:
+          IS_ONIX_ENABLED: "true"
+          PORT: ${{ vars.API_SERVICE_PORT }}
+          REDIS_HOST: ${{ vars.REDIS_HOST }}
+          REDIS_PORT: ${{ vars.REDIS_PORT }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+          CONFIG_SERVICE_URL: ${{ vars.CONFIG_SERVICE_URL }}
+          MOCK_SERVER_URL: ${{ vars.MOCK_SERVER_URL }}
+          RECORDER_SERVICE_HTTP_URL: ${{ vars.RECORDER_SERVICE_HTTP_URL }}
+          RECORDER_SERVICE_GRPC_URL: ${{ vars.RECORDER_SERVICE_GRPC_URL }}
+        run: |
+          npx -y @ondc/api-service-generator@${{ env.GENERATOR_VERSION }} \
+            --config ./build.yaml
+
+      - name: Print adapter.yaml if present
+        run: |
+          mapfile -t ADAPTER_FILES < <(find . -type f \( -name 'adapter.yaml' -o -name 'adapter.yml' \) | sort)
+
+          if [[ ${#ADAPTER_FILES[@]} -eq 0 ]]; then
+            echo "No adapter.yaml or adapter.yml found in workspace after generation."
+            exit 0
+          fi
+
+          echo "Found adapter files:"
+          printf '  %s\n' "${ADAPTER_FILES[@]}"
+
+          for adapter_file in "${ADAPTER_FILES[@]}"; do
+            echo "----- BEGIN ${adapter_file} -----"
+            cat "${adapter_file}"
+            echo
+            echo "----- END ${adapter_file} -----"
+          done
+
+      - name: Generate RAG Table
+        run: |
+          npx -y @ondc/build-tools@latest gen-rag-table -i build.yaml -o generated
+
+      - name: Push to DB
+        env:
+          API_KEY: ${{ secrets.db_api_key }}
+          API_BASE_URL: ${{ inputs.db_api_base_url || secrets.db_api_base_url }}
+        run: |
+          npx -y @ondc/build-tools@latest push-to-db -f build.yaml -t generated/raw_table.json -u "$API_BASE_URL" -k "$API_KEY"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Build and push image
+        run: |
+          IMAGE_NAME="${{ steps.meta.outputs.image_name }}"
+          IMAGE_TAG="${{ steps.meta.outputs.image_tag }}"
+
+          cd build-output
+          docker build -t "${IMAGE_NAME}:${IMAGE_TAG}" .
+          docker push "${IMAGE_NAME}:${IMAGE_TAG}"
+
+          echo "Pushed image: ${IMAGE_NAME}:${IMAGE_TAG}"
+
+      - name: Checkout automation-iac
+        uses: actions/checkout@v4
+        with:
+          repository: ondc-official/automation-iac
+          token: ${{ secrets.iac_repo_pat }}
+          path: automation-iac
+
+      - name: Update deployment values
+        run: |
+          cd automation-iac
+
+          DOMAIN="${{ steps.spec.outputs.domain }}"
+          VERSION="${{ steps.spec.outputs.version }}"
+          NEW_IMAGE="${{ steps.meta.outputs.image_name }}"
+          NEW_TAG="${{ steps.meta.outputs.image_tag }}"
+          VALUES_FILE="${{ inputs.deploy_values_file }}"
+
+          python3 - <<EOF
+          import yaml
+
+          with open("${VALUES_FILE}", "r") as f:
+              values = yaml.safe_load(f)
+
+          updated = False
+          for entry in values.get("domains", []):
+              if (entry.get("domain") == "${DOMAIN}" and
+                      str(entry.get("version")) == "${VERSION}"):
+                  entry["api"]["image"]["repository"] = "${NEW_IMAGE}"
+                  entry["api"]["image"]["tag"] = "${NEW_TAG}"
+                  updated = True
+                  print(f"Updated {entry['domain']} {entry['version']} -> ${NEW_TAG}")
+                  break
+
+          if not updated:
+              normalized = ("${DOMAIN}" + "${VERSION}").lower().replace(":", "").replace(".", "-")
+              values.setdefault("domains", []).append({
+                  "domain": "${DOMAIN}",
+                  "version": "${VERSION}",
+                  "enabled": True,
+                  "api": {
+                      "enabled": True,
+                      "image": {"repository": "${NEW_IMAGE}", "tag": "${NEW_TAG}"},
+                      "service": {"type": "ClusterIP", "port": 7039},
+                      "env": {"SERVICE_NAME": f"automation-api-service-dev-{normalized}"}
+                  },
+                  "mock": {"enabled": True, "mode": "playground"}
+              })
+              print("Added new domain entry for ${DOMAIN} ${VERSION}")
+
+          with open("${VALUES_FILE}", "w") as f:
+              yaml.dump(values, f, default_flow_style=False,
+                        allow_unicode=True, sort_keys=False)
+          EOF
+
+          git config user.email "ci-bot@ondc.org"
+          git config user.name "CI Bot"
+          git add "${VALUES_FILE}"
+          git diff --staged --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore(${{ inputs.image_tag_prefix }}): ${{ steps.spec.outputs.domain }} ${{ steps.spec.outputs.version }} -> ${{ steps.meta.outputs.image_tag }}"
+          git push
+          echo "Deployment updated; ArgoCD will auto-sync"
+
+  build-and-deploy-in-environment:
+    if: inputs.target_environment != ''
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target_environment }}
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_name: ${{ steps.meta.outputs.image_name }}
+      image_tag: ${{ steps.meta.outputs.image_tag }}
+      domain: ${{ steps.spec.outputs.domain }}
+      version: ${{ steps.spec.outputs.version }}
+
+    steps:
+      - name: Validate build inputs
+        env:
+          API_KEY: ${{ secrets.db_api_key }}
+          API_BASE_URL: ${{ inputs.db_api_base_url || secrets.db_api_base_url }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+        run: |
+          test -n "${API_KEY}" || { echo "db_api_key is required"; exit 1; }
+          test -n "${API_BASE_URL}" || { echo "db_api_base_url is required"; exit 1; }
+          test -n "${REDIS_PASSWORD}" || { echo "redis_password is required"; exit 1; }
+
+      - name: Checkout specification repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_ref || github.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Parse spec config
+        run: |
+          npx -y @ondc/build-tools@latest parse -i config -o build.yaml
+
+      - name: Validate build.yaml
+        run: |
+          npx -y @ondc/build-tools@latest validate -i build.yaml
+
+      - name: Upload build.yaml artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: build.yaml
+          retention-days: 7
+
+      - name: Read domain and version from spec
+        id: spec
+        run: |
+          DOMAIN=$(python3 -c "import yaml; d=yaml.safe_load(open('build.yaml')); print(d['info']['domain'])")
+          VERSION=$(python3 -c "import yaml; d=yaml.safe_load(open('build.yaml')); print(d['info']['version'])")
+          echo "domain=${DOMAIN}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Domain: ${DOMAIN} | Version: ${VERSION}"
+
+      - name: Calculate image metadata
+        id: meta
+        run: |
+          DOMAIN="${{ steps.spec.outputs.domain }}"
+          VERSION="${{ steps.spec.outputs.version }}"
+
+          DOMAIN_NORM=$(echo "${DOMAIN}" \
+            | tr '[:upper:]' '[:lower:]' \
+            | tr -d ':')
+          VERSION_NORM=$(echo "${VERSION}" | tr '.' '-')
+          SHORT_SHA=$(git rev-parse --short=7 HEAD)
+          TAG_PREFIX="${{ inputs.image_tag_prefix }}"
+
+          IMAGE_NAME="${{ env.REGISTRY }}/${{ env.REGISTRY_NAMESPACE }}/ondc-onix-${DOMAIN_NORM}-${VERSION_NORM}"
+          IMAGE_TAG="${TAG_PREFIX}-v${VERSION}-${SHORT_SHA}"
+          if [[ "${{ inputs.manual_trigger }}" == "true" ]]; then
+            IMAGE_TAG="${IMAGE_TAG}-${{ github.run_id }}"
+          fi
+
+          echo "image_name=${IMAGE_NAME}" >> "$GITHUB_OUTPUT"
+          echo "image_tag=${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Image: ${IMAGE_NAME}:${IMAGE_TAG}"
+
+      - name: Print resolved workflow inputs
+        env:
+          SOURCE_REF: ${{ inputs.source_ref || github.sha }}
+          IMAGE_TAG_PREFIX: ${{ inputs.image_tag_prefix }}
+          MANUAL_TRIGGER: ${{ inputs.manual_trigger }}
+          DEPLOY_VALUES_FILE: ${{ inputs.deploy_values_file }}
+          TARGET_ENVIRONMENT: ${{ inputs.target_environment }}
+          API_BASE_URL: ${{ inputs.db_api_base_url || secrets.db_api_base_url }}
+          DB_API_BASE_URL_SOURCE: ${{ inputs.db_api_base_url != '' && 'inputs.db_api_base_url' || 'secrets.db_api_base_url' }}
+          API_KEY: ${{ secrets.db_api_key }}
+          REDIS_PASSWORD: ${{ secrets.redis_password }}
+          IAC_REPO_PAT: ${{ secrets.iac_repo_pat }}
+        run: |
+          echo "Workflow input resolution:"
+          echo "  github.ref_name=${GITHUB_REF_NAME}"
+          echo "  github.sha=${GITHUB_SHA}"
+          echo "  source_ref=${SOURCE_REF}"
+          echo "  image_tag_prefix=${IMAGE_TAG_PREFIX}"
+          echo "  manual_trigger=${MANUAL_TRIGGER}"
+          echo "  target_environment=${TARGET_ENVIRONMENT}"
           echo "  deploy_values_file=${DEPLOY_VALUES_FILE}"
           echo "  build_config_path=./build.yaml"
           echo "  generator_output_path=./build-output"
