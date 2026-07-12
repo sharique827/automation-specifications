@@ -1212,6 +1212,7 @@ _TESTS_:
                 - &a56
                   _NAME_: REQUIRED_STOP_LOCATION_CATEGORIES
                   attr: $.message.order.fulfillments[*].vehicle.category
+                  _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
             - &a25
               _NAME_: FULFILMENT_ENUM
@@ -1539,10 +1540,12 @@ _TESTS_:
                 - &a20
                   _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_NAME
                   attr: $.message.order.fulfillments[*].customer.person.name
+                  _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
                 - &a22
                   _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_AGE
                   attr: $.message.order.fulfillments[*].customer.person.age
+                  _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
                 - &a23
                   _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_GENDER
@@ -1554,6 +1557,7 @@ _TESTS_:
                 - &a21
                   _NAME_: REQUIRED_FULFILLMENT_CUSTOMER_PHONE
                   attr: $.message.order.fulfillments[*].customer.contact.phone
+                  _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
         - _NAME_: INIT_BILLING
           _RETURN_:
@@ -1769,9 +1773,11 @@ _TESTS_:
           _RETURN_:
             - _NAME_: REQUIRED_EXTERNAL_REF_MIME_TYPE
               attr: $.message.order.cancellation_terms[*].cancel_by.duration
+              _CONTINUE_: "!(attr are present)"
               _RETURN_: attr are present
             - _NAME_: REQUIRED_EXTERNAL_REF_URL
               attr: $.message.order.cancellation_terms[*].cancellation_fee.percentage
+              _CONTINUE_: "!(attr are present)"
               _RETURN_: attr are present
         - &a38
           _NAME_: ON_INIT_QUOTE
