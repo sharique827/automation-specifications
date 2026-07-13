@@ -655,7 +655,7 @@ _TESTS_:
     - _NAME_: ON_SELECT_FULFILLMENTS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: $.message.order.fulfillments[*].id
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
           _RETURN_: attr are present
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
@@ -762,7 +762,7 @@ _TESTS_:
     - _NAME_: INIT_FULFILLMENTS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: $.message.order.fulfillments[*].id
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
           _RETURN_: attr are present
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
@@ -880,7 +880,7 @@ _TESTS_:
     - _NAME_: ON_INIT_FULFILLMENTS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: $.message.order.fulfillments[*].id
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
           _RETURN_: attr are present
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
@@ -957,7 +957,7 @@ _TESTS_:
     - _NAME_: CONFIRM_FULFILLMENTS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: $.message.order.fulfillments[*].id
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
           _RETURN_: attr are present
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
@@ -1025,7 +1025,7 @@ _TESTS_:
     - _NAME_: ON_CONFIRM_FULFILLMENTS
       _RETURN_:
         - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: $.message.order.fulfillments[*].id
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
           _RETURN_: attr are present
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
