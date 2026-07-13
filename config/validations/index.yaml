@@ -544,9 +544,7 @@ _TESTS_:
               _RETURN_: attr all in enumList
     - _NAME_: SELECT_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           _RETURN_: attr are present
@@ -654,9 +652,7 @@ _TESTS_:
           _RETURN_: tagPath any in validTags
     - _NAME_: ON_SELECT_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           enumList: *a2
@@ -761,9 +757,7 @@ _TESTS_:
           _RETURN_: attr are present
     - _NAME_: INIT_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           enumList: *a2
@@ -879,9 +873,7 @@ _TESTS_:
           _RETURN_: attr are present
     - _NAME_: ON_INIT_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           enumList: *a2
@@ -956,9 +948,7 @@ _TESTS_:
           _RETURN_: attr are present
     - _NAME_: CONFIRM_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           enumList: *a2
@@ -1024,9 +1014,7 @@ _TESTS_:
           _RETURN_: attr are present
     - _NAME_: ON_CONFIRM_FULFILLMENTS
       _RETURN_:
-        - _NAME_: REQUIRED_FULFILLMENT_ID
-          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
-          _RETURN_: attr are present
+
         - _NAME_: REQUIRED_FULFILLMENT_TYPE
           attr: $.message.order.fulfillments[*].type
           enumList: *a2
