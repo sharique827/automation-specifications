@@ -5,6 +5,7 @@ flows:
     tags:
       - MANDATORY
       - ON_DEMAND
+      - REPORTABLE
     description: Validates the scenario where a ride booking fails at final confirmation because no driver is available to fulfill the request despite successful search and selection.
     config:
       $ref: ./Ride-hailing/Driver_not_found_on_onconfirm.yaml
@@ -14,6 +15,7 @@ flows:
     tags:
       - MANDATORY
       - ON_DEMAND
+      - REPORTABLE
     description: A customer completes a ride booking request through search, selection, and confirmation, but the order is cancelled due to driver unavailability. This flow validates post-confirmation cancellation handling when driver assignment fails.
     config:
       $ref: ./Ride-hailing/Driver_not_found_post_onconfirm.yaml
@@ -24,6 +26,7 @@ flows:
       - OPTIONAL
       - ON_DEMAND
       - CANCELLATION
+      - REPORTABLE
     description: Complete ride-hailing booking flow from ride discovery through confirmation that terminates with soft cancellation before driver acceptance. Tests graceful cancellation handling when ride requests remain unaccepted.
     config:
       $ref: ./Ride-hailing/No_Acceptance_SoftCancel.yaml
@@ -33,6 +36,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A ride-hailing transaction where a customer's ride is automatically assigned to a driver without requiring explicit acceptance, with the booking confirmed and tracked through continuous status updates throughout the journey.
     config:
       $ref: ./Ride-hailing/No_Acceptance_SoftUpdate.yaml
@@ -42,6 +46,7 @@ flows:
     tags:
       - MANDATORY
       - ON_DEMAND
+      - REPORTABLE
     description: End-to-end ride-hailing transaction where a customer searches for available rides, selects an option, and confirms the booking to trigger automatic driver assignment and enable real-time ride tracking with status monitoring.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm.yaml
@@ -51,6 +56,7 @@ flows:
     tags:
       - MANDATORY
       - ON_DEMAND
+      - REPORTABLE
     description: On-demand ride transaction where driver assignment occurs immediately upon customer confirmation, with real-time ride tracking and integrated issue management throughout the journey.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_With_IGM_v-1_0_0_.yaml
@@ -60,6 +66,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: Complete on-demand ride-hailing flow where a customer searches and books a ride with driver assignment triggered at booking confirmation, including ride tracking and grievance handling.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_With_IGM_v-2_0_0_.yaml
@@ -69,6 +76,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: Ride-hailing booking transaction from customer search through driver assignment at confirmation, including real-time tracking and integrated issue resolution.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_With_IGM_No_Action_v-2_0_0_.yaml
@@ -78,6 +86,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: Ride-hailing transaction from customer search through confirmation with driver assignment, ride fulfillment, and issue grievance management including rejection handling.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_With_IGM_Rejection_v-2_0_0_.yaml
@@ -87,6 +96,7 @@ flows:
     tags:
       - MANDATORY
       - ON_DEMAND
+      - REPORTABLE
     description: On-demand ride-hailing transaction where driver assignment occurs following customer booking confirmation, enabling real-time tracking and continuous ride status updates throughout the journey.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_post_on__confirm.yaml
@@ -96,6 +106,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A ride-hailing transaction where a consumer's confirmed ride request triggers automated driver assignment and real-time tracking, concluding when the driver arrives at the customer's pickup location. This flow exercises the complete consumer-to-driver coordination journey from booking confirmation through tracked pickup arrival.
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_post_onconfirmSelfPickup.yaml
@@ -105,6 +116,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: Enables customers to book a ride through search and selection, track the ride during transit, and add a tip after ride completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Post_Order_Tip.yaml
@@ -114,6 +126,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A ride-hailing flow where customers search and select from available ride options with provider bids, confirm their pre-order booking, and track the ride with real-time journey updates.
     config:
       $ref: ./Ride-hailing/OnDemand_Pre_Order_Bid.yaml
@@ -123,6 +136,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A ride-hailing transaction flow where a customer searches for available rides, selects an option, and confirms their booking, with the driver assignment determined and communicated at order confirmation, followed by real-time tracking and status updates through ride completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Purple_Tags_Assign_driver_on_onconfirm.yaml
@@ -133,6 +147,7 @@ flows:
       - OPTIONAL
       - ON_DEMAND
       - RENTAL
+      - REPORTABLE
     description: A ride-hailing transaction enabling customers to discover available transportation services, confirm a booking, and track their ride in real-time with continuous status updates throughout the journey.
     config:
       $ref: ./Ride-hailing/OnDemand_Rental.yaml
@@ -143,6 +158,7 @@ flows:
       - OPTIONAL
       - ON_DEMAND
       - RENTAL
+      - REPORTABLE
     description: An on-demand ride-hailing transaction where a customer searches for, selects, and confirms a rental with a known destination, then receives real-time GPS tracking and status updates throughout the journey to completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Rentalwhen_end_stop_gps_coordinate_is_present.yaml
@@ -153,6 +169,7 @@ flows:
       - MANDATORY
       - ON_DEMAND
       - CANCELLATION
+      - REPORTABLE
     description: Exercises a complete ride-hailing transaction from initial search through booking confirmation, with focus on validating technical cancellation pathways and system handling of cancellation retry scenarios.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_Technical_Cancellation_Flow.yaml
@@ -163,6 +180,7 @@ flows:
       - MANDATORY
       - ON_DEMAND
       - CANCELLATION
+      - REPORTABLE
     description: A driver cancels a confirmed ride booking that was initiated by a passenger through search and selection. This flow tests the end-to-end ride-hailing transaction lifecycle with driver-initiated cancellation.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_cancellation_by_driver.yaml
@@ -173,6 +191,7 @@ flows:
       - MANDATORY
       - ON_DEMAND
       - CANCELLATION
+      - REPORTABLE
     description: A rider searches for, selects, and confirms an on-demand ride, then cancels the confirmed booking before the ride commences. This flow exercises the complete rider-initiated cancellation scenario in the ride-hailing transaction lifecycle.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_cancellation_by_rider.yaml
@@ -182,6 +201,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A customer books and tracks an on-demand ride with multiple pickup and dropoff points, with real-time status updates and tracking throughout the journey.
     config:
       $ref: ./Ride-hailing/OnDemand_Ride_with_multiple_stops.yaml
@@ -191,6 +211,7 @@ flows:
     tags:
       - OPTIONAL
       - ON_DEMAND
+      - REPORTABLE
     description: A rider updates their pickup or drop-off stop location during an active ride-hailing journey, with the system confirming the change and continuing to track the ride to completion.
     config:
       $ref: ./Ride-hailing/OnDemand_Update_Stop.yaml
@@ -201,6 +222,7 @@ flows:
       - OPTIONAL
       - SCHEDULED
       - RENTAL
+      - REPORTABLE
     description: A scheduled ride-hailing booking flow where customers search for available vehicles, select and confirm a reservation, and track the service through real-time updates until ride completion.
     config:
       $ref: ./Ride-hailing/Schedule_Rental.yaml
@@ -210,6 +232,7 @@ flows:
     tags:
       - OPTIONAL
       - SCHEDULED
+      - REPORTABLE
     description: End-to-end ride-hailing flow enabling customers to search for available rides, select and confirm a booking for a scheduled trip, and track the journey in real-time with status updates throughout pickup and delivery.
     config:
       $ref: ./Ride-hailing/Schedule_Trip.yaml
