@@ -1852,7 +1852,6 @@ steps:
         principal_amount: $.message.order.quote.breakup[?(@.title=='PRINCIPAL')].price.value
         net_disbursed_amount: $.message.order.quote.breakup[?(@.title=='NET_DISBURSED_AMOUNT')].price.value
         loan_term: $.message.order.items[0].tags[?(@.descriptor.code=='LOAN_INFO')].list[?(@.descriptor.code=='TERM')].value
-        Ekyc_details_verification_status: $..form.url
       inputs: {}
     examples:
       - name: example for on_select
