@@ -1007,12 +1007,12 @@ _TESTS_:
         - _NAME_: ORDER_FULFILLMENTS
           _RETURN_:
             - _NAME_: FULFILLMENT_END_LOCATION_GPS
-              attr: $.message.order.fulfillments[?(@.end)].end.location.gps
+              attr: $.message.order.fulfillments[*].end.location.gps
               reg:
                 - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
               _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENT_END_LOCATION_ADDRESS_AREA_CODE
-              attr: $.message.order.fulfillments[?(@.end)].end.location.address.area_code
+              attr: $.message.order.fulfillments[*].end.location.address.area_code
               reg:
                 - ^[0-9]{6}$
               _RETURN_: attr follow regex reg
@@ -1272,44 +1272,44 @@ _TESTS_:
                 - Buyer-Delivery
               _RETURN_: attr all in var_enum
             - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-              attr: $.message.order.fulfillments[?(@.end)].end.location.gps
+              attr: $.message.order.fulfillments[*].end.location.gps
               reg:
                 - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
               _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.name
+                  attr: $.message.order.fulfillments[*].end.location.address.name
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_BUILDING
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.building
+                  attr: $.message.order.fulfillments[*].end.location.address.building
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_LOCALITY
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.locality
+                  attr: $.message.order.fulfillments[*].end.location.address.locality
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.city
+                  attr: $.message.order.fulfillments[*].end.location.address.city
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.state
+                  attr: $.message.order.fulfillments[*].end.location.address.state
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_COUNTRY
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.country
+                  attr: $.message.order.fulfillments[*].end.location.address.country
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
-                  attr: $.message.order.fulfillments[?(@.end)].end.location.address.area_code
+                  attr: $.message.order.fulfillments[*].end.location.address.area_code
                   reg:
                     - ^[0-9]{6}$
                   _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-              attr: $.message.order.fulfillments[?(@.end)].end.contact.phone
+              attr: $.message.order.fulfillments[*].end.contact.phone
               reg:
                 - ^[0-9]{10}$
               _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME_LOCALITY_INEQUALITY_SPF
-              name: $.message.order.fulfillments[?(@.end)].end.location.address.name
-              locality: $.message.order.fulfillments[?(@.end)].end.location.address.locality
+              name: $.message.order.fulfillments[*].end.location.address.name
+              locality: $.message.order.fulfillments[*].end.location.address.locality
               _RETURN_: "!(name equal to locality)"
   on_init:
     - _NAME_: ON_INIT_CONTEXT
@@ -1403,39 +1403,39 @@ _TESTS_:
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_PERSON_NAME
-                  attr: $.message.order.fulfillments[?(@.end)].end.person.name
+                  attr: $.message.order.fulfillments[*].end.person.name
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-                  attr: $.message.order.fulfillments[?(@.end)].end.contact.phone
+                  attr: $.message.order.fulfillments[*].end.contact.phone
                   reg:
                     - ^[0-9]{10}$
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-                      attr: $.message.order.fulfillments[?(@.end)].end.location.gps
+                      attr: $.message.order.fulfillments[*].end.location.gps
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
                       _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.name
+                          attr: $.message.order.fulfillments[*].end.location.address.name
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_LOCALITY
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.locality
+                          attr: $.message.order.fulfillments[*].end.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.city
+                          attr: $.message.order.fulfillments[*].end.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.state
+                          attr: $.message.order.fulfillments[*].end.location.address.state
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_COUNTRY
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.country
+                          attr: $.message.order.fulfillments[*].end.location.address.country
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.area_code
+                          attr: $.message.order.fulfillments[*].end.location.address.area_code
                           reg:
                             - ^[0-9]{6}$
                           _RETURN_: attr are present
@@ -1580,38 +1580,38 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ID
-                      attr: $.message.order.fulfillments[?(@.start)].start.location.id
+                      attr: $.message.order.fulfillments[*].start.location.id
                       reg:
                         - ^[0-9a-zA-Z/-_]{1,36}$
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
-                      attr: $.message.order.fulfillments[?(@.start)].start.location.descriptor.name
+                      attr: $.message.order.fulfillments[*].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.locality
+                          attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.city
+                          attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.state
+                          attr: $.message.order.fulfillments[*].start.location.address.state
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.area_code
+                          attr: $.message.order.fulfillments[*].start.location.address.area_code
                           reg:
                             - ^[0-9]{6}$
                           _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      attr: $.message.order.fulfillments[?(@.start)].start.location.gps
+                      attr: $.message.order.fulfillments[*].start.location.gps
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
                       _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[?(@.start)].start.contact.phone
+                      attr: $.message.order.fulfillments[*].start.contact.phone
                       reg:
                         - ^[0-9]{10}$
                       _RETURN_: attr follow regex reg
@@ -1739,49 +1739,49 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.location.descriptor.name
+                      attr: $.message.order.fulfillments[*].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.location.gps
+                      attr: $.message.order.fulfillments[*].start.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.locality
+                          attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.city
+                          attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.area_code
+                          attr: $.message.order.fulfillments[*].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.start)].start.location.address.state
+                          attr: $.message.order.fulfillments[*].start.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.time.range.start
+                      attr: $.message.order.fulfillments[*].start.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.time.range.end
+                      attr: $.message.order.fulfillments[*].start.time.range.end
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.time.timestamp
+                      attr: $.message.order.fulfillments[*].start.time.timestamp
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_INSTRUCTIONS
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_CODE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.instructions.code
+                      attr: $.message.order.fulfillments[*].start.instructions.code
                       var_enum:
                         - "1"
                         - "2"
@@ -1790,19 +1790,19 @@ _TESTS_:
                       _RETURN_: attr are present && attr all in var_enum
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.instructions.name
+                      attr: $.message.order.fulfillments[*].start.instructions.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_SHORT_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.instructions.short_desc
+                      attr: $.message.order.fulfillments[*].start.instructions.short_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_LONG_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.instructions.long_desc
+                      attr: $.message.order.fulfillments[*].start.instructions.long_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_ADDITIONAL_DESC_CONTENT_TYPE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.instructions.additional_desc.content_type
+                      attr: $.message.order.fulfillments[*].start.instructions.additional_desc.content_type
                       var_enum:
                         - text/plain
                         - text/html
@@ -1811,11 +1811,11 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.contact.phone
+                      attr: $.message.order.fulfillments[*].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.start)].start.contact.email
+                      attr: $.message.order.fulfillments[*].start.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
@@ -1823,79 +1823,79 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.location.gps
+                      attr: $.message.order.fulfillments[*].end.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.name
+                          attr: $.message.order.fulfillments[*].end.location.address.name
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_BUILDING
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.building
+                          attr: $.message.order.fulfillments[*].end.location.address.building
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_LOCALITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.locality
+                          attr: $.message.order.fulfillments[*].end.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_COUNTRY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.country
+                          attr: $.message.order.fulfillments[*].end.location.address.country
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.city
+                          attr: $.message.order.fulfillments[*].end.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.area_code
+                          attr: $.message.order.fulfillments[*].end.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[?(@.end)].end.location.address.state
+                          attr: $.message.order.fulfillments[*].end.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.time.range.start
+                      attr: $.message.order.fulfillments[*].end.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.time.range.end
+                      attr: $.message.order.fulfillments[*].end.time.range.end
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.time.timestamp
+                      attr: $.message.order.fulfillments[*].end.time.timestamp
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_INSTRUCTIONS
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_CODE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.instructions.code
+                      attr: $.message.order.fulfillments[*].end.instructions.code
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.instructions.name
+                      attr: $.message.order.fulfillments[*].end.instructions.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_SHORT_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.instructions.short_desc
+                      attr: $.message.order.fulfillments[*].end.instructions.short_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_LONG_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.instructions.long_desc
+                      attr: $.message.order.fulfillments[*].end.instructions.long_desc
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.contact.phone
+                      attr: $.message.order.fulfillments[*].end.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[?(@.end)].end.contact.email
+                      attr: $.message.order.fulfillments[*].end.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_AGENT
               _RETURN_:
