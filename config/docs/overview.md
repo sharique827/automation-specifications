@@ -4,9 +4,10 @@
 
 ONDC:RET14 is the retail domain specification for electronics transactions on the ONDC (Open Network for Digital Commerce) network. It enables consumers to discover, purchase, pay for, receive, and manage electronics products through any ONDC-compliant buyer app, while sellers operate independently via any ONDC-compliant seller app—breaking down walled gardens in electronics retail.
 
-## Sector & Purpose
+## Sector & Purpose  
 
-**Sector:** Electronics retail (excluding large home appliances, which operate under a separate domain).
+
+**Sector:** Electronics retail (excluding large home appliances, which operate under a separate domain)
 
 **Problem solved:** Traditionally, consumers shopping for electronics are locked into specific seller platforms or aggregator apps; sellers are fragmented across marketplaces. This domain creates an open, interoperable network where any consumer app can discover electronics from any seller app on equal terms. A consumer using one ONDC buyer app can access the same catalog as any other, and sellers aren't forced into proprietary integrations.
 
