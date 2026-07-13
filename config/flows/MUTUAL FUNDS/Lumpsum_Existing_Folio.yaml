@@ -101,11 +101,8 @@ steps:
         lumpsum_fulfillment: '$.message.order.fulfillments[0]'
         lumpsum_measure: '$.message.order.items[0].quantity.selected.measure'
       inputs:
-        oldInputs:
-          - name: select_input
-            label: Enter
-            type: fis14_mutul_fund_select
-        id: old_inputs
+        id: fis14_mutul_fund_select
+        jsonSchema: {}
     examples: []
   - api: on_select
     action_id: on_select_existing_folio
