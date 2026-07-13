@@ -719,7 +719,7 @@ _TESTS_:
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
                 - _NAME_: ITEMS_ONDC_ORG_STATUTORY_REQS_PACKAGED_COMMODITIES
-                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[?(@['@ondc/org/statutory_reqs_packaged_commodities'])]
+                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[*]['@ondc/org/statutory_reqs_packaged_commodities']
                   _RETURN_:
                     - _NAME_: MANUFACTURER_OR_PACKER_NAME
                       attr: $.message.catalog['bpp/providers'][*].items[*]['@ondc/org/statutory_reqs_packaged_commodities'].manufacturer_or_packer_name
@@ -2142,7 +2142,7 @@ _TESTS_:
                         - ^[0-9]{10}$
                       _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_TIME
-                  _SCOPE_: $.message.order.fulfillments[?(@.start)]
+                  _SCOPE_: $.message.order.fulfillments[*].start
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
@@ -2187,7 +2187,7 @@ _TESTS_:
                           _CONTINUE_: "!(attr are present)"
                           _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_TIME
-                  _SCOPE_: $.message.order.fulfillments[?(@.end)]
+                  _SCOPE_: $.message.order.fulfillments[*].end
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
@@ -2525,7 +2525,7 @@ _TESTS_:
                         - ^[0-9]{10}$
                       _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_TIME
-                  _SCOPE_: $.message.order.fulfillments[?(@.start)]
+                  _SCOPE_: $.message.order.fulfillments[*].start
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
@@ -2570,7 +2570,7 @@ _TESTS_:
                           _CONTINUE_: "!(attr are present)"
                           _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_TIME
-                  _SCOPE_: $.message.order.fulfillments[?(@.end)]
+                  _SCOPE_: $.message.order.fulfillments[*].end
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
