@@ -274,6 +274,22 @@ flows:
     description: Purchase Journey Accidental Insurance
     config:
       $ref: ./ACCIDENTAL INSURANCE/Purchase_Journey_Accidental_Insurance.yaml
+
+  # __________IGM 1.0.0 on Accidenatl_insurance____________ 
+  - type: playground
+    id: Purchase_Journey_Accidental_Insurance_with_igm_1.0.0
+    meta:
+      order: 4
+    usecase: ACCIDENTAL INSURANCE
+    tags:
+      - WORKBENCH
+      - MANDATORY
+      # - REPORTABLE
+    description: Discovery of Transit insurance with IGM 1.0.0.
+    config:
+      $ref: ./ACCIDENTAL INSURANCE/Purchase_Journey_Accidental_Insurance_with_igm_1.0.0.yaml 
+
+
   - type: playground
     id: CD_Balance_Error_Hospicash_Insurance
     meta:
@@ -323,6 +339,22 @@ flows:
     description: Purchase Journey Hospicash Insurance
     config:
       $ref: ./HOSPICASH INSURANCE/Purchase_Journey_Hospicash_Insurance.yaml
+
+  # __________IGM 1.0.0 on Hospicash Insurance____________  
+  - type: playground
+    id: Purchase_Journey_Hospicash_Insurance_with_igm_1.0.0
+    meta:
+      order: 4
+    usecase: HOSPICASH INSURANCE
+    tags:
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+      - WORKBENCH
+    description: Discovery of Hospicash insurance with IGM 1.0.0.
+    config:
+      $ref: ./HOSPICASH INSURANCE/Purchase_Journey_Hospicash_Insurance_with_igm_1.0.0.yaml
+
   - type: playground
     id: CD_Balance_Error_Transit_Insurance
     meta:
@@ -372,3 +404,18 @@ flows:
     description: Purchase Journey Transit Insurance
     config:
       $ref: ./TRANSIT INSURANCE/Purchase_Journey_Transit_Insurance.yaml
+
+  # __________IGM 1.0.0 on Transit Insurance____________      
+  - type: playground
+    id: Purchase_Journey_Transit_Insurance_with_igm_1.0.0
+    meta:
+      order: 4
+    usecase: TRANSIT INSURANCE
+    tags:
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+      - WORKBENCH
+    description: Discovery of Transit insurance with IGM 1.0.0.
+    config:
+      $ref: ./TRANSIT INSURANCE/Purchase_Journey_Transit_Insurance_with_igm_1.0.0.yaml
