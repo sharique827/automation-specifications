@@ -380,6 +380,7 @@ _TESTS_:
           enumList: &a2
             - LUMPSUM
             - SIP
+            - SIP_INSTALMENT
             - REDEMPTION
             - INSTANT_REDEMPTION
             - SWP
@@ -541,6 +542,18 @@ _TESTS_:
                 - INR
                 - MF_UNITS
               _RETURN_: attr all in enumList
+    - _NAME_: SELECT_FULFILLMENTS
+      _RETURN_:
+        - _NAME_: REQUIRED_FULFILLMENT_ID
+          attr: "$.message.order.fulfillments[?(@.type!='SIP_INSTALMENT')].id"
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_FULFILLMENT_TYPE
+          attr: $.message.order.fulfillments[*].type
+          _RETURN_: attr are present
+        - _NAME_: VALID_FULFILLMENT_TYPE_ENUM
+          attr: $.message.order.fulfillments[*].type
+          enumList: *a2
+          _RETURN_: attr all in enumList
     - _NAME_: SELECT_FULFILLMENTS_SIP
       _SCOPE_: $.message.order.fulfillments[?(@.type=='SIP')]
       _RETURN_:
