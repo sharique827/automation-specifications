@@ -1526,6 +1526,9 @@ _TESTS_:
           - _NAME_: PROVIDERS_DESCRIPTOR_SYMBOL
             attr: "$.message.catalog['bpp/providers'][*].descriptor.symbol"
             _RETURN_: attr are present
+          - _NAME_: PROVIDERS_DESCRIPTOR_CODE
+            attr: "$.message.catalog['bpp/providers'][*].descriptor.code"
+            _RETURN_: attr are present
           - _NAME_: PROVIDERS_DESCRIPTOR_SHORT_DESC
             attr: "$.message.catalog['bpp/providers'][*].descriptor.short_desc"
             _RETURN_: attr are present
@@ -1535,7 +1538,24 @@ _TESTS_:
           - _NAME_: PROVIDERS_DESCRIPTOR_IMAGES
             attr: "$.message.catalog['bpp/providers'][*].descriptor.images[*]"
             _RETURN_: attr are present
-        
+        - _NAME_: PROVIDER_CREDS
+          _RETURN_:
+          - _NAME_: PROVIDER_CREDS_ID
+            attr: "$.message.catalog['bpp/providers'][*].creds[*].id"
+            _CONTINUE_: "!(attr are present)"
+            _RETURN_: attr are present
+          - _NAME_: PROVIDER_DESCRIPTOR
+            _RETURN_:
+            - _NAME_: PROVIDER_DESCRIPTOR_CODE
+              attr: "$.message.catalog['bpp/providers'][*].creds[*].descriptor.code"
+              _CONTINUE_: "!(attr are present)"
+              _RETURN_: attr are present
+            - _NAME_: PROVIDER_DESCRIPTOR_SHORT_DESC
+              attr: "$.message.catalog['bpp/providers'][*].creds[*].descriptor.short_desc"
+              _CONTINUE_: "!(attr are present)"
+              _RETURN_: attr are present
+          
+            
         - _NAME_: PROVIDERS_TTL
           attr: "$.message.catalog['bpp/providers'][*].ttl"
           _RETURN_: attr are present
@@ -1887,6 +1907,30 @@ _TESTS_:
             attr: "$.message.catalog['bpp/providers'][*].items[*].category_ids[*]"
             _CONTINUE_: "!(attr are present)"
             _RETURN_: attr are present
+          # ==========================================
+          # STATUTORY REQS VALIDATIONS (based on category_id)
+          # ==========================================
+          - _NAME_: ITEMS_STATUTORY_REQS_PACKAGED_COMMODITIES
+            _DESCRIPTION_: "'@ondc/org/statutory_reqs_packaged_commodities' is mandatory for items whose category_id requires packaged commodities declaration"
+            _SCOPE_: "$.message.catalog['bpp/providers'][*].items[*]"
+            category: "$.category_id"
+            var_packaged_commodities_categories: ["Masala & Seasoning", "Oil & Ghee", "Eggs, Meat & Fish", "Bakery, Cakes & Dairy", "Pet Care", "Detergents and Dishwash", "Dairy and Cheese", "Snacks, Dry Fruits, Nuts", "Pasta, Soup and Noodles", "Cereals and Breakfast", "Sauces, Spreads and Dips", "Chocolates and Biscuits", "Cooking and Baking Needs", "Tinned and Processed Food", "Atta, Flours and Sooji", "Rice and Rice Products", "Dals and Pulses", "Salt, Sugar and Jaggery", "Energy and Soft Drinks", "Tea and Coffee", "Fruit Juices and Fruit Drinks", "Snacks and Namkeen", "Ready to Cook and Eat", "Pickles and Chutney", "Indian Sweets", "Frozen Snacks", "Home Decor", "Furniture", "Home Furnishing - Bedding and Linen", "Bins and Bathroom", "Car and Shoe Care", "Disposables and Garbage Bags", "Fresheners and Repellents", "Mops, Brushes and Scrubs", "Party and Festive Needs", "Flowers", "Pooja Needs", "Paint and Wallpapers", "Hardware, Tools and Home Safety", "Electricals", "Bathroom and Kitchen Fixtures", "Garden & Outdoor", "Sports and Fitness Equipment", "Cookware", "Serveware", "Kitchen Storage and Containers", "Kitchen Tools", "Closet/Laundry/Shoe Organization", "Toys and Games", "Stationery", "Books", "Pain Relief", "Nutrition and Fitness Supplements", "Speciality Care", "Covid Essentials", "Diabetes Control", "Healthcare & Fitness Devices", "Ayurvedic", "Homeopathy", "Unani and Siddha", "Elder Care", "Baby Care", "Orthopaedic Care", "Mobility Aids", "Medicated Hair Care", "Medicated Skin Care", "Speciality Face Cleansers", "Gastric Care", "ENT Care", "Eye Care", "Cold and Cough", "Sexual Wellness", "Feminine Care", "Maternity Care", "Nursing and Feeding", "Hand Wash", "Sanitizers", "Baby Care - Wipes and Buds", "Baby Care - Rash Creams", "Baby Care - Diapers and Accessories", "Health and Safety", "Oral Care", "Contraceptives", "Breathe Easy", "Health Foods and Drinks", "Wound Care and Dressings", "Surgicals", "Mental Wellness", "Fragrance", "Bath Soaps and Gels", "Hair Oils, Care, and Styling", "Shampoos and Conditioners", "Shaving and Grooming", "Beard Care and Tools", "Grooming Tools and Accessories", "Makeup - Nail Care", "Makeup - Eyes", "Makeup - Face", "Makeup - Lips", "Makeup - Body", "Makeup - Remover", "Makeup - Sets and Kits", "Makeup - Tools and Brushes", "Makeup - Kits and Combos", "Skin Care - Face Cleansers", "Skin Care - Hand and Feet", "Body Care - Cleansers", "Body Care - Moisturizers", "Body Care - Loofah and Other Tools", "Body Care - Bath Salt and Additives", "Hair Care - Shampoo, Oils, Conditioners", "Skin Care - Lotions, Moisturisers, and Creams", "Skin Care - Oils and Serums"]
+            _CONTINUE_: "!(category any in var_packaged_commodities_categories)"
+            pc_manufacturer_name: "$['@ondc/org/statutory_reqs_packaged_commodities'].manufacturer_or_packer_name"
+            pc_manufacturer_address: "$['@ondc/org/statutory_reqs_packaged_commodities'].manufacturer_or_packer_address"
+            pc_commodity_name: "$['@ondc/org/statutory_reqs_packaged_commodities'].common_or_generic_name_of_commodity"
+            pc_mfg_month_year: "$['@ondc/org/statutory_reqs_packaged_commodities'].month_year_of_manufacture_packing_import"
+            _RETURN_: pc_manufacturer_name are present && pc_manufacturer_address are present && pc_commodity_name are present && pc_mfg_month_year are present
+          - _NAME_: ITEMS_STATUTORY_REQS_PREPACKAGED_FOOD
+            _DESCRIPTION_: "'@ondc/org/statutory_reqs_prepackaged_food' is mandatory for items whose category_id requires prepackaged food declaration"
+            _SCOPE_: "$.message.catalog['bpp/providers'][*].items[*]"
+            category: "$.category_id"
+            var_prepackaged_food_categories: ["Bakery, Cakes & Dairy", "Dairy and Cheese", "Snacks, Dry Fruits, Nuts", "Cereals and Breakfast", "Sauces, Spreads and Dips", "Chocolates and Biscuits", "Tinned and Processed Food", "Energy and Soft Drinks", "Fruit Juices and Fruit Drinks", "Snacks and Namkeen", "Ready to Cook and Eat", "Pickles and Chutney", "Indian Sweets", "Frozen Snacks"]
+            _CONTINUE_: "!(category any in var_prepackaged_food_categories)"
+            ppf_nutritional_info: "$['@ondc/org/statutory_reqs_prepackaged_food'].nutritional_info"
+            ppf_additives_info: "$['@ondc/org/statutory_reqs_prepackaged_food'].additives_info"
+            ppf_brand_owner_fssai: "$['@ondc/org/statutory_reqs_prepackaged_food'].brand_owner_FSSAI_license_no"
+            _RETURN_: ppf_nutritional_info are present && ppf_additives_info are present && ppf_brand_owner_fssai are present
           - _NAME_: ITEMS_FULFILLMENT_ID
             _SCOPE_: "$.message.catalog['bpp/providers'][*].items[*]"
             attr: "$.fulfillment_id"
@@ -2097,7 +2141,7 @@ _TESTS_:
               _RETURN_:
               - _NAME_: TAGS_BENEFIT_VALUE_TYPE
                 attr: "$.message.catalog['bpp/providers'][*].offers[*].tags[?(@.code=='benefit')].list[?(@.code=='value_type')].value"
-                var_enum: ["percent", "amount"]
+                var_enum: ["percent", "amount", "freebie"]
                 _CONTINUE_: "!(attr are present)"
                 _RETURN_: attr all in var_enum
 
@@ -2336,6 +2380,17 @@ _TESTS_:
         - _NAME_: ORDER_PROVIDER_LOCATIONS_ID
           attr: "$.message.order.provider.locations[*].id"
           _RETURN_: attr are present
+        - _NAME_: ORDER_PROVIDER_DESCRIPTOR
+          _RETURN_:
+          - _NAME_: ORDER_PROVIDER_DESCRIPTOR_NAME
+            attr: "$.message.order.provider.descriptor.name"
+            _RETURN_: attr are present
+          - _NAME_: ORDER_PROVIDER_DESCRIPTOR_SHORT_DESC
+            attr: "$.message.order.provider.descriptor.short_desc"
+            _RETURN_: attr are present
+          - _NAME_: ORDER_PROVIDER_DESCRIPTOR_CODE
+            attr: "$.message.order.provider.descriptor.code"
+            _RETURN_: attr are present
       - _NAME_: ORDER_ITEMS
         _RETURN_:
         - _NAME_: ITEMS_ID
@@ -2454,9 +2509,11 @@ _TESTS_:
         
         - _NAME_: ITEMS_LOCATION_ID
           attr: "$.message.order.items[*].location_id"
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr are present
         - _NAME_: ITEMS_QUANTITY_COUNT
           attr: "$.message.order.items[*].quantity.count"
+          _CONTINUE_: "!(attr are present)"
           _RETURN_: attr are present
         - _NAME_: ITEMS_FULFILLMENT_ID
           attr: "$.message.order.items[*].fulfillment_id"
@@ -2632,7 +2689,7 @@ _TESTS_:
         - _NAME_: BREAKUP_ITEM_ITEM_TAGS_TAGS_OFFER_TYPE
           _CONTINUE_: "!(attr are present)"
           attr: "$.message.order.quote.breakup[*].item.tags[?(@.code=='offer')].list[?(@.code=='type')].value"
-          var_enum: ["delivery", "discount"]
+          var_enum: ["delivery", "discount", "buyXgetY","freebie","slab","combo"]
           _RETURN_: attr all in var_enum
         - _NAME_: BREAKUP_ITEM_ITEM_TAGS_TAGS_OFFER_AUTO
           _CONTINUE_: "!(attr are present)"
