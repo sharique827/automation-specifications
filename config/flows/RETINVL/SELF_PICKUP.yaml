@@ -2,12 +2,12 @@ meta:
   domain: ONDC:RETINVL
   version: 1.2.5
   flowId: SELF_PICKUP
-  description: Self-pickup order flow ending when the order is picked up and completed
+  description: The SELF_PICKUP flow represents the end-to-end execution of a retail order where the customer retains possession of the order at the point of sale, with the seller confirming receipt and completion of the transaction upon physical pickup, ensuring accountability and traceability through the PRAMAAN and WORKBENCH systems.
   flowName: SELF PICKUP
   use_case_id: RETINVL
 transaction_data:
   transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
-  latest_timestamp: "1970-01-01T00:00:00.000Z"
+  latest_timestamp: 1970-01-01T00:00:00.000Z
   bap_id: bap.example.com
   bap_uri: https://bap.example.com
   bpp_id: bpp.example.com
@@ -18,7 +18,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates the self-pickup transaction by establishing a context for a grocery order, defining the interaction domain and key participant identities to enable downstream fulfillment coordination.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBwYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShkZWZhdWx0UGF5bG9hZCkpOwogIGNvbnN0IGlucHV0cyA9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIHx8IHt9OwogIGNvbnNvbGUubG9nKCJpbnB1dHMiLCBKU09OLnN0cmluZ2lmeShpbnB1dHMpKTsKICBwYXlsb2FkLmNvbnRleHQuY2l0eSA9IGlucHV0cy5jaXR5X2NvZGUgfHwgInN0ZDowMTEiOwogIC8vIHBheWxvYWQuY29udGV4dC50aW1lc3RhbXAgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgLy8gcGF5bG9hZC5jb250ZXh0LnR0bCA9ICJQVDFIIjsKCiAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnR5cGUgPSBpbnB1dHMub3JkZXJfdHlwZTsKICBpZiAoaW5wdXRzLnByb3ZpZGVyKSB7CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIucHJvdmlkZXIuaWQgPSBpbnB1dHMucHJvdmlkZXI7CiAgfQoKICBpZiAoaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uICYmIEFycmF5LmlzQXJyYXkoaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uKSkgewogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyLmxvY2F0aW9ucyA9CiAgICAgIGlucHV0cy5wcm92aWRlcl9sb2NhdGlvbi5tYXAoKGxvY2F0aW9uKSA9PiB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgIGlkOiBsb2NhdGlvbiwKICAgICAgICB9OwogICAgICB9KTsKICB9IGVsc2UgaWYgKAogICAgaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uICYmCiAgICB0eXBlb2YgaW5wdXRzLnByb3ZpZGVyX2xvY2F0aW9uID09PSAic3RyaW5nIgogICkgewogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyLmxvY2F0aW9ucyA9IFsKICAgICAgewogICAgICAgIGlkOiBpbnB1dHMucHJvdmlkZXJfbG9jYXRpb24sCiAgICAgIH0sCiAgICBdOwogIH0KCiAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gKGlucHV0cy5pdGVtcyB8fCBbXSkubWFwKChpdGVtKSA9PiAoewogIGlkOiBpdGVtLml0ZW1JZCwKCiAgLi4uKGl0ZW0uZ3Rpbl9jb2RlICYmIHsKICAgIGRlc2NyaXB0b3I6IHsKICAgICAgY29kZTogYCR7aXRlbS5ndGluX2NvZGV9YAogICAgfQogIH0pLAoKICBxdWFudGl0eTogewogICAgY291bnQ6IE51bWJlcihpdGVtLnF1YW50aXR5KQogIH0sCgogIC4uLihpdGVtLmVzdGltYXRlZF9wcmljZSAmJiB7CiAgICBwcmljZTogewogICAgICBlc3RpbWF0ZWRfdmFsdWU6IFN0cmluZyhpdGVtLmVzdGltYXRlZF9wcmljZSkKICAgIH0KICB9KQp9KSk7CgogIHBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHMgPSBbCiAgICB7CiAgICAgIHR5cGU6ICJTZWxmLVBpY2t1cCIsCiAgICAgICJAb25kYy9vcmcvVEFUIjogIlBUMTVNIiwKICAgICAgZW5kOiB7CiAgICAgICAgbG9jYXRpb246IHsKICAgICAgICAgIGdwczogaW5wdXRzLmxvY2F0aW9uX2dwcywKICAgICAgICAgIGFkZHJlc3M6IHsKICAgICAgICAgICAgYXJlYV9jb2RlOiBpbnB1dHMubG9jYXRpb25fcGluX2NvZGUKICAgICAgICAgIH0KICAgICAgICB9CiAgICAgIH0KICAgIH0KICBdOwoKICByZXR1cm4gcGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -36,7 +36,7 @@ steps:
           message_id: M3
           city: std:080
           country: IND
-          timestamp: "2025-01-08T09:00:00.000Z"
+          timestamp: 2025-01-08T09:00:00.000Z
           ttl: PT1H
         message:
           order:
@@ -154,7 +154,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: 8814fd51-cbe7-497c-94e6-5807b3feb4f2
-            timestamp: "2026-03-05T12:27:00.385Z"
+            timestamp: 2026-03-05T12:27:00.385Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -194,7 +194,7 @@ steps:
     owner: BPP
     responseFor: init_1
     unsolicited: false
-    description: please add relevant description
+    description: The BAP initiates the self-pickup order process by exchanging foundational order details with the BPP, establishing the transaction context including fulfillment, payment, and quote information within the grocery domain.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXJbMF07CiAgZGVmYXVsdFBheWxvYWQuY29udGV4dC5jaXR5ID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlWzBdOwogIGNvbnN0IHNlbGVjdGVkSXRlbXNPYmogPSBzZXNzaW9uRGF0YS5zZWxlY3RlZF9pdGVtc1swXTsKICBjb25zdCBmdWxmaWxsbWVudElkID0KICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzWzBdPy5pZCB8fCAiRjEiOwoKICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zID0gc2VsZWN0ZWRJdGVtc09iagogICAgLmZpbHRlcihCb29sZWFuKQogICAgLm1hcCgoaXRlbSkgPT4gKHsKICAgICAgaWQ6IGl0ZW0uaWQsCiAgICAgIGZ1bGZpbGxtZW50X2lkOiBmdWxmaWxsbWVudElkLAogICAgICAuLi4oaXRlbS5kZXNjcmlwdG9yICYmIHsKICAgICAgICBkZXNjcmlwdG9yOiBpdGVtLmRlc2NyaXB0b3IKICAgICAgfSksCiAgICAgIHF1YW50aXR5OiB7CiAgICAgIGNvdW50OiAoaXRlbS5xdWFudGl0eS5jb3VudCkKICAgIH0KICAgIH0pKTsKCiAgY29uc3QgcXVvdGUgPSBjcmVhdGVRdW90ZSgKICAgIHNlbGVjdGVkSXRlbXNPYmoubWFwKChpdGVtKSA9PiB7CiAgICAgIHJldHVybiB7CiAgICAgICAgaWQ6IGl0ZW0uaWQsCiAgICAgICAgY291bnQ6IGl0ZW0ucXVhbnRpdHkuY291bnQsCiAgICAgICAgZnVsZmlsbG1lbnRfaWQ6IGZ1bGZpbGxtZW50SWQsCiAgICAgIH07CiAgICB9KSwKICAgIHNlc3Npb25EYXRhLAogICAgZGVmYXVsdFBheWxvYWQsCiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLmZ1bGZpbGxtZW50cwogICk7CiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZSA9IGFkanVzdFF1b3RlRm9yRnVsZmlsbG1lbnQoCiAgICBxdW90ZSwKICAgICJTZWxmLVBpY2t1cCIsCiAgICBmdWxmaWxsbWVudElkCiAgKTsKICBjb25zdCB0b3RhbEFtb3VudCA9CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlPy5wcmljZT8udmFsdWUgfHwgIjEwMDAwLjAwIjsKCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wYXltZW50cyA9IGdlbmVyYXRlSW5pdFBheW1lbnRzKAogICAgdG90YWxBbW91bnQsCiAgICBzZXNzaW9uRGF0YS51c2VyX2lucHV0cwogICk7CiAgY29uc29sZS5sb2coImRlZmF1bHRQYXlsb2FkIiwgSlNPTi5zdHJpbmdpZnkoZGVmYXVsdFBheWxvYWQpKTsKICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -212,7 +212,7 @@ steps:
           message_id: M3
           city: std:080
           country: IND
-          timestamp: "2025-01-08T09:00:30.000Z"
+          timestamp: 2025-01-08T09:00:30.000Z
         message:
           order:
             type: ILBN
@@ -380,7 +380,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: 8814fd51-cbe7-497c-94e6-5807b3feb4f2
-            timestamp: "2026-03-05T12:27:13.107Z"
+            timestamp: 2026-03-05T12:27:13.107Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -488,7 +488,7 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: please add relevant description
+    description: The BAP acts as the buyer app to confirm the self-pickup order, formally signaling to the BPP that the order is ready for pickup and the fulfillment process is acknowledged, with all relevant order details and fulfillment choices validated and preserved for the transaction.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBwYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShkZWZhdWx0UGF5bG9hZCkpOwogIHBheWxvYWQuY29udGV4dC5jaXR5ID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlWzBdCgogIGNvbnN0IHRpbWVzdGFtcCA9IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKICBwYXlsb2FkLmNvbnRleHQudGltZXN0YW1wID0gdGltZXN0YW1wOwoKICBjb25zdCBpbnB1dHMgPSBzZXNzaW9uRGF0YS51c2VyX2lucHV0cyB8fCB7fTsKCiAgY29uc3Qgb3JkZXIgPSBwYXlsb2FkLm1lc3NhZ2Uub3JkZXI7CgogIG9yZGVyLmlkID0gdXVpZHY0KCk7CiAgb3JkZXIuc3RhdGUgPSAiQ3JlYXRlZCI7CiAgb3JkZXIudHlwZSA9IHNlc3Npb25EYXRhLm9yZGVyX3R5cGVbMF07CiAgb3JkZXIuY3JlYXRlZF9hdCA9IHRpbWVzdGFtcDsKICBvcmRlci51cGRhdGVkX2F0ID0gdGltZXN0YW1wOwoKICBpZiAoc2Vzc2lvbkRhdGEucHJvdmlkZXIubGVuZ3RoID4gMCkgewogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnByb3ZpZGVyID0gc2Vzc2lvbkRhdGEucHJvdmlkZXJbMF0KICB9CgoKICBjb25zdCBzZWxlY3RlZEl0ZW1zID0gc2Vzc2lvbkRhdGEuc2VsZWN0ZWRfaXRlbXM/LlswXSB8fCBbXTsKCiAgb3JkZXIuYmlsbGluZyA9IHsKICAgIG5hbWU6IGlucHV0cy5iaWxsaW5nX25hbWUgfHwgIk9OREMgYnV5ZXIiLAogICAgYWRkcmVzczogewogICAgICBuYW1lOiBpbnB1dHMuYWRkcmVzc19uYW1lIHx8ICJNeSBBZGRyZXNzIiwKICAgICAgYnVpbGRpbmc6IGlucHV0cy5hZGRyZXNzX2J1aWxkaW5nIHx8ICJCdWlsZGluZyIsCiAgICAgIGxvY2FsaXR5OiBpbnB1dHMuYWRkcmVzc19sb2NhbGl0eSB8fCAiTG9jYWxpdHkiLAogICAgICBjaXR5OiBpbnB1dHMuY2l0eV9uYW1lIHx8ICJCZW5nYWx1cnUiLAogICAgICBzdGF0ZTogaW5wdXRzLnN0YXRlX25hbWUgfHwgIkthcm5hdGFrYSIsCiAgICAgIGNvdW50cnk6ICJJTkQiLAogICAgICBhcmVhX2NvZGU6IGlucHV0cy5sb2NhdGlvbl9waW5fY29kZSB8fCAiNTYwMDAyIgogICAgfSwKICAgIHBob25lOiBpbnB1dHMucGhvbmUgfHwgIjk5OTk5OTk5OTkiLAogICAgZW1haWw6IGlucHV0cy5lbWFpbCB8fCAiYnV5ZXJAdGVzdC5jb20iLAogICAgY3JlYXRlZF9hdDogdGltZXN0YW1wLAogICAgdXBkYXRlZF9hdDogdGltZXN0YW1wCiAgfTsKCiAgY29uc3QgZnVsZmlsbG1lbnRUeXBlID0gaW5wdXRzLmZ1bGZpbGxtZW50X3R5cGUgfHwgIlNlbGYtUGlja3VwIjsKCiAgY29uc3QgZnVsZmlsbG1lbnRJZCA9IHNlc3Npb25EYXRhLm9uX2luaXRfZnVsZmlsbG1lbnRzWzBdWzBdLmlkOwogICAgY29uc29sZS5sb2coImZ1bGZpbGxtZW50SWQiLGZ1bGZpbGxtZW50SWQpCiAgb3JkZXIuaXRlbXMgPSBzZWxlY3RlZEl0ZW1zLm1hcCgoaXRlbSkgPT4gKHsKICAgIGlkOiBpdGVtLmlkLAogICAgZnVsZmlsbG1lbnRfaWQ6IGZ1bGZpbGxtZW50SWQsCiAgICBxdWFudGl0eTogewogICAgICBjb3VudDogTnVtYmVyKGl0ZW0ucXVhbnRpdHk/LmNvdW50IHx8IGl0ZW0uY291bnQgfHwgMSkKICAgIH0KICB9KSk7CiAgY29uc3QgZnVsZmlsbG1lbnRCYXNlID0gewogICAgaWQ6IGZ1bGZpbGxtZW50SWQsCiAgICB0eXBlOiBmdWxmaWxsbWVudFR5cGUsCiAgICAiQG9uZGMvb3JnL1RBVCI6ICJQVDE1TSIsCiAgICB0cmFja2luZzogZmFsc2UKICB9OwoKICBpZiAoZnVsZmlsbG1lbnRUeXBlID09PSAiRGVsaXZlcnkiKSB7CiAgICBmdWxmaWxsbWVudEJhc2UuZW5kID0gewogICAgICBwZXJzb246IHsKICAgICAgICBuYW1lOiBpbnB1dHMuY3VzdG9tZXJfbmFtZSB8fCAiQ3VzdG9tZXIiCiAgICAgIH0sCiAgICAgIGNvbnRhY3Q6IHsKICAgICAgICBwaG9uZTogaW5wdXRzLnBob25lIHx8ICI5OTk5OTk5OTk5IiwKICAgICAgICBlbWFpbDogaW5wdXRzLmVtYWlsIHx8ICJidXllckB0ZXN0LmNvbSIKICAgICAgfSwKICAgICAgbG9jYXRpb246IHsKICAgICAgICBncHM6IGlucHV0cy5sb2NhdGlvbl9ncHMgfHwgIjEyLjQ1MzUsNzcuOTI4MyIsCiAgICAgICAgYWRkcmVzczogewogICAgICAgICAgbmFtZTogaW5wdXRzLmFkZHJlc3NfbmFtZSB8fCAiTXkgQWRkcmVzcyIsCiAgICAgICAgICBidWlsZGluZzogaW5wdXRzLmFkZHJlc3NfYnVpbGRpbmcgfHwgIkJ1aWxkaW5nIiwKICAgICAgICAgIGxvY2FsaXR5OiBpbnB1dHMuYWRkcmVzc19sb2NhbGl0eSB8fCAiTG9jYWxpdHkiLAogICAgICAgICAgY2l0eTogaW5wdXRzLmNpdHlfbmFtZSB8fCAiQmVuZ2FsdXJ1IiwKICAgICAgICAgIHN0YXRlOiBpbnB1dHMuc3RhdGVfbmFtZSB8fCAiS2FybmF0YWthIiwKICAgICAgICAgIGNvdW50cnk6ICJJTkQiLAogICAgICAgICAgYXJlYV9jb2RlOiBpbnB1dHMubG9jYXRpb25fcGluX2NvZGUgfHwgIjU2MDAzNyIKICAgICAgICB9CiAgICAgIH0KICAgIH07CiAgfQoKICBpZiAoZnVsZmlsbG1lbnRUeXBlID09PSAiU2VsZi1QaWNrdXAiKSB7CiAgICBmdWxmaWxsbWVudEJhc2UuZW5kID0gewogICAgICBwZXJzb246IHsKICAgICAgICBuYW1lOiBpbnB1dHMuY3VzdG9tZXJfbmFtZSB8fCAiQ3VzdG9tZXIiCiAgICAgIH0sCiAgICAgIGNvbnRhY3Q6IHsKICAgICAgICBwaG9uZTogaW5wdXRzLnBob25lIHx8ICI5OTk5OTk5OTk5IiwKICAgICAgICBlbWFpbDogaW5wdXRzLmVtYWlsIHx8ICJidXllckB0ZXN0LmNvbSIKICAgICAgfSwKICAgICAgbG9jYXRpb246IHsKICAgICAgICBncHM6IGlucHV0cy5sb2NhdGlvbl9ncHMgfHwgIjEyLjQ1MzUsNzcuOTI4MyIsCiAgICAgICAgYWRkcmVzczogewogICAgICAgICAgbmFtZTogaW5wdXRzLmFkZHJlc3NfbmFtZSB8fCAiUGlja3VwIExvY2F0aW9uIiwKICAgICAgICAgIGJ1aWxkaW5nOiBpbnB1dHMuYWRkcmVzc19idWlsZGluZyB8fCAiQnVpbGRpbmciLAogICAgICAgICAgbG9jYWxpdHk6IGlucHV0cy5hZGRyZXNzX2xvY2FsaXR5IHx8ICJMb2NhbGl0eSIsCiAgICAgICAgICBjaXR5OiBpbnB1dHMuY2l0eV9uYW1lIHx8ICJCZW5nYWx1cnUiLAogICAgICAgICAgc3RhdGU6IGlucHV0cy5zdGF0ZV9uYW1lIHx8ICJLYXJuYXRha2EiLAogICAgICAgICAgY291bnRyeTogIklORCIsCiAgICAgICAgICBhcmVhX2NvZGU6IGlucHV0cy5sb2NhdGlvbl9waW5fY29kZSB8fCAiNTYwMDM3IgogICAgICAgIH0KICAgICAgfQogICAgfTsKICB9CgogIG9yZGVyLmZ1bGZpbGxtZW50cyA9IFtmdWxmaWxsbWVudEJhc2VdOwogIG9yZGVyLnBheW1lbnRzID0gc2Vzc2lvbkRhdGEub25faW5pdF9wYXltZW50c1swXTsKICBpZiAoCiAgICBBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhPy5vbl9pbml0X3BheW1lbnRzKSAmJgogICAgc2Vzc2lvbkRhdGEub25faW5pdF9wYXltZW50cy5sZW5ndGggPiAwICYmCiAgICBBcnJheS5pc0FycmF5KHNlc3Npb25EYXRhLm9uX2luaXRfcGF5bWVudHNbMF0pICYmCiAgICBzZXNzaW9uRGF0YS5vbl9pbml0X3BheW1lbnRzWzBdLmxlbmd0aCA+IDAKICApIHsKICAgIGNvbnNvbGUubG9nKAogICAgICAiaW4gdGhpcyIsCiAgICAgIEpTT04uc3RyaW5naWZ5KHNlc3Npb25EYXRhLm9uX2luaXRfcGF5bWVudHNbMF0pCiAgICApOwoKICAgIGNvbnN0IGluaXRQYXltZW50cyA9IHNlc3Npb25EYXRhLm9uX2luaXRfcGF5bWVudHNbMF07CgogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzID0KICAgICAgbm9ybWFsaXplUGF5bWVudHMob3JkZXIsIHBheWxvYWQuY29udGV4dC5hY3Rpb24pOwogIH0KCiAgcmV0dXJuIHBheWxvYWQ7Cn0=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -506,7 +506,7 @@ steps:
           message_id: M4
           city: std:080
           country: IND
-          timestamp: "2025-01-08T09:30:00.000Z"
+          timestamp: 2025-01-08T09:30:00.000Z
           ttl: PT30S
         message:
           order:
@@ -534,8 +534,8 @@ steps:
                 area_code: "560037"
               phone: "9886098860"
               email: nobody@nomail.com
-              created_at: "2025-01-08T09:00:00.000Z"
-              updated_at: "2025-01-08T09:00:00.000Z"
+              created_at: 2025-01-08T09:00:00.000Z
+              updated_at: 2025-01-08T09:00:00.000Z
             fulfillments:
               - id: F2
                 type: Self-Pickup
@@ -595,8 +595,8 @@ steps:
                     value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                   - code: tax_number
                     value: gst_number_of_buyerNP
-            created_at: "2025-01-08T09:30:00.000Z"
-            updated_at: "2025-01-08T09:30:00.000Z"
+            created_at: 2025-01-08T09:30:00.000Z
+            updated_at: 2025-01-08T09:30:00.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -673,7 +673,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: e0ce7422-af0e-4d3a-a872-980d87a6ca66
-            timestamp: "2026-03-05T12:27:38.328Z"
+            timestamp: 2026-03-05T12:27:38.328Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -687,12 +687,12 @@ steps:
                   locality: My Street
                   name: My Address
                   state: Karnataka
-                created_at: "2026-03-05T12:27:38.328Z"
+                created_at: 2026-03-05T12:27:38.328Z
                 email: buyer@test.com
                 name: ONDC buyer
                 phone: "9886098860"
-                updated_at: "2026-03-05T12:27:38.328Z"
-              created_at: "2026-03-05T12:27:38.328Z"
+                updated_at: 2026-03-05T12:27:38.328Z
+              created_at: 2026-03-05T12:27:38.328Z
               fulfillments:
                 - end:
                     contact:
@@ -768,14 +768,14 @@ steps:
                     - code: tax_number
                       value: gst_number_of_buyerNP
               type: ILBN
-              updated_at: "2026-03-05T12:27:38.328Z"
+              updated_at: 2026-03-05T12:27:38.328Z
         type: request
   - api: on_confirm
     action_id: on_confirm_1
     owner: BPP
     responseFor: confirm_1
     unsolicited: false
-    description: please add relevant description
+    description: The BPP confirms the self-pickup order details, including itemized items, billing information, and fulfillment location, signaling to the buyer that the order is officially confirmed and ready for pickup within the grocery domain.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCBwYXlsb2FkID0gSlNPTi5wYXJzZShKU09OLnN0cmluZ2lmeShkZWZhdWx0UGF5bG9hZCkpOwogIHBheWxvYWQuY29udGV4dC5jaXR5ID0gc2Vzc2lvbkRhdGEuY2l0eV9jb2RlWzBdOwoKICBjb25zdCB0aW1lc3RhbXAgPSBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCk7CiAgcGF5bG9hZC5jb250ZXh0LnRpbWVzdGFtcCA9IHRpbWVzdGFtcDsKCiAgY29uc3QgY29uZmlybU9yZGVyID0KICAgIHNlc3Npb25EYXRhLmNvbmZpcm1fb3JkZXJbMF0KCiAgaWYgKCFjb25maXJtT3JkZXIpIHsKICAgIHRocm93IG5ldyBFcnJvcigiQ29uZmlybSBwYXlsb2FkIG5vdCBmb3VuZCBpbiBzZXNzaW9uRGF0YSIpOwogIH0KCiAgY29uc29sZS5sb2coImNvbmZpcm1PcmRlciIsIEpTT04uc3RyaW5naWZ5KGNvbmZpcm1PcmRlcikpCgogIGNvbnN0IG9yZGVyID0gcGF5bG9hZC5tZXNzYWdlLm9yZGVyOwogIGNvbnNvbGUubG9nKCJkZWZhdXQgcGF5bG9hZCIsIEpTT04uc3RyaW5naWZ5KG9yZGVyKSkKICBvcmRlci5pZCA9IGNvbmZpcm1PcmRlci5pZDsKICBvcmRlci50eXBlID0gY29uZmlybU9yZGVyLnR5cGU7CiAgb3JkZXIuc3RhdGUgPSAiQWNjZXB0ZWQiOwogIG9yZGVyLmNyZWF0ZWRfYXQgPSBjb25maXJtT3JkZXIuY3JlYXRlZF9hdDsKICBvcmRlci51cGRhdGVkX2F0ID0gdGltZXN0YW1wOwoKICBvcmRlci5wcm92aWRlciA9IGNvbmZpcm1PcmRlci5wcm92aWRlcjsKICBvcmRlci5pdGVtcyA9IGNvbmZpcm1PcmRlci5pdGVtczsKICBvcmRlci5iaWxsaW5nID0gY29uZmlybU9yZGVyLmJpbGxpbmc7CiAgb3JkZXIucGF5bWVudHMgPSBjb25maXJtT3JkZXIucGF5bWVudHM7CiAgb3JkZXIudGFncyA9IGNvbmZpcm1PcmRlci50YWdzOwogIGNvbmZpcm1PcmRlci5xdW90ZSA9IHNlc3Npb25EYXRhLm9uX2luaXRfcXVvdGVbMF0KCiAgY29uc3QgY29uZmlybUZ1bGZpbGxtZW50ID0gY29uZmlybU9yZGVyLmZ1bGZpbGxtZW50c1swXTsKICBvcmRlci5mdWxmaWxsbWVudHMgPSBbCiAgICBidWlsZE9uQ29uZmlybUZ1bGZpbGxtZW50KGNvbmZpcm1PcmRlciwgY29uZmlybUZ1bGZpbGxtZW50KQogIF07CiAgLy8gY29uc29sZS5sb2coImNvbmZyaW0gZnVsZmlsbG1lbnQiLCBKU09OLnN0cmluZ2lmeShjb25maXJtRnVsZmlsbG1lbnQpKTsKICBjb25zdCBmdWxmaWxsbWVudFR5cGUgPSBjb25maXJtRnVsZmlsbG1lbnQudHlwZTsKCiAgLy8gY29uc3QgZnVsZmlsbG1lbnQgPSB7CiAgLy8gICBpZDogY29uZmlybUZ1bGZpbGxtZW50LmlkLAogIC8vICAgdHlwZTogZnVsZmlsbG1lbnRUeXBlLAogIC8vICAgIkBvbmRjL29yZy9UQVQiOiBmdWxmaWxsbWVudFR5cGUgPT09ICJTZWxmLVBpY2t1cCIgPyAiUFQySCIgOiAiUFQ0SCIsCiAgLy8gICBzdGF0ZTogewogIC8vICAgICBkZXNjcmlwdG9yOiB7IGNvZGU6ICJQZW5kaW5nIiB9CiAgLy8gICB9LAogIC8vICAgZW5kOiBjb25maXJtRnVsZmlsbG1lbnQuZW5kCiAgLy8gfTsKCiAgLy8gZnVsZmlsbG1lbnQuc3RhcnQgPSB7CiAgLy8gICBsb2NhdGlvbjogewogIC8vICAgICBpZDogY29uZmlybU9yZGVyLnByb3ZpZGVyLmxvY2F0aW9uc1swXS5pZCwKICAvLyAgICAgZGVzY3JpcHRvcjogewogIC8vICAgICAgIG5hbWU6ICJBQkMgU3RvcmUiCiAgLy8gICAgIH0sCiAgLy8gICAgIGdwczogIjEyLjk1NjMsNzcuNjM2OCIsCiAgLy8gICAgIGFkZHJlc3M6IHsKICAvLyAgICAgICBsb2NhbGl0eTogIkpheWFuYWdhciIsCiAgLy8gICAgICAgY2l0eTogIkJlbmdhbHVydSIsCiAgLy8gICAgICAgYXJlYV9jb2RlOiAiNTYwMDc2IiwKICAvLyAgICAgICBzdGF0ZTogIktBIgogIC8vICAgICB9CiAgLy8gICB9LAogIC8vICAgY29udGFjdDogewogIC8vICAgICBwaG9uZTogIjk4ODYwOTg4NjAiLAogIC8vICAgICBlbWFpbDogIm5vYm9keUBub21haWwuY29tIgogIC8vICAgfQogIC8vIH07CgogIC8vIG9yZGVyLmZ1bGZpbGxtZW50cyA9IFtmdWxmaWxsbWVudF07CgoKICBvcmRlci5xdW90ZSA9IGFkanVzdFF1b3RlRm9yRnVsZmlsbG1lbnQoCiAgICBjb25maXJtT3JkZXIucXVvdGUsCiAgICBmdWxmaWxsbWVudFR5cGUsCiAgICBjb25maXJtRnVsZmlsbG1lbnQuaWQKICApOwogIGlmIChjb25maXJtT3JkZXIucGF5bWVudHMubGVuZ3RoID4gMSkgewogICAgY29uc29sZS5sb2coImludGhpcyBibG9jayIsIEpTT04uc3RyaW5naWZ5KGNvbmZpcm1PcmRlci5wYXltZW50cykpCgogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnBheW1lbnRzID0KICAgICAgbm9ybWFsaXplUGF5bWVudHMoY29uZmlybU9yZGVyLCBwYXlsb2FkLmNvbnRleHQuYWN0aW9uKTsKICB9CgogIHJldHVybiBwYXlsb2FkOwp9
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -793,7 +793,7 @@ steps:
           message_id: M4
           city: std:080
           country: IND
-          timestamp: "2025-01-08T09:30:10.000Z"
+          timestamp: 2025-01-08T09:30:10.000Z
           ttl: PT30S
         message:
           order:
@@ -821,8 +821,8 @@ steps:
                 area_code: "560037"
               phone: "9886098860"
               email: nobody@nomail.com
-              created_at: "2025-01-08T09:00:00.000Z"
-              updated_at: "2025-01-08T09:00:00.000Z"
+              created_at: 2025-01-08T09:00:00.000Z
+              updated_at: 2025-01-08T09:00:00.000Z
             fulfillments:
               - id: F2
                 type: Self-Pickup
@@ -948,8 +948,8 @@ steps:
                     value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                   - code: tax_number
                     value: gst_number_of_buyerNP
-            created_at: "2025-01-08T09:30:00.000Z"
-            updated_at: "2025-01-08T09:30:10.000Z"
+            created_at: 2025-01-08T09:30:00.000Z
+            updated_at: 2025-01-08T09:30:10.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -983,7 +983,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: e0ce7422-af0e-4d3a-a872-980d87a6ca66
-            timestamp: "2026-03-05T12:27:38.501Z"
+            timestamp: 2026-03-05T12:27:38.501Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -997,12 +997,12 @@ steps:
                   locality: My Street
                   name: My Address
                   state: Karnataka
-                created_at: "2026-03-05T12:27:38.328Z"
+                created_at: 2026-03-05T12:27:38.328Z
                 email: buyer@test.com
                 name: ONDC buyer
                 phone: "9886098860"
-                updated_at: "2026-03-05T12:27:38.328Z"
-              created_at: "2026-03-05T12:27:38.328Z"
+                updated_at: 2026-03-05T12:27:38.328Z
+              created_at: 2026-03-05T12:27:38.328Z
               fulfillments:
                 - "@ondc/org/TAT": PT15M
                   "@ondc/org/provider_name": ABC Store
@@ -1024,8 +1024,8 @@ steps:
                       name: Customer
                     time:
                       range:
-                        end: "2026-03-05T13:57:38.501Z"
-                        start: "2026-03-05T13:27:38.501Z"
+                        end: 2026-03-05T13:57:38.501Z
+                        start: 2026-03-05T13:27:38.501Z
                   id: F1
                   start:
                     contact:
@@ -1152,14 +1152,14 @@ steps:
                     - code: tax_number
                       value: gst_number_of_buyerNP
               type: ILBN
-              updated_at: "2026-03-05T12:27:38.501Z"
+              updated_at: 2026-03-05T12:27:38.501Z
         type: request
   - api: on_status
     action_id: on_status_pending
     owner: BPP
     responseFor: null
     unsolicited: true
-    description: please add relevant description
+    description: The BPP provides an update on the self-pickup order status, confirming the current fulfillment progress and reflecting the real-time order status within the grocery domain transaction.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICoKICogQHBhcmFtIHtPYmplY3R9IGRlZmF1bHRQYXlsb2FkIC0gVGhlIGJhc2UgcGF5bG9hZCBvYmplY3Qgd2l0aCBjb250ZXh0IGFscmVhZHkgcG9wdWxhdGVkLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiBAcmV0dXJucyB7T2JqZWN0fSBUaGUgZ2VuZXJhdGVkIHBheWxvYWQgb2JqZWN0IHRvIGJlIHNlbnQgaW4gdGhlIEFQSSByZXF1ZXN0LgogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgcGF5bG9hZCA9IGNyZWF0ZUdlbmVyaWNPblN0YXR1cyhkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwogIGNvbnN0IGxhdGVzdCA9ICh2YWx1ZSkgPT4KICAgIEFycmF5LmlzQXJyYXkodmFsdWUpID8gdmFsdWVbdmFsdWUubGVuZ3RoIC0gMV0gOiB2YWx1ZTsKICBjb25zdCBzYXZlZEZ1bGZpbGxtZW50cyA9CiAgICBsYXRlc3Qoc2Vzc2lvbkRhdGEub25fc3RhdHVzX2Z1bGZpbGxtZW50cykgfHwKICAgIGxhdGVzdChzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpIHx8CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzIHx8CiAgICBbXTsKCiAgcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBsYXRlc3Qoc2Vzc2lvbkRhdGEuY2l0eV9jb2RlKSB8fCBwYXlsb2FkLmNvbnRleHQuY2l0eTsKICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2F2ZWRGdWxmaWxsbWVudHMubWFwKChmdWxmaWxsbWVudCkgPT4gKHsKICAgIC4uLmZ1bGZpbGxtZW50LAogICAgdHlwZTogIlNlbGYtUGlja3VwIiwKICAgICJAb25kYy9vcmcvVEFUIjogIlBUMTVNIiwKICAgIHRyYWNraW5nOiBmYWxzZSwKICAgIHN0YXRlOiB7CiAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICBjb2RlOiAiUGVuZGluZyIKICAgICAgfQogICAgfQogIH0pKTsKICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuc3RhdGUgPSAiSW4tcHJvZ3Jlc3MiOwogIHBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXA7CgogIGlmIChmYWxzZSkgewogICAgY29uc3QgZnVsZmlsbG1lbnQgPSBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzWzBdOwogICAgaWYgKGZ1bGZpbGxtZW50Py5zdGFydD8udGltZSkgewogICAgICBmdWxmaWxsbWVudC5zdGFydC50aW1lLnRpbWVzdGFtcCA9IGRlZmF1bHRQYXlsb2FkLmNvbnRleHQudGltZXN0YW1wOwogICAgfQogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLmRvY3VtZW50cyA9IFsKICAgICAgewogICAgICAgIHVybDogYGh0dHBzOi8vc25wLmNvbS9pbnZvaWNlLyR7cGF5bG9hZC5tZXNzYWdlLm9yZGVyLmlkfS5wZGZgLAogICAgICAgIGxhYmVsOiAiSW52b2ljZSIKICAgICAgfQogICAgXTsKICAgIHBheWxvYWQubWVzc2FnZS5vcmRlciA9IHVwZGF0ZVBheW1lbnRzT25EZWxpdmVyeSgKICAgICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyCiAgICApOwogIH0KCiAgcmV0dXJuIHBheWxvYWQ7Cn0K
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -1177,7 +1177,7 @@ steps:
           message_id: M12
           city: std:080
           country: IND
-          timestamp: "2025-01-08T10:00:30.000Z"
+          timestamp: 2025-01-08T10:00:30.000Z
           ttl: PT30S
         message:
           order:
@@ -1205,8 +1205,8 @@ steps:
                 area_code: "560037"
               email: nobody@nomail.com
               phone: "9886098860"
-              created_at: "2025-01-08T09:00:00.000Z"
-              updated_at: "2025-01-08T09:00:00.000Z"
+              created_at: 2025-01-08T09:00:00.000Z
+              updated_at: 2025-01-08T09:00:00.000Z
             fulfillments:
               - id: F1
                 "@ondc/org/provider_name": ABC Store
@@ -1227,7 +1227,7 @@ steps:
                       area_code: "560076"
                       state: KA
                   time:
-                    timestamp: "2025-01-08T10:00:30.000Z"
+                    timestamp: 2025-01-08T10:00:30.000Z
                   contact:
                     phone: "9886098860"
                     email: nobody@nomail.com
@@ -1243,7 +1243,7 @@ steps:
                       country: IND
                       area_code: "560037"
                   time:
-                    timestamp: "2025-01-08T10:30:00.000Z"
+                    timestamp: 2025-01-08T10:30:00.000Z
                   person:
                     name: name_of_person
                   contact:
@@ -1335,8 +1335,8 @@ steps:
                   amount: "66014.00"
                   currency: INR
                   transaction_id: payment-utr-5678
-            created_at: "2025-01-08T09:30:00.000Z"
-            updated_at: "2025-01-08T10:00:30.000Z"
+            created_at: 2025-01-08T09:30:00.000Z
+            updated_at: 2025-01-08T10:00:30.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1363,7 +1363,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: badbcbd9-b510-4409-9d18-afb310620b6b
-            timestamp: "2026-03-05T12:27:53.632Z"
+            timestamp: 2026-03-05T12:27:53.632Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -1377,12 +1377,12 @@ steps:
                   locality: My Street
                   name: My Address
                   state: Karnataka
-                created_at: "2026-03-05T12:27:38.328Z"
+                created_at: 2026-03-05T12:27:38.328Z
                 email: buyer@test.com
                 name: ONDC buyer
                 phone: "9886098860"
-                updated_at: "2026-03-05T12:27:38.328Z"
-              created_at: "2026-03-05T12:27:38.328Z"
+                updated_at: 2026-03-05T12:27:38.328Z
+              created_at: 2026-03-05T12:27:38.328Z
               fulfillments:
                 - "@ondc/org/TAT": PT15M
                   "@ondc/org/provider_name": ABC Store
@@ -1404,8 +1404,8 @@ steps:
                       name: Customer
                     time:
                       range:
-                        end: "2026-03-05T12:37:53.657Z"
-                        start: "2026-03-05T12:47:53.657Z"
+                        end: 2026-03-05T12:37:53.657Z
+                        start: 2026-03-05T12:47:53.657Z
                   id: F1
                   start:
                     contact:
@@ -1423,8 +1423,8 @@ steps:
                       id: L1
                     time:
                       range:
-                        end: "2026-03-05T12:47:53.657Z"
-                        start: "2026-03-05T12:37:53.657Z"
+                        end: 2026-03-05T12:47:53.657Z
+                        start: 2026-03-05T12:37:53.657Z
                   state:
                     descriptor:
                       code: Pending
@@ -1529,14 +1529,14 @@ steps:
                 ttl: P1D
               state: In-progress
               type: ILBN
-              updated_at: "2026-03-05T12:27:53.632Z"
+              updated_at: 2026-03-05T12:27:53.632Z
         type: request
   - api: on_status
     action_id: on_status_order_packed
     owner: BPP
     responseFor: null
     unsolicited: true
-    description: please add relevant description
+    description: The BPP reports the current status of the self-pickup order, confirming fulfillment progress and updating the order state with relevant fulfillment details to the buyer app.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICoKICogQHBhcmFtIHtPYmplY3R9IGRlZmF1bHRQYXlsb2FkIC0gVGhlIGJhc2UgcGF5bG9hZCBvYmplY3Qgd2l0aCBjb250ZXh0IGFscmVhZHkgcG9wdWxhdGVkLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiBAcmV0dXJucyB7T2JqZWN0fSBUaGUgZ2VuZXJhdGVkIHBheWxvYWQgb2JqZWN0IHRvIGJlIHNlbnQgaW4gdGhlIEFQSSByZXF1ZXN0LgogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgcGF5bG9hZCA9IGNyZWF0ZUdlbmVyaWNPblN0YXR1cyhkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwogIGNvbnN0IGxhdGVzdCA9ICh2YWx1ZSkgPT4KICAgIEFycmF5LmlzQXJyYXkodmFsdWUpID8gdmFsdWVbdmFsdWUubGVuZ3RoIC0gMV0gOiB2YWx1ZTsKICBjb25zdCBzYXZlZEZ1bGZpbGxtZW50cyA9CiAgICBsYXRlc3Qoc2Vzc2lvbkRhdGEub25fc3RhdHVzX2Z1bGZpbGxtZW50cykgfHwKICAgIGxhdGVzdChzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpIHx8CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzIHx8CiAgICBbXTsKCiAgcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBsYXRlc3Qoc2Vzc2lvbkRhdGEuY2l0eV9jb2RlKSB8fCBwYXlsb2FkLmNvbnRleHQuY2l0eTsKICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2F2ZWRGdWxmaWxsbWVudHMubWFwKChmdWxmaWxsbWVudCkgPT4gKHsKICAgIC4uLmZ1bGZpbGxtZW50LAogICAgdHlwZTogIlNlbGYtUGlja3VwIiwKICAgICJAb25kYy9vcmcvVEFUIjogIlBUMTVNIiwKICAgIHRyYWNraW5nOiBmYWxzZSwKICAgIHN0YXRlOiB7CiAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICBjb2RlOiAiUGFja2VkIgogICAgICB9CiAgICB9CiAgfSkpOwogIHBheWxvYWQubWVzc2FnZS5vcmRlci5zdGF0ZSA9ICJJbi1wcm9ncmVzcyI7CiAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyLnVwZGF0ZWRfYXQgPSBkZWZhdWx0UGF5bG9hZC5jb250ZXh0LnRpbWVzdGFtcDsKCiAgaWYgKGZhbHNlKSB7CiAgICBjb25zdCBmdWxmaWxsbWVudCA9IHBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF07CiAgICBpZiAoZnVsZmlsbG1lbnQ/LnN0YXJ0Py50aW1lKSB7CiAgICAgIGZ1bGZpbGxtZW50LnN0YXJ0LnRpbWUudGltZXN0YW1wID0gZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXA7CiAgICB9CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZG9jdW1lbnRzID0gWwogICAgICB7CiAgICAgICAgdXJsOiBgaHR0cHM6Ly9zbnAuY29tL2ludm9pY2UvJHtwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWR9LnBkZmAsCiAgICAgICAgbGFiZWw6ICJJbnZvaWNlIgogICAgICB9CiAgICBdOwogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyID0gdXBkYXRlUGF5bWVudHNPbkRlbGl2ZXJ5KAogICAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIKICAgICk7CiAgfQoKICByZXR1cm4gcGF5bG9hZDsKfQo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -1554,7 +1554,7 @@ steps:
           message_id: M12
           city: std:080
           country: IND
-          timestamp: "2025-01-08T10:00:30.000Z"
+          timestamp: 2025-01-08T10:00:30.000Z
           ttl: PT30S
         message:
           order:
@@ -1582,8 +1582,8 @@ steps:
                 area_code: "560037"
               email: nobody@nomail.com
               phone: "9886098860"
-              created_at: "2025-01-08T09:00:00.000Z"
-              updated_at: "2025-01-08T09:00:00.000Z"
+              created_at: 2025-01-08T09:00:00.000Z
+              updated_at: 2025-01-08T09:00:00.000Z
             fulfillments:
               - id: F1
                 "@ondc/org/provider_name": ABC Store
@@ -1604,7 +1604,7 @@ steps:
                       area_code: "560076"
                       state: KA
                   time:
-                    timestamp: "2025-01-08T10:00:30.000Z"
+                    timestamp: 2025-01-08T10:00:30.000Z
                   contact:
                     phone: "9886098860"
                     email: nobody@nomail.com
@@ -1620,7 +1620,7 @@ steps:
                       country: IND
                       area_code: "560037"
                   time:
-                    timestamp: "2025-01-08T10:30:00.000Z"
+                    timestamp: 2025-01-08T10:30:00.000Z
                   person:
                     name: name_of_person
                   contact:
@@ -1712,8 +1712,8 @@ steps:
                   amount: "66014.00"
                   currency: INR
                   transaction_id: payment-utr-5678
-            created_at: "2025-01-08T09:30:00.000Z"
-            updated_at: "2025-01-08T10:00:30.000Z"
+            created_at: 2025-01-08T09:30:00.000Z
+            updated_at: 2025-01-08T10:00:30.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -1740,7 +1740,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: badbcbd9-b510-4409-9d18-afb310620b6b
-            timestamp: "2026-03-05T12:27:53.632Z"
+            timestamp: 2026-03-05T12:27:53.632Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -1754,12 +1754,12 @@ steps:
                   locality: My Street
                   name: My Address
                   state: Karnataka
-                created_at: "2026-03-05T12:27:38.328Z"
+                created_at: 2026-03-05T12:27:38.328Z
                 email: buyer@test.com
                 name: ONDC buyer
                 phone: "9886098860"
-                updated_at: "2026-03-05T12:27:38.328Z"
-              created_at: "2026-03-05T12:27:38.328Z"
+                updated_at: 2026-03-05T12:27:38.328Z
+              created_at: 2026-03-05T12:27:38.328Z
               fulfillments:
                 - "@ondc/org/TAT": PT15M
                   "@ondc/org/provider_name": ABC Store
@@ -1781,8 +1781,8 @@ steps:
                       name: Customer
                     time:
                       range:
-                        end: "2026-03-05T12:37:53.657Z"
-                        start: "2026-03-05T12:47:53.657Z"
+                        end: 2026-03-05T12:37:53.657Z
+                        start: 2026-03-05T12:47:53.657Z
                   id: F1
                   start:
                     contact:
@@ -1800,8 +1800,8 @@ steps:
                       id: L1
                     time:
                       range:
-                        end: "2026-03-05T12:47:53.657Z"
-                        start: "2026-03-05T12:37:53.657Z"
+                        end: 2026-03-05T12:47:53.657Z
+                        start: 2026-03-05T12:37:53.657Z
                   state:
                     descriptor:
                       code: Packed
@@ -1906,14 +1906,14 @@ steps:
                 ttl: P1D
               state: In-progress
               type: ILBN
-              updated_at: "2026-03-05T12:27:53.632Z"
+              updated_at: 2026-03-05T12:27:53.632Z
         type: request
   - api: on_status
     action_id: on_status_order_picked_up
     owner: BPP
     responseFor: null
     unsolicited: true
-    description: please add relevant description
+    description: The BPP provides the current status of the self-pickup fulfillment to the BAP, confirming the order's progress and updating the transaction with real-time pickup status within the grocery domain.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICoKICogQHBhcmFtIHtPYmplY3R9IGRlZmF1bHRQYXlsb2FkIC0gVGhlIGJhc2UgcGF5bG9hZCBvYmplY3Qgd2l0aCBjb250ZXh0IGFscmVhZHkgcG9wdWxhdGVkLgogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiBAcmV0dXJucyB7T2JqZWN0fSBUaGUgZ2VuZXJhdGVkIHBheWxvYWQgb2JqZWN0IHRvIGJlIHNlbnQgaW4gdGhlIEFQSSByZXF1ZXN0LgogKi8KYXN5bmMgZnVuY3Rpb24gZ2VuZXJhdGUoZGVmYXVsdFBheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgcGF5bG9hZCA9IGNyZWF0ZUdlbmVyaWNPblN0YXR1cyhkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpOwogIGNvbnN0IGxhdGVzdCA9ICh2YWx1ZSkgPT4KICAgIEFycmF5LmlzQXJyYXkodmFsdWUpID8gdmFsdWVbdmFsdWUubGVuZ3RoIC0gMV0gOiB2YWx1ZTsKICBjb25zdCBzYXZlZEZ1bGZpbGxtZW50cyA9CiAgICBsYXRlc3Qoc2Vzc2lvbkRhdGEub25fc3RhdHVzX2Z1bGZpbGxtZW50cykgfHwKICAgIGxhdGVzdChzZXNzaW9uRGF0YS5mdWxmaWxsbWVudHMpIHx8CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzIHx8CiAgICBbXTsKCiAgcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBsYXRlc3Qoc2Vzc2lvbkRhdGEuY2l0eV9jb2RlKSB8fCBwYXlsb2FkLmNvbnRleHQuY2l0eTsKICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZnVsZmlsbG1lbnRzID0gc2F2ZWRGdWxmaWxsbWVudHMubWFwKChmdWxmaWxsbWVudCkgPT4gKHsKICAgIC4uLmZ1bGZpbGxtZW50LAogICAgdHlwZTogIlNlbGYtUGlja3VwIiwKICAgICJAb25kYy9vcmcvVEFUIjogIlBUMTVNIiwKICAgIHRyYWNraW5nOiBmYWxzZSwKICAgIHN0YXRlOiB7CiAgICAgIGRlc2NyaXB0b3I6IHsKICAgICAgICBjb2RlOiAiT3JkZXItcGlja2VkLXVwIgogICAgICB9CiAgICB9CiAgfSkpOwogIHBheWxvYWQubWVzc2FnZS5vcmRlci5zdGF0ZSA9ICJDb21wbGV0ZWQiOwogIHBheWxvYWQubWVzc2FnZS5vcmRlci51cGRhdGVkX2F0ID0gZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXA7CgogIGlmICh0cnVlKSB7CiAgICBjb25zdCBmdWxmaWxsbWVudCA9IHBheWxvYWQubWVzc2FnZS5vcmRlci5mdWxmaWxsbWVudHNbMF07CiAgICBpZiAoZnVsZmlsbG1lbnQ/LnN0YXJ0Py50aW1lKSB7CiAgICAgIGZ1bGZpbGxtZW50LnN0YXJ0LnRpbWUudGltZXN0YW1wID0gZGVmYXVsdFBheWxvYWQuY29udGV4dC50aW1lc3RhbXA7CiAgICB9CiAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuZG9jdW1lbnRzID0gWwogICAgICB7CiAgICAgICAgdXJsOiBgaHR0cHM6Ly9zbnAuY29tL2ludm9pY2UvJHtwYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaWR9LnBkZmAsCiAgICAgICAgbGFiZWw6ICJJbnZvaWNlIgogICAgICB9CiAgICBdOwogICAgcGF5bG9hZC5tZXNzYWdlLm9yZGVyID0gdXBkYXRlUGF5bWVudHNPbkRlbGl2ZXJ5KAogICAgICBwYXlsb2FkLm1lc3NhZ2Uub3JkZXIKICAgICk7CiAgfQoKICByZXR1cm4gcGF5bG9hZDsKfQo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -1931,7 +1931,7 @@ steps:
           message_id: M12
           city: std:080
           country: IND
-          timestamp: "2025-01-08T10:00:30.000Z"
+          timestamp: 2025-01-08T10:00:30.000Z
           ttl: PT30S
         message:
           order:
@@ -1959,8 +1959,8 @@ steps:
                 area_code: "560037"
               email: nobody@nomail.com
               phone: "9886098860"
-              created_at: "2025-01-08T09:00:00.000Z"
-              updated_at: "2025-01-08T09:00:00.000Z"
+              created_at: 2025-01-08T09:00:00.000Z
+              updated_at: 2025-01-08T09:00:00.000Z
             fulfillments:
               - id: F1
                 "@ondc/org/provider_name": ABC Store
@@ -1981,7 +1981,7 @@ steps:
                       area_code: "560076"
                       state: KA
                   time:
-                    timestamp: "2025-01-08T10:00:30.000Z"
+                    timestamp: 2025-01-08T10:00:30.000Z
                   contact:
                     phone: "9886098860"
                     email: nobody@nomail.com
@@ -1997,7 +1997,7 @@ steps:
                       country: IND
                       area_code: "560037"
                   time:
-                    timestamp: "2025-01-08T10:30:00.000Z"
+                    timestamp: 2025-01-08T10:30:00.000Z
                   person:
                     name: name_of_person
                   contact:
@@ -2092,8 +2092,8 @@ steps:
             documents:
               - url: https://invoice_url
                 label: Invoice
-            created_at: "2025-01-08T09:30:00.000Z"
-            updated_at: "2025-01-08T10:00:30.000Z"
+            created_at: 2025-01-08T09:30:00.000Z
+            updated_at: 2025-01-08T10:00:30.000Z
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -2120,7 +2120,7 @@ steps:
             country: IND
             domain: ONDC:RETINVL
             message_id: badbcbd9-b510-4409-9d18-afb310620b6b
-            timestamp: "2026-03-05T12:27:53.632Z"
+            timestamp: 2026-03-05T12:27:53.632Z
             transaction_id: e2acb92f-1a70-428f-b092-0b8762029183
             ttl: PT30S
           message:
@@ -2134,12 +2134,12 @@ steps:
                   locality: My Street
                   name: My Address
                   state: Karnataka
-                created_at: "2026-03-05T12:27:38.328Z"
+                created_at: 2026-03-05T12:27:38.328Z
                 email: buyer@test.com
                 name: ONDC buyer
                 phone: "9886098860"
-                updated_at: "2026-03-05T12:27:38.328Z"
-              created_at: "2026-03-05T12:27:38.328Z"
+                updated_at: 2026-03-05T12:27:38.328Z
+              created_at: 2026-03-05T12:27:38.328Z
               fulfillments:
                 - "@ondc/org/TAT": PT15M
                   "@ondc/org/provider_name": ABC Store
@@ -2161,8 +2161,8 @@ steps:
                       name: Customer
                     time:
                       range:
-                        end: "2026-03-05T12:37:53.657Z"
-                        start: "2026-03-05T12:47:53.657Z"
+                        end: 2026-03-05T12:37:53.657Z
+                        start: 2026-03-05T12:47:53.657Z
                   id: F1
                   start:
                     contact:
@@ -2180,8 +2180,8 @@ steps:
                       id: L1
                     time:
                       range:
-                        end: "2026-03-05T12:47:53.657Z"
-                        start: "2026-03-05T12:37:53.657Z"
+                        end: 2026-03-05T12:47:53.657Z
+                        start: 2026-03-05T12:37:53.657Z
                   state:
                     descriptor:
                       code: Order-picked-up
@@ -2286,7 +2286,7 @@ steps:
                 ttl: P1D
               state: Completed
               type: ILBN
-              updated_at: "2026-03-05T12:27:53.632Z"
+              updated_at: 2026-03-05T12:27:53.632Z
         type: request
 transaction_history:
   - action_id: init_1
@@ -2294,7 +2294,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: init
-        timestamp: "2026-03-19T08:09:19.688Z"
+        timestamp: 2026-03-19T08:09:19.688Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: 7990202b-13b3-4c2c-ad1f-9a3d99f2a637
         bap_id: bap.example.com
@@ -2335,7 +2335,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: on_init
-        timestamp: "2026-03-19T08:09:23.207Z"
+        timestamp: 2026-03-19T08:09:23.207Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: 7990202b-13b3-4c2c-ad1f-9a3d99f2a637
         bap_id: bap.example.com
@@ -2409,7 +2409,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: confirm
-        timestamp: "2026-03-19T08:09:24.745Z"
+        timestamp: 2026-03-19T08:09:24.745Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: 4f3482a3-e148-48f2-8110-8e96219d7aba
         bap_id: bap.example.com
@@ -2446,8 +2446,8 @@ transaction_history:
               area_code: "560002"
             phone: "9886098860"
             email: buyer@test.com
-            created_at: "2026-03-19T08:09:24.745Z"
-            updated_at: "2026-03-19T08:09:24.745Z"
+            created_at: 2026-03-19T08:09:24.745Z
+            updated_at: 2026-03-19T08:09:24.745Z
           fulfillments:
             - id: F1
               type: Self-Pickup
@@ -2485,8 +2485,8 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: "2026-03-19T08:09:24.745Z"
-          updated_at: "2026-03-19T08:09:24.745Z"
+          created_at: 2026-03-19T08:09:24.745Z
+          updated_at: 2026-03-19T08:09:24.745Z
     action: confirm
     saved_info: {}
   - action_id: on_confirm_1
@@ -2494,7 +2494,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: on_confirm
-        timestamp: "2026-03-19T08:09:24.789Z"
+        timestamp: 2026-03-19T08:09:24.789Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: 4f3482a3-e148-48f2-8110-8e96219d7aba
         bap_id: bap.example.com
@@ -2531,8 +2531,8 @@ transaction_history:
               area_code: "560002"
             phone: "9886098860"
             email: buyer@test.com
-            created_at: "2026-03-19T08:09:24.745Z"
-            updated_at: "2026-03-19T08:09:24.745Z"
+            created_at: 2026-03-19T08:09:24.745Z
+            updated_at: 2026-03-19T08:09:24.745Z
           fulfillments:
             - id: F1
               type: Self-Pickup
@@ -2569,8 +2569,8 @@ transaction_history:
                     area_code: "560002"
                 time:
                   range:
-                    start: "2026-03-19T09:09:24.789Z"
-                    end: "2026-03-19T09:39:24.789Z"
+                    start: 2026-03-19T09:09:24.789Z
+                    end: 2026-03-19T09:39:24.789Z
                 person:
                   name: Customer
                 contact:
@@ -2629,8 +2629,8 @@ transaction_history:
                   value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                 - code: tax_number
                   value: gst_number_of_buyerNP
-          created_at: "2026-03-19T08:09:24.745Z"
-          updated_at: "2026-03-19T08:09:24.789Z"
+          created_at: 2026-03-19T08:09:24.745Z
+          updated_at: 2026-03-19T08:09:24.789Z
     action: on_confirm
     saved_info: {}
   - action_id: on_status_pending
@@ -2638,7 +2638,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: on_status
-        timestamp: "2026-03-19T08:09:24.806Z"
+        timestamp: 2026-03-19T08:09:24.806Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: 9279a7be-ab45-4f29-aa92-6c548dcabd65
         bap_id: bap.example.com
@@ -2675,8 +2675,8 @@ transaction_history:
               area_code: "560002"
             phone: "9886098860"
             email: buyer@test.com
-            created_at: "2026-03-19T08:09:24.745Z"
-            updated_at: "2026-03-19T08:09:24.745Z"
+            created_at: 2026-03-19T08:09:24.745Z
+            updated_at: 2026-03-19T08:09:24.745Z
           fulfillments:
             - id: F1
               type: Self-Pickup
@@ -2702,8 +2702,8 @@ transaction_history:
                   email: nobody@nomail.com
                 time:
                   range:
-                    start: "2026-03-19T08:19:24.859Z"
-                    end: "2026-03-19T08:29:24.859Z"
+                    start: 2026-03-19T08:19:24.859Z
+                    end: 2026-03-19T08:29:24.859Z
               end:
                 location:
                   gps: 12.4535,77.9283
@@ -2717,8 +2717,8 @@ transaction_history:
                     area_code: "560002"
                 time:
                   range:
-                    start: "2026-03-19T08:29:24.859Z"
-                    end: "2026-03-19T08:19:24.859Z"
+                    start: 2026-03-19T08:29:24.859Z
+                    end: 2026-03-19T08:19:24.859Z
                 person:
                   name: Customer
                 contact:
@@ -2770,8 +2770,8 @@ transaction_history:
                 amount: "10844.00"
                 currency: INR
                 transaction_id: UTR-1773907764746
-          created_at: "2026-03-19T08:09:24.745Z"
-          updated_at: "2026-03-19T08:09:24.806Z"
+          created_at: 2026-03-19T08:09:24.745Z
+          updated_at: 2026-03-19T08:09:24.806Z
     action: on_status
     saved_info: {}
   - action_id: on_status_order_packed
@@ -2779,7 +2779,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: on_status
-        timestamp: "2026-03-19T08:09:24.869Z"
+        timestamp: 2026-03-19T08:09:24.869Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: d9ed7cd8-b5b4-4300-b40e-279dbcbfc711
         bap_id: bap.example.com
@@ -2816,8 +2816,8 @@ transaction_history:
               area_code: "560002"
             phone: "9886098860"
             email: buyer@test.com
-            created_at: "2026-03-19T08:09:24.745Z"
-            updated_at: "2026-03-19T08:09:24.745Z"
+            created_at: 2026-03-19T08:09:24.745Z
+            updated_at: 2026-03-19T08:09:24.745Z
           fulfillments:
             - id: F1
               type: Self-Pickup
@@ -2843,8 +2843,8 @@ transaction_history:
                   email: nobody@nomail.com
                 time:
                   range:
-                    start: "2026-03-19T08:19:24.859Z"
-                    end: "2026-03-19T08:29:24.859Z"
+                    start: 2026-03-19T08:19:24.859Z
+                    end: 2026-03-19T08:29:24.859Z
               end:
                 location:
                   gps: 12.4535,77.9283
@@ -2858,8 +2858,8 @@ transaction_history:
                     area_code: "560002"
                 time:
                   range:
-                    start: "2026-03-19T08:29:24.859Z"
-                    end: "2026-03-19T08:19:24.859Z"
+                    start: 2026-03-19T08:29:24.859Z
+                    end: 2026-03-19T08:19:24.859Z
                 person:
                   name: Customer
                 contact:
@@ -2911,8 +2911,8 @@ transaction_history:
                 amount: "10844.00"
                 currency: INR
                 transaction_id: UTR-1773907764746
-          created_at: "2026-03-19T08:09:24.745Z"
-          updated_at: "2026-03-19T08:09:24.869Z"
+          created_at: 2026-03-19T08:09:24.745Z
+          updated_at: 2026-03-19T08:09:24.869Z
     action: on_status
     saved_info: {}
   - action_id: on_status_order_picked_up
@@ -2920,7 +2920,7 @@ transaction_history:
       context:
         domain: ONDC:RETINVL
         action: on_status
-        timestamp: "2026-03-19T08:09:25.053Z"
+        timestamp: 2026-03-19T08:09:25.053Z
         transaction_id: 3d642d45-ec0a-4555-a115-da3a2145b66d
         message_id: fd5703b2-a2de-4956-b17c-a6d380958595
         bap_id: bap.example.com
@@ -2957,8 +2957,8 @@ transaction_history:
               area_code: "560002"
             phone: "9886098860"
             email: buyer@test.com
-            created_at: "2026-03-19T08:09:24.745Z"
-            updated_at: "2026-03-19T08:09:24.745Z"
+            created_at: 2026-03-19T08:09:24.745Z
+            updated_at: 2026-03-19T08:09:24.745Z
           fulfillments:
             - id: F1
               type: Self-Pickup
@@ -2984,9 +2984,9 @@ transaction_history:
                   email: nobody@nomail.com
                 time:
                   range:
-                    start: "2026-03-19T08:19:24.859Z"
-                    end: "2026-03-19T08:29:24.859Z"
-                  timestamp: "2026-03-19T08:09:25.053Z"
+                    start: 2026-03-19T08:19:24.859Z
+                    end: 2026-03-19T08:29:24.859Z
+                  timestamp: 2026-03-19T08:09:25.053Z
               end:
                 location:
                   gps: 12.4535,77.9283
@@ -3000,8 +3000,8 @@ transaction_history:
                     area_code: "560002"
                 time:
                   range:
-                    start: "2026-03-19T08:29:24.859Z"
-                    end: "2026-03-19T08:19:24.859Z"
+                    start: 2026-03-19T08:29:24.859Z
+                    end: 2026-03-19T08:19:24.859Z
                 person:
                   name: Customer
                 contact:
@@ -3056,8 +3056,8 @@ transaction_history:
           documents:
             - url: https://snp.com/invoice/78398891-f1cc-4c66-ba30-af119a6bb66e.pdf
               label: Invoice
-          created_at: "2026-03-19T08:09:24.745Z"
-          updated_at: "2026-03-19T08:09:25.053Z"
+          created_at: 2026-03-19T08:09:24.745Z
+          updated_at: 2026-03-19T08:09:25.053Z
     action: on_status
     saved_info: {}
 validationLib: ""
