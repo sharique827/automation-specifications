@@ -7,7 +7,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Cancellation Flow for Logistics
+    description: This flow enables a buyer to cancel a logistics order placed via the ONDC platform, triggering a full end-to-end cancellation process from search to final cancellation confirmation, ensuring compliance with NIC2004:60232 and maintaining transaction integrity across the supply chain.
     config:
       $ref: ./Logistics (NIC2004:60232)/BUYER_SIDE_ORDER_CANCELLATION.yaml
   - type: playground
@@ -18,7 +18,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow for Logistics
+    description: This flow represents the end-to-end delivery process for logistics services, encompassing order search, initialization, confirmation, status updates, and real-time tracking as per NIC 2004:60232 requirements.
     config:
       $ref: ./Logistics (NIC2004:60232)/ORDER_FLOW_BASELINE.yaml
   - type: playground
@@ -29,7 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery Flow without rts Logistics
+    description: This flow represents the end-to-end delivery process for a logistics order, from initial search and order initiation to confirmation and status updates, without real-time tracking, as per NIC2004:60232. It captures the core logistics transaction lifecycle for order fulfillment and status monitoring in a standard, reportable workflow.
     config:
       $ref: ./Logistics (NIC2004:60232)/ORDER_FLOW_BASELINE_without_rts_.yaml
   - type: playground
@@ -40,18 +40,15 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: RTO Flow for Logistics
+    description: The RTO Flow enables end-to-end tracking and status updates for logistics shipments, ensuring real-time visibility and accountability from order search to cancellation, in compliance with NIC2004:60232.
     config:
       $ref: ./Logistics (NIC2004:60232)/RTO_FLOW.yaml
-
   - type: playground
     id: ORDER_FLOW_BASELINE_WITH_IGM(v-1.0.0)
     usecase: Logistics (NIC2004:60232)
     tags:
       - WORKBENCH
-      # - PRAMAAN
       - MANDATORY
-      # - REPORTABLE
-    description: Order Flow (Baseline) With IGM v-1.0.0
+    description: This flow enables end-to-end order processing for logistics services, from item search and initialization to IGM (International Goods Manifest) issuance and real-time status updates, ensuring traceability and compliance for cargo movement under NIC 2004:60232.
     config:
       $ref: ./Logistics (NIC2004:60232)/ORDER_FLOW_BASELINE_WITH_IGM_v_1.0.0.yaml
