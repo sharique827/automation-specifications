@@ -2037,10 +2037,12 @@ _TESTS_:
                           attr: $.message.order.quote.breakup[*].item.quantity.maximum.count
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
+                          _CONTINUE_: "!(attr are present)"
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
+                          _CONTINUE_: "!(attr are present)"
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.value
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
@@ -4003,11 +4005,11 @@ _TESTS_:
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.currency
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.value
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.value
                           _RETURN_: attr are present
             - _NAME_: QUOTE_TTL
               attr: $.message.order.quote.ttl
