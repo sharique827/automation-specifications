@@ -4716,6 +4716,8 @@ _TESTS_:
         - cod_collection_detail
         - fulfill_request
         - fulfill_response
+        - fulfillment_delay
+        - fulfillment_proof
         - rider_details
         - rto_event
         - reverseqc_output
@@ -4821,6 +4823,14 @@ _TESTS_:
         - order_count
         - rate_basis
         - diff_value
+      _RETURN_: subTags all in validValues
+    - _NAME_: validate_tag_2_fulfillment_proof
+      _SCOPE_: $.message.order.fulfillments[*].tags[?(@.code=='fulfillment_proof')]
+      subTags: $.list[*].code
+      validValues:
+        - state
+        - type
+        - url
       _RETURN_: subTags all in validValues
     - _NAME_: validate_tag_2_rider_details
       _SCOPE_: $.message.order.fulfillments[*].tags[?(@.code=='rider_details')]
