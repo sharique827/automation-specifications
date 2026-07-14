@@ -69,6 +69,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_GPS
       attr: $.message.intent.fulfillment.start.location.gps
       _RETURN_: attr are present
@@ -356,6 +357,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_GPS
       attr: $.message.order.fulfillments[*].start.location.gps
       _RETURN_: attr are present
@@ -723,6 +725,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_DURATION_29
       attr: $.message.order.fulfillments[*].start.time.duration
       _RETURN_: attr are present
@@ -1542,6 +1545,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_UPDATED_AT
       attr: $.message.order.updated_at
       _RETURN_: attr are present
@@ -1815,6 +1819,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_ID_24
       attr: $.message.catalog['bpp/providers'][*].items[*].id
       _RETURN_: attr are present
@@ -2073,6 +2078,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_ID_16
       attr: $.message.order.fulfillments[*].start.location.id
       _RETURN_: attr are present
@@ -2461,6 +2467,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_CODE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present && attr all in enumList
@@ -2850,6 +2857,7 @@ _TESTS_:
         - rto_action
         - shipping_label
         - weather_check
+        - rto_verification
       tagPath: $.message.order.fulfillments[*].tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
@@ -2860,6 +2868,8 @@ _TESTS_:
         - id
         - name
         - address
+        - cred_code
+        - cred_desc
       _RETURN_: subTags all in validValues
     - _NAME_: validate_tag_3_linked_order
       _SCOPE_: $.message.order.fulfillments[*].tags[?(@.code=='linked_order')]
@@ -3191,6 +3201,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_CODE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present && attr all in enumList
@@ -3772,6 +3783,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_CODE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present && attr all in enumList
@@ -4414,6 +4426,7 @@ _TESTS_:
         - Delivery
         - Return
         - RTO
+        - FIFO
     - _NAME_: REQUIRED_MESSAGE_CODE
       attr: $.message.order.fulfillments[*].state.descriptor.code
       _RETURN_: attr are present && attr all in enumList
@@ -4729,6 +4742,7 @@ _TESTS_:
         - linked_order_diff
         - linked_order_diff_proof
         - tracking
+        - precancel_state
       tagPath: $.message.order.fulfillments[*].tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
@@ -4896,6 +4910,7 @@ _TESTS_:
         - diff_proof
         - bap_terms
         - bpp_terms
+        - lbnp_sla_terms
       tagPath: $.message.order.tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
