@@ -7,2237 +7,1295 @@ info:
   version: 1.2.5
   domain: ONDC:RETeB2B
 paths:
-  /cancel:
+  /search:
     post:
-      operationId: cancel
+      tags:
+        - ONDC Seller App
+        - ONDC Gateway
+      description: Search for services by intent
       requestBody:
-        required: true
+        description: Buyer searches for products and services
         content:
           application/json:
             schema:
+              additionalProperties: false
               type: object
               properties:
                 context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
+                  $ref: '#/components/schemas/Context'
                 message:
                   type: object
                   properties:
-                    order_id:
-                      type: string
-                    cancellation_reason_id:
-                      type: string
-                    descriptor:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                        short_desc:
-                          type: string
-                        tags: &tags
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                              list:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    code:
-                                      type: string
-                                    value:
-                                      type: string
-      responses: &responses
-        "200":
-          description: Synchronous ACK/NACK response
+                    intent:
+                      $ref: '#/components/schemas/Intent'
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
           content:
             application/json:
-              schema: &a1
+              schema:
                 type: object
                 properties:
-                  context:
-                    type: object
-                    properties:
-                      domain:
-                        type: string
-                      action:
-                        type: string
-                      timestamp:
-                        type: string
-                      transaction_id:
-                        type: string
-                      message_id:
-                        type: string
-                      bap_id:
-                        type: string
-                      bap_uri:
-                        type: string
-                      ttl:
-                        type: string
-                      bpp_id:
-                        type: string
-                      bpp_uri:
-                        type: string
-                      country:
-                        type: string
-                      city:
-                        type: string
-                      core_version:
-                        type: string
-                  message: &a2
+                  message:
                     type: object
                     properties:
                       ack:
-                        properties:
-                          status:
-                            enum:
-                              - ACK
-                              - NACK
-                          tags:
-                            description: A list of tags containing any additional information sent along
-                              with the Acknowledgement.
-                            type: array
-                            items:
-                              description: A collection of tag objects with group level attributes. For
-                                detailed documentation on the Tags and Tag
-                                Groups schema go to
-                                https://github.com/beckn/protocol-specifications/discussions/316
-                              type: object
-                              additionalProperties: false
-                              properties:
-                                display:
-                                  description: Indicates the display properties of the tag group. If display is
-                                    set to false, then the group will not be
-                                    displayed. If it is set to true, it should
-                                    be displayed. However, group-level display
-                                    properties can be overriden by individual
-                                    tag-level display property. As this schema
-                                    is purely for catalog display purposes, it
-                                    is not recommended to send this value during
-                                    search.
-                                  type: boolean
-                                  default: true
-                                descriptor:
-                                  description: Description of the TagGroup, can be used to store detailed
-                                    information.
-                                  properties: &properties
-                                    name:
-                                      type: string
-                                    code:
-                                      type: string
-                                    short_desc:
-                                      type: string
-                                    long_desc:
-                                      type: string
-                                    additional_desc:
-                                      type: object
-                                      additionalProperties: false
-                                      properties:
-                                        url:
-                                          type: string
-                                        content_type:
-                                          type: string
-                                          enum:
-                                            - text/plain
-                                            - text/html
-                                            - application/json
-                                    media:
-                                      type: array
-                                      items:
-                                        description: This object contains a url to a media file.
-                                        type: object
-                                        additionalProperties: false
-                                        properties:
-                                          mimetype:
-                                            description: indicates the nature and format of the document, file, or
-                                              assortment of bytes. MIME types
-                                              are defined and standardized in
-                                              IETF's RFC 6838
-                                            type: string
-                                          url:
-                                            description: The URL of the file
-                                            type: string
-                                            format: uri
-                                          signature:
-                                            description: The digital signature of the file signed by the sender
-                                            type: string
-                                          dsa:
-                                            description: The signing algorithm used by the sender
-                                            type: string
-                                    images:
-                                      type: array
-                                      items:
-                                        description: Describes an image
-                                        type: object
-                                        additionalProperties: false
-                                        properties:
-                                          url:
-                                            description: URL to the image. This can be a data url or an remote url
-                                            type: string
-                                            format: uri
-                                          size_type:
-                                            description: The size of the image. The network policy can define the default
-                                              dimensions of each type
-                                            type: string
-                                            enum:
-                                              - xs
-                                              - sm
-                                              - md
-                                              - lg
-                                              - xl
-                                              - custom
-                                          width:
-                                            description: Width of the image in pixels
-                                            type: string
-                                          height:
-                                            description: Height of the image in pixels
-                                            type: string
-                                  type: object
-                                list:
-                                  description: An array of Tag objects listed under this group. This property can
-                                    be set by BAPs during search to narrow the
-                                    `search` and achieve more relevant results.
-                                    When received during `on_search`, BAPs must
-                                    render this list under the heading described
-                                    by the `name` property of this schema.
-                                  type: array
-                                  items:
-                                    description: Describes a tag. This is used to contain extended metadata. This
-                                      object can be added as a property to any
-                                      schema to describe extended attributes.
-                                      For BAPs, tags can be sent during search
-                                      to optimize and filter search results.
-                                      BPPs can use tags to index their catalog
-                                      to allow better search functionality. Tags
-                                      are sent by the BPP as part of the catalog
-                                      response in the `on_search` callback. Tags
-                                      are also meant for display purposes. Upon
-                                      receiving a tag, BAPs are meant to render
-                                      them as name-value pairs. This is
-                                      particularly useful when rendering tabular
-                                      information about a product or service.
-                                    type: object
-                                    additionalProperties: false
-                                    properties:
-                                      descriptor:
-                                        description: Description of the Tag, can be used to store detailed information.
-                                        properties: *properties
-                                        type: object
-                                      value:
-                                        description: The value of the tag. This set by the BPP and rendered as-is by the
-                                          BAP.
-                                        type: string
-                                      display:
-                                        description: This value indicates if the tag is intended for display purposes.
-                                          If set to `true`, then this tag must
-                                          be displayed. If it is set to `false`,
-                                          it should not be displayed. This value
-                                          can override the group display value.
-                                        type: boolean
-                        description: Describes the acknowledgement sent in response to an API call. If
-                          the implementation uses HTTP/S, then Ack must be
-                          returned in the same session. Every API call to a BPP
-                          must be responded to with an Ack whether the BPP
-                          intends to respond with a callback or not. This has
-                          one property called `status` that indicates the status
-                          of the Acknowledgement.
-                        type: object
+                        $ref: '#/components/schemas/Ack'
                     required:
                       - ack
-                  error: &a3
-                    description: Describes an error object that is returned by a BAP, BPP or BG as a
-                      response or callback to an action by another network
-                      participant. This object is sent when any request received
-                      by a network participant is unacceptable. This object can
-                      be sent either during Ack or with the callback.
-                    type: object
-                    additionalProperties: false
-                    properties:
-                      code:
-                        type: string
-                        description: Standard error code. For full list of error codes, refer to
-                          docs/protocol-drafts/BECKN-005-ERROR-CODES-DRAFT-01.md
-                          of this repo"
-                      paths:
-                        type: string
-                        description: Path to json schema generating the error. Used only during json
-                          schema validation errors
-                      message:
-                        type: string
-                        description: Human readable message describing the error. Used mainly for
-                          logging. Not recommended to be shown to the user.
-  /confirm:
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /select:
     post:
-      operationId: confirm
+      tags:
+        - ONDC Seller App
+      description: Select items from the catalog and build your order
       requestBody:
-        required: true
+        description: Buyer selects one or more catalog items
         content:
           application/json:
             schema:
+              additionalProperties: false
               type: object
               properties:
                 context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
+                  $ref: '#/components/schemas/Context'
                 message:
                   type: object
                   properties:
                     order:
+                      description: Describes the details of an order
                       type: object
                       properties:
-                        id:
-                          type: string
-                        state:
-                          type: string
-                        provider: &provider
+                        provider:
                           type: object
                           properties:
                             id:
-                              type: string
-                            locations: &locations
+                              $ref: '#/components/schemas/Provider/properties/id'
+                            descriptor:
+                              $ref: '#/components/schemas/ProviderDescriptor'
+                            locations:
                               type: array
-                              items: &items_2
+                              maxItems: 1
+                              items:
                                 type: object
                                 properties:
                                   id:
-                                    type: string
-                        items: &items_3
+                                    $ref: >-
+                                      #/components/schemas/Location/properties/id
+                        items:
                           type: array
                           items:
+                            description: >-
+                              Describes a product or a service offered to the
+                              end consumer by the provider
                             type: object
                             properties:
                               id:
+                                description: >-
+                                  This is the most unique identifier of a
+                                  service item. An example of an Item ID could
+                                  be the SKU of a product.
                                 type: string
-                              fulfillment_id:
+                              descriptor:
+                                description: >-
+                                  Describes the description of a real-world
+                                  object.
+                                type: object
+                                properties:
+                                  tags:
+                                    type: array
+                                    items:
+                                      $ref: '#/components/schemas/TagGroup'
+                              location_id:
+                                description: >-
+                                  This is the most unique identifier of a
+                                  location item.
                                 type: string
-                              quantity: &quantity
+                              quantity:
+                                description: quantity
                                 type: object
                                 properties:
                                   count:
                                     type: integer
-                              location_id:
-                                type: string
-                              tags: &tags_2
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    list: &list
-                                      type: array
-                                      items:
-                                        type: object
-                                        properties:
-                                          value:
-                                            type: string
-                        billing: &billing
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                            address: &address
-                              type: object
-                              properties:
-                                name:
-                                  type: string
-                                building:
-                                  type: string
-                                locality:
-                                  type: string
-                                city:
-                                  type: string
-                                state:
-                                  type: string
-                                country:
-                                  type: string
-                                area_code:
-                                  type: string
-                            tax_number:
-                              type: string
-                            email:
-                              type: string
-                            phone:
-                              type: string
-                            created_at:
-                              type: string
-                            updated_at:
-                              type: string
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              type:
-                                type: string
-                              "@ondc/org/TAT":
-                                type: string
-                              tracking:
-                                type: boolean
-                              end:
-                                type: object
-                                properties:
-                                  location: &location
-                                    type: object
-                                    properties:
-                                      gps:
-                                        type: string
-                                      address: *address
-                                  contact: &contact
-                                    type: object
-                                    properties:
-                                      phone:
-                                        type: string
-                                      email:
-                                        type: string
-                                  person: &person
-                                    type: object
-                                    properties:
-                                      name:
-                                        type: string
-                              customer: &customer
-                                type: object
-                                properties:
-                                  id:
-                                    type: string
-                                  organization: &organization
-                                    type: object
-                                    properties:
-                                      descriptor: *person
-                                      address:
-                                        type: string
-                                      city: &city
-                                        type: object
-                                        properties:
-                                          code:
-                                            type: string
-                                      state: *city
-                                  person:
-                                    type: object
-                                    properties:
-                                      creds: &creds
-                                        type: array
-                                        items:
-                                          type: object
-                                          properties:
-                                            type:
-                                              type: string
-                                            id:
-                                              type: string
-                                  contact: *contact
-                        quote: &quote
-                          type: object
-                          properties:
-                            price: &price
-                              type: object
-                              properties:
-                                currency:
-                                  type: string
-                                value:
-                                  type: string
-                            breakup:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  "@ondc/org/item_id":
-                                    type: string
-                                  "@ondc/org/item_quantity": *quantity
-                                  title:
-                                    type: string
-                                  "@ondc/org/title_type":
-                                    type: string
-                                  price: *price
-                                  item:
-                                    type: object
-                                    properties:
-                                      quantity:
-                                        type: object
-                                        properties:
-                                          available: &available
-                                            type: object
-                                            properties:
-                                              count:
-                                                type: string
-                                          maximum: *available
-                                          minimum: *available
-                                      price: *price
-                                      tags: *tags
-                                      parent_item_id:
-                                        type: string
-                                  ttl:
-                                    type: string
-                            ttl:
-                              type: string
-                        payments: &payments
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              uri:
-                                type: string
-                              tl_method:
-                                type: string
-                              params: &params
-                                type: object
-                                properties:
-                                  currency:
-                                    type: string
-                                  transaction_id:
-                                    type: string
-                                  amount:
-                                    type: string
-                              status:
-                                type: string
-                              type:
-                                type: string
-                              collected_by:
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
-                                type: string
-                              "@ondc/org/settlement_basis":
-                                type: string
-                              "@ondc/org/settlement_window":
-                                type: string
-                              "@ondc/org/withholding_amount":
-                                type: string
-                              "@ondc/org/settlement_details": &ondc_org_settlement_details
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    settlement_counterparty:
-                                      type: string
-                                    settlement_phase:
-                                      type: string
-                                    settlement_type:
-                                      type: string
-                                    beneficiary_name:
-                                      type: string
-                                    upi_address:
-                                      type: string
-                                    settlement_bank_account_no:
-                                      type: string
-                                    settlement_ifsc_code:
-                                      type: string
-                                    bank_name:
-                                      type: string
-                                    branch_name:
-                                      type: string
-                              time: &time
-                                type: object
-                                properties:
-                                  timestamp:
-                                    type: string
-                              tags: *tags_2
-                        tags: *tags
-                        created_at:
-                          type: string
-                        updated_at:
-                          type: string
-                        offers: *locations
-      responses: *responses
-  /init:
-    post:
-      operationId: init
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        provider: *provider
-                        items: &items
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              location_id:
-                                type: string
-                              quantity: *quantity
-                              fulfillment_id:
-                                type: string
-                        offers: &offers
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              tags: *tags_2
-                        billing: *billing
-                        payments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              type:
-                                type: string
-                              collected_by:
-                                type: string
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              type:
-                                type: string
-                              end: &end
-                                type: object
-                                properties:
-                                  location: *location
-                                  contact:
-                                    type: object
-                                    properties:
-                                      phone:
-                                        type: string
-                              customer: *customer
-                        quote:
-                          type: object
-                          properties:
-                            price: *price
-                            breakup:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  "@ondc/org/item_id":
-                                    type: string
-                                  "@ondc/org/item_quantity": *quantity
-                                  title:
-                                    type: string
-                                  "@ondc/org/title_type":
-                                    type: string
-                                  price: *price
-                                  item:
-                                    type: object
-                                    properties:
-                                      quantity: &quantity_2
-                                        type: object
-                                        properties:
-                                          available: *available
-                                          maximum: *available
-                                      price: *price
-                                      tags: *tags
-                            ttl:
-                              type: string
-                        tags: *tags_2
-      responses: *responses
-  /on_cancel:
-    post:
-      operationId: on_cancel
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        state:
-                          type: string
-                        items: *items
-                        provider: *provider
-                        billing: *billing
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              "@ondc/org/provider_name":
-                                type: string
-                              state: &state
-                                type: object
-                                properties:
-                                  descriptor: *city
-                              type:
-                                type: string
-                              tracking:
-                                type: boolean
-                              "@ondc/org/TAT":
-                                type: string
-                              start:
-                                type: object
-                                properties:
-                                  location: &location_2
-                                    type: object
-                                    properties:
-                                      id:
-                                        type: string
-                                      descriptor: *person
-                                      gps:
-                                        type: string
-                                      address: *address
-                                  contact: *contact
-                                  person: *person
-                                  time: &time_5
-                                    type: object
-                                    properties:
-                                      timestamp:
-                                        type: string
-                                      range: &range
-                                        type: object
-                                        properties:
-                                          start:
-                                            type: string
-                                          end:
-                                            type: string
-                              end:
-                                type: object
-                                properties:
-                                  location: *location_2
-                                  contact: *contact
-                                  person: *person
-                                  time: &time_2
-                                    type: object
-                                    properties:
-                                      range: *range
-                              customer: &customer_2
-                                type: object
-                                properties:
-                                  id:
-                                    type: string
-                                  organization: *organization
-                              tags: *tags
-                              time: *time
-                        quote: &quote_2
-                          type: object
-                          properties:
-                            breakup:
-                              type: array
-                              items:
-                                type: object
-                                properties:
-                                  "@ondc/org/item_id":
-                                    type: string
-                                  "@ondc/org/item_quantity": *quantity
-                                  title:
-                                    type: string
-                                  "@ondc/org/title_type":
-                                    type: string
-                                  price: *price
-                                  item:
-                                    type: object
-                                    properties:
-                                      price: *price
-                                      quantity: *quantity_2
-                            price: *price
-                            ttl:
-                              type: string
-                        payments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              uri:
-                                type: string
-                              tl_method:
-                                type: string
-                              params: *params
-                              status:
-                                type: string
-                              type:
-                                type: string
-                              collected_by:
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
-                                type: string
-                              "@ondc/org/settlement_basis":
-                                type: string
-                              "@ondc/org/settlement_window":
-                                type: string
-                              "@ondc/org/withholding_amount":
-                                type: string
-                              "@ondc/org/settlement_details": *ondc_org_settlement_details
-                        id:
-                          type: string
-                        created_at:
-                          type: string
-                        updated_at:
-                          type: string
-                        cancellation:
-                          type: object
-                          properties:
-                            cancelled_by:
-                              type: string
-                            reason: *items_2
-                        tags: *tags_2
-      responses: *responses
-  /on_confirm:
-    post:
-      operationId: on_confirm
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        state:
-                          type: string
-                        provider: *provider
-                        items: *items_3
-                        billing: *billing
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              "@ondc/org/provider_name":
-                                type: string
-                              state: *state
-                              type:
-                                type: string
-                              tracking:
-                                type: boolean
-                              "@ondc/org/TAT":
-                                type: string
-                              start:
-                                type: object
-                                properties:
-                                  location:
-                                    type: object
-                                    properties:
-                                      id:
-                                        type: string
-                                      descriptor: *person
-                                      gps:
-                                        type: string
-                                      address:
-                                        type: object
-                                        properties:
-                                          locality:
-                                            type: string
-                                          city:
-                                            type: string
-                                          area_code:
-                                            type: string
-                                          state:
-                                            type: string
-                                  contact: *contact
-                                  time: *time_2
-                                  instructions: &instructions
-                                    type: object
-                                    properties:
-                                      code:
-                                        type: string
-                                      name:
-                                        type: string
-                                      short_desc:
-                                        type: string
-                                      long_desc:
-                                        type: string
-                              end:
-                                type: object
-                                properties:
-                                  location: *location
-                                  contact: *contact
-                                  person: *person
-                                  time: *time_2
-                              customer: *customer
-                        quote: *quote
-                        payments: *payments
-                        tags: *tags
-                        created_at:
-                          type: string
-                        updated_at:
-                          type: string
-                        offers: *locations
-      responses: *responses
-  /on_init:
-    post:
-      operationId: on_init
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        provider: *provider
-                        items: *items_3
-                        billing: *billing
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              type:
-                                type: string
-                              tracking:
-                                type: boolean
-                              end: *end
-                              customer: *customer
+                                    minimum: 0
                               tags:
                                 type: array
                                 items:
-                                  type: object
-                                  properties:
-                                    code:
-                                      type: string
-                                    list: *list
-                        quote: *quote
-                        payments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              type:
+                                  $ref: '#/components/schemas/TagGroup'
+                              fulfillment_id:
                                 type: string
-                              collected_by:
-                                type: string
-                              uri:
-                                type: string
-                              status:
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
-                                type: string
-                              "@ondc/org/settlement_details": *ondc_org_settlement_details
-                              tags: *tags_2
-                        tags: *tags
+                                description: Modes through which this item can be fulfilled
                         offers:
                           type: array
                           items:
                             type: object
                             properties:
                               id:
-                                type: string
-                              descriptor: &descriptor
-                                type: object
-                                properties:
-                                  code:
-                                    type: string
-                                  images: &images
-                                    type: array
-                                    items:
-                                      type: string
-                              location_ids: *images
-                              item_ids: *images
-                              time: &time_3
-                                type: object
-                                properties:
-                                  label:
-                                    type: string
-                                  range: *range
-      responses: *responses
-  /on_search:
-    post:
-      operationId: on_search
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    catalog:
-                      type: object
-                      properties:
-                        bpp/descriptor:
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                            symbol:
-                              type: string
-                            short_desc:
-                              type: string
-                            long_desc:
-                              type: string
-                            images: *images
-                            tags: *tags
-                        bpp/providers:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              time: &time_4
-                                type: object
-                                properties:
-                                  label:
-                                    type: string
-                                  timestamp:
-                                    type: string
-                              descriptor: &descriptor_2
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  code:
-                                    type: string
-                                  symbol:
-                                    type: string
-                                  short_desc:
-                                    type: string
-                                  long_desc:
-                                    type: string
-                                  images: *images
-                              ttl:
-                                type: string
-                              fulfillments:
+                                $ref: '#/components/schemas/Offer/properties/id'
+                              tags:
                                 type: array
                                 items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: string
-                                    type:
-                                      type: string
-                                    contact: *contact
-                              locations:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: string
-                                    time:
-                                      type: object
-                                      properties:
-                                        label:
-                                          type: string
-                                        timestamp:
-                                          type: string
-                                        schedule:
-                                          type: object
-                                          properties:
-                                            holidays: *images
-                                        days:
-                                          type: string
-                                    gps:
-                                      type: string
-                                    address:
-                                      type: object
-                                      properties:
-                                        locality:
-                                          type: string
-                                        street:
-                                          type: string
-                                        city:
-                                          type: string
-                                        area_code:
-                                          type: string
-                                        state:
-                                          type: string
-                                    circle:
-                                      type: object
-                                      properties:
-                                        gps:
-                                          type: string
-                                        radius: &radius
-                                          type: object
-                                          properties:
-                                            unit:
-                                              type: string
-                                            value:
-                                              type: string
-                              categories:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: string
-                                    descriptor:
-                                      type: object
-                                      properties:
-                                        name:
-                                          type: string
-                                        short_desc:
-                                          type: string
-                                        long_desc:
-                                          type: string
-                                        images: *images
-                                    tags: *tags
-                              offers:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: string
-                                    descriptor: *descriptor
-                                    location_ids: *images
-                                    category_ids: *images
-                                    item_ids: *images
-                                    time: *time_3
-                                    tags: *tags
-                              items:
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    id:
-                                      type: string
-                                    time: *time_4
-                                    parent_item_id:
-                                      type: string
-                                    descriptor: *descriptor_2
-                                    quantity:
-                                      type: object
-                                      properties:
-                                        unitized:
-                                          type: object
-                                          properties:
-                                            count:
-                                              type: string
-                                            measure: *radius
-                                        available: *available
-                                        maximum: *available
-                                        minimum: *available
-                                    price:
-                                      type: object
-                                      properties:
-                                        currency:
-                                          type: string
-                                        value:
-                                          type: string
-                                        maximum_value:
-                                          type: string
-                                        tags: *tags_2
-                                    category_id:
-                                      type: string
-                                    fulfillment_id:
-                                      type: string
-                                    location_id:
-                                      type: string
-                                    "@ondc/org/returnable":
-                                      type: boolean
-                                    "@ondc/org/cancellable":
-                                      type: boolean
-                                    "@ondc/org/return_window":
-                                      type: string
-                                    "@ondc/org/seller_pickup_return":
-                                      type: boolean
-                                    "@ondc/org/time_to_ship":
-                                      type: string
-                                    "@ondc/org/available_on_cod":
-                                      type: boolean
-                                    "@ondc/org/contact_details_consumer_care":
-                                      type: string
-                                    "@ondc/org/statutory_reqs_packaged_commodities":
-                                      type: object
-                                      properties:
-                                        manufacturer_or_packer_name:
-                                          type: string
-                                        manufacturer_or_packer_address:
-                                          type: string
-                                        common_or_generic_name_of_commodity:
-                                          type: string
-                                        month_year_of_manufacture_packing_import:
-                                          type: string
-                                    "@ondc/org/statutory_reqs_prepackaged_food":
-                                      type: object
-                                      properties:
-                                        nutritional_info:
-                                          type: string
-                                        additives_info:
-                                          type: string
-                                        brand_owner_FSSAI_license_no:
-                                          type: string
-                                        other_FSSAI_license_no:
-                                          type: string
-                                        importer_FSSAI_license_no:
-                                          type: string
-                                    tags: *tags
-                                    category_ids: *images
-                                    related:
-                                      type: string
-                                    recommended:
-                                      type: string
-                              tags: *tags
-                              rating:
-                                type: string
-                        bpp/fulfillments: *creds
-      responses: *responses
-  /on_select:
-    post:
-      operationId: on_select
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        provider: *provider
+                                  $ref: '#/components/schemas/TagGroup'
                         fulfillments:
                           type: array
                           items:
                             type: object
                             properties:
-                              id:
-                                type: string
-                              type:
-                                type: string
-                              "@ondc/org/provider_name":
-                                type: string
-                              tracking:
-                                type: boolean
-                              "@ondc/org/category":
-                                type: string
-                              "@ondc/org/TAT":
-                                type: string
-                              state: *state
-                              customer: *customer
-                              tags: *tags_2
-                        quote: *quote
-                        items: *items
-                        offers: *locations
-                error:
-                  type: object
-                  properties:
-                    type:
-                      type: string
-                    code:
-                      type: string
-                    message:
-                      type: string
-      responses: *responses
-  /on_status:
-    post:
-      operationId: on_status
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        state:
-                          type: string
-                        provider: *provider
-                        items: *items
-                        billing: *billing
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              "@ondc/org/provider_name":
-                                type: string
-                              state: *state
-                              type:
-                                type: string
-                              tracking:
-                                type: boolean
-                              "@ondc/org/TAT":
-                                type: string
-                              start:
-                                type: object
-                                properties:
-                                  location: *location_2
-                                  contact: *contact
-                                  time: *time_5
-                                  instructions:
-                                    type: object
-                                    properties:
-                                      code:
-                                        type: string
-                                      name:
-                                        type: string
-                                      short_desc:
-                                        type: string
-                                      long_desc:
-                                        type: string
-                                      additional_desc: &additional_desc
-                                        type: object
-                                        properties:
-                                          content_type:
-                                            type: string
+                              customer:
+                                allOf:
+                                  - $ref: '#/components/schemas/Customer'
+                                  - type: object
+                                    required:
+                                      - id
                               end:
-                                type: object
-                                properties:
-                                  location: *location
-                                  contact: *contact
-                                  time: *time_5
-                                  person: *person
-                                  instructions: *instructions
-                              customer: *customer_2
-                              tags: *tags
-                              agent: &agent
-                                type: object
-                                properties:
-                                  name:
-                                    type: string
-                                  phone:
-                                    type: string
-                              time: *time
-                              documents: &documents
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    url:
-                                      type: string
-                                    label:
-                                      type: string
-                              vehicle:
-                                type: object
-                                properties:
-                                  category:
-                                    type: string
-                                  size:
-                                    type: string
-                                  registration:
-                                    type: string
-                        quote: *quote
-                        payments:
+                                $ref: '#/components/schemas/FulfillmentLocation'
+                        
+                        tags:
                           type: array
                           items:
-                            type: object
-                            properties:
-                              uri:
-                                type: string
-                              tl_method:
-                                type: string
-                              params: *params
-                              status:
-                                type: string
-                              type:
-                                type: string
-                              collected_by:
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
-                                type: string
-                              "@ondc/org/settlement_basis":
-                                type: string
-                              "@ondc/org/settlement_window":
-                                type: string
-                              "@ondc/org/withholding_amount":
-                                type: string
-                              "@ondc/org/settlement_details":
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    settlement_counterparty:
-                                      type: string
-                                    settlement_phase:
-                                      type: string
-                                    settlement_type:
-                                      type: string
-                                    beneficiary_name:
-                                      type: string
-                                    upi_address:
-                                      type: string
-                                    settlement_bank_account_no:
-                                      type: string
-                                    settlement_ifsc_code:
-                                      type: string
-                                    bank_name:
-                                      type: string
-                                    branch_name:
-                                      type: string
-                                    settlement_reference:
-                                      type: string
-                                    settlement_status:
-                                      type: string
-                                    settlement_timestamp:
-                                      type: string
-                              time: *time
-                        created_at:
-                          type: string
-                        updated_at:
-                          type: string
-                        documents: *documents
-                        offers: *locations
-                        cancellation:
-                          type: object
-                          properties:
-                            cancelled_by:
-                              type: string
-                            reason:
-                              type: object
-                              properties:
-                                id:
-                                  type: string
-                                state:
-                                  type: string
-      responses: *responses
-  /on_track:
-    post:
-      operationId: on_track
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    tracking:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        location:
-                          type: object
-                          properties:
-                            gps:
-                              type: string
-                            time: *time
-                            updated_at:
-                              type: string
-                        url:
-                          type: string
-                        status:
-                          type: string
-                        tags: *tags
-      responses: *responses
-  /on_update:
-    post:
-      operationId: on_update
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        state:
-                          type: string
-                        provider: *provider
-                        items: *items
-                        quote: *quote_2
-                        billing: *billing
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              "@ondc/org/provider_name":
-                                type: string
-                              state: *state
-                              type:
-                                type: string
-                              tracking:
-                                type: boolean
-                              "@ondc/org/TAT":
-                                type: string
-                              start:
-                                type: object
-                                properties:
-                                  location: *location_2
-                                  contact: *contact
-                                  time: *time_5
-                              end:
-                                type: object
-                                properties:
-                                  location: *location_2
-                                  contact: *contact
-                                  time:
-                                    type: object
-                                    properties:
-                                      range: *range
-                                      timestamp:
-                                        type: string
-                                      timeStamp:
-                                        type: string
-                                  person: *person
-                                  instructions: &instructions_2
-                                    type: object
-                                    properties:
-                                      additional_desc: *additional_desc
-                                  agent:
-                                    type: object
-                                    properties:
-                                      name:
-                                        type: string
-                                      email:
-                                        type: string
-                              customer: *customer_2
-                              tags: *tags
-                              agent: *agent
-                              time: *time
-                        payments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              uri:
-                                type: string
-                              tl_method:
-                                type: string
-                              params: *params
-                              status:
-                                type: string
-                              type:
-                                type: string
-                              collected_by:
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
-                                type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
-                                type: string
-                              "@ondc/org/settlement_basis":
-                                type: string
-                              "@ondc/org/settlement_window":
-                                type: string
-                              "@ondc/org/withholding_amount":
-                                type: string
-                              "@ondc/org/settlement_details":
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    settlement_counterparty:
-                                      type: string
-                                    settlement_phase:
-                                      type: string
-                                    settlement_type:
-                                      type: string
-                                    beneficiary_name:
-                                      type: string
-                                    upi_address:
-                                      type: string
-                                    settlement_bank_account_no:
-                                      type: string
-                                    settlement_ifsc_code:
-                                      type: string
-                                    bank_name:
-                                      type: string
-                                    branch_name:
-                                      type: string
-                                    settlement_amount:
-                                      type: string
-                                    settlement_timestamp:
-                                      type: string
-                        documents: *documents
-                        tags: *tags
-                        created_at:
-                          type: string
-                        updated_at:
-                          type: string
-      responses: *responses
-  /search:
-    post:
-      operationId: search
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    intent:
-                      type: object
-                      properties:
-                        category: *items_2
-                        fulfillment:
-                          type: object
-                          properties:
-                            type:
-                              type: string
-                            customer: *customer
-                            end: &end_2
-                              type: object
-                              properties:
-                                location:
-                                  type: object
-                                  properties:
-                                    gps:
-                                      type: string
-                                    address:
-                                      type: object
-                                      properties:
-                                        area_code:
-                                          type: string
-                        payment:
-                          type: object
-                          properties:
-                            "@ondc/org/buyer_app_finder_fee_type":
-                              type: string
-                            "@ondc/org/buyer_app_finder_fee_amount":
-                              type: string
-                        tags: *tags
-                        provider: *items_2
-                        item:
-                          type: object
-                          properties:
-                            descriptor: *person
-      responses: *responses
-  /select:
-    post:
-      operationId: select
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message:
-                  type: object
-                  properties:
-                    order:
-                      type: object
-                      properties:
-                        provider: *provider
-                        items: *items
-                        fulfillments:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              end: *end_2
-                              customer: *customer
-                              id:
-                                type: string
-                              type:
-                                type: string
-                        offers: *offers
-                        tags: *tags_2
-      responses: *responses
-  /status:
-    post:
-      operationId: status
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    timestamp:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_uri:
-                      type: string
-                message: &message
-                  type: object
-                  properties:
-                    order_id:
-                      type: string
+                            $ref: '#/components/schemas/TagGroup'
+                  required:
+                    - order
+              required:
+                - context
+                - message
       responses:
-        "200":
-          description: Synchronous ACK/NACK response
+        '200':
+          description: Acknowledgement of message received
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message: *a2
-                  error: *a3
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /track:
+  /init:
     post:
-      operationId: track
+      tags:
+        - ONDC Seller App
+      description: Initialize an order by providing billing and/or shipping details
       requestBody:
-        required: true
+        description: Buyer initializes order checkout
         content:
           application/json:
             schema:
+              additionalProperties: false
               type: object
               properties:
                 context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
-                message: *message
-      responses: *responses
-  /update:
-    post:
-      operationId: update
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  type: object
-                  properties:
-                    domain:
-                      type: string
-                    action:
-                      type: string
-                    timestamp:
-                      type: string
-                    transaction_id:
-                      type: string
-                    message_id:
-                      type: string
-                    bap_id:
-                      type: string
-                    bap_uri:
-                      type: string
-                    ttl:
-                      type: string
-                    bpp_id:
-                      type: string
-                    bpp_uri:
-                      type: string
-                    country:
-                      type: string
-                    city:
-                      type: string
-                    core_version:
-                      type: string
+                  $ref: '#/components/schemas/Context'
                 message:
                   type: object
                   properties:
-                    update_target:
-                      type: string
                     order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /confirm:
+    post:
+      tags:
+        - ONDC Seller App
+      description: Initialize an order by providing billing and/or shipping details
+      requestBody:
+        description: Buyer confirms an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      description: Describes the details of an order
                       type: object
                       properties:
                         id:
                           type: string
+                          description: Unique identifier for Order across the network
+                        state:
+                          type: string
+                        provider:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Provider/properties/id'
+                            descriptor:
+                              $ref: '#/components/schemas/ProviderDescriptor'
+                            locations:
+                              type: array
+                              maxItems: 1
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    $ref: >-
+                                      #/components/schemas/Location/properties/id
+                        items:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/Item'
+                        offers:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                $ref: '#/components/schemas/Offer/properties/id'
+                        documents:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/Document'
+                        billing:
+                          $ref: '#/components/schemas/Billing'
                         fulfillments:
                           type: array
                           items:
+                            $ref: '#/components/schemas/OrderFulfillment'
+                        cancellation_terms:
+                          description: >-
+                            The cancellation terms of this order. This can be
+                            overriden at the item level cancellation terms.
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/CancellationTerm'
+                        quote:
+                          $ref: '#/components/schemas/Quotation'
+                        payments:
+                          $ref: '#/components/schemas/Payments'
+                        created_at:
+                          type: string
+                          format: date-time
+                        updated_at:
+                          type: string
+                          format: date-time
+                        tags:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/TagGroup'
+                  required:
+                    - order
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /status:
+    post:
+      tags:
+        - ONDC Seller App
+      description: Fetch the latest order object
+      requestBody:
+        description: Buyer checks for status of order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                  required:
+                    - order_id
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /track:
+    post:
+      tags:
+        - ONDC Seller App
+      description: Track an active order
+      requestBody:
+        description: Buyer tracks fulfillment of an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                  required:
+                    - order_id
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /cancel:
+    post:
+      tags:
+        - ONDC Seller App
+      description: Cancel an order
+      requestBody:
+        description: Buyer cancels an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                    cancellation_reason_id:
+                      $ref: '#/components/schemas/Option/properties/id'
+                    descriptor:
+                      description: Describes the description of a real-world object.
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        short_desc:
+                          type: string
+                        tags:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/TagGroup'
+                  required:
+                    - order_id
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /update:
+    post:
+      tags:
+        - ONDC Seller App
+      description: Update an order
+      requestBody:
+        description: Buyer updates an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    update_target:
+                      description: >-
+                        Comma separated values of order objects being updated.
+                        For example:
+                        ```"update_target":"item,billing,fulfillment,payment"```
+                      type: string
+                    order:
+                      description: Describes the details of an order
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: Unique identifier for Order across the network
+                        items:
+                          type: array
+                          items:
+                            $ref: '#/components/schemas/OrderItem'
+                        fulfillments:
+                          type: array
+                          items:
+                            description: >-
+                              Describes how a single product/service will be
+                              rendered/fulfilled to the end customer
                             type: object
                             properties:
-                              type:
-                                type: string
                               id:
                                 type: string
-                              tags: *tags
+                                description: >-
+                                  Unique reference ID to the fulfillment of an
+                                  order
+                              type:
+                                type: string
+                                description: >-
+                                  This describes the type of fulfillment
+                                  ("Pickup" - Buyer picks up from store by
+                                  themselves or through their logistics
+                                  provider; "Delivery" - seller delivers to
+                                  buyer)
+                                enum:
+                                  - Delivery
+                                  - Return
                               end:
                                 type: object
                                 properties:
-                                  instructions: *instructions_2
+                                  instructions:
+                                    type: object  
+                                    properties:
+                                      additional_desc:
+                                        type: object
+                                        properties:
+                                          content_type:
+                                            type: string
+                                            enum:
+                                              - text/plain
+                                              - text/html
+                              tags:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/TagGroup'
                         payments:
+                          $ref: '#/components/schemas/Payments'
+                  required:
+                    - update_target
+                    - order
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_search:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Send catalog
+      requestBody:
+        description: Sellers provide their catalog in response to buyer search
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    catalog:
+                      $ref: '#/components/schemas/Catalog'
+              required:
+                - context
+                - message
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - context
+  /on_select:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Send draft order object with quoted price for selected items
+      requestBody:
+        description: Seller provides quote for selected items
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      description: Describes the details of an order
+                      type: object
+                      properties:
+                        provider:
+                          type: object
+                          properties:
+                            id:
+                              $ref: '#/components/schemas/Provider/properties/id'
+                            descriptor:
+                              $ref: '#/components/schemas/ProviderDescriptor'
+                            locations:
+                              type: array
+                              maxItems: 1
+                              items:
+                                type: object
+                                properties:
+                                  id:
+                                    $ref: >-
+                                      #/components/schemas/Location/properties/id
+                        items:
+                          type: array
+                          items:
+                            description: >-
+                              Describes a product or a service offered to the
+                              end consumer by the provider
+                            type: object
+                            properties:
+                              id:
+                                description: >-
+                                  This is the most unique identifier of a
+                                  service item. An example of an Item ID could
+                                  be the SKU of a product.
+                                type: string
+                              parent_item_id:
+                                description: >-
+                                  This is the most unique identifier of a
+                                  service item. An example of an Item ID could
+                                  be the SKU of a product.
+                                type: string
+                              location_id:
+                                type: string
+                                description: Unique identifier for location
+                              quantity:
+                                description: quantity
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                    minimum: 0
+                              fulfillment_id:
+                                type: string
+                                description: >-
+                                  Unique reference ID to the fulfillment of an
+                                  order
+                              fulfillment_ids:
+                                type: array
+                                items:
+                                  type: string
+                                  description: >-
+                                    Unique reference ID to the fulfillment of an
+                                    order
+                              tags:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/TagGroup'
+                        offers:
                           type: array
                           items:
                             type: object
                             properties:
-                              "@ondc/org/settlement_details":
-                                type: array
-                                items:
-                                  type: object
-                                  properties:
-                                    settlement_counterparty:
-                                      type: string
-                                    settlement_phase:
-                                      type: string
-                                    settlement_type:
-                                      type: string
-                                    settlement_amount:
-                                      type: string
-                                    settlement_timestamp:
-                                      type: string
-                              status:
+                              id:
+                                $ref: '#/components/schemas/Offer/properties/id'
+                              tags:
+                                $ref: '#/components/schemas/TagGroup'
+                        fulfillments:
+                          type: array
+                          items:
+                            description: >-
+                              Describes how a single product/service will be
+                              rendered/fulfilled to the end customer
+                            type: object
+                            properties:
+                              id:
                                 type: string
-                              tl_method:
-                                type: string
-                              params: *params
+                                description: >-
+                                  Unique reference ID to the fulfillment of an
+                                  order
                               type:
                                 type: string
-                              collected_by:
+                                description: >-
+                                  This describes the type of fulfillment
+                                  ("Pickup" - Buyer picks up from store by
+                                  themselves or through their logistics
+                                  provider; "Delivery" - seller delivers to
+                                  buyer)
+                                enum:
+                                  - Delivery
+                                  - Pickup
+                                  - Delivery and Pickup
+                                  - Reverse QC
+                              '@ondc/org/category':
                                 type: string
-                              "@ondc/org/buyer_app_finder_fee_type":
+                                description: Fulfillment Category
+                              '@ondc/org/provider_name':
                                 type: string
-                              "@ondc/org/buyer_app_finder_fee_amount":
+                                description: Fulfillment Provider Name
+                              '@ondc/org/TAT':
+                                description: >-
+                                  fulfillment turnaround time in ISO8601
+                                  durations format e.g. 'PT24H' indicates 24
+                                  hour TAT
                                 type: string
-                              "@ondc/org/settlement_basis":
-                                type: string
-                              "@ondc/org/settlement_window":
-                                type: string
-                              "@ondc/org/withholding_amount":
-                                type: string
-      responses: *responses
+                              state:
+                                $ref: '#/components/schemas/State'
+                              customer:
+                                allOf:
+                                  - $ref: '#/components/schemas/Customer'
+                                  - type: object
+                                    required:
+                                      - id
+                              tracking:
+                                type: boolean
+                                description: >-
+                                  Indicates whether the fulfillment allows
+                                  tracking
+                                default: false
+                              start:
+                                description: Details on the end of fulfillment
+                                type: object
+                                properties:
+                                  time:
+                                    description: >-
+                                      Describes time in its various forms. It
+                                      can be a single point in time; duration;
+                                      or a structured timetable of operations
+                                    type: object
+                                    properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                            format: date-time
+                                          end:
+                                            type: string
+                                            format: date-time
+                              end:
+                                description: Details on the start of fulfillment
+                                type: object
+                                properties:
+                                  location:
+                                    $ref: '#/components/schemas/Location'
+                                  time:
+                                    description: >-
+                                      Describes time in its various forms. It
+                                      can be a single point in time; duration;
+                                      or a structured timetable of operations
+                                    type: object
+                                    properties:
+                                      range:
+                                        type: object
+                                        properties:
+                                          start:
+                                            type: string
+                                            format: date-time
+                                          end:
+                                            type: string
+                                            format: date-time
+                              tags:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/TagGroup'
+                            required:
+                              - id
+                              - type
+                        quote:
+                          $ref: '#/components/schemas/Quotation'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_init:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Send order object with payment details updated
+      requestBody:
+        description: Seller provides terms and conditions for an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_confirm:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Send active order object
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_track:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Send tracking details of an active order
+      requestBody:
+        description: Seller provides tracking details for an order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    tracking:
+                      $ref: '#/components/schemas/Tracking'
+                  required:
+                    - tracking
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_cancel:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: >-
+        Send cancellation request_id with reasons list in case of cancellation
+        request. Else send cancelled order object
+      requestBody:
+        description: Seller provides response to cancellation request
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_update:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Returns updated service with updated runtime object
+      requestBody:
+        description: Seller provides response to order update
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /on_status:
+    post:
+      tags:
+        - ONDC Buyer App
+      description: Fetch the status of a Service
+      requestBody:
+        description: Seller provides status information for order
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              type: object
+              properties:
+                context:
+                  $ref: '#/components/schemas/Context'
+                message:
+                  type: object
+                  properties:
+                    order:
+                      $ref: '#/components/schemas/Order'
+                  required:
+                    - order
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+      responses:
+        '200':
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: '#/components/schemas/Ack'
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
+  /issue:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: |
+        ###  Operation Description
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /on_issue:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Send the issue resolution details object
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+                  required:
+                    - issue
+                error:
+                  $ref: "#/components/schemas/Error"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /issue_status:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Request for latest status of the complaint
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue_id:
+                      description: >-
+                        Network issue identifier is a unique number assigned to
+                        a complaint by the interfacing application
+                      type: string
+                  required:
+                    - issue_id
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
+  /on_issue_status:
+    post:
+      tags:
+        - Complaint lifecycle management
+      description: Send the issue resolution details object
+      requestBody:
+        description: Seller confirms order
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: "#/components/schemas/Context"
+                message:
+                  type: object
+                  properties:
+                    issue:
+                      $ref: "#/components/schemas/Issue"
+                  required:
+                    - issue
+                error:
+                  $ref: "#/components/schemas/Error"
+              required:
+                - context
+                - message
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: "#/components/schemas/Ack"
+                    required:
+                      - ack
+                  error:
+                    $ref: "#/components/schemas/Error"
+                required:
+                  - message
