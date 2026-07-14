@@ -2482,7 +2482,7 @@ _TESTS_:
                 - ^P(?=\\d|T)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+S)?)?$
               _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_STATE_DESCRIPTOR_CODE
-              attr: $.message.order.fulfillments[*].state.descriptor.code
+              attr: $.message.order.fulfillments[?(@.type=='Delivery')].state.descriptor.code
               var_enum:
                 - Accepted
                 - Cancelled
