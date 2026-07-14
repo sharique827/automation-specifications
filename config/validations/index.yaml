@@ -1384,7 +1384,7 @@ _TESTS_:
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_AVAILABLE_COUNT
-                          attr: $.message.order.quote.breakup[*].item.quantity.available.count
+                          attr: $.message.order.quote.breakup[?(@.@ondc/org/title_type=='item')].item.quantity.available.count
                           var_enum:
                             - "99"
                             - "0"
