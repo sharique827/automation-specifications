@@ -1385,19 +1385,19 @@ _TESTS_:
                       _SCOPE_: "$.message.order.quote.breakup[?(@['@ondc/org/title_type']=='item')]"
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_AVAILABLE_COUNT
-                          attr: $.item.quantity.available.count
+                          attr: $.message.order.quote.breakup[*].item.quantity.available.count
                           var_enum:
                             - "99"
                             - "0"
                           _RETURN_: attr all in var_enum
                         - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_MAXIMUM_COUNT
-                          attr: $.item.quantity.maximum.count
+                          attr: $.message.order.quote.breakup[*].item.quantity.maximum.count
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.item.price.currency
+                          attr: $.message.order.quote.breakup[*].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.item.price.value
+                          attr: $.message.order.quote.breakup[*].item.price.value
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
