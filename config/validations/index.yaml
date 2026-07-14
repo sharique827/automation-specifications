@@ -1121,6 +1121,8 @@ _TESTS_:
         - weight_unit
         - weight_value
         - return_to_origin
+        - hsn_code
+        - ebn_exempt
       _RETURN_: subTags all in validValues
     - _NAME_: validate_tag_3_cod_settlement_detail
       _SCOPE_: $.message.order.fulfillments[*].tags[?(@.code=='cod_settlement_detail')]
@@ -2887,6 +2889,8 @@ _TESTS_:
         - quantity
         - weight_unit
         - weight_value
+        - hsn_code
+        - ebn_exempt
       _RETURN_: subTags all in validValues
     - _NAME_: validate_tag_3_cod_settlement_detail
       _SCOPE_: $.message.order.fulfillments[*].tags[?(@.code=='cod_settlement_detail')]
