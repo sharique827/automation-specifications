@@ -3708,6 +3708,7 @@ _TESTS_:
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_ID_16
       attr: $.message.order.provider.locations[*].id
+      _CONTINUE_: "!(attr are present)"
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_ID_17
       attr: $.message.order.items[*].id
@@ -3877,6 +3878,7 @@ _TESTS_:
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_REGISTRATION
       attr: $.message.order.fulfillments[*].vehicle.registration
+      _CONTINUE_: "!(attr are present)"
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_NAME_60
       attr: $.message.order.billing.name
@@ -4878,6 +4880,8 @@ _TESTS_:
         - diff_dim
         - diff_weight
         - diff_proof
+        - bap_terms
+        - bpp_terms
       tagPath: $.message.order.tags[*].code
       _CONTINUE_: "!(tagPath are present)"
       _RETURN_: tagPath all in validTags
