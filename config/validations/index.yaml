@@ -2637,10 +2637,18 @@ _TESTS_:
                 _RETURN_: attr follow regex reg
             
               - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                attr: "$.message.order.quote.breakup[*].item.price.currency"
+                _SCOPE_: "$.message.order.quote.breakup[*]"
+                title_type_val: "$['@ondc/org/title_type']"
+                var_item_type: ["item"]
+                _CONTINUE_: "!(title_type_val any in var_item_type)"
+                attr: "$.item.price.currency"
                 _RETURN_: attr are present
               - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                attr: "$.message.order.quote.breakup[*].item.price.value"
+                _SCOPE_: "$.message.order.quote.breakup[*]"
+                title_type_val: "$['@ondc/org/title_type']"
+                var_item_type: ["item"]
+                _CONTINUE_: "!(title_type_val any in var_item_type)"
+                attr: "$.item.price.value"
                 _RETURN_: attr are present
               - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                 _RETURN_:
