@@ -1856,10 +1856,10 @@ _TESTS_:
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
+                          attr: $.message.order.quote.breakup[?(@['@ondc/org/title_type']=='item')].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
+                          attr: $.message.order.quote.breakup[?(@['@ondc/org/title_type']=='item')].item.price.value
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
