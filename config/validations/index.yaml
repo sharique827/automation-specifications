@@ -4959,8 +4959,26 @@ _TESTS_:
                 - ^-?(\\d+\\.\\d{1,2}|\\d+)$
               _RETURN_: attr are present && attr follow regex reg
             - _NAME_: BREAKUP_ITEM_QUANTITY_COUNT
-              attr: $.message.order.quote.breakup[*]['@ondc/org/item_quantity'].count
-              _RETURN_: attr are present
+              _SCOPE_: "$.message.order.quote.breakup[*]"
+              maximumCount: "$['@ondc/org/item_quantity'].count"
+              value: "$['@ondc/org/title_type']"
+              item: ["item"]
+              _CONTINUE_: "!(value all in item)"
+              _RETURN_: maximumCount are present
+            - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
+              _SCOPE_: "$.message.order.quote.breakup[*]"
+              priceCurrency: "$.item.price.currency"
+              value: "$['@ondc/org/title_type']"
+              item: ["item"]
+              _CONTINUE_: "!(value all in item)"
+              _RETURN_: priceCurrency are present
+            - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
+              _SCOPE_: "$.message.order.quote.breakup[*]"
+              priceValue: "$.item.price.value"
+              value: "$['@ondc/org/title_type']"
+              item: ["item"]
+              _CONTINUE_: "!(value all in item)"
+              _RETURN_: priceValue are present
         - _NAME_: ORDER_PAYMENTS
           _RETURN_:
             - _NAME_: PAYMENTS_ID
