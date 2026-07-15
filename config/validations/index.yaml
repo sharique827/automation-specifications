@@ -2595,6 +2595,8 @@ _TESTS_:
                     - cancel_request
                     - quote_trail
                     - precancel_state
+                    - return_request
+                    - replace_request
                   _RETURN_: attr all in valid
                 - _NAME_: TAGS_STATE
                   _RETURN_:
@@ -3630,21 +3632,21 @@ _TESTS_:
                       attr: $.message.order.fulfillments[*].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      attr: $.message.order.fulfillments[*].start.location.gps
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
-                          attr: $.message.order.fulfillments[*].start.location.address.locality
+                          attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                          attr: $.message.order.fulfillments[*].start.location.address.city
+                          attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          attr: $.message.order.fulfillments[*].start.location.address.area_code
+                          attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                          attr: $.message.order.fulfillments[*].start.location.address.state
+                          attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
@@ -3684,11 +3686,11 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_END_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[*].end.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].end.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.contact.email
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].end.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_TAGS
               _RETURN_:
