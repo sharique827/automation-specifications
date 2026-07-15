@@ -3750,8 +3750,11 @@ _TESTS_:
                 attr: "$.message.order.fulfillments[*].end.location.address.country"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
-                _CONTINUE_: "!(attr are present)"
-                attr: "$.message.order.fulfillments[*].end.location.address.city"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_end_addr_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_end_addr_types)"
+                attr: "$.end.location.address.city"
                 reg: ['^[A-Za-z ]{2,100}$']
                 _RETURN_: attr are present && attr follow regex reg
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
@@ -3759,8 +3762,11 @@ _TESTS_:
                 attr: "$.message.order.fulfillments[*].end.location.address.area_code"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
-                _CONTINUE_: "!(attr are present)"
-                attr: "$.message.order.fulfillments[*].end.location.address.state"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_end_addr_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_end_addr_types)"
+                attr: "$.end.location.address.state"
                 reg: ['^[A-Za-z ]{2,100}$']
                 _RETURN_: attr are present && attr follow regex reg
           - _NAME_: FULFILLMENTS_END_TIME
