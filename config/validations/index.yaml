@@ -4850,7 +4850,11 @@ _TESTS_:
           attr: "$.message.order.fulfillments[*].id"
           _RETURN_: attr are present
         - _NAME_: FULFILLMENTS_TIME_TIMESTAMP
-          attr: "$.message.order.fulfillments[*].time.timestamp"
+          _SCOPE_: "$.message.order.fulfillments[*]"
+          fulfillment_type: "$.type"
+          var_delivery_type: ["Delivery"]
+          _CONTINUE_: "!(fulfillment_type any in var_delivery_type)"
+          attr: "$.time.timestamp"
           _RETURN_: attr are present
         - _NAME_: FULFILLMENTS_TYPE
           attr: "$.message.order.fulfillments[*].type"
