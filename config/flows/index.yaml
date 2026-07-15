@@ -7,20 +7,20 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Buyer Side Order Cancellation Flow
+    description: This flow represents the end-to-end process of a buyer canceling an order placed on the retail side, exercising the right to withdraw a transaction before fulfillment, in compliance with retinvl (retail inventory and value lifecycle) governance and pramaan (verification) requirements.
     config:
       $ref: ./RETINVL/BUYER_SIDE_ORDER_CANCELLATION.yaml
-  # - type: playground
-  #   id: OFFERS_FLOW
-  #   usecase: RETINVL
-  #   tags:
-  #     - WORKBENCH
-  #     - PRAMAAN
-  #     - MANDATORY
-  #     - REPORTABLE
-  #   description: Offers Flow for Inventory Less (Buy now journey and find best price)
-  #   config:
-  #     $ref: ./RETINVL/OFFERS_FLOW.yaml
+  - type: playground
+    id: OFFERS_FLOW
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: This flow enables retailers to discover and validate product offers in real-time, supporting the end-to-end journey of identifying the best available price for inventory-less items through a transparent, traceable, and reportable offer discovery and confirmation process.
+    config:
+      $ref: ./RETINVL/OFFERS_FLOW.yaml
   - type: playground
     id: ORDER_FLOW_BASELINE
     usecase: RETINVL
@@ -29,8 +29,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Order Flow Baseline for Inventory Less (Buy now journey and find
-      best price)
+    description: This flow represents the end-to-end journey of a retailer initiating an order for inventory, validating product availability, confirming the purchase, and tracking inventory status in real time to ensure accurate stock visibility and price transparency across sellers.
     config:
       $ref: ./RETINVL/ORDER_FLOW_BASELINE.yaml
   - type: playground
@@ -41,7 +40,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Order Flow Baseline for Inventory Less (find best price)
+    description: This flow represents the end-to-end processing of a retail order for inventory less items, where the system validates and tracks the order from initiation through confirmation and status updates, ensuring price accuracy and inventory visibility across participating retailers.
     config:
       $ref: ./RETINVL/ORDER_FLOW_BASELINE_ILBP.yaml
   - type: playground
@@ -52,7 +51,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Discovery Flow for Inventory Less (Buy now journey and find best price)
+    description: This flow enables retailers to discover available inventory of products with lower prices than their current offerings, supporting the buy-now decision by identifying the best available price across multiple sellers in real time.
     config:
       $ref: ./RETINVL/RETINVL_DISCOVERY_FLOW.yaml
   - type: playground
@@ -63,7 +62,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: IMEI verification flow for accepted device orders
+    description: This flow validates the IMEI of devices submitted in retinvl orders to ensure device authenticity and compliance with manufacturer and network standards prior to order acceptance and provisioning.
     config:
       $ref: ./RETINVL/IMEI_NUMBER_VERIFICATION_FLOW.yaml
   - type: playground
@@ -74,7 +73,7 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Delivery authentication flow using DCC or dynamic OTP
+    description: This flow enables end-to-end delivery authentication for retail orders by verifying delivery personnel identity through dynamic OTP or DCC, ensuring secure and traceable delivery validation across the supply chain.
     config:
       $ref: ./RETINVL/OTP_FLOW_DELIVERY_AUTH.yaml
   - type: playground
@@ -85,17 +84,17 @@ flows:
       - PRAMAAN
       - MANDATORY
       - REPORTABLE
-    description: Commercial model flow with SNP channel margin selection
+    description: This flow end-to-end executes the retinVL commercial model for BNP and SNP channels, enabling margin selection and status tracking from search initiation through final transaction confirmation and status updates.
     config:
       $ref: ./RETINVL/COMMERCIAL_MODEL_FOR_BNP_SNP_FLOW.yaml
-  # - type: playground
-  #   id: SELF_PICKUP
-  #   usecase: RETINVL
-  #   tags:
-  #     - WORKBENCH
-  #     - PRAMAAN
-  #     - MANDATORY
-  #     - REPORTABLE
-  #   description: Self-pickup order flow ending when the order is picked up and completed
-  #   config:
-  #     $ref: ./RETINVL/SELF_PICKUP.yaml
+  - type: playground
+    id: SELF_PICKUP
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: The SELF_PICKUP flow represents the end-to-end execution of a retail order where the customer retains possession of the order at the point of sale, with the seller confirming receipt and completion of the transaction upon physical pickup, ensuring accountability and traceability through the PRAMAAN and WORKBENCH systems.
+    config:
+      $ref: ./RETINVL/SELF_PICKUP.yaml
