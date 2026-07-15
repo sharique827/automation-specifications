@@ -3,7 +3,10 @@ meta:
   version: 1.2.5
   flowId: Discovery_Flow_full_catalog
   config_version: 0.0.0001
-  description: Buyer app initiates a fashion discovery search and the seller app returns the full matching catalog in on_search, exercising end-to-end product discovery for apparel, accessories, and related fashion items on ONDC.
+  description: Buyer app initiates a fashion discovery search and the seller app
+    returns the full matching catalog in on_search, exercising end-to-end
+    product discovery for apparel, accessories, and related fashion items on
+    ONDC.
   use_case_id: FASHION
   flowName: Discovery Flow full catalog
 transaction_data:
@@ -19,7 +22,10 @@ steps:
     owner: BAP
     responseFor: null
     unsolicited: false
-    description: The BAP initiates the Fashion discovery flow by sending a search request that announces its buyer-app identity and transaction context while expressing intent to discover Fashion catalog offerings available in the specified city.
+    description: The BAP initiates the Fashion discovery flow by sending a search
+      request that announces its buyer-app identity and transaction context
+      while expressing intent to discover Fashion catalog offerings available in
+      the specified city.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgZGVsZXRlIGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LmJwcF91cmkKICBkZWxldGUgZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQuYnBwX2lkCiAgbGV0IGNvZGVzQXJyYXkgPSBzZXNzaW9uRGF0YT8udXNlcl9pbnB1dHM/LmZlYXR1cmVfZGlzY292ZXJ5IHx8IFtdCiAgY29uc3QgdGFncyA9IGV4aXN0aW5nUGF5bG9hZC5tZXNzYWdlLmludGVudC50YWdzCiAgaWYgKGNvZGVzQXJyYXkubGVuZ3RoID4gMCkKICAgIHRhZ3MucHVzaCh7CiAgICAgIGNvZGU6ICJiYXBfZmVhdHVyZXMiLAogICAgICBsaXN0OiBbCiAgICAgICAgLi4uY29kZXNBcnJheS5tYXAoY29kZSA9PiB7CiAgICAgICAgICByZXR1cm4gewogICAgICAgICAgICBjb2RlOiBjb2RlLAogICAgICAgICAgICB2YWx1ZTogInllcyIKICAgICAgICAgIH0KICAgICAgICB9KQogICAgICBdCiAgICB9KQogIHJldHVybiBleGlzdGluZ1BheWxvYWQKfQo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -178,9 +184,9 @@ steps:
           context:
             domain: ONDC:RET12
             action: search
-            timestamp: 2026-05-29T10:19:56.910Z
+            timestamp: 2026-07-15T13:18:41.447Z
             transaction_id: 496b9719-40cf-4eb3-883f-33abfa2d45d9
-            message_id: 0eff80f5-217f-4c58-bb34-48d0f726d363
+            message_id: 24552520-4fbc-4c60-b5a7-6a6a34dcc4ff
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -205,16 +211,24 @@ steps:
                       value: 2025-02-01T00:00:00.000Z
                 - code: bap_features
                   list:
-                    - code: "023"
+                    - code: "001"
                       value: yes
         type: request
-        description: please add relevant description
+        description: The BAP initiates the Fashion discovery flow by sending a search
+          request that announces its buyer-app identity and transaction context
+          while expressing intent to discover Fashion catalog offerings
+          available in the specified city.
   - api: on_search
     action_id: on_search
     owner: BPP
     responseFor: search
     unsolicited: false
-    description: The BPP sends the on_search response to the BAP, returning the discovery outcome for the buyer’s search by sharing the matching fashion catalog and the transaction context needed for routing and correlation. This step semantically conveys the seller-side availability and offer landscape for the requested discovery query within the ongoing Retail 1.2.5 transaction.
+    description: The BPP sends the on_search response to the BAP, returning the
+      discovery outcome for the buyer’s search by sharing the matching fashion
+      catalog and the transaction context needed for routing and correlation.
+      This step semantically conveys the seller-side availability and offer
+      landscape for the requested discovery query within the ongoing Retail
+      1.2.5 transaction.
     mock:
       generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShleGlzdGluZ1BheWxvYWQsIHNlc3Npb25EYXRhKSB7CiAgY29uc3QgcHJvdmlkZXJzID0gZXhpc3RpbmdQYXlsb2FkPy5tZXNzYWdlLmNhdGFsb2c/LlsiYnBwL3Byb3ZpZGVycyJdCgogIHNlc3Npb25EYXRhLmJhcF9mZWF0dXJlcz8uZm9yRWFjaChmZWF0dXJlID0+IHsKICAgIGNvbnNvbGUubG9nKGBGZWF0dXJlOiAke2ZlYXR1cmV9YCkKICB9KQogIGlmIChzZXNzaW9uRGF0YS5iYXBfZmVhdHVyZXM/LmluY2x1ZGVzKCIwMEIiKSkgewogICAgY29uc3QgcmVwbGFjZW1lbnRfdGVybXMgPSBbCiAgICAgIHsKICAgICAgICByZXBsYWNlX3dpdGhpbjogewogICAgICAgICAgZHVyYXRpb246ICJQOUQiCiAgICAgICAgfQogICAgICB9CiAgICBdCiAgICBwcm92aWRlcnMuZm9yRWFjaChwcm92aWRlciA9PiB7CiAgICAgIGNvbnN0IGl0ZW1zID0gcHJvdmlkZXI/Lml0ZW1zCiAgICAgIGl0ZW1zLmZvckVhY2goaXRlbSA9PiB7CiAgICAgICAgaXRlbS5yZXBsYWNlbWVudF90ZXJtcyA9IHJlcGxhY2VtZW50X3Rlcm1zCiAgICAgIH0pCiAgICB9KQogIH0KCiAgaWYgKHNlc3Npb25EYXRhLmJhcF9mZWF0dXJlcz8uaW5jbHVkZXMoIjAxNyIpKSB7CiAgICBjb25zdCBleGlzdGluZ1RpbWVzdGFtcCA9IG5ldyBEYXRlKGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LnRpbWVzdGFtcCkKICAgIGNvbnN0IG5ld1RpbWVzdGFtcCA9IG5ldyBEYXRlKAogICAgICBleGlzdGluZ1RpbWVzdGFtcC5nZXRUaW1lKCkgKyAyNCAqIDYwICogNjAgKiAxMDAwCiAgICApCiAgICBjb25zdCB0b1RpbWVzdGFtcCA9IG5ld1RpbWVzdGFtcC50b0lTT1N0cmluZygpCiAgICBjb25zdCBjcmVkcyA9IFsKICAgICAgewogICAgICAgIGlkOiAiOWYzYzJlMzItNmQxZi00YTQyLTllOWUtODhiNGU5YmJhYTEwIiwKICAgICAgICBkZXNjcmlwdG9yOiB7CiAgICAgICAgICBjb2RlOiAiU29jaWFsIFNlY3RvciIsCiAgICAgICAgICBzaG9ydF9kZXNjOiAiR0kiCiAgICAgICAgfSwKICAgICAgICB1cmw6ICJodHRwczovL21vY2suY2RuLmNvbS9pbWFnZXMvYmFkZ2UtaW1nIiwKICAgICAgICB0YWdzOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgIGNvZGU6ICJ2ZXJpZmljYXRpb24iLAogICAgICAgICAgICBsaXN0OiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZlcmlmeV91cmwiLAogICAgICAgICAgICAgICAgdmFsdWU6ICJodHRwczovL21vY2suZ2kuY29tL3ZlcmlmeT9pZD1naS0xMjM0NTY3OCciCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBjb2RlOiAidmVyaWZpZXIiLAogICAgICAgICAgICAgICAgdmFsdWU6ICJDU1AtQUJDIgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogImlzc3VlciIsCiAgICAgICAgICAgICAgICB2YWx1ZTogIkV4YW1wbGUgQXV0aG9yaXR5IgogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZhbGlkX2Zyb20iLAogICAgICAgICAgICAgICAgdmFsdWU6IGV4aXN0aW5nUGF5bG9hZC5jb250ZXh0LnRpbWVzdGFtcAogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgY29kZTogInZhbGlkX3RvIiwKICAgICAgICAgICAgICAgIHZhbHVlOiB0b1RpbWVzdGFtcAogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0KICAgICAgfQogICAgXQogICAgcHJvdmlkZXJzLmZvckVhY2gocHJvdmlkZXIgPT4gewogICAgICBwcm92aWRlci5jcmVkcyA9IGNyZWRzCiAgICB9KQogIH0KCiAgZXhpc3RpbmdQYXlsb2FkLmNvbnRleHQuY2l0eSA9ICJzdGQ6MDgwIgogIHJldHVybiBleGlzdGluZ1BheWxvYWQKfQo=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogIHJldHVybiB7IHZhbGlkOiB0cnVlLCBjb2RlOiAyMDAsIGRlc2NyaXB0aW9uOiAiVmFsaWQgcmVxdWVzdCIgfTsKfQ==
@@ -238,7 +252,8 @@ steps:
             bpp/descriptor:
               images:
                 - https://api.rvjgarments.in/static/images/rvj-tshirt.jpg
-              long_desc: RVJ Premium Garments offers high-quality unisex T‑shirts with superior comfort and style.
+              long_desc: RVJ Premium Garments offers high-quality unisex T‑shirts with
+                superior comfort and style.
               name: RVJ Premium Garments
               short_desc: Premium unisex T‑shirts
               symbol: RVJ
@@ -261,7 +276,8 @@ steps:
                 descriptor:
                   images:
                     - https://api.rvjgarments.in/static/images/rvj-store.jpg
-                  long_desc: RVJ Premium Garments store offering a curated range of unisex T‑shirts.
+                  long_desc: RVJ Premium Garments store offering a curated range of unisex
+                    T‑shirts.
                   name: RVJ Premium Garments Store
                   short_desc: Unisex T‑shirts and apparel
                   symbol: RVJ
@@ -275,12 +291,13 @@ steps:
                 items:
                   - "@ondc/org/available_on_cod": true
                     "@ondc/org/cancellable": true
-                    "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur, Kerala, support@rvjgarments.in, 9999999999
+                    "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur,
+                      Kerala, support@rvjgarments.in, 9999999999
                     "@ondc/org/return_window": P7D
                     "@ondc/org/returnable": true
                     "@ondc/org/seller_pickup_return": true
                     "@ondc/org/statutory_reqs_packaged_commodities":
-                      common_or_generic_name_of_commodity: T‑shirt
+                      common_or_generic_name_of_commodity: T-shirt
                       manufacturer_or_packer_address: Thrissur, Kerala, India
                       manufacturer_or_packer_name: RVJ Premium Garments
                       month_year_of_manufacture_packing_import: 03/2024
@@ -289,9 +306,10 @@ steps:
                     descriptor:
                       images:
                         - https://api.rvjgarments.in/static/images/rvj-tshirt-white.jpg
-                      long_desc: Comfortable, breathable white unisex premium T‑shirt from RVJ Premium Garments.
-                      name: RVJ Premium Unisex T‑Shirt - White
-                      short_desc: White unisex premium T‑shirt
+                      long_desc: Comfortable, breathable white unisex premium T-shirt from RVJ Premium
+                        Garments.
+                      name: RVJ Premium Unisex T-Shirt - White
+                      short_desc: White unisex premium T-shirt
                     fulfillment_id: f1
                     id: item-ts-1
                     location_id: loc-1
@@ -317,6 +335,54 @@ steps:
                             value: White
                           - code: size
                             value: L
+                          - code: brand
+                            value: RVJ Premium Garments
+                  - "@ondc/org/available_on_cod": true
+                    "@ondc/org/cancellable": true
+                    "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur,
+                      Kerala, support@rvjgarments.in, 9999999999
+                    "@ondc/org/return_window": P7D
+                    "@ondc/org/returnable": true
+                    "@ondc/org/seller_pickup_return": true
+                    "@ondc/org/statutory_reqs_packaged_commodities":
+                      common_or_generic_name_of_commodity: T-shirt
+                      manufacturer_or_packer_address: Thrissur, Kerala, India
+                      manufacturer_or_packer_name: RVJ Premium Garments
+                      month_year_of_manufacture_packing_import: 03/2024
+                    "@ondc/org/time_to_ship": P1D
+                    category_id: cat-ts-1
+                    descriptor:
+                      images:
+                        - https://api.rvjgarments.in/static/images/rvj-tshirt-black.jpg
+                      long_desc: Comfortable, breathable black unisex premium T-shirt from RVJ Premium
+                        Garments.
+                      name: RVJ Premium Unisex T-Shirt - Black
+                      short_desc: Black unisex premium T-shirt
+                    fulfillment_id: f1
+                    id: item-ts-2
+                    location_id: loc-1
+                    price:
+                      currency: INR
+                      maximum_value: "699.00"
+                      value: "549"
+                    quantity:
+                      available:
+                        count: "15"
+                      maximum:
+                        count: "5"
+                    tags:
+                      - code: origin
+                        list:
+                          - code: country
+                            value: IND
+                      - code: attribute
+                        list:
+                          - code: gender
+                            value: unisex
+                          - code: colour
+                            value: Black
+                          - code: size
+                            value: XL
                           - code: brand
                             value: RVJ Premium Garments
                 locations:
@@ -378,9 +444,9 @@ steps:
           context:
             domain: ONDC:RET12
             action: on_search
-            timestamp: 2026-05-29T10:19:56.919Z
+            timestamp: 2026-07-15T13:18:41.456Z
             transaction_id: 496b9719-40cf-4eb3-883f-33abfa2d45d9
-            message_id: 0eff80f5-217f-4c58-bb34-48d0f726d363
+            message_id: 24552520-4fbc-4c60-b5a7-6a6a34dcc4ff
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -394,7 +460,8 @@ steps:
               bpp/descriptor:
                 images:
                   - https://api.rvjgarments.in/static/images/rvj-tshirt.jpg
-                long_desc: RVJ Premium Garments offers high-quality unisex T‑shirts with superior comfort and style.
+                long_desc: RVJ Premium Garments offers high-quality unisex T‑shirts with
+                  superior comfort and style.
                 name: RVJ Premium Garments
                 short_desc: Premium unisex T‑shirts
                 symbol: RVJ
@@ -417,7 +484,8 @@ steps:
                   descriptor:
                     images:
                       - https://api.rvjgarments.in/static/images/rvj-store.jpg
-                    long_desc: RVJ Premium Garments store offering a curated range of unisex T‑shirts.
+                    long_desc: RVJ Premium Garments store offering a curated range of unisex
+                      T‑shirts.
                     name: RVJ Premium Garments Store
                     short_desc: Unisex T‑shirts and apparel
                     symbol: RVJ
@@ -431,12 +499,13 @@ steps:
                   items:
                     - "@ondc/org/available_on_cod": true
                       "@ondc/org/cancellable": true
-                      "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur, Kerala, support@rvjgarments.in, 9999999999
+                      "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur,
+                        Kerala, support@rvjgarments.in, 9999999999
                       "@ondc/org/return_window": P7D
                       "@ondc/org/returnable": true
                       "@ondc/org/seller_pickup_return": true
                       "@ondc/org/statutory_reqs_packaged_commodities":
-                        common_or_generic_name_of_commodity: T‑shirt
+                        common_or_generic_name_of_commodity: T-shirt
                         manufacturer_or_packer_address: Thrissur, Kerala, India
                         manufacturer_or_packer_name: RVJ Premium Garments
                         month_year_of_manufacture_packing_import: 03/2024
@@ -445,9 +514,10 @@ steps:
                       descriptor:
                         images:
                           - https://api.rvjgarments.in/static/images/rvj-tshirt-white.jpg
-                        long_desc: Comfortable, breathable white unisex premium T‑shirt from RVJ Premium Garments.
-                        name: RVJ Premium Unisex T‑Shirt - White
-                        short_desc: White unisex premium T‑shirt
+                        long_desc: Comfortable, breathable white unisex premium T-shirt from RVJ Premium
+                          Garments.
+                        name: RVJ Premium Unisex T-Shirt - White
+                        short_desc: White unisex premium T-shirt
                       fulfillment_id: f1
                       id: item-ts-1
                       location_id: loc-1
@@ -473,6 +543,54 @@ steps:
                               value: White
                             - code: size
                               value: L
+                            - code: brand
+                              value: RVJ Premium Garments
+                    - "@ondc/org/available_on_cod": true
+                      "@ondc/org/cancellable": true
+                      "@ondc/org/contact_details_consumer_care": RVJ Premium Garments, Thrissur,
+                        Kerala, support@rvjgarments.in, 9999999999
+                      "@ondc/org/return_window": P7D
+                      "@ondc/org/returnable": true
+                      "@ondc/org/seller_pickup_return": true
+                      "@ondc/org/statutory_reqs_packaged_commodities":
+                        common_or_generic_name_of_commodity: T-shirt
+                        manufacturer_or_packer_address: Thrissur, Kerala, India
+                        manufacturer_or_packer_name: RVJ Premium Garments
+                        month_year_of_manufacture_packing_import: 03/2024
+                      "@ondc/org/time_to_ship": P1D
+                      category_id: cat-ts-1
+                      descriptor:
+                        images:
+                          - https://api.rvjgarments.in/static/images/rvj-tshirt-black.jpg
+                        long_desc: Comfortable, breathable black unisex premium T-shirt from RVJ Premium
+                          Garments.
+                        name: RVJ Premium Unisex T-Shirt - Black
+                        short_desc: Black unisex premium T-shirt
+                      fulfillment_id: f1
+                      id: item-ts-2
+                      location_id: loc-1
+                      price:
+                        currency: INR
+                        maximum_value: "699.00"
+                        value: "549"
+                      quantity:
+                        available:
+                          count: "15"
+                        maximum:
+                          count: "5"
+                      tags:
+                        - code: origin
+                          list:
+                            - code: country
+                              value: IND
+                        - code: attribute
+                          list:
+                            - code: gender
+                              value: unisex
+                            - code: colour
+                              value: Black
+                            - code: size
+                              value: XL
                             - code: brand
                               value: RVJ Premium Garments
                   locations:
@@ -519,7 +637,12 @@ steps:
                     timestamp: 2024-03-22T09:15:00.000Z
                   ttl: P1D
         type: request
-        description: please add relevant description
+        description: The BPP sends the on_search response to the BAP, returning the
+          discovery outcome for the buyer’s search by sharing the matching
+          fashion catalog and the transaction context needed for routing and
+          correlation. This step semantically conveys the seller-side
+          availability and offer landscape for the requested discovery query
+          within the ongoing Retail 1.2.5 transaction.
 transaction_history: []
 validationLib: ""
 helperLib: LyoKCUN1c3RvbSBoZWxwZXIgZnVuY3Rpb25zIGF2YWlsYWJsZSBpbiBhbGwgbW9jayBnZW5lcmF0aW9uIGZ1bmN0aW9ucy4KCXRoZXNlIGFyZSBhcHBlbmRlZCBiZWxvdyB0aGUgZ2VuZXJhdGUgZnVuY3Rpb24gZm9yIGVhY2ggc3RlcC4KKi8KCmNvbnN0IGNyZWF0ZUZvcm1VUkwgPSAoZG9tYWluLGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKCWNvbnN0IGJhc2VVUkwgPSBzZXNzaW9uRGF0YS5tb2NrQmFzZVVybDsKCWNvbnN0IHRyYW5zYWN0aW9uSWQgPSBzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkWzBdOwoJY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwoJcmV0dXJuIGAke2Jhc2VVUkx9L2Zvcm1zLyR7ZG9tYWlufS8ke2Zvcm1JZH0vP3RyYW5zYWN0aW9uX2lkPSR7dHJhbnNhY3Rpb25JZH0mc2Vzc2lvbl9pZD0ke3Nlc3Npb25JZH1gOwp9CgovLyBHZW5lcmF0ZXMgYSBVVUlEIHY0CmZ1bmN0aW9uIHV1aWR2NCgpIHsKCXJldHVybiAneHh4eHh4eHgteHh4eC00eHh4LXl4eHgteHh4eHh4eHh4eHh4Jy5yZXBsYWNlKC9beHldL2csIGZ1bmN0aW9uIChjKSB7CgkgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwoJICBjb25zdCB2ID0gYyA9PT0gJ3gnID8gciA6IChyICYgMHgzIHwgMHg4KTsKCSAgcmV0dXJuIHYudG9TdHJpbmcoMTYpOwoJfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKCXJldHVybiBNYXRoLmZsb29yKDEwMDAwMCArIE1hdGgucmFuZG9tKCkgKiA5MDAwMDApLnRvU3RyaW5nKCk7Cn0KCi8vIFJldHVybnMgdGhlIGN1cnJlbnQgSVNPIHRpbWVzdGFtcApmdW5jdGlvbiBjdXJyZW50VGltZXN0YW1wKCkgewoJcmV0dXJuIG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKTsKfQoKLy8gQ29udmVydHMgSVNPIDg2MDEgZHVyYXRpb24gc3RyaW5nIHRvIHRvdGFsIHNlY29uZHMKY29uc3QgaXNvRHVyVG9TZWMgPSAoZHVyYXRpb24pID0+IHsKICBjb25zdCBkdXJSRSA9IC9QKChkKylZKT8oKGQrKU0pPygoZCspVyk/KChkKylEKT9UPygoZCspSCk/KChkKylNKT8oKGQrKVMpPy87CiAgY29uc3QgcyA9IGR1clJFLmV4ZWMoZHVyYXRpb24pOwogIGlmICghcykgcmV0dXJuIDA7CiAgCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKCShOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwoJKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKCShOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKCShOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKCShOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCgkoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CglpZiAoIWlucHV0cykgcmV0dXJuICIqIjsKCWxldCB2ZXJzaW9uID0gcGF5bG9hZC5jb250ZXh0LnZlcnNpb24gfHwgcGF5bG9hZC5jb250ZXh0LmNvcmVfdmVyc2lvbiB8fCAiMi4wLjAiOwoJaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CgkJcGF5bG9hZC5jb250ZXh0LmNpdHkgPSBpbnB1dHMuY2l0eV9jb2RlID8/ICIqIjsKCX0gZWxzZSB7CgkJcGF5bG9hZC5jb250ZXh0LmxvY2F0aW9uLmNpdHkuY29kZSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwoJfQp9CgpmdW5jdGlvbiBnZXRVcGRhdGVkQmlsbGluZyhzYXZlZEJpbGxpbmcsIGluaXRpYWxpemUgPSBmYWxzZSkgewoJaWYgKGluaXRpYWxpemUpIHsKCQljb25zdCBuZXdJc28gPSBuZXcgRGF0ZShuZXcgRGF0ZSgpLmdldFRpbWUoKSAtIDUgKiAxMDAwKS50b0lTT1N0cmluZygpOwoJCXNhdmVkQmlsbGluZy5jcmVhdGVkX2F0ID0gbmV3SXNvOwoJCXNhdmVkQmlsbGluZy51cGRhdGVkX2F0ID0gbmV3SXNvOwoJfQoJcmV0dXJuIHNhdmVkQmlsbGluZzsKfQ==
