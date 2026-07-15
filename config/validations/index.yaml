@@ -2637,10 +2637,18 @@ _TESTS_:
                 _RETURN_: attr follow regex reg
             
               - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                attr: "$.message.order.quote.breakup[*].item.price.currency"
+                _SCOPE_: "$.message.order.quote.breakup[*]"
+                title_type_val: "$['@ondc/org/title_type']"
+                var_item_type: ["item"]
+                _CONTINUE_: "!(title_type_val any in var_item_type)"
+                attr: "$.item.price.currency"
                 _RETURN_: attr are present
               - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                attr: "$.message.order.quote.breakup[*].item.price.value"
+                _SCOPE_: "$.message.order.quote.breakup[*]"
+                title_type_val: "$['@ondc/org/title_type']"
+                var_item_type: ["item"]
+                _CONTINUE_: "!(title_type_val any in var_item_type)"
+                attr: "$.item.price.value"
                 _RETURN_: attr are present
               - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                 _RETURN_:
@@ -3742,8 +3750,11 @@ _TESTS_:
                 attr: "$.message.order.fulfillments[*].end.location.address.country"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
-                _CONTINUE_: "!(attr are present)"
-                attr: "$.message.order.fulfillments[*].end.location.address.city"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_end_addr_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_end_addr_types)"
+                attr: "$.end.location.address.city"
                 reg: ['^[A-Za-z ]{2,100}$']
                 _RETURN_: attr are present && attr follow regex reg
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
@@ -3751,8 +3762,11 @@ _TESTS_:
                 attr: "$.message.order.fulfillments[*].end.location.address.area_code"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
-                _CONTINUE_: "!(attr are present)"
-                attr: "$.message.order.fulfillments[*].end.location.address.state"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_end_addr_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_end_addr_types)"
+                attr: "$.end.location.address.state"
                 reg: ['^[A-Za-z ]{2,100}$']
                 _RETURN_: attr are present && attr follow regex reg
           - _NAME_: FULFILLMENTS_END_TIME
@@ -4582,21 +4596,41 @@ _TESTS_:
               attr: "$.message.order.fulfillments[*].start.location.descriptor.name"
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-              attr: "$.message.order.fulfillments[*].start.location.gps"
+              _SCOPE_: "$.message.order.fulfillments[*]"
+              fulfillment_type: "$.type"
+              var_ff_types: ["Delivery", "Return"]
+              _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+              attr: "$.start.location.gps"
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
               _RETURN_:
               - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
-                attr: "$.message.order.fulfillments[*].start.location.address.locality"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_ff_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+                attr: "$.start.location.address.locality"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                attr: "$.message.order.fulfillments[*].start.location.address.city"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_ff_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+                attr: "$.start.location.address.city"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                attr: "$.message.order.fulfillments[*].start.location.address.area_code"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_ff_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+                attr: "$.start.location.address.area_code"
                 _RETURN_: attr are present
               - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                attr: "$.message.order.fulfillments[*].start.location.address.state"
+                _SCOPE_: "$.message.order.fulfillments[*]"
+                fulfillment_type: "$.type"
+                var_ff_types: ["Delivery", "Return"]
+                _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+                attr: "$.start.location.address.state"
                 _RETURN_: attr are present
           - _NAME_: FULFILLMENTS_START_TIME
             _RETURN_:
@@ -4611,7 +4645,11 @@ _TESTS_:
           - _NAME_: FULFILLMENTS_START_CONTACT
             _RETURN_:
             - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-              attr: "$.message.order.fulfillments[*].start.contact.phone"
+              _SCOPE_: "$.message.order.fulfillments[*]"
+              fulfillment_type: "$.type"
+              var_ff_types: ["Delivery", "Return"]
+              _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+              attr: "$.start.contact.phone"
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
               _CONTINUE_: "!(attr are present)"
@@ -4622,7 +4660,11 @@ _TESTS_:
           - _NAME_: FULFILLMENTS_END_LOCATION
             _RETURN_:
             - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-              attr: "$.message.order.fulfillments[*].end.location.gps"
+              _SCOPE_: "$.message.order.fulfillments[*]"
+              fulfillment_type: "$.type"
+              var_ff_types: ["Delivery", "Return"]
+              _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+              attr: "$.end.location.gps"
               _RETURN_: attr are present
             # - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
             #   _RETURN_:
@@ -4658,12 +4700,20 @@ _TESTS_:
               attr: "$.message.order.fulfillments[*].end.time.range.end"
               _RETURN_: attr are present
           - _NAME_: FULFILLMENTS_END_PERSON_NAME
-            attr: "$.message.order.fulfillments[*].end.person.name"
+            _SCOPE_: "$.message.order.fulfillments[*]"
+            fulfillment_type: "$.type"
+            var_ff_types: ["Delivery", "Return"]
+            _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+            attr: "$.end.person.name"
             _RETURN_: attr are present
           - _NAME_: FULFILLMENTS_END_CONTACT
             _RETURN_:
             - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-              attr: "$.message.order.fulfillments[*].end.contact.phone"
+              _SCOPE_: "$.message.order.fulfillments[*]"
+              fulfillment_type: "$.type"
+              var_ff_types: ["Delivery", "Return"]
+              _CONTINUE_: "!(fulfillment_type any in var_ff_types)"
+              attr: "$.end.contact.phone"
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
               _CONTINUE_: "!(attr are present)"
@@ -4842,7 +4892,11 @@ _TESTS_:
           attr: "$.message.order.fulfillments[*].id"
           _RETURN_: attr are present
         - _NAME_: FULFILLMENTS_TIME_TIMESTAMP
-          attr: "$.message.order.fulfillments[*].time.timestamp"
+          _SCOPE_: "$.message.order.fulfillments[*]"
+          fulfillment_type: "$.type"
+          var_delivery_type: ["Delivery"]
+          _CONTINUE_: "!(fulfillment_type any in var_delivery_type)"
+          attr: "$.time.timestamp"
           _RETURN_: attr are present
         - _NAME_: FULFILLMENTS_TYPE
           attr: "$.message.order.fulfillments[*].type"
