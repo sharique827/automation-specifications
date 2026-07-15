@@ -3661,11 +3661,11 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[*].start.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.contact.email
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
