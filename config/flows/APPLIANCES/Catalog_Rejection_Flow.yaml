@@ -184,14 +184,14 @@ steps:
           context:
             domain: ONDC:RET15
             action: search
-            timestamp: 2026-07-13T18:47:46.623Z
+            timestamp: 2026-07-16T10:27:13.760Z
             transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-            message_id: 45fa6d3b-ca38-43a8-9889-72f8dea1cf9e
+            message_id: 817a7292-1cf7-4069-974d-b6de0ffa860b
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
             country: IND
-            city: std:011
+            city: std:080
             core_version: 1.2.5
           message:
             intent:
@@ -207,12 +207,10 @@ steps:
                     - code: static_terms_new
                       value: https://github.com/ONDC-Official/NP-Static-Terms/buyerNP_BNP/1.0/tc.pdf
                     - code: effective_date
-                      value: 2026-07-23T18:47:46.626Z
+                      value: 2026-07-26T10:27:13.766Z
                 - code: bap_features
                   list:
                     - code: "001"
-                      value: yes
-                    - code: "008"
                       value: yes
         type: request
         description: The BAP initiates the Catalog Rejection Flow by broadcasting a
@@ -434,16 +432,16 @@ steps:
           context:
             domain: ONDC:RET15
             action: on_search
-            timestamp: 2026-07-13T18:47:48.233Z
+            timestamp: 2026-07-16T10:27:15.265Z
             transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-            message_id: 45fa6d3b-ca38-43a8-9889-72f8dea1cf9e
+            message_id: 817a7292-1cf7-4069-974d-b6de0ffa860b
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
             bpp_id: sample-bpp-id
             bpp_uri: https://bpp.example.com
             country: IND
-            city: std:011
+            city: std:080
             core_version: 1.2.5
           message:
             catalog:
@@ -718,10 +716,6 @@ steps:
                           value: pincode
                         - code: val
                           value: 560001-560076,560083
-                    - code: order_value
-                      list:
-                        - code: min_value
-                          value: "300.00"
                   categories:
                     - id: V1
                       tags:
@@ -783,20 +777,19 @@ steps:
           country: IND
           city: "*"
           core_version: 1.2.5
-        message:
-          errors:
-            - type: ITEM-ERROR
-              code: "91001"
-              message: Item price > MRP
-              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='1b7ecabd-b5cc-4296-ad98-5c139c0ed7d7')].price.value
-            - type: ITEM-ERROR
-              code: "91001"
-              message: Item price > MRP
-              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='b1f9397b-0986-49bb-a759-ea3c36e4b2a9')].price.value
-            - type: ITEM-ERROR
-              code: "91001"
-              message: Item price > MRP
-              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='0984d1dd-b5ea-417f-9104-68a2ec40dbd4')].price.value
+        errors:
+          - type: ITEM-ERROR
+            code: "91001"
+            message: Item price > MRP
+            path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='1b7ecabd-b5cc-4296-ad98-5c139c0ed7d7')].price.value
+          - type: ITEM-ERROR
+            code: "91001"
+            message: Item price > MRP
+            path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='b1f9397b-0986-49bb-a759-ea3c36e4b2a9')].price.value
+          - type: ITEM-ERROR
+            code: "91001"
+            message: Item price > MRP
+            path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='0984d1dd-b5ea-417f-9104-68a2ec40dbd4')].price.value
       saveData:
         transactionId: $.context.transaction_id
         latestMessage_id: $.context.message_id
@@ -813,9 +806,9 @@ steps:
           context:
             domain: ONDC:RET15
             action: catalog_rejection
-            timestamp: 2026-07-13T18:47:48.241Z
+            timestamp: 2026-07-16T10:27:15.280Z
             transaction_id: 7bff96fb-28c1-4b0f-82b0-c6e13beb0cfc
-            message_id: 986cc9eb-d234-448d-af55-ea23ea7379ea
+            message_id: 4001131d-304e-4c70-bf6c-60691748f932
             bap_id: sample-bap-id
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -825,6 +818,18 @@ steps:
             city: "*"
             core_version: 1.2.5
           errors:
+            - type: ITEM-ERROR
+              code: "91001"
+              message: Item price > MRP
+              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='1b7ecabd-b5cc-4296-ad98-5c139c0ed7d7')].price.value
+            - type: ITEM-ERROR
+              code: "91001"
+              message: Item price > MRP
+              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='b1f9397b-0986-49bb-a759-ea3c36e4b2a9')].price.value
+            - type: ITEM-ERROR
+              code: "91001"
+              message: Item price > MRP
+              path: message.catalog.bpp/providers[?(@.id=='e2008459-7e90-493e-b02e-cae52ca53214')].items[?(@.id=='0984d1dd-b5ea-417f-9104-68a2ec40dbd4')].price.value
             - type: ITEM-ERROR
               code: "91001"
               message: Item price > MRP
