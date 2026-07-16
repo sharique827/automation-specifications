@@ -3540,7 +3540,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-                      attr: $.message.order.fulfillments[*].end.location.gps
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].end.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
