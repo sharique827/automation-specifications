@@ -177,10 +177,10 @@ _TESTS_:
         - search
       _RETURN_:
         - _NAME_: REQUIRED_PAYMENT_TAGS
-          attr: $.message.intent.tags
+          attr: $.message.intent.tags[*].descriptor.code
           _RETURN_: attr are present
         - _NAME_: REQUIRED_PAYMENT_TAG_BAP_TERMS_PRESENCE
-          attr: $.message.intent.tags[?(@.descriptor.code=='BAP_TERMS')]
+          attr: $.message.intent.tags[?(@.descriptor.code=='BAP_TERMS')].descriptor.code
           _RETURN_: attr are present
         - _NAME_: PAYMENT_TAG_GROUP
           validTags:
