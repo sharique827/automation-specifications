@@ -1300,14 +1300,26 @@ _TESTS_:
                             - "0"
                           _RETURN_: attr all in var_enum
                         - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_MAXIMUM_COUNT
-                          attr: $.message.order.quote.breakup[*].item.quantity.maximum.count
-                          _RETURN_: attr are present
+                          _SCOPE_: $.message.order.quote.breakup[*]
+                          maximumCount: $.item.quantity.maximum.count
+                          value: "$['@ondc/org/title_type']"
+                          item: ["item"]
+                          _CONTINUE_: "!(value all in item)"
+                          _RETURN_: maximumCount are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
-                          _RETURN_: attr are present
+                          _SCOPE_: $.message.order.quote.breakup[*]
+                          priceCurrency: $.item.price.currency
+                          value: "$['@ondc/org/title_type']"
+                          item: ["item"]
+                          _CONTINUE_: "!(value all in item)"
+                          _RETURN_: priceCurrency are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
-                          _RETURN_: attr are present
+                          _SCOPE_: $.message.order.quote.breakup[*]
+                          priceValue: $.item.price.value
+                          value: "$['@ondc/org/title_type']"
+                          item: ["item"]
+                          _CONTINUE_: "!(value all in item)"
+                          _RETURN_: priceValue are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
                             - _NAME_: BREAKUP_ITEM_VALID_TAGS
@@ -1646,11 +1658,19 @@ _TESTS_:
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
-                          _RETURN_: attr are present
+                          _SCOPE_: $.message.order.quote.breakup[*]
+                          priceCurrency: $.item.price.currency
+                          value: "$['@ondc/org/title_type']"
+                          item: ["item"]
+                          _CONTINUE_: "!(value all in item)"
+                          _RETURN_: priceCurrency are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
-                          _RETURN_: attr are present
+                          _SCOPE_: $.message.order.quote.breakup[*]
+                          priceValue: $.item.price.value
+                          value: "$['@ondc/org/title_type']"
+                          item: ["item"]
+                          _CONTINUE_: "!(value all in item)"
+                          _RETURN_: priceValue are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
                             - _NAME_: BREAKUP_ITEM_VALID_TAGS
