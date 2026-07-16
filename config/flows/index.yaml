@@ -51,6 +51,46 @@ flows:
     config:
       $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm.yaml
   - type: playground
+    id: OnDemand_Assign_driver_on_onconfirm_Add_Ons
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - ON_DEMAND
+      - REPORTABLE
+    description: On-demand ride booking where the rider optionally attaches add-ons (child seat, luggage carrier) at selection; driver is assigned on confirmation and the add-ons fare component persists through quote, confirmation and live status updates.
+    config:
+      $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_Add_Ons.yaml
+  - type: playground
+    id: OnDemand_Assign_driver_on_onconfirm_BAP_Collecting
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - ON_DEMAND
+      - REPORTABLE
+    description: On-demand ride booking where the buyer app collects the fare (BAP collecting); driver is assigned on confirmation, and after the ride ends the BAP reports the PAID payment via update and the provider acknowledges the settlement via on_update.
+    config:
+      $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_BAP_Collecting.yaml
+  - type: playground
+    id: OnDemand_Assign_driver_on_onconfirm_BAP_Collecting_Pre_Order
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - ON_DEMAND
+      - REPORTABLE
+    description: On-demand ride booking where the buyer app collects the fare up front (BAP collecting, pre-order) - the payment is marked PAID with amount and payment transaction id at confirmation, the driver is assigned on on_confirm, and the PAID payment persists through tracking to completion.
+    config:
+      $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_BAP_Collecting_Pre_Order.yaml
+  - type: playground
+    id: OnDemand_Assign_driver_on_onconfirm_BAP_Collecting_Quote_Update
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - ON_DEMAND
+      - REPORTABLE
+    description: On-demand ride booking where the buyer app collects the fare and the fare is revised at ride end (BAP collecting, quote update) - the ride-ended on_update carries an updated quote, the BAP settles the updated amount via update, and the provider acknowledges the settlement via on_update.
+    config:
+      $ref: ./Ride-hailing/OnDemand_Assign_driver_on_onconfirm_BAP_Collecting_Quote_Update.yaml
+  - type: playground
     id: OnDemand_Assign_driver_on_onconfirm_With_IGM(v-1.0.0)
     usecase: Ride-hailing
     tags:
