@@ -3219,21 +3219,21 @@ _TESTS_:
         - _NAME_: CATALOG_REJECTION_ERRORS_REQUIRED
           _RETURN_:
             - _NAME_: CATALOG_REJECTION_ERRORS_TYPE
-              attr: $.message.errors[*].type
+              attr: $.errors[*].type
               _RETURN_: attr are present
             - _NAME_: CATALOG_REJECTION_ERRORS_CODE
-              attr: $.message.errors[*].code
+              attr: $.errors[*].code
               _RETURN_: attr are present
             - _NAME_: CATALOG_REJECTION_ERRORS_MESSAGE
-              attr: $.message.errors[*].message
+              attr: $.errors[*].message
               _RETURN_: attr are present
             - _NAME_: CATALOG_REJECTION_ERRORS_PATH
-              attr: $.message.errors[*].path
+              attr: $.errors[*].path
               _RETURN_: attr are present
         - _NAME_: CATALOG_REJECTION_ERRORS_ENUM
           _RETURN_:
             - _NAME_: CATALOG_REJECTION_ERRORS_TYPE_ENUM
-              attr: $.message.errors[*].type
+              attr: $.errors[*].type
               var_error_types:
                 - ITEM-ERROR
                 - PROVIDER-ERROR
