@@ -10462,7 +10462,7 @@
   "on_update": {
     "action": "on_update",
     "codeName": "L1validations",
-    "numLeafTests": 79,
+    "numLeafTests": 75,
     "generated": "2026-07-16",
     "rows": [
       {
@@ -11430,29 +11430,9 @@
         "name": "**FULFILLMENTS_START_TIME**",
         "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_START",
         "scope": "",
-        "description": "Sub-tests: FULFILLMENTS_START_TIME_RANGE_START, FULFILLMENTS_START_TIME_RANGE_END, FULFILLMENTS_START_TIME_TIMESTAMP",
+        "description": "Sub-tests: FULFILLMENTS_START_TIME_TIMESTAMP",
         "skipIf": "",
         "errorCode": "",
-        "successCode": ""
-      },
-      {
-        "rowType": "leaf",
-        "name": "FULFILLMENTS_START_TIME_RANGE_START",
-        "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_START > FULFILLMENTS_START_TIME",
-        "scope": "",
-        "description": "- All elements of $.message.order.fulfillments[*].start.time.range.start must follow every regex in [\"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$\"]",
-        "skipIf": "- $.message.order.fulfillments[*].start.time.range.start is not in the payload",
-        "errorCode": "30000",
-        "successCode": ""
-      },
-      {
-        "rowType": "leaf",
-        "name": "FULFILLMENTS_START_TIME_RANGE_END",
-        "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_START > FULFILLMENTS_START_TIME",
-        "scope": "`$.message.order.fulfillments[?(@.type=='Delivery')]`",
-        "description": "- All elements of $.message.order.fulfillments[?(@.type=='Delivery')].start.time.range.end must follow every regex in [\"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$\"]",
-        "skipIf": "- $.message.order.fulfillments[?(@.type=='Delivery')].start.time.range.end is not in the payload",
-        "errorCode": "30000",
         "successCode": ""
       },
       {
@@ -11530,29 +11510,9 @@
         "name": "**FULFILLMENTS_END_TIME**",
         "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_END",
         "scope": "",
-        "description": "Sub-tests: FULFILLMENTS_END_TIME_RANGE_START, FULFILLMENTS_END_TIME_RANGE_END, FULFILLMENTS_END_TIME_TIMESTAMP",
+        "description": "Sub-tests: FULFILLMENTS_END_TIME_TIMESTAMP",
         "skipIf": "",
         "errorCode": "",
-        "successCode": ""
-      },
-      {
-        "rowType": "leaf",
-        "name": "FULFILLMENTS_END_TIME_RANGE_START",
-        "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_END > FULFILLMENTS_END_TIME",
-        "scope": "`$.message.order.fulfillments[?(@.type=='Delivery')]`",
-        "description": "- All elements of $.message.order.fulfillments[?(@.type=='Delivery')].end.time.range.start must follow every regex in [\"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$\"]",
-        "skipIf": "- $.message.order.fulfillments[?(@.type=='Delivery')].end.time.range.start is not in the payload",
-        "errorCode": "30000",
-        "successCode": ""
-      },
-      {
-        "rowType": "leaf",
-        "name": "FULFILLMENTS_END_TIME_RANGE_END",
-        "group": "ON_UPDATE_ORDER > ORDER_FULFILLMENTS > FULFILLMENTS_END > FULFILLMENTS_END_TIME",
-        "scope": "",
-        "description": "- All elements of $.message.order.fulfillments[*].end.time.range.end must follow every regex in [\"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$\"]",
-        "skipIf": "- $.message.order.fulfillments[*].end.time.range.end is not in the payload",
-        "errorCode": "30000",
         "successCode": ""
       },
       {
