@@ -2528,19 +2528,6 @@ _TESTS_:
                       _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
-                    - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
-                      _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.start
-                      reg:
-                        - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: attr follow regex reg
-                    - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
-                      _SCOPE_: $.message.order.fulfillments[?(@.type=='Delivery')]
-                      _CONTINUE_: "!(attr are present)"
-                      attr: $.start.time.range.end
-                      reg:
-                        - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].start.time.timestamp
@@ -2573,19 +2560,6 @@ _TESTS_:
                           _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
-                    - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
-                      _SCOPE_: $.message.order.fulfillments[?(@.type=='Delivery')]
-                      _CONTINUE_: "!(attr are present)"
-                      attr: $.end.time.range.start
-                      reg:
-                        - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: attr follow regex reg
-                    - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
-                      _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.end
-                      reg:
-                        - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].end.time.timestamp
