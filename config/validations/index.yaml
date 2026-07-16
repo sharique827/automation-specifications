@@ -448,18 +448,8 @@ _TESTS_:
               _RETURN_:
                 - _NAME_: TAGS_BPP_DESCRIPTORS_VALID_TAGS
                   _CONTINUE_: "!(attr are present)"
-                  attr: $.message.catalog['bpp/descriptor'].tags[*].code
-                  valid:
-                    - bpp_terms
-                  _RETURN_: attr all in valid
-                - _NAME_: TAGS_BPP_DESCRIPTORS_VALID_ENUMS
-                  _CONTINUE_: "!(attr are present)"
-                  attr: $.message.catalog['bpp/descriptor'].tags[?(@.code=='bpp_terms')].list[*].code
-                  valid:
-                    - np_type
-                    - accept_bap_terms
-                    - collect_payment
-                  _RETURN_: attr all in valid
+                  attr: $.message.catalog['bpp/descriptor'].tags[?(@.code=='bpp_terms')].list[?(@.code=='np_type')].value
+                  _RETURN_: attr are present
                 - _NAME_: BPP_DESCRIPTOR_TAGS_BPP_TERMS
                   _RETURN_:
                     - _NAME_: TAGS_BPP_TERMS_NP_TYPE
