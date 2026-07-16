@@ -3208,27 +3208,35 @@ _TESTS_:
           _RETURN_: attr are present
   catalog_rejection:
     - _NAME_: CATALOG_REJECTION_CONTEXT
-      _DESCRIPTION_: Validate catalog_rejection context
+      _DESCRIPTION_: Validate catalog rejection context
       action:
         - catalog_rejection
       _RETURN_: *a1
-    - _NAME_: CATALOG_REJECTION_VALIDATION
-      action:
-        - catalog_rejection
+    - _NAME_: CATALOG_REJECTION_MESSAGE
+      _DESCRIPTION_: Validate catalog rejection message errors
       _RETURN_:
-        - _NAME_: REQUIRED_ERRORS
-          attr: $.errors
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_ERROR_TYPE
-          attr: $.errors[*].type
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_ERROR_CODE
-          attr: $.errors[*].code
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_ERROR_MESSAGE
-          attr: $.errors[*].message
-          _RETURN_: attr are present
-        - _NAME_: REQUIRED_ERROR_PATH
-          attr: $.errors[*].path
-          _RETURN_: attr are present
+        - _NAME_: CATALOG_REJECTION_ERRORS_REQUIRED
+          _RETURN_:
+            - _NAME_: CATALOG_REJECTION_ERRORS_TYPE
+              attr: $.errors[*].type
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_CODE
+              attr: $.errors[*].code
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_MESSAGE
+              attr: $.errors[*].message
+              _RETURN_: attr are present
+            - _NAME_: CATALOG_REJECTION_ERRORS_PATH
+              attr: $.errors[*].path
+              _RETURN_: attr are present
+        - _NAME_: CATALOG_REJECTION_ERRORS_ENUM
+          _RETURN_:
+            - _NAME_: CATALOG_REJECTION_ERRORS_TYPE_ENUM
+              attr: $.errors[*].type
+              var_error_types:
+                - ITEM-ERROR
+                - PROVIDER-ERROR
+                - CATALOG-ERROR
+              _RETURN_: attr all in var_error_types
+
 _SESSION_DATA_: {}
