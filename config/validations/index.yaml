@@ -173,7 +173,15 @@ _TESTS_:
             - BAP
           _RETURN_: attr any in enumList
     - _NAME_: SEARCH_INTENT_TAGS
+      action:
+        - search
       _RETURN_:
+        - _NAME_: REQUIRED_PAYMENT_TAGS
+          attr: $.message.intent.tags
+          _RETURN_: attr are present
+        - _NAME_: REQUIRED_PAYMENT_TAG_BAP_TERMS_PRESENCE
+          attr: $.message.intent.tags[?(@.descriptor.code=='BAP_TERMS')]
+          _RETURN_: attr are present
         - _NAME_: PAYMENT_TAG_GROUP
           validTags:
             - BAP_TERMS
