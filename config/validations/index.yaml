@@ -2121,12 +2121,15 @@ _TESTS_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
@@ -2163,6 +2166,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
@@ -3465,12 +3469,15 @@ _TESTS_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
@@ -3489,6 +3496,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
@@ -3500,6 +3508,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].end.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
