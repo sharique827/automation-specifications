@@ -1045,9 +1045,7 @@ _TESTS_:
               _RETURN_: attr follow regex reg
             - _NAME_: ITEMS_FULFILLMENT_ID
               attr: $.message.order.items[*].fulfillment_id
-              reg:
-                - ^[0-9a-zA-Z/-_]{1,36}$
-              _RETURN_: attr follow regex reg
+              _RETURN_: attr are present
             - _NAME_: ITEMS_FULFILLMENT_ID_MAP_SPF
               attr: $.message.order.items[*].fulfillment_id
               enum_var_id: $.message.order.fulfillments[*].id
@@ -2442,7 +2440,26 @@ _TESTS_:
         - _NAME_: ORDER_PROVIDER
           _RETURN_: *a2
         - _NAME_: ORDER_ITEMS
-          _RETURN_: *a4
+          _RETURN_:
+            - _NAME_: ON_SELECT_ITEMS
+              _RETURN_:
+                - _NAME_: ITEMS_ID
+                  attr: $.message.order.items[*].id
+                  reg:
+                    - ^[0-9a-zA-Z/-_]{1,36}$
+                  _RETURN_: attr follow regex reg
+                - _NAME_: ITEMS_FULFILLMENT_ID
+                  attr: $.message.order.items[*].fulfillment_id
+                  _RETURN_: attr are present
+                - _NAME_: ITEMS_FULFILLMENT_ID_MAP_SPF
+                  attr: $.message.order.items[*].fulfillment_id
+                  enum_var_id: $.message.order.fulfillments[*].id
+                  _RETURN_: attr all in enum_var_id
+            - _NAME_: ITEMS_QUANTITY_COUNT
+              attr: $.message.order.items[*].quantity.count
+              reg:
+                - ^[0-9]+$
+              _RETURN_: attr follow regex reg
         - _NAME_: ORDER_QUOTE
           _RETURN_: *a7
         - _NAME_: ORDER_BILLING
