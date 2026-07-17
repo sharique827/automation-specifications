@@ -2149,7 +2149,7 @@ _TESTS_:
                       _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.range.end
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
                       _RETURN_: attr follow regex reg
@@ -2187,7 +2187,7 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].end.time.range.start
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
                       _RETURN_: attr follow regex reg
@@ -2528,7 +2528,7 @@ _TESTS_:
                       _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].start.time.range.end
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
                       _RETURN_: attr follow regex reg
@@ -2566,7 +2566,7 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type=='Delivery')].end.time.range.start
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
                       _RETURN_: attr follow regex reg
