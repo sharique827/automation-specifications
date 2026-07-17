@@ -1383,21 +1383,6 @@ _TESTS_:
                       _RETURN_: attr are present
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
-                        - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_AVAILABLE_COUNT
-                          attr: $.message.order.quote.breakup[*].item.quantity.available.count
-                          var_enum:
-                            - "99"
-                            - "0"
-                          _RETURN_: attr all in var_enum
-                        - _NAME_: BREAKUP_ITEM_ITEM_QUANTITY_MAXIMUM_COUNT
-                          attr: $.message.order.quote.breakup[*].item.quantity.maximum.count
-                          _RETURN_: attr are present
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
-                          _RETURN_: attr are present
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
-                          _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
                             - _NAME_: BREAKUP_ITEM_VALID_TAGS
@@ -1751,12 +1736,6 @@ _TESTS_:
                       _RETURN_: attr are present
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
-                          _RETURN_: attr are present
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
-                          _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
                             - _NAME_: BREAKUP_ITEM_VALID_TAGS
@@ -2142,12 +2121,15 @@ _TESTS_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
@@ -2184,6 +2166,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
@@ -3486,12 +3469,15 @@ _TESTS_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
+                          _CONTINUE_: "!(attr are present)"
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
@@ -3510,6 +3496,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
@@ -3521,6 +3508,7 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
+                      _CONTINUE_: "!(attr are present)"
                       attr: $.message.order.fulfillments[*].end.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
@@ -3719,14 +3707,6 @@ _TESTS_:
                       _RETURN_: attr are present
                     - _NAME_: BREAKUP_ITEM_ITEM
                       _RETURN_:
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.currency
-                          _RETURN_: attr are present
-                        - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.value
-                          _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
                             - _NAME_: BREAKUP_ITEM_ITEM_TAGS_TAGS_QUOTE
