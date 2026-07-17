@@ -918,6 +918,7 @@ steps:
         bap_terms: $.message.order.tags[?(@.code == 'bap_terms')]
         fulfillments: $.message.order.fulfillments[*]
         order_id: $.message.order.id
+        state: $.message.order.state
       inputs: {}
     examples:
       - name: Example for action "confirm"
