@@ -12,8 +12,10 @@ supportedActions:
     - select
     - init
     - on_search
+    - catalog_rejection
   select:
     - on_select
+    - select
   on_select:
     - init
     - select
@@ -29,18 +31,18 @@ supportedActions:
     - confirm
     - status
     - cancel
-    - on_update
     - on_status
     - track
     - update
+    - on_update
   update:
     - on_update
-    - on_confirm
     - update
+    - on_confirm
     - on_status
+    - on_cancel
   on_update:
     - status
-    - on_confirm
     - on_status
     - track
     - cancel
@@ -88,6 +90,8 @@ supportedActions:
   on_issue_status:
     - on_issue
     - issue
+  catalog_rejection:
+    - catalog_rejection
 apiProperties:
   search:
     async_predecessor: null
@@ -191,3 +195,8 @@ apiProperties:
     async_predecessor: null
     transaction_partner:
       - issue
+  catalog_rejection:
+    async_predecessor: null
+    transaction_partner:
+      - search
+      - on_search
