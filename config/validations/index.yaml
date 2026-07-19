@@ -572,14 +572,7 @@ _TESTS_:
                   attr: $.message.catalog['bpp/providers'][*].items[*].id
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
-                - _NAME_: ITEMS_RATING
-                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[*]
-                  attr: $.rating
-                  value: $.tags[?(@.code=='type')].list[*].value
-                  customization:
-                    - customization
-                  _CONTINUE_: value all in customization || !(value are present)
-                  _RETURN_: attr are present
+
                 - _NAME_: ITEMS_TIME_LABEL
                   attr: $.message.catalog['bpp/providers'][*].items[*].time.label
                   var_enum:
@@ -1342,14 +1335,7 @@ _TESTS_:
                 - _NAME_: ITEMS_ID
                   attr: $.message.catalog['bpp/providers'][*].items[*].id
                   _RETURN_: attr are present
-                - _NAME_: ITEMS_RATING
-                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[*]
-                  attr: $.rating
-                  value: $.tags[?(@.code=='type')].list[*].value
-                  customization:
-                    - customization
-                  _CONTINUE_: value all in customization
-                  _RETURN_: attr are present
+
                 - _NAME_: ITEMS_TIME_LABEL
                   attr: $.message.catalog['bpp/providers'][*].items[*].time.label
                   var_enum:
