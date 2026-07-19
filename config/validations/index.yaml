@@ -75,7 +75,7 @@ _TESTS_:
             - _NAME_: CONTEXT_ENUM_VERSION
               version:
                 - 1.2.0
-                - 1.2.0
+                - 1.2.5
               attr: $.context.core_version
               _RETURN_: attr all in version
             - _NAME_: CONTEXT_REG_BAP_URI
@@ -571,6 +571,14 @@ _TESTS_:
                 - _NAME_: ITEMS_ID
                   attr: $.message.catalog['bpp/providers'][*].items[*].id
                   _CONTINUE_: "!(attr are present)"
+                  _RETURN_: attr are present
+                - _NAME_: ITEMS_RATING
+                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[*]
+                  attr: $.rating
+                  value: $.tags[?(@.code=='type')].list[*].value
+                  customization:
+                    - customization
+                  _CONTINUE_: value all in customization || !(value are present)
                   _RETURN_: attr are present
                 - _NAME_: ITEMS_TIME_LABEL
                   attr: $.message.catalog['bpp/providers'][*].items[*].time.label
@@ -1334,6 +1342,14 @@ _TESTS_:
                 - _NAME_: ITEMS_ID
                   attr: $.message.catalog['bpp/providers'][*].items[*].id
                   _RETURN_: attr are present
+                - _NAME_: ITEMS_RATING
+                  _SCOPE_: $.message.catalog['bpp/providers'][*].items[*]
+                  attr: $.rating
+                  value: $.tags[?(@.code=='type')].list[*].value
+                  customization:
+                    - customization
+                  _CONTINUE_: value all in customization
+                  _RETURN_: attr are present
                 - _NAME_: ITEMS_TIME_LABEL
                   attr: $.message.catalog['bpp/providers'][*].items[*].time.label
                   var_enum:
@@ -2021,10 +2037,12 @@ _TESTS_:
                           attr: $.message.order.quote.breakup[*].item.quantity.maximum.count
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
-                          attr: $.message.order.quote.breakup[*].item.price.currency
+                          _CONTINUE_: "!(attr are present)"
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
-                          attr: $.message.order.quote.breakup[*].item.price.value
+                          _CONTINUE_: "!(attr are present)"
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.value
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_TAGS
                           _RETURN_:
@@ -2237,10 +2255,10 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].type
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-              attr: $.message.order.fulfillments[*].end.location.gps
+              attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.gps
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-              attr: $.message.order.fulfillments[*].end.contact.phone
+              attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.phone
               _RETURN_: attr are present
         - _NAME_: ORDER_TAGS
           _RETURN_:
@@ -2542,10 +2560,10 @@ _TESTS_:
               attr: $.message.order.fulfillments[*].tracking
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END_PERSON_NAME
-              attr: $.message.order.fulfillments[*].end.person.name
+              attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.person.name
               _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
-              attr: $.message.order.fulfillments[*].end.contact.email
+              attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.email
               _CONTINUE_: "!(attr are present)"
               _RETURN_: attr are present
         - _NAME_: ORDER_QUOTE
@@ -2725,11 +2743,11 @@ _TESTS_:
             - _NAME_: FULFILLMENTS_END_TIME
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
-                  attr: $.message.order.fulfillments[*].end.time.range.start
+                  attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.start
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
-                  attr: $.message.order.fulfillments[*].end.time.range.end
+                  attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.end
                   _CONTINUE_: "!(attr are present)"
                   _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_START
@@ -2740,60 +2758,60 @@ _TESTS_:
                       attr: $.message.order.fulfillments[*].start.location.id
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
-                      attr: $.message.order.fulfillments[*].start.location.descriptor.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      attr: $.message.order.fulfillments[*].start.location.gps
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
-                          attr: $.message.order.fulfillments[*].start.location.address.locality
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                          attr: $.message.order.fulfillments[*].start.location.address.city
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          attr: $.message.order.fulfillments[*].start.location.address.area_code
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                          attr: $.message.order.fulfillments[*].start.location.address.state
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
-                      attr: $.message.order.fulfillments[*].start.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.start
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
-                      attr: $.message.order.fulfillments[*].start.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.end
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_INSTRUCTIONS
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_CODE
-                      attr: $.message.order.fulfillments[*].start.instructions.code
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.code
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_NAME
-                      attr: $.message.order.fulfillments[*].start.instructions.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.name
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_SHORT_DESC
-                      attr: $.message.order.fulfillments[*].start.instructions.short_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.short_desc
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_LONG_DESC
-                      attr: $.message.order.fulfillments[*].start.instructions.long_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.long_desc
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[*].start.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
-                      attr: $.message.order.fulfillments[*].start.contact.email
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.email
                       _RETURN_: attr are present
   status:
     - _NAME_: STATUS_CONTEXT
@@ -2894,49 +2912,49 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.location.descriptor.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.location.gps
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].start.location.address.locality
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].start.location.address.city
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].start.location.address.area_code
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].start.location.address.state
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.end
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.timestamp
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.timestamp
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_INSTRUCTIONS
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_CODE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.instructions.code
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.code
                       var_enum:
                         - "1"
                         - "2"
@@ -2945,19 +2963,19 @@ _TESTS_:
                       _RETURN_: attr are present && attr all in var_enum
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.instructions.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_SHORT_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.instructions.short_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.short_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_LONG_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.instructions.long_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.long_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_INSTRUCTIONS_ADDITIONAL_DESC_CONTENT_TYPE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.instructions.additional_desc.content_type
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.instructions.additional_desc.content_type
                       var_enum:
                         - text/plain
                         - text/html
@@ -2966,11 +2984,11 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.contact.email
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
@@ -2978,79 +2996,79 @@ _TESTS_:
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.location.gps
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.name
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.name
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_BUILDING
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.building
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.building
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_LOCALITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.locality
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_COUNTRY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.country
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.country
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_CITY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.city
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.area_code
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.fulfillments[*].end.location.address.state
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.end
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_TIME_TIMESTAMP
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.timestamp
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.timestamp
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_INSTRUCTIONS
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_CODE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.instructions.code
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.code
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.instructions.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_SHORT_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.instructions.short_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.short_desc
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_LONG_DESC
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.instructions.long_desc
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.long_desc
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.contact.email
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_AGENT
               _RETURN_:
@@ -3286,7 +3304,7 @@ _TESTS_:
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_ADDITIONAL_DESC_CONTENT_TYPE
-                  attr: $.message.order.fulfillments[*].end.instructions.additional_desc.content_type
+                  attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.additional_desc.content_type
                   var_enum:
                     - text/plain
                     - text/html
@@ -3346,6 +3364,8 @@ _TESTS_:
                       var_enum:
                         - Order-picked-up
                         - Order-delivered
+                        - Agent-assigned
+                        - Out-for-delivery
                       _RETURN_: attr all in var_enum
                     - _NAME_: UPDATE_STATE_REASON_ID
                       _CONTINUE_: "!(attr are present)"
@@ -3810,77 +3830,77 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ID
-                      attr: $.message.order.fulfillments[*].start.location.id
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.id
                       _CONTINUE_: "!(attr are present)"
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.location.descriptor.name
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      attr: $.message.order.fulfillments[*].start.location.gps
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.gps
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_LOCALITY
-                          attr: $.message.order.fulfillments[*].start.location.address.locality
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                          attr: $.message.order.fulfillments[*].start.location.address.city
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          attr: $.message.order.fulfillments[*].start.location.address.area_code
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.area_code
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                          attr: $.message.order.fulfillments[*].start.location.address.state
+                          attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.location.address.state
                           _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.time.range.end
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[*].start.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].start.contact.email
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].start.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-                      attr: $.message.order.fulfillments[*].end.location.gps
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.location.gps
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.start
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.start
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.time.range.end
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.time.range.end
                       _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_PERSON_NAME
-                  attr: $.message.order.fulfillments[*].end.person.name
+                  attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.person.name
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-                      attr: $.message.order.fulfillments[*].end.contact.phone
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.phone
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_END_CONTACT_EMAIL
                       _CONTINUE_: "!(attr are present)"
-                      attr: $.message.order.fulfillments[*].end.contact.email
+                      attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.contact.email
                       _RETURN_: attr are present
             - _NAME_: FULFILLMENTS_TAGS
               _RETURN_:
@@ -3985,11 +4005,11 @@ _TESTS_:
                       _RETURN_:
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_CURRENCY
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.currency
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.currency
                           _RETURN_: attr are present
                         - _NAME_: BREAKUP_ITEM_ITEM_PRICE_VALUE
                           _CONTINUE_: "!(attr are present)"
-                          attr: $.message.order.quote.breakup[*].item.price.value
+                          attr: $.message.order.quote.breakup[?(@.item)].item.price.value
                           _RETURN_: attr are present
             - _NAME_: QUOTE_TTL
               attr: $.message.order.quote.ttl
@@ -4068,7 +4088,7 @@ _TESTS_:
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_INSTRUCTIONS_ADDITIONAL_DESC_CONTENT_TYPE
-                  attr: $.message.order.fulfillments[*].end.instructions.additional_desc.content_type
+                  attr: $.message.order.fulfillments[?(@.type!='Cancel')].end.instructions.additional_desc.content_type
                   var_enum:
                     - text/plain
                     - text/html
@@ -4128,6 +4148,8 @@ _TESTS_:
                       var_enum:
                         - Order-picked-up
                         - Order-delivered
+                        - Agent-assigned
+                        - Out-for-delivery
                       _RETURN_: attr all in var_enum
                     - _NAME_: UPDATE_STATE_REASON_ID
                       _CONTINUE_: "!(attr are present)"
