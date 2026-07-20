@@ -1696,7 +1696,11 @@ components:
           description: payment types supported for the SKU
           type: array
         quantity:
-          $ref: "#/components/schemas/ItemQuantity"
+          description: The selling quantity of the item
+          anyOf:
+            - allOf:
+                - $ref: "#/components/schemas/ItemQuantity"
+            - type: integer
         category_id:
           $ref: "#/components/schemas/Category/properties/id"
         category_ids:
@@ -2107,10 +2111,49 @@ components:
       description: Describes an organization
       type: object
       properties:
+        descriptor:
+          $ref: "#/components/schemas/Descriptor"
+        address:
+          description: The postal address of the organization
+          allOf:
+            - $ref: "#/components/schemas/Address"
+        state:
+          description: The state where the organization's address is registered
+          allOf:
+            - $ref: "#/components/schemas/State"
+        city:
+          description: The city where the the organization's address is registered
+          allOf:
+            - $ref: "#/components/schemas/City"
         name:
           type: string
-        cred:
-          type: string
+        contact:
+          anyOf:
+            - $ref: "#/components/schemas/Contact"
+            - type: object
+              additionalProperties: false
+              properties:
+                phone:
+                  type: string
+                email:
+                  type: string
+                  format: email
+        org:
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string
+        person:
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string         
+        creds:
+          type: array
+          items:
+            $ref: "#/components/schemas/Credential"  
     Payments:
       description: Payments array used in INVL domain (supports PART-PAYMENT and split
         payments)
