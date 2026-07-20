@@ -2052,6 +2052,7 @@ steps:
         bppId: $.context.bpp_id
         bppUri: $.context.bpp_uri
         city_code: $.context.city
+        on_status_fulfillments: $.message.order.fulfillments[*]
       inputs: {}
     examples:
       - name: Example for action "on_status"
