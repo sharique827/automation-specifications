@@ -80,15 +80,23 @@ supportedActions:
     - issue
     - on_update
     - on_status
+    - on_confirm
     - on_issue_status
+    - update
+
   on_issue:
     - issue
     - on_issue
     - on_status
     - on_issue_status
+    - update
+    - on_update
+
   on_issue_status:
     - on_issue
     - issue
+    - on_update
+    - update
 apiProperties:
   search:
     async_predecessor: null
@@ -179,3 +187,12 @@ apiProperties:
       - confirm
       - on_confirm
       - track
+  issue:
+    async_predecessor: null 
+    transaction_partner: []
+  on_issue:
+    async_predecessor: null
+    transaction_partner: []  
+  on_issue_status:
+    async_predecessor: null
+    transaction_partner: []    
