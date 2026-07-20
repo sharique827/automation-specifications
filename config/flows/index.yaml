@@ -89,3 +89,17 @@ flows:
     description: An eB2B order transaction demonstrating out-of-stock error handling, where a buyer's selected items are rejected at confirmation with mandatory tracking and status reporting across the supply network.
     config:
       $ref: ./eB2B/Out_of_Stock_Error_code_.yaml
+
+
+  # _____________IGM_1.0.0_____________  
+  - type: playground
+    id: Order_to_confirm_to_fulfillment_(Prepaid)_with_igm_1.0.0
+    usecase: eB2B
+    tags:
+      - WORKBENCH
+      # - MANDATORY
+      # - REPORTABLE
+    description: Prepaid B2B order workflow spanning product selection, order confirmation, and fulfillment with continuous status tracking. Validates the complete transaction lifecycle from buyer intent through delivery confirmation with IGM 1.0.0.
+    config:
+      $ref: ./eB2B/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml
+
