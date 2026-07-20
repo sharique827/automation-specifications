@@ -98,3 +98,17 @@ flows:
     description: The SELF_PICKUP flow represents the end-to-end execution of a retail order where the customer retains possession of the order at the point of sale, with the seller confirming receipt and completion of the transaction upon physical pickup, ensuring accountability and traceability through the PRAMAAN and WORKBENCH systems.
     config:
       $ref: ./RETINVL/SELF_PICKUP.yaml
+
+  # _______________IGM(1.0.0)_______________
+
+  - type: playground
+    id: ORDER_FLOW_BASELINE_WITH_IGM_1.0.0
+    usecase: RETINVL
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      # - MANDATORY
+      # - REPORTABLE
+    description: This flow represents the end-to-end journey of a retailer initiating an order for inventory, validating product availability, confirming the purchase, and tracking inventory status in real time to ensure accurate stock visibility and price transparency across sellers.
+    config:
+      $ref: ./RETINVL/ORDER_FLOW_BASELINE_WITH_IGM_1.0.0.yaml
