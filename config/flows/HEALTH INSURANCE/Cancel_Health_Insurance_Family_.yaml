@@ -116,9 +116,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: search
-            timestamp: 2026-07-04T21:27:05.151Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 853a2c1f-5453-4afe-8f57-d292d55d3201
+            timestamp: 2026-07-20T07:55:48.067Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: ff52a1cc-8073-46f8-a727-3b128bfca43e
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -392,9 +392,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_search
-            timestamp: 2026-07-04T21:27:05.170Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 853a2c1f-5453-4afe-8f57-d292d55d3201
+            timestamp: 2026-07-20T07:55:48.081Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: ff52a1cc-8073-46f8-a727-3b128bfca43e
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -411,7 +411,7 @@ steps:
               descriptor:
                 name: ABC Insurance Ltd
               providers:
-                - id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                - id: ab254307-695d-4801-875c-424ef7b73d07
                   descriptor:
                     name: ABC Insurance Ltd.
                     short_desc: ABC Insurance Ltd. India
@@ -529,9 +529,9 @@ steps:
                           headings:
                             - FAMILY_DETAILS
                         form:
-                          id: 78b81ba0-0a05-400b-a465-fbc6ed5bc46e
+                          id: fa7fcc1e-d33e-41c7-b92c-6c4c78d49e87
                           mime_type: text/html-multi
-                          url: undefined/forms/ONDC:FIS13/family_information_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined
+                          url: undefined/forms/ONDC:FIS13/family_information_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined
                           resubmit: true
                           multiple_sumbissions: true
                         required: true
@@ -602,18 +602,18 @@ steps:
         payload:
           firstName: test
           lastName: nikita
-          dob: 2026-07-16
-          gender: male
-          phone: "9878687673"
-          email: ""
+          dob: 2026-07-07
+          gender: female
+          phone: "9877667788"
+          email: nikita.sharma@ondc.org
           relation: spouse
-          PED: No
+          PED: Yes
           height: "33"
           weight: "22"
-          amount: "33"
-          planType: family_floater
+          amount: "77"
+          planType: individual
           panIndia: no
-          pincode: ""
+          pincode: "134242"
           tenure: "1"
           panValue: ""
           dobAsPerPan: ""
@@ -719,9 +719,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: search
-            timestamp: 2026-07-04T21:27:33.355Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 7fe61326-55b9-44f2-ac7f-490421546044
+            timestamp: 2026-07-20T07:56:18.948Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 07c720a1-d2f4-4b07-bf7f-8daf697ddc4f
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -741,10 +741,10 @@ steps:
                   - id: item5678
                     xinput:
                       form:
-                        id: 78b81ba0-0a05-400b-a465-fbc6ed5bc46e
+                        id: fa7fcc1e-d33e-41c7-b92c-6c4c78d49e87
                       form_response:
                         status: SUCCESS
-                        submission_id: b497ec1a-a0e6-4cae-88e7-2f1de88ea3b2
+                        submission_id: 72232d64-1f42-4cbc-b1e6-dfc91a5bf9a7
               payment:
                 collected_by: BPP
                 tags:
@@ -1278,9 +1278,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_search
-            timestamp: 2026-07-04T21:27:33.385Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 7fe61326-55b9-44f2-ac7f-490421546044
+            timestamp: 2026-07-20T07:56:18.961Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 07c720a1-d2f4-4b07-bf7f-8daf697ddc4f
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1318,7 +1318,7 @@ steps:
                     images:
                       - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                         size_type: xs
-                  id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                  id: ab254307-695d-4801-875c-424ef7b73d07
                   items:
                     - id: 1b0fb502-630d-4650-a195-9262c1436e2d
                       category_ids:
@@ -1419,7 +1419,7 @@ steps:
                           price:
                             value: "100"
                             currency: INR
-                    - id: 9982306d-6adc-4fad-a14f-6897fed95884
+                    - id: b86451d8-96ee-4c58-899c-58a1d2c73fe2
                       parent_item_id: 1b0fb502-630d-4650-a195-9262c1436e2d
                       category_ids:
                         - C2
@@ -1570,7 +1570,7 @@ steps:
                           price:
                             value: "100"
                             currency: INR
-                    - id: 520f10ff-5d37-4735-b4b1-360099799f79
+                    - id: 3cb480e0-d4a4-4786-b15e-be26ccb723bc
                       parent_item_id: 1b0fb502-630d-4650-a195-9262c1436e2d
                       category_ids:
                         - C2
@@ -1832,9 +1832,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: select
-            timestamp: 2026-07-04T21:27:35.408Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: fb3afa69-a89f-4c8a-a949-5d6fd86bde0c
+            timestamp: 2026-07-20T07:56:20.820Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 04a946e3-eedb-40f3-8c62-3ae24f0190ce
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -1903,7 +1903,7 @@ steps:
                                   values are separated by a pipe (|) symbol
                               value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
         type: request
         description: please add relevant description
   - api: on_select
@@ -1913,7 +1913,7 @@ steps:
     unsolicited: false
     description: please add relevant description
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKHNlc3Npb25EYXRhPy5wcm92aWRlcl9pZCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdOwogIH0KICAKICBjb25zdCB4aW5wdXQgPSAgewogICAgICAgICAgICAiaGVhZCI6IHsKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJuYW1lIjogIlBFRCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJpbmRleCI6IHsKICAgICAgICAgICAgICAgICJtaW4iOiAwLAogICAgICAgICAgICAgICAgImN1ciI6IDAsCiAgICAgICAgICAgICAgICAibWF4IjogMQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImhlYWRpbmdzIjogWwogICAgICAgICAgICAgICAgIlBFRCIsCiAgICAgICAgICAgICAgICAiRUtZQyIKICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJmb3JtIjogewogICAgICAgICAgICAgICJpZCI6ICJGTzQiLAogICAgICAgICAgICAgICJtaW1lX3R5cGUiOiAidGV4dC9odG1sIiwKICAgICAgICAgICAgICAidXJsIjogImh0dHBzOi8vZmlzLnRlc3QuYnBwLmlvL2Zvcm0vcGVkP2Zvcm1pZD1GTzQiLAogICAgICAgICAgICAgICJyZXN1Ym1pdCI6IHRydWUsCiAgICAgICAgICAgICAgIm11bHRpcGxlX3N1bWJpc3Npb25zIjogZmFsc2UKICAgICAgICAgICAgfSwKICAgICAgICAgICAgInJlcXVpcmVkIjogdHJ1ZQogICAgICAgICAgfQoKCgoKICBpZiAoc2Vzc2lvbkRhdGE/Lml0ZW1zICYmIHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkKSB7CiAgICBjb25zdCBpdGVtcyA9IHNlc3Npb25EYXRhPy5pdGVtcyB8fCBbXTsKICAgIGNvbnN0IHNlbGVjdGVkSXRlbSA9IGl0ZW1zPy5maW5kKAogICAgICAoaXRlbSkgPT4gaXRlbT8uaWQgPT09IHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdCiAgICApOwoKICAgIGlmIChzZWxlY3RlZEl0ZW0pIHsKICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXSA9IHNlbGVjdGVkSXRlbSB8fCB7fTsKICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS54aW5wdXQgPSB4aW5wdXQKICAgIH0KCiAgfQogIGlmIChkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLmlkID0gdXVpZHY0KCk7CiAgfQoKICAvLyBVcGRhdGUgcXVvdGUgYnJlYWt1cCBpdGVtIHJlZmVyZW5jZXMgd2l0aCBkeW5hbWljIGNoaWxkIGl0ZW0gSUQKICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZT8ub3JkZXI/LnF1b3RlPy5icmVha3VwICYmIHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLmJyZWFrdXAuZm9yRWFjaCgoYikgPT4gewogICAgICBpZiAoYi5pdGVtPy5pZCAmJiBiLnRpdGxlID09PSAnQUREX09OUycpIGIuaXRlbS5pZCA9IHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdOwogICAgfSk7CiAgfQogCiAgaWYgKGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/Lm9yZGVyPy5pdGVtcz8uWzBdPy54aW5wdXQ/LmZvcm0pIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXNbMF0ueGlucHV0LmZvcm0uaWQgPSB1dWlkdjQoKQogICAgY29uc3QgdXJsID0gY3JlYXRlRm9ybVVSTCgiT05EQzpGSVMxMyIsICJwZWRfZGV0YWlsc19mb3JtIiwgc2Vzc2lvbkRhdGEpOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS54aW5wdXQuZm9ybS51cmwgPSB1cmw7CiAgfQoKCiAgaWYgKHNlc3Npb25EYXRhPy51c2VyX3NlbGVjdGVkX2FkZF9vbnMpIHsKICAgIGNvbnN0IHVzZXJBZGRPbnMgPSBzZXNzaW9uRGF0YT8udXNlcl9zZWxlY3RlZF9hZGRfb25zWzBdOwogICAgaWYgKHVzZXJBZGRPbnMgJiYgdXNlckFkZE9ucy5sZW5ndGggPiAwKSB7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXNbMF0uYWRkX29ucyA9IHVzZXJBZGRPbnM7CiAgICB9IGVsc2UgewogICAgICBkZWxldGUgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS5hZGRfb25zOwogICAgfQogIH0KCiAgbGV0IHRvdGFsUHJpY2UKCiAgaWYgKGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/Lm9yZGVyPy5xdW90ZT8uYnJlYWt1cCkgewogICAgY29uc3Qgc2VsZWN0ZWRBZGRPbnMgPSBzZXNzaW9uRGF0YS51c2VyX3NlbGVjdGVkX2FkZF9vbnM7CiAgICBpZiAoQXJyYXkuaXNBcnJheShzZWxlY3RlZEFkZE9ucykgJiYgc2VsZWN0ZWRBZGRPbnMubGVuZ3RoID4gMCkgewogICAgICBzZWxlY3RlZEFkZE9ucy5mb3JFYWNoKChhZGRvbikgPT4gewogICAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUuYnJlYWt1cC5wdXNoKHsKICAgICAgICAgIHRpdGxlOiAnQUREX09OUycsCiAgICAgICAgICBpdGVtOiB7CiAgICAgICAgICAgIGlkOiBhZGRvbi5pZCwKICAgICAgICAgIH0sCiAgICAgICAgICBwcmljZTogYWRkb24ucHJpY2UgfHwgeyB2YWx1ZTogIjAiLCBjdXJyZW5jeTogIklOUiIgfQogICAgICAgIH0pOwogICAgICB9KTsKICAgIH0KICAgIC8vIFJlY2FsY3VsYXRlIHRvdGFsIHF1b3RlIHByaWNlIGZyb20gYWxsIGJyZWFrdXAgaXRlbXMKICAgIHRvdGFsUHJpY2UgPSBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLmJyZWFrdXAucmVkdWNlKAogICAgICAoc3VtLCBiKSA9PiBzdW0gKyAocGFyc2VGbG9hdChiLnByaWNlPy52YWx1ZSkgfHwgMCksIDAKICAgICk7CiAgICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZS5wcmljZSkgewogICAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLnByaWNlLnZhbHVlID0gU3RyaW5nKHRvdGFsUHJpY2UpOwogICAgfQoKICB9CiAgcmV0dXJuIGRlZmF1bHRQYXlsb2FkOwp9
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCiAgaWYgKHNlc3Npb25EYXRhPy5wcm92aWRlcl9pZCkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5wcm92aWRlci5pZCA9IHNlc3Npb25EYXRhLnByb3ZpZGVyX2lkWzBdOwogIH0KICAKICBjb25zdCB4aW5wdXQgPSAgewogICAgICAgICAgICAiaGVhZCI6IHsKICAgICAgICAgICAgICAiZGVzY3JpcHRvciI6IHsKICAgICAgICAgICAgICAgICJuYW1lIjogIlBFRCIKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICJpbmRleCI6IHsKICAgICAgICAgICAgICAgICJtaW4iOiAwLAogICAgICAgICAgICAgICAgImN1ciI6IDAsCiAgICAgICAgICAgICAgICAibWF4IjogMQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgImhlYWRpbmdzIjogWwogICAgICAgICAgICAgICAgIlBFRCIsCiAgICAgICAgICAgICAgICAiRUtZQyIKICAgICAgICAgICAgICBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJmb3JtIjogewogICAgICAgICAgICAgICJpZCI6ICJGTzQiLAogICAgICAgICAgICAgICJtaW1lX3R5cGUiOiAidGV4dC9odG1sIiwKICAgICAgICAgICAgICAidXJsIjogImh0dHBzOi8vZmlzLnRlc3QuYnBwLmlvL2Zvcm0vcGVkP2Zvcm1pZD1GTzQiLAogICAgICAgICAgICAgICJyZXN1Ym1pdCI6IHRydWUsCiAgICAgICAgICAgICAgIm11bHRpcGxlX3N1bWJpc3Npb25zIjogZmFsc2UKICAgICAgICAgICAgfSwKICAgICAgICAgICAgInJlcXVpcmVkIjogdHJ1ZQogICAgICAgICAgfQoKCgoKICBpZiAoc2Vzc2lvbkRhdGE/Lml0ZW1zICYmIHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkKSB7CiAgICBjb25zdCBpdGVtcyA9IHNlc3Npb25EYXRhPy5pdGVtcyB8fCBbXTsKICAgIGNvbnN0IHNlbGVjdGVkSXRlbSA9IGl0ZW1zPy5maW5kKAogICAgICAoaXRlbSkgPT4gaXRlbT8uaWQgPT09IHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdCiAgICApOwoKICAgIGlmIChzZWxlY3RlZEl0ZW0pIHsKICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXSA9IHNlbGVjdGVkSXRlbSB8fCB7fTsKICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS54aW5wdXQgPSB4aW5wdXQKICAgIH0KCiAgfQogIGlmIChkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLmlkID0gdXVpZHY0KCk7CiAgfQoKICAvLyBVcGRhdGUgcXVvdGUgYnJlYWt1cCBpdGVtIHJlZmVyZW5jZXMgd2l0aCBkeW5hbWljIGNoaWxkIGl0ZW0gSUQKICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZT8ub3JkZXI/LnF1b3RlPy5icmVha3VwICYmIHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLmJyZWFrdXAuZm9yRWFjaCgoYikgPT4gewogICAgICBpZiAoYi5pdGVtPy5pZCAmJiBiLnRpdGxlID09PSAnQUREX09OUycpIGIuaXRlbS5pZCA9IHNlc3Npb25EYXRhPy5jaGlsZF9pdGVtX2lkWzBdOwogICAgfSk7CiAgfQogCiAgaWYgKGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2U/Lm9yZGVyPy5pdGVtcz8uWzBdPy54aW5wdXQ/LmZvcm0pIHsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXNbMF0ueGlucHV0LmZvcm0uaWQgPSB1dWlkdjQoKQogICAgY29uc3QgdXJsID0gY3JlYXRlRm9ybVVSTCgiT05EQzpGSVMxMyIsICJwZWRfZGV0YWlsc19mb3JtIiwgc2Vzc2lvbkRhdGEpOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS54aW5wdXQuZm9ybS51cmwgPSB1cmw7CiAgfQoKCiAgaWYgKHNlc3Npb25EYXRhPy51c2VyX3NlbGVjdGVkX2FkZF9vbnMpIHsKICAgIGNvbnN0IHVzZXJBZGRPbnMgPSBzZXNzaW9uRGF0YT8udXNlcl9zZWxlY3RlZF9hZGRfb25zOwogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS5hZGRfb25zID0gdXNlckFkZE9uczsKICAgCiAgfQoKICBsZXQgdG90YWxQcmljZQoKICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZT8ub3JkZXI/LnF1b3RlPy5icmVha3VwKSB7CiAgICBjb25zdCBzZWxlY3RlZEFkZE9ucyA9IHNlc3Npb25EYXRhLnVzZXJfc2VsZWN0ZWRfYWRkX29uczsKICAgIGlmIChBcnJheS5pc0FycmF5KHNlbGVjdGVkQWRkT25zKSAmJiBzZWxlY3RlZEFkZE9ucy5sZW5ndGggPiAwKSB7CiAgICAgIHNlbGVjdGVkQWRkT25zLmZvckVhY2goKGFkZG9uKSA9PiB7CiAgICAgICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5xdW90ZS5icmVha3VwLnB1c2goewogICAgICAgICAgdGl0bGU6ICdBRERfT05TJywKICAgICAgICAgIGl0ZW06IHsKICAgICAgICAgICAgaWQ6IGFkZG9uLmlkLAogICAgICAgICAgfSwKICAgICAgICAgIHByaWNlOiBhZGRvbi5wcmljZSB8fCB7IHZhbHVlOiAiMCIsIGN1cnJlbmN5OiAiSU5SIiB9CiAgICAgICAgfSk7CiAgICAgIH0pOwogICAgfQogICAgLy8gUmVjYWxjdWxhdGUgdG90YWwgcXVvdGUgcHJpY2UgZnJvbSBhbGwgYnJlYWt1cCBpdGVtcwogICAgdG90YWxQcmljZSA9IGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUuYnJlYWt1cC5yZWR1Y2UoCiAgICAgIChzdW0sIGIpID0+IHN1bSArIChwYXJzZUZsb2F0KGIucHJpY2U/LnZhbHVlKSB8fCAwKSwgMAogICAgKTsKICAgIGlmIChkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLnF1b3RlLnByaWNlKSB7CiAgICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIucXVvdGUucHJpY2UudmFsdWUgPSBTdHJpbmcodG90YWxQcmljZSk7CiAgICB9CgogIH0KICByZXR1cm4gZGVmYXVsdFBheWxvYWQ7Cn0=
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewogICAgY29uc3Qgb3JkZXIgPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcjsKCiAgaWYgKCFvcmRlcikgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiT3JkZXIgaXMgbWlzc2luZyIKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyLnByb3ZpZGVyLmlkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJQcm92aWRlciBJRCBpcyByZXF1aXJlZCIKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyLml0ZW1zPy5sZW5ndGggfHwgIW9yZGVyLml0ZW1zWzBdPy5pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiSXRlbSBJRCBpcyByZXF1aXJlZCIKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyLnF1b3RlPy5pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiUXVvdGUgSUQgaXMgcmVxdWlyZWQiCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlci5xdW90ZT8ucHJpY2U/LnZhbHVlKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJRdW90ZSBwcmljZSBpcyByZXF1aXJlZCIKICAgIH07CiAgfQoKICBpZiAoIW9yZGVyLml0ZW1zPy5bMF0/LnhpbnB1dD8uZm9ybT8uaWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkZvcm0gSUQgaXMgcmVxdWlyZWQiCiAgICB9OwogIH0KCiAgaWYgKCFvcmRlci5pdGVtcz8uWzBdPy54aW5wdXQ/LmZvcm0/LnVybCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiRm9ybSBVUkwgaXMgcmVxdWlyZWQiCiAgICB9OwogIH0KICByZXR1cm4geyB2YWxpZDogdHJ1ZSwgY29kZTogMjAwLCBkZXNjcmlwdGlvbjogIlZhbGlkIHJlcXVlc3QiIH07Cn0=
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGlmICghc2Vzc2lvbkRhdGEudHJhbnNhY3Rpb25JZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAidHJhbnNhY3Rpb25faWQgaXMgcmVxdWlyZWQgZnJvbSBwcmV2aW91cyBzdGVwIgogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEubGF0ZXN0TWVzc2FnZV9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAibWVzc2FnZV9pZCBpcyByZXF1aXJlZCBmcm9tIHByZXZpb3VzIHN0ZXAiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS5wcm92aWRlcl9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAiUHJvdmlkZXIgc2VsZWN0aW9uIGlzIHJlcXVpcmVkIgogICAgfTsKICB9CgogIGlmICggIXNlc3Npb25EYXRhLmNoaWxkX2l0ZW1faWQpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogIkl0ZW0gc2VsZWN0aW9uIGlzIHJlcXVpcmVkIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
@@ -2112,9 +2112,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_select
-            timestamp: 2026-07-04T21:27:35.442Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: fb3afa69-a89f-4c8a-a949-5d6fd86bde0c
+            timestamp: 2026-07-20T07:56:20.835Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 04a946e3-eedb-40f3-8c62-3ae24f0190ce
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2196,12 +2196,63 @@ steps:
                         - PED
                         - EKYC
                     form:
-                      id: a96064b7-a7c5-45fc-914b-c62f8e6e1a28
+                      id: c1dd9e1f-5efd-4b46-8a9e-1698300e3546
                       mime_type: text/html
-                      url: undefined/forms/ONDC:FIS13/ped_details_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined
+                      url: undefined/forms/ONDC:FIS13/ped_details_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined
                       resubmit: true
                       multiple_sumbissions: false
                     required: true
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -2211,9 +2262,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -2366,9 +2417,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: select
-            timestamp: 2026-07-04T21:27:38.450Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 9ca34646-b920-459a-95c8-2803a97e2526
+            timestamp: 2026-07-20T07:56:23.947Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 76460a97-3c32-4527-b92d-7c9874092bb0
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2387,12 +2438,63 @@ steps:
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: a96064b7-a7c5-45fc-914b-c62f8e6e1a28
+                      id: c1dd9e1f-5efd-4b46-8a9e-1698300e3546
                     form_response:
                       status: SUCCESS
-                      submission_id: 2a8e3786-021d-4295-87f2-783dd75e203f
+                      submission_id: 7877f679-8a9a-4d28-a0c3-f8a852dc67da
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
         type: request
         description: The BAP selects a specific health insurance provider and associated
           coverage items from the available options. This selection captures the
@@ -2409,7 +2511,7 @@ steps:
       application. This callback establishes the confirmed order that progresses
       to subsequent transaction stages.
     mock:
-      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKCmlmIChzZXNzaW9uRGF0YT8ub3JkZXI/LlswXSkgewogIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIgPSBzZXNzaW9uRGF0YS5vcmRlclswXTsKCiAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtcz8uZm9yRWFjaCgoaXRlbSkgPT4gewogICAgaWYgKCFpdGVtPy54aW5wdXQ/LmhlYWQpIHJldHVybjsKCiAgICBpdGVtLnhpbnB1dC5oZWFkLmRlc2NyaXB0b3IgPSBpdGVtLnhpbnB1dC5oZWFkLmRlc2NyaXB0b3IgfHwge307CiAgICBpdGVtLnhpbnB1dC5oZWFkLmRlc2NyaXB0b3IubmFtZSA9ICJFS1lDIjsKCiAgICBpdGVtLnhpbnB1dC5oZWFkLmluZGV4ID0gewogICAgICBtaW46IDAsCiAgICAgIGN1cjogMSwKICAgICAgbWF4OiAxLAogICAgfTsKCiAgICBpdGVtLnhpbnB1dC5oZWFkLmhlYWRpbmdzID0gWyJQRUQiLCAiRUtZQyJdOwogIH0pOwp9CgoKICAvLyBHZW5lcmF0ZSBkeW5hbWljIGZvcm0gSUQgYW5kIFVSTAogIGlmIChkZWZhdWx0UGF5bG9hZC5tZXNzYWdlPy5vcmRlcj8uaXRlbXM/LlswXT8ueGlucHV0Py5mb3JtKSB7CiAgICBkZWZhdWx0UGF5bG9hZC5tZXNzYWdlLm9yZGVyLml0ZW1zWzBdLnhpbnB1dC5mb3JtLmlkID0gdXVpZHY0KCkKICAgIGNvbnN0IHVybCA9IGNyZWF0ZUZvcm1VUkwoIk9OREM6RklTMTMiLCJFa3ljX2RldGFpbHNfZm9ybSIsc2Vzc2lvbkRhdGEpKwogICAgICAgICAgICAgICAgJyZiYXBfdXJpPScgKyBlbmNvZGVVUklDb21wb25lbnQoZGVmYXVsdFBheWxvYWQuY29udGV4dC5iYXBfdXJpKTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXNbMF0ueGlucHV0LmZvcm0udXJsID0gdXJsOwogIH0KCgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
+      generate: LyoqCiAqIEdlbmVyYXRlcyB0aGUgbW9jayBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogVGhpcyBmdW5jdGlvbiBhbGxvd3MgY3VzdG9taXphdGlvbiBvZiB0aGUgZGVmYXVsdCBwYXlsb2FkIHVzaW5nIHNlc3Npb24gZGF0YQogKiBmcm9tIHByZXZpb3VzIHN0ZXBzIGFuZCB1c2VyIGlucHV0cy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSBkZWZhdWx0UGF5bG9hZCAtIFRoZSBiYXNlIHBheWxvYWQgb2JqZWN0IHdpdGggY29udGV4dCBhbHJlYWR5IHBvcHVsYXRlZC4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhLnVzZXJfaW5wdXRzIC0gVXNlci1wcm92aWRlZCBpbnB1dCB2YWx1ZXMgZm9yIHRoaXMgc3RlcC4KICogQHBhcmFtIHsqfSBzZXNzaW9uRGF0YS5ba2V5XSAtIEFueSBzYXZlZCBkYXRhIGZyb20gcHJldmlvdXMgc3RlcHMgKGRlZmluZWQgaW4gc2F2ZURhdGEgY29uZmlnKS4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IFRoZSBnZW5lcmF0ZWQgcGF5bG9hZCBvYmplY3QgdG8gYmUgc2VudCBpbiB0aGUgQVBJIHJlcXVlc3QuCiAqLwphc3luYyBmdW5jdGlvbiBnZW5lcmF0ZShkZWZhdWx0UGF5bG9hZCwgc2Vzc2lvbkRhdGEpIHsKICBjb25zdCB4aW5wdXQgPSB7CiAgICAiaGVhZCI6IHsKICAgICAgImRlc2NyaXB0b3IiOiB7CiAgICAgICAgIm5hbWUiOiAiRUtZQyIKICAgICAgfSwKICAgICAgImluZGV4IjogewogICAgICAgICJtaW4iOiAwLAogICAgICAgICJjdXIiOiAxLAogICAgICAgICJtYXgiOiAxCiAgICAgIH0sCiAgICAgICJoZWFkaW5ncyI6IFsKICAgICAgICAiUEVEIiwKICAgICAgICAiRUtZQyIKICAgICAgXQogICAgfSwKICAgICJmb3JtIjogewogICAgICAiaWQiOiAiRk81IiwKICAgICAgIm1pbWVfdHlwZSI6ICJhcHBsaWNhdGlvbi9odG1sIiwKICAgICAgInVybCI6ICJodHRwczovL2Zpcy50ZXN0LmJwcC5pby9mb3JtL2VreWNfZHRscz9mb3JtaWQ9Rk81IiwKICAgICAgInJlc3VibWl0IjogdHJ1ZSwKICAgICAgIm11bHRpcGxlX3N1bWJpc3Npb25zIjogZmFsc2UKICAgIH0sCiAgICAicmVxdWlyZWQiOiB0cnVlCiAgfQogIGlmIChzZXNzaW9uRGF0YT8ub3JkZXI/LlswXSkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlciA9IHNlc3Npb25EYXRhLm9yZGVyWzBdOwoKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXM/LmZvckVhY2goKGl0ZW0pID0+IHsKICAgICAKCiAgICAgIGl0ZW0ueGlucHV0ID0geGlucHV0IHx8IHt9OwogICAgIAogICAgfSk7CiAgfQoKCiAgLy8gR2VuZXJhdGUgZHluYW1pYyBmb3JtIElEIGFuZCBVUkwKICBpZiAoZGVmYXVsdFBheWxvYWQubWVzc2FnZT8ub3JkZXI/Lml0ZW1zPy5bMF0/LnhpbnB1dD8uZm9ybSkgewogICAgZGVmYXVsdFBheWxvYWQubWVzc2FnZS5vcmRlci5pdGVtc1swXS54aW5wdXQuZm9ybS5pZCA9IHV1aWR2NCgpCiAgICBjb25zdCB1cmwgPSBjcmVhdGVGb3JtVVJMKCJPTkRDOkZJUzEzIiwgIkVreWNfZGV0YWlsc19mb3JtIiwgc2Vzc2lvbkRhdGEpICsKICAgICAgJyZiYXBfdXJpPScgKyBlbmNvZGVVUklDb21wb25lbnQoZGVmYXVsdFBheWxvYWQuY29udGV4dC5iYXBfdXJpKTsKICAgIGRlZmF1bHRQYXlsb2FkLm1lc3NhZ2Uub3JkZXIuaXRlbXNbMF0ueGlucHV0LmZvcm0udXJsID0gdXJsOwogIH0KCgogIHJldHVybiBkZWZhdWx0UGF5bG9hZDsKfQ==
       validate: LyoqCiAqIFZhbGlkYXRlcyB0aGUgaW5jb21pbmcgcmVxdWVzdCBwYXlsb2FkIGZvciBhbiBBUEkgY2FsbCBpbiB0aGUgdHJhbnNhY3Rpb24gZmxvdy4KICogCiAqIEBwYXJhbSB7T2JqZWN0fSB0YXJnZXRQYXlsb2FkIC0gVGhlIGluY29taW5nIHJlcXVlc3QgcGF5bG9hZCB0byB2YWxpZGF0ZS4KICogQHBhcmFtIHtPYmplY3R9IHNlc3Npb25EYXRhIC0gRGF0YSBjb2xsZWN0ZWQgZnJvbSBwcmV2aW91cyB0cmFuc2FjdGlvbiBzdGVwcy4KICogCiAqIEByZXR1cm5zIHtPYmplY3R9IHsgdmFsaWQ6IGJvb2xlYW4sIGNvZGU6IG51bWJlciwgZGVzY3JpcHRpb246IHN0cmluZyB9CiAqLwpmdW5jdGlvbiB2YWxpZGF0ZSh0YXJnZXRQYXlsb2FkLCBzZXNzaW9uRGF0YSkgewoKICAgIGlmICghc2Vzc2lvbkRhdGEub3JkZXI/LlswXSkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAib3JkZXIgaXMgbWlzc2luZyBpbiBzZXNzaW9uIGRhdGEiCiAgICB9OwogIH0KCiAgaWYgKCFzZXNzaW9uRGF0YS50cmFuc2FjdGlvbklkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJ0cmFuc2FjdGlvbl9pZCBpcyBtaXNzaW5nIgogICAgfTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEubGF0ZXN0TWVzc2FnZV9pZCkgewogICAgcmV0dXJuIHsKICAgICAgdmFsaWQ6IGZhbHNlLAogICAgICBjb2RlOiA0MDAsCiAgICAgIGRlc2NyaXB0aW9uOiAibWVzc2FnZV9pZCBpcyBtaXNzaW5nIgogICAgfTsKICB9CgogIGNvbnN0IGl0ZW0gPSB0YXJnZXRQYXlsb2FkPy5tZXNzYWdlPy5vcmRlcj8uaXRlbXM/LlswXTsKCiAgaWYgKCFpdGVtKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJvcmRlciBpdGVtIGlzIG1pc3NpbmciCiAgICB9OwogIH0KCiAgaWYgKCFpdGVtPy54aW5wdXQ/LmZvcm0/LmlkKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246ICJ4aW5wdXQgZm9ybSBpZCBpcyBtaXNzaW5nIgogICAgfTsKICB9CgogIGlmICghaXRlbT8ueGlucHV0Py5mb3JtPy51cmwpIHsKICAgIHJldHVybiB7CiAgICAgIHZhbGlkOiBmYWxzZSwKICAgICAgY29kZTogNDAwLAogICAgICBkZXNjcmlwdGlvbjogInhpbnB1dCBmb3JtIHVybCBpcyBtaXNzaW5nIgogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJWYWxpZCByZXF1ZXN0IiB9Owp9
       requirements: LyoqCiAqIENoZWNrcyBpZiB0aGUgcmVxdWlyZW1lbnRzIGZvciBwcm9jZWVkaW5nIHdpdGggdGhlIEFQSSBjYWxsIGFyZSBtZXQuCiAqIAogKiBAcGFyYW0ge09iamVjdH0gc2Vzc2lvbkRhdGEgLSBEYXRhIGNvbGxlY3RlZCBmcm9tIHByZXZpb3VzIHRyYW5zYWN0aW9uIHN0ZXBzLgogKiAKICogQHJldHVybnMge09iamVjdH0geyB2YWxpZDogYm9vbGVhbiwgY29kZTogbnVtYmVyLCBkZXNjcmlwdGlvbjogc3RyaW5nIH0KICovCmZ1bmN0aW9uIG1lZXRzUmVxdWlyZW1lbnRzKHNlc3Npb25EYXRhKSB7CiAgIGNvbnN0IG1pc3NpbmcgPSBbXTsKCiAgaWYgKCFzZXNzaW9uRGF0YS5vcmRlcj8uWzBdKSB7CiAgICBtaXNzaW5nLnB1c2goIm9yZGVyIik7CiAgfQoKICBpZiAoIXNlc3Npb25EYXRhLnRyYW5zYWN0aW9uSWQpIHsKICAgIG1pc3NpbmcucHVzaCgidHJhbnNhY3Rpb25faWQiKTsKICB9CgogIGlmICghc2Vzc2lvbkRhdGEubGF0ZXN0TWVzc2FnZV9pZCkgewogICAgbWlzc2luZy5wdXNoKCJtZXNzYWdlX2lkIik7CiAgfQoKICBpZiAobWlzc2luZy5sZW5ndGggPiAwKSB7CiAgICByZXR1cm4gewogICAgICB2YWxpZDogZmFsc2UsCiAgICAgIGNvZGU6IDQwMCwKICAgICAgZGVzY3JpcHRpb246IGBNaXNzaW5nIHJlcXVpcmVkIHNlc3Npb24gZGF0YTogJHttaXNzaW5nLmpvaW4oIiwgIil9YAogICAgfTsKICB9CiAgcmV0dXJuIHsgdmFsaWQ6IHRydWUsIGNvZGU6IDIwMCwgZGVzY3JpcHRpb246ICJSZXF1aXJlbWVudHMgbWV0IiB9Owp9
       defaultPayload:
@@ -2461,9 +2563,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_select
-            timestamp: 2026-07-04T21:27:38.471Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 9ca34646-b920-459a-95c8-2803a97e2526
+            timestamp: 2026-07-20T07:56:23.992Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 76460a97-3c32-4527-b92d-7c9874092bb0
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2545,12 +2647,63 @@ steps:
                         - PED
                         - EKYC
                     form:
-                      id: f2ebabd1-3fa5-4326-8d1e-b62af7095d51
+                      id: ee3b9e7e-934a-46ea-a1e7-00289929ecf0
                       mime_type: application/html
-                      url: undefined/forms/ONDC:FIS13/Ekyc_details_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+                      url: undefined/forms/ONDC:FIS13/Ekyc_details_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
                       resubmit: true
                       multiple_sumbissions: false
                     required: true
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -2560,9 +2713,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -2686,9 +2839,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_status
-            timestamp: 2026-07-04T21:27:41.520Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 5c3b8b16-0c9c-4133-9e99-61a1be0974f9
+            timestamp: 2026-07-20T07:56:26.755Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 1f0e1f6a-e0c5-4aa0-965b-3e80c0ab892e
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2760,10 +2913,61 @@ steps:
                     label: TENURE
                   xinput:
                     form:
-                      id: f2ebabd1-3fa5-4326-8d1e-b62af7095d51
+                      id: ee3b9e7e-934a-46ea-a1e7-00289929ecf0
                     form_response:
                       status: SUCCESS
-                      submission_id: b3b575ef-bf2b-48ab-9d8b-43f3f072859c
+                      submission_id: a560b855-df48-46ce-aa10-d97638d10f24
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -2773,9 +2977,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -2927,9 +3131,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: init
-            timestamp: 2026-07-04T21:27:41.539Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 150ba916-5a5b-4ac3-9714-31b482662abb
+            timestamp: 2026-07-20T07:56:26.903Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 2ca7dfe5-6018-4b98-92e5-9a2648aabf99
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -2955,12 +3159,63 @@ steps:
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: f2ebabd1-3fa5-4326-8d1e-b62af7095d51
+                      id: ee3b9e7e-934a-46ea-a1e7-00289929ecf0
                     form_response:
                       status: SUCCESS
-                      submission_id: b3b575ef-bf2b-48ab-9d8b-43f3f072859c
+                      submission_id: a560b855-df48-46ce-aa10-d97638d10f24
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -3085,9 +3340,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_init
-            timestamp: 2026-07-04T21:27:41.584Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 150ba916-5a5b-4ac3-9714-31b482662abb
+            timestamp: 2026-07-20T07:56:26.973Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 2ca7dfe5-6018-4b98-92e5-9a2648aabf99
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3108,7 +3363,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -3180,14 +3435,65 @@ steps:
                         - MANUAL_REVIEW
                         - CIS
                     form:
-                      id: 76ce9189-22e8-4e73-aedc-2fcff9aa0149
+                      id: 3612e8db-e837-4bad-b33b-c9dbe22feda9
                       mime_type: text/html
-                      url: undefined/forms/ONDC:FIS13/Proposer_Details_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined
+                      url: undefined/forms/ONDC:FIS13/Proposer_Details_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined
                       resubmit: true
                       multiple_sumbissions: false
                     required: true
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -3227,7 +3533,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -3237,9 +3543,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -3313,13 +3619,13 @@ steps:
           firstName: test
           lastName: nikita
           address: jhguguy
-          dob: 2026-07-16
+          dob: 2026-07-08
           gender: female
-          politicallyExposedPerson: "false"
+          politicallyExposedPerson: "true"
           email: nikita.sharma@ondc.org
           phone: "9877667788"
-          gstin: 29AABCU9603R1ZV
-          weight: "33"
+          gstin: ""
+          weight: "22"
           height: "33"
           relation: spouse
           formId: F05
@@ -3382,9 +3688,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: init
-            timestamp: 2026-07-04T21:27:59.601Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 668cadd3-82a6-4356-9200-6226d4607d54
+            timestamp: 2026-07-20T07:56:41.524Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 1f71e071-c6bb-4945-a0cf-d3fe5a6b9af1
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3405,19 +3711,70 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: 76ce9189-22e8-4e73-aedc-2fcff9aa0149
+                      id: 3612e8db-e837-4bad-b33b-c9dbe22feda9
                     form_response:
                       status: SUCCESS
-                      submission_id: 9fedcaec-8b55-4b81-a2a3-f74841fe9ff8
+                      submission_id: 44280e13-aa77-47ed-ae7d-9d56c8b85918
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -3725,9 +4082,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_init
-            timestamp: 2026-07-04T21:27:59.624Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 668cadd3-82a6-4356-9200-6226d4607d54
+            timestamp: 2026-07-20T07:56:41.575Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 1f71e071-c6bb-4945-a0cf-d3fe5a6b9af1
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -3748,7 +4105,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -3821,13 +4178,64 @@ steps:
                         - MANUAL_REVIEW
                         - CIS
                     form:
-                      id: 24f5cf51-9454-4ef2-8aeb-0687920b5c40
+                      id: 61c64168-fcb3-4cc7-ba20-0a6087713d67
                       mime_type: text/html
-                      url: undefined/forms/ONDC:FIS13/nominee_details_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined
+                      url: undefined/forms/ONDC:FIS13/nominee_details_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined
                       resubmit: true
                       multiple_sumbissions: false
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -3867,7 +4275,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -3877,9 +4285,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -3951,8 +4359,8 @@ steps:
         payload:
           nominee1_firstName: NIKITA
           nominee1_lastName: nikita
-          nominee1_dob: 2026-06-30
-          nominee1_relation: spouse
+          nominee1_dob: 2026-07-01
+          nominee1_relation: son
           nominee2_firstName: ""
           nominee2_lastName: ""
           nominee2_dob: ""
@@ -4009,9 +4417,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: init
-            timestamp: 2026-07-04T21:28:06.673Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 13d8a0cf-73a0-4a26-974c-35da8dba744e
+            timestamp: 2026-07-20T07:56:50.347Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 28f29732-efcb-4ebd-a6c7-00691db46cb4
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4032,19 +4440,70 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: 24f5cf51-9454-4ef2-8aeb-0687920b5c40
+                      id: 61c64168-fcb3-4cc7-ba20-0a6087713d67
                     form_response:
                       status: SUCCESS
-                      submission_id: 4ff68c9d-d953-4bd6-aed1-502d0a02e7cb
+                      submission_id: cfde20d6-210f-45c3-8f55-ba72a4ca2445
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -4134,9 +4593,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_init
-            timestamp: 2026-07-04T21:28:06.700Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 13d8a0cf-73a0-4a26-974c-35da8dba744e
+            timestamp: 2026-07-20T07:56:50.396Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 28f29732-efcb-4ebd-a6c7-00691db46cb4
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4157,7 +4616,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -4230,13 +4689,64 @@ steps:
                         - MANUAL_REVIEW
                         - CIS
                     form:
-                      id: eab61904-6a7e-427e-a5f9-bf7babd2860e
+                      id: 6ca9d418-0ece-4c6f-8cde-4c3c16a4e934
                       mime_type: application/html
-                      url: undefined/forms/ONDC:FIS13/manual_review_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+                      url: undefined/forms/ONDC:FIS13/manual_review_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
                       resubmit: true
                       multiple_sumbissions: false
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -4276,7 +4786,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -4286,9 +4796,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -4401,9 +4911,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_status
-            timestamp: 2026-07-09T10:55:36.281Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 0b693ff0-db77-4192-8ed2-139e19ef4680
+            timestamp: 2026-07-20T07:56:52.734Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 6e50c80f-c10b-4c9c-a2ea-2963c7ed167a
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4424,7 +4934,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 3d6b7d73-10b0-4031-91c3-0261eb1b5683
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -4484,12 +4994,63 @@ steps:
                     label: TENURE
                   xinput:
                     form:
-                      id: d8cb5a68-fbdc-465c-8842-c80ffd85c7cb
+                      id: 6ca9d418-0ece-4c6f-8cde-4c3c16a4e934
                     form_response:
                       status: SUCCESS
-                      submission_id: 4e934b8a-73ed-4732-868c-3f8bf365ace9
+                      submission_id: c4e196c2-7f93-4273-88bc-ad814b43a6ac
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - 3d6b7d73-10b0-4031-91c3-0261eb1b5683
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -4529,7 +5090,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: 4145fa20-c271-41a6-b93f-f678976d6913
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -4539,9 +5100,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: e582453e-a016-4e40-aec3-22d1656b9291
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: b75907b7-776f-410a-86d1-40d8de657296
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -4589,10 +5150,6 @@ steps:
                     url: https://fis.test.bpp.io/cancellation-terms
         type: request
         description: please add relevant description
- 
-  
-  
-  
   - api: init
     action_id: init3
     owner: BAP
@@ -4647,9 +5204,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: init
-            timestamp: 2026-07-04T21:28:08.643Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 61d4d079-aa44-488c-8a40-49f9acc4311f
+            timestamp: 2026-07-20T07:56:52.776Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 9a2d84d7-e9c9-4ff6-9405-cc23eeb6aa52
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4670,19 +5227,70 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: eab61904-6a7e-427e-a5f9-bf7babd2860e
+                      id: 6ca9d418-0ece-4c6f-8cde-4c3c16a4e934
                     form_response:
                       status: SUCCESS
-                      submission_id: 8debf6f4-ee10-4f96-b2bf-93f222a01184
+                      submission_id: efbd042d-2515-423a-8087-76962fb1bd38
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -4722,7 +5330,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
         type: request
         description: The BAP initializes the health insurance order with the proposer's
           selected items, fulfillments, and provider information. This step
@@ -4785,9 +5393,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_init
-            timestamp: 2026-07-04T21:28:08.661Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 61d4d079-aa44-488c-8a40-49f9acc4311f
+            timestamp: 2026-07-20T07:56:52.841Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 9a2d84d7-e9c9-4ff6-9405-cc23eeb6aa52
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -4808,7 +5416,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -4880,12 +5488,63 @@ steps:
                         - MANUAL_REVIEW
                         - CIS
                     form:
-                      id: 6a5b5d2b-cb60-4d5d-83e7-5b23fa84d5b4
+                      id: 91b16d25-e9d7-444d-b000-3eff35eb2930
                       mime_type: application/html
-                      url: undefined/forms/ONDC:FIS13/consumer_information_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+                      url: undefined/forms/ONDC:FIS13/consumer_information_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
                       resubmit: true
                       multiple_sumbissions: false
                     required: true
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -4925,7 +5584,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -4935,9 +5594,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -5067,9 +5726,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_status
-            timestamp: 2026-07-04T21:28:11.791Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: f3c7e08c-a46f-461d-9bb8-67bfc13f55f0
+            timestamp: 2026-07-20T07:56:55.359Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 12a9814d-da3f-477d-93bf-97f08a1e3dfb
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5090,7 +5749,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - category_ids:
@@ -5150,10 +5809,61 @@ steps:
                     label: TENURE
                   xinput:
                     form:
-                      id: 6a5b5d2b-cb60-4d5d-83e7-5b23fa84d5b4
+                      id: 91b16d25-e9d7-444d-b000-3eff35eb2930
                     form_response:
                       status: SUCCESS
-                      submission_id: eb08923c-fa59-4a06-a7b5-e80422187e74
+                      submission_id: 0b7ada7c-c193-4de5-8eb7-a20be4096c12
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -5193,7 +5903,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  id: bf397cf7-5306-4289-b71c-42efbc222c35
+                  id: 8c99ad47-506f-4a3a-998c-f05ddb460c45
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -5203,9 +5913,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -5312,9 +6022,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: confirm
-            timestamp: 2026-07-04T21:28:11.809Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 5bb41f37-891a-40ae-9f1d-11fbb3eec5fd
+            timestamp: 2026-07-20T07:56:55.512Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 92c66725-8590-4fa5-93a1-54ff3114aa35
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5335,19 +6045,70 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   xinput:
                     form:
-                      id: 6a5b5d2b-cb60-4d5d-83e7-5b23fa84d5b4
+                      id: 91b16d25-e9d7-444d-b000-3eff35eb2930
                     form_response:
                       status: SUCCESS
-                      submission_id: 0ad4aa77-d768-4189-ae3b-8a23d39eaed0
+                      submission_id: 814ab863-da32-484c-9e22-2b356700acab
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
               provider:
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -5387,9 +6148,9 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  url: undefined/forms/ONDC:FIS13/payment_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+                  url: undefined/forms/ONDC:FIS13/payment_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -5525,9 +6286,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_confirm
-            timestamp: 2026-07-04T21:28:11.862Z
-            transaction_id: d2349a3b-5a41-496e-94e7-bc810d364e18
-            message_id: 5bb41f37-891a-40ae-9f1d-11fbb3eec5fd
+            timestamp: 2026-07-20T07:56:55.616Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 92c66725-8590-4fa5-93a1-54ff3114aa35
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5548,7 +6309,7 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: 0c7e8221-ad26-461b-ba08-2e33d5db37b1
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
               items:
                 - descriptor:
@@ -5603,9 +6364,60 @@ steps:
                   time:
                     duration: P1Y
                     label: TENURE
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - 0c7e8221-ad26-461b-ba08-2e33d5db37b1
-              id: 3c6ff291-5612-47e7-9d32-23f92c398c0c
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
+              id: 46c8f147-9ebc-4de0-a4c2-925e5cc8cb34
               payments:
                 - collected_by: BPP
                   status: NOT-PAID
@@ -5645,7 +6457,7 @@ steps:
                         - descriptor:
                             code: OFFLINE_CONTRACT
                           value: "true"
-                  url: undefined/forms/ONDC:FIS13/payment_form/?transaction_id=d2349a3b-5a41-496e-94e7-bc810d364e18&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
+                  url: undefined/forms/ONDC:FIS13/payment_form/?transaction_id=be21fd05-330b-4351-b2ec-6861152949ac&session_id=undefined&bap_uri=https%3A%2F%2Fbap.example.com
               provider:
                 descriptor:
                   long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -5655,9 +6467,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: f1fd2ce5-504e-47f3-a820-864338870ec0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 68d75cdf-857d-4c86-be8c-82a4be5b2050
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -5727,12 +6539,12 @@ steps:
                       following URL
                   mime_type: application/html
                   url: https://abcinsurance.com/renew-policy/
-              updated_at: 2026-07-04T21:28:11.865Z
+              updated_at: 2026-07-20T07:56:55.618Z
               cancellation_terms:
                 - external_ref:
                     mimetype: text/html,
                     url: https://fis.test.bpp.io/cancellation-terms
-              created_at: 2026-07-04T21:28:11.865Z
+              created_at: 2026-07-20T07:56:55.618Z
         type: request
         description: The BPP confirms the health insurance order with the BAP,
           signifying acceptance and completion of the pre-order application.
@@ -5762,7 +6574,6 @@ steps:
         description: The BPP requests eKYC credentials and personal identification
           information through a dynamic form to verify the applicant's identity
           and eligibility for health insurance coverage.
-  
   - api: on_update
     action_id: on_update
     owner: BPP
@@ -5815,9 +6626,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_update
-            timestamp: 2026-07-04T18:16:08.063Z
-            transaction_id: 98aebf16-a36d-450b-bf38-6e1bf626e525
-            message_id: 997e5791-5fd5-4a69-a16e-3da19c546a56
+            timestamp: 2026-07-20T07:57:05.651Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 2a4cea15-afe7-450c-a470-d6c3cd15501c
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -5838,15 +6649,15 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
                   state:
                     descriptor:
                       code: GRANTED
               items:
                 - descriptor:
-                    name: Health Gain Plus Individual
-                    short_desc: ABC Individaul Health Insurance Class A with custom addon
+                    name: Health Gain Plus Family
+                    short_desc: ABC Family Health Insurance Class A with custom addon
                   id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   price:
@@ -5896,9 +6707,60 @@ steps:
                   time:
                     duration: P1Y
                     label: TENURE
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
-              id: 2b89dbe0-63e3-4719-bccf-baa1cfa7568c
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
+              id: 46c8f147-9ebc-4de0-a4c2-925e5cc8cb34
               payments:
                 - collected_by: BPP
                   status: PAID
@@ -5908,7 +6770,7 @@ steps:
                     bank_code: SBIN0001234
                     currency: INR
                     amount: "3000"
-                    transaction_id: 7a9fddd2-5d2f-4524-9292-6442130c9668
+                    transaction_id: cda0dcec-42f4-4e06-9007-9c684676a2c6
                   tags:
                     - descriptor:
                         code: BUYER_FINDER_FEES
@@ -5948,9 +6810,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: af037818-15f5-4d0f-bd31-68637835f6a0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 23861277-f3df-4f2c-a078-240cf003e647
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -6020,19 +6882,16 @@ steps:
                       following URL
                   mime_type: application/html
                   url: https://abcinsurance.com/renew-policy/
-              updated_at: 2026-07-04T18:16:08.065Z
+              updated_at: 2026-07-20T07:57:05.653Z
               cancellation_terms:
                 - external_ref:
                     mimetype: text/html,
                     url: https://fis.test.bpp.io/cancellation-terms
-              created_at: 2026-07-04T18:16:08.065Z
+              created_at: 2026-07-20T07:57:05.653Z
         type: request
         description: BPP updates the BAP on the health insurance application order
           status, including fulfillment progress and policy documents for claims
           and policy renewal activities.
-  
-  
-  
   - api: cancel
     action_id: cancel
     owner: BAP
@@ -6087,9 +6946,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: cancel
-            timestamp: 2026-07-04T18:16:08.085Z
-            transaction_id: 98aebf16-a36d-450b-bf38-6e1bf626e525
-            message_id: 82c99dc6-a7a1-4a41-b5ba-7651b53a2548
+            timestamp: 2026-07-20T07:57:05.723Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 211d8d3d-0e07-4292-a7d3-490c15acbe41
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -6105,7 +6964,7 @@ steps:
             cancellation_reason_id: "5"
             descriptor:
               short_desc: User bought other policy
-            order_id: 2b89dbe0-63e3-4719-bccf-baa1cfa7568c
+            order_id: 46c8f147-9ebc-4de0-a4c2-925e5cc8cb34
         type: request
         description: The BAP initiates a cancellation request to the BPP to terminate
           the individual's health insurance policy. The BPP processes the
@@ -6166,9 +7025,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_cancel
-            timestamp: 2026-07-04T18:16:08.118Z
-            transaction_id: 98aebf16-a36d-450b-bf38-6e1bf626e525
-            message_id: 82c99dc6-a7a1-4a41-b5ba-7651b53a2548
+            timestamp: 2026-07-20T07:57:05.833Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: 211d8d3d-0e07-4292-a7d3-490c15acbe41
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -6189,15 +7048,15 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
                   state:
                     descriptor:
                       code: GRANTED
               items:
                 - descriptor:
-                    name: Health Gain Plus Individual
-                    short_desc: ABC Individaul Health Insurance Class A with custom addon
+                    name: Health Gain Plus Family
+                    short_desc: ABC Family Health Insurance Class A with custom addon
                   id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   price:
@@ -6247,12 +7106,63 @@ steps:
                   time:
                     duration: P1Y
                     label: TENURE
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   category_ids:
                     - C1
                     - C3
-              id: 2b89dbe0-63e3-4719-bccf-baa1cfa7568c
+              id: 46c8f147-9ebc-4de0-a4c2-925e5cc8cb34
               payments:
                 - collected_by: BPP
                   status: PAID
@@ -6262,7 +7172,7 @@ steps:
                     bank_code: SBIN0001234
                     currency: INR
                     amount: "3000"
-                    transaction_id: 7a9fddd2-5d2f-4524-9292-6442130c9668
+                    transaction_id: cda0dcec-42f4-4e06-9007-9c684676a2c6
                   tags:
                     - descriptor:
                         code: BUYER_FINDER_FEES
@@ -6302,9 +7212,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: af037818-15f5-4d0f-bd31-68637835f6a0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 23861277-f3df-4f2c-a078-240cf003e647
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -6374,12 +7284,12 @@ steps:
                       following URL
                   mime_type: application/html
                   url: https://abcinsurance.com/renew-policy/
-              updated_at: 2026-07-04T18:16:08.119Z
+              updated_at: 2026-07-20T07:57:05.835Z
               cancellation_terms:
                 - external_ref:
                     mimetype: text/html,
                     url: https://fis.test.bpp.io/cancellation-terms
-              created_at: 2026-07-04T18:16:08.065Z
+              created_at: 2026-07-20T07:57:05.653Z
         type: request
         description: The BPP confirms the cancellation of the health insurance policy in
           response to the BAP's cancel request and provides updated order and
@@ -6431,9 +7341,9 @@ steps:
           context:
             domain: ONDC:FIS13
             action: on_update
-            timestamp: 2026-07-04T18:16:08.150Z
-            transaction_id: 98aebf16-a36d-450b-bf38-6e1bf626e525
-            message_id: e092dc95-bd07-4812-b038-b75f4f76761c
+            timestamp: 2026-07-20T07:57:05.931Z
+            transaction_id: be21fd05-330b-4351-b2ec-6861152949ac
+            message_id: e3b96cbf-c110-40be-b0d2-1eb1d52faa6a
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -6454,15 +7364,15 @@ steps:
                       phone: +91-9999999999
                     person:
                       name: Joe Adam
-                  id: d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
+                  id: 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   type: POLICY
                   state:
                     descriptor:
                       code: GRANTED
               items:
                 - descriptor:
-                    name: Health Gain Plus Individual
-                    short_desc: ABC Individaul Health Insurance Class A with custom addon
+                    name: Health Gain Plus Family
+                    short_desc: ABC Family Health Insurance Class A with custom addon
                   id: CHILD_ITEM_ID_I1
                   parent_item_id: I1
                   price:
@@ -6512,12 +7422,63 @@ steps:
                   time:
                     duration: P1Y
                     label: TENURE
+                  add_ons:
+                    - id: A1
+                      descriptor:
+                        name: Consumables Cover
+                        code: CONSUMABLES_COVER
+                      quantity:
+                        selected:
+                          count: 1
+                      price:
+                        currency: INR
+                        value: "900"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
+                    - id: A2
+                      descriptor:
+                        name: Depreciation Cover
+                        code: DEPRECIATION_COVER
+                      quantity:
+                        selected:
+                          count: 2
+                      price:
+                        currency: INR
+                        value: "1000"
+                      tags:
+                        - descriptor:
+                            name: BAP Inputs
+                            code: BAP_INPUTS
+                          list:
+                            - descriptor:
+                                code: SUM_INSURED
+                              value: "50000"
+                            - descriptor:
+                                code: NOMINEE_DETAILS
+                                short_desc: Describes the format as 'Salutation | First Name | Middle Name |
+                                  Last Name | Relationship | Contact Number'
+                                  represents a full name structure, where the
+                                  values are separated by a pipe (|) symbol
+                              value: Mr. | Joe | Wick | Adams | Son | +91-9988776655
                   fulfillment_ids:
-                    - d88a4ac2-0fa6-4d4b-a211-7af5dadd3156
+                    - 2f57c3c1-ac36-4d82-a845-4ec039a3e0cd
                   category_ids:
                     - C1
                     - C3
-              id: 2b89dbe0-63e3-4719-bccf-baa1cfa7568c
+              id: 46c8f147-9ebc-4de0-a4c2-925e5cc8cb34
               payments:
                 - collected_by: BPP
                   status: PAID
@@ -6527,7 +7488,7 @@ steps:
                     bank_code: SBIN0001234
                     currency: INR
                     amount: "3000"
-                    transaction_id: 7a9fddd2-5d2f-4524-9292-6442130c9668
+                    transaction_id: cda0dcec-42f4-4e06-9007-9c684676a2c6
                   tags:
                     - descriptor:
                         code: BUYER_FINDER_FEES
@@ -6567,9 +7528,9 @@ steps:
                   images:
                     - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                       size_type: xs
-                id: af037818-15f5-4d0f-bd31-68637835f6a0
+                id: ab254307-695d-4801-875c-424ef7b73d07
               quote:
-                id: 23861277-f3df-4f2c-a078-240cf003e647
+                id: 2cb33b97-6555-47a8-bc08-1efb6bc1c099
                 breakup:
                   - price:
                       value: "900"
@@ -6612,16 +7573,15 @@ steps:
                   value: "3000"
                 ttl: P15D
               status: CANCELLED
-              updated_at: 2026-07-04T18:16:08.152Z
+              updated_at: 2026-07-20T07:57:05.932Z
               cancellation_terms:
                 - external_ref:
                     mimetype: text/html,
                     url: https://fis.test.bpp.io/cancellation-terms
-              created_at: 2026-07-04T18:16:08.065Z
+              created_at: 2026-07-20T07:57:05.653Z
         type: request
         description: The BPP proactively notifies the BAP with a status update on the
           individual's health insurance cancellation request.
-
 transaction_history: []
 validationLib: ""
 helperLib: LyoKICBDdXN0b20gaGVscGVyIGZ1bmN0aW9ucyBhdmFpbGFibGUgaW4gYWxsIG1vY2sgZ2VuZXJhdGlvbiBmdW5jdGlvbnMuCiAgdGhlc2UgYXJlIGFwcGVuZGVkIGJlbG93IHRoZSBnZW5lcmF0ZSBmdW5jdGlvbiBmb3IgZWFjaCBzdGVwLgoqLwoKY29uc3QgY3JlYXRlRm9ybVVSTCA9IChkb21haW4sIGZvcm1JZCwgc2Vzc2lvbkRhdGEpID0+IHsKICBjb25zdCBiYXNlVVJMID0gc2Vzc2lvbkRhdGEubW9ja0Jhc2VVcmw7CiAgY29uc3QgdHJhbnNhY3Rpb25JZCA9IHNlc3Npb25EYXRhLnRyYW5zYWN0aW9uSWRbMF07CiAgY29uc3Qgc2Vzc2lvbklkID0gc2Vzc2lvbkRhdGEuc2Vzc2lvbklkOwogIHJldHVybiBgJHtiYXNlVVJMfS9mb3Jtcy8ke2RvbWFpbn0vJHtmb3JtSWR9Lz90cmFuc2FjdGlvbl9pZD0ke3RyYW5zYWN0aW9uSWR9JnNlc3Npb25faWQ9JHtzZXNzaW9uSWR9YDsKfQoKLy8gR2VuZXJhdGVzIGEgVVVJRCB2NApmdW5jdGlvbiB1dWlkdjQoKSB7CiAgcmV0dXJuICd4eHh4eHh4eC14eHh4LTR4eHgteXh4eC14eHh4eHh4eHh4eHgnLnJlcGxhY2UoL1t4eV0vZywgZnVuY3Rpb24gKGMpIHsKICAgIGNvbnN0IHIgPSBNYXRoLnJhbmRvbSgpICogMTYgfCAwOwogICAgY29uc3QgdiA9IGMgPT09ICd4JyA/IHIgOiAociAmIDB4MyB8IDB4OCk7CiAgICByZXR1cm4gdi50b1N0cmluZygxNik7CiAgfSk7Cn0KCi8vIEdlbmVyYXRlIGEgNiBkaWdpdCBzdHJpbmcgSUQKZnVuY3Rpb24gZ2VuZXJhdGU2RGlnaXRJZCgpIHsKICByZXR1cm4gTWF0aC5mbG9vcigxMDAwMDAgKyBNYXRoLnJhbmRvbSgpICogOTAwMDAwKS50b1N0cmluZygpOwp9CgovLyBSZXR1cm5zIHRoZSBjdXJyZW50IElTTyB0aW1lc3RhbXAKZnVuY3Rpb24gY3VycmVudFRpbWVzdGFtcCgpIHsKICByZXR1cm4gbmV3IERhdGUoKS50b0lTT1N0cmluZygpOwp9CgovLyBDb252ZXJ0cyBJU08gODYwMSBkdXJhdGlvbiBzdHJpbmcgdG8gdG90YWwgc2Vjb25kcwpjb25zdCBpc29EdXJUb1NlYyA9IChkdXJhdGlvbikgPT4gewogIGNvbnN0IGR1clJFID0gL1AoKGQrKVkpPygoZCspTSk/KChkKylXKT8oKGQrKUQpP1Q/KChkKylIKT8oKGQrKU0pPygoZCspUyk/LzsKICBjb25zdCBzID0gZHVyUkUuZXhlYyhkdXJhdGlvbik7CiAgaWYgKCFzKSByZXR1cm4gMDsKCiAgcmV0dXJuIChOdW1iZXIocz8uWzJdKSB8fCAwKSAqIDMxNTM2MDAwICsKICAgIChOdW1iZXIocz8uWzRdKSB8fCAwKSAqIDI2MjgyODggKwogICAgKE51bWJlcihzPy5bNl0pIHx8IDApICogNjA0ODAwICsKICAgIChOdW1iZXIocz8uWzhdKSB8fCAwKSAqIDg2NDAwICsKICAgIChOdW1iZXIocz8uWzEwXSkgfHwgMCkgKiAzNjAwICsKICAgIChOdW1iZXIocz8uWzEyXSkgfHwgMCkgKiA2MCArCiAgICAoTnVtYmVyKHM/LlsxNF0pIHx8IDApOwp9OwoKY29uc3Qgc2V0Q2l0eUZyb21JbnB1dHMgPSAocGF5bG9hZCwgaW5wdXRzKSA9PiB7CiAgaWYgKCFpbnB1dHMpIHJldHVybiAiKiI7CiAgbGV0IHZlcnNpb24gPSBwYXlsb2FkLmNvbnRleHQudmVyc2lvbiB8fCBwYXlsb2FkLmNvbnRleHQuY29yZV92ZXJzaW9uIHx8ICIyLjAuMCI7CiAgaWYgKHZlcnNpb24uc3RhcnRzV2l0aCgiMSIpKSB7CiAgICBwYXlsb2FkLmNvbnRleHQuY2l0eSA9IGlucHV0cy5jaXR5X2NvZGUgPz8gIioiOwogIH0gZWxzZSB7CiAgICBwYXlsb2FkLmNvbnRleHQubG9jYXRpb24uY2l0eS5jb2RlID0gaW5wdXRzLmNpdHlfY29kZSA/PyAiKiI7CiAgfQp9Cgo=
