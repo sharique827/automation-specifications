@@ -2903,7 +2903,32 @@ components:
           allOf:
             - $ref: '#/components/schemas/City'
         contact:
-          $ref: '#/components/schemas/Contact'
+          anyOf:
+            - $ref: "#/components/schemas/Contact"
+            - type: object
+              additionalProperties: false
+              properties:
+                phone:
+                  type: string
+                email:
+                  type: string
+                  format: email
+        org:
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string
+        person:
+          type: object
+          additionalProperties: false
+          properties:
+            name:
+              type: string         
+        creds:
+          type: array
+          items:
+            $ref: "#/components/schemas/Credential"
     Payments:
           type: array
           items:
@@ -4305,7 +4330,7 @@ components:
           items:
             type: string
         descriptor:
-          $ref: '#/components/schemas/DescriptorIgm' 
+          $ref: "#/components/schemas/DescriptorIgm"
         last_action_id:
           description: Describes the last action id
           type: string
@@ -4506,10 +4531,27 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Item"
+        # fulfillments:
+        #   type: array
+        #   items:
+        #     $ref: "#/components/schemas/Fulfillment"
         fulfillments:
           type: array
           items:
-            $ref: "#/components/schemas/Fulfillment"
+            type: object
+            additionalProperties: false
+            required:
+              - id
+              - state
+            properties:
+              id:
+                description: >-
+                  the value of this field will be the combination of
+                  context.transaction_id and order.id.
+                type: string
+              state:
+                type: string
+                description: Fulfillment state of the order    
         provider_id:
           type: string
         merchant_order_id:
@@ -4576,8 +4618,8 @@ components:
             captured when the complainant triggers an action
           type: string
     Level:
-        description: Describes the level of a issue
-        type: string
+      description: Describes the level of a issue
+      type: string
     ODR:
       description: >
         * Describes the details of the Online Dispute Resolution Provider.
