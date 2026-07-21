@@ -1423,33 +1423,33 @@ _TESTS_:
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_PERSON_NAME
-                  _CONTINUE_: "!(attr are present)"
+                  _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                   attr: $.message.order.fulfillments[*].end.person.name
                   _RETURN_: attr are present
                 - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
-                  _CONTINUE_: "!(attr are present)"
+                  _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                   attr: $.message.order.fulfillments[*].end.contact.phone
                   attr_condition: $.message.order.fulfillments[*].type
                   condition:
                     - Delivery
                   reg:
                     - ^[0-9]{10}$
-                  _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                  _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].end.location.gps
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_NAME
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].end.location.address.name
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_LOCALITY
@@ -1461,22 +1461,22 @@ _TESTS_:
                           attr: $.message.order.fulfillments[*].end.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_STATE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].end.location.address.state
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_COUNTRY
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].end.location.address.country
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].end.location.address.area_code
                           attr_condition: $.message.order.fulfillments[*].type
                           condition:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_VEHICLE_REGISTRATION
               attr: $.message.order.fulfillments[*].vehicle.registration
               attr_condition: $.message.order.fulfillments[*].type
@@ -1614,16 +1614,16 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ID
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.location.id
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9a-zA-Z\_\-]{1,36}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_DESCRIPTOR_NAME
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.location.descriptor.name
                       _RETURN_: attr are present
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
@@ -1633,49 +1633,49 @@ _TESTS_:
                           attr: $.message.order.fulfillments[*].start.location.address.locality
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_CITY
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].start.location.address.city
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_STATE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].start.location.address.state
                           _RETURN_: attr are present
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
                           attr_condition: $.message.order.fulfillments[*].type
                           condition:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.location.gps
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{10}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
     - _NAME_: ON_CONFIRM_ORDER_TAGS
       _RETURN_:
         - _NAME_: TAGS_BPP_TERMS
           _RETURN_:
             - _NAME_: TAGS_BPP_TERMS_TAX_NUMBER
               attr: $.message.order.payment.tags[?(@.code=='bpp_terms')].list[?(@.code=='tax_number')].value
-              _CONTINUE_: "!(attr are present)"
+              _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
               _RETURN_: attr are present
             - _NAME_: TAGS_BPP_TERMS_NP_TYPE
               attr: $.message.order.payment.tags[?(@.code=='bpp_terms')].list[?(@.code=='np_type')].value
@@ -2162,7 +2162,7 @@ _TESTS_:
                 - RTO
               _RETURN_: attr all in var_enum
             - _NAME_: FULFILLMENTS_ONDC_ORG_TAT
-              _CONTINUE_: "!(attr are present)"
+              _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
               attr: $.message.order.fulfillments[*]['@ondc/org/TAT']
               reg:
                 - ^P(?=\\d|T)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+S)?)?$
@@ -2172,74 +2172,74 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ID
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9a-zA-Z\_\-]{1,36}$
                       attr: $.message.order.fulfillments[*].start.location.id
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
                       attr: $.message.order.fulfillments[*].start.location.gps
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr_condition: $.message.order.fulfillments[*].type
                           condition:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{10}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.state.descriptor.code!='Liquidated')].start.time.range.start
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.type!='Cancel' && @.state.descriptor.code!='Liquidated')].start.time.range.end
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_TIMESTAMP
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.time.timestamp
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
@@ -2249,8 +2249,8 @@ _TESTS_:
                     - Delivery
                   reg:
                     - ^[0-9]{10}$
-                  _CONTINUE_: "!(attr are present)"
-                  _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                  _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                  _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
@@ -2260,8 +2260,8 @@ _TESTS_:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
-                      _CONTINUE_: "!(attr are present)"
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
@@ -2271,43 +2271,43 @@ _TESTS_:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
-                          _CONTINUE_: "!(attr are present)"
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                          _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.type!='Cancel' && @.state.descriptor.code!='Liquidated')].end.time.range.start
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.state.descriptor.code!='Liquidated')].end.time.range.end
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_TIME_TIMESTAMP
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].end.time.timestamp
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_TAGS
               _RETURN_:
                 - _NAME_: TAGS_QUOTE_TRAIL
                   _RETURN_:
                     - _NAME_: QUOTE_TRAIL_TYPE
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.tags[?(@.code=='quote_trail')].list[?(@.code=='type')].value
                       var_enum:
                         - delivery
@@ -2594,74 +2594,74 @@ _TESTS_:
                 - _NAME_: FULFILLMENTS_START_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_LOCATION_ID
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9a-zA-Z\_\-]{1,36}$
                       attr: $.message.order.fulfillments[*].start.location.id
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_GPS
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
                       attr: $.message.order.fulfillments[*].start.location.gps
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_START_LOCATION_ADDRESS_AREA_CODE
-                          _CONTINUE_: "!(attr are present)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                           attr_condition: $.message.order.fulfillments[*].type
                           condition:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
                           attr: $.message.order.fulfillments[*].start.location.address.area_code
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_CONTACT
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_CONTACT_PHONE
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.contact.phone
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{10}$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_START_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_START
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.state.descriptor.code!='Liquidated')].start.time.range.start
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_RANGE_END
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.type!='Cancel' && @.state.descriptor.code!='Liquidated')].start.time.range.end
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_START_TIME_TIMESTAMP
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].start.time.timestamp
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
             - _NAME_: FULFILLMENTS_END
               _RETURN_:
                 - _NAME_: FULFILLMENTS_END_CONTACT_PHONE
@@ -2671,8 +2671,8 @@ _TESTS_:
                     - Delivery
                   reg:
                     - ^[0-9]{10}$
-                  _CONTINUE_: "!(attr are present)"
-                  _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                  _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                  _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_LOCATION
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_LOCATION_GPS
@@ -2682,8 +2682,8 @@ _TESTS_:
                         - Delivery
                       reg:
                         - ^[-+]?([1-8]?\\d|90)\\.\\d{4,},\\s*[-+]?(180|1[0-7]\\d|[1-9]?\\d)\\.\\d{4,}$
-                      _CONTINUE_: "!(attr are present)"
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS
                       _RETURN_:
                         - _NAME_: FULFILLMENTS_END_LOCATION_ADDRESS_AREA_CODE
@@ -2693,37 +2693,37 @@ _TESTS_:
                             - Delivery
                           reg:
                             - ^[0-9]{6}$
-                          _CONTINUE_: "!(attr are present)"
-                          _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                          _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+                          _RETURN_: attr follow regex reg
                 - _NAME_: FULFILLMENTS_END_TIME
                   _RETURN_:
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_START
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.type!='Cancel' && @.state.descriptor.code!='Liquidated')].end.time.range.start
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_TIME_RANGE_END
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[?(@.state.descriptor.code!='Liquidated')].end.time.range.end
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
                     - _NAME_: FULFILLMENTS_END_TIME_TIMESTAMP
-                      _CONTINUE_: "!(attr are present)"
+                      _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
                       attr: $.message.order.fulfillments[*].end.time.timestamp
                       attr_condition: $.message.order.fulfillments[*].type
                       condition:
                         - Delivery
                       reg:
                         - ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$
-                      _RETURN_: "attr are present && (!(attr_condition all in condition) || attr follow regex reg)"
+                      _RETURN_: attr follow regex reg
   issue:
     - _NAME_: REQUIRED_CONTEXT_FIELDS
       _RETURN_:
