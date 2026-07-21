@@ -2403,3 +2403,56 @@ paths:
                     update_target:
                       type: string
       responses: *responses
+  /catalog_rejection:
+    post:
+      operationId: catalog_rejection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                    bap_id:
+                      type: string
+                    bap_uri:
+                      type: string
+                    bpp_id:
+                      type: string
+                    bpp_uri:
+                      type: string
+                    city:
+                      type: string
+                    core_version:
+                      type: string
+                    country:
+                      type: string
+                    domain:
+                      type: string
+                    message_id:
+                      type: string
+                    timestamp:
+                      type: string
+                    transaction_id:
+                      type: string
+                    ttl:
+                      type: string
+                errors:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      path:
+                        type: string
+      responses: *responses
