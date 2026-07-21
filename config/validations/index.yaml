@@ -3747,7 +3747,7 @@ _TESTS_:
         - TICKET
         - PASS
     - _NAME_: REQUIRED_MESSAGE_NAME_28
-      _SCOPE_: $.message.order.fulfillments[*].stops[?(@.instructions)]
+      _SCOPE_: $.message.order.fulfillments[*].stops[?(@.type != 'START' && @.type != 'END')]
       attr: $.instructions.name
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_CODE_30
