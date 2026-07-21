@@ -4086,7 +4086,7 @@ _TESTS_:
         - METRO
       _CONTINUE_: "!(useCasePath all in useCode)"
     - _NAME_: REQUIRED_MESSAGE_NAME_29
-      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.instructions)]
+      _SCOPE_: $.message.order.fulfillments[?(@.vehicle.category == 'METRO')].stops[?(@.type != 'START' && @.type != 'END')]
       attr: $.instructions.name
       _RETURN_: attr are present
     - _NAME_: REQUIRED_MESSAGE_NAME_30
