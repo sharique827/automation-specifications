@@ -126,8 +126,15 @@ flows:
     description: An intra-city bus booking workflow where passengers search available transit services, select their preferred route, and confirm their reservation in a direct transaction sequence without post-confirmation status updates.
     config:
       $ref: ./Bus/IntraCity_Vehicle_Based_Confirmation_flow_Without_Update_Call_.yaml
+
+
+  # _________________METRO__________________  
+
+
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_TECHNICAL_CANCELLATION
+    meta:
+      order: 17
     usecase: Metro
     tags:
       - WORKBENCH
@@ -138,6 +145,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_TECHNICAL_CANCELLATION (W/O Search1 and Select)
+    meta:
+      order: 3
     usecase: Metro
     tags:
       - WORKBENCH
@@ -148,6 +157,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED__W_O_Search_and_Select_.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_TECHNICAL_CANCELLATION
+    meta:
+      order: 18
     usecase: Metro
     tags:
       - WORKBENCH
@@ -158,6 +169,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_TECHNICAL_CANCELLATION (W/O Search1 and Select)
+    meta:
+      order: 4
     usecase: Metro
     tags:
       - WORKBENCH
@@ -168,6 +181,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED__W_O_Search_and_Select_.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION
+    meta:
+      order: 19
     usecase: Metro
     tags:
       - WORKBENCH
@@ -178,6 +193,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION (W/O Search1 and Select)
+    meta:
+      order: 5
     usecase: Metro
     tags:
       - WORKBENCH
@@ -188,6 +205,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_ACCEPTED_IN_CASE_OF_USER_CANCELLATION__W_O_Search_and_Select_.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION
+    meta:
+      order: 20
     usecase: Metro
     tags:
       - WORKBENCH
@@ -198,6 +217,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION.yaml
   - type: playground
     id: DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION (W/O Search1 and Select)
+    meta:
+      order: 6
     usecase: Metro
     tags:
       - WORKBENCH
@@ -208,6 +229,8 @@ flows:
       $ref: ./Metro/DELAYED_CANCELLATION_FLOW_REJECTED_IN_CASE_OF_USER_CANCELLATION__W_O_Search_and_Select_.yaml
   - type: playground
     id: END_STOP_UPDATE_FLOW
+    meta:
+      order: 22
     usecase: Metro
     tags:
       - WORKBENCH
@@ -218,6 +241,8 @@ flows:
       $ref: ./Metro/END_STOP_UPDATE_FLOW.yaml
   - type: playground
     id: END_STOP_UPDATE_FLOW (W/O Search1 and Select)
+    meta:
+      order: 8
     usecase: Metro
     tags:
       - WORKBENCH
@@ -228,6 +253,8 @@ flows:
       $ref: ./Metro/END_STOP_UPDATE_FLOW__W_O_Search_and_Select_.yaml
   - type: playground
     id: STATION_CODE_FLOW_CATALOG
+    meta:
+      order: 15
     usecase: Metro
     tags:
       - WORKBENCH
@@ -238,6 +265,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_CATALOG.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER
+    meta:
+      order: 0
     usecase: Metro
     tags:
       - WORKBENCH
@@ -248,6 +277,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER (W/O Search1 and Select)
+    meta:
+      order: 1
     usecase: Metro
     tags:
       - WORKBENCH
@@ -258,6 +289,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER__W_O_Search_and_Select_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM(v-2.0.0)
+    meta:
+      order: 28
     usecase: Metro
     tags:
       - WORKBENCH
@@ -268,6 +301,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_v-2_0_0_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM(v-2.0.0)(W/O Search1 and Select)
+    meta:
+      order: 14
     usecase: Metro
     tags:
       - WORKBENCH
@@ -278,6 +313,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_v-2_0_0__W_O_Search_and_Select_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_No_Action(v-1.0.0)
+    meta:
+      order: 25
     usecase: Metro
     tags:
       - WORKBENCH
@@ -288,6 +325,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_No_Action_v-1_0_0_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_No_Action(v-1.0.0)(W/O Search1 and Select)
+    meta:
+      order: 11
     usecase: Metro
     tags:
       - WORKBENCH
@@ -298,6 +337,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_No_Action_v-1_0_0__W_O_Search_and_Select_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_No_Action(v-2.0.0)
+    meta:
+      order: 26
     usecase: Metro
     tags:
       - WORKBENCH
@@ -308,6 +349,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_No_Action_v-2_0_0_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_No_Action(v-2.0.0)(W/O Search1 and Select)
+    meta:
+      order: 12
     usecase: Metro
     tags:
       - WORKBENCH
@@ -318,6 +361,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_No_Action_v-2_0_0__W_O_Search_and_Select_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_Rejection(v-2.0.0)
+    meta:
+      order: 27
     usecase: Metro
     tags:
       - WORKBENCH
@@ -328,6 +373,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_Rejection_v-2_0_0_.yaml
   - type: playground
     id: STATION_CODE_FLOW_ORDER_IGM_Rejection(v-2.0.0)(W/O Search1 and Select)
+    meta:
+      order: 13
     usecase: Metro
     tags:
       - WORKBENCH
@@ -338,6 +385,8 @@ flows:
       $ref: ./Metro/STATION_CODE_FLOW_ORDER_IGM_Rejection_v-2_0_0__W_O_Search_and_Select_.yaml
   - type: playground
     id: TECHNICAL_CANCELLATION_FLOW
+    meta:
+      order: 21
     usecase: Metro
     tags:
       - WORKBENCH
@@ -348,6 +397,8 @@ flows:
       $ref: ./Metro/TECHNICAL_CANCELLATION_FLOW.yaml
   - type: playground
     id: TECHNICAL_CANCELLATION_FLOW (W/O Search1 and Select)
+    meta:
+      order: 7
     usecase: Metro
     tags:
       - WORKBENCH
@@ -358,6 +409,8 @@ flows:
       $ref: ./Metro/TECHNICAL_CANCELLATION_FLOW__W_O_Search_and_Select_.yaml
   - type: playground
     id: USER_CANCELLATION_FLOW
+    meta:
+      order: 16
     usecase: Metro
     tags:
       - WORKBENCH
@@ -368,6 +421,8 @@ flows:
       $ref: ./Metro/USER_CANCELLATION_FLOW.yaml
   - type: playground
     id: USER_CANCELLATION_FLOW (W/O Search1 and Select)
+    meta:
+      order: 2
     usecase: Metro
     tags:
       - WORKBENCH
@@ -378,6 +433,8 @@ flows:
       $ref: ./Metro/USER_CANCELLATION_FLOW__W_O_Search_and_Select_.yaml
   - type: playground
     id: PARTIAL_CANCELLATION_FLOW
+    meta:
+      order: 24
     usecase: Metro
     tags:
       - WORKBENCH
@@ -388,6 +445,8 @@ flows:
       $ref: ./Metro/PARTIAL_CANCELLATION_FLOW.yaml
   - type: playground
     id: PARTIAL_CANCELLATION_FLOW (W/O Search1 and Select)
+    meta:
+      order: 10
     usecase: Metro
     tags:
       - WORKBENCH
@@ -398,6 +457,8 @@ flows:
       $ref: ./Metro/PARTIAL_CANCELLATION_FLOW_W_O_Search_and_Select.yaml
   - type: playground
     id: OFFLINE_CANCELLATION_FLOW
+    meta:
+      order: 23
     usecase: Metro
     tags:
       - WORKBENCH
@@ -408,6 +469,8 @@ flows:
       $ref: ./Metro/OFFLINE_CANCELLATION_FLOW.yaml
   - type: playground
     id: OFFLINE_CANCELLATION_FLOW (W/O Search1 and Select)
+    meta:
+      order: 9
     usecase: Metro
     tags:
       - WORKBENCH
