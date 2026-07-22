@@ -119,3 +119,18 @@ flows:
     description: A discovery sequence for Food and Beverage services that validates the incremental pull of catalog updates through repeated search requests to ensure real-time menu synchronization.
     config:
       $ref: ./F&B/Search_and_Custom_Menu__Incremental_Pull_.yaml
+
+
+  # _____________IGM 1.0.0______________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: F&B
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+    description: An end-to-end prepaid food and beverage order lifecycle covering item selection, payment initialization, order confirmation, and real-time fulfillment tracking through to final delivery status updates.
+    config:
+      $ref: ./F&B/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml
