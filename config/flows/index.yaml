@@ -84,3 +84,17 @@ flows:
     description: A buyer application initiates a fashion catalog discovery request, receives an initial set of listings from the seller platform, and then performs a subsequent incremental search to pull only the updated or newly added catalog entries since the last synchronization, receiving the refreshed delta from the provider.
     config:
       $ref: ./FASHION/Discovery_Flow_incremental_catalog_refresh_pull.yaml
+
+  # _____________IGM 1.0.0_____________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: FASHION
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+    description: Covers the end-to-end prepaid fashion order journey from item selection and buyer/seller initialization through payment confirmation, order acceptance, and real-time shipment tracking, culminating in final delivery status updates.
+    config:
+      $ref: ./FASHION/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml
