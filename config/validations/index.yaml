@@ -1659,7 +1659,7 @@ _TESTS_:
           _RETURN_:
             - _NAME_: TAGS_BPP_TERMS_TAX_NUMBER
               attr: $.message.order.payment.tags[?(@.code=='bpp_terms')].list[?(@.code=='tax_number')].value
-              _CONTINUE_: "!(attr are present) || !(attr_condition all in condition)"
+              _CONTINUE_: "!(attr are present)"
               _RETURN_: attr are present
             - _NAME_: TAGS_BPP_TERMS_NP_TYPE
               attr: $.message.order.payment.tags[?(@.code=='bpp_terms')].list[?(@.code=='np_type')].value
