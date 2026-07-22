@@ -204,6 +204,16 @@ flows:
     config:
       $ref: ./MOTOR INSURANCE/Motor_Insurance_Application.yaml
   - type: playground
+    id: Payment_Failure_Motor_Insurance
+    meta:
+      order: 5
+    usecase: MOTOR INSURANCE
+    tags:
+      - WORKBENCH
+    description: A motor insurance journey that follows the standard application flow up to on_confirm, then exercises a payment-failure path with a Not-Pay option, an unsolicited on_update marking the payment FAILED, a BAP update retry, and an on_update returning a fresh NOT-PAID payment link.
+    config:
+      $ref: ./MOTOR INSURANCE/Payment_Failure_Motor_Insurance.yaml
+  - type: playground
     id: Motor_Insurance_Application_With_IGM
     meta:
       order: 4
