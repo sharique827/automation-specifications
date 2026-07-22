@@ -84,3 +84,17 @@ flows:
     description: Validates the incremental catalog updates by iteratively performing search requests and verifying response consistency to ensure updated grocery item data is correctly reflected in the discovery results.
     config:
       $ref: ./GROCERY/Discovery_Flow_incremental_catalog_refresh_pull.yaml
+
+  # _______________IGM 1.0.0 _______________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: GROCERY
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+    description: A prepaid grocery purchase journey encompassing item selection, order confirmation, and end-to-end fulfillment tracking.
+    config:
+      $ref: ./GROCERY/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml    
