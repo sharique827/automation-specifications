@@ -1012,11 +1012,10 @@ _TESTS_:
               attr: $.fulfillment_ids[*]
               _RETURN_: attr are present
             
-            #master search 
+            #master search
             - _NAME_: REQUIRED_XINPUT_FIELDS
-              _SCOPE_: $.message.catalog.providers[*].categories[*]
-              useCasePathForm: $.id
-              _CONTINUE_: '!(useCasePathForm are present)'
+              attr: $.message.catalog.providers[*].items[*].xinput.head.descriptor.code
+              _CONTINUE_: '!(attr are present)'
               _RETURN_:
                 - _NAME_: REQUIRED_HEAD_CODE 
                   attr: $.message.catalog.providers[*].items[*].xinput.head.descriptor.code

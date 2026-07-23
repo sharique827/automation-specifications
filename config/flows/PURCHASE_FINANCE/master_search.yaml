@@ -56,9 +56,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: search
-            timestamp: 2026-07-23T05:04:49.740Z
+            timestamp: 2026-07-23T07:06:57.506Z
             transaction_id: 4179de3c-7088-4732-9786-e1fdba540b56
-            message_id: 1c46e25f-e935-42fc-bd63-384c5e348b61
+            message_id: ab8d3d56-b887-4fd9-90b3-ba35d96d2ae8
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -335,6 +335,7 @@ steps:
                     xinput:
                       head:
                         descriptor:
+                          code: MERCHANT_AND_PRDOUCT_DETAILS
                           name: Merchant & Product Details
                         index:
                           min: 0
@@ -462,18 +463,54 @@ steps:
                       label: LOAN_DISBURSAL
                 tags:
                   - descriptor:
-                      code: SOLAR_PRODUCT_INFO
-                      name: Solar Product Information
+                      code: CONTACT_INFO
+                      name: Contact Info
                     list:
                       - descriptor:
-                          code: PRODUCT_CATEGORY
-                        value: ON_GRID
+                          code: GRO_NAME
+                          name: Gro name
+                        value: ICICI
                       - descriptor:
-                          code: SUPPORTED_BRANDS
-                        value: TATA, WAAREE, ADANI
+                          code: GRO_EMAIL
+                          name: Gro email
+                        value: lifeline@iciciprulife.com
                       - descriptor:
-                          code: MAX_SELLER_SUBVENTION
-                        value: "5"
+                          code: GRO_CONTACT_NUMBER
+                          name: Gro contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_LINK
+                          name: Customer support link
+                        value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                          name: Customer support contact number
+                        value: 1800 1080
+                      - descriptor:
+                          code: CUSTOMER_SUPPORT_EMAIL
+                          name: Customer support email
+                        value: customer.care@icicibank.com
+                  - descriptor:
+                      code: LSP_INFO
+                      name: Lsp Info
+                    list:
+                      - descriptor:
+                          code: LSP_NAME
+                          name: Lsp name
+                        value: ICICI_LSP
+                      - descriptor:
+                          code: LSP_EMAIL
+                          name: Lsp email
+                        value: lsp@iciciprulife.com
+                      - descriptor:
+                          code: LSP_CONTACT_NUMBER
+                          name: Lsp contact number
+                        value: 1860 266 7766
+                      - descriptor:
+                          code: LSP_ADDRESS
+                          name: Lsp Address
+                        value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                          Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
             tags:
               - display: false
                 descriptor:
@@ -502,9 +539,9 @@ steps:
           context:
             domain: ONDC:FIS12
             action: on_search
-            timestamp: 2026-07-23T05:04:49.755Z
+            timestamp: 2026-07-23T07:06:57.516Z
             transaction_id: 4179de3c-7088-4732-9786-e1fdba540b56
-            message_id: 1c46e25f-e935-42fc-bd63-384c5e348b61
+            message_id: ab8d3d56-b887-4fd9-90b3-ba35d96d2ae8
             bap_id: bap.example.com
             bap_uri: https://bap.example.com
             ttl: PT30S
@@ -734,6 +771,7 @@ steps:
                       xinput:
                         head:
                           descriptor:
+                            code: MERCHANT_AND_PRDOUCT_DETAILS
                             name: Merchant & Product Details
                           index:
                             min: 0
@@ -861,18 +899,54 @@ steps:
                         label: LOAN_DISBURSAL
                   tags:
                     - descriptor:
-                        code: SOLAR_PRODUCT_INFO
-                        name: Solar Product Information
+                        code: CONTACT_INFO
+                        name: Contact Info
                       list:
                         - descriptor:
-                            code: PRODUCT_CATEGORY
-                          value: ON_GRID
+                            code: GRO_NAME
+                            name: Gro name
+                          value: ICICI
                         - descriptor:
-                            code: SUPPORTED_BRANDS
-                          value: TATA, WAAREE, ADANI
+                            code: GRO_EMAIL
+                            name: Gro email
+                          value: lifeline@iciciprulife.com
                         - descriptor:
-                            code: MAX_SELLER_SUBVENTION
-                          value: "5"
+                            code: GRO_CONTACT_NUMBER
+                            name: Gro contact number
+                          value: 1860 266 7766
+                        - descriptor:
+                            code: CUSTOMER_SUPPORT_LINK
+                            name: Customer support link
+                          value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+                        - descriptor:
+                            code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                            name: Customer support contact number
+                          value: 1800 1080
+                        - descriptor:
+                            code: CUSTOMER_SUPPORT_EMAIL
+                            name: Customer support email
+                          value: customer.care@icicibank.com
+                    - descriptor:
+                        code: LSP_INFO
+                        name: Lsp Info
+                      list:
+                        - descriptor:
+                            code: LSP_NAME
+                            name: Lsp name
+                          value: ICICI_LSP
+                        - descriptor:
+                            code: LSP_EMAIL
+                            name: Lsp email
+                          value: lsp@iciciprulife.com
+                        - descriptor:
+                            code: LSP_CONTACT_NUMBER
+                            name: Lsp contact number
+                          value: 1860 266 7766
+                        - descriptor:
+                            code: LSP_ADDRESS
+                            name: Lsp Address
+                          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841,
+                            Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
               tags:
                 - display: false
                   descriptor:
