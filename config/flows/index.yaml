@@ -84,3 +84,17 @@ flows:
     description: A buyer discovers appliances through successive searches while the seller incrementally refreshes and pulls updated product catalog information, simulating real-time inventory synchronization across multiple discovery interactions.
     config:
       $ref: ./APPLIANCES/Discovery_Flow_incremental_catalog_refresh_pull.yaml
+   
+  #  ____________IGM_1.0.0____________________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: APPLIANCES
+    tags:
+      - WORKBENCH
+      - PRAMAAN
+      - MANDATORY
+      - REPORTABLE
+    description: Complete prepaid appliance order-to-delivery flow encompassing product selection, payment confirmation, order fulfillment, and real-time shipment tracking.
+    config:
+      $ref: ./APPLIANCES/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml
