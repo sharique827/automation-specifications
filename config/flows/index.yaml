@@ -84,3 +84,18 @@ flows:
     description: A BPC discovery flow that validates the incremental catalog refresh pull mechanism through a sequence of repeated search requests and responses.
     config:
       $ref: ./BPC/Discovery_Flow_incremental_catalog_refresh_pull.yaml
+
+
+  # ________________IGM_1.0.0__________________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: BPC
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+    description: A complete prepaid order lifecycle for BPC, covering the journey from item selection and payment initiation to order confirmation, fulfillment tracking, and final status updates.
+    config:
+      $ref: ./BPC/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml
