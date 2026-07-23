@@ -84,3 +84,17 @@ flows:
     description: An ONDC discovery flow for electronics where a buyer app performs an initial search and then repeats search/on_search to incrementally refresh seller catalog results, capturing newly available products, updated pricing, and availability changes over time.
     config:
       $ref: ./ELECTRONICS/Discovery_Flow_incremental_catalog_refresh_pull.yaml
+
+    # _______________IGM 1.0.0______________
+
+  - type: playground
+    id: Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0
+    usecase: ELECTRONICS
+    tags:
+      - WORKBENCH
+      # - PRAMAAN
+      - MANDATORY
+      # - REPORTABLE
+    description: Prepaid electronics order lifecycle from product selection and order confirmation through fulfillment, with repeated status updates and tracking until delivery completion.
+    config:
+      $ref: ./ELECTRONICS/Order_to_confirm_to_fulfillment__Prepaid_with_igm_1.0.0.yaml  
