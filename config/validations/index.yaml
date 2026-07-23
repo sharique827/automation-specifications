@@ -9,6 +9,7 @@ enums:
       - &CONSUMER_INVOICE_FINANCING CONSUMER_INVOICE_FINANCING
       - &AGRI_PURCHASE_FINANCE AGRI_PURCHASE_FINANCE
       - &ELECTRONICS_PURCHASE_FINANCE ELECTRONICS_PURCHASE_FINANCE
+      - &SOLAR_PURCHASE_FINANCE SOLAR_PURCHASE_FINANCE
       - &BUSINESS BUSINESS
       - &SOLE_PROPRIETORSHIP SOLE_PROPRIETORSHIP
       - &OTHER OTHER
@@ -88,6 +89,7 @@ enums:
       - PERSONAL_INFORMATION_BUSINESS_TERM
       - PERSONAL_INFORMATION_LAMF
       - PERSONAL_INFORMATION_BUSINESS_TERM_GST
+      - PERSONAL_INFORMATION_PF
 
     onSelectForms: &onSelectForms
       - INDIVIDUAL_KYC
@@ -241,6 +243,7 @@ tags:
       - &KYC_OFFLINE KYC_OFFLINE
       - &JOURNEY_OFFLINE JOURNEY_OFFLINE
       - &PERSONAL_INFORMATION_BUSINESS_TERM_GST PERSONAL_INFORMATION_BUSINESS_TERM_GST
+      - &PERSONAL_INFORMATION_PF PERSONAL_INFORMATION_PF
       - &PERSONAL_INFORMATION_BUSINESS_TERM PERSONAL_INFORMATION_BUSINESS_TERM
       - &INVOICE_UPLOAD INVOICE_UPLOAD
       - &SINGLE_REDIRECTION SINGLE_REDIRECTION
@@ -669,13 +672,56 @@ _TESTS_:
 
                 - _NAME_: INVOICE_LOAN_FIELDS
                   usecasepath : $.message.intent.provider.items[*].xinput.head.descriptor.code
-                  formHeading: 
+                  formHeading:
                     - ORGANIZATION_INFORMATION
                   _CONTINUE_: '!(usecasepath all in formHeading)'
-                  _RETURN_: 
+                  _RETURN_:
                     - _NAME_: REQUIRED_FIELD_BUREAU_CONSENT_INVOICE
                       attr:  $.message.intent.provider.items[*].xinput.form.data.bureauConsent.value
-                      _RETURN_: attr are present                   
+                      _RETURN_: attr are present
+
+                - _NAME_: PERSONAL_INFORMATION_PF_FIELDS
+                  usecasepath : $.message.intent.provider.items[*].xinput.head.descriptor.code
+                  formHeading:
+                    - PERSONAL_INFORMATION_PF
+                  _CONTINUE_: '!(usecasepath all in formHeading)'
+                  _RETURN_:
+                    - _NAME_: REQUIRED_FIELD_FULL_NAME
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.fullName.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_PAN
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.pan.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_PERSONAL_EMAIL
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.personalEmail.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_DOB
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.dob.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_GENDER
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.gender.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_MOBILE_NUMBER
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.mobileNumber.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_PINCODE
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.pincode.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_EMPLOYMENT_TYPE
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.employmentType.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_MONTHLY_INCOME
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.monthlyIncome.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_DOWNPAYMENT
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.downpayment.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_TENURE
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.tenure.value
+                      _RETURN_: attr are present
+                    - _NAME_: REQUIRED_FIELD_BUREAU_CONSENT
+                      attr:  $.message.intent.provider.items[*].xinput.form.data.bureauConsent.value
+                      _RETURN_: attr are present
 
             - _NAME_: VALID_XINPUT_ENUMS
               _RETURN_:
