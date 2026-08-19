@@ -2043,5 +2043,74 @@ _TESTS_:
         - _NAME_: REQUIRED_RESOLUTION_PROVIDER_PERSON_NAME
           attr: $.message.issue.resolution_provider.respondent_info.organization.person.name
           _RETURN_: attr are present
+  support:
+    - _NAME_: Context_tests
+      _RETURN_:
+        - *a11
+        - _NAME_: Context_Enums_Tests
+          _RETURN_:
+            - *a9
+            - *a10
+            - attr: $.context.action
+              _RETURN_: attr all in enumList
+              enumList:
+                - support
+              _NAME_: VALID_ENUM_context_action
+    - _NAME_: MESSAGE_SUPPORT
+      _RETURN_:
+        - _NAME_: SUPPORT_DESCRIPTOR_CODE
+          attr: $.message.support.descriptor.code
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_DESCRIPTOR_NAME
+          attr: $.message.support.descriptor.name
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_DESCRIPTOR_SHORT_DESC
+          attr: $.message.support.descriptor.short_desc
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_REF_TYPE
+          attr: $.message.support.ref_type
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_REF_ID
+          attr: $.message.support.ref_id
+          _RETURN_: attr are present
+  on_support:
+    - _NAME_: Context_tests
+      _RETURN_:
+        - *a11
+        - _NAME_: Context_Enums_Tests
+          _RETURN_:
+            - *a9
+            - *a10
+            - attr: $.context.action
+              _RETURN_: attr all in enumList
+              enumList:
+                - support
+              _NAME_: VALID_ENUM_context_action
+    - _NAME_: MESSAGE_SUPPORT
+      _RETURN_:
+        - _NAME_: SUPPORT_DESCRIPTOR_CODE
+          attr: $.message.support.descriptor.code
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_DESCRIPTOR_NAME
+          attr: $.message.support.descriptor.name
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_DESCRIPTOR_SHORT_DESC
+          attr: $.message.support.descriptor.short_desc
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_REF_TYPE
+          attr: $.message.support.ref_type
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_REF_ID
+          attr: $.message.support.ref_id
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_EMAIL
+          attr: $.message.support.email
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_PHONE
+          attr: $.message.support.phone
+          _RETURN_: attr are present
+        - _NAME_: SUPPORT_URL
+          attr: $.message.support.url
+          _RETURN_: attr are present     
 _SESSION_DATA_:
   trans: {}

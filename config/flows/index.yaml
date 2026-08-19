@@ -276,3 +276,11 @@ flows:
     description: End-to-end ride-hailing flow enabling customers to search for available rides, select and confirm a booking for a scheduled trip, and track the journey in real-time with status updates throughout pickup and delivery.
     config:
       $ref: ./Ride-hailing/Schedule_Trip.yaml
+  - type: playground
+    id: OnDemand_support
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+    description: A rider uses the On-Demand ride-hailing service and raises a support request due to an issue during the trip. The support request is processed by the BPP, including the necessary reference information and contact details. This flow validates the end-to-end support request mechanism in the on-demand ride-hailing transaction lifecycle.
+    config:
+      $ref: ./Ride-hailing/OnDemand_support.yaml    

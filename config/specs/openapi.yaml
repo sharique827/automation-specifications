@@ -1994,3 +1994,72 @@ paths:
                     update_target:
                       type: string
       responses: *responses
+  /support:
+    post:
+      operationId: support
+      requestBody:
+        required: true
+        content:
+          application/json:
+          schema:
+            type: object
+            properties:
+              context: *context
+              message:
+                type: object
+                properties:
+                  support:
+                    type: object
+                    properties:
+                      descriptor:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                          name:
+                            type: string
+                          short_desc:
+                            type: string
+                      ref_type:
+                        type: string
+                      ref_id:
+                        type: string
+      responses: *responses
+  /on_support:
+    post:
+      operationId: on_support
+      requestBody:
+        required: true
+        content:
+          application/json:
+          schema:
+            type: object
+            properties:
+              context: *context
+              message:
+                type: object
+                properties:
+                  support:
+                    type: object
+                    properties:
+                      descriptor:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                          name:
+                            type: string
+                          short_desc:
+                            type: string
+                      ref_type:
+                        type: string
+                      ref_id:
+                        type: string
+                      email:
+                        type: string
+                      phone:
+                        type: string
+                      url:
+                        type: string  
+      responses: *responses    
+        

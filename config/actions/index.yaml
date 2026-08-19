@@ -38,6 +38,7 @@ supportedActions:
     - update
     - issue
     - on_track
+    - support
   on_update:
     - status
     - update
@@ -77,6 +78,13 @@ supportedActions:
   on_issue_status:
     - on_issue
     - issue
+  support:
+    - on_support
+    - support
+    - on_status
+  on_support:
+    - support
+    - on_support
 apiProperties:
   search:
     async_predecessor: null
@@ -173,3 +181,9 @@ apiProperties:
   on_issue_status:
     async_predecessor: null
     transaction_partner: []
+  support:
+    async_predecessor: null
+    transaction_partner: []
+  on_support:
+    async_predecessor: null
+    transaction_partner: []  
