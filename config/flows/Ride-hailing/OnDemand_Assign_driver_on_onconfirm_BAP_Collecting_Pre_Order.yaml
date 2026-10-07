@@ -1129,7 +1129,7 @@ steps:
           establishes the final pricing and service parameters required before
           order confirmation.
   - api: init
-    action_id: init
+    action_id: init_bap_pre_order
     owner: BAP
     responseFor: null
     unsolicited: false
@@ -1331,9 +1331,9 @@ steps:
           buyer-seller agreement on fulfillment and payment parameters before
           proceeding to order confirmation.
   - api: on_init
-    action_id: on_init
+    action_id: on_init_bap_pre_order
     owner: BPP
-    responseFor: init
+    responseFor: init_bap_pre_order
     unsolicited: false
     description: The BPP provides the initialized order with confirmed fulfillment
       details, pricing, cancellation terms, and payment information in response
