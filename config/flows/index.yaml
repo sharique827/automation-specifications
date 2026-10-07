@@ -483,3 +483,41 @@ flows:
     description: Scheduled trip ride-hailing transaction where the rider books a ride for a future pickup time and may optionally attach add-ons (child seat, luggage carrier, pet carrier) to the selected ride at select time.
     config:
       $ref: ./Ride-hailing/Schedule_Trip_With_Add_Ons.yaml
+
+  - type: playground
+    id: Schedule_Trip_BAP_Collecting_Without_Ride_Enroute_Pickup
+    meta:
+      order: 39
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - SCHEDULED
+      # - REPORTABLE
+    description: Schedule Trip BAP Collecting
+    config:
+      $ref: ./Ride-hailing/Schedule_Trip_BAP_Collecting_Without_Ride_Enroute_Pickup.yaml  
+
+  - type: playground
+    id: Schedule_Trip_With_Add_Ons_Without_Ride_Enroute_Pickup
+    meta:
+      order: 40
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - SCHEDULED
+    description: Scheduled trip ride-hailing transaction where the rider books a ride for a future pickup time and may optionally attach add-ons (child seat, luggage carrier, pet carrier) to the selected ride at select time.
+    config:
+      $ref: ./Ride-hailing/Schedule_Trip_With_Add_Ons_Without_Ride_Enroute_Pickup.yaml   
+
+  - type: playground
+    id: Schedule_Trip_With_Pre_Order_Bid_Without_Ride_Enroute_Pickup
+    meta:
+      order: 41
+    usecase: Ride-hailing
+    tags:
+      - OPTIONAL
+      - SCHEDULED
+      # - REPORTABLE
+    description: Schedule Trip With Pre Order Bid.
+    config:
+      $ref: ./Ride-hailing/Schedule_Trip_With_Pre_Order_Bid_Without_Ride_Enroute_Pickup.yaml      
