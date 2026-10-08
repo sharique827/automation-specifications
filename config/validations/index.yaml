@@ -162,16 +162,16 @@ _TESTS_:
                 - BAP
               _NAME_: VALID_ENUM_message_intent_payment_collected_by
             - enumList:
-                - NOT-PAID
+                - NOT_PAID
                 - PAID
               enumPath: $.message.intent.payment.status
               _CONTINUE_: "!(enumPath are present)"
               _RETURN_: enumPath all in enumList
               _NAME_: VALID_ENUM_message_intent_payment_status
             - enumList:
-                - PRE-ORDER
-                - ON-ORDER
-                - ON-FULFILLMENT
+                - PRE_ORDER
+                - ON_ORDER
+                - ON_FULFILLMENT
               enumPath: $.message.intent.payment.type
               _CONTINUE_: "!(enumPath are present)"
               _RETURN_: enumPath all in enumList
@@ -370,7 +370,7 @@ _TESTS_:
           _RETURN_:
             - &a30
               enumList:
-                - NOT-PAID
+                - NOT_PAID
                 - PAID
               enumPath: $.message.order.payments[*].status
               _CONTINUE_: "!(enumPath are present)"
@@ -386,9 +386,9 @@ _TESTS_:
               _NAME_: VALID_ENUM_message_order_payments_collected_by
             - &a32
               enumList:
-                - PRE-ORDER
-                - ON-ORDER
-                - ON-FULFILLMENT
+                - PRE_ORDER
+                - ON_ORDER
+                - ON_FULFILLMENT
               enumPath: $.message.order.payments[*].type
               _CONTINUE_: "!(enumPath are present)"
               _RETURN_: enumPath all in enumList
@@ -454,16 +454,16 @@ _TESTS_:
               attr: $.message.order.payments[*].status
               _RETURN_: attr all in enumList
               enumList:
-                - NOT-PAID
+                - NOT_PAID
                 - PAID
               _NAME_: VALID_ENUM_message_order_payments_status
             - &a61
               attr: $.message.order.payments[*].type
               _RETURN_: attr all in enumList
               enumList:
-                - PRE-ORDER
-                - ON-ORDER
-                - ON-FULFILLMENT
+                - PRE_ORDER
+                - ON_ORDER
+                - ON_FULFILLMENT
               _NAME_: VALID_ENUM_message_order_payments_type
     - *a17
     - *a18
@@ -834,16 +834,16 @@ _TESTS_:
               _RETURN_: enumPath all in enumList
               _NAME_: VALID_ENUM_message_catalog_providers_fulfillments_state_descriptor_code
             - enumList:
-                - NOT-PAID
+                - NOT_PAID
                 - PAID
               enumPath: $.message.catalog.providers[*].payments[*].status
               _CONTINUE_: "!(enumPath are present)"
               _RETURN_: enumPath all in enumList
               _NAME_: VALID_ENUM_message_catalog_providers_payments_status
             - enumList:
-                - PRE-ORDER
-                - ON-ORDER
-                - ON-FULFILLMENT
+                - PRE_ORDER
+                - ON_ORDER
+                - ON_FULFILLMENT
               enumPath: $.message.catalog.providers[*].payments[*].type
               _CONTINUE_: "!(enumPath are present)"
               _RETURN_: enumPath all in enumList
